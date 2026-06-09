@@ -1,0 +1,17 @@
+{
+ "reviewed": 200,
+ "fixes": [
+  {"target":"Quests任务表","ns":"Quests","key":"11003_RequestDlgs_Index4_Text","new_ja":"10038 - 張樵夫 $@$間違いないとも。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11010_OptionDlgs1_Index0_Text","new_ja":"10038 - 張樵夫 $@$この古い斧もお前さんにやろう。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11010_RequestDlgs_Index0_Text","new_ja":"10038 - 張樵夫 $@$では、この件は若者、お前さんに任せた。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11010_RequestDlgs_Index1_Text","new_ja":"10038 - 張樵夫 $@$うまくいったら、必ず礼はたっぷりさせてもらう。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11010_UnFinishedDlgsForRequestNPC_Index0_Text","new_ja":"10038 - 張樵夫 $@$若者、何もかもお前さん頼みだ。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11011_FinishingDlgs_Index4_Text","new_ja":"10038 - 張樵夫 $@$若者、これは礼の品だ。どうか受け取ってくれ。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11010_FinishingDlgs_Index0_Text","new_ja":"10005 - 鍛冶屋-大鎚 $@$物をよこしな。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11010_FinishingDlgs_Index7_Text","new_ja":"10005 - 鍛冶屋-大鎚 $@$それは話せば長くなる。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11066_FinishingDlgs_Index1_Text","new_ja":"1 - 宇文逸 $@$先ほどあなたの息子さんと話しました。お父さんは北で戦に出ていて、もう二年余りになると言っていました。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11066_FinishingDlgs_Index5_Text","new_ja":"1 - 宇文逸 $@$私はちょうど北方から来たのです。北の戦も二年前よりずいぶん落ち着いていますから、きっとご主人も間もなく戻ってこられるでしょう。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11066_FinishingDlgs_Index7_Text","new_ja":"1 - 宇文逸 $@$小啓志はあなたをとても心配しています。ご主人が戻るまでは、無理をせずお体を大切に。さもないと、ご主人が戻ってきても、あなたが倒れてしまっては元も子もありません。"},
+  {"target":"Quests任务表","ns":"Quests","key":"11001_FinishingDlgs_Index0_Text","new_ja":"10003 - 李村長 $@$少侠は実にお強い。老生も村人たちに代わって御礼申し上げます。"}
+ ]
+}

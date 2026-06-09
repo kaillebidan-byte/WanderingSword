@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """フェーズ2(校正): カーソル位置から次N件の会話行を、原文・現訳つきで出力。
 使い方: python3 _tools/pending_proofread.py [件数=60]
-出力: /sessions/sweet-exciting-mayer/mnt/outputs/pf_batch.json に [{target,ns,key,zh,ja}] を書き、標準出力にも表示。
+出力: /sessions/trusting-festive-turing/mnt/outputs/pf_batch.json に [{target,ns,key,zh,ja}] を書き、標準出力にも表示。
 カーソルは進めない(apply_proofread が進める)。
 """
 import sys, os, json, glob
@@ -21,7 +21,7 @@ def main():
     batch = queue[pos:pos+n]
     if not batch:
         print("校正キュー全完了");
-        json.dump([], open("/sessions/sweet-exciting-mayer/mnt/outputs/pf_batch.json", "w"))
+        json.dump([], open("/sessions/trusting-festive-turing/mnt/outputs/pf_batch.json", "w"))
         return
     # 必要なtargetのJAだけ読む
     ja_cache = {}
@@ -33,7 +33,7 @@ def main():
         ja = ja_cache[t].get(fk, "")
         zh = src.get(t + "\x1f" + fk, "")
         out.append({"target": t, "ns": ns, "key": key, "zh": zh, "ja": ja})
-    json.dump(out, open("/sessions/sweet-exciting-mayer/mnt/outputs/pf_batch.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(out, open("/sessions/trusting-festive-turing/mnt/outputs/pf_batch.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     sys.stderr.write(f"カーソル {pos}/{len(queue)} から {len(out)}件提示(残 {len(queue)-pos}件)\n")
     print(json.dumps(out, ensure_ascii=False, indent=1))
 
