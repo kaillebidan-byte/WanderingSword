@@ -1,0 +1,236 @@
+[
+ {
+  "namespace": "Quests",
+  "key": "28054_FinishingDlgs_Index10_Text",
+  "source_zh": "1 - 宇文逸 $@$凌波仙子……",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "11293_OptionDlgs1_Index2_Text",
+  "source_zh": "1 - 宇文逸 $@$劈山大王？",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "30348_FinishingDlgs_Index18_Text",
+  "source_zh": "1 - 宇文逸 $@$（《混沌武典》……瑶光殿主……）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "30349_FinishingDlgs_Index9_Text",
+  "source_zh": "1 - 宇文逸 $@$（《混沌武典》……瑶光殿主……）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "32732_FinishingDlgs_Index21_Text",
+  "source_zh": "1 - 宇文逸 $@$（八仙奇珍……）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "32733_FinishingDlgs_Index21_Text",
+  "source_zh": "1 - 宇文逸 $@$（八仙奇珍……）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "28220_Name",
+  "source_zh": "【碧海仙踪】仙猿山",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26031_Name",
+  "source_zh": "五仙教主",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26018_Name",
+  "source_zh": "凌波仙坊",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "5078_OptionText3",
+  "source_zh": "刀系武器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "11970_Name",
+  "source_zh": "千陵夜哭",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26006_Name",
+  "source_zh": "大白小逸",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "27203_Name",
+  "source_zh": "大白小逸",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "31223_OptionText1",
+  "source_zh": "天、地、法、兵、将",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26034_Name",
+  "source_zh": "天下智囊",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26038_Name",
+  "source_zh": "天山之巅",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26037_Name",
+  "source_zh": "天山孤冢",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26025_Name",
+  "source_zh": "我名冷月",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "5078_OptionText2",
+  "source_zh": "拳系武器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26007_Name",
+  "source_zh": "放下屠刀",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "27204_Name",
+  "source_zh": "放下屠刀",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26023_Name",
+  "source_zh": "暗夜有月",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "27211_Name",
+  "source_zh": "暗夜有月",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26029_Name",
+  "source_zh": "朝堂新星",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "16305_Name",
+  "source_zh": "武功秘籍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "16304_OptionText1",
+  "source_zh": "武学秘籍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26047_Name",
+  "source_zh": "武林盟主",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "12210_Name",
+  "source_zh": "流水遇知音",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26041_Name",
+  "source_zh": "玄火教主",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "5789_Name",
+  "source_zh": "程二夫人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26011_Name",
+  "source_zh": "竹杖芒鞋",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "27207_Name",
+  "source_zh": "竹杖芒鞋",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "31117_OptionText4",
+  "source_zh": "芙蓉雪蛤片",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "16655_Name",
+  "source_zh": "螳螂捕蝉",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "31223_OptionText3",
+  "source_zh": "道、天、地、兵、法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "31223_OptionText2",
+  "source_zh": "道、天、地、将、法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "11465_Name",
+  "source_zh": "霓裳羽衣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "26019_Name",
+  "source_zh": "青木双姝",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Quests",
+  "key": "27210_Name",
+  "source_zh": "青木双姝",
+  "target_ja": ""
+ }
+]

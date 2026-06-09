@@ -1,0 +1,686 @@
+[
+ {
+  "source_zh": "使用效果",
+  "target_ja": "使用効果"
+ },
+ {
+  "source_zh": "使用数量",
+  "target_ja": "使用数量"
+ },
+ {
+  "source_zh": "刀法精通:",
+  "target_ja": "刀法熟練度:"
+ },
+ {
+  "source_zh": "刀系武器",
+  "target_ja": "刀系武器"
+ },
+ {
+  "source_zh": "拳掌精通:",
+  "target_ja": "拳掌熟練度:"
+ },
+ {
+  "source_zh": "拳系武器",
+  "target_ja": "拳系武器"
+ },
+ {
+  "source_zh": "拳系秘籍",
+  "target_ja": "拳系秘伝書"
+ },
+ {
+  "source_zh": "暗器武器",
+  "target_ja": "暗器武器"
+ },
+ {
+  "source_zh": "暗器精通:",
+  "target_ja": "暗器熟練度:"
+ },
+ {
+  "source_zh": "棍系武器",
+  "target_ja": "棍系武器"
+ },
+ {
+  "source_zh": "棍系秘籍",
+  "target_ja": "棍系秘伝書"
+ },
+ {
+  "source_zh": "武器精通",
+  "target_ja": "武器熟練度"
+ },
+ {
+  "source_zh": "武学泰斗",
+  "target_ja": "武学の泰斗"
+ },
+ {
+  "source_zh": "特殊武器",
+  "target_ja": "特殊武器"
+ },
+ {
+  "source_zh": "特殊防具",
+  "target_ja": "特殊防具"
+ },
+ {
+  "source_zh": "玉石俱焚",
+  "target_ja": "玉石倶焚"
+ },
+ {
+  "source_zh": "真武殿首座",
+  "target_ja": "真武殿首座"
+ },
+ {
+  "source_zh": "血洗武林",
+  "target_ja": "血洗武林"
+ },
+ {
+  "source_zh": "鬼斧神工",
+  "target_ja": "鬼斧神工"
+ },
+ {
+  "source_zh": "万里平戎",
+  "target_ja": "万里平戎"
+ },
+ {
+  "source_zh": "刀法大成",
+  "target_ja": "刀法大成"
+ },
+ {
+  "source_zh": "初代玄女",
+  "target_ja": "初代玄女"
+ },
+ {
+  "source_zh": "唯快不破",
+  "target_ja": "唯だ速きは破れず"
+ },
+ {
+  "source_zh": "天下智囊",
+  "target_ja": "天下の智嚢"
+ },
+ {
+  "source_zh": "天下第一",
+  "target_ja": "天下第一"
+ },
+ {
+  "source_zh": "天魔迦摩",
+  "target_ja": "天魔迦摩"
+ },
+ {
+  "source_zh": "心法大成",
+  "target_ja": "心法大成"
+ },
+ {
+  "source_zh": "拳法大成",
+  "target_ja": "拳法大成"
+ },
+ {
+  "source_zh": "暗器大成",
+  "target_ja": "暗器大成"
+ },
+ {
+  "source_zh": "棍法大成",
+  "target_ja": "棍法大成"
+ },
+ {
+  "source_zh": "武冠群英",
+  "target_ja": "武冠群英"
+ },
+ {
+  "source_zh": "江湖器量",
+  "target_ja": "江湖の器量"
+ },
+ {
+  "source_zh": "白玉虎牌",
+  "target_ja": "白玉虎牌"
+ },
+ {
+  "source_zh": "蜃楼幻境",
+  "target_ja": "蜃気楼の幻境"
+ },
+ {
+  "source_zh": "上品凝元丹",
+  "target_ja": "上品凝元丹"
+ },
+ {
+  "source_zh": "上品混元丹",
+  "target_ja": "上品混元丹"
+ },
+ {
+  "source_zh": "下品凝元丹",
+  "target_ja": "下品凝元丹"
+ },
+ {
+  "source_zh": "下品混元丹",
+  "target_ja": "下品混元丹"
+ },
+ {
+  "source_zh": "中品凝元丹",
+  "target_ja": "中品凝元丹"
+ },
+ {
+  "source_zh": "中品混元丹",
+  "target_ja": "中品混元丹"
+ },
+ {
+  "source_zh": "五宝花蜜酒",
+  "target_ja": "五宝花蜜酒"
+ },
+ {
+  "source_zh": "玄黄固神丹",
+  "target_ja": "玄黄固神丹"
+ },
+ {
+  "source_zh": "参海双珍",
+  "target_ja": "参海双珍"
+ },
+ {
+  "source_zh": "参草烩海珍",
+  "target_ja": "参草海珍煮込み"
+ },
+ {
+  "source_zh": "水煮肉片",
+  "target_ja": "水煮肉片"
+ },
+ {
+  "source_zh": "石斑四珍烩",
+  "target_ja": "石斑四珍煮込み"
+ },
+ {
+  "source_zh": "翡翠豆糕",
+  "target_ja": "翡翠豆糕"
+ },
+ {
+  "source_zh": "芙蓉雪蛤片",
+  "target_ja": "芙蓉雪蛤片"
+ },
+ {
+  "source_zh": "雪花芙蓉",
+  "target_ja": "雪花芙蓉"
+ },
+ {
+  "source_zh": "黄金蟹斗",
+  "target_ja": "黄金蟹斗"
+ },
+ {
+  "source_zh": "事半功倍",
+  "target_ja": "事半功倍"
+ },
+ {
+  "source_zh": "命中注定",
+  "target_ja": "運命の定め"
+ },
+ {
+  "source_zh": "天降洪福",
+  "target_ja": "天降の洪福"
+ },
+ {
+  "source_zh": "武力充裕",
+  "target_ja": "武力充溢"
+ },
+ {
+  "source_zh": "涅槃重生",
+  "target_ja": "涅槃再生"
+ },
+ {
+  "source_zh": "精力旺盛",
+  "target_ja": "精力旺盛"
+ },
+ {
+  "source_zh": "貔貅附体",
+  "target_ja": "貔貅憑依"
+ },
+ {
+  "source_zh": "武林盟主",
+  "target_ja": "武林盟主"
+ },
+ {
+  "source_zh": "一心戎衣",
+  "target_ja": "一心戎衣"
+ },
+ {
+  "source_zh": "一箭双雕",
+  "target_ja": "一箭双雕"
+ },
+ {
+  "source_zh": "七星拳套",
+  "target_ja": "七星拳套"
+ },
+ {
+  "source_zh": "万里平戎策",
+  "target_ja": "万里平戎の策"
+ },
+ {
+  "source_zh": "三才刀法",
+  "target_ja": "三才刀法"
+ },
+ {
+  "source_zh": "五光琉璃",
+  "target_ja": "五光琉璃"
+ },
+ {
+  "source_zh": "五色袈裟",
+  "target_ja": "五色袈裟"
+ },
+ {
+  "source_zh": "光明心法",
+  "target_ja": "光明心法"
+ },
+ {
+  "source_zh": "八卦刀法",
+  "target_ja": "八卦刀法"
+ },
+ {
+  "source_zh": "六扇心法",
+  "target_ja": "六扇心法"
+ },
+ {
+  "source_zh": "兵烽六要",
+  "target_ja": "兵烽六要"
+ },
+ {
+  "source_zh": "再探苦水",
+  "target_ja": "再び苦水を探る"
+ },
+ {
+  "source_zh": "凌波仙坊",
+  "target_ja": "凌波仙坊"
+ },
+ {
+  "source_zh": "凝血神爪",
+  "target_ja": "凝血神爪"
+ },
+ {
+  "source_zh": "十七路小擒拿",
+  "target_ja": "十七路小擒拿"
+ },
+ {
+  "source_zh": "十八学士",
+  "target_ja": "十八学士"
+ },
+ {
+  "source_zh": "含沙射影",
+  "target_ja": "含沙射影"
+ },
+ {
+  "source_zh": "吸星神功",
+  "target_ja": "吸星神功"
+ },
+ {
+  "source_zh": "嗜血寒蝠",
+  "target_ja": "吸血の寒蝠"
+ },
+ {
+  "source_zh": "四大武家",
+  "target_ja": "四大武家"
+ },
+ {
+  "source_zh": "回天扇法",
+  "target_ja": "回天扇法"
+ },
+ {
+  "source_zh": "大五衰刀法",
+  "target_ja": "大五衰刀法"
+ },
+ {
+  "source_zh": "大天魔手",
+  "target_ja": "大天魔手"
+ },
+ {
+  "source_zh": "大日如来棍",
+  "target_ja": "大日如来棍"
+ },
+ {
+  "source_zh": "大白小逸",
+  "target_ja": "大白と小逸"
+ },
+ {
+  "source_zh": "天山之巅",
+  "target_ja": "天山の頂"
+ },
+ {
+  "source_zh": "天山孤冢",
+  "target_ja": "天山の孤塚"
+ },
+ {
+  "source_zh": "天山掌法",
+  "target_ja": "天山掌法"
+ },
+ {
+  "source_zh": "天山秘辛",
+  "target_ja": "天山秘聞"
+ },
+ {
+  "source_zh": "天水祝寿",
+  "target_ja": "天水の長寿祝い"
+ },
+ {
+  "source_zh": "天罡刀法",
+  "target_ja": "天罡刀法"
+ },
+ {
+  "source_zh": "天蚕大法",
+  "target_ja": "天蚕大法"
+ },
+ {
+  "source_zh": "天魔六通",
+  "target_ja": "天魔六通"
+ },
+ {
+  "source_zh": "孟春九曲",
+  "target_ja": "孟春九曲"
+ },
+ {
+  "source_zh": "小五衰刀法",
+  "target_ja": "小五衰刀法"
+ },
+ {
+  "source_zh": "少林刀法",
+  "target_ja": "少林刀法"
+ },
+ {
+  "source_zh": "少林棍法",
+  "target_ja": "少林棍法"
+ },
+ {
+  "source_zh": "巡逻山贼",
+  "target_ja": "巡邏の山賊"
+ },
+ {
+  "source_zh": "弥山棍法",
+  "target_ja": "弥山棍法"
+ },
+ {
+  "source_zh": "心宿大火",
+  "target_ja": "心宿大火"
+ },
+ {
+  "source_zh": "感悟心得",
+  "target_ja": "悟りの心得"
+ },
+ {
+  "source_zh": "慈悲刀法",
+  "target_ja": "慈悲刀法"
+ },
+ {
+  "source_zh": "慈航普渡杖",
+  "target_ja": "慈航普渡杖"
+ },
+ {
+  "source_zh": "我名冷月",
+  "target_ja": "我が名は冷月"
+ },
+ {
+  "source_zh": "打狗棍法",
+  "target_ja": "打狗棍法"
+ },
+ {
+  "source_zh": "擎天架海式",
+  "target_ja": "擎天架海式"
+ },
+ {
+  "source_zh": "方天画戟",
+  "target_ja": "方天画戟"
+ },
+ {
+  "source_zh": "晦明朝夕",
+  "target_ja": "晦明朝夕"
+ },
+ {
+  "source_zh": "晦朔心法",
+  "target_ja": "晦朔心法"
+ },
+ {
+  "source_zh": "智度上人",
+  "target_ja": "智度上人"
+ },
+ {
+  "source_zh": "暗夜有月",
+  "target_ja": "暗夜に月あり"
+ },
+ {
+  "source_zh": "朱明六炀",
+  "target_ja": "朱明六煬"
+ },
+ {
+  "source_zh": "朽木刀法",
+  "target_ja": "朽木刀法"
+ },
+ {
+  "source_zh": "武当刀法",
+  "target_ja": "武当刀法"
+ },
+ {
+  "source_zh": "武当心法",
+  "target_ja": "武当心法"
+ },
+ {
+  "source_zh": "武道之巅",
+  "target_ja": "武道の頂"
+ },
+ {
+  "source_zh": "死守禁地",
+  "target_ja": "禁地死守"
+ },
+ {
+  "source_zh": "毛人投矛手",
+  "target_ja": "毛人の投槍兵"
+ },
+ {
+  "source_zh": "江湖刀法",
+  "target_ja": "江湖刀法"
+ },
+ {
+  "source_zh": "江湖心法",
+  "target_ja": "江湖心法"
+ },
+ {
+  "source_zh": "江湖拳掌",
+  "target_ja": "江湖拳掌"
+ },
+ {
+  "source_zh": "江湖暗器",
+  "target_ja": "江湖暗器"
+ },
+ {
+  "source_zh": "江湖血器",
+  "target_ja": "江湖血器"
+ },
+ {
+  "source_zh": "沙盗投火手",
+  "target_ja": "砂賊の火炎投げ"
+ },
+ {
+  "source_zh": "沙盗投石手",
+  "target_ja": "砂賊の投石兵"
+ },
+ {
+  "source_zh": "油尽灯枯",
+  "target_ja": "油尽き灯枯る"
+ },
+ {
+  "source_zh": "流水知音",
+  "target_ja": "流水知音"
+ },
+ {
+  "source_zh": "浩然正器",
+  "target_ja": "浩然正器"
+ },
+ {
+  "source_zh": "混沌武典",
+  "target_ja": "混沌武典"
+ },
+ {
+  "source_zh": "湖心泛舟",
+  "target_ja": "湖心に舟を泛べる"
+ },
+ {
+  "source_zh": "湖月照影",
+  "target_ja": "湖月照影"
+ },
+ {
+  "source_zh": "漠北孤狼",
+  "target_ja": "漠北の孤狼"
+ },
+ {
+  "source_zh": "漫天花雨",
+  "target_ja": "漫天花雨"
+ },
+ {
+  "source_zh": "火矢如瀑",
+  "target_ja": "火矢は滝の如く"
+ },
+ {
+  "source_zh": "燃木刀法",
+  "target_ja": "燃木刀法"
+ },
+ {
+  "source_zh": "犄角之蛇",
+  "target_ja": "角持つ蛇"
+ },
+ {
+  "source_zh": "玄武道衣",
+  "target_ja": "玄武道衣"
+ },
+ {
+  "source_zh": "玄火刀法",
+  "target_ja": "玄火刀法"
+ },
+ {
+  "source_zh": "玄火心法",
+  "target_ja": "玄火心法"
+ },
+ {
+  "source_zh": "玄火掌法",
+  "target_ja": "玄火掌法"
+ },
+ {
+  "source_zh": "玄火教主",
+  "target_ja": "玄火教主"
+ },
+ {
+  "source_zh": "玄焰身法",
+  "target_ja": "玄焰身法"
+ },
+ {
+  "source_zh": "玄虚刀法",
+  "target_ja": "玄虚刀法"
+ },
+ {
+  "source_zh": "玉容皓皓",
+  "target_ja": "玉容皓皓"
+ },
+ {
+  "source_zh": "甘泉苦水",
+  "target_ja": "甘泉と苦水"
+ },
+ {
+  "source_zh": "疯魔杖法",
+  "target_ja": "狂魔杖法"
+ },
+ {
+  "source_zh": "禅宗伏魔功",
+  "target_ja": "禅宗伏魔功"
+ },
+ {
+  "source_zh": "竹杖芒鞋",
+  "target_ja": "竹杖芒鞋"
+ },
+ {
+  "source_zh": "竹林吹箭手",
+  "target_ja": "竹林の吹き矢使い"
+ },
+ {
+  "source_zh": "竹林哨兵",
+  "target_ja": "竹林の見張り"
+ },
+ {
+  "source_zh": "竹海之行",
+  "target_ja": "竹海への道"
+ },
+ {
+  "source_zh": "箭如雨下",
+  "target_ja": "矢は雨の如く降る"
+ },
+ {
+  "source_zh": "素律三毒",
+  "target_ja": "素律三毒"
+ },
+ {
+  "source_zh": "素麟金面",
+  "target_ja": "素麟金面"
+ },
+ {
+  "source_zh": "腐食蜈蚣",
+  "target_ja": "腐食ムカデ"
+ },
+ {
+  "source_zh": "芙蓉金冠",
+  "target_ja": "芙蓉金冠"
+ },
+ {
+  "source_zh": "英雄大会",
+  "target_ja": "英雄大会"
+ },
+ {
+  "source_zh": "草寇刀手",
+  "target_ja": "野盗の刀使い"
+ },
+ {
+  "source_zh": "菩提刀法",
+  "target_ja": "菩提刀法"
+ },
+ {
+  "source_zh": "菩提念珠",
+  "target_ja": "菩提念珠"
+ },
+ {
+  "source_zh": "虺蛇吐信",
+  "target_ja": "虺蛇の舌"
+ },
+ {
+  "source_zh": "蛇部勇士",
+  "target_ja": "蛇族の勇士"
+ },
+ {
+  "source_zh": "蛇部吹箭手",
+  "target_ja": "蛇族の吹き矢使い"
+ },
+ {
+  "source_zh": "血海魔刀",
+  "target_ja": "血海魔刀"
+ },
+ {
+  "source_zh": "通幽之行",
+  "target_ja": "幽境への道"
+ },
+ {
+  "source_zh": "雷止雨歇",
+  "target_ja": "雷止み雨歇む"
+ },
+ {
+  "source_zh": "霓裳羽衣舞",
+  "target_ja": "霓裳羽衣の舞"
+ },
+ {
+  "source_zh": "青冥欲雨",
+  "target_ja": "青冥に雨を欲す"
+ },
+ {
+  "source_zh": "青木双姝",
+  "target_ja": "青木の双姝"
+ },
+ {
+  "source_zh": "青木漫舞",
+  "target_ja": "青木漫舞"
+ },
+ {
+  "source_zh": "韶光淑器",
+  "target_ja": "韶光淑器"
+ },
+ {
+  "source_zh": "鬼影幽冥",
+  "target_ja": "鬼影幽冥"
+ },
+ {
+  "source_zh": "鬼影幽冥大法",
+  "target_ja": "鬼影幽冥大法"
+ }
+]

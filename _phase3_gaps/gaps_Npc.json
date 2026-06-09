@@ -1,0 +1,740 @@
+[
+ {
+  "namespace": "NPCAggregation",
+  "key": "3_GroupName",
+  "source_zh": "断天崖草寇",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "5004_Name",
+  "source_zh": "三清殿弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "5005_Name",
+  "source_zh": "三清殿弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10020_Name",
+  "source_zh": "丐帮弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10031_Name",
+  "source_zh": "丐帮弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45094_Name",
+  "source_zh": "五仙大祭司",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45095_Name",
+  "source_zh": "五仙大祭司",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45091_Name",
+  "source_zh": "五仙弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10032_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19728_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19752_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19753_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45352_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45353_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45571_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "8502_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "8503_Name",
+  "source_zh": "五仙教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19864_Name",
+  "source_zh": "凌波仙子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45940_Name",
+  "source_zh": "凌波仙子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "70902_Name",
+  "source_zh": "凌波仙子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "71004_Name",
+  "source_zh": "凌波仙子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19975_Name",
+  "source_zh": "初代玄女",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19102_Name",
+  "source_zh": "副将-徐海",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "12100_Name",
+  "source_zh": "千陵渡船夫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19840_Name",
+  "source_zh": "南洋商人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45567_Name",
+  "source_zh": "南疆叛兵",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "7000_Name",
+  "source_zh": "天山弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "7001_Name",
+  "source_zh": "天山弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "7005_Name",
+  "source_zh": "天山弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19800_Name",
+  "source_zh": "天魔迦摩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45832_Name",
+  "source_zh": "天魔迦摩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45908_Name",
+  "source_zh": "天魔迦摩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "70408_Name",
+  "source_zh": "天魔迦摩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "71103_Name",
+  "source_zh": "天魔迦摩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10008_Name",
+  "source_zh": "小二-尹柯",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10101_Name",
+  "source_zh": "小二-王宸",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19965_Name",
+  "source_zh": "小吃商人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "5017_Name",
+  "source_zh": "少年侠客",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45206_Name",
+  "source_zh": "少林弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45207_Name",
+  "source_zh": "少林弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45283_Name",
+  "source_zh": "少林弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45316_Name",
+  "source_zh": "少林弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "13206_Name",
+  "source_zh": "怪医-周雄",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10102_Name",
+  "source_zh": "掌柜-李郝",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10132_Name",
+  "source_zh": "掌柜-李郝",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45231_Name",
+  "source_zh": "插翅虎-王猛",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "16022_Name",
+  "source_zh": "智度上人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45437_Name",
+  "source_zh": "智度上人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45689_Name",
+  "source_zh": "智度上人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45390_Name",
+  "source_zh": "樊城官兵",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45812_Name",
+  "source_zh": "欲教弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45799_Name",
+  "source_zh": "江湖人士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45800_Name",
+  "source_zh": "江湖人士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45803_Name",
+  "source_zh": "江湖人士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45805_Name",
+  "source_zh": "江湖人士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45806_Name",
+  "source_zh": "江湖人士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19809_Name",
+  "source_zh": "江湖侠士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19810_Name",
+  "source_zh": "江湖名宿",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45797_Name",
+  "source_zh": "江湖高手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45798_Name",
+  "source_zh": "江湖高手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45801_Name",
+  "source_zh": "江湖高手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45802_Name",
+  "source_zh": "江湖高手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45804_Name",
+  "source_zh": "江湖高手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45293_Name",
+  "source_zh": "沙盗投火手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45472_Name",
+  "source_zh": "沙盗投火手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45536_Name",
+  "source_zh": "沙盗投火手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45292_Name",
+  "source_zh": "沙盗投石手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45471_Name",
+  "source_zh": "沙盗投石手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45504_Name",
+  "source_zh": "法王弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45951_Name",
+  "source_zh": "流浪武士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19895_Name",
+  "source_zh": "瀛洲商人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45445_Name",
+  "source_zh": "狂化程家堡弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45023_Name",
+  "source_zh": "独行野猪",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45251_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45252_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45320_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45441_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45507_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45851_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45869_Name",
+  "source_zh": "玄火力士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "8507_Name",
+  "source_zh": "玉蟾使-石赫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19977_Name",
+  "source_zh": "琢玉楼掌事",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "17016_Name",
+  "source_zh": "白面郎君",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45428_Name",
+  "source_zh": "程家堡弟子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45328_Name",
+  "source_zh": "竹林哨兵",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "28265_Name",
+  "source_zh": "耶律胡生",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45464_Name",
+  "source_zh": "腐食蜈蚣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45468_Name",
+  "source_zh": "腐食蜈蚣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45676_Name",
+  "source_zh": "腐食蜈蚣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "17031_Name",
+  "source_zh": "舞舫舫主",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "11504_Name",
+  "source_zh": "船工-汪曲",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "11501_Name",
+  "source_zh": "船工-雷直",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19838_Name",
+  "source_zh": "船工阿三",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19846_Name",
+  "source_zh": "船工阿三",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19839_Name",
+  "source_zh": "船工阿四",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19847_Name",
+  "source_zh": "船工阿四",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "11502_Name",
+  "source_zh": "船老大-雷壮",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45557_Name",
+  "source_zh": "苗疆叛民",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45558_Name",
+  "source_zh": "苗疆叛民",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45559_Name",
+  "source_zh": "苗疆叛民",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45560_Name",
+  "source_zh": "苗疆叛民",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19758_Name",
+  "source_zh": "苗疆百姓",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19767_Name",
+  "source_zh": "苗疆百姓",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19768_Name",
+  "source_zh": "苗疆百姓",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45331_Name",
+  "source_zh": "草寇刀手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45509_Name",
+  "source_zh": "菌菇蟾蜍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45510_Name",
+  "source_zh": "菌菇蟾蜍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45516_Name",
+  "source_zh": "菌菇蟾蜍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45673_Name",
+  "source_zh": "菌菇蟾蜍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45679_Name",
+  "source_zh": "菌菇蟾蜍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45680_Name",
+  "source_zh": "菌菇蟾蜍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45921_Name",
+  "source_zh": "蒙面武者",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19859_Name",
+  "source_zh": "蒙面海寇",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45278_Name",
+  "source_zh": "蛇部勇士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45579_Name",
+  "source_zh": "蛇部勇士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45580_Name",
+  "source_zh": "蛇部吹箭手",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10401_Name",
+  "source_zh": "跛足老道",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45058_Name",
+  "source_zh": "跛足老道",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "10125_Name",
+  "source_zh": "郎中-魏老",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "17034_Name",
+  "source_zh": "陶瓷商人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "11704_Name",
+  "source_zh": "青木舫侍女",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "45416_Name",
+  "source_zh": "青木道人",
+  "target_ja": ""
+ },
+ {
+  "namespace": "NPCs",
+  "key": "19887_Name",
+  "source_zh": "香料商人",
+  "target_ja": ""
+ }
+]

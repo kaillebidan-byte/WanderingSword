@@ -1,0 +1,2270 @@
+[
+ {
+  "namespace": "Buffs",
+  "key": "5530_ViewName",
+  "source_zh": "一箭双雕",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8956_ViewName",
+  "source_zh": "万里平戎",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8951_ViewName",
+  "source_zh": "万里神行",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1631_ViewName",
+  "source_zh": "三仙望月",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2161_ViewName",
+  "source_zh": "三才刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100422_ViewName",
+  "source_zh": "上清正宗",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8570_ViewName",
+  "source_zh": "上清风云决5(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200005_ViewName",
+  "source_zh": "丐帮帮主",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8180_ViewName",
+  "source_zh": "丐帮心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3100_ViewName",
+  "source_zh": "丐帮棍法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3710_ViewName",
+  "source_zh": "中平枪法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "283_ViewName",
+  "source_zh": "中毒免疫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8813_ViewName",
+  "source_zh": "中转-千鸦去(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8821_ViewName",
+  "source_zh": "乘云御龙(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8820_ViewName",
+  "source_zh": "乘云御龙心诀(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8541_ViewName",
+  "source_zh": "九洲吞云",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8551_ViewName",
+  "source_zh": "九洲吞云",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8561_ViewName",
+  "source_zh": "九洲吞云",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8571_ViewName",
+  "source_zh": "九洲吞云",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8661_ViewName",
+  "source_zh": "五恒天经",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8851_ViewName",
+  "source_zh": "五恒天经",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8660_ViewName",
+  "source_zh": "五恒天经(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "101100_ViewName",
+  "source_zh": "五成功力",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8520_ViewName",
+  "source_zh": "五灵心经-残1(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8540_ViewName",
+  "source_zh": "五灵心经-残2(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100202_ViewName",
+  "source_zh": "任脉3（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100203_ViewName",
+  "source_zh": "任脉4（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3011_Description",
+  "source_zh": "使本招式时，有15%几率对目标额外造成（自身内力*3）伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1010_Description",
+  "source_zh": "使用两仪连华剑时，每攻击1个目标为自身添加1层武当剑法招式强化效果。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8511_Description",
+  "source_zh": "使用任何1式普攻类江湖武学时，自身真气+50。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8500_Description",
+  "source_zh": "使用后自身真气+15%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1072_Description",
+  "source_zh": "使用天羽奇剑后为额外为自身添加2~3层天羽势效果。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2060_Description",
+  "source_zh": "使用本技能时不会产生暴击，自身气血+10%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2063_Description",
+  "source_zh": "使用本技能时不会产生暴击，自身气血+10%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1080_Description",
+  "source_zh": "使用本招式时，若自身有剑气效果，则使目标气血-8%。每个目消耗1层剑气效果。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1060_Description",
+  "source_zh": "使用本招式每攻击1个目标可为自身添加1层剑气效果。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2020_Description",
+  "source_zh": "使用武当派所有刀法招式时，每攻击1个目标自身真气+3%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2073_Description",
+  "source_zh": "使用燃木刀法时有8%几率额外造成800点伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "4030_ViewName",
+  "source_zh": "借力打力",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100545_Description",
+  "source_zh": "免疫刺目、震慑",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3511_ViewName",
+  "source_zh": "全枪棍招式增伤(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200004_ViewName",
+  "source_zh": "六扇神侯",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8670_ViewName",
+  "source_zh": "兵烽六要",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8671_ViewName",
+  "source_zh": "兵烽六要(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8530_ViewName",
+  "source_zh": "养心秘术(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100210_ViewName",
+  "source_zh": "冲脉1（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100211_ViewName",
+  "source_zh": "冲脉2（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100212_ViewName",
+  "source_zh": "冲脉3（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100213_ViewName",
+  "source_zh": "冲脉4（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100214_ViewName",
+  "source_zh": "冲脉5（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200027_ViewName",
+  "source_zh": "凌波仙子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5791_ViewName",
+  "source_zh": "凶星入魔",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3053_ViewName",
+  "source_zh": "出魔(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3054_ViewName",
+  "source_zh": "出魔-恢复气血(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3080_ViewName",
+  "source_zh": "剔骨断筋枪(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100203_Description",
+  "source_zh": "占位（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100212_Description",
+  "source_zh": "占位（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100214_Description",
+  "source_zh": "占位（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100142_ViewName",
+  "source_zh": "参海双珍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100135_ViewName",
+  "source_zh": "参草烩海珍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "300_Description",
+  "source_zh": "反弹自身1%伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "301_Description",
+  "source_zh": "反弹自身10%伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3660_ViewName",
+  "source_zh": "变阵枪(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8971_ViewName",
+  "source_zh": "叶家心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8970_ViewName",
+  "source_zh": "叶家心法1(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8972_ViewName",
+  "source_zh": "叶家心法2(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3090_ViewName",
+  "source_zh": "同归棍法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8320_ViewName",
+  "source_zh": "吸星神功",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8711_ViewName",
+  "source_zh": "四关(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8710_ViewName",
+  "source_zh": "四关十二原经(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100362_Description",
+  "source_zh": "增加1点移动力，持续1回合.",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100361_Description",
+  "source_zh": "增加3%闪避，持续3回合，最高3层。",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100593_ViewName",
+  "source_zh": "大巧不工",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3030_ViewName",
+  "source_zh": "大日如来",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3031_ViewName",
+  "source_zh": "大日如来-3个目标气绝(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200019_ViewName",
+  "source_zh": "天人合一",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8932_ViewName",
+  "source_zh": "天地自然",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100204_ViewName",
+  "source_zh": "天突 （不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100401_ViewName",
+  "source_zh": "天蚕蛊灵阵",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8871_ViewName",
+  "source_zh": "天魔六通",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8870_ViewName",
+  "source_zh": "天魔六通(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100447_ViewName",
+  "source_zh": "天魔化身",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8874_ViewName",
+  "source_zh": "天魔漏尽",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100443_ViewName",
+  "source_zh": "天魔通-意",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100438_ViewName",
+  "source_zh": "天魔通-眼",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100440_ViewName",
+  "source_zh": "天魔通-舌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100442_ViewName",
+  "source_zh": "天魔通-身",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100441_ViewName",
+  "source_zh": "天魔通-鼻",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8610_ViewName",
+  "source_zh": "天龙心法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8611_ViewName",
+  "source_zh": "天龙无双",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5551_ViewName",
+  "source_zh": "如影随行",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1193_ViewName",
+  "source_zh": "妙造自然",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8941_ViewName",
+  "source_zh": "宿曜神宫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8942_ViewName",
+  "source_zh": "宿曜神宫-中转BUFF(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8940_ViewName",
+  "source_zh": "宿曜神宫天法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8631_ViewName",
+  "source_zh": "寒冰真气",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8630_ViewName",
+  "source_zh": "寒冰真气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "101021_ViewName",
+  "source_zh": "寒霜免疫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2040_ViewName",
+  "source_zh": "少林刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3000_ViewName",
+  "source_zh": "少林棍法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3570_ViewName",
+  "source_zh": "弥山棍法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8781_ViewName",
+  "source_zh": "弦音无象",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8780_ViewName",
+  "source_zh": "弦音无象诀(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5781_ViewName",
+  "source_zh": "心宿大火",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5782_ViewName",
+  "source_zh": "心宿巨星",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8891_ViewName",
+  "source_zh": "急如鹰飞（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2062_Description",
+  "source_zh": "恢复气血{0}(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3021_Description",
+  "source_zh": "恢复气血{0}(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3054_Description",
+  "source_zh": "恢复气血{0}(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8500_ViewName",
+  "source_zh": "恢复真气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8770_ViewName",
+  "source_zh": "惔神秘鉴(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200214_ViewName",
+  "source_zh": "慕家芙蓉雪蛤片",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3650_ViewName",
+  "source_zh": "戍阵枪(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2120_Description",
+  "source_zh": "所有恶人谷刀法招式伤害+7%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3140_ViewName",
+  "source_zh": "打狗棍法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1702_ViewName",
+  "source_zh": "掠影浮光",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3621_ViewName",
+  "source_zh": "推开判定(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3721_ViewName",
+  "source_zh": "擂山爆炸(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3630_ViewName",
+  "source_zh": "擎天架海式(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8892_ViewName",
+  "source_zh": "攻如虎斗（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "285_ViewName",
+  "source_zh": "断筋免疫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8731_ViewName",
+  "source_zh": "无形罡气",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8730_ViewName",
+  "source_zh": "无形罡气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "4231_ViewName",
+  "source_zh": "日月如梭",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5131_ViewName",
+  "source_zh": "昏天地暗",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8071_ViewName",
+  "source_zh": "易筋固元",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "4241_ViewName",
+  "source_zh": "星火燎原",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2061_Description",
+  "source_zh": "暴击为0。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1073_Description",
+  "source_zh": "有15%几率对目标额外造成（自身身法*3）伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3551_ViewName",
+  "source_zh": "有凤来仪(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2010_Description",
+  "source_zh": "本武学暴击+30%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2011_Description",
+  "source_zh": "本武学暴击提升{0}。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2132_Description",
+  "source_zh": "本武学暴击提升{0}。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3141_ViewName",
+  "source_zh": "棒打双犬",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "4681_ViewName",
+  "source_zh": "欲天六重",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3540_ViewName",
+  "source_zh": "武岳枪法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2000_ViewName",
+  "source_zh": "武当刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100430_ViewName",
+  "source_zh": "武当名宿",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8000_ViewName",
+  "source_zh": "武当心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100363_Description",
+  "source_zh": "每回合恢复2%气血，持续3回合。",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100365_Description",
+  "source_zh": "每回合恢复2%真气，持续3回合。",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2021_Description",
+  "source_zh": "每攻击1个目标自身真气+3%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3520_Description",
+  "source_zh": "每攻击一个目标使自身防御+3%，最高叠加10层，持续2回合。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "206_Description",
+  "source_zh": "气血-3%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2153_Description",
+  "source_zh": "气血每少1%，受到伤害+0.6%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8511_ViewName",
+  "source_zh": "江湖心法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5731_ViewName",
+  "source_zh": "江湖血器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8564_ViewName",
+  "source_zh": "法天象地调息(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8574_ViewName",
+  "source_zh": "法天象地调息(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "101003_ViewName",
+  "source_zh": "洗罪浮屠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8953_ViewName",
+  "source_zh": "浑天奥理",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3590_ViewName",
+  "source_zh": "浑天梨花枪(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "5721_ViewName",
+  "source_zh": "浩然正器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8072_ViewName",
+  "source_zh": "涅槃浮屠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3052_ViewName",
+  "source_zh": "消耗真气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "9043_ViewName",
+  "source_zh": "混沌武典",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "207_Description",
+  "source_zh": "清除目标集气值使其为0，对当前集气值已满的目标无效。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200028_ViewName",
+  "source_zh": "湖月照影",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8810_ViewName",
+  "source_zh": "灭寂魔功(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "206_ViewName",
+  "source_zh": "灼烧伤害*1层(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "290_ViewName",
+  "source_zh": "灼烧免疫-1回合(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8901_ViewName",
+  "source_zh": "炼体篇（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3580_ViewName",
+  "source_zh": "烧火棍法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2080_ViewName",
+  "source_zh": "玄火刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100424_ViewName",
+  "source_zh": "玄火教主",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100425_ViewName",
+  "source_zh": "玄火神丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "7070_ViewName",
+  "source_zh": "玄焰身法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8910_ViewName",
+  "source_zh": "玉龙决(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3642_ViewName",
+  "source_zh": "玉龙百式 单次判定(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3643_ViewName",
+  "source_zh": "玉龙百式 强化判定(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3640_ViewName",
+  "source_zh": "玉龙百式(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8861_ViewName",
+  "source_zh": "瑜伽奥义",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8860_ViewName",
+  "source_zh": "瑜伽奥义(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8600_ViewName",
+  "source_zh": "瑜伽经(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "299_ViewName",
+  "source_zh": "生死寒冰",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3053_Description",
+  "source_zh": "疯魔效果消失后，自身气血+20%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "4291_ViewName",
+  "source_zh": "白虹掌力",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8923_ViewName",
+  "source_zh": "皓虎颠狂",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8924_ViewName",
+  "source_zh": "皓虎颠狂",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1081_Description",
+  "source_zh": "目标气血-8%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8850_ViewName",
+  "source_zh": "真五恒天经(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1071_Description",
+  "source_zh": "真气+3%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "217_Description",
+  "source_zh": "真气+5%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3010_Description",
+  "source_zh": "真气+8%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100230_ViewName",
+  "source_zh": "督脉1（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100134_ViewName",
+  "source_zh": "石斑四珍烩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "280_ViewName",
+  "source_zh": "破招免疫",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3610_ViewName",
+  "source_zh": "破阵枪法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8651_ViewName",
+  "source_zh": "碧波心经",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8650_ViewName",
+  "source_zh": "碧波心经(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "7111_ViewName",
+  "source_zh": "神出鬼没",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8060_ViewName",
+  "source_zh": "禅宗伏魔",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100364_Description",
+  "source_zh": "移动无视控制领域，持续1回合。",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "202_Description",
+  "source_zh": "移除自身所有负面效果。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3690_ViewName",
+  "source_zh": "穿云一枪(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8791_ViewName",
+  "source_zh": "绝弦无音",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8790_ViewName",
+  "source_zh": "绝弦无音(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100139_ViewName",
+  "source_zh": "翡翠豆糕恢复气血(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100140_ViewName",
+  "source_zh": "翡翠豆糕恢复真气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1031_Description",
+  "source_zh": "自身每100点真气上限可增加真武剑气10点伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "1020_Description",
+  "source_zh": "自身每点移动力使清风剑法伤害+7%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3052_Description",
+  "source_zh": "自身真气-25%。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100122_ViewName",
+  "source_zh": "芙蓉雪蛤片",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8720_ViewName",
+  "source_zh": "药圣医典(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8721_ViewName",
+  "source_zh": "药圣医典(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8834_ViewName",
+  "source_zh": "荼蘼零落(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8701_ViewName",
+  "source_zh": "莲师八变",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8700_ViewName",
+  "source_zh": "莲师八变(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3682_ViewName",
+  "source_zh": "落花流水",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8740_ViewName",
+  "source_zh": "虺魔罡气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100146_ViewName",
+  "source_zh": "蚬子面恢复真气(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "200001_ViewName",
+  "source_zh": "蜃楼幻境",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3520_ViewName",
+  "source_zh": "蟠龙棍法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3530_ViewName",
+  "source_zh": "蟠龙绕柱(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2151_ViewName",
+  "source_zh": "血海魔刀",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3620_ViewName",
+  "source_zh": "贪狼枪法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "2072_Description",
+  "source_zh": "造成1000点伤害。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8902_ViewName",
+  "source_zh": "锻骨篇（不翻译）",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8690_ViewName",
+  "source_zh": "镇山心法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3031_Description",
+  "source_zh": "随机对3个目标造成气绝效果。(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100100_ViewName",
+  "source_zh": "雪花芙蓉",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3700_ViewName",
+  "source_zh": "雷霆枪法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8750_ViewName",
+  "source_zh": "霹雳心法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8640_ViewName",
+  "source_zh": "青木漫舞",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8641_ViewName",
+  "source_zh": "青木漫舞(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8642_ViewName",
+  "source_zh": "青木漫舞(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8960_ViewName",
+  "source_zh": "青玉劲(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8835_ViewName",
+  "source_zh": "韶华胜极",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8830_ViewName",
+  "source_zh": "韶华胜极神通(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8832_ViewName",
+  "source_zh": "韶华胜极神通(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8930_ViewName",
+  "source_zh": "须臾心鉴",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8931_ViewName",
+  "source_zh": "须臾心鉴",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8550_ViewName",
+  "source_zh": "风云决-残3(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8560_ViewName",
+  "source_zh": "风云决-残4(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8552_ViewName",
+  "source_zh": "风起云涌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8562_ViewName",
+  "source_zh": "风起云涌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "8572_ViewName",
+  "source_zh": "风起云涌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "3670_ViewName",
+  "source_zh": "飞将戟法(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "7112_ViewName",
+  "source_zh": "鬼影幽冥",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Buffs",
+  "key": "100141_ViewName",
+  "source_zh": "黄金蟹斗恢复气血(不翻译)",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10414_Name",
+  "source_zh": "《慕家兵略》",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10413_Name",
+  "source_zh": "《穆家兵法》",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "248_Name",
+  "source_zh": "一周年礼包",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9069_Name",
+  "source_zh": "一心戎衣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13553_Name",
+  "source_zh": "一箭双雕",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "4021_Name",
+  "source_zh": "七星拳套",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "4022_Name",
+  "source_zh": "七星拳套",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "4023_Name",
+  "source_zh": "七星拳套",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "3009_Name",
+  "source_zh": "丈八蛇矛",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "3010_Name",
+  "source_zh": "丈八蛇矛",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "3011_Name",
+  "source_zh": "丈八蛇矛",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "234_Name",
+  "source_zh": "上品凝元丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "238_Name",
+  "source_zh": "上品混元丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "232_Name",
+  "source_zh": "下品凝元丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "236_Name",
+  "source_zh": "下品混元丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13818_Name",
+  "source_zh": "丐帮心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13310_Name",
+  "source_zh": "丐帮棍法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "233_Name",
+  "source_zh": "中品凝元丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "237_Name",
+  "source_zh": "中品混元丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10474_Name",
+  "source_zh": "五仙教令牌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9066_Name",
+  "source_zh": "五光琉璃",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10491_Name",
+  "source_zh": "五宝花蜜酒",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8065_Name",
+  "source_zh": "五毒玉佩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9065_Name",
+  "source_zh": "五色袈裟",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13812_Name",
+  "source_zh": "光明心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13201_Name",
+  "source_zh": "八卦刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13867_Name",
+  "source_zh": "兵烽六要",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13413_Name",
+  "source_zh": "凝血神爪",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "254_Name",
+  "source_zh": "切磋宝典",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "58_Name",
+  "source_zh": "制衣经验不翻译",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10496_Name",
+  "source_zh": "副掌令牌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13482_Name",
+  "source_zh": "十七路小擒拿",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10198_Name",
+  "source_zh": "十八学士",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "290_Name",
+  "source_zh": "参海双珍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "282_Name",
+  "source_zh": "参草烩海珍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13555_Name",
+  "source_zh": "含沙射影",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13832_Name",
+  "source_zh": "吸星神功",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13506_Name",
+  "source_zh": "嗜血寒蝠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "263_Name",
+  "source_zh": "地火岩核",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13225_Name",
+  "source_zh": "大五衰刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "323_Name",
+  "source_zh": "大天魔手残章",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13303_Name",
+  "source_zh": "大日如来棍",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8095_Name",
+  "source_zh": "天人之上",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9012_Name",
+  "source_zh": "天仙洞衣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9013_Name",
+  "source_zh": "天仙洞衣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9014_Name",
+  "source_zh": "天仙洞衣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "262_Name",
+  "source_zh": "天山冰髓",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13260_Name",
+  "source_zh": "天罡刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13816_Name",
+  "source_zh": "天蚕大法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13887_Name",
+  "source_zh": "天魔六通",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "316_Name",
+  "source_zh": "天魔六通残章",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13437_Name",
+  "source_zh": "孟春九曲",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10367_Name",
+  "source_zh": "客卿腰牌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10351_Name",
+  "source_zh": "寒潭玉露",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13223_Name",
+  "source_zh": "小五衰刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13204_Name",
+  "source_zh": "少林刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13300_Name",
+  "source_zh": "少林棍法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13357_Name",
+  "source_zh": "弥山棍法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13578_Name",
+  "source_zh": "心宿大火",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10375_Name",
+  "source_zh": "心法残章",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "247_Name",
+  "source_zh": "感悟心得",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13206_Name",
+  "source_zh": "慈悲刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13302_Name",
+  "source_zh": "慈航普渡杖",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "407_Name",
+  "source_zh": "慕家芙蓉雪蛤片",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13363_Name",
+  "source_zh": "擎天架海式",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "3024_Name",
+  "source_zh": "方天画戟",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "3025_Name",
+  "source_zh": "方天画戟",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "3026_Name",
+  "source_zh": "方天画戟",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13833_Name",
+  "source_zh": "晦朔心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13227_Name",
+  "source_zh": "朱明六炀",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13438_Name",
+  "source_zh": "朱明六炀",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13222_Name",
+  "source_zh": "朽木刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10082_Name",
+  "source_zh": "松竹幽亭",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "135_Name",
+  "source_zh": "武学心得",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "136_Name",
+  "source_zh": "武学感悟",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13200_Name",
+  "source_zh": "武当刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13800_Name",
+  "source_zh": "武当心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "169_Name",
+  "source_zh": "水煮肉片",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "131_Name",
+  "source_zh": "水盆羊肉",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "48_Name",
+  "source_zh": "江小彤好感",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13251_Name",
+  "source_zh": "江湖刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13851_Name",
+  "source_zh": "江湖心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13451_Name",
+  "source_zh": "江湖拳掌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13551_Name",
+  "source_zh": "江湖暗器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13573_Name",
+  "source_zh": "江湖血器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13572_Name",
+  "source_zh": "浩然正器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10083_Name",
+  "source_zh": "海棠栖禽",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10429_Name",
+  "source_zh": "混沌武典",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "331_Name",
+  "source_zh": "混沌武典残章",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13473_Name",
+  "source_zh": "湖月照影",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13508_Name",
+  "source_zh": "漫天花雨",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "55_Name",
+  "source_zh": "炼丹经验不翻译",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "54_Name",
+  "source_zh": "烹饪经验不翻译",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13207_Name",
+  "source_zh": "燃木刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10102_Name",
+  "source_zh": "犀角碧檀子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13455_Name",
+  "source_zh": "玄冰神掌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "9061_Name",
+  "source_zh": "玄武道衣",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13208_Name",
+  "source_zh": "玄火刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13811_Name",
+  "source_zh": "玄火心法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13422_Name",
+  "source_zh": "玄火掌法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10457_Name",
+  "source_zh": "玄火神丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13707_Name",
+  "source_zh": "玄焰身法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13203_Name",
+  "source_zh": "玄虚刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "299_Name",
+  "source_zh": "玄黄固神丹",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10098_Name",
+  "source_zh": "玉石棋子",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "330_Name",
+  "source_zh": "琢玉手残章",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8064_Name",
+  "source_zh": "白玉老虎牌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "281_Name",
+  "source_zh": "石斑四珍烩",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8009_Name",
+  "source_zh": "碧玉扳指",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8010_Name",
+  "source_zh": "碧玉扳指",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8011_Name",
+  "source_zh": "碧玉扳指",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10462_Name",
+  "source_zh": "禁地令牌",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13806_Name",
+  "source_zh": "禅宗伏魔功",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13439_Name",
+  "source_zh": "素律三毒",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "6062_Name",
+  "source_zh": "素麟金面",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10177_Name",
+  "source_zh": "羊脂玉如意",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "292_Name",
+  "source_zh": "翡翠豆糕",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "6027_Name",
+  "source_zh": "芙蓉金冠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "6028_Name",
+  "source_zh": "芙蓉金冠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "6029_Name",
+  "source_zh": "芙蓉金冠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10174_Name",
+  "source_zh": "芙蓉金瓶",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "215_Name",
+  "source_zh": "芙蓉雪蛤片",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13229_Name",
+  "source_zh": "菩提刀法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "8077_Name",
+  "source_zh": "菩提念珠",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13168_Name",
+  "source_zh": "虺蛇吐信",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13567_Name",
+  "source_zh": "虺蛇毒信",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13215_Name",
+  "source_zh": "血海魔刀",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10358_Name",
+  "source_zh": "赤血珊瑚",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "269_Name",
+  "source_zh": "通幽寒魄",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "56_Name",
+  "source_zh": "采集经验不翻译",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "10472_Name",
+  "source_zh": "金蝎毒元",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "59_Name",
+  "source_zh": "钓鱼经验不翻译",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "57_Name",
+  "source_zh": "锻造经验不翻译",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "199_Name",
+  "source_zh": "雪花芙蓉",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13864_Name",
+  "source_zh": "青木漫舞",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13570_Name",
+  "source_zh": "韶光淑器",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "13711_Name",
+  "source_zh": "鬼影幽冥大法",
+  "target_ja": ""
+ },
+ {
+  "namespace": "Items",
+  "key": "258_Name",
+  "source_zh": "黄金蟹斗",
+  "target_ja": ""
+ }
+]

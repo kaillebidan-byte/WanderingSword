@@ -1,0 +1,10 @@
+# 大容量バイナリ(ゲーム本体pakは管理外。MOD pakは履歴に残す)
+Wandering_Sword-WindowsNoEditor.pak
+/tmp/
+# repakバイナリは大きいので任意。残す場合は次行をコメントアウト
+_tools/repak
+
+# OS/エディタ
+.DS_Store
+.obsidian/workspace*
+.trash/
