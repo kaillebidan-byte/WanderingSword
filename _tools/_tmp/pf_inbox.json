@@ -1,1 +1,23 @@
-{"reviewed": 200, "fixes": [{"target": "CG表", "ns": "QuestDlgs", "key": "28203_5_Dlgs_Index0_Text", "new_ja": "19830 - 歩微月 $@$その通りです——青雲主人です！"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28203_5_Dlgs_Index1_Text", "new_ja": "19830 - 歩微月 $@$遊仙島は、青雲主人がかつて海外から隠棲した場所なのです。"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28203_6_Dlgs_Index17_Text", "new_ja": "19830 - 歩微月 $@$青雲主人の継承が武学に関わるものである以上、この最後の試練は、おそらく<Y>武学の才能に秀でた者</>でなければ解き明かせないのではないかと思うのです。"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28203_6_Dlgs_Index21_Text", "new_ja": "19830 - 歩微月 $@$うーん……微月は、青雲主人が幾重もの試練を設けた以上、これらの試練の間には互いに関連があるべきだと考えています。"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28203_6_Dlgs_Index2_Text", "new_ja": "19830 - 歩微月 $@$青雲主人は仙逝される前に、島に継承を開く手がかりを残されました。"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28203_6_Dlgs_Index3_Text", "new_ja": "19830 - 歩微月 $@$ただ……この手がかりは青雲主人によって二つに分けられており、この二つの手がかりを揃えて初めて継承を得られるのです。"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28204_8_Dlgs_Index0_Text", "new_ja": "19830 - 歩微月 $@$おばあちゃん、ご安心ください。青雲主人は面倒を恐れて東海に隠棲したわけではありません。おばあちゃんは霊祭の準備に専念してください！"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28204_8_Dlgs_Index1_Text", "new_ja": "19830 - 歩微月 $@$青雲主人の継承……今度こそ私が解き明かします！"}, {"target": "CG表", "ns": "QuestDlgs", "key": "28284_2_Dlgs_Index1_Text", "new_ja": "19830 - 歩微月 $@$公子、お急ぎなさいますな。まだ時機が来ておりません。謫仙瀑に隠された仕掛けは、いかなる方法を用いても解き明かせません。"}]}
+{
+ "reviewed": 0,
+ "fixes": [
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "22456_FinishingDlgs_Index12_Text",
+   "new_ja": "19714 - 蓮芯 $@$ふふふ……もちろん彼です。彼でなければ、どうして今の内外二層の天仏窟の局面があり得たでしょうか？"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "32083_FinishingDlgs_Index3_Text",
+   "new_ja": "19714 - 蓮芯 $@$ふふふ、私ですら保証できないことを、少侠はなぜそこまで断言できるのですか？"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "7052_FinishingDlgs_Index0_Text",
+   "new_ja": "19714 - 蓮芯 $@$ふふふ、鳳凰洞にはどれほどの危険が潜んでいるか分かりません。本当に私を連れて行くのですか？"
+  }
+ ]
+}
