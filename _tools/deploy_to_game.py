@@ -5,14 +5,22 @@ best-effort: ゲームフォルダが見つからない/ロック中なら、何
 - 差し替え後、deployedしたpak内に日本語が入っているか自己検証する。
 使い方: python3 _tools/deploy_to_game.py
 """
-import sys, os, glob, shutil, subprocess
+import sys, os, glob, shutil, subprocess, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "_tools"))
 import locres
 SRC = os.path.join(ROOT, "_work", "aaWanderingSword_JP_P.pak")
-REPAK = os.path.join(ROOT, "_tools", "repak")
+REPAK = os.path.join(ROOT, "_tools", "repak.exe" if os.name == "nt" else "repak")
 
 def find_game_paks():
+    # Windows: 既知のSteamパスを優先(別ライブラリに入れている場合はここへ追記)
+    if os.name == "nt":
+        for base in [
+            r"C:\Program Files (x86)\Steam\steamapps\common\Wandering Sword\Wandering_Sword\Content\Paks",
+        ]:
+            if os.path.isdir(base):
+                return base
+        return None
     # ゲームフォルダ「Wandering Sword」(翻訳フォルダではない)のPaksを探す
     for base in glob.glob("/sessions/*/mnt/Wandering Sword/Wandering_Sword/Content/Paks"):
         return base
@@ -49,7 +57,7 @@ def main():
         log(f"スキップ: 差し替え不可(ゲーム起動中か権限) {type(e).__name__}"); return
     # 自己検証: deployedしたpakを展開して日本語が入っているか
     try:
-        vdir = "/tmp/_deployverify"
+        vdir = os.path.join(os.environ.get("WS_TMP", tempfile.gettempdir()), "_deployverify")
         shutil.rmtree(vdir, ignore_errors=True)
         subprocess.run([REPAK, "unpack", dst, "-o", vdir, "-i",
                         "Wandering_Sword/Content/Localization/系统/zh-Hans/系统.locres"],

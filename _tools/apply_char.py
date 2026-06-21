@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(ROOT, "_tools"))
 import locres_write as L
 P4 = os.path.join(ROOT, "_phase4_proofread")
 WORK = os.path.join(ROOT, "_work", "jp")
-REPAK = os.path.join(ROOT, "_tools", "repak")
+REPAK = os.path.join(ROOT, "_tools", "repak.exe" if os.name == "nt" else "repak")
 
 def key_index_map(b):
     o = 17; (arr_off,) = struct.unpack_from('<q', b, o); o += 8
@@ -35,7 +35,8 @@ def wlp(t):
     return glob.glob(f"{WORK}/Wandering_Sword/Content/Localization/{t}/zh-Hans/*.locres")[0]
 
 def main():
-    data = json.load(open(sys.argv[1], encoding="utf-8"))
+    inbox = sys.argv[1]
+    data = json.load(open(inbox, encoding="utf-8"))
     reviewed = int(data.get("reviewed", 0))
     fixes = data.get("fixes", [])
     by_t = {}
@@ -49,8 +50,17 @@ def main():
         n = 0
         for f in fs:
             i = kmap.get(f["ns"] + "\x1f" + f["key"])
-            if i is not None and f.get("new_ja") and arr[i][0] != f["new_ja"]:
-                arr[i][0] = f["new_ja"]; n += 1
+            if i is None:
+                continue
+            cur = arr[i][0]
+            if f.get("new_body") is not None:   # コスト削減: 本文のみ。接頭辞($@$まで)は現訳から再付与
+                nv = (cur.split("$@$", 1)[0] + "$@$" + f["new_body"]) if "$@$" in cur else f["new_body"]
+            elif f.get("new_ja"):               # 後方互換: 完全形(接頭辞込み)もそのまま受理
+                nv = f["new_ja"]
+            else:
+                continue
+            if cur != nv:
+                arr[i][0] = nv; n += 1
         if n:
             open(lp, "wb").write(b[:arr_off] + L.write_string_array(arr, ver))
             touched.append((t, n))
@@ -78,6 +88,11 @@ def main():
         f.write(f"- {ts}  [キャラ別] レビュー {reviewed} / 修正 {sum(n for _,n in touched)}{touched}"
                 f" / 現在: {cur} (ci={prog['ci']},pos={prog['pos']}){note}\n")
     print(f"レビュー {reviewed}, 修正 {touched}, 現在キャラ {cur} (ci={prog['ci']}, pos={prog['pos']}){note}")
+    # 反映済みinboxを削除。次バッチのWrite(「未読ファイルは上書き不可」制約)に毎回引っかからないように。
+    try:
+        os.remove(inbox)
+    except OSError:
+        pass
 
 if __name__ == "__main__":
     main()

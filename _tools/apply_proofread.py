@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(ROOT, "_tools"))
 import locres_write as L
 P4 = os.path.join(ROOT, "_phase4_proofread")
 WORK = os.path.join(ROOT, "_work", "jp")
-REPAK = os.path.join(ROOT, "_tools", "repak")
+REPAK = os.path.join(ROOT, "_tools", "repak.exe" if os.name == "nt" else "repak")
 
 def key_index_map(b):
     o = 17; (arr_off,) = struct.unpack_from('<q', b, o); o += 8

@@ -1,0 +1,24 @@
+{
+  "reviewed": 0,
+  "fixes": [
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5302_4_Dlgs_Index2_Text", "new_ja": "5002 - 莫問 $@$わたしは幼い頃、武当山の麓に捨てられ、親族に会ったことはない。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5302_4_Dlgs_Index4_Text", "new_ja": "5002 - 莫問 $@$気にしていない、師父がわたしを育て、武術を教えてくださった……わたしにとって、師父こそがわたしの家族だ。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5331_2_Dlgs_Index5_Text", "new_ja": "5015 - 莫問 $@$師弟よ、自らを卑下するな、最近のお前の武功の進歩は目覚ましい、この才能は、わたしでさえ及ばぬほどだ。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5331_2_Dlgs_Index7_Text", "new_ja": "5015 - 莫問 $@$二年前、わたしは一度参加している、今回師父がわたしに大比の手配を命じたのは、他の未参加の師弟たちに機会を与えたいという意図があるのだろう……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5359_3_Dlgs_Index5_Text", "new_ja": "5015 - 莫問 $@$師父がお前たちをわたしに託された……大師兄として、お前たちの身の安全には責任がある。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5359_5_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$（小声で）わたしが出て様子を見てくる。君は早く彼らを目覚めさせろ！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5389_2_Dlgs_Index5_Text", "new_ja": "5015 - 莫問 $@$うむ、ではわたしはこれで戻る。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5389_4_Dlgs_Index5_Text", "new_ja": "5015 - 莫問 $@$うむ、ではわたしはこれで戻る。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5503_1_Dlgs_Index0_Text", "new_ja": "5015 - 莫問 $@$わたしの記憶違いでなければ、ここがその渡し場のはずだ。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5572_3_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$わたくしの師弟にこれほど酷い仕打ちをするとは、一体何を企んでいるのですか？！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5572_4_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$わたくしは莫問、武当の清虚掌門がわたくしの師です。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5572_4_Dlgs_Index5_Text", "new_ja": "5015 - 莫問 $@$閣下がどのような目的であろうと、今日これ以上わたくしの師弟に手を出せば、我々武当全体を敵に回すことになりますぞ！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5586_5_Dlgs_Index0_Text", "new_ja": "5015 - 莫問 $@$洪老幇主でいらっしゃいましたか。わたくし、武当の弟子、莫問と申します。先輩に拝謁いたします！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5646_1_Dlgs_Index11_Text", "new_ja": "5015 - 莫問 $@$師弟が先ほど言った通り、わたしたちは絶対に曹煜天を逃がしてはならない。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5646_1_Dlgs_Index12_Text", "new_ja": "5015 - 莫問 $@$さもなければ、彼に再び勢力を盛り返す機会を与えてしまえば、その結果は想像を絶するものとなる。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5646_1_Dlgs_Index13_Text", "new_ja": "5015 - 莫問 $@$それに、各派の人々はもともと山頂で秘密の通路を探していたのだから、連絡がなくても、わたしたちが先ほど引き裂いた絵画を辿って、すぐにでも入り口を見つけられるはずだ……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5646_1_Dlgs_Index14_Text", "new_ja": "5015 - 莫問 $@$わたしたちが今最もすべきことは、<Y>一刻も早く秘密の通路を通り、曹煜天を阻止する</>ことだ。そうして皆が駆けつけるまでの時間を稼ごう。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5646_1_Dlgs_Index3_Text", "new_ja": "5015 - 莫問 $@$（眉をひそめる）今の問題は……入り口は見つかったが、上部の仕掛けが再び閉じてしまった。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5646_1_Dlgs_Index4_Text", "new_ja": "5015 - 莫問 $@$わたしたちはここに閉じ込められ、他の人々に知らせに戻ることができないかもしれない。"}
+  ]
+}

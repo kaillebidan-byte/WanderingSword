@@ -1,0 +1,897 @@
+[
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_0.uexp",
+  "key": "EA3FFE9D4DF475E120C18C85D283E60E",
+  "src": "任意城镇找到裁缝，靠近后点击【制衣】进入制衣界面"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_1.uexp",
+  "key": "033B2EF94CEE2BFA236F16B01A56CC06",
+  "src": "选择需要制作的防具类型"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_10.uexp",
+  "key": "C99F08214055B75E093E329FA966CFAD",
+  "src": "成品防具可出现的品质以及品质对应出现概率"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_2.uexp",
+  "key": "86AFCF604A4EF2CB448E0E880626CD25",
+  "src": "选择需要制作的具体防具"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_3.uexp",
+  "key": "D0C8A955431FA32F61DB2ABD47D73C7E",
+  "src": "当前制衣等级"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_4.uexp",
+  "key": "0055913C4703298E7363D2910A74F71E",
+  "src": "当前等级已获得经验/升级所需经验"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_5.uexp",
+  "key": "4754680C4D32C54B3649BCBE1C051AE6",
+  "src": "制作成功后可获得经验"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_6.uexp",
+  "key": "7C70C9B74095775CB5FCA98BC115A001",
+  "src": "制作所需材料 背包拥有数量/制作所需数量"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_7.uexp",
+  "key": "0D5EF49B436F585D013AF1B8DA52C7EB",
+  "src": "制作所需钱币/背包拥有钱币"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_8.uexp",
+  "key": "4F545E004E5F69C7B9EA09973298627B",
+  "src": "成品防具必定会出现的属性以及属性的对应数值区间"
+ },
+ {
+  "file": "Steps/Apparel/BP_Guidance_Apparel_9.uexp",
+  "key": "ACF2A00E48F3CF70BC1FCA9C0380443B",
+  "src": "成品防具有概率出现的额外效果以及效果对应数值区间"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_0.uexp",
+  "key": "633F709B43073E0891F041B7AE09C261",
+  "src": "头上白色箭头表示当前可操作的目标。上方绿色条为气血值"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_0_5.uexp",
+  "key": "49AAE9E84551DAD4898ADF837F359AD6",
+  "src": "下方黄色条为集气值，当集气值满时才可行动"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_1.uexp",
+  "key": "2977D36248567957852516B50825F4BB",
+  "src": "浅色框表示本次战场最大可移动范围"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_10.uexp",
+  "key": "D81317824246A6940A9747B3AE3C7A85",
+  "src": "背击命中加50%，伤害加成15%"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_2.uexp",
+  "key": "80B122A5492B4383A893C2B11DCD03DE",
+  "src": "蓝色框表示控制目标本次移动可到达的区域；移动后可鼠标右键进行撤回"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_3.uexp",
+  "key": "7A272A4641D512E83B5C4F85C493A3B5",
+  "src": "点击鼠标左键移动到指定位置"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_4.uexp",
+  "key": "D48190A24A054A3D43BBF8A0401358B6",
+  "src": "技能栏下方的数字是对应技能的释放快捷键"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_5.uexp",
+  "key": "15F1B87B4E39DBBA664194914BF168A4",
+  "src": "鼠标移动到技能图标上时可查看此技能详细说明；同时弹出本招式的替换技能，鼠标点击替换技能后会与常驻技能交换位置"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_6.uexp",
+  "key": "6573BA9C416D3914CE586B8FD8A780CF",
+  "src": "选择技能"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_7.uexp",
+  "key": "02CBE0DA4487CE4EB8A14EABB7294586",
+  "src": "点击技能后黄色区域为技能可释放区"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_8.uexp",
+  "key": "158ADBCC4F525F04C13F758E795DD8EB",
+  "src": "红色区域为实际技能打击区，鼠标点击红色区域内即可成功释放技能"
+ },
+ {
+  "file": "Steps/Battle/BP_Guidance_Battle_9.uexp",
+  "key": "15001CE94E2B7D301C8975B1462760C8",
+  "src": "侧击伤害增加15%"
+ },
+ {
+  "file": "Steps/BattleMode/BP_Guidance_BattleMode_0.uexp",
+  "key": "3D3F30744FC1D7B0261446B6F46E95ED",
+  "src": "点击主角头像左下角回合图标可切换为即时战斗"
+ },
+ {
+  "file": "Steps/BulkSell/BP_Guidance_BulkSell_0.uexp",
+  "key": "C0ABF5254666180DF0BEA9A641CE9E6E",
+  "src": "针对所有道具包含材料、丹药等"
+ },
+ {
+  "file": "Steps/BulkSell/BP_Guidance_BulkSell_0.uexp",
+  "key": "DBE0C65A43E6FDAAE43B1FB6C674B51A",
+  "src": "只针对装备"
+ },
+ {
+  "file": "Steps/BulkSell/BP_Guidance_BulkSell_1.uexp",
+  "key": "04D82CD548C2037D077813BE6E390CC2",
+  "src": "若换到子分页进行批量出售，则不会出售此分页以外的道具。"
+ },
+ {
+  "file": "Steps/DaYuanMan/BP_Guidance_DaYuanMan_0.uexp",
+  "key": "455BEA58467DD028439B4387FE784035",
+  "src": "当主角六脉圆满后可将多余经脉点转换为基础属性。"
+ },
+ {
+  "file": "Steps/Duel/BP_Guidance_Duel_0.uexp",
+  "key": "AB9A3F834FFD4FABB6AC92B0DEC2506B",
+  "src": "靠近NPC后点击观察"
+ },
+ {
+  "file": "Steps/Duel/BP_Guidance_Duel_1.uexp",
+  "key": "ED7642964FED5CA6FF204BB097159908",
+  "src": "点击送礼后赠送对方喜好的物品可提升好感度"
+ },
+ {
+  "file": "Steps/Duel/BP_Guidance_Duel_2.uexp",
+  "key": "A76884EA4244ED0748FC30A318497F39",
+  "src": "切磋获胜后，100%获得此NPC私人背包内的1~3件道具"
+ },
+ {
+  "file": "Steps/Duel/BP_Guidance_Duel_3.uexp",
+  "key": "E2935F9948C3EB2A5BD4FAA50A1C80C8",
+  "src": "好感度20即可进行切磋"
+ },
+ {
+  "file": "Steps/Equip/BP_Guidance_Equip_0.uexp",
+  "key": "5F547F7D406D6FC6712DCA9C7BFA0A7B",
+  "src": "在系统栏点击人物图标，或使用图标下方键盘快捷键打开人物界面"
+ },
+ {
+  "file": "Steps/Equip/BP_Guidance_Equip_1.uexp",
+  "key": "86C890E54529A025F8E359A6CCEC172F",
+  "src": "装备栏"
+ },
+ {
+  "file": "Steps/Equip/BP_Guidance_Equip_2.uexp",
+  "key": "826B457840E4AC87832B0CB1F25A3DDA",
+  "src": "单击后点击穿戴，使用"
+ },
+ {
+  "file": "Steps/Equip/BP_Guidance_Equip_3.uexp",
+  "key": "8B9C421B475D35D4849053BEE6173B78",
+  "src": "装备"
+ },
+ {
+  "file": "Steps/Estate_Arena/BP_Guidance_Estate_Arena0.uexp",
+  "key": "C9BC510C46DA02F86D42E3AC02C2CD97",
+  "src": "无名岛设有擂台，使用“擂台对决”功能，可与队友自由切磋。"
+ },
+ {
+  "file": "Steps/Estate_Arena/BP_Guidance_Estate_Arena1.uexp",
+  "key": "A894195D435669CC0C7F59998E125919",
+  "src": "擂台决斗分左右两侧阵营"
+ },
+ {
+  "file": "Steps/Estate_Arena/BP_Guidance_Estate_Arena2.uexp",
+  "key": "C45D25A14C333A2E6B62059C344F6D0A",
+  "src": "点击阵营中的空位，再点选下方队友头像，即可配置队友为该阵营出战"
+ },
+ {
+  "file": "Steps/Estate_Arena/BP_Guidance_Estate_Arena3.uexp",
+  "key": "8DEB0B8C4D7CC1F97CECB1BF31BC2BEB",
+  "src": "当前队伍中的所有队友，均可进行配置"
+ },
+ {
+  "file": "Steps/Estate_Arena/BP_Guidance_Estate_Arena4.uexp",
+  "key": "978AEFA3414CF8E86B35E6B0B9021223",
+  "src": "可在此处选择需要操控的阵营"
+ },
+ {
+  "file": "Steps/Estate_Arena/BP_Guidance_Estate_Arena5.uexp",
+  "key": "625ED68448418025F17AA9BEF99418E4",
+  "src": "配置完成后，即可开始决斗"
+ },
+ {
+  "file": "Steps/Estate_Dialog/BP_Guidance_Estate_Dialog.uexp",
+  "key": "5A26E4E1423A69988B9791B1B306E504",
+  "src": "无名岛设有矿场、鱼塘和药园，每30分钟分别产出一批材料，每个地点最多存储20批材料\r\n在哈山、或驿站处，使用“收获”功能可一次性获取此前存储的全部材料"
+ },
+ {
+  "file": "Steps/Estate_Gather/BP_Guidance_Estate_Gather.uexp",
+  "key": "3C7B8B5B46C711AFDB79A394EC16FF34",
+  "src": "使用矿场、鱼塘或药园的存储点，可单独“收获”此类材料。"
+ },
+ {
+  "file": "Steps/Estate_Workmanship/BP_Guidance_Estate_Workmanship.uexp",
+  "key": "D93FBEB0485BEA61667018A2D0058273",
+  "src": "无名岛设有锻造、烹饪、炼丹和制衣点，可供随时使用。"
+ },
+ {
+  "file": "Steps/Fishing/BP_Guidance_Fishing_0.uexp",
+  "key": "D8BA663A4D67121CA090E3B03FBB58C6",
+  "src": "寻找各场景中预设的钓鱼点"
+ },
+ {
+  "file": "Steps/Fishing/BP_Guidance_Fishing_1.uexp",
+  "key": "13B631B74BA482384DE8ED8E9A36676C",
+  "src": "靠近光团后点击弹出的交互按钮"
+ },
+ {
+  "file": "Steps/Fishing/BP_Guidance_Fishing_2.uexp",
+  "key": "764EBDBA4460F458B04F4AB75D47016C",
+  "src": "点击甩杆后扣除对应精力值开启钓鱼"
+ },
+ {
+  "file": "Steps/Fishing/BP_Guidance_Fishing_3.uexp",
+  "key": "29D5FD174112E6B9E4C7F3B46E260DA2",
+  "src": "可随时点击离开按钮取消钓鱼"
+ },
+ {
+  "file": "Steps/Fishing/BP_Guidance_Fishing_4.uexp",
+  "key": "F17F00A94515C2E9C0B0D88A3EABD3C2",
+  "src": "右侧可查看鱼池等级与产出鱼类以及对应概率"
+ },
+ {
+  "file": "Steps/Fishing/BP_Guidance_Fishing_5.uexp",
+  "key": "621B6BB44EEFB27764AC21AF81C5C040",
+  "src": "当鱼漂发生变化时立即点击收杆可成功吊起渔获，若不小心超时后才点击收杆则无法获得"
+ },
+ {
+  "file": "Steps/FishingConfig/BP_Guidance_FishingConfig_0.uexp",
+  "key": "EDFF3AE048E7A83F229C5086A08471CE",
+  "src": "寻找各场景中预设的钓鱼点"
+ },
+ {
+  "file": "Steps/FishingConfig/BP_Guidance_FishingConfig_1.uexp",
+  "key": "71442E3A44607251D91825B7BA5AD682",
+  "src": "靠近光团后点击弹出的交互按钮"
+ },
+ {
+  "file": "Steps/FishingConfig/BP_Guidance_FishingConfig_2.uexp",
+  "key": "8960F9A7427B04984C70A7A9809B6FFA",
+  "src": "点击甩杆后扣除对应精力值开启钓鱼"
+ },
+ {
+  "file": "Steps/FishingConfig/BP_Guidance_FishingConfig_3.uexp",
+  "key": "0818DAC545AA27A8EF580297883F4BEB",
+  "src": "可随时点击离开按钮取消钓鱼"
+ },
+ {
+  "file": "Steps/FishingConfig/BP_Guidance_FishingConfig_4.uexp",
+  "key": "FF84A058408363C8012A1E90D794E7CD",
+  "src": "右侧可查看鱼池等级与产出鱼类以及对应概率"
+ },
+ {
+  "file": "Steps/FishingConfig/BP_Guidance_FishingConfig_5.uexp",
+  "key": "E347FE2D4241B706E32C47B4C86FA952",
+  "src": "当鱼漂发生变化时立即点击收杆可成功吊起渔获，若不小心超时后才点击收杆则无法获得"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_0.uexp",
+  "key": "D3ED860648280B8FBC2EC7B059485DA4",
+  "src": "任意城镇找到铁匠，靠近后点击【锻造】进入锻造界面"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_1.uexp",
+  "key": "55B72B8E4DA25D006F5D7C8EF6958710",
+  "src": "选择需要锻造的武器类型"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_10.uexp",
+  "key": "830C2D0D49484FCDFD9665947CCA5944",
+  "src": "成品武器可出现的品质以及品质对应出现概率"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_2.uexp",
+  "key": "1EC132A3447C473CAD86A0BC87A5C1FE",
+  "src": "选择需要锻造的具体武器"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_3.uexp",
+  "key": "99C538924CD0A46DE8E93F9FBDE9AA1E",
+  "src": "当前锻造等级"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_4.uexp",
+  "key": "49A835B14B906B08E22399A9739E5B9A",
+  "src": "当前等级已获得经验/升级所需经验"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_5.uexp",
+  "key": "18A2EB8A4D55EF8FBD9294BACD0A0548",
+  "src": "锻造成功后可获得经验"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_6.uexp",
+  "key": "ECAB6D41412366B83424B59A2AB868BF",
+  "src": "锻造所需材料 背包拥有数量/锻造所需数量"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_7.uexp",
+  "key": "C7D5DEAE471AA88CBA5BEBA0E1FAB4A5",
+  "src": "锻造所需钱币/背包拥有钱币"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_8.uexp",
+  "key": "55DA976044C1487A398C91AD89C7E541",
+  "src": "成品武器必定会出现的属性以及属性的对应数值区间"
+ },
+ {
+  "file": "Steps/Fusion/BP_Guidance_Fusion_9.uexp",
+  "key": "35C57E5A4501618C959B6585610D515E",
+  "src": "成品武器有概率出现的额外效果以及效果对应数值区间"
+ },
+ {
+  "file": "Steps/HeTu/BP_Guidance_HeuTu_0.uexp",
+  "key": "6BCB6C134BCB05D3A490409D46EFE341",
+  "src": "鼠标点击、或使用键盘”W/S”键，可切换需要转动的石环，当前选中的石环会高亮显示"
+ },
+ {
+  "file": "Steps/HeTu/BP_Guidance_HeuTu_1.uexp",
+  "key": "22E6CB4747E822D65A655AB13833A904",
+  "src": "鼠标点击箭头、或按下”A/D”键，可转动石环，所选石环会带动其它石环一起转动，直到图案与【河图】一致即可完成游戏\r\n"
+ },
+ {
+  "file": "Steps/HeTu/BP_Guidance_HeuTu_2.uexp",
+  "key": "F15D8EB3407F5B9067AEC3B7A122343C",
+  "src": "使用键盘”ESC”键退出此界面，使用“R”键重置机关"
+ },
+ {
+  "file": "Steps/HouWu/BP_Guidance_HouWu_0.uexp",
+  "key": "A37EC29E46BA21C5C29368A00D91BD94",
+  "src": "记下猿舞演示过程中，灵猿上方出现的箭头方向和顺序"
+ },
+ {
+  "file": "Steps/HouWu/BP_Guidance_HouWu_1.uexp",
+  "key": "569D4954463197727C5D3FB7D8B737E3",
+  "src": "使用键盘”W/A/S/D”键，依次输入演示中的箭头，即可完成游戏"
+ },
+ {
+  "file": "Steps/Invite/BP_Guidance_Invite_0.uexp",
+  "key": "AB9A3F834FFD4FABB6AC92B0DEC2506B",
+  "src": "靠近NPC后点击观察"
+ },
+ {
+  "file": "Steps/Invite/BP_Guidance_Invite_1.uexp",
+  "key": "552BD1CE401483EF488F5DA7F808A408",
+  "src": "在立绘界面名字下方显示当前好感度"
+ },
+ {
+  "file": "Steps/Invite/BP_Guidance_Invite_2.uexp",
+  "key": "065B2B6641D94A6F9C2FE29164AD6704",
+  "src": "若NPC开启了邀请功能，则可在好感度高于60后邀请其入队"
+ },
+ {
+  "file": "Steps/LuoShu/BP_Guidance_LuoShu_0.uexp",
+  "key": "105E38B041782CC815EB64BE7AC7EBC8",
+  "src": "移动鼠标、或使用键盘”W/A/S/D”键，可切换需要操作的箭头，当前选中的箭头会高亮显示"
+ },
+ {
+  "file": "Steps/LuoShu/BP_Guidance_LuoShu_1.uexp",
+  "key": "0076DEF840D67E84A28C4CAC9E90BE36",
+  "src": "鼠标点击、或使用键盘“空格”键，可朝所选箭头的方向移动整列/整行石格，直到图案与【洛书】一致即可完成游戏"
+ },
+ {
+  "file": "Steps/LuoShu/BP_Guidance_LuoShu_2.uexp",
+  "key": "FDF27C7240ED8F080626B89AA7FC11B9",
+  "src": "点击向右箭头可以把对应的一行方块往右推一格，把石板数字和颜色与洛书一致即可完成。"
+ },
+ {
+  "file": "Steps/LuoShu/BP_Guidance_LuoShu_3.uexp",
+  "key": "9C3E475A46D6AE2A93C7CF887FF5641B",
+  "src": "使用键盘”ESC”键离开此界面，使用\"R\"键重置机关"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_0.uexp",
+  "key": "E08B82A542F9CACC5CECDF982B9A6A55",
+  "src": "系统栏点击经脉图标，或使用图标下方键盘快捷键打开经脉界面"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_1.uexp",
+  "key": "34D3BE144E99DEF3ED8AE1903E4256B1",
+  "src": "当前拥有的经脉点，可通过学习和升级心法获得"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_2.uexp",
+  "key": "381E1EFD412547821E9544837E69340A",
+  "src": "点击脉络图可打开具体脉络"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_3.uexp",
+  "key": "C2D17E5144B523A8AE6220AC67CD9A37",
+  "src": "灰色穴位表示还未解锁，需将前一个穴位冲击到3级后才可解锁"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_4.uexp",
+  "key": "EC1FBDD049165050A81796A8150EE448",
+  "src": "鼠标移动到穴位上可查看此穴位冲击后带来的效果"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_4_5.uexp",
+  "key": "49ED40784974A7F1C47592B499B61EF1",
+  "src": "特殊穴位冲击圆满会拥有额外效果"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_5.uexp",
+  "key": "717CEEB646B082BBA08517BFBADEED39",
+  "src": "可快速切换脉络图"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_6.uexp",
+  "key": "0C48956B44DBB25FD78276AA7949AD0A",
+  "src": "可快速向右切换脉络图"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_7.uexp",
+  "key": "7E824EEA45B2B47B6AAACA894B2FCE2D",
+  "src": "选中穴位后点击冲击"
+ },
+ {
+  "file": "Steps/Meridian/BP_Guidance_Meridian_8.uexp",
+  "key": "EF9D38CB49B740A1495910800E673EEE",
+  "src": "穴位冲击完毕"
+ },
+ {
+  "file": "Steps/MountPet/BP_Guidance_MountPet_0.uexp",
+  "key": "D6D6D47844CFFBBF4B1060BCDE9ADECC",
+  "src": "点击主角界面下方的坐骑按钮"
+ },
+ {
+  "file": "Steps/MountPet/BP_Guidance_MountPet_1.uexp",
+  "key": "BE958BBF4DE3B03DE8279087538756D3",
+  "src": "选择坐骑"
+ },
+ {
+  "file": "Steps/MountPet/BP_Guidance_MountPet_2.uexp",
+  "key": "F15090CB469D9CD9A2AC959E1F0D1B4F",
+  "src": "选中坐骑后奔跑状态被骑乘状态替换"
+ },
+ {
+  "file": "Steps/MountPet/BP_Guidance_MountPet_3.uexp",
+  "key": "B6551C11432FEFA1FCA5F88DE92D912B",
+  "src": "骑乘状态下Shift被替换为骑乘/走路"
+ },
+ {
+  "file": "Steps/MountPet/BP_Guidance_MountPet_4.uexp",
+  "key": "2CD6BC664C6A0416B1E7FF91808C3266",
+  "src": "再次点击被选中坐骑可取消骑乘状态，还原为奔跑状态"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "ECE2483B47ABEC089D0C118688CAC2A2",
+  "src": "关闭UI\r\n打开系统界面"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "3CD27D1140F79DD936531E9B4E450F05",
+  "src": "E 交互"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "C09002E6494B8E296EA59EB9521CB5A4",
+  "src": "世界地图"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "98BFE94F4BEE0639904BAB8BFA66F68C",
+  "src": "WASD\r\n控制人物移动"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "845904A64116AE802A8D9DAFE5150105",
+  "src": "空格切换下一句对话"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "E681D1A9425FB04050AC2D9C762A9715",
+  "src": "跳过动画"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "1149F41148BA6DE23598888C9DD81B0A",
+  "src": "左键确定"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "A41DC6174338EF6512DD5AA97598E6B4",
+  "src": "右键取消"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "8B22A2D348645C34D5A048A92CC0A4C4",
+  "src": "切换移动方式\r\n奔跑/走路"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "A43F1BA542E00348896DD08D298EFBD5",
+  "src": "中键\r\n调整摄像机角度"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_0.uexp",
+  "key": "77563CDF496D1C48715DD48F0DF6A7DE",
+  "src": "调整战场摄像机位置"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "2FCF91F2426DAB75AE8A27A8E5B44BA0",
+  "src": "战斗模式切换"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "B9761AA84BA51FD7E1B6BEA36B8D123C",
+  "src": "激活系统栏"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "D1700370484EA23C0E944FBE772E442A",
+  "src": "切换菜单"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "7C52FFDF4F073D546E9DFEA252C4A030",
+  "src": "背包\r\n跳过动画"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "B7FF0D52447F3A924667369D6FAB566F",
+  "src": "切换菜单"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "8BB92E2349912D36D635AD90835000CF",
+  "src": "世界地图"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "9B2B73F248903EAF0096AFA3169FAA74",
+  "src": "按下\r\n整理背包"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "82F191414FB27B102D92FD990DB23CAC",
+  "src": "按下查看扩展难度"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "72DA2C9F499EBF3E535A34BD33E66F1A",
+  "src": "UI选取切换"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "E6C7E32448EDE2E0A3706E9AA224AE91",
+  "src": "走/跑切换"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "586B34AA49BB9416F9DA2C97CC043C21",
+  "src": "任务界面"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "DB27DD524A80C6784F9C438F7DF55FCB",
+  "src": "角色移动"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "34D8CB854A5A84BE1E4DB68FF7F8561A",
+  "src": "取消"
+ },
+ {
+  "file": "Steps/Operation/BP_Guidance_Operation_1.uexp",
+  "key": "1C1512BD491BB24C29FBA58BF3875131",
+  "src": "确认"
+ },
+ {
+  "file": "Steps/SideGame/BP_Guidance_SideGame_0.uexp",
+  "key": "CD98C18B4BF608DBB77A23A15AF13F7F",
+  "src": "小游戏"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_0.uexp",
+  "key": "B380EF2A4A8E59E63567C281E91EEC45",
+  "src": "系统栏点击武学图标，或使用图标下方键盘快捷键打开武学界面"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_1.uexp",
+  "key": "F316DE05482C77F1319EBFB70F2A54B9",
+  "src": "当前拥有的武学点，武学点可通过战斗获得；上场队友越多则人均获得的武学点越少。队伍列表内未上场成员也可获得武学点"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_2.uexp",
+  "key": "753590F54C7C5971C51C2FB183DE935F",
+  "src": "点此切换心法"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_3.uexp",
+  "key": "05CAB9E049BC82974F622397BCB028DB",
+  "src": "鼠标移动到技能栏时会显示此技能升级所需消耗的武学点，以及此技能的详细说明界面，界面内可查看升级后数值变化"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_4.uexp",
+  "key": "7BBD29B54EBCC2E9F4C1D38D87C392EF",
+  "src": "学习和升级任意心法都会根据此心法品质获得对应经脉点，消耗经脉点打通经脉是角色提升能力的重要手段"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_5.uexp",
+  "key": "E8C957314BC0F897989F409F88F35925",
+  "src": "点击升级按钮升级武学技能"
+ },
+ {
+  "file": "Steps/Skill/BP_Guidance_Skill_6.uexp",
+  "key": "8CB773A044AC0371A2CA76B6B33D9CEA",
+  "src": "技能已升级"
+ },
+ {
+  "file": "Steps/SkillConfig/BP_Guidance_SkillConfig_0.uexp",
+  "key": "F0815CB846A37658EC63869D169B55C8",
+  "src": "系统栏点击武学图标，或使用图标下方键盘快捷键打开武学界面"
+ },
+ {
+  "file": "Steps/SkillConfig/BP_Guidance_SkillConfig_1.uexp",
+  "key": "0C28AC0242522520E68A4A9A6EBE4F7B",
+  "src": "上方切换武学招式"
+ },
+ {
+  "file": "Steps/SkillConfig/BP_Guidance_SkillConfig_2.uexp",
+  "key": "A02D7401429056342CA15AB0D3272D9D",
+  "src": "左侧切换武器\r\n队友只能学习固定武器技能"
+ },
+ {
+  "file": "Steps/SkillConfig/BP_Guidance_SkillConfig_3.uexp",
+  "key": "4B094FAC42D5259A81811FA9B8835385",
+  "src": "双击技能图标可将技能从战斗配置内卸载或装填"
+ },
+ {
+  "file": "Steps/SkillConfig/BP_Guidance_SkillConfig_4.uexp",
+  "key": "8334039C459B3EC95417AF84EC38E542",
+  "src": "战斗配置内装填的技能才可带入战场"
+ },
+ {
+  "file": "Steps/SkillConfig/BP_Guidance_SkillConfig_5.uexp",
+  "key": "36205DAA4A68CE4399FE9DAF5C0D37E4",
+  "src": "学习和升级任意技能都会根据此技能品质获得对应武器精通点数，武器精通涉及此武器释放技能时造成的伤害，同时也是部分高级技能的学习条件"
+ },
+ {
+  "file": "Steps/Station/BP_Guidance_Station_0.uexp",
+  "key": "F3E540EA4A043596AD21EBAE7432D529",
+  "src": "与地图上的镖夫交互后可解锁传送点"
+ },
+ {
+  "file": "Steps/Station/BP_Guidance_Station_1.uexp",
+  "key": "4C484C274DF757418EE755A52D1C32E7",
+  "src": "点击驿站交互可进入地图选择"
+ },
+ {
+  "file": "Steps/Station/BP_Guidance_Station_2.uexp",
+  "key": "11C624CA4C1408D451B49995170D65FD",
+  "src": "可按引导进行操作"
+ },
+ {
+  "file": "Steps/Station/BP_Guidance_Station_3.uexp",
+  "key": "36E6F3F94D732B05DE035A8D9C4E01DF",
+  "src": "右侧列表选择已解锁且想到达的目的地后左侧地图会进行局部放大，确认无误后再次点击目的地，消耗钱币后即可到达"
+ },
+ {
+  "file": "Steps_Gamepad/Apparel/BP_Guidance_Apparel_1_Gamepad.uexp",
+  "key": "33587B2342555F29DF5432B129471B09",
+  "src": "使用LB RB切换需要制作的防具类型"
+ },
+ {
+  "file": "Steps_Gamepad/Battle/BP_Guidance_Battle_2_Gamepad.uexp",
+  "key": "663A27B34A109F38AC6A65A7DD84BD7C",
+  "src": "蓝色框表示控制目标本次移动可到达的区域；移动后可按下B取消键进行撤回"
+ },
+ {
+  "file": "Steps_Gamepad/Battle/BP_Guidance_Battle_3_Gamepad.uexp",
+  "key": "029DF3E142F316908F14AE88EEDAE86A",
+  "src": "操作十字键或左摇杆将光标移动到指定位置"
+ },
+ {
+  "file": "Steps_Gamepad/Battle/BP_Guidance_Battle_4_Gamepad.uexp",
+  "key": "76E1098347085C629AB7329E3D4FEEC5",
+  "src": "技能栏下方的组合键是对应技能的释放快捷键（按组合键无法激活备选技能栏）"
+ },
+ {
+  "file": "Steps_Gamepad/Battle/BP_Guidance_Battle_5_Gamepad.uexp",
+  "key": "8F50C4404349228F5FB70D9CC47C76E6",
+  "src": "按下RT激活技能栏后，操作十字键可切换技能，按下RS可查看此技能详细说明；通过操作十字键可选择上方备用技能与常住技能交换位置"
+ },
+ {
+  "file": "Steps_Gamepad/Battle/BP_Guidance_Battle_8_Gamepad.uexp",
+  "key": "B1BD12CC418B36653885E78F211A9FFC",
+  "src": "红色区域为实际技能打击区，操作十字键将光标移动到红色区域按下A确认键即可成功释放技能"
+ },
+ {
+  "file": "Steps_Gamepad/BattleMode/BP_Guidance_BattleMode_0_Gamepad.uexp",
+  "key": "52CAA37C4AD08752F6259E8BB72621B4",
+  "src": "主角头像左下角显示当前战斗模式，LB可进行切换"
+ },
+ {
+  "file": "Steps_Gamepad/Equip/BP_Guidance_Equip_0_Gamepad.uexp",
+  "key": "7B04069645612E18BA8E7EA3D6ECF7BD",
+  "src": "按下菜单键后，操作十字键选中人物图标按下A确认键打开人物界面"
+ },
+ {
+  "file": "Steps_Gamepad/Equip/BP_Guidance_Equip_2_Gamepad.uexp",
+  "key": "0EE3BA1D429D2675CD7B46AA74B8E21C",
+  "src": "操作十字键选中装备后按下A确认键弹出穿戴选项，再次点击A确认键进行穿戴\r\n（可使用Y键进行快速穿戴）"
+ },
+ {
+  "file": "Steps_Gamepad/Estate_Arena/BP_Guidance_Estate_Arena0_Gamepad.uexp",
+  "key": "A93285024235E15546BF4CB03EBE4C30",
+  "src": "无名岛设有擂台，使用“擂台对决”功能，可与队友自由切磋。"
+ },
+ {
+  "file": "Steps_Gamepad/Fusion/BP_Guidance_Fusion_1_Gamepad.uexp",
+  "key": "ECFB7B7A4AADB467C232E4A039A9E82D",
+  "src": "使用LB RB切换需要锻造的武器类型"
+ },
+ {
+  "file": "Steps_Gamepad/HeTu/BP_Guidance_HeuTu_0_Gamepad.uexp",
+  "key": "8D34A5E74E6165FCF8216E9426F09E78",
+  "src": "按下十字键↑/↓切换需要转动的石环，当前选中的石环会高亮显示"
+ },
+ {
+  "file": "Steps_Gamepad/HeTu/BP_Guidance_HeuTu_1_Gamepad.uexp",
+  "key": "C031509840C97EE0E3CF08A3BC22F24B",
+  "src": "按下十字键←/→转动石环，所选石环会带动其它石环一起转动，直到图案与【河图】一致即可完成游戏"
+ },
+ {
+  "file": "Steps_Gamepad/HeTu/BP_Guidance_HeuTu_2_Gamepad.uexp",
+  "key": "D12BD22C4718A8D407421981FD077102",
+  "src": "按下”B”键退出此界面，按下“Y”键重置机关"
+ },
+ {
+  "file": "Steps_Gamepad/HouWu/BP_Guidance_HouWu_1_Gamepad.uexp",
+  "key": "DBD06E3D44D1F96EB2190D86778337D8",
+  "src": "按下十字键，依次输入演示中的箭头，即可完成游戏"
+ },
+ {
+  "file": "Steps_Gamepad/LuoShu/BP_Guidance_LuoShu_0_Gamepad.uexp",
+  "key": "27CCF3CD4D3753E24E813595AA53B01C",
+  "src": "按下十字键，可切换需要操作的箭头，当前选中的箭头会高亮显示"
+ },
+ {
+  "file": "Steps_Gamepad/LuoShu/BP_Guidance_LuoShu_1_Gamepad.uexp",
+  "key": "D6BAE24540B007275630A691D3DC4385",
+  "src": "按下A键，可朝所选箭头的方向移动整列/整行石格，直到图案与【洛书】一致即可完成游戏"
+ },
+ {
+  "file": "Steps_Gamepad/LuoShu/BP_Guidance_LuoShu_2_Gamepad.uexp",
+  "key": "34A816D049A5BE064C74D8B62C2368CF",
+  "src": "选择右边的光标并按下A键后可以把对应的一行方块往右推一格，把石板数字和颜色与洛书一致即可完成。"
+ },
+ {
+  "file": "Steps_Gamepad/LuoShu/BP_Guidance_LuoShu_3_Gamepad.uexp",
+  "key": "CF839588442470F2F39C88AAA95FD237",
+  "src": "按下”B”键离开此界面，按下“Y\"键重置机关"
+ },
+ {
+  "file": "Steps_Gamepad/Meridian/BP_Guidance_Meridian_0_Gamepad.uexp",
+  "key": "BC24624647FD77C24DFD35965776DA47",
+  "src": "按下菜单键后，操作十字键选中经脉图标按下A确认键打开经脉界面"
+ },
+ {
+  "file": "Steps_Gamepad/Meridian/BP_Guidance_Meridian_4_Gamepad.uexp",
+  "key": "2BCEFD7D496CCB88F933CF9F12ED29E9",
+  "src": "选中穴位后按下RS可查看此穴位冲击后带来的效果"
+ },
+ {
+  "file": "Steps_Gamepad/Meridian/BP_Guidance_Meridian_5_Gamepad.uexp",
+  "key": "899A22A843A2BFD8DD6DFA828AB9F095",
+  "src": "使用LB RB快速切换脉络图"
+ },
+ {
+  "file": "Steps_Gamepad/MountPet/BP_Guidance_MountPet_3_Gamepad.uexp",
+  "key": "1AF332D44C7D694316D370AA1ACA20F8",
+  "src": "骑乘状态下RB被替换为走路/骑乘"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "A9D0A19240E97343F3D1BAAA4A4E5251",
+  "src": "关闭UI/\r\n打开系统界面"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "379DDF8847C4FB5E253515950E711F06",
+  "src": "E 交互"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "A3D19D6046B5925E13FB2685304AF966",
+  "src": "WASD\r\n控制人物移动"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "6632D0A94FEEEF39F7F21E9FB96B657C",
+  "src": "空格切换下一句对话"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "A1E5DEB340645AEFA472BA9C16E5B515",
+  "src": "跳过动画"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "0D927A7147472091179B6B8ACF874908",
+  "src": "左键确定"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "F76E62D34D3C832259C6BEB28A6987C1",
+  "src": "右键取消"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "4214D93F446D0D1CAF04B39D7C22D125",
+  "src": "切换移动方式\r\n奔跑/走路"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "7A8C50804D9D46566305D79F77D86D01",
+  "src": "中键调整\r\n战场摄像机角度"
+ },
+ {
+  "file": "Steps_Gamepad/Operation/BP_Guidance_Operation_0_Gamepad.uexp",
+  "key": "B8EC90864A5E1EFA87F4ADAC04304403",
+  "src": "调整战场摄像机位置"
+ },
+ {
+  "file": "Steps_Gamepad/SideGame/BP_Guidance_SideGame_0_Gamepad.uexp",
+  "key": "2C24B8A5455C014BDCEF8E95FA31E0C2",
+  "src": "小游戏"
+ },
+ {
+  "file": "Steps_Gamepad/Skill/BP_Guidance_Skill_0_Gamepad.uexp",
+  "key": "DE0355284495FCF9A61BDABA37FA13BA",
+  "src": "按下菜单键后，操作十字键选中武学图标按下A确认键打开武学界面"
+ },
+ {
+  "file": "Steps_Gamepad/Skill/BP_Guidance_Skill_2_Gamepad.uexp",
+  "key": "1C9CD9FC4E7E7661D4A1C8984D400B20",
+  "src": "使用LB RB切换武学分类到心法"
+ },
+ {
+  "file": "Steps_Gamepad/Skill/BP_Guidance_Skill_3_Gamepad.uexp",
+  "key": "73606ACA493B73F4CFC2DCA496886086",
+  "src": "操作十字键选中技能后按下RS可显示此技能升级所需消耗的武学点，以及此技能的详细说明界面，界面内可查看升级后数值变化"
+ },
+ {
+  "file": "Steps_Gamepad/SkillConfig/BP_Guidance_SkillConfig_0_Gamepad.uexp",
+  "key": "DDA61CCF461FEFF970EB9D9BD36FA6AE",
+  "src": "按下菜单键后，操作十字键选中武学图标按下A确认键打开武学界面"
+ },
+ {
+  "file": "Steps_Gamepad/SkillConfig/BP_Guidance_SkillConfig_1_Gamepad.uexp",
+  "key": "143A0414482313B112B9168B5C584EC4",
+  "src": "使用LB RB切换武学招式"
+ },
+ {
+  "file": "Steps_Gamepad/SkillConfig/BP_Guidance_SkillConfig_3_Gamepad.uexp",
+  "key": "35FD430C4F133DE131D071AE2C977B8B",
+  "src": "操作十字键选中技能后按下Y键可将技能从战斗配置内卸载或装填"
+ },
+ {
+  "file": "Steps_Gamepad/Station/BP_Guidance_Station_2_Gamepad.uexp",
+  "key": "FAD2F27B4FC4F13B2854F7B8C6571CB2",
+  "src": "可按引导进行操作"
+ }
+]

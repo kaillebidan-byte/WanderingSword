@@ -1,0 +1,17 @@
+{
+ "reviewed": 0,
+ "fixes": [
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "11001_RequestDlgs_Index1_Text",
+   "new_ja": "1 - 宇文逸 $@$何があったのですか？ どうしてそんなに慌てて？"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "11003_FinishingDlgs_Index0_Text",
+   "new_ja": "1 - 宇文逸 $@$兄さん、一つ聞きたいことがあります。"
+  }
+ ]
+}

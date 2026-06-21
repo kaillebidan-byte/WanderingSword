@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(ROOT, "_tools"))
 import locres_write as L
 GAP = os.path.join(ROOT, "_phase3_gaps")
 WORK = os.path.join(ROOT, "_work", "jp")
-REPAK = os.path.join(ROOT, "_tools", "repak")
+REPAK = os.path.join(ROOT, "_tools", "repak.exe" if os.name == "nt" else "repak")
 ALL = ["Buff与道具","CG表","Npc","Quests任务表","Skills技能表","系统","门派地图与提示"]
 
 def key_index_map(b):

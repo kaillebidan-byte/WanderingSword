@@ -4,6 +4,14 @@ Wandering_Sword-WindowsNoEditor.pak
 # repakバイナリは大きいので任意。残す場合は次行をコメントアウト
 _tools/repak
 
+# APIキー等の秘密(コミット厳禁)
+_tools/.secrets.json
+.secrets.json
+*.secret
+
+# 作業一時(中間ファイル・テストスクリプト)
+_ws_tmp/
+
 # OS/エディタ
 .DS_Store
 .obsidian/workspace*
