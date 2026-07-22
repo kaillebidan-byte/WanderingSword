@@ -27,6 +27,11 @@ jobs:
       - name: Unit tests
         run: python _tools/test_lint_register.py
 
+      - name: Preview curated register fixes
+        run: |
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json | tee /tmp/fixes_preview.txt
+          grep -q '\[プレビュー\] 計24件' /tmp/fixes_preview.txt
+
       - name: Scan current localization data
         env:
           WS_TMP: ${{ github.workspace }}/_ws_tmp
