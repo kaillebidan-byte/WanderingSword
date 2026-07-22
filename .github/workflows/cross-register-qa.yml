@@ -30,7 +30,7 @@ jobs:
       - name: Validate curated register fixes
         run: |
           mkdir -p _ws_tmp/register_lint
-          python _tools/validate_fixes_json.py \
+          python _tools/validate_fixes_json.py --allow-applied \
             _phase4_proofread/fixes_cross_register_20260723.json \
             _phase4_proofread/fixes_cross_register_coldhawk_20260723.json \
             > _ws_tmp/register_lint/fixes_validation.txt 2>&1
