@@ -49,8 +49,6 @@ python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_2026072
 python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json --apply
 ```
 
-この修正セットはデプロイを実行しない。ゲーム側への差し替えは別途行う。
-
 ## 冷鷹
 
 ### 機械集計
@@ -66,15 +64,42 @@ python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_2026072
 
 `貴様` 14件はほぼ敵対相手に使われており、敵専用語として機能している。対宇文逸の「あなた」を一律「貴様」にすると、この意味分担を壊すため不採用。
 
-対宇文逸は場面に応じて次を使い分ける方針とする。
+対宇文逸は場面に応じて次を使い分ける。
 
-- 初期・公的: `宇文少侠`
-- 直接名指し・重い場面: `宇文逸`
+- 初期・公的: `宇文逸／宇文少侠`
 - 競争相手・関係成立後: `お前`
 - 日本語で不要な箇所: 二人称を省略
-- 敵対相手: `貴様`を保持
+- 敵対相手・裏切り者: `貴様`
 
-現状の174候補には宇文逸以外への発話も混在する。前後行から相手を確定して個別適用する必要があるため、初回では一括修正していない。
+### 修正案
+
+174候補から、前後行で相手と場面を確定できた32キーを `fixes_cross_register_coldhawk_20260723.json` に収録した。
+
+対象は次の系統。
+
+- 宇文逸との初対面・共闘・競争場面の「あなた」
+- 滌罪僧への同一発話内「あなた／お前」混在
+- 赤鷹への再会・敵対場面
+- 二人称反復を省略した方が自然な分析・確認台詞
+- `礼なら自分に言う` など、二人称揺れと同時に見つかった明確な日本語崩れ
+
+`貴様` は赤鷹など敵対相手だけに残し、宇文逸には使っていない。
+
+### ローカル適用
+
+プレビュー:
+
+```powershell
+python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
+```
+
+反映・再パック:
+
+```powershell
+python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json --apply
+```
+
+二つをまとめて適用する場合も、各ファイルを順番に `--apply` で実行する。いずれもデプロイは実行しない。
 
 ## 敵対原文×敬体検出
 
@@ -98,10 +123,11 @@ python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_2026072
 - `_tools/lint_register.py`: 横断候補のJSON／Markdown出力
 - `_phase4_proofread/register_qa_config.json`: ペルソナ例外と重点キャラ設定
 - `10_人物/絶無心.md`: 同門敬意モードと対外折衝を分離
+- `10_人物/冷鷹.md`: 対宇文逸の関係段階と敵専用「貴様」を明文化
 - `.agents/skills/zhja-game-translation-codex/references/06_qa.md`: 誤検出回避・前後文・二人称意味分担の知見を反映
 
 ## 次の対象
 
-1. 冷鷹174候補を相手別に分類し、対宇文逸の高確度行だけ修正
+1. 冷鷹の未処理候補を相手別に分類し、残る高確度行を追加修正
 2. 改訂版の敵対原文×敬体候補をトリアージ
-3. 絶無心修正後に同キャラの敬体インベントリを再走し、同門年長の正当な敬体だけ残るか確認
+3. 修正適用後に絶無心・冷鷹を再走し、正当なregister変化だけ残るか確認
