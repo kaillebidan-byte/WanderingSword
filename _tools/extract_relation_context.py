@@ -2,12 +2,9 @@
 # -*- coding: utf-8 -*-
 """人物ペアの関係性再監査用に、原文・現訳・前後文を会話ブロック単位で抽出する。
 
-一次資料の棚卸し専用。ペルソナや関係性マップの正しさは仮定せず、
-両者が同席する会話ブロックと相互呼称候補を収集する。
-
-使い方:
-  python _tools/extract_relation_context.py
-  python _tools/extract_relation_context.py --id yuwen_qingxu --out-dir _ws_tmp/relation_audit
+一次資料の棚卸し専用。ペルソナや関係性マップの正しさは仮定しない。
+両者が同席する会話ブロックを主資料とし、人物固有の明示呼称だけを補助資料として収集する。
+同内容の分岐・複製は代表ブロックへまとめる。
 """
 from __future__ import annotations
 
@@ -37,7 +34,6 @@ NORMALIZE_TABLE = str.maketrans(
         "门": "門",
         "师": "師",
         "儿": "兒",
-        "虚": "虚",
         "问": "問",
         "启": "啓",
         "风": "風",
@@ -79,12 +75,17 @@ def speaker_matches(speaker: str, aliases: Iterable[str]) -> bool:
 
 
 def contains_marker(texts: Iterable[str], markers: Iterable[str]) -> list[str]:
+    """表記違いを正規化し、同じ語を二重計上せず返す。"""
     found: list[str] = []
+    seen: set[str] = set()
     normalized_texts = [normalize(text) for text in texts]
     for marker in markers:
-        nmarker = normalize(marker)
-        if nmarker and any(nmarker in text for text in normalized_texts):
+        normalized_marker = normalize(marker)
+        if not normalized_marker or normalized_marker in seen:
+            continue
+        if any(normalized_marker in text for text in normalized_texts):
             found.append(marker)
+            seen.add(normalized_marker)
     return found
 
 
@@ -192,21 +193,22 @@ def classify_group(rows: list[dict[str, Any]], relation: dict[str, Any]) -> dict
     }
 
 
-def build_report(relation: dict[str, Any], groups: dict[tuple[str, str, str], list[dict[str, Any]]]) -> dict[str, Any]:
-    selected: list[dict[str, Any]] = []
-    speakers: Counter[str] = Counter()
-    marker_counts: Counter[str] = Counter()
+def group_signature(rows: list[dict[str, Any]]) -> tuple[tuple[str, str], ...]:
+    """分岐番号や格納先が違っても、話者と原文本文が同じブロックを同一視する。"""
+    return tuple((normalize(row["speaker"]), normalize(row["zh_body"])) for row in rows)
+
+
+def build_report(
+    relation: dict[str, Any],
+    groups: dict[tuple[str, str, str], list[dict[str, Any]]],
+) -> dict[str, Any]:
+    raw_selected: list[dict[str, Any]] = []
 
     for (target, ns, family), rows in groups.items():
         classification = classify_group(rows, relation)
         if classification is None:
             continue
-        for row in rows:
-            if row["speaker"]:
-                speakers[row["speaker"]] += 1
-        for hit in classification["left_to_right_hits"] + classification["right_to_left_hits"]:
-            marker_counts.update(hit["markers"])
-        selected.append(
+        raw_selected.append(
             {
                 "target": target,
                 "ns": ns,
@@ -216,7 +218,7 @@ def build_report(relation: dict[str, Any], groups: dict[tuple[str, str, str], li
             }
         )
 
-    selected.sort(
+    raw_selected.sort(
         key=lambda group: (
             0 if group["kind"] == "direct_exchange" else 1,
             group["target"],
@@ -224,17 +226,56 @@ def build_report(relation: dict[str, Any], groups: dict[tuple[str, str, str], li
             group["family"],
         )
     )
+
+    selected: list[dict[str, Any]] = []
+    signature_map: dict[tuple[tuple[str, str], ...], dict[str, Any]] = {}
+    for group in raw_selected:
+        signature = group_signature(group["rows"])
+        location = {
+            "target": group["target"],
+            "ns": group["ns"],
+            "family": group["family"],
+            "kind": group["kind"],
+        }
+        canonical = signature_map.get(signature)
+        if canonical is None:
+            group["duplicate_locations"] = []
+            signature_map[signature] = group
+            selected.append(group)
+        else:
+            canonical["duplicate_locations"].append(location)
+
+    speakers: Counter[str] = Counter()
+    selection_markers: Counter[str] = Counter()
+    direct_inventory: Counter[str] = Counter()
+    inventory_markers = relation.get("direct_exchange_inventory_markers", [])
+
+    for group in selected:
+        for row in group["rows"]:
+            if row["speaker"]:
+                speakers[row["speaker"]] += 1
+            if group["kind"] == "direct_exchange":
+                direct_inventory.update(
+                    contains_marker([row["zh_body"], row["ja_body"]], inventory_markers)
+                )
+        for hit in group["left_to_right_hits"] + group["right_to_left_hits"]:
+            selection_markers.update(hit["markers"])
+
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "relation": relation,
         "counts": {
-            "groups": len(selected),
+            "raw_groups": len(raw_selected),
+            "unique_groups": len(selected),
+            "duplicate_groups": len(raw_selected) - len(selected),
             "direct_exchange_groups": sum(group["kind"] == "direct_exchange" for group in selected),
             "explicit_reference_groups": sum(group["kind"] == "explicit_reference" for group in selected),
-            "rows": sum(len(group["rows"]) for group in selected),
+            "unique_rows": sum(len(group["rows"]) for group in selected),
+            "duplicate_locations": sum(len(group["duplicate_locations"]) for group in selected),
         },
         "speaker_inventory": dict(speakers.most_common()),
-        "marker_inventory": dict(marker_counts.most_common()),
+        "selection_marker_inventory": dict(selection_markers.most_common()),
+        "direct_exchange_marker_inventory": dict(direct_inventory.most_common()),
         "groups": selected,
     }
 
@@ -252,15 +293,20 @@ def render_markdown(report: dict[str, Any]) -> str:
         "",
         "> ペルソナや関係性マップを正しいと仮定せず、原文・現訳・会話前後を棚卸しした候補集。抽出結果だけでは結論にしない。",
         "",
-        f"- 会話ブロック: {counts['groups']}",
+        f"- 抽出ブロック（重複前）: {counts['raw_groups']}",
+        f"- 固有ブロック: {counts['unique_groups']}",
+        f"- 統合した重複: {counts['duplicate_groups']}",
         f"- 両者が同席: {counts['direct_exchange_groups']}",
-        f"- 明示呼称のみ: {counts['explicit_reference_groups']}",
-        f"- 収録行: {counts['rows']}",
-        f"- 呼称マーカー: `{json.dumps(report['marker_inventory'], ensure_ascii=False)}`",
+        f"- 人物固有の明示参照のみ: {counts['explicit_reference_groups']}",
+        f"- 固有収録行: {counts['unique_rows']}",
+        f"- 同席ブロック内の呼称・自称: `{json.dumps(report['direct_exchange_marker_inventory'], ensure_ascii=False)}`",
         "",
-        "## 監査質問",
+        "## 抽出上の注意",
         "",
     ]
+    for note in relation.get("notes", []):
+        out.append(f"- {note}")
+    out.extend(["", "## 監査質問", ""])
     for question in relation.get("audit_questions", []):
         out.append(f"- {question}")
 
@@ -270,8 +316,9 @@ def render_markdown(report: dict[str, Any]) -> str:
                 "",
                 f"## {number}. {group['kind']} — {group['target']} / {group['ns']} / {group['family']}",
                 "",
-                f"- 左→右呼称: `{json.dumps(group['left_to_right_hits'], ensure_ascii=False)}`",
-                f"- 右→左呼称: `{json.dumps(group['right_to_left_hits'], ensure_ascii=False)}`",
+                f"- 左→右の人物固有呼称: `{json.dumps(group['left_to_right_hits'], ensure_ascii=False)}`",
+                f"- 右→左の人物固有呼称: `{json.dumps(group['right_to_left_hits'], ensure_ascii=False)}`",
+                f"- 同内容の別座標: `{json.dumps(group['duplicate_locations'], ensure_ascii=False)}`",
                 "",
                 "|Index|話者|key|原文|現訳|",
                 "|---:|---|---|---|---|",
@@ -310,8 +357,9 @@ def main() -> int:
         fp.write(render_markdown(report))
     counts = report["counts"]
     print(
-        f"relation audit: {relation_id}: {counts['groups']} blocks / "
-        f"{counts['direct_exchange_groups']} direct / {counts['rows']} rows -> {args.out_dir}"
+        f"relation audit: {relation_id}: {counts['unique_groups']} unique blocks / "
+        f"{counts['duplicate_groups']} duplicates / {counts['direct_exchange_groups']} direct / "
+        f"{counts['unique_rows']} rows -> {args.out_dir}"
     )
     return 0
 
