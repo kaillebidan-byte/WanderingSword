@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "updated_at": "2026-07-23",
   "principle": "初回校正の完走、ペルソナ確定、関係性マップ記載は、最終的な正当性や品質保証を意味しない。原文・現訳・前後文を一次資料として再監査する。",
   "stages": {
@@ -9,6 +9,9 @@
     "relation_reviewed": "関係性と呼称の時系列・場面差を一次資料で検証した状態。",
     "translation_reaudited": "対象範囲の既訳を意味・声・関係性の三面で再読し、修正案を検証した状態。",
     "build_verified": "修正をlocresへ反映し、pakを再生成して機械検証した状態。ゲームフォルダには未配置。",
+    "chapter_inventory": "章・事件の範囲、場面順、登場人物、情報状態を棚卸しした状態。",
+    "chapter_reaudited": "章全体を日本語通読と原文対照の両方で監査した状態。",
+    "chapter_build_verified": "章単位の修正をlocresへ反映し、pakと回帰検証を完了した状態。",
     "game_verified": "反映後にゲーム内で表示と場面適合を確認した状態。"
   },
   "project": {
@@ -21,10 +24,15 @@
       "status": "in_progress",
       "strategy": "関係クラスタ単位で、人物・関係性・既訳を同時に検証"
     },
+    "narrative_readthrough": {
+      "status": "queued_after_pair_reaudit",
+      "plan": "_phase4_proofread/PLAN_章別通読監査.md",
+      "strategy": "人物ペア高確度パス後、冒頭から章・事件単位で日本語通読と原文対照を分けて実施"
+    },
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 161,
+      "applied_keys": 180,
       "targets": [
         "CG表",
         "Npc"
@@ -35,7 +43,8 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH2_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH3_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH4_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH5_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH5_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH1_2026-07-23.md"
       ]
     }
   },
@@ -80,6 +89,12 @@
       "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch5.json",
       "keys": 32,
       "scope": "5622・5994・6156・9202・9212系の残場面と私的な気遣い",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch1.json",
+      "keys": 19,
+      "scope": "清霄の病身・天山決着・託宣・副掌門任命・峋谷訓戒",
       "status": "applied_and_pak_built"
     }
   ],
@@ -174,13 +189,47 @@
           "validation": "恒久workflowで既存129キーと合わせた161キーを一括検査。色タグ2行を修正後、適用・一回再パック・ゼロ差分・回帰走査・LFS確定を確認。"
         }
       ]
+    },
+    "宇文逸↔清霄道長": {
+      "evidence_inventory": "complete",
+      "persona_reviewed": "in_progress",
+      "relation_reviewed": "in_progress",
+      "translation_reaudited": "batch1_in_progress",
+      "build_verified": "batch1_complete",
+      "game_verified": "not_started",
+      "evidence": {
+        "raw_blocks": 229,
+        "unique_blocks": 206,
+        "duplicate_blocks": 23,
+        "direct_exchange_blocks": 102,
+        "explicit_reference_blocks": 104,
+        "unique_rows": 1202,
+        "qingxiao_rows": 323,
+        "yuwen_rows": 428
+      },
+      "provisional_findings": [
+        "老夫は強い自称軸だが毎文へ表面補充しない",
+        "初期の警戒・試しではお前と短い命令が自然",
+        "後期の評価・病身・託宣ではそなた・逸児・省略が必要",
+        "六派盟主の公的号令は改まっていても一律のですます・あなた方にしない",
+        "清虚との差別化をお前対そなたの単語二分にしない"
+      ],
+      "curated_fix_batches": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch1.json",
+          "keys": 19,
+          "scope": "祖師殿の問い、病身の天山決着、終盤託宣、副掌門任命、峋谷訓戒",
+          "status": "applied_and_pak_built",
+          "validation": "恒久workflowで既存161キーと合わせた180キーを一括検査。全19キーの実差分・接頭辞・制御トークンを確認し、locres適用・一回再パック・ゼロ差分・回帰走査・LFS確定を確認。"
+        }
+      ]
     }
   },
   "current": {
     "cluster": "wudang_core",
     "pair": "宇文逸↔清霄道長",
-    "stage": "evidence_inventory",
-    "status": "not_started",
-    "next_action": "宇文逸↔清霄道長の同席・相互呼称・時系列ブロックを抽出し、清虚との師モード差と対外registerを検証する"
+    "stage": "translation_reaudited",
+    "status": "in_progress",
+    "next_action": "22152系の六派盟主号令、22050・22466系の後継評価、5345・5425・5833・9216系の初期叱責と保護を場面単位で監査する"
   }
 }
