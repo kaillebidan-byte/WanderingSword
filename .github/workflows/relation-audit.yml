@@ -28,14 +28,15 @@ jobs:
         run: python _tools/test_extract_relation_context.py
 
       - name: Validate curated relation fixes
-        run: >-
-          python _tools/validate_fixes_json.py --allow-applied
-          _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+        run: |
+          python _tools/validate_fixes_json.py --allow-applied \
+            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json \
+            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json
 
       - name: Preview curated relation fixes
-        run: >-
-          python _tools/apply_fixes_json.py
-          _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+        run: |
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json
 
       - name: Extract current relation evidence
         env:
