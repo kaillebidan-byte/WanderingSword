@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+from __future__ import annotations
+
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import apply_fixes_json as target  # noqa: E402
+
+
+class ApplyFixesJsonTests(unittest.TestCase):
+    def write_json(self, root: Path, name: str, payload: object) -> Path:
+        path = root / name
+        path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+        return path
+
+    def test_loads_multiple_files_and_accepts_same_duplicate(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            key1 = "CG表\x1fQuestDlgs\x1f100_1_Text"
+            key2 = "Npc\x1fNpcTalk\x1f200_1_Text"
+            first = self.write_json(root, "a.json", {key1: "新訳A"})
+            second = self.write_json(
+                root,
+                "b.json",
+                {key1: "新訳A", key2: "新訳B"},
+            )
+
+            fixes, sources = target.load_fix_files([str(first), str(second)])
+
+            self.assertEqual({key1: "新訳A", key2: "新訳B"}, fixes)
+            self.assertEqual(str(first), sources[key1])
+            self.assertEqual(str(second), sources[key2])
+
+    def test_rejects_conflicting_duplicate(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            key = "CG表\x1fQuestDlgs\x1f100_1_Text"
+            first = self.write_json(root, "a.json", {key: "新訳A"})
+            second = self.write_json(root, "b.json", {key: "新訳B"})
+
+            with self.assertRaisesRegex(ValueError, "競合"):
+                target.load_fix_files([str(first), str(second)])
+
+    def test_rejects_malformed_compound_key(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = self.write_json(root, "bad.json", {"bad-key": "新訳"})
+
+            with self.assertRaisesRegex(ValueError, "複合key形式不正"):
+                target.load_fix_files([str(path)])
+
+    def test_expands_glob_and_deduplicates_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            first = self.write_json(root, "a.json", {})
+            second = self.write_json(root, "b.json", {})
+
+            expanded = target.expand_paths(
+                [str(root / "*.json"), str(first)]
+            )
+
+            self.assertEqual([str(first), str(second)], expanded)
+
+    def test_rejects_missing_glob(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(FileNotFoundError):
+                target.expand_paths([str(Path(tmp) / "missing-*.json")])
+
+
+if __name__ == "__main__":
+    unittest.main()
