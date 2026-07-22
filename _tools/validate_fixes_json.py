@@ -4,15 +4,19 @@
 
 検証項目:
 - 対象locresとkeyが存在する
-- 新旧値が異なる
+- 未適用時は新旧値が異なる
 - `$@$` より前の話者接頭辞が不変
 - 制御タグ、改行タグ、プレースホルダの並びが不変
 
+`--allow-applied` を付けると、現在値が修正後の値と同一でも正常とする。
+修正JSONを適用後の回帰仕様として継続利用するCI向け。
+
 使い方:
-  python _tools/validate_fixes_json.py fixes.json [fixes2.json ...]
+  python _tools/validate_fixes_json.py [--allow-applied] fixes.json [fixes2.json ...]
 """
 from __future__ import annotations
 
+import argparse
 import glob
 import json
 import os
@@ -45,9 +49,15 @@ def locres_path(target: str) -> str:
     return paths[0]
 
 
-def validate_files(paths: Iterable[str]) -> tuple[int, list[str]]:
+def validate_files(
+    paths: Iterable[str],
+    *,
+    allow_applied: bool = False,
+) -> tuple[int, int, int, list[str]]:
     cache: dict[str, dict[str, str]] = {}
     checked = 0
+    pending = 0
+    applied = 0
     errors: list[str] = []
 
     for path in paths:
@@ -83,8 +93,14 @@ def validate_files(paths: Iterable[str]) -> tuple[int, list[str]]:
             if old_value is None:
                 errors.append(f"{label}: keyなし")
                 continue
+
             if old_value == new_value:
-                errors.append(f"{label}: 新旧値が同一")
+                applied += 1
+                if not allow_applied:
+                    errors.append(f"{label}: 新旧値が同一")
+                continue
+
+            pending += 1
             if speaker_prefix(old_value) != speaker_prefix(new_value):
                 errors.append(f"{label}: 話者接頭辞が変化")
             if control_tokens(old_value) != control_tokens(new_value):
@@ -93,20 +109,35 @@ def validate_files(paths: Iterable[str]) -> tuple[int, list[str]]:
                     f"{control_tokens(old_value)!r} -> {control_tokens(new_value)!r}"
                 )
 
-    return checked, errors
+    return checked, pending, applied, errors
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--allow-applied",
+        action="store_true",
+        help="現在値が修正後の値と同一でも、適用済みとして正常扱いする",
+    )
+    parser.add_argument("paths", nargs="+")
+    return parser.parse_args()
 
 
 def main() -> int:
-    if len(sys.argv) < 2:
-        print("使い方: validate_fixes_json.py fixes.json [fixes2.json ...]", file=sys.stderr)
-        return 2
-    checked, errors = validate_files(sys.argv[1:])
+    args = parse_args()
+    checked, pending, applied, errors = validate_files(
+        args.paths,
+        allow_applied=args.allow_applied,
+    )
     if errors:
         print(f"NG: {checked}件確認 / {len(errors)}件エラー", file=sys.stderr)
         for error in errors:
             print("  - " + error, file=sys.stderr)
         return 1
-    print(f"OK: {checked}件 / key・接頭辞・制御トークン・実差分を確認")
+    print(
+        f"OK: {checked}件 / 未適用{pending}件 / 適用済み{applied}件 / "
+        "key・接頭辞・制御トークンを確認"
+    )
     return 0
 
 
