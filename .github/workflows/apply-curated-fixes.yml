@@ -1,0 +1,90 @@
+name: Apply curated localization fixes
+
+on:
+  push:
+    branches:
+      - agent/apply-curated-fixes
+    paths:
+      - .github/workflows/apply-curated-fixes.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-build:
+    runs-on: ubuntu-latest
+    env:
+      WS_TMP: ${{ github.workspace }}/_ws_tmp
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout with LFS assets
+        uses: actions/checkout@v4
+        with:
+          ref: agent/apply-curated-fixes
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Prepare repak
+        run: chmod +x _tools/repak
+
+      - name: Validate all curated fix sets before application
+        run: |
+          python _tools/validate_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json
+          python _tools/validate_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
+          python _tools/validate_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+
+      - name: Apply fixes and rebuild pak
+        run: |
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json --apply
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json --apply
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json --apply
+
+      - name: Verify all fixes are now present
+        run: |
+          for file in \
+            _phase4_proofread/fixes_cross_register_20260723.json \
+            _phase4_proofread/fixes_cross_register_coldhawk_20260723.json \
+            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+          do
+            output="$(python _tools/apply_fixes_json.py "$file")"
+            printf '%s\n' "$output"
+            printf '%s\n' "$output" | grep -q '計0件'
+          done
+
+      - name: Run regression scans
+        run: |
+          python _tools/test_lint_register.py
+          python _tools/test_extract_relation_context.py
+          python _tools/lint_register.py --out-dir _ws_tmp/register_lint
+          python _tools/extract_relation_context.py --out-dir _ws_tmp/relation_audit
+
+      - name: Verify packaged output
+        run: |
+          test -s _work/aaWanderingSword_JP_P.pak
+          stat _work/aaWanderingSword_JP_P.pak
+          git lfs ls-files | grep -F '_work/aaWanderingSword_JP_P.pak'
+
+      - name: Commit applied locres and pak
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _work/jp/Wandering_Sword/Content/Localization _work/aaWanderingSword_JP_P.pak
+          git diff --cached --stat
+          git diff --cached --quiet && { echo 'No localization changes to commit'; exit 1; }
+          git commit -m "検証済み70キーをlocresとpakへ反映"
+          git push
+
+      - name: Upload QA reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: applied-fixes-qa
+          path: |
+            _ws_tmp/register_lint/
+            _ws_tmp/relation_audit/
+          if-no-files-found: error
