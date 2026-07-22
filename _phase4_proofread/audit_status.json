@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 235,
+      "applied_keys": 242,
       "targets": [
         "CG表",
         "Npc",
@@ -47,7 +47,8 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH5_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH1_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH2_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH3_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH3_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH4_2026-07-23.md"
       ]
     }
   },
@@ -110,6 +111,12 @@
       "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch3.json",
       "keys": 24,
       "scope": "神侯・伏龍子・廠衛・客人への対外registerと掌門後の訓戒",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch4.json",
+      "keys": 7,
+      "scope": "廠衛別分岐と峋谷援軍の掌門・副掌門分岐整合",
       "status": "applied_and_pak_built"
     }
   ],
@@ -207,10 +214,10 @@
     },
     "宇文逸↔清霄道長": {
       "evidence_inventory": "complete",
-      "persona_reviewed": "in_progress",
-      "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch3_complete_next_candidates_pending",
-      "build_verified": "batch3_complete",
+      "persona_reviewed": "complete_for_pair_scope",
+      "relation_reviewed": "complete_for_pair_scope",
+      "translation_reaudited": "high_confidence_pass_complete",
+      "build_verified": "batch4_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 229,
@@ -253,15 +260,23 @@
           "scope": "客人への礼、神侯・伏龍子・廠衛への対外／敵対register、掌門後の峋谷訓戒",
           "status": "applied_and_pak_built",
           "validation": "恒久workflowで既存211キーと合わせた235キーを一括検査。CG表へ一回書き込み、分岐複製を同値へ収束し、pak一回再生成、ゼロ差分、回帰走査、LFS確定を確認。"
+        },
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch4.json",
+          "keys": 7,
+          "scope": "廠衛との別れの別分岐、峋谷援軍の掌門・副掌門分岐",
+          "status": "applied_and_pak_built",
+          "validation": "恒久workflowで既存235キーと合わせた242キーを一括検査。CG表へ一回書き込み、同一原文分岐を同値へ収束し、pak一回再生成、ゼロ差分、回帰走査、LFS確定を確認。"
         }
-      ]
+      ],
+      "residual_candidates": "game_context_dependent_or_belongs_to_other_pair"
     }
   },
   "current": {
     "cluster": "wudang_core",
-    "pair": "宇文逸↔清霄道長",
-    "stage": "translation_reaudited",
-    "status": "in_progress",
-    "next_action": "22035・22040周辺の六派盟主選出全体、伏龍子・玄離・欲教への残号令、商葶苧・薬聖・五仙教への客人register残候補を確認し、高確度パスの収束を判定する"
+    "pair": "宇文逸↔莫問",
+    "stage": "evidence_inventory",
+    "status": "not_started",
+    "next_action": "宇文逸↔莫問の同席・相互呼称・離反前後・天山出自判明・敵対・再会・終盤分岐を抽出する"
   }
 }
