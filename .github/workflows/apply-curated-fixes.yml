@@ -17,7 +17,10 @@ permissions:
 jobs:
   apply-and-build:
     if: ${{ github.actor != 'github-actions[bot]' }}
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
     env:
       WS_TMP: ${{ github.workspace }}/_ws_tmp
       PYTHONIOENCODING: utf-8
@@ -33,9 +36,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Prepare repak
-        run: chmod +x _tools/repak
 
       - name: Validate all curated fix sets before application
         run: |
@@ -71,7 +71,7 @@ jobs:
       - name: Verify packaged output
         run: |
           test -s _work/aaWanderingSword_JP_P.pak
-          stat _work/aaWanderingSword_JP_P.pak
+          ls -lh _work/aaWanderingSword_JP_P.pak
           git lfs ls-files | grep -F '_work/aaWanderingSword_JP_P.pak'
 
       - name: Commit applied locres and pak
