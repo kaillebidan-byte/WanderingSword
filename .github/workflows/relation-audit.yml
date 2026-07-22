@@ -1,9 +1,6 @@
 name: Relation audit extraction
 
 on:
-  push:
-    branches:
-      - agent/rebuild-audit-baseline
   pull_request:
     branches:
       - main
@@ -25,22 +22,34 @@ jobs:
           python-version: "3.12"
 
       - name: Unit tests
-        run: python _tools/test_extract_relation_context.py
+        run: |
+          python _tools/test_apply_fixes_json.py
+          python _tools/test_extract_relation_context.py
+
+      - name: Collect relation fix batches
+        id: fixes
+        shell: bash
+        run: |
+          shopt -s nullglob
+          files=(_phase4_proofread/fixes_relation_*.json)
+          if ((${#files[@]} == 0)); then
+            echo 'No relation fix batches found' >&2
+            exit 1
+          fi
+          printf '%s\n' "${files[@]}" > _ws_relation_fix_files.txt
+          printf 'Found %s relation fix batches\n' "${#files[@]}"
 
       - name: Validate curated relation fixes
+        shell: bash
         run: |
-          python _tools/validate_fixes_json.py --allow-applied \
-            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json \
-            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json \
-            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json \
-            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch4.json
+          mapfile -t files < _ws_relation_fix_files.txt
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}"
 
-      - name: Preview curated relation fixes
+      - name: Preview curated relation fixes once
+        shell: bash
         run: |
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch4.json
+          mapfile -t files < _ws_relation_fix_files.txt
+          python _tools/apply_fixes_json.py "${files[@]}"
 
       - name: Extract current relation evidence
         env:
@@ -49,6 +58,7 @@ jobs:
         run: python _tools/extract_relation_context.py --out-dir _ws_tmp/relation_audit
 
       - name: Upload evidence inventory
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: relation-audit-evidence
