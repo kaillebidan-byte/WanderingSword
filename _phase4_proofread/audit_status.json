@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated_at": "2026-07-23",
   "principle": "初回校正の完走、ペルソナ確定、関係性マップ記載は、最終的な正当性や品質保証を意味しない。原文・現訳・前後文を一次資料として再監査する。",
   "stages": {
@@ -58,11 +58,36 @@
       "status": "queued"
     }
   ],
+  "pair_status": {
+    "宇文逸↔清虚道長": {
+      "evidence_inventory": "complete",
+      "persona_reviewed": "complete_for_pair_scope",
+      "relation_reviewed": "complete_for_pair_scope",
+      "translation_reaudited": "in_progress",
+      "game_verified": "not_started",
+      "evidence": {
+        "raw_blocks": 171,
+        "unique_blocks": 157,
+        "duplicate_blocks": 14,
+        "direct_exchange_blocks": 117,
+        "explicit_reference_blocks": 40,
+        "unique_rows": 1160
+      },
+      "curated_fix_batches": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json",
+          "keys": 14,
+          "scope": "清虚の逸児発話に併存する汎用お前・お前たち・为师直訳臭",
+          "status": "validation_pending"
+        }
+      ]
+    }
+  },
   "current": {
     "cluster": "wudang_core",
     "pair": "宇文逸↔清虚道長",
-    "stage": "evidence_inventory",
+    "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "両者が同席する会話ブロックと相互呼称行を原文・現訳・前後文つきで抽出する"
+    "next_action": "14キーの修正JSONを検証し、弟子・为师の直訳臭と意味ズレ候補を次バッチへ絞る"
   }
 }
