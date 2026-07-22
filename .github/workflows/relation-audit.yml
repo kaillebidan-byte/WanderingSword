@@ -29,7 +29,7 @@ jobs:
 
       - name: Validate curated relation fixes
         run: >-
-          python _tools/validate_fixes_json.py
+          python _tools/validate_fixes_json.py --allow-applied
           _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
 
       - name: Preview curated relation fixes
