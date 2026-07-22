@@ -7,7 +7,8 @@
   python _tools/lint_register.py --out-dir _ws_tmp/register_lint
   python _tools/lint_register.py --character 絶無心 --character 冷鷹
 
-このツールは候補抽出だけを行い、locresを書き換えない。
+このツールは候補抽出だけを行い、locres・進捗・pakを書き換えない。
+registerは相手と場面で変化するため、出力を一括置換へ渡してはならない。
 """
 from __future__ import annotations
 
@@ -31,25 +32,42 @@ sys.path.insert(0, os.path.join(ROOT, "_tools"))
 import locres  # noqa: E402
 
 CONTROL_RE = re.compile(r"<[^>]*>|\{[^}]*\}|#nl")
-HOSTILE_TERMS = (
-    "牛鼻子", "妖道", "妖人", "妖女", "贼", "賊", "找死", "受死", "纳命", "納命",
-    "万死", "萬死", "休想", "放肆", "滚", "滾", "老匹夫", "小贼", "小賊",
-    "狗贼", "狗賊", "混账", "混帳", "该死", "該死", "畜生", "逆贼", "逆賊",
-)
-RESPECT_TERMS = (
-    "大师兄", "大師兄", "师兄", "師兄", "师父", "師父", "前辈", "前輩",
-    "大人", "神侯", "盟主", "宗主", "掌门", "掌門", "方丈", "大师", "大師", "长老", "長老",
-)
 POLITE_RE = re.compile(
     r"(?:です|ます|ません|ました|ましょう|でしょう|ください|下さい|"
     r"いただ(?:く|き|け|いた)|頂戴|いたします|致します|ございます|ございません)"
 )
 RAW_YO_RE = re.compile(r"(?:^|[\s「『（(【])余(?:$|[はがもにをの、。！？!?…])")
+KEY_INDEX_RE = re.compile(r"^(?P<prefix>.*?_Dlgs_Index)(?P<index>\d+)(?P<suffix>_Text)$")
+
+# 「賊」「妖人」などの名詞があるだけでは敵対発話とは限らない。
+# 二人称への脅し・罵倒、または行頭の敵対呼格に限定して高精度候補を出す。
+DIRECTED_HOSTILE_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    (
+        "second_person_threat",
+        re.compile(
+            r"(?:你|您|尔|爾|汝|阁下|閣下|你们|你們).{0,40}"
+            r"(?:找死|受死|纳命|納命|罪该万死|罪該萬死|休想|放肆|"
+            r"滚开|滾開|无耻|無恥|败类|敗類|人渣|小人|畜生)"
+        ),
+    ),
+    (
+        "hostile_vocative",
+        re.compile(
+            r"^(?:妖僧|妖道|牛鼻子|老匹夫|狗贼|狗賊|逆贼|逆賊|"
+            r"小贼|小賊|畜生)[，,！!]?"
+        ),
+    ),
+    (
+        "hostile_imperative",
+        re.compile(r"^(?:放肆|滚开|滾開|受死|纳命|納命)[！!。]?"),
+    ),
+)
 
 DEFAULT_SECOND_PERSON_TERMS = (
     "あなた", "お前", "おまえ", "貴様", "そなた", "貴殿", "少侠",
     "宇文逸", "宇文少侠", "宇文の坊主", "小僧",
 )
+DIRECT_PRONOUNS = {"あなた", "お前", "おまえ", "貴様", "そなた", "貴殿"}
 
 
 def body(text: str | None) -> str:
@@ -70,6 +88,10 @@ def has_polite_register(text: str) -> bool:
 
 def has_raw_yo(text: str) -> bool:
     return bool(RAW_YO_RE.search(text))
+
+
+def directed_hostility(text: str) -> list[str]:
+    return [name for name, pattern in DIRECTED_HOSTILE_PATTERNS if pattern.search(text)]
 
 
 def find_second_person_terms(
@@ -102,16 +124,50 @@ def scan_rows(
     lines = data["lines"]
     order = data.get("order") or list(lines)
     focus = config.get("focus_characters", {})
+    allowed_raw_yo = set(config.get("allowed_raw_yo_characters", []))
     ja_cache: dict[str, dict[str, str]] = {}
 
-    def ja_of(target: str, ns: str, key: str) -> str:
+    def table_of(target: str) -> dict[str, str]:
         if target not in ja_cache:
             _, ja_cache[target], *_ = locres.parse(localization_path(target))
-        return ja_cache[target].get(ns + "\x1f" + key, "") or ""
+        return ja_cache[target]
+
+    def ja_of(target: str, ns: str, key: str) -> str:
+        return table_of(target).get(ns + "\x1f" + key, "") or ""
+
+    def context_of(
+        target: str,
+        ns: str,
+        key: str,
+        radius: int = 1,
+    ) -> list[dict[str, str | bool]]:
+        match = KEY_INDEX_RE.match(key)
+        if not match:
+            return []
+        center = int(match.group("index"))
+        rows: list[dict[str, str | bool]] = []
+        table = table_of(target)
+        for index in range(max(0, center - radius), center + radius + 1):
+            neighbor = f"{match.group('prefix')}{index}{match.group('suffix')}"
+            full = target + "\x1f" + ns + "\x1f" + neighbor
+            ja_value = table.get(ns + "\x1f" + neighbor, "") or ""
+            zh_value = source_zh.get(full, "") or ""
+            if not ja_value and not zh_value:
+                continue
+            rows.append(
+                {
+                    "key": neighbor,
+                    "zh": zh_value,
+                    "ja": ja_value,
+                    "is_current": neighbor == key,
+                }
+            )
+        return rows
 
     l1: list[dict[str, Any]] = []
     l3: list[dict[str, Any]] = []
-    l4: dict[str, dict[str, Any]] = {}
+    focus_register: dict[str, dict[str, Any]] = {}
+    second_person: dict[str, dict[str, Any]] = {}
 
     for character in order:
         if selected_characters and character not in selected_characters:
@@ -123,6 +179,7 @@ def scan_rows(
         )
         second_counts: Counter[str] = Counter()
         second_rows: list[dict[str, Any]] = []
+        polite_rows: list[dict[str, Any]] = []
 
         for target, ns, key in lines.get(character, []):
             full_key = target + "\x1f" + ns + "\x1f" + key
@@ -139,20 +196,25 @@ def scan_rows(
                 "ja": ja_full,
             }
 
-            if has_raw_yo(ja_body):
+            if character not in allowed_raw_yo and has_raw_yo(ja_body):
                 l1.append({**base, "rule": "L1_raw_yo"})
 
-            hostile = matched_terms(zh_body, HOSTILE_TERMS)
-            if hostile and has_polite_register(ja_body):
-                respectful = matched_terms(zh_body, RESPECT_TERMS)
-                severity = "medium" if respectful else "high"
+            hostility = directed_hostility(zh_body)
+            if hostility and has_polite_register(ja_body):
                 l3.append(
                     {
                         **base,
-                        "rule": "L3_hostile_polite",
-                        "severity": severity,
-                        "hostile_terms": hostile,
-                        "respect_context_terms": respectful,
+                        "rule": "L3_directed_hostility_polite",
+                        "hostility_patterns": hostility,
+                        "context": context_of(target, ns, key),
+                    }
+                )
+
+            if "polite_inventory" in checks and has_polite_register(ja_body):
+                polite_rows.append(
+                    {
+                        **base,
+                        "context": context_of(target, ns, key),
                     }
                 )
 
@@ -160,15 +222,27 @@ def scan_rows(
                 found = find_second_person_terms(ja_body, second_terms)
                 if found:
                     second_counts.update(found)
-                    second_rows.append({**base, "terms": found})
+                    second_rows.append(
+                        {
+                            **base,
+                            "terms": found,
+                            "context": context_of(target, ns, key),
+                        }
+                    )
+
+        if "polite_inventory" in checks:
+            focus_register[character] = {
+                "count": len(polite_rows),
+                "rows": polite_rows,
+            }
 
         if "second_person_drift" in checks:
             direct = {
-                key: count
-                for key, count in second_counts.items()
-                if key in {"あなた", "お前", "おまえ", "貴様", "そなた", "貴殿"}
+                term: count
+                for term, count in second_counts.items()
+                if term in DIRECT_PRONOUNS
             }
-            l4[character] = {
+            second_person[character] = {
                 "counts": dict(second_counts.most_common()),
                 "direct_pronoun_counts": direct,
                 "has_drift": len([count for count in direct.values() if count > 0]) >= 2,
@@ -176,17 +250,23 @@ def scan_rows(
             }
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "counts": {
             "L1_raw_yo": len(l1),
-            "L3_hostile_polite": len(l3),
-            "L4_focus_characters": len(l4),
-            "L4_rows": sum(len(value["rows"]) for value in l4.values()),
+            "L3_directed_hostility_polite": len(l3),
+            "focus_polite_rows": sum(
+                value["count"] for value in focus_register.values()
+            ),
+            "second_person_focus_characters": len(second_person),
+            "second_person_rows": sum(
+                len(value["rows"]) for value in second_person.values()
+            ),
         },
         "L1_raw_yo": l1,
-        "L3_hostile_polite": l3,
-        "L4_second_person_drift": l4,
+        "L3_directed_hostility_polite": l3,
+        "focus_register_inventory": focus_register,
+        "second_person_drift": second_person,
     }
 
 
@@ -206,34 +286,30 @@ def render_markdown(report: dict[str, Any]) -> str:
         "# register横断lint レポート",
         "",
         f"- 生成時刻(UTC): {report['generated_at']}",
-        f"- L1 生「余」候補: {counts['L1_raw_yo']}件",
-        f"- L3 敵対原文×敬体訳候補: {counts['L3_hostile_polite']}件",
-        f"- L4 二人称追跡行: {counts['L4_rows']}件",
+        f"- L1 生『余』候補: {counts['L1_raw_yo']}件",
+        f"- L3 二人称への敵対原文×敬体訳候補: {counts['L3_directed_hostility_polite']}件",
+        f"- 指定キャラ敬体行: {counts['focus_polite_rows']}件",
+        f"- 二人称追跡行: {counts['second_person_rows']}件",
         "",
         "> 候補抽出のみ。registerは相手・場面で変化するため、一括置換しない。原文・前後文・ペルソナを照合して採否を決める。",
         "",
-        "## L3 敵対原文×敬体訳",
+        "## L3 二人称への敵対原文×敬体訳",
         "",
-        "|重要度|キャラ|対象|key|敵対語|原文|現訳|",
-        "|---|---|---|---|---|---|---|",
+        "|キャラ|対象|key|検出|原文|現訳|",
+        "|---|---|---|---|---|---|",
     ]
-    for row in report["L3_hostile_polite"]:
+    for row in report["L3_directed_hostility_polite"]:
         out.append(
-            "|{severity}|{character}|{target}|{key}|{terms}|{zh}|{ja}|".format(
-                severity=row["severity"],
-                character=md_cell(row["character"]),
-                target=md_cell(row["target"]),
-                key=md_cell(row["key"], 80),
-                terms=md_cell("/".join(row["hostile_terms"]), 40),
-                zh=md_cell(body(row["zh"])),
-                ja=md_cell(body(row["ja"])),
-            )
+            f"|{md_cell(row['character'])}|{md_cell(row['target'])}|"
+            f"{md_cell(row['key'], 80)}|"
+            f"{md_cell('/'.join(row['hostility_patterns']), 40)}|"
+            f"{md_cell(body(row['zh']))}|{md_cell(body(row['ja']))}|"
         )
 
     out.extend(
         [
             "",
-            "## L1 生「余」",
+            "## L1 生『余』",
             "",
             "|キャラ|対象|key|原文|現訳|",
             "|---|---|---|---|---|",
@@ -246,8 +322,21 @@ def render_markdown(report: dict[str, Any]) -> str:
             f"{md_cell(body(row['ja']))}|"
         )
 
-    out.extend(["", "## L4 二人称ドリフト追跡", ""])
-    for character, result in report["L4_second_person_drift"].items():
+    out.extend(["", "## 指定キャラの敬体インベントリ", ""])
+    for character, result in report["focus_register_inventory"].items():
+        out.append(f"### {character} ({result['count']}件)")
+        out.append("")
+        out.append("|対象|key|原文|現訳|")
+        out.append("|---|---|---|---|")
+        for row in result["rows"]:
+            out.append(
+                f"|{md_cell(row['target'])}|{md_cell(row['key'], 80)}|"
+                f"{md_cell(body(row['zh']))}|{md_cell(body(row['ja']))}|"
+            )
+        out.append("")
+
+    out.extend(["", "## 二人称ドリフト追跡", ""])
+    for character, result in report["second_person_drift"].items():
         out.append(f"### {character}")
         out.append("")
         out.append(
@@ -263,9 +352,9 @@ def render_markdown(report: dict[str, Any]) -> str:
         out.append("|---|---|---|---|---|")
         for row in result["rows"]:
             out.append(
-                f"|{md_cell('/'.join(row['terms']), 40)}|{md_cell(row['target'])}|"
-                f"{md_cell(row['key'], 80)}|{md_cell(body(row['zh']))}|"
-                f"{md_cell(body(row['ja']))}|"
+                f"|{md_cell('/'.join(row['terms']), 40)}|"
+                f"{md_cell(row['target'])}|{md_cell(row['key'], 80)}|"
+                f"{md_cell(body(row['zh']))}|{md_cell(body(row['ja']))}|"
             )
         out.append("")
     return "\n".join(out).rstrip() + "\n"
@@ -308,8 +397,9 @@ def main() -> int:
     counts = report["counts"]
     print(
         f"register lint: L1={counts['L1_raw_yo']} "
-        f"L3={counts['L3_hostile_polite']} "
-        f"L4行={counts['L4_rows']} -> {args.out_dir}"
+        f"L3={counts['L3_directed_hostility_polite']} "
+        f"敬体={counts['focus_polite_rows']} "
+        f"二人称={counts['second_person_rows']} -> {args.out_dir}"
     )
     return 0
 
