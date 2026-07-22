@@ -25,7 +25,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 288,
+      "applied_keys": 322,
       "targets": ["CG表", "Npc", "Quests任务表"],
       "game_verified": "not_started",
       "record_index": [
@@ -39,7 +39,8 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH3_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH4_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH1_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH2_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH2_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-23.md"
       ]
     }
   },
@@ -56,7 +57,8 @@
     {"path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch3.json", "keys": 24, "scope": "清霄の対外・敵対register", "status": "applied_and_pak_built"},
     {"path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch4.json", "keys": 7, "scope": "清霄の分岐整合", "status": "applied_and_pak_built"},
     {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json", "keys": 29, "scope": "莫問の入門直後兄弟子モード", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json", "keys": 17, "scope": "莫問の門派・武学説明と剣の贈与", "status": "applied_and_pak_built"}
+    {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json", "keys": 17, "scope": "莫問の門派・武学説明と剣の贈与", "status": "applied_and_pak_built"},
+    {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json", "keys": 34, "scope": "莫問の初任務・状況分析・門派任務説明・平康城前後", "status": "applied_and_pak_built"}
   ],
   "queue": [
     {"id": "wudang_core", "label": "武当師門中核", "status": "in_progress", "pairs": ["宇文逸↔清虚道長", "宇文逸↔清霄道長", "宇文逸↔莫問", "宇文逸↔莫棄", "宇文逸↔元啓", "宇文逸↔元風", "宇文逸↔程鈺"]},
@@ -80,12 +82,13 @@
     },
     "宇文逸↔莫問": {
       "evidence_inventory": "complete", "persona_reviewed": "in_progress", "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch2_complete_next_scenes_pending", "build_verified": "batch2_complete", "game_verified": "not_started",
+      "translation_reaudited": "batch3_complete_next_scenes_pending", "build_verified": "batch3_complete", "game_verified": "not_started",
       "evidence": {"raw_blocks": 285, "unique_blocks": 277, "duplicate_blocks": 8, "direct_exchange_blocks": 232, "explicit_reference_blocks": 45, "unique_rows": 1820, "mowen_rows": 546, "yuwen_rows": 640},
-      "applied_keys": 46,
+      "applied_keys": 80,
       "provisional_findings": [
         "入門直後の宇文師弟・師弟には一次資料の根拠がある",
         "呼称の敬意と弟弟子への全面敬体は別であり、兄弟子の地声は自然な常体",
+        "村人・師叔への対外敬体と、弟分への常体を同じ場面内でも切り分ける",
         "案内・教導・世話・危機判断を同じ語尾へ均さない",
         "人物口調の監査でも鋳剣と剣術、趁手などの意味誤りを同時に確認する",
         "宇文師弟固定、温情、諦観は離反・敵対・再会・終盤分岐まで検証後に確定する"
@@ -97,6 +100,6 @@
     "pair": "宇文逸↔莫問",
     "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "5230〜5302系の初任務、平康城、危機判断と兄弟子の気遣いを監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
+    "next_action": "5278〜5302系の平康城潜入、危機判断、絶無心との対峙、夜の稽古と家族観を監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
   }
 }
