@@ -12,16 +12,17 @@ class RegisterLintTest(unittest.TestCase):
             "滚开！",
         )
 
-    def test_hostile_source_and_polite_target(self):
-        zh = L.body("1 - 絶無心 $@$牛鼻子，休想！")
-        ja = L.body("1 - 絶無心 $@$ご安心ください。")
+    def test_directed_hostility_excludes_plain_nouns_and_idioms(self):
         self.assertEqual(
-            L.matched_terms(zh, L.HOSTILE_TERMS),
-            ["牛鼻子", "休想"],
+            L.directed_hostility("妖僧，你丧尽天良，今日合该受死！"),
+            ["second_person_threat", "hostile_vocative"],
         )
-        self.assertTrue(L.has_polite_register(ja))
+        self.assertEqual(L.directed_hostility("那些该死的山贼实在可恨。"), [])
+        self.assertEqual(L.directed_hostility("杀得马匪屁滚尿流。"), [])
+        self.assertEqual(L.directed_hostility("妾身万死难报。"), [])
 
-    def test_plain_register_is_not_polite(self):
+    def test_polite_register(self):
+        self.assertTrue(L.has_polite_register("ご安心ください。"))
         self.assertFalse(L.has_polite_register("安心しろ。"))
 
     def test_raw_yo_does_not_match_compounds(self):
