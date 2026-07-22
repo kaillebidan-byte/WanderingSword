@@ -78,7 +78,8 @@
           "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json",
           "keys": 14,
           "scope": "清虚の逸児発話に併存する汎用お前・お前たち・为师直訳臭",
-          "status": "validation_pending"
+          "status": "validated",
+          "validation": "key存在・新旧差分・話者接頭辞・タグ・改行・プレースホルダ不変をGitHub Actionsで確認"
         }
       ]
     }
@@ -88,6 +89,6 @@
     "pair": "宇文逸↔清虚道長",
     "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "14キーの修正JSONを検証し、弟子・为师の直訳臭と意味ズレ候補を次バッチへ絞る"
+    "next_action": "弟子・为师の直訳臭と意味ズレ候補を次バッチへ絞り、宇文逸↔清虚道長の既訳再監査を続ける"
   }
 }
