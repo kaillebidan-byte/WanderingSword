@@ -74,13 +74,14 @@ def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
 
     mapping: dict[str, int] = {}
     for _ in range(namespace_count):
-        offset += 4
+        offset += 4  # namespace hash
         namespace, offset = read_fstring(data, offset)
         (key_count,) = struct.unpack_from("<I", data, offset)
         offset += 4
         for _ in range(key_count):
-            offset += 4
+            offset += 4  # key hash
             key, offset = read_fstring(data, offset)
+            offset += 4  # source string hash
             (index,) = struct.unpack_from("<i", data, offset)
             offset += 4
             mapping[namespace + "\x1f" + key] = index
@@ -254,7 +255,14 @@ def main(argv: list[str] | None = None) -> int:
     try:
         fixes, _ = load_fix_files(args.paths)
         plans, pending, applied = build_plans(fixes)
-    except (FileNotFoundError, KeyError, ValueError, OSError, AssertionError) as exc:
+    except (
+        FileNotFoundError,
+        KeyError,
+        ValueError,
+        OSError,
+        AssertionError,
+        struct.error,
+    ) as exc:
         print(f"NG: {exc}", file=sys.stderr)
         return 1
 
