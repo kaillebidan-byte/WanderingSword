@@ -1,0 +1,34 @@
+name: One-off deploy boundary patch
+
+on:
+  push:
+    branches:
+      - agent/deploy-boundary
+    paths:
+      - .github/workflows/oneoff-deploy-boundary.yml
+      - _tools/_oneoff_patch_deploy_boundary.py
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, '[deploy-boundary-patch]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/deploy-boundary
+
+      - name: Patch RUNBOOK
+        run: python _tools/_oneoff_patch_deploy_boundary.py
+
+      - name: Commit patched RUNBOOK
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _tools/RUNBOOK_翻訳自動実行.md
+          git diff --cached --quiet && exit 0
+          git commit -m "RUNBOOKのデプロイ境界を更新 [deploy-boundary-patch]"
+          git push
