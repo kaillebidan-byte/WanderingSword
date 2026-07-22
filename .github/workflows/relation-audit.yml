@@ -27,7 +27,6 @@ jobs:
           python _tools/test_extract_relation_context.py
 
       - name: Collect relation fix batches
-        id: fixes
         shell: bash
         run: |
           shopt -s nullglob
@@ -42,14 +41,19 @@ jobs:
       - name: Validate curated relation fixes
         shell: bash
         run: |
+          mkdir -p _ws_tmp/relation_audit
           mapfile -t files < _ws_relation_fix_files.txt
-          python _tools/validate_fixes_json.py --allow-applied "${files[@]}"
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
+            2>&1 | tee _ws_tmp/relation_audit/fixes_validation.txt
 
       - name: Preview curated relation fixes once
         shell: bash
         run: |
+          mkdir -p _ws_tmp/relation_audit
           mapfile -t files < _ws_relation_fix_files.txt
-          python _tools/apply_fixes_json.py "${files[@]}"
+          set -o pipefail
+          python _tools/apply_fixes_json.py "${files[@]}" \
+            2>&1 | tee _ws_tmp/relation_audit/fixes_preview.txt
 
       - name: Extract current relation evidence
         env:
