@@ -32,10 +32,11 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 180,
+      "applied_keys": 211,
       "targets": [
         "CG表",
-        "Npc"
+        "Npc",
+        "Quests任务表"
       ],
       "game_verified": "not_started",
       "records": [
@@ -44,7 +45,8 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH3_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH4_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH5_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH1_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH1_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH2_2026-07-23.md"
       ]
     }
   },
@@ -95,6 +97,12 @@
       "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch1.json",
       "keys": 19,
       "scope": "清霄の病身・天山決着・託宣・副掌門任命・峋谷訓戒",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json",
+      "keys": 31,
+      "scope": "六派盟主号令・後継への問い・対外共闘・初期訓練・保護・掌門継承",
       "status": "applied_and_pak_built"
     }
   ],
@@ -194,8 +202,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch1_in_progress",
-      "build_verified": "batch1_complete",
+      "translation_reaudited": "batch2_complete_next_candidates_pending",
+      "build_verified": "batch2_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 229,
@@ -210,9 +218,10 @@
       "provisional_findings": [
         "老夫は強い自称軸だが毎文へ表面補充しない",
         "初期の警戒・試しではお前と短い命令が自然",
-        "後期の評価・病身・託宣ではそなた・逸児・省略が必要",
+        "後期の評価・病身・託宣・裁量付与ではそなた・逸児・省略が必要",
         "六派盟主の公的号令は改まっていても一律のですます・あなた方にしない",
-        "清虚との差別化をお前対そなたの単語二分にしない"
+        "清虚との差別化をお前対そなたの単語二分にしない",
+        "お前とそなたは単純な時系列交代でなく、叱責・試しと裁量・保護の機能差で選ぶ"
       ],
       "curated_fix_batches": [
         {
@@ -221,6 +230,13 @@
           "scope": "祖師殿の問い、病身の天山決着、終盤託宣、副掌門任命、峋谷訓戒",
           "status": "applied_and_pak_built",
           "validation": "恒久workflowで既存161キーと合わせた180キーを一括検査。全19キーの実差分・接頭辞・制御トークンを確認し、locres適用・一回再パック・ゼロ差分・回帰走査・LFS確定を確認。"
+        },
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json",
+          "keys": 31,
+          "scope": "六派盟主号令、後継への問い、対外共闘、初期訓練、不器用な保護、掌門継承",
+          "status": "applied_and_pak_built",
+          "validation": "恒久workflowで既存180キーと合わせた211キーを一括検査。CG表27キーとQuests任务表4キーを各一回書き込み、pak一回再生成、ゼロ差分、回帰走査、LFS確定を確認。"
         }
       ]
     }
@@ -230,6 +246,6 @@
     "pair": "宇文逸↔清霄道長",
     "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "22152系の六派盟主号令、22050・22466系の後継評価、5345・5425・5833・9216系の初期叱責と保護を場面単位で監査する"
+    "next_action": "22035・22040・22552・22558系の神侯・廠衛との対等／敵対register、伏龍子・玄離・欲教への盟主号令、客人への丁寧体残候補を監査する"
   }
 }
