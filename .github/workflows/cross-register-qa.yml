@@ -1,9 +1,6 @@
 name: Cross register QA
 
 on:
-  push:
-    branches:
-      - agent/cross-register-qa
   pull_request:
     branches:
       - main
@@ -25,20 +22,36 @@ jobs:
           python-version: "3.12"
 
       - name: Unit tests
-        run: python _tools/test_lint_register.py
+        run: |
+          python _tools/test_apply_fixes_json.py
+          python _tools/test_lint_register.py
+
+      - name: Collect register fix batches
+        shell: bash
+        run: |
+          shopt -s nullglob
+          files=(_phase4_proofread/fixes_cross_register*.json)
+          if ((${#files[@]} == 0)); then
+            echo 'No register fix batches found' >&2
+            exit 1
+          fi
+          printf '%s\n' "${files[@]}" > _ws_register_fix_files.txt
+          printf 'Found %s register fix batches\n' "${#files[@]}"
 
       - name: Validate curated register fixes
+        shell: bash
         run: |
           mkdir -p _ws_tmp/register_lint
-          python _tools/validate_fixes_json.py --allow-applied \
-            _phase4_proofread/fixes_cross_register_20260723.json \
-            _phase4_proofread/fixes_cross_register_coldhawk_20260723.json \
+          mapfile -t files < _ws_register_fix_files.txt
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
             > _ws_tmp/register_lint/fixes_validation.txt 2>&1
+          cat _ws_tmp/register_lint/fixes_validation.txt
 
-      - name: Preview curated register fixes
+      - name: Preview curated register fixes once
+        shell: bash
         run: |
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
+          mapfile -t files < _ws_register_fix_files.txt
+          python _tools/apply_fixes_json.py "${files[@]}"
 
       - name: Scan current localization data
         env:
