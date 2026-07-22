@@ -1,0 +1,416 @@
+[
+ {
+  "namespace": "Skills",
+  "key": "553_ViewName",
+  "source_zh": "一箭双雕",
+  "target_ja": "一箭双雕"
+ },
+ {
+  "namespace": "Skills",
+  "key": "895_ViewName",
+  "source_zh": "万里平戎策",
+  "target_ja": "万里平戎の策"
+ },
+ {
+  "namespace": "Skills",
+  "key": "216_ViewName",
+  "source_zh": "三才刀法",
+  "target_ja": "三才刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "818_ViewName",
+  "source_zh": "丐帮心法",
+  "target_ja": "丐幇心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "310_ViewName",
+  "source_zh": "丐帮棍法",
+  "target_ja": "丐幇棍法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "812_ViewName",
+  "source_zh": "光明心法",
+  "target_ja": "光明心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "201_ViewName",
+  "source_zh": "八卦刀法",
+  "target_ja": "八卦刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "827_ViewName",
+  "source_zh": "六扇心法",
+  "target_ja": "六扇心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "867_ViewName",
+  "source_zh": "兵烽六要",
+  "target_ja": "兵烽六要"
+ },
+ {
+  "namespace": "Skills",
+  "key": "413_ViewName",
+  "source_zh": "凝血神爪",
+  "target_ja": "凝血神爪"
+ },
+ {
+  "namespace": "Skills",
+  "key": "482_ViewName",
+  "source_zh": "十七路小擒拿",
+  "target_ja": "十七路小擒拿"
+ },
+ {
+  "namespace": "Skills",
+  "key": "555_ViewName",
+  "source_zh": "含沙射影",
+  "target_ja": "含沙射影"
+ },
+ {
+  "namespace": "Skills",
+  "key": "832_ViewName",
+  "source_zh": "吸星神功",
+  "target_ja": "吸星神功"
+ },
+ {
+  "namespace": "Skills",
+  "key": "506_ViewName",
+  "source_zh": "嗜血寒蝠",
+  "target_ja": "吸血の寒蝠"
+ },
+ {
+  "namespace": "Skills",
+  "key": "477_ViewName",
+  "source_zh": "回天扇法",
+  "target_ja": "回天扇法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "225_ViewName",
+  "source_zh": "大五衰刀法",
+  "target_ja": "大五衰刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "468_ViewName",
+  "source_zh": "大天魔手",
+  "target_ja": "大天魔手"
+ },
+ {
+  "namespace": "Skills",
+  "key": "303_ViewName",
+  "source_zh": "大日如来棍",
+  "target_ja": "大日如来棍"
+ },
+ {
+  "namespace": "Skills",
+  "key": "427_ViewName",
+  "source_zh": "天山掌法",
+  "target_ja": "天山掌法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "260_ViewName",
+  "source_zh": "天罡刀法",
+  "target_ja": "天罡刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "816_ViewName",
+  "source_zh": "天蚕大法",
+  "target_ja": "天蚕大法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "887_ViewName",
+  "source_zh": "天魔六通",
+  "target_ja": "天魔六通"
+ },
+ {
+  "namespace": "Skills",
+  "key": "437_ViewName",
+  "source_zh": "孟春九曲",
+  "target_ja": "孟春九曲"
+ },
+ {
+  "namespace": "Skills",
+  "key": "223_ViewName",
+  "source_zh": "小五衰刀法",
+  "target_ja": "小五衰刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "204_ViewName",
+  "source_zh": "少林刀法",
+  "target_ja": "少林刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "300_ViewName",
+  "source_zh": "少林棍法",
+  "target_ja": "少林棍法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "2009_ViewName",
+  "source_zh": "巨斧猛士",
+  "target_ja": "巨斧の猛士"
+ },
+ {
+  "namespace": "Skills",
+  "key": "357_ViewName",
+  "source_zh": "弥山棍法",
+  "target_ja": "弥山棍法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "578_ViewName",
+  "source_zh": "心宿大火",
+  "target_ja": "心宿大火"
+ },
+ {
+  "namespace": "Skills",
+  "key": "206_ViewName",
+  "source_zh": "慈悲刀法",
+  "target_ja": "慈悲刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "302_ViewName",
+  "source_zh": "慈航普渡杖",
+  "target_ja": "慈航普渡杖"
+ },
+ {
+  "namespace": "Skills",
+  "key": "314_ViewName",
+  "source_zh": "打狗棍法",
+  "target_ja": "打狗棍法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "363_ViewName",
+  "source_zh": "擎天架海式",
+  "target_ja": "擎天架海式"
+ },
+ {
+  "namespace": "Skills",
+  "key": "833_ViewName",
+  "source_zh": "晦朔心法",
+  "target_ja": "晦朔心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "227_ViewName",
+  "source_zh": "朱明六炀",
+  "target_ja": "朱明六煬"
+ },
+ {
+  "namespace": "Skills",
+  "key": "438_ViewName",
+  "source_zh": "朱明六炀",
+  "target_ja": "朱明六煬"
+ },
+ {
+  "namespace": "Skills",
+  "key": "222_ViewName",
+  "source_zh": "朽木刀法",
+  "target_ja": "朽木刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "200_ViewName",
+  "source_zh": "武当刀法",
+  "target_ja": "武当刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "800_ViewName",
+  "source_zh": "武当心法",
+  "target_ja": "武当心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "251_ViewName",
+  "source_zh": "江湖刀法",
+  "target_ja": "江湖刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "851_ViewName",
+  "source_zh": "江湖心法",
+  "target_ja": "江湖心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "451_ViewName",
+  "source_zh": "江湖拳掌",
+  "target_ja": "江湖拳掌"
+ },
+ {
+  "namespace": "Skills",
+  "key": "551_ViewName",
+  "source_zh": "江湖暗器",
+  "target_ja": "江湖暗器"
+ },
+ {
+  "namespace": "Skills",
+  "key": "573_ViewName",
+  "source_zh": "江湖血器",
+  "target_ja": "江湖血器"
+ },
+ {
+  "namespace": "Skills",
+  "key": "572_ViewName",
+  "source_zh": "浩然正器",
+  "target_ja": "浩然正器"
+ },
+ {
+  "namespace": "Skills",
+  "key": "905_ViewName",
+  "source_zh": "混沌武典",
+  "target_ja": "混沌武典"
+ },
+ {
+  "namespace": "Skills",
+  "key": "181_ViewName",
+  "source_zh": "湖月照影",
+  "target_ja": "湖月照影"
+ },
+ {
+  "namespace": "Skills",
+  "key": "484_ViewName",
+  "source_zh": "湖月照影",
+  "target_ja": "湖月照影"
+ },
+ {
+  "namespace": "Skills",
+  "key": "508_ViewName",
+  "source_zh": "漫天花雨",
+  "target_ja": "漫天花雨"
+ },
+ {
+  "namespace": "Skills",
+  "key": "575_ViewName",
+  "source_zh": "火矢如瀑",
+  "target_ja": "火矢は滝の如く"
+ },
+ {
+  "namespace": "Skills",
+  "key": "207_ViewName",
+  "source_zh": "燃木刀法",
+  "target_ja": "燃木刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "455_ViewName",
+  "source_zh": "玄冰神掌",
+  "target_ja": "玄氷神掌"
+ },
+ {
+  "namespace": "Skills",
+  "key": "208_ViewName",
+  "source_zh": "玄火刀法",
+  "target_ja": "玄火刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "811_ViewName",
+  "source_zh": "玄火心法",
+  "target_ja": "玄火心法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "422_ViewName",
+  "source_zh": "玄火掌法",
+  "target_ja": "玄火掌法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "707_ViewName",
+  "source_zh": "玄焰身法",
+  "target_ja": "玄焰身法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "203_ViewName",
+  "source_zh": "玄虚刀法",
+  "target_ja": "玄虚刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "806_ViewName",
+  "source_zh": "禅宗伏魔功",
+  "target_ja": "禅宗伏魔功"
+ },
+ {
+  "namespace": "Skills",
+  "key": "2011_ViewName",
+  "source_zh": "箭如雨下",
+  "target_ja": "矢は雨の如く降る"
+ },
+ {
+  "namespace": "Skills",
+  "key": "574_ViewName",
+  "source_zh": "箭如雨下",
+  "target_ja": "矢は雨の如く降る"
+ },
+ {
+  "namespace": "Skills",
+  "key": "439_ViewName",
+  "source_zh": "素律三毒",
+  "target_ja": "素律三毒"
+ },
+ {
+  "namespace": "Skills",
+  "key": "229_ViewName",
+  "source_zh": "菩提刀法",
+  "target_ja": "菩提刀法"
+ },
+ {
+  "namespace": "Skills",
+  "key": "168_ViewName",
+  "source_zh": "虺蛇吐信",
+  "target_ja": "虺蛇の舌"
+ },
+ {
+  "namespace": "Skills",
+  "key": "567_ViewName",
+  "source_zh": "虺蛇毒信",
+  "target_ja": "虺蛇の毒信"
+ },
+ {
+  "namespace": "Skills",
+  "key": "215_ViewName",
+  "source_zh": "血海魔刀",
+  "target_ja": "血海魔刀"
+ },
+ {
+  "namespace": "Skills",
+  "key": "478_ViewName",
+  "source_zh": "青冥欲雨",
+  "target_ja": "青冥に雨を欲す"
+ },
+ {
+  "namespace": "Skills",
+  "key": "864_ViewName",
+  "source_zh": "青木漫舞",
+  "target_ja": "青木漫舞"
+ },
+ {
+  "namespace": "Skills",
+  "key": "570_ViewName",
+  "source_zh": "韶光淑器",
+  "target_ja": "韶光淑器"
+ },
+ {
+  "namespace": "Skills",
+  "key": "711_ViewName",
+  "source_zh": "鬼影幽冥大法",
+  "target_ja": "鬼影幽冥大法"
+ }
+]

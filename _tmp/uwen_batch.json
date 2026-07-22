@@ -1,0 +1,282 @@
+[
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "1004_FinishingDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$我明白了。",
+  "ja": "1 - 宇文逸 $@$分かりました。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "1005_FinishingDlgs_Index2_Text",
+  "zh": "1 - 宇文逸 $@$好的，我再试试。",
+  "ja": "1 - 宇文逸 $@$はい、もう一度試してみます。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "1006_FinishingDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$是，师兄。",
+  "ja": "1 - 宇文逸 $@$はい、師兄。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11001_FinishingDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$举手之劳而已，无需多礼。",
+  "ja": "1 - 宇文逸 $@$些細なことです、お礼には及びません。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11001_OptionDlgs1_Index1_Text",
+  "zh": "1 - 宇文逸 $@$没问题，交给我吧！",
+  "ja": "1 - 宇文逸 $@$問題ありません、お任せください！"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11001_RequestDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$发生什么事了？怎么如此慌张？",
+  "ja": "1 - 宇文逸 $@$何が起こったのですか？なぜそんなに慌てているのですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_FinishingDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$大哥，问你个事。",
+  "ja": "1 - 宇文逸 $@$大哥、一つ聞きたいことがあります。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_FinishingDlgs_Index2_Text",
+  "zh": "1 - 宇文逸 $@$如果有把斧头锈得很厉害，可那斧头却是年初才修理过的……",
+  "ja": "1 - 宇文逸 $@$もし斧がひどく錆びていて、それが今年の初めに修理したばかりのものだったら……"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_FinishingDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$你有什么解决方法吗？",
+  "ja": "1 - 宇文逸 $@$何か解決策はありますか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_RequestDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$大叔，怎么了？",
+  "ja": "1 - 宇文逸 $@$おじさん、どうしたんですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_RequestDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$这……这真的是年初才修理过的吗？",
+  "ja": "1 - 宇文逸 $@$これ……本当に今年の初めに修理したばかりなんですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_RequestDlgs_Index5_Text",
+  "zh": "1 - 宇文逸 $@$那怎么会变成这个样子？",
+  "ja": "1 - 宇文逸 $@$では、どうしてこんな状態になったんですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11003_RequestDlgs_Index8_Text",
+  "zh": "1 - 宇文逸 $@$为什么？",
+  "ja": "1 - 宇文逸 $@$なぜですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11004_FinishingDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$铁匠说，你的斧头材料太差，要么重新买一把，要么去后山或山洞旁，采四块铁矿石并且把斧头交给他重新锻造。",
+  "ja": "1 - 宇文逸 $@$鍛冶屋が言うには、あなたの斧は材料が悪すぎるそうです。新しいものを買うか、裏山か洞窟のそばで鉄鉱石を四つ採って、斧を渡せば彼が鍛え直してくれるそうです。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11004_OptionDlgs1_Index0_Text",
+  "zh": "1 - 宇文逸 $@$（回去告诉樵夫吧。）",
+  "ja": "1 - 宇文逸 $@$（張樵夫に伝えに戻ろう。）"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11004_RequestDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$那该怎么办？",
+  "ja": "1 - 宇文逸 $@$ではどうすればいいですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11006_RequestDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$为什么要丢到那里？",
+  "ja": "1 - 宇文逸 $@$なぜそこに捨てるんですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11007_FinishingDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$就从这里丢下去吧。",
+  "ja": "1 - 宇文逸 $@$ここから投げ入れよう。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11008_FinishingDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$丢到河里了。",
+  "ja": "1 - 宇文逸 $@$川に捨てました。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11008_RequestDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$……这样应该就可以了。",
+  "ja": "1 - 宇文逸 $@$……これでいいはずだ。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11009_RequestDlgs_Index2_Text",
+  "zh": "1 - 宇文逸 $@$你呢？",
+  "ja": "1 - 宇文逸 $@$あなたは？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11010_FinishingDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$你怎么知道是他？",
+  "ja": "1 - 宇文逸 $@$どうして彼だと分かったんですか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11010_FinishingDlgs_Index5_Text",
+  "zh": "1 - 宇文逸 $@$哈哈，原来如此。",
+  "ja": "1 - 宇文逸 $@$はは、なるほど。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11010_FinishingDlgs_Index6_Text",
+  "zh": "1 - 宇文逸 $@$既然你认出来了，为什么还要帮他？你们不是有旧怨吗？",
+  "ja": "1 - 宇文逸 $@$彼だと分かっていたのに、どうして助けたんですか？ あなた方には昔からの因縁があるのでは？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11011_FinishingDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$他给我讲了你们之间发生的事情。",
+  "ja": "1 - 宇文逸 $@$彼があなた方二人の間にあった出来事を話してくれました。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11011_FinishingDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$（看来，他们之间应该能和好了。）",
+  "ja": "1 - 宇文逸 $@$（どうやら、彼らの間は仲直りできそうだ。）"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11011_RequestDlgs_Index4_Text",
+  "zh": "1 - 宇文逸 $@$年轻人火气重，可以理解。",
+  "ja": "1 - 宇文逸 $@$若者は血の気が多いですから、理解できます。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11056_FinishingDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$村长，铁匠家的粮食被什么东西给偷了。",
+  "ja": "1 - 宇文逸 $@$村長、鍛冶屋の食糧が何者かに盗まれました。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11056_FinishingDlgs_Index7_Text",
+  "zh": "1 - 宇文逸 $@$要不让我去收拾了它们？",
+  "ja": "1 - 宇文逸 $@$私が奴らを退治してきましょうか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11056_OptionDlgs2_Index0_Text",
+  "zh": "1 - 宇文逸 $@$看布袋上的牙印大小，不像是普通小动物能咬出来的。",
+  "ja": "1 - 宇文逸 $@$布袋の歯形からすると、普通の小動物が噛んだようには見えません。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11056_OptionDlgs2_Index1_Text",
+  "zh": "1 - 宇文逸 $@$要不去问问后山的樵夫？他总是上山，想来对山上的动物应该有所了解。",
+  "ja": "1 - 宇文逸 $@$裏山の樵夫に聞いてみてはどうでしょう？ 彼はいつも山に入っているので、山の動物に詳しいはずです。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11056_RequestDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$发生什么了？",
+  "ja": "1 - 宇文逸 $@$どうしましたか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11056_RequestDlgs_Index4_Text",
+  "zh": "1 - 宇文逸 $@$那该如何是好？",
+  "ja": "1 - 宇文逸 $@$では、どうすればよいでしょう？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11057_FinishingDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$大叔，铁匠家的粮食被什么东西给偷了，袋子上被咬出好大一个破洞。",
+  "ja": "1 - 宇文逸 $@$おじさん、鍛冶屋の食糧が何者かに盗まれて、袋に大きな穴が開いていました。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11057_FinishingDlgs_Index1_Text",
+  "zh": "1 - 宇文逸 $@$你总是上山砍柴，对附近的动物一定很熟悉吧，你知道是什么东西干的吗？",
+  "ja": "1 - 宇文逸 $@$あなたはいつも山で薪を割っているから、このあたりの動物には詳しいでしょう。何がやったか知っていますか？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11057_FinishingDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$哼，那些猴子为祸一方，待我去除了他们，为民解忧。",
+  "ja": "1 - 宇文逸 $@$フン、あの猿どもは悪事を働いている。私が退治して、民の悩みを解決してきましょう。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11057_FinishingDlgs_Index5_Text",
+  "zh": "1 - 宇文逸 $@$那该如何是好？",
+  "ja": "1 - 宇文逸 $@$では、どうすればよいでしょう？"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11057_FinishingDlgs_Index8_Text",
+  "zh": "1 - 宇文逸 $@$好吧。",
+  "ja": "1 - 宇文逸 $@$分かりました。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11059_FinishingDlgs_Index0_Text",
+  "zh": "1 - 宇文逸 $@$大叔，铁匠家的粮食被猴子偷了，村里的人都没什么办法，想请您配药驱赶那些作恶多端的猴子。",
+  "ja": "1 - 宇文逸 $@$おじいさん、鍛冶屋の食糧が猿に盗まれ、村の人々は何も手が打てないでいます。どうか薬を調合して、あの悪賢い猿どもを追い払っていただきたく存じます。"
+ },
+ {
+  "target": "Quests任务表",
+  "ns": "Quests",
+  "key": "11059_FinishingDlgs_Index3_Text",
+  "zh": "1 - 宇文逸 $@$那些猴子罪孽深重，先生难道还可怜他们吗？",
+  "ja": "1 - 宇文逸 $@$あの猿どもは罪深いではありませんか、先生はまだ彼らを憐れむのですか？"
+ }
+]

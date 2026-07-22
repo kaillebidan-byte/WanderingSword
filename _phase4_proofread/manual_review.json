@@ -1,0 +1,92 @@
+{
+ "Npc\u001fNPCs\u001f12004_DefaultTalks_Index0_Dlgs_Index0_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-01T02:20:03"
+ },
+ "Npc\u001fNPCs\u001f10000_DefaultTalks_Index0_Dlgs_Index0_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-01T02:24:43"
+ },
+ "Npc\u001fNPCs\u001f10000_CompareWinDlgs_Index0_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-01T02:24:46"
+ },
+ "CG表\u001fQuestDlgs\u001f5227_3_Dlgs_Index1_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:08:24"
+ },
+ "CG表\u001fQuestDlgs\u001f5332_1_Dlgs_Index2_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:08:41"
+ },
+ "CG表\u001fQuestDlgs\u001f5332_1_Dlgs_Index4_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:08:59"
+ },
+ "CG表\u001fQuestDlgs\u001f14163_1_Dlgs_Index0_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:10:26"
+ },
+ "CG表\u001fQuestDlgs\u001f14163_1_Dlgs_Index2_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:10:54"
+ },
+ "CG表\u001fQuestDlgs\u001f14163_1_Dlgs_Index3_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:13:09"
+ },
+ "CG表\u001fQuestDlgs\u001f14164_2_Dlgs_Index1_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:13:41"
+ },
+ "CG表\u001fQuestDlgs\u001f14164_2_Dlgs_Index2_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:14:06"
+ },
+ "CG表\u001fQuestDlgs\u001f14165_2_Dlgs_Index1_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:14:27"
+ },
+ "CG表\u001fQuestDlgs\u001f14165_2_Dlgs_Index2_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:14:56"
+ },
+ "CG表\u001fQuestDlgs\u001f14186_1_Dlgs_Index1_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:15:11"
+ },
+ "CG表\u001fQuestDlgs\u001f14186_1_Dlgs_Index3_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:15:28"
+ },
+ "CG表\u001fQuestDlgs\u001f14187_1_Dlgs_Index0_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:16:13"
+ },
+ "CG表\u001fQuestDlgs\u001f14187_1_Dlgs_Index3_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:16:37"
+ },
+ "CG表\u001fQuestDlgs\u001f20032_1_Dlgs_Index2_Text": {
+  "state": "OK",
+  "note": "",
+  "ts": "2026-07-04T09:17:28"
+ }
+}

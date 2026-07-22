@@ -1,0 +1,23 @@
+{
+ "reviewed": 0,
+ "fixes": [
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "16518_FinishingDlgs_Index4_Text",
+   "new_ja": "11509 - 冷無情 $@$この者は秉筆太監の職にあり、帝と后の寵愛を深く受け、権勢を誇っております。"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "16519_FinishingDlgs_Index5_Text",
+   "new_ja": "11509 - 冷無情 $@$（頷く）その通り、<Y>童安</>です。彼は秉筆太監の職にあり、帝と后の寵愛を深く受け、権勢を誇っております。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "16306_2_Dlgs_Index0_Text",
+   "new_ja": "1 - 宇文逸 $@$（この銀票の束だけで五万両以上もある。それに、この玉石の数々もだ……彼が秉筆太監の身でありながら、これほどの私財を持っているとは……）"
+  }
+ ]
+}

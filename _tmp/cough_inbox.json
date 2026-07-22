@@ -1,0 +1,965 @@
+{
+ "reviewed": 0,
+ "fixes": [
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "12677_3_Dlgs_Index2_Text",
+   "new_ja": "7502 - 李元興 $@$コホン、本題に戻りますが、この二本の泣き棒はただのものではなく、珍しい精鉄で鋳造されており、棒の内部には鋭い棘が隠されています。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24223_1_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホ……やはり……いわゆる至高の境地など……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24223_3_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$私を止めるつもりはないのか、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24225_1_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホッ……やはり……いわゆる至高の境地とは……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24232_1_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホッ……最も円満な剣……そして最強の者……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24232_3_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$私を止めると言ったのではないのか、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24234_1_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホッ……最も円満な剣……そして最強の者……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "24234_1_Dlgs_Index3_Text",
+   "new_ja": "45311 - 莫問 $@$これも悪くない……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5296_3_Dlgs_Index2_Text",
+   "new_ja": "5002 - 莫問 $@$ゴホッ……こうなってしまった以上、どうにか挽回策を考えましょう……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5654_6_Dlgs_Index0_Text",
+   "new_ja": "5015 - 莫問 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5654_6_Dlgs_Index2_Text",
+   "new_ja": "5015 - 莫問 $@$大丈夫だ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5654_6_Dlgs_Index6_Text",
+   "new_ja": "5015 - 莫問 $@$……ゴホ、ゴホ、曹煜天は風雲訣を身につけており、確かに私は彼の敵ではありません……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5784_9_Dlgs_Index10_Text",
+   "new_ja": "5015 - 莫問 $@$ゴホ……程少侠が私たちを迎えに来てくださったのであれば、道案内をお願いします。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6158_1_Dlgs_Index3_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6158_5_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$私を止めるつもりはないのか、ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6167_1_Dlgs_Index2_Text",
+   "new_ja": "45311 - 莫問 $@$またしても、お前に先んじられるとは、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6198_1_Dlgs_Index3_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6198_3_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$私の負けだ、ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6206_1_Dlgs_Index2_Text",
+   "new_ja": "45311 - 莫問 $@$またお前に先を越されるとは、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6206_3_Dlgs_Index2_Text",
+   "new_ja": "45311 - 莫問 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6214_1_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$私の負けだ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6214_4_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$今日、私を殺さなければ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6215_1_Dlgs_Index0_Text",
+   "new_ja": "45311 - 莫問 $@$私の負けだ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6215_1_Dlgs_Index3_Text",
+   "new_ja": "45311 - 莫問 $@$全てが、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5653_2_Dlgs_Index6_Text",
+   "new_ja": "17005 - 欧陽雪 $@$……ゴホッ、ゴホッ、まさか……江湖では誰もが知っている……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5992_17_Dlgs_Index1_Text",
+   "new_ja": "17005 - 欧陽雪 $@$ゴホ、ゴホ、逸兄さま、心配しないでください。わたくしは五毒玉佩を持っているので、今のところは大丈夫です。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6001_1_Dlgs_Index1_Text",
+   "new_ja": "17005 - 欧陽雪 $@$ええ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6155_3_Dlgs_Index2_Text",
+   "new_ja": "17005 - 欧陽雪 $@$ゴホッ、ゴホッ、莫問殿、もう彼を追い詰めないで……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "7107_2_Dlgs_Index2_Text",
+   "new_ja": "17005 - 欧陽雪 $@$いけない……ゴホッ、ゴホッ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "8523_2_Dlgs_Index3_Text",
+   "new_ja": "17005 - 欧陽雪 $@$ゴホ、ゴホ……これはおそらく……陣法……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "8556_1_Dlgs_Index1_Text",
+   "new_ja": "17005 - 欧陽雪 $@$公子が今回の閉関修行で、無事に五霊心経を習得できますように……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5994_2_Dlgs_Index1_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホッ、ゴホッ、逸児、こちらへ来なさい……師にはお前に話したいことがいくつかある。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5995_9_Dlgs_Index4_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_16_Dlgs_Index5_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホッ、ゴホッ……我々武を修める者が、どうして権勢に屈するものか？"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_3_Dlgs_Index0_Text",
+   "new_ja": "5003 - 清虚道長 $@$問児よ、彼を殺してはならぬ……ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_4_Dlgs_Index2_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホッ、ゴホッ……私も当初は彼を無名だと思っていた。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_4_Dlgs_Index4_Text",
+   "new_ja": "5003 - 清虚道長 $@$彼がお前に対して、利用しているようでいて実は庇護している態度……ゴホッ、ゴホッ、そして彼が風雲訣を身につけていながら、関連する者を一人たりとも見逃さないやり方。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_4_Dlgs_Index6_Text",
+   "new_ja": "5003 - 清虚道長 $@$これら全ては、彼が伏龍子本人でなければ完全に説明がつかないのだ、ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_6_Dlgs_Index17_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホッ、ゴホッ……だからお前は、とっくに復讐できたはずなのに、今になってようやく行動を起こしたのは、我々の手にある風雲訣を取り戻すためだったのか……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_6_Dlgs_Index26_Text",
+   "new_ja": "5003 - 清虚道長 $@$師父が臨終の際に天山に気をつけろと言い、風雲訣の残本も行方不明になったのは、ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_6_Dlgs_Index29_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホッ、ゴホッ、お前は巫芸を見つけられず、洪先輩も各地を放浪し、行方が定まらなかった……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_6_Dlgs_Index4_Text",
+   "new_ja": "5003 - 清虚道長 $@$あの年、天山の頂で行われた決戦で、お前は天絶に勝ったものの、万丈の崖から転落した、ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_8_Dlgs_Index4_Text",
+   "new_ja": "5003 - 清虚道長 $@$やめろ、ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6064_8_Dlgs_Index6_Text",
+   "new_ja": "5003 - 清虚道長 $@$だが、今やお前は自らの手で復讐を果たした。私も長くは生きられないだろう……ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6065_3_Dlgs_Index1_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、私の心配は無用だ。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6111_1_Dlgs_Index15_Text",
+   "new_ja": "5003 - 清虚道長 $@$お前の玉華師祖は当時すでに江湖で指折りの高手で、彼が生きていた頃は、武当の名声は少林よりも勝っていた、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6111_1_Dlgs_Index19_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、各派は少林の円覚大師の指導のもと懸命に抵抗したが、その天絶の魔功もまた底知れず、そのため情勢は膠着状態が続いていた。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6111_1_Dlgs_Index1_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、逸児か……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6111_1_Dlgs_Index6_Text",
+   "new_ja": "5003 - 清虚道長 $@$お前が何を聞きたいのかは分かっている、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6111_1_Dlgs_Index9_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、多年前の天山派は……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index0_Text",
+   "new_ja": "5003 - 清虚道長 $@$……ゴホ、ゴホ、おそらくあの時から、江師弟は師門にも、正道にも失望したのでしょう……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index10_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、それだけではありません。問児は幼い頃からとても物分かりの良い子でした……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index13_Text",
+   "new_ja": "5003 - 清虚道長 $@$まさか十年も経ち、ゴホ、ゴホ……師父は残された書物の中の口訣を理解できないままでした……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index21_Text",
+   "new_ja": "5003 - 清虚道長 $@$その通りです、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index25_Text",
+   "new_ja": "5003 - 清虚道長 $@$まさか、陰に潜んでいた伏龍子もどこからか巫芸が風雲訣を持っているという情報を知り、その機に乗じて師父を殺し、風雲訣を奪い去るとは、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index2_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、江師弟が何度も反抗したからこそ、師父は最終的に私に問児を育てるよう命じたのです……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index30_Text",
+   "new_ja": "5003 - 清虚道長 $@$確かに、ゴホ、ゴホ……円慧も当時の事情を知る者でしたから、伏龍子が彼だけを見逃す理由はありません……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index32_Text",
+   "new_ja": "5003 - 清虚道長 $@$それで師父と巫芸が相討ちになった時に、間髪入れずに現れたのです……ゴホ、ゴホ、最も重要なのは、彼が師父が冒頭の功法を手に入れるのを阻止したかったからです。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index36_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、むしろ最後の息を振り絞って、自ら書き写した残本を私の手に託しました……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index37_Text",
+   "new_ja": "5003 - 清虚道長 $@$私に他の二冊の風雲訣を集めさせ……ゴホ、ゴホ、武当を大いに発展させようと……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index39_Text",
+   "new_ja": "5003 - 清虚道長 $@$……ゴホ、ゴホ、問児が尋ねた時でさえ、隠し続けることを選びました……まさか彼に心のしこりを作ってしまうとは……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index40_Text",
+   "new_ja": "5003 - 清虚道長 $@$危うくあなたまで巻き込むところでした、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index41_Text",
+   "new_ja": "5003 - 清虚道長 $@$……ゴホ、ゴホ、ゴホ、ゴホ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_1_Dlgs_Index7_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、確かに我々は天山に申し訳ないことをしました……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_2_Dlgs_Index10_Text",
+   "new_ja": "5003 - 清虚道長 $@$もう長くは持ちません、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_2_Dlgs_Index12_Text",
+   "new_ja": "5003 - 清虚道長 $@$我々の当時の過ちのために巻き込まれるべきではありません、ゴホ、ゴホ、ゴホ、ゴホ！！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_2_Dlgs_Index1_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_2_Dlgs_Index3_Text",
+   "new_ja": "5003 - 清虚道長 $@$実はあなたが初めて武当に来た時、すぐに分かりました……ゴホ、ゴホ、ゴホ、ゴホ、あなたが言う《五霊心経》とは、実は風雲訣のことだと……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_2_Dlgs_Index5_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_2_Dlgs_Index8_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index11_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index15_Text",
+   "new_ja": "5003 - 清虚道長 $@$ゴホ、ゴホ、ゴホ、逸児……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index17_Text",
+   "new_ja": "5003 - 清虚道長 $@$どうか……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index2_Text",
+   "new_ja": "5003 - 清虚道長 $@$その通りです、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index5_Text",
+   "new_ja": "5003 - 清虚道長 $@$半月前にはすでに跡形もなく滅ぼされていました、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index7_Text",
+   "new_ja": "5003 - 清虚道長 $@$今や問児が天山派の名義で書状を送ったということは……ゴホ、ゴホ、たとえ伏龍子が本当に命が長くないとしても、問児もまた当時の怨みを捨て去るつもりはないということです……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6116_3_Dlgs_Index8_Text",
+   "new_ja": "5003 - 清虚道長 $@$以前の葬龍谷での戦い……黄将軍の迅速な援護があったとはいえ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17167_6_Dlgs_Index2_Text",
+   "new_ja": "8506 - 飛蝎使-娜烏 $@$ゴホ…ゴホ、ゴホ…苗疆の毒蠱は千変万化。もしかしたら本当に禁忌の蠱術でそれができるのかもしれません。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "30394_3_Dlgs_Index0_Text",
+   "new_ja": "17115 - 瑶姫 $@$うっ……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "32015_4_Dlgs_Index0_Text",
+   "new_ja": "17115 - 瑶姫 $@$ぷっ……ゴホ、ゴホ。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5540_1_Dlgs_Index0_Text",
+   "new_ja": "17115 - 瑶姫 $@$……ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5540_1_Dlgs_Index1_Text",
+   "new_ja": "17115 - 瑶姫 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5540_1_Dlgs_Index3_Text",
+   "new_ja": "17115 - 瑶姫 $@$……ゴホ、ゴホ……まだ死にませんわ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5540_2_Dlgs_Index1_Text",
+   "new_ja": "17115 - 瑶姫 $@$ゴホ、方護法、この度はお手数をおかけしました。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6006_4_Dlgs_Index0_Text",
+   "new_ja": "17115 - 瑶姫 $@$ゴホ、ゴホ、なんて強い剣気…"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17531_3_Dlgs_Index0_Text",
+   "new_ja": "10309 - 商葶苧 $@$コホン！不肖の身ではございますが、この名医とは私のことです。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18751_4_Dlgs_Index0_Text",
+   "new_ja": "5006 - 清霄道長 $@$ゴホッ、そんな話をしてどうする！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "20521_2_Dlgs_Index1_Text",
+   "new_ja": "5006 - 清霄道長 $@$ゴホッ……それに……天絶尊者の紫庭七元剣！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5992_14_Dlgs_Index1_Text",
+   "new_ja": "5006 - 清霄道長 $@$今日、老夫が武林のためにお前という災いを除いてやる……ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5992_15_Dlgs_Index0_Text",
+   "new_ja": "5006 - 清霄道長 $@$いつの間に……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6118_1_Dlgs_Index3_Text",
+   "new_ja": "5006 - 清霄道長 $@$しかし、もし彼らが武当の一族郎党を滅ぼそうとするなら、たとえ死んでも、決して同意することはできません……ゴホ、ゴホ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6118_1_Dlgs_Index8_Text",
+   "new_ja": "5006 - 清霄道長 $@$今回はもう関わらないでください、老夫が各派に連絡します……一ヶ月の猶予など待たず、直接天山へ行って彼らと決着をつけましょう……ゴホ、ゴホ、ゴホ、ゴホ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "22143_2_Dlgs_Index0_Text",
+   "new_ja": "5513 - 滌罪僧 $@$うっ、ゴホッ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5721_7_Dlgs_Index2_Text",
+   "new_ja": "17100 - 欧陽衡 $@$ゴホ、宇文少侠、よく来てくれた……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5992_8_Dlgs_Index0_Text",
+   "new_ja": "17100 - 欧陽衡 $@$ゴホッ……実を言うと……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6056_1_Dlgs_Index0_Text",
+   "new_ja": "17100 - 欧陽衡 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17040_1_Dlgs_Index0_Text",
+   "new_ja": "19714 - 蓮芯 $@$ゴホッ、ゴホッ……お見事……どうりでこの世の数少ない大事件に、いつもあなたの姿があるわけですね。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17040_2_Dlgs_Index4_Text",
+   "new_ja": "19714 - 蓮芯 $@$はは……ゴホッ……相変わらず口がお達者で……。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17040_5_Dlgs_Index0_Text",
+   "new_ja": "19714 - 蓮芯 $@$ゴホッ、ゴホッ……宇文少侠、何をお聞きになりたいのですか？"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17041_1_Dlgs_Index0_Text",
+   "new_ja": "19714 - 蓮芯 $@$ゴホッ、ゴホッ……お見事……どうりでこの世の数少ない大事件に、いつもあなたの姿があるわけですね。"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "17041_4_Dlgs_Index0_Text",
+   "new_ja": "19714 - 蓮芯 $@$ゴホッ、ゴホッ……宇文少侠、何をお聞きになりたいのですか？"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5011_1_Dlgs_Index0_Text",
+   "new_ja": "19006 - 陳武 $@$ゴホッ……ちくしょう！"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "19006_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "19006 - 陳武 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5825_1_Dlgs_Index5_Text",
+   "new_ja": "16008 - 龔老 $@$（小声で）コホン、とにかく……この件は奥が深いぞ！"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "16008_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "16008 - 龔老 $@$ゴホ、ゴホ……年を取った、年を取った……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5611_7_Dlgs_Index1_Text",
+   "new_ja": "17114 - 名剣弟子 $@$お、お嬢様、私は……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5897_1_Dlgs_Index3_Text",
+   "new_ja": "10020 - 丐帮弟子 $@$彼らはさらに譚城で丐帮大会を開き、陳長老という裏切り者を幇主に推挙しようとしています、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5897_1_Dlgs_Index5_Text",
+   "new_ja": "10020 - 丐帮弟子 $@$私も運良く難を逃れ、武当にたどり着きました……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5924_1_Dlgs_Index2_Text",
+   "new_ja": "10020 - 丐帮弟子 $@$……ゴホ、ゴホ、わ、私は……知りません……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "9253_1_Dlgs_Index2_Text",
+   "new_ja": "10020 - 丐帮弟子 $@$……ゴホ、ゴホ、私……私は知らない……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18906_FinishingDlgs_Index3_Text",
+   "new_ja": "19200 - 陳老頭 $@$へへ、小逸もだよ！今や出世して、お前の叔父さんが見たら……ゴホッ！"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "19200_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "19200 - 陳老頭 $@$ゴホ、ゴホ……老いたな……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "21182_1_Dlgs_Index1_Text",
+   "new_ja": "19804 - 鼻嗅愛 $@$ゴホ、ゴホ……憎しみ？憎しみはもともと彼女の心の中にあった……私が煽る必要などどこにあろうか？"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "21182_1_Dlgs_Index3_Text",
+   "new_ja": "19804 - 鼻嗅愛 $@$ゴホ、ゴホ……同様に……彼女があなたという兄をどれほど愛しているか、今、それと同じくらいあなたを憎んでいるのだ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "21182_2_Dlgs_Index1_Text",
+   "new_ja": "19804 - 鼻嗅愛 $@$はははははは……うっ、ゴホ、ゴホ……！！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "21188_1_Dlgs_Index1_Text",
+   "new_ja": "19804 - 鼻嗅愛 $@$ゴホ、ゴホ……恨み？恨みは元々彼女の心の中にあった……私が煽る必要などないでしょう？"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "21188_1_Dlgs_Index3_Text",
+   "new_ja": "19804 - 鼻嗅愛 $@$ゴホ、ゴホ……同様に……彼女がどれほどあなたという兄を愛しているか、今ではそれと同じくらいあなたを恨んでいる……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "21188_2_Dlgs_Index1_Text",
+   "new_ja": "19804 - 鼻嗅愛 $@$はははははは……うっゴホ、ゴホ……！！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18903_1_Dlgs_Index0_Text",
+   "new_ja": "19209 - 李大虎 $@$ゴホッ、ゴホッ……実は、私もとっくに死んでいるはずだったんだ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18903_1_Dlgs_Index3_Text",
+   "new_ja": "19209 - 李大虎 $@$しかし私は……ゴホッ、ゴホッゴホッ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18903_4_Dlgs_Index0_Text",
+   "new_ja": "19209 - 李大虎 $@$ゴホッ、ゴホッ……もういい……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCTalks",
+   "key": "71_Dlgs_Index11_Text",
+   "new_ja": "19209 - 李大虎 $@$ゴホッ、ゴホッ……もう行け……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCTalks",
+   "key": "71_Dlgs_Index1_Text",
+   "new_ja": "19209 - 李大虎 $@$ゴホッ、ゴホッ、ゴホッ……小逸、戻ったのか……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCTalks",
+   "key": "71_Dlgs_Index7_Text",
+   "new_ja": "19209 - 李大虎 $@$ゴホッ、ゴホッ……もっと早く気づくべきだった……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCTalks",
+   "key": "71_Dlgs_Index8_Text",
+   "new_ja": "19209 - 李大虎 $@$もしそうでないなら……彼らがこれほど長く音信不通になるはずがない……ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "19209_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "19209 - 李大虎 $@$ゴホ、ゴホ～二虎～"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "11407_10_Dlgs_Index1_Text",
+   "new_ja": "17015 - 王霸天 $@$ゴホ、ゴホ……まさか……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "29521_4_Dlgs_Index1_Text",
+   "new_ja": "17015 - 王霸天 $@$ゴホ、ゴホ……まさか……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18755_1_Dlgs_Index6_Text",
+   "new_ja": "5058 - 莫離 $@$父上……ゴホ、ゴホ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "11066_FinishingDlgs_Index3_Text",
+   "new_ja": "10007 - 雑貨-趙氏 $@$ゴホッ……ゴホッ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "11696_RequestDlgs_Index2_Text",
+   "new_ja": "12800 - 村長-蒙蚩 $@$ゴホ、ゴホ……ああ……歳だ、もう使い物にならん……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5112_1_Dlgs_Index1_Text",
+   "new_ja": "10029 - 名剣山荘-呂軽祈 $@$コホン、お前が下心を持っていなければ、どうして江吟風に隙を与えたというのだ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5112_5_Dlgs_Index1_Text",
+   "new_ja": "10034 - 瀚海狂龍雷万鈞 $@$ゴホ、ゴホ……洞窟が本当に崩れるぞ！！"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18541_RequestDlgs_Index2_Text",
+   "new_ja": "11913 - 呉氏 $@$小雨、私は普段あなたにどう教えているの？どうして何度もこんな、こんな……ゴホッ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18541_RequestDlgs_Index3_Text",
+   "new_ja": "11913 - 呉氏 $@$ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18541_RequestDlgs_Index6_Text",
+   "new_ja": "11913 - 呉氏 $@$もういいわ！ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18542_RequestDlgs_Index2_Text",
+   "new_ja": "11913 - 呉氏 $@$小雨、私は普段あなたにどう教えているの？どうして何度もこんな、こんな……ゴホッ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18542_RequestDlgs_Index3_Text",
+   "new_ja": "11913 - 呉氏 $@$ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "18542_RequestDlgs_Index6_Text",
+   "new_ja": "11913 - 呉氏 $@$もういいわ！ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18551_1_Dlgs_Index6_Text",
+   "new_ja": "11913 - 呉氏 $@$……あの不肖の者が、まさか、まさか……ゴホ、ゴホ、ゴホ、ゴホ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18551_1_Dlgs_Index7_Text",
+   "new_ja": "11913 - 呉氏 $@$ゴホ、ゴホ……ゴホ、ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18932_2_Dlgs_Index0_Text",
+   "new_ja": "19606 - 隆大松 $@$ゴホッ……やっと見つけた……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "13416_RequestDlgs_Index5_Text",
+   "new_ja": "19303 - 成老 $@$……ゴホ、ゴホ……少侠、お値段を付けてください……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "12428_1_Dlgs_Index0_Text",
+   "new_ja": "9010 - 玄火教徒 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6057_10_Dlgs_Index0_Text",
+   "new_ja": "45303 - 玄火密衛 $@$玄女様、ゴホ、ゴホ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "13825_ProcessedDlgs1_Index1_Text",
+   "new_ja": "5017 - 少年侠客 $@$ゴホ、ゴホ……武当はやはり見事だ。失礼する！"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "10212_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "10212 - 郭老 $@$ゴホ、ゴホ……年を取ったな……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5715_1_Dlgs_Index0_Text",
+   "new_ja": "45133 - 盤山蟒 $@$ゴホ、ゴホ……"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "12515_FinishingDlgs_Index0_Text",
+   "new_ja": "11501 - 船工-雷直 $@$ゴホッ、ゴホッ……雷親分に会いたいのか？"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "12515_FinishingDlgs_Index2_Text",
+   "new_ja": "11501 - 船工-雷直 $@$ゴホッ、ゴホッ……雷親分は埠頭にいる。行ってくれ……ゴホッ、ゴホッ……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "11501_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "11501 - 船工-雷直 $@$ゴホ、ゴホ……またこの嫌な天気だ……ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5790_25_Dlgs_Index5_Text",
+   "new_ja": "10020 - 丐幇弟子 $@$（小声で）コホン、この程二爺も本当に不運だな……妻は妻でなく、息子も息子でないとは……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "5504_1_Dlgs_Index0_Text",
+   "new_ja": "45192 - 無影剣—陸断 $@$ゴホ、ゴホ、我々はきっと騙されたのだ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6115_13_Dlgs_Index1_Text",
+   "new_ja": "7005 - 天山弟子 $@$ゴホ、ゴホ、お前たち人殺しめ、お前たちが師娘を害したのだ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "6115_14_Dlgs_Index3_Text",
+   "new_ja": "7005 - 天山弟子 $@$お前たちはまず手中の風雲訣を置いてから、そんなでたらめを言え！ゴホ、ゴホ、ゴホ……"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "9264_1_Dlgs_Index1_Text",
+   "new_ja": "7506 - 丐帮長老 $@$ゴホ、ゴホ、殺すなら殺せ……陳を支持するなど、とんでもない！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "9265_1_Dlgs_Index1_Text",
+   "new_ja": "7506 - 丐帮長老 $@$譚城……ゴホ、ゴホ！"
+  },
+  {
+   "target": "CG表",
+   "ns": "QuestDlgs",
+   "key": "18553_1_Dlgs_Index0_Text",
+   "new_ja": "11912 - 亀奴 $@$ゴホ、ゴホ、彼らはとても強い……"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "16404_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "16404 - 谷神医 $@$コホン……皆様のお引き立てで、恐縮ながら神医と称されております。"
+  },
+  {
+   "target": "Npc",
+   "ns": "NPCs",
+   "key": "28229_DefaultTalks_Index0_Dlgs_Index0_Text",
+   "new_ja": "28229 - 董老倌 $@$ゴホ、ゴホ……老いぼれはもう長くないだろう。"
+  }
+ ]
+}

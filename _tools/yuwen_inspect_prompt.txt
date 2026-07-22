@@ -1,0 +1,32 @@
+# 宇文逸 register校正 検査セッション（Opus用・約12バッチ毎に1回）
+
+> 使い方: **Opusの新規セッション**に「作業フォルダ <プロジェクト直下> で `_tools/yuwen_inspect_prompt.txt` を読んで実行して」と渡すだけ。
+> ディスパッチャ(Sonnet・yuwen_loop_prompt.txt)が「検査待ち」で停止するたびに回す。所要は1パス。
+
+■ 冒頭で1回だけ（bash・プロジェクト直下）
+`export WS_TMP="$PWD/_ws_tmp"` ／ `export PYTHONIOENCODING=utf-8`
+基準を読む: `_ws_tmp/yuwen_pack.md`（無ければ `python _tools/yuwen_pack.py`）。特に「声の核」「モード表」「完成例」。
+
+■ 検査手順（3点・この順）
+1. **傾向**: `_phase4_proofread/yuwen_prooflog.md` の末尾（前回検査行以降）を読む。
+   見る点: 変更数がバッチを追って萎んでいないか（voice系ゾーンで5本文未満が続く＝ワーカー劣化）／`⚠声薄い`の頻度／conf内訳。
+2. **抜き取り**: `python _tools/yuwen_sample.py`（直近360本文から12件。範囲・件数は引数で調整）。
+   各件を zh と突き合わせ、パックの基準で判定: 声・register（M2/M3/M5常体・M4敬体・M7常体）／意味・語気の方向／MT臭（代名詞反復・翻訳調の硬さ）／呼称・一人称・笑い／タグ・字形。
+   **NGを見つけたら**: 修正を `_ws_tmp/pf_inbox.json` に `{"reviewed": 0, "fixes": [{"target","ns","key","new_body"}]}` で書き、`python _tools/apply_char.py _ws_tmp/pf_inbox.json` で反映（keyはsample出力にある。new_bodyは本文のみ）。
+3. **キュー消化**: `_phase4_proofread/yuwen_review_queue.jsonl` のうち、前回検査以降の行（cursor値で判別）を検証。
+   conf:low を優先。reasonに `# OPUS` とある行は必ず判断を下す。誤りは手順2と同じ方法で反映。正しければ何もしない。
+
+■ 判定と出口（最後の行・形式厳守）
+- 合格: `検査OK: cursor=<数>まで検査済 抜き取り<件>中NG<件>(反映済) queue消化<件> → 次のディスパッチャ(yuwen_loop_prompt.txt)を回してよい`
+- 不合格（系統的な問題＝同種のNGが3件以上/声の平坦化が広範）: `検査NG: <問題の要約> → ワーカープロンプト/パック/正本の修正が先。ディスパッチャ再開禁止`
+  ＋ 何を直すべきか（yuwen_worker_prompt.txt の指示か、10_人物/宇文逸.md 等の正本か）を具体的に報告。正本を直したら `python _tools/yuwen_pack.py` で再生成を忘れない。
+- 検査記録を1行 prooflog に追記: `- <日時> ★検査 cursor=<数>まで 抜き取り<件>NG<件> queue<件>消化 判定<OK|NG>`（次回検査の「前回」目印になる）
+
+■ 完了監査（ディスパッチャが #DONE を報告したときだけ・上記に加えて1パス）
+- `$env:WS_CHAR="宇文逸"`（PS）→ `python _tools/pending_char.py --audit` → `_ws_tmp/char_audit.txt`（ja本文）をNG語1パスgrep（一人称揺れ＝生「俺/僕」・呼称揺れ・典故未適用・ですます混在の独白）。
+- `python _tools/lint_mtsmell.py --check 宇文逸`（MT臭の回帰）。
+- ヒットは(A)機械修正＝表記揺れ／(B)要解釈 に2分類し、(B)はblind置換せず1件ずつ。reviewed:0の追い直しで反映。再auditは確認1回（無限ループ禁止）。
+- 監査まで通れば deploy 判断へ（deployはOpus直轄・別途）。
+
+■ 鉄則（検査でも同じ）
+タグ`<Y>…</>`・`\r\n`・`#nl`・`{0}`・`$@$`より前は不変。一人称「私」固定。技名・武経名は原語維持。暴力・感情の直接表現を和らげない。「直しすぎより触らない」——NGは直すが、達意の訳は弄らない。

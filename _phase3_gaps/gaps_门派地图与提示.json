@@ -1,0 +1,128 @@
+[
+ {
+  "namespace": "FullscreenScrollTexts",
+  "key": "30733_Text",
+  "source_zh": "二十年前……",
+  "target_ja": "二十年前……"
+ },
+ {
+  "namespace": "Maps",
+  "key": "69_ViewName",
+  "source_zh": "万劫窟密洞",
+  "target_ja": "万劫窟の密洞"
+ },
+ {
+  "namespace": "Maps",
+  "key": "911_ViewName",
+  "source_zh": "五仙教禁地",
+  "target_ja": "五仙教の禁地"
+ },
+ {
+  "namespace": "Maps",
+  "key": "99_ViewName",
+  "source_zh": "仙人渡密室",
+  "target_ja": "仙人渡の密室"
+ },
+ {
+  "namespace": "Maps",
+  "key": "907_ViewName",
+  "source_zh": "十万大山",
+  "target_ja": "十万大山"
+ },
+ {
+  "namespace": "Maps",
+  "key": "201_ViewName",
+  "source_zh": "天山山麓",
+  "target_ja": "天山山麓"
+ },
+ {
+  "namespace": "Maps",
+  "key": "204_ViewName",
+  "source_zh": "天山山麓",
+  "target_ja": "天山山麓"
+ },
+ {
+  "namespace": "Maps",
+  "key": "403_ViewName",
+  "source_zh": "天水内城",
+  "target_ja": "天水内城"
+ },
+ {
+  "namespace": "Maps",
+  "key": "401_ViewName",
+  "source_zh": "天水外城",
+  "target_ja": "天水外城"
+ },
+ {
+  "namespace": "Maps",
+  "key": "1010_ViewName",
+  "source_zh": "少林小路",
+  "target_ja": "少林の小道"
+ },
+ {
+  "namespace": "Maps",
+  "key": "1011_ViewName",
+  "source_zh": "少林小路",
+  "target_ja": "少林の小道"
+ },
+ {
+  "namespace": "Maps",
+  "key": "49_ViewName",
+  "source_zh": "崖底山洞",
+  "target_ja": "崖底の洞窟"
+ },
+ {
+  "namespace": "Maps",
+  "key": "18_ViewName",
+  "source_zh": "平康城北街",
+  "target_ja": "平康城の北街"
+ },
+ {
+  "namespace": "Maps",
+  "key": "48_ViewName",
+  "source_zh": "断天崖底",
+  "target_ja": "断天崖の底"
+ },
+ {
+  "namespace": "Maps",
+  "key": "608_ViewName",
+  "source_zh": "明月星河",
+  "target_ja": "明月星河"
+ },
+ {
+  "namespace": "Maps",
+  "key": "91_ViewName",
+  "source_zh": "桃源小径",
+  "target_ja": "桃源の小径"
+ },
+ {
+  "namespace": "Maps",
+  "key": "1015_ViewName",
+  "source_zh": "武当禁地",
+  "target_ja": "武当禁地"
+ },
+ {
+  "namespace": "Maps",
+  "key": "3006_ViewName",
+  "source_zh": "江湖散人",
+  "target_ja": "江湖の散人"
+ },
+ {
+  "namespace": "Maps",
+  "key": "33_ViewName",
+  "source_zh": "竹林小屋",
+  "target_ja": "竹林の小屋"
+ },
+ {
+  "namespace": "Maps",
+  "key": "319_ViewName",
+  "source_zh": "蜃楼海域",
+  "target_ja": "蜃気楼の海域"
+ },
+ {
+  "namespace": "Maps",
+  "key": "83_ViewName",
+  "source_zh": "野猪林cg夜",
+  "target_ja": "野猪林CG（夜）"
+ }
+]

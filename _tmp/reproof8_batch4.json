@@ -1,0 +1,26 @@
+{
+  "reviewed": 0,
+  "fixes": [
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5654_4_Dlgs_Index0_Text", "new_ja": "5015 - 莫問 $@$……師弟、早く欧陽姑娘を連れて逃げろ、わたしが彼を食い止める！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5654_6_Dlgs_Index6_Text", "new_ja": "5015 - 莫問 $@$……ゴホ、ゴホ、曹煜天は風雲訣を身につけており、確かにわたしは彼の敵ではありません……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5654_6_Dlgs_Index7_Text", "new_ja": "5015 - 莫問 $@$しかし、武当にはわたしよりも武功がはるかに優れている者が少なくありませんし、師父や師伯の剣法は武林にその名を轟かせています……閣下のお言葉は少々偏りがあるかと。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5690_1_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$……閣下はわざわざわたくしをここに誘い出したのに、姿を現すつもりはないのですか？"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5703_5_Dlgs_Index2_Text", "new_ja": "5015 - 莫問 $@$師父……この数年、わたしは尋ねたことはありませんし、師父も一度も言及されませんでした……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5703_5_Dlgs_Index3_Text", "new_ja": "5015 - 莫問 $@$幼い頃、道通師叔が、わたしは師父が武当山の麓で拾った捨て子だと仰っていました……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5703_5_Dlgs_Index17_Text", "new_ja": "5015 - 莫問 $@$ではわたしの両親は……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5784_9_Dlgs_Index10_Text", "new_ja": "5015 - 莫問 $@$ゴホ……程少侠がわたしたちを迎えに来てくださったのであれば、道案内をお願いします。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5821_1_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$……程鈺、ここでしばらく待っていてくれ、わたしと師弟で師父に報告してくる。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5831_4_Dlgs_Index3_Text", "new_ja": "5015 - 莫問 $@$今日はもう遅い、わたしは先に休む。師弟も早めに弟子部屋へ戻れ。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5929_5_Dlgs_Index0_Text", "new_ja": "5015 - 莫問 $@$ふん、今や正体がばれたというのに、まだ甘言でわたしを欺こうと妄想しているのか？！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5929_5_Dlgs_Index5_Text", "new_ja": "5015 - 莫問 $@$わたしが知っているのは、お前とは不倶戴天の敵だということだけで十分だ！"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "5995_15_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$あなたはわたしに当時の真相を知らしめるために、これほどまで画策して、一体何を求めているのですか？"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6002_2_Dlgs_Index0_Text", "new_ja": "5015 - 莫問 $@$はっ……師父は彼がわたしを騙していると言いますが、では師父は？"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6002_2_Dlgs_Index1_Text", "new_ja": "5015 - 莫問 $@$あなたは何のためにわたしをそばに置いて育てたのですか？"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6002_5_Dlgs_Index2_Text", "new_ja": "5015 - 莫問 $@$……わたしは本来わたしのものであるものを取り戻しているだけだ。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6063_10_Dlgs_Index6_Text", "new_ja": "5015 - 莫問 $@$当時、あなた方が天山救援を名目に、強盗の真似事をし、風雲訣を奪うためにわたしの母を殺した時……"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6063_10_Dlgs_Index7_Text", "new_ja": "5015 - 莫問 $@$わたしが生き残れるとは、夢にも思わなかったでしょう？"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6063_8_Dlgs_Index9_Text", "new_ja": "5015 - 莫問 $@$わたしのこの風雲訣はどこから来たのか？"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6064_2_Dlgs_Index7_Text", "new_ja": "5015 - 莫問 $@$それに、ここにはこれほど多くの者がわたしと共に殉じるのだ。死んでも何も後悔することはない。"},
+    {"target": "CG表", "ns": "QuestDlgs", "key": "6151_3_Dlgs_Index16_Text", "new_ja": "45311 - 莫問 $@$風雲訣がある限り、わたしが生きている限り……"}
+  ]
+}

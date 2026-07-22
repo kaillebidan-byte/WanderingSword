@@ -1,0 +1,170 @@
+[
+ {
+  "namespace": "QuestDlgs",
+  "key": "28935_2_Dlgs_Index2_Text",
+  "source_zh": "1 - 宇文逸 $@$今日……宇文逸——",
+  "target_ja": "1 - 宇文逸 $@$今日……宇文逸——"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "30346_1_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$初代玄女？",
+  "target_ja": "1 - 宇文逸 $@$初代玄女？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "24331_2_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$履霜！朝晨！",
+  "target_ja": "1 - 宇文逸 $@$履霜！朝晨！"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "30403_4_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$明暗双使……",
+  "target_ja": "1 - 宇文逸 $@$明暗双使……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "30345_1_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$明暗双使……初代玄女……",
+  "target_ja": "1 - 宇文逸 $@$明暗双使……初代玄女……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "24042_3_Dlgs_Index10_Text",
+  "source_zh": "1 - 宇文逸 $@$桓王……天枢……",
+  "target_ja": "1 - 宇文逸 $@$桓王……天枢……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "24043_2_Dlgs_Index11_Text",
+  "source_zh": "1 - 宇文逸 $@$桓王……天枢……",
+  "target_ja": "1 - 宇文逸 $@$桓王……天枢……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "6156_4_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$江、江大哥？",
+  "target_ja": "1 - 宇文逸 $@$江、江大哥？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22199_4_Dlgs_Index3_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22200_4_Dlgs_Index3_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22202_8_Dlgs_Index10_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22203_8_Dlgs_Index12_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22205_5_Dlgs_Index3_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22206_5_Dlgs_Index3_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "5723_5_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$玄火神丹？",
+  "target_ja": "1 - 宇文逸 $@$玄火神丹？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "12703_1_Dlgs_Index3_Text",
+  "source_zh": "1 - 宇文逸 $@$荀姑娘……荀姑娘？！",
+  "target_ja": "1 - 宇文逸 $@$荀姑娘……荀姑娘？！"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "13282_2_Dlgs_Index0_Text",
+  "source_zh": "1 - 宇文逸 $@$裴壮士？魏兄弟？",
+  "target_ja": "1 - 宇文逸 $@$裴壮士？魏兄弟？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "28019_12_Dlgs_Index8_Text",
+  "source_zh": "1 - 宇文逸 $@$（小白鼠？小白猿？）",
+  "target_ja": "1 - 宇文逸 $@$（白ねずみ？白い猿？）"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "32092_2_Dlgs_Index0_Text",
+  "source_zh": "10268 - 上官虹 $@$宇文少侠。",
+  "target_ja": "10268 - 上官虹 $@$宇文少侠。"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "8063_4_Dlgs_Index0_Text",
+  "source_zh": "10268 - 上官虹 $@$宇文少侠？",
+  "target_ja": "10268 - 上官虹 $@$宇文少侠……？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "8064_4_Dlgs_Index0_Text",
+  "source_zh": "10268 - 上官虹 $@$宇文少侠？",
+  "target_ja": "10268 - 上官虹 $@$宇文少侠……？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "8065_1_Dlgs_Index0_Text",
+  "source_zh": "10268 - 上官虹 $@$宇文少侠？",
+  "target_ja": "10268 - 上官虹 $@$宇文少侠……？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "32099_2_Dlgs_Index0_Text",
+  "source_zh": "10269 - 孔亮 $@$宇文兄弟？",
+  "target_ja": "10269 - 孔亮 $@$宇文兄弟？"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "22408_9_Dlgs_Index1_Text",
+  "source_zh": "12010 - 荀杳杳 $@$宇文公子！",
+  "target_ja": "12010 - 荀杳杳 $@$宇文公子！"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "12396_1_Dlgs_Index2_Text",
+  "source_zh": "12015 - ？？？ $@$君思我兮然疑作……",
+  "target_ja": "12015 - ？？？ $@$君は我を思うかと、なお疑い惑う……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "5526_3_Dlgs_Index0_Text",
+  "source_zh": "19102 - 副将-徐海 $@$曹、曹煜天！",
+  "target_ja": "19102 - 副将-徐海 $@$曹、曹煜天！"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "24054_1_Dlgs_Index0_Text",
+  "source_zh": "19103 - 黄宗政 $@$宇文少侠……",
+  "target_ja": "19103 - 黄宗政 $@$宇文少侠……"
+ },
+ {
+  "namespace": "QuestDlgs",
+  "key": "5655_4_Dlgs_Index5_Text",
+  "source_zh": "5509 - 慧空 $@$宇文施主——！",
+  "target_ja": "5509 - 慧空 $@$宇文施主——！"
+ }
+]

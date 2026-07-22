@@ -1,0 +1,4343 @@
+[
+ {
+  "source_zh": "五仙教弟子",
+  "occurrences": 9,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔迦摩",
+  "occurrences": 7,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄火力士",
+  "occurrences": 7,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "湖月照影",
+  "occurrences": 6,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "朱明六炀",
+  "occurrences": 6,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$玄火神丹……",
+  "occurrences": 6,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "菌菇蟾蜍",
+  "occurrences": 6,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "凌波仙子",
+  "occurrences": 5,
+  "targets": [
+   "Buff与道具",
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "芙蓉雪蛤片",
+  "occurrences": 5,
+  "targets": [
+   "Buff与道具",
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖人士",
+  "occurrences": 5,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖高手",
+  "occurrences": 5,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "一箭双雕",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "九洲吞云",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "兵烽六要",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "吸星神功",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔六通",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "少林刀法",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "少林棍法",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "心宿大火",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武当刀法",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武当心法",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖血器",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "浩然正器",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "混沌武典",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄火刀法",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄焰身法",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "血海魔刀",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青木漫舞",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "七星拳套",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "方天画戟",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "芙蓉金冠",
+  "occurrences": 4,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "少林弟子",
+  "occurrences": 4,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "智度上人",
+  "occurrences": 4,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "沙盗投火手",
+  "occurrences": 4,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "腐食蜈蚣",
+  "occurrences": 4,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "苗疆叛民",
+  "occurrences": 4,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大白小逸",
+  "occurrences": 4,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天下第一",
+  "occurrences": 4,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "流水知音",
+  "occurrences": 4,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "湖心泛舟",
+  "occurrences": 4,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "三才刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "丐帮心法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "占位（不翻译）",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "参海双珍",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "参草烩海珍",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "恢复气血{0}(不翻译)",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄火教主",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "石斑四珍烩",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "雪花芙蓉",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "风起云涌",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "丈八蛇矛",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "光明心法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "八卦刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "凝血神爪",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "十七路小擒拿",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "含沙射影",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "嗜血寒蝠",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大五衰刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大日如来棍",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天仙洞衣",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天罡刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天蚕大法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "孟春九曲",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "小五衰刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "弥山棍法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "慈悲刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "慈航普渡杖",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "擎天架海式",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "晦朔心法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "朽木刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖心法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖拳掌",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖暗器",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "漫天花雨",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "燃木刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄火心法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄火掌法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄虚刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄黄固神丹",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "碧玉扳指",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "禅宗伏魔功",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "素律三毒",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "菩提刀法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "虺蛇吐信",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "韶光淑器",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "鬼影幽冥大法",
+  "occurrences": 3,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "10268 - 上官虹 $@$宇文少侠？",
+  "occurrences": 3,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山弟子",
+  "occurrences": 3,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "沙盗投石手",
+  "occurrences": 3,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "苗疆百姓",
+  "occurrences": 3,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蛇部勇士",
+  "occurrences": 3,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天下智囊",
+  "occurrences": 3,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "暗夜有月",
+  "occurrences": 3,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武林盟主",
+  "occurrences": 3,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "竹杖芒鞋",
+  "occurrences": 3,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青木双姝",
+  "occurrences": 3,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "箭如雨下",
+  "occurrences": 3,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用效果",
+  "occurrences": 3,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "刀法精通:",
+  "occurrences": 3,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "拳掌精通:",
+  "occurrences": 3,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "暗器精通:",
+  "occurrences": 3,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武器精通",
+  "occurrences": 3,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "万里平戎",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五恒天经",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用本技能时不会产生暴击，自身气血+10%。(不翻译)",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "慕家芙蓉雪蛤片",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "本武学暴击提升{0}。(不翻译)",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "法天象地调息(不翻译)",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄火神丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "皓虎颠狂",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "药圣医典(不翻译)",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蜃楼幻境",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青木漫舞(不翻译)",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "韶华胜极神通(不翻译)",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "须臾心鉴",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "鬼影幽冥",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "一心戎衣",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "上品凝元丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "上品混元丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "下品凝元丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "下品混元丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "丐帮棍法",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "中品凝元丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "中品混元丹",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五光琉璃",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五宝花蜜酒",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五色袈裟",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "十八学士",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "感悟心得",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "水煮肉片",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄冰神掌",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玄武道衣",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "素麟金面",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "翡翠豆糕",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "菩提念珠",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "虺蛇毒信",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "Skills技能表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "黄金蟹斗",
+  "occurrences": 2,
+  "targets": [
+   "Buff与道具",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$桓王……天枢……",
+  "occurrences": 2,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "三清殿弟子",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "丐帮弟子",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五仙大祭司",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "初代玄女",
+  "occurrences": 2,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "掌柜-李郝",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "竹林哨兵",
+  "occurrences": 2,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "船工阿三",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "船工阿四",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "草寇刀手",
+  "occurrences": 2,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蛇部吹箭手",
+  "occurrences": 2,
+  "targets": [
+   "Npc",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "跛足老道",
+  "occurrences": 2,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$（《混沌武典》……瑶光殿主……）",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$（八仙奇珍……）",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "凌波仙坊",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "刀系武器",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山之巅",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山孤冢",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "我名冷月",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "拳系武器",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "放下屠刀",
+  "occurrences": 2,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "万里平戎策",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "六扇心法",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "回天扇法",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大天魔手",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山掌法",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "打狗棍法",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "火矢如瀑",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青冥欲雨",
+  "occurrences": 2,
+  "targets": [
+   "Skills技能表",
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用数量",
+  "occurrences": 2,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉石俱焚",
+  "occurrences": 2,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "血洗武林",
+  "occurrences": 2,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武冠群英",
+  "occurrences": 2,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "犄角之蛇",
+  "occurrences": 2,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "通幽之行",
+  "occurrences": 2,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山山麓",
+  "occurrences": 2,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "少林小路",
+  "occurrences": 2,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "万里神行",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "三仙望月",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "上清正宗",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "上清风云决5(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "丐帮帮主",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "丐帮棍法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "中平枪法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "中毒免疫",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "中转-千鸦去(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "乘云御龙(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "乘云御龙心诀(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五恒天经(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五成功力",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五灵心经-残1(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五灵心经-残2(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "任脉3（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "任脉4（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使本招式时，有15%几率对目标额外造成（自身内力*3）伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用两仪连华剑时，每攻击1个目标为自身添加1层武当剑法招式强化效果。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用任何1式普攻类江湖武学时，自身真气+50。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用后自身真气+15%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用天羽奇剑后为额外为自身添加2~3层天羽势效果。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用本招式时，若自身有剑气效果，则使目标气血-8%。每个目消耗1层剑气效果。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用本招式每攻击1个目标可为自身添加1层剑气效果。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用武当派所有刀法招式时，每攻击1个目标自身真气+3%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "使用燃木刀法时有8%几率额外造成800点伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "借力打力",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "免疫刺目、震慑",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "全枪棍招式增伤(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "六扇神侯",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "兵烽六要(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "养心秘术(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "冲脉1（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "冲脉2（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "冲脉3（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "冲脉4（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "冲脉5（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "凶星入魔",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "出魔(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "出魔-恢复气血(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "剔骨断筋枪(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "反弹自身1%伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "反弹自身10%伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "变阵枪(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "叶家心法",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "叶家心法1(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "叶家心法2(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "同归棍法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "四关(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "四关十二原经(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "增加1点移动力，持续1回合.",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "增加3%闪避，持续3回合，最高3层。",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大巧不工",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大日如来",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大日如来-3个目标气绝(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天人合一",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天地自然",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天突 （不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天蚕蛊灵阵",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔六通(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔化身",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔漏尽",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔通-意",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔通-眼",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔通-舌",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔通-身",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔通-鼻",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天龙心法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天龙无双",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "如影随行",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "妙造自然",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "宿曜神宫",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "宿曜神宫-中转BUFF(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "宿曜神宫天法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "寒冰真气",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "寒冰真气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "寒霜免疫",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "弥山棍法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "弦音无象",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "弦音无象诀(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "心宿巨星",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "急如鹰飞（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "恢复真气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "惔神秘鉴(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "戍阵枪(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "所有恶人谷刀法招式伤害+7%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "打狗棍法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "掠影浮光",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "推开判定(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "擂山爆炸(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "擎天架海式(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "攻如虎斗（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "断筋免疫",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "无形罡气",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "无形罡气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "日月如梭",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "昏天地暗",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "易筋固元",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "星火燎原",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "暴击为0。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "有15%几率对目标额外造成（自身身法*3）伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "有凤来仪(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "本武学暴击+30%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "棒打双犬",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "欲天六重",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武岳枪法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武当名宿",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "每回合恢复2%气血，持续3回合。",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "每回合恢复2%真气，持续3回合。",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "每攻击1个目标自身真气+3%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "每攻击一个目标使自身防御+3%，最高叠加10层，持续2回合。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "气血-3%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "气血每少1%，受到伤害+0.6%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖心法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "洗罪浮屠",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "浑天奥理",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "浑天梨花枪(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "涅槃浮屠",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "消耗真气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "清除目标集气值使其为0，对当前集气值已满的目标无效。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "灭寂魔功(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "灼烧伤害*1层(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "灼烧免疫-1回合(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "炼体篇（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "烧火棍法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉龙决(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉龙百式 单次判定(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉龙百式 强化判定(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉龙百式(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "瑜伽奥义",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "瑜伽奥义(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "瑜伽经(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "生死寒冰",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "疯魔效果消失后，自身气血+20%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "白虹掌力",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "目标气血-8%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "真五恒天经(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "真气+3%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "真气+5%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "真气+8%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "督脉1（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "破招免疫",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "破阵枪法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "碧波心经",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "碧波心经(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "神出鬼没",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "禅宗伏魔",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "移动无视控制领域，持续1回合。",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "移除自身所有负面效果。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "穿云一枪(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "绝弦无音",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "绝弦无音(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "翡翠豆糕恢复气血(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "翡翠豆糕恢复真气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "自身每100点真气上限可增加真武剑气10点伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "自身每点移动力使清风剑法伤害+7%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "自身真气-25%。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "荼蘼零落(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "莲师八变",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "莲师八变(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "落花流水",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "虺魔罡气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蚬子面恢复真气(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蟠龙棍法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蟠龙绕柱(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "贪狼枪法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "造成1000点伤害。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "锻骨篇（不翻译）",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "镇山心法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "随机对3个目标造成气绝效果。(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "雷霆枪法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "霹雳心法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青玉劲(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "韶华胜极",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "风云决-残3(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "风云决-残4(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "飞将戟法(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "黄金蟹斗恢复气血(不翻译)",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "《慕家兵略》",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "《穆家兵法》",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "一周年礼包",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五仙教令牌",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五毒玉佩",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "切磋宝典",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "制衣经验不翻译",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "副掌令牌",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "地火岩核",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "大天魔手残章",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天人之上",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山冰髓",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天魔六通残章",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "客卿腰牌",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "寒潭玉露",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "心法残章",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "松竹幽亭",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武学心得",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武学感悟",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "水盆羊肉",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江小彤好感",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "海棠栖禽",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "混沌武典残章",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "炼丹经验不翻译",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "烹饪经验不翻译",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "犀角碧檀子",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉石棋子",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "琢玉手残章",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "白玉老虎牌",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "禁地令牌",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "羊脂玉如意",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "芙蓉金瓶",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "赤血珊瑚",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "通幽寒魄",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "采集经验不翻译",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "金蝎毒元",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "钓鱼经验不翻译",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "锻造经验不翻译",
+  "occurrences": 1,
+  "targets": [
+   "Buff与道具"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$今日……宇文逸——",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$初代玄女？",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$履霜！朝晨！",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$明暗双使……",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$明暗双使……初代玄女……",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$江、江大哥？",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$玄火神丹？",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$荀姑娘……荀姑娘？！",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$裴壮士？魏兄弟？",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$（小白鼠？小白猿？）",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "10268 - 上官虹 $@$宇文少侠。",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "10269 - 孔亮 $@$宇文兄弟？",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "12010 - 荀杳杳 $@$宇文公子！",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "12015 - ？？？ $@$君思我兮然疑作……",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "19102 - 副将-徐海 $@$曹、曹煜天！",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "19103 - 黄宗政 $@$宇文少侠……",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "5509 - 慧空 $@$宇文施主——！",
+  "occurrences": 1,
+  "targets": [
+   "CG表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "断天崖草寇",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五仙弟子",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "副将-徐海",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "千陵渡船夫",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "南洋商人",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "南疆叛兵",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "小二-尹柯",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "小二-王宸",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "小吃商人",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "少年侠客",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "怪医-周雄",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "插翅虎-王猛",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "樊城官兵",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "欲教弟子",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖侠士",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖名宿",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "法王弟子",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "流浪武士",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "瀛洲商人",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "狂化程家堡弟子",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "独行野猪",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉蟾使-石赫",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "琢玉楼掌事",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "白面郎君",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "程家堡弟子",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "耶律胡生",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "舞舫舫主",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "船工-汪曲",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "船工-雷直",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "船老大-雷壮",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蒙面武者",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蒙面海寇",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "郎中-魏老",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "陶瓷商人",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青木舫侍女",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "青木道人",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "香料商人",
+  "occurrences": 1,
+  "targets": [
+   "Npc"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$凌波仙子……",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "1 - 宇文逸 $@$劈山大王？",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "【碧海仙踪】仙猿山",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五仙教主",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "千陵夜哭",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天、地、法、兵、将",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "朝堂新星",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武功秘籍",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武学秘籍",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "流水遇知音",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "程二夫人",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "螳螂捕蝉",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "道、天、地、兵、法",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "道、天、地、将、法",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "霓裳羽衣",
+  "occurrences": 1,
+  "targets": [
+   "Quests任务表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "巨斧猛士",
+  "occurrences": 1,
+  "targets": [
+   "Skills技能表"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "拳系秘籍",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "暗器武器",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "棍系武器",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "棍系秘籍",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武学泰斗",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "特殊武器",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "特殊防具",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "真武殿首座",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "鬼斧神工",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "刀法大成",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "唯快不破",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "心法大成",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "拳法大成",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "暗器大成",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "棍法大成",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖器量",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "白玉虎牌",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "事半功倍",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "命中注定",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天降洪福",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武力充裕",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "涅槃重生",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "精力旺盛",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "貔貅附体",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "再探苦水",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "四大武家",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天山秘辛",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天水祝寿",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "巡逻山贼",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "晦明朝夕",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武道之巅",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "死守禁地",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "毛人投矛手",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "油尽灯枯",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "漠北孤狼",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "玉容皓皓",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "甘泉苦水",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "疯魔杖法",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "竹林吹箭手",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "竹海之行",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "英雄大会",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "雷止雨歇",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "霓裳羽衣舞",
+  "occurrences": 1,
+  "targets": [
+   "系统"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "二十年前……",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "万劫窟密洞",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "五仙教禁地",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "仙人渡密室",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "十万大山",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天水内城",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "天水外城",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "崖底山洞",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "平康城北街",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "断天崖底",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "明月星河",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "桃源小径",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "武当禁地",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "江湖散人",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "竹林小屋",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "蜃楼海域",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ },
+ {
+  "source_zh": "野猪林cg夜",
+  "occurrences": 1,
+  "targets": [
+   "门派地图与提示"
+  ],
+  "target_ja": ""
+ }
+]

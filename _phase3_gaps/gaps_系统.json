@@ -1,0 +1,1226 @@
+[
+ {
+  "namespace": "",
+  "key": "08C634544CD293F6E79CAE8D655BDFD2",
+  "source_zh": "使用效果",
+  "target_ja": "使用効果"
+ },
+ {
+  "namespace": "",
+  "key": "9B14B9C34A7807300C185F95A25CDA36",
+  "source_zh": "使用效果",
+  "target_ja": "使用効果"
+ },
+ {
+  "namespace": "",
+  "key": "EEA347B942B2627DB801F7BB880A8EE6",
+  "source_zh": "使用效果",
+  "target_ja": "使用効果"
+ },
+ {
+  "namespace": "",
+  "key": "3CE6A08D4CA91F38AB4B6F9DCF59FA81",
+  "source_zh": "使用数量",
+  "target_ja": "使用数量"
+ },
+ {
+  "namespace": "",
+  "key": "3DA152C44F528EF20DB818B51FD2BB5F",
+  "source_zh": "使用数量",
+  "target_ja": "使用数量"
+ },
+ {
+  "namespace": "",
+  "key": "2BD9110B42EFF392CEF5A9B9A2FD4733",
+  "source_zh": "刀法精通:",
+  "target_ja": "刀法熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "6E9311EE473DAB97A59A299ED30B9B06",
+  "source_zh": "刀法精通:",
+  "target_ja": "刀法熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "7AB27F54442422E492FD95A01371B0BE",
+  "source_zh": "刀法精通:",
+  "target_ja": "刀法熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "5E6FC37F4421AD7FFF1092A8AC659BB8",
+  "source_zh": "刀系武器",
+  "target_ja": "刀系武器"
+ },
+ {
+  "namespace": "",
+  "key": "26067ABF4F8A5524B71DC5BF84630CE2",
+  "source_zh": "拳掌精通:",
+  "target_ja": "拳掌熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "7C207CBB45C0CF7A3175CEB9B925A844",
+  "source_zh": "拳掌精通:",
+  "target_ja": "拳掌熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "7DE4119944EBC23657B6F7897D90AF23",
+  "source_zh": "拳掌精通:",
+  "target_ja": "拳掌熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "199CD25D4EBD76C1E168B1AA4D1BDD90",
+  "source_zh": "拳系武器",
+  "target_ja": "拳系武器"
+ },
+ {
+  "namespace": "",
+  "key": "501F10B7419110ADB2EB478BD12E36B8",
+  "source_zh": "拳系秘籍",
+  "target_ja": "拳系秘伝書"
+ },
+ {
+  "namespace": "",
+  "key": "5F68471541D26FFC38C01E8B52D81627",
+  "source_zh": "暗器武器",
+  "target_ja": "暗器武器"
+ },
+ {
+  "namespace": "",
+  "key": "229FFB934D8A196C683222BB8AC3EAF9",
+  "source_zh": "暗器精通:",
+  "target_ja": "暗器熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "7BC258D940E0E08B49A5CB95D13A18E1",
+  "source_zh": "暗器精通:",
+  "target_ja": "暗器熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "DF879B5B46147C716A8FE4B0D8DDB613",
+  "source_zh": "暗器精通:",
+  "target_ja": "暗器熟練度:"
+ },
+ {
+  "namespace": "",
+  "key": "255B18B741715C49CE07339C09EF3778",
+  "source_zh": "棍系武器",
+  "target_ja": "棍系武器"
+ },
+ {
+  "namespace": "",
+  "key": "0A19C8C54C83A6870FFFD19FFC534695",
+  "source_zh": "棍系秘籍",
+  "target_ja": "棍系秘伝書"
+ },
+ {
+  "namespace": "",
+  "key": "097FE373434CCBC988C27D8F524CF561",
+  "source_zh": "武器精通",
+  "target_ja": "武器熟練度"
+ },
+ {
+  "namespace": "",
+  "key": "AF8A935B4A3CC53CBF85DBA1E7423643",
+  "source_zh": "武器精通",
+  "target_ja": "武器熟練度"
+ },
+ {
+  "namespace": "",
+  "key": "F6C67D93402578325DFE53A464216698",
+  "source_zh": "武器精通",
+  "target_ja": "武器熟練度"
+ },
+ {
+  "namespace": "",
+  "key": "C23C588F45D684FBC7E5FBAA00D63D15",
+  "source_zh": "武学泰斗",
+  "target_ja": "武学の泰斗"
+ },
+ {
+  "namespace": "",
+  "key": "0C53C0FD4C0BF86704A2208CDAE4DE6A",
+  "source_zh": "特殊武器",
+  "target_ja": "特殊武器"
+ },
+ {
+  "namespace": "",
+  "key": "7FFC363944292D3F81B251B6DBCF59AE",
+  "source_zh": "特殊防具",
+  "target_ja": "特殊防具"
+ },
+ {
+  "namespace": "",
+  "key": "450935394B2680AADA2ABA92916E19FB",
+  "source_zh": "玉石俱焚",
+  "target_ja": "玉石倶焚"
+ },
+ {
+  "namespace": "",
+  "key": "856D70FE4BE69239D9EB23BCD90551CB",
+  "source_zh": "真武殿首座",
+  "target_ja": "真武殿首座"
+ },
+ {
+  "namespace": "",
+  "key": "794AD30E43BF0AE980832A946B590A9F",
+  "source_zh": "血洗武林",
+  "target_ja": "血洗武林"
+ },
+ {
+  "namespace": "",
+  "key": "68A40DD742CB2D1E396C8184A0F1BFE7",
+  "source_zh": "鬼斧神工",
+  "target_ja": "鬼斧神工"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "230_Name",
+  "source_zh": "万里平戎",
+  "target_ja": "万里平戎"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "145_Name",
+  "source_zh": "刀法大成",
+  "target_ja": "刀法大成"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "232_Name",
+  "source_zh": "初代玄女",
+  "target_ja": "初代玄女"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "114_Name",
+  "source_zh": "唯快不破",
+  "target_ja": "唯だ速きは破れず"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "207_Name",
+  "source_zh": "天下智囊",
+  "target_ja": "天下の智嚢"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "211_Name",
+  "source_zh": "天下第一",
+  "target_ja": "天下第一"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "210_Name",
+  "source_zh": "天魔迦摩",
+  "target_ja": "天魔迦摩"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "142_Name",
+  "source_zh": "心法大成",
+  "target_ja": "心法大成"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "143_Name",
+  "source_zh": "拳法大成",
+  "target_ja": "拳法大成"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "147_Name",
+  "source_zh": "暗器大成",
+  "target_ja": "暗器大成"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "146_Name",
+  "source_zh": "棍法大成",
+  "target_ja": "棍法大成"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "213_Name",
+  "source_zh": "武冠群英",
+  "target_ja": "武冠群英"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "215_Name",
+  "source_zh": "江湖器量",
+  "target_ja": "江湖の器量"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "202_Name",
+  "source_zh": "白玉虎牌",
+  "target_ja": "白玉虎牌"
+ },
+ {
+  "namespace": "Achievement",
+  "key": "235_Name",
+  "source_zh": "蜃楼幻境",
+  "target_ja": "蜃気楼の幻境"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "118_RecipeName",
+  "source_zh": "上品凝元丹",
+  "target_ja": "上品凝元丹"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "122_RecipeName",
+  "source_zh": "上品混元丹",
+  "target_ja": "上品混元丹"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "116_RecipeName",
+  "source_zh": "下品凝元丹",
+  "target_ja": "下品凝元丹"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "120_RecipeName",
+  "source_zh": "下品混元丹",
+  "target_ja": "下品混元丹"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "117_RecipeName",
+  "source_zh": "中品凝元丹",
+  "target_ja": "中品凝元丹"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "121_RecipeName",
+  "source_zh": "中品混元丹",
+  "target_ja": "中品混元丹"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "135_RecipeName",
+  "source_zh": "五宝花蜜酒",
+  "target_ja": "五宝花蜜酒"
+ },
+ {
+  "namespace": "Alchemy",
+  "key": "140_RecipeName",
+  "source_zh": "玄黄固神丹",
+  "target_ja": "玄黄固神丹"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "159_RecipeName",
+  "source_zh": "参海双珍",
+  "target_ja": "参海双珍"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "151_RecipeName",
+  "source_zh": "参草烩海珍",
+  "target_ja": "参草海珍煮込み"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "100_RecipeName",
+  "source_zh": "水煮肉片",
+  "target_ja": "水煮肉片"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "150_RecipeName",
+  "source_zh": "石斑四珍烩",
+  "target_ja": "石斑四珍煮込み"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "161_RecipeName",
+  "source_zh": "翡翠豆糕",
+  "target_ja": "翡翠豆糕"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "146_RecipeName",
+  "source_zh": "芙蓉雪蛤片",
+  "target_ja": "芙蓉雪蛤片"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "130_RecipeName",
+  "source_zh": "雪花芙蓉",
+  "target_ja": "雪花芙蓉"
+ },
+ {
+  "namespace": "Cooking",
+  "key": "148_RecipeName",
+  "source_zh": "黄金蟹斗",
+  "target_ja": "黄金蟹斗"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "7_BuffName",
+  "source_zh": "事半功倍",
+  "target_ja": "事半功倍"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "6_BuffName",
+  "source_zh": "命中注定",
+  "target_ja": "運命の定め"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "5_BuffName",
+  "source_zh": "天降洪福",
+  "target_ja": "天降の洪福"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "2_BuffName",
+  "source_zh": "武力充裕",
+  "target_ja": "武力充溢"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "1_BuffName",
+  "source_zh": "涅槃重生",
+  "target_ja": "涅槃再生"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "3_BuffName",
+  "source_zh": "精力旺盛",
+  "target_ja": "精力旺盛"
+ },
+ {
+  "namespace": "ExtraDifficultyBuff",
+  "key": "8_BuffName",
+  "source_zh": "貔貅附体",
+  "target_ja": "貔貅憑依"
+ },
+ {
+  "namespace": "GameSettlement",
+  "key": "220_EndingName",
+  "source_zh": "武林盟主",
+  "target_ja": "武林盟主"
+ },
+ {
+  "namespace": "GameSettlement",
+  "key": "203_EndingName",
+  "source_zh": "玉石俱焚",
+  "target_ja": "玉石倶焚"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "243_PictorialName",
+  "source_zh": "一心戎衣",
+  "target_ja": "一心戎衣"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1513_PictorialName",
+  "source_zh": "一箭双雕",
+  "target_ja": "一箭双雕"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "111_PictorialName",
+  "source_zh": "七星拳套",
+  "target_ja": "七星拳套"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1781_PictorialName",
+  "source_zh": "万里平戎策",
+  "target_ja": "万里平戎の策"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1206_PictorialName",
+  "source_zh": "三才刀法",
+  "target_ja": "三才刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "213_PictorialName",
+  "source_zh": "五光琉璃",
+  "target_ja": "五光琉璃"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "212_PictorialName",
+  "source_zh": "五色袈裟",
+  "target_ja": "五色袈裟"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1735_PictorialName",
+  "source_zh": "光明心法",
+  "target_ja": "光明心法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1210_PictorialName",
+  "source_zh": "八卦刀法",
+  "target_ja": "八卦刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1706_PictorialName",
+  "source_zh": "六扇心法",
+  "target_ja": "六扇心法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1742_PictorialName",
+  "source_zh": "兵烽六要",
+  "target_ja": "兵烽六要"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2120_PictorialName",
+  "source_zh": "再探苦水",
+  "target_ja": "再び苦水を探る"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2167_PictorialName",
+  "source_zh": "凌波仙坊",
+  "target_ja": "凌波仙坊"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1446_PictorialName",
+  "source_zh": "凝血神爪",
+  "target_ja": "凝血神爪"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1470_PictorialName",
+  "source_zh": "十七路小擒拿",
+  "target_ja": "十七路小擒拿"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "199_PictorialName",
+  "source_zh": "十八学士",
+  "target_ja": "十八学士"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1519_PictorialName",
+  "source_zh": "含沙射影",
+  "target_ja": "含沙射影"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1751_PictorialName",
+  "source_zh": "吸星神功",
+  "target_ja": "吸星神功"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1511_PictorialName",
+  "source_zh": "嗜血寒蝠",
+  "target_ja": "吸血の寒蝠"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2103_PictorialName",
+  "source_zh": "四大武家",
+  "target_ja": "四大武家"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1466_PictorialName",
+  "source_zh": "回天扇法",
+  "target_ja": "回天扇法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1231_PictorialName",
+  "source_zh": "大五衰刀法",
+  "target_ja": "大五衰刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1458_PictorialName",
+  "source_zh": "大天魔手",
+  "target_ja": "大天魔手"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1322_PictorialName",
+  "source_zh": "大日如来棍",
+  "target_ja": "大日如来棍"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2152_PictorialName",
+  "source_zh": "大白小逸",
+  "target_ja": "大白と小逸"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2153_PictorialName",
+  "source_zh": "大白小逸",
+  "target_ja": "大白と小逸"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2183_PictorialName",
+  "source_zh": "天下智囊",
+  "target_ja": "天下の智嚢"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2139_PictorialName",
+  "source_zh": "天下第一",
+  "target_ja": "天下第一"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2140_PictorialName",
+  "source_zh": "天下第一",
+  "target_ja": "天下第一"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2141_PictorialName",
+  "source_zh": "天下第一",
+  "target_ja": "天下第一"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2187_PictorialName",
+  "source_zh": "天山之巅",
+  "target_ja": "天山の頂"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2186_PictorialName",
+  "source_zh": "天山孤冢",
+  "target_ja": "天山の孤塚"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1422_PictorialName",
+  "source_zh": "天山掌法",
+  "target_ja": "天山掌法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2022_PictorialName",
+  "source_zh": "天山秘辛",
+  "target_ja": "天山秘聞"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2015_PictorialName",
+  "source_zh": "天水祝寿",
+  "target_ja": "天水の長寿祝い"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1229_PictorialName",
+  "source_zh": "天罡刀法",
+  "target_ja": "天罡刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1745_PictorialName",
+  "source_zh": "天蚕大法",
+  "target_ja": "天蚕大法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1770_PictorialName",
+  "source_zh": "天魔六通",
+  "target_ja": "天魔六通"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "557_PictorialName",
+  "source_zh": "天魔迦摩",
+  "target_ja": "天魔迦摩"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1437_PictorialName",
+  "source_zh": "孟春九曲",
+  "target_ja": "孟春九曲"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1217_PictorialName",
+  "source_zh": "小五衰刀法",
+  "target_ja": "小五衰刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1205_PictorialName",
+  "source_zh": "少林刀法",
+  "target_ja": "少林刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1311_PictorialName",
+  "source_zh": "少林棍法",
+  "target_ja": "少林棍法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "455_PictorialName",
+  "source_zh": "巡逻山贼",
+  "target_ja": "巡邏の山賊"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1310_PictorialName",
+  "source_zh": "弥山棍法",
+  "target_ja": "弥山棍法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1535_PictorialName",
+  "source_zh": "心宿大火",
+  "target_ja": "心宿大火"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "204_PictorialName",
+  "source_zh": "感悟心得",
+  "target_ja": "悟りの心得"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1220_PictorialName",
+  "source_zh": "慈悲刀法",
+  "target_ja": "慈悲刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1320_PictorialName",
+  "source_zh": "慈航普渡杖",
+  "target_ja": "慈航普渡杖"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2173_PictorialName",
+  "source_zh": "我名冷月",
+  "target_ja": "我が名は冷月"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1324_PictorialName",
+  "source_zh": "打狗棍法",
+  "target_ja": "打狗棍法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1330_PictorialName",
+  "source_zh": "擎天架海式",
+  "target_ja": "擎天架海式"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "107_PictorialName",
+  "source_zh": "方天画戟",
+  "target_ja": "方天画戟"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2122_PictorialName",
+  "source_zh": "晦明朝夕",
+  "target_ja": "晦明朝夕"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1719_PictorialName",
+  "source_zh": "晦朔心法",
+  "target_ja": "晦朔心法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "425_PictorialName",
+  "source_zh": "智度上人",
+  "target_ja": "智度上人"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2171_PictorialName",
+  "source_zh": "暗夜有月",
+  "target_ja": "暗夜に月あり"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1225_PictorialName",
+  "source_zh": "朱明六炀",
+  "target_ja": "朱明六煬"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1438_PictorialName",
+  "source_zh": "朱明六炀",
+  "target_ja": "朱明六煬"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1207_PictorialName",
+  "source_zh": "朽木刀法",
+  "target_ja": "朽木刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2133_PictorialName",
+  "source_zh": "武冠群英",
+  "target_ja": "武冠群英"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1204_PictorialName",
+  "source_zh": "武当刀法",
+  "target_ja": "武当刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1704_PictorialName",
+  "source_zh": "武当心法",
+  "target_ja": "武当心法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2204_PictorialName",
+  "source_zh": "武林盟主",
+  "target_ja": "武林盟主"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2147_PictorialName",
+  "source_zh": "武道之巅",
+  "target_ja": "武道の頂"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2070_PictorialName",
+  "source_zh": "死守禁地",
+  "target_ja": "禁地死守"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "542_PictorialName",
+  "source_zh": "毛人投矛手",
+  "target_ja": "毛人の投槍兵"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1202_PictorialName",
+  "source_zh": "江湖刀法",
+  "target_ja": "江湖刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1702_PictorialName",
+  "source_zh": "江湖心法",
+  "target_ja": "江湖心法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1405_PictorialName",
+  "source_zh": "江湖拳掌",
+  "target_ja": "江湖拳掌"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1503_PictorialName",
+  "source_zh": "江湖暗器",
+  "target_ja": "江湖暗器"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1530_PictorialName",
+  "source_zh": "江湖血器",
+  "target_ja": "江湖血器"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "515_PictorialName",
+  "source_zh": "沙盗投火手",
+  "target_ja": "砂賊の火炎投げ"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "514_PictorialName",
+  "source_zh": "沙盗投石手",
+  "target_ja": "砂賊の投石兵"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2079_PictorialName",
+  "source_zh": "油尽灯枯",
+  "target_ja": "油尽き灯枯る"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2192_PictorialName",
+  "source_zh": "流水知音",
+  "target_ja": "流水知音"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2193_PictorialName",
+  "source_zh": "流水知音",
+  "target_ja": "流水知音"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2194_PictorialName",
+  "source_zh": "流水知音",
+  "target_ja": "流水知音"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2195_PictorialName",
+  "source_zh": "流水知音",
+  "target_ja": "流水知音"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1529_PictorialName",
+  "source_zh": "浩然正器",
+  "target_ja": "浩然正器"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1784_PictorialName",
+  "source_zh": "混沌武典",
+  "target_ja": "混沌武典"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2200_PictorialName",
+  "source_zh": "湖心泛舟",
+  "target_ja": "湖心に舟を泛べる"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2201_PictorialName",
+  "source_zh": "湖心泛舟",
+  "target_ja": "湖心に舟を泛べる"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2202_PictorialName",
+  "source_zh": "湖心泛舟",
+  "target_ja": "湖心に舟を泛べる"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2203_PictorialName",
+  "source_zh": "湖心泛舟",
+  "target_ja": "湖心に舟を泛べる"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1153_PictorialName",
+  "source_zh": "湖月照影",
+  "target_ja": "湖月照影"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1474_PictorialName",
+  "source_zh": "湖月照影",
+  "target_ja": "湖月照影"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2031_PictorialName",
+  "source_zh": "漠北孤狼",
+  "target_ja": "漠北の孤狼"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1523_PictorialName",
+  "source_zh": "漫天花雨",
+  "target_ja": "漫天花雨"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1532_PictorialName",
+  "source_zh": "火矢如瀑",
+  "target_ja": "火矢は滝の如く"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1235_PictorialName",
+  "source_zh": "燃木刀法",
+  "target_ja": "燃木刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2055_PictorialName",
+  "source_zh": "犄角之蛇",
+  "target_ja": "角持つ蛇"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2056_PictorialName",
+  "source_zh": "犄角之蛇",
+  "target_ja": "角持つ蛇"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "143_PictorialName",
+  "source_zh": "玄武道衣",
+  "target_ja": "玄武道衣"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1209_PictorialName",
+  "source_zh": "玄火刀法",
+  "target_ja": "玄火刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1707_PictorialName",
+  "source_zh": "玄火心法",
+  "target_ja": "玄火心法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1421_PictorialName",
+  "source_zh": "玄火掌法",
+  "target_ja": "玄火掌法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2190_PictorialName",
+  "source_zh": "玄火教主",
+  "target_ja": "玄火教主"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1604_PictorialName",
+  "source_zh": "玄焰身法",
+  "target_ja": "玄焰身法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1234_PictorialName",
+  "source_zh": "玄虚刀法",
+  "target_ja": "玄虚刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "229_PictorialName",
+  "source_zh": "玄黄固神丹",
+  "target_ja": "玄黄固神丹"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2112_PictorialName",
+  "source_zh": "玉容皓皓",
+  "target_ja": "玉容皓皓"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2118_PictorialName",
+  "source_zh": "甘泉苦水",
+  "target_ja": "甘泉と苦水"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1323_PictorialName",
+  "source_zh": "疯魔杖法",
+  "target_ja": "狂魔杖法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1739_PictorialName",
+  "source_zh": "禅宗伏魔功",
+  "target_ja": "禅宗伏魔功"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2158_PictorialName",
+  "source_zh": "竹杖芒鞋",
+  "target_ja": "竹杖芒鞋"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "459_PictorialName",
+  "source_zh": "竹林吹箭手",
+  "target_ja": "竹林の吹き矢使い"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "458_PictorialName",
+  "source_zh": "竹林哨兵",
+  "target_ja": "竹林の見張り"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2093_PictorialName",
+  "source_zh": "竹海之行",
+  "target_ja": "竹海への道"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1531_PictorialName",
+  "source_zh": "箭如雨下",
+  "target_ja": "矢は雨の如く降る"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1439_PictorialName",
+  "source_zh": "素律三毒",
+  "target_ja": "素律三毒"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "217_PictorialName",
+  "source_zh": "素麟金面",
+  "target_ja": "素麟金面"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "549_PictorialName",
+  "source_zh": "腐食蜈蚣",
+  "target_ja": "腐食ムカデ"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "118_PictorialName",
+  "source_zh": "芙蓉金冠",
+  "target_ja": "芙蓉金冠"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "181_PictorialName",
+  "source_zh": "芙蓉雪蛤片",
+  "target_ja": "芙蓉雪蛤片"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2018_PictorialName",
+  "source_zh": "英雄大会",
+  "target_ja": "英雄大会"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "480_PictorialName",
+  "source_zh": "草寇刀手",
+  "target_ja": "野盗の刀使い"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1242_PictorialName",
+  "source_zh": "菩提刀法",
+  "target_ja": "菩提刀法"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "151_PictorialName",
+  "source_zh": "菩提念珠",
+  "target_ja": "菩提念珠"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1119_PictorialName",
+  "source_zh": "虺蛇吐信",
+  "target_ja": "虺蛇の舌"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "536_PictorialName",
+  "source_zh": "蛇部勇士",
+  "target_ja": "蛇族の勇士"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "537_PictorialName",
+  "source_zh": "蛇部吹箭手",
+  "target_ja": "蛇族の吹き矢使い"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2033_PictorialName",
+  "source_zh": "血洗武林",
+  "target_ja": "血洗武林"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1238_PictorialName",
+  "source_zh": "血海魔刀",
+  "target_ja": "血海魔刀"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2064_PictorialName",
+  "source_zh": "通幽之行",
+  "target_ja": "幽境への道"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2065_PictorialName",
+  "source_zh": "通幽之行",
+  "target_ja": "幽境への道"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2239_PictorialName",
+  "source_zh": "雷止雨歇",
+  "target_ja": "雷止み雨歇む"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2129_PictorialName",
+  "source_zh": "霓裳羽衣舞",
+  "target_ja": "霓裳羽衣の舞"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1467_PictorialName",
+  "source_zh": "青冥欲雨",
+  "target_ja": "青冥に雨を欲す"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2166_PictorialName",
+  "source_zh": "青木双姝",
+  "target_ja": "青木の双姝"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1726_PictorialName",
+  "source_zh": "青木漫舞",
+  "target_ja": "青木漫舞"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1527_PictorialName",
+  "source_zh": "韶光淑器",
+  "target_ja": "韶光淑器"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "2123_PictorialName",
+  "source_zh": "鬼影幽冥",
+  "target_ja": "鬼影幽冥"
+ },
+ {
+  "namespace": "PictorialBook",
+  "key": "1611_PictorialName",
+  "source_zh": "鬼影幽冥大法",
+  "target_ja": "鬼影幽冥大法"
+ }
+]

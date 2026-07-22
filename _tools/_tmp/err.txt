@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/sessions/busy-wizardly-pasteur/mnt/Wandering Sword翻訳/_tools/pending_char.py", line 53, in <module>
+    main()
+  File "/sessions/busy-wizardly-pasteur/mnt/Wandering Sword翻訳/_tools/pending_char.py", line 47, in main
+    json.dump({"meta": meta, "lines": out}, open(f"{TMP}/pf_char_batch.json", "w", encoding="utf-8"),
+PermissionError: [Errno 13] Permission denied: '/tmp/pf_char_batch.json'

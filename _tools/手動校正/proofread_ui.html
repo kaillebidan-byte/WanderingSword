@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>手動校正</title>
+<style>
+  :root{ --bg:#1e1e22; --panel:#26262c; --line:#34343c; --fg:#e6e6ea;
+         --mut:#9a9aa6; --zh:#8fb7ff; --edit:#ffcf6b; --ok:#6bd07f; --warn:#ff7676;
+         --focal:#3a3550; }
+  *{box-sizing:border-box}
+  body{margin:0;font:14px/1.6 "Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+  header{position:sticky;top:0;background:var(--panel);padding:8px 14px;border-bottom:1px solid var(--line);
+         display:flex;gap:14px;align-items:center;z-index:6}
+  header h1{font-size:14px;margin:0;font-weight:600;white-space:nowrap}
+  .tabs{display:flex;gap:6px}
+  .tab{padding:5px 12px;border-radius:7px;cursor:pointer;border:1px solid var(--line);background:#2c2c34;font-size:13px}
+  .tab.on{background:#4a4960;border-color:#6a6a86;color:#fff}
+  .stat{color:var(--mut);font-size:12px}
+  .nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+  button{background:#3a3a44;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:13px}
+  button:hover{background:#45454f}
+  input{background:#16161a;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+  input#off{width:80px}
+
+  /* 全行 */
+  #scanView{max-width:1080px;margin:0 auto;padding:14px}
+  .ghead{margin:18px 0 8px;padding:6px 12px;background:#2f2f37;border:1px solid var(--line);border-radius:8px;
+         color:var(--mut);font-size:12px;display:flex;gap:10px;align-items:center;position:sticky;top:50px;z-index:3}
+  .ghead .gid{color:var(--fg);font-family:Consolas,monospace;font-weight:600}
+  .ghead:first-child{margin-top:0}
+  .grp{border-left:2px solid #3a3a44;margin-left:4px;padding-left:10px}
+
+  /* キャラビュー */
+  #charView{display:none;grid-template-columns:230px 1fr 320px;gap:0;height:calc(100vh - 49px)}
+  #charView.on{display:grid}
+  .charbar{border-right:1px solid var(--line);overflow:auto;padding:10px}
+  .charbar .bt{font-size:12px;color:var(--mut);margin:4px 0 8px}
+  .chip{display:flex;justify-content:space-between;gap:8px;padding:6px 9px;border-radius:7px;cursor:pointer;border:1px solid transparent}
+  .chip:hover{background:#2f2f37}
+  .chip.on{background:#3a3a52;border-color:#5a5a7a}
+  .chip .nm{font-weight:600}
+  .chip .ct{color:var(--mut);font-size:12px}
+  .chip .st{font-size:10px;padding:0 5px;border-radius:4px;margin-left:4px}
+  .st-確定{background:#2c4a32;color:#bdf0c6}
+  .st-保留{background:#5a2d2d;color:#ffc9c9}
+  .st-なし,.st-仮訳,.st-不明{background:#4a3d22;color:#ffe0a8}
+  #charMain{overflow:auto;padding:14px}
+  /* 非対話 */
+  #ndView{display:none;max-width:1080px;margin:0 auto;padding:14px}
+  #ndView.on{display:block}
+  .ndtabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+  .ndtab{padding:5px 12px;border-radius:7px;cursor:pointer;border:1px solid var(--line);background:#2c2c34;font-size:13px}
+  .ndtab.on{background:#4a4960;border-color:#6a6a86;color:#fff}
+  #personaPanel{border-left:1px solid var(--line);overflow:auto;padding:14px;background:#222228;font-size:13px}
+  #personaPanel h3{font-size:12px;color:var(--mut);margin:14px 0 4px;text-transform:none}
+  #personaPanel .core,#personaPanel .ex{white-space:pre-wrap;line-height:1.5}
+  .pbanner{padding:8px 10px;border-radius:8px;margin-bottom:10px;font-size:13px}
+  .pbanner.ok{background:#243; color:#bdf0c6}
+  .pbanner.warn{background:#5a2d2d;color:#ffd6d6;border:1px solid #884}
+
+  /* 行 */
+  .row{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:9px}
+  .row.edited{border-color:var(--edit)}
+  .row.st-OK{border-left:4px solid var(--ok)}
+  .row.ctx{opacity:.55}
+  .row.focal{background:var(--focal);opacity:1}
+  .meta{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--mut);margin-bottom:5px}
+  .char{color:var(--fg);font-weight:600}
+  .key{font-family:Consolas,monospace}
+  .zh{color:var(--zh);margin:3px 0;white-space:pre-wrap}
+  .prefix{color:var(--mut)}
+  textarea{width:100%;background:#16161a;color:var(--fg);border:1px solid var(--line);border-radius:6px;
+           padding:8px;font:14px/1.6 inherit;resize:vertical;min-height:44px}
+  .ctl{display:flex;gap:8px;margin-top:6px;align-items:center}
+  .ctl select{background:#16161a;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px}
+  .err{color:var(--warn);font-size:12px} .saved{color:var(--ok);font-size:12px}
+  .badge{font-size:11px;padding:1px 6px;border-radius:4px;background:#3a3a44}
+  .pager{display:flex;gap:8px;justify-content:center;margin:14px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>手動校正</h1>
+  <div class="tabs">
+    <div class="tab on" data-tab="all">全行</div>
+    <div class="tab" data-tab="gte400">400以上</div>
+    <div class="tab" data-tab="mid">100–400</div>
+    <div class="tab" data-tab="lt100">100未満</div>
+    <div class="tab" data-tab="nd">非対話</div>
+  </div>
+  <span class="stat" id="stat">…</span>
+  <div class="nav" id="scanNav">
+    <button id="prev">◀ 前</button>
+    行へ <input type="number" id="off" value="0" min="0">
+    <button id="go">移動</button>
+    <button id="next">次 ▶</button>
+  </div>
+</header>
+
+<div id="scanView"></div>
+
+<div id="charView">
+  <div class="charbar" id="charbar"></div>
+  <div id="charMain"><div style="color:var(--mut);padding:20px">左のキャラを選択</div></div>
+  <div id="personaPanel"><div style="color:var(--mut)">ペルソナ</div></div>
+</div>
+
+<div id="ndView"></div>
+
+<script>
+let scanNav = {goff:0,next_goff:0,prev_goff:0};
+let charNav = {char:'', goff:0, next_goff:0, prev_goff:0};
+let curBucket = '';
+
+function esc(t){return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function splitPrefix(s){const i=(s||'').indexOf('$@$');return i<0?['',s||'']:[s.slice(0,i+3),s.slice(i+3)];}
+
+function rowHtml(r){
+  const [pre,body]=splitPrefix(r.ja);
+  const cls=[ r.edited?'edited':'', r.state==='OK'?'st-OK':'',
+              ('focal' in r)?(r.focal?'focal':'ctx'):'' ].join(' ');
+  return `<div class="row ${cls}" data-fk="${esc(r.fk)}" data-pre="${esc(pre)}">
+    <div class="meta"><span>#${r.idx}</span><span class="char">${esc(r.char)||'（話者不明）'}</span>
+      <span class="key">${esc(r.target)} / ${esc(r.key)}</span>
+      ${r.edited?'<span class="badge">修正済</span>':''}<span class="badge">${esc(r.state)}</span></div>
+    <div class="zh">${esc(r.zh)}</div>
+    <div><span class="prefix">${esc(pre)}</span></div>
+    <textarea class="body">${esc(body)}</textarea>
+    <div class="ctl">
+      <select class="state"><option>OK</option><option>修正</option><option>要再訳</option><option>skip</option><option>未</option></select>
+      <button class="save">保存</button><span class="msg"></span>
+    </div></div>`;
+}
+function groupHtml(g){
+  return `<div class="ghead"><span>${esc(g.target)}</span><span class="gid">${esc(g.gid)}</span><span>${g.count}行</span></div>
+    <div class="grp">${g.rows.map(rowHtml).join('')}</div>`;
+}
+
+async function loadStats(){
+  const s=await(await fetch('/api/stats')).json();
+  document.getElementById('stat').textContent=`全${s.total}行 / 修正${s.edited} / レビュー済${s.reviewed}`;
+}
+
+/* ---- 全行 ---- */
+async function loadScan(q){
+  const d=await(await fetch('/api/groups?'+q)).json();
+  scanNav={goff:d.goff,next_goff:d.next_goff,prev_goff:d.prev_goff};
+  document.getElementById('off').value=d.row_start;
+  document.getElementById('scanView').innerHTML=d.groups.map(groupHtml).join('');
+  window.scrollTo(0,0);
+}
+
+/* ---- キャラ ---- */
+async function loadChars(bucket){
+  curBucket=bucket;
+  const d=await(await fetch('/api/chars?bucket='+bucket)).json();
+  const bt={gte400:'400行以上',mid:'100–400行',lt100:'100行未満'}[bucket];
+  const search = bucket==='lt100'
+    ? `<input id="csearch" placeholder="キャラ名で絞り込み" style="width:100%;margin-bottom:8px">` : '';
+  const chips=d.chars.map(c=>`<div class="chip" data-char="${esc(c.char)}">
+      <span><span class="nm">${esc(c.char)}</span><span class="st st-${esc(c.status)}">${esc(c.status)}</span></span>
+      <span class="ct">${c.reviewed}/${c.count}</span></div>`).join('');
+  document.getElementById('charbar').innerHTML=
+    `<div class="bt">${bt} ・ ${d.chars.length}キャラ</div>${search}<div id="chiplist">${chips}</div>`;
+  if(bucket==='lt100'){
+    const s=document.getElementById('csearch');
+    s.oninput=()=>{const v=s.value.trim();
+      document.querySelectorAll('#chiplist .chip').forEach(ch=>{
+        ch.style.display = !v || ch.dataset.char.includes(v) ? '' : 'none';});};
+  }
+}
+
+function personaHtml(p){
+  const warn = p.status!=='確定';
+  const banner = warn
+    ? `<div class="pbanner warn">⚠ ペルソナ未確定（status: ${esc(p.status)}）。声・呼称の作り込みは保留（メインOpus直轄）。${p.status==='保留'?'声に触らない。':''}</div>`
+    : `<div class="pbanner ok">status: 確定</div>`;
+  return banner
+    + (p.core?`<h3>声の核</h3><div class="core">${esc(p.core)}</div>`:'')
+    + (p.examples?`<h3>完成例</h3><div class="ex">${esc(p.examples)}</div>`:'');
+}
+
+async function loadChar(char,goff){
+  const d=await(await fetch(`/api/char_view?char=${encodeURIComponent(char)}&goff=${goff||0}&rows=40`)).json();
+  charNav={char,goff:d.goff,next_goff:d.next_goff,prev_goff:d.prev_goff};
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.char===char));
+  document.getElementById('personaPanel').innerHTML=personaHtml(d.persona);
+  const pager=`<div class="pager"><button onclick="loadChar('${char.replace(/'/g,"\\'")}',${d.prev_goff})">◀ 前</button>
+     <span style="color:var(--mut);align-self:center">${d.goff} / ${d.total_groups}会話</span>
+     <button onclick="loadChar('${char.replace(/'/g,"\\'")}',${d.next_goff})">次 ▶</button></div>`;
+  document.getElementById('charMain').innerHTML=
+    `<h2 style="font-size:16px;margin:0 0 10px">${esc(char)}</h2>`+d.groups.map(groupHtml).join('')+pager;
+  document.getElementById('charMain').scrollTop=0;
+}
+
+/* ---- 非対話 ---- */
+let ndState={cat:'用語',offset:0};
+async function loadND(cat,offset){
+  ndState={cat,offset:offset||0};
+  const d=await(await fetch(`/api/nd?cat=${encodeURIComponent(cat)}&offset=${ndState.offset}&limit=60`)).json();
+  const tabs=['用語','クエスト','UI','その他'].map(c=>
+    `<div class="ndtab ${c===cat?'on':''}" data-ndcat="${c}">${c} (${d.counts[c]})</div>`).join('');
+  const rows=d.rows.map(rowHtml).join('');
+  const from=d.offset+1, to=Math.min(d.offset+60,d.total);
+  const pager=`<div class="pager">
+     <button onclick="loadND('${cat}',${Math.max(0,d.offset-60)})">◀ 前</button>
+     <span style="color:var(--mut);align-self:center">${from}–${to} / ${d.total}</span>
+     <button onclick="loadND('${cat}',${d.offset+60})">次 ▶</button></div>`;
+  document.getElementById('ndView').innerHTML=
+    `<div class="ndtabs">${tabs}</div>${rows}${pager}`;
+  window.scrollTo(0,0);
+}
+
+/* ---- タブ切替 ---- */
+function showTab(tab){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===tab));
+  const isAll=tab==='all', isND=tab==='nd', isChar=!isAll&&!isND;
+  document.getElementById('scanView').style.display=isAll?'block':'none';
+  document.getElementById('charView').classList.toggle('on',isChar);
+  document.getElementById('ndView').classList.toggle('on',isND);
+  document.getElementById('scanNav').style.display=isAll?'flex':'none';
+  if(isAll){ if(!document.getElementById('scanView').innerHTML) loadScan('goff=0'); }
+  else if(isND){ if(!document.getElementById('ndView').innerHTML) loadND(ndState.cat,0); }
+  else if(tab!==curBucket){ loadChars(tab); }
+}
+
+/* ---- 保存（共通・委譲） ---- */
+document.body.addEventListener('click',async e=>{
+  if(e.target.classList.contains('save')){
+    const row=e.target.closest('.row'), msg=row.querySelector('.msg');
+    const new_ja=row.dataset.pre+row.querySelector('.body').value;
+    const res=await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({fk:row.dataset.fk,new_ja,state:row.querySelector('.state').value})});
+    const j=await res.json();
+    if(j.ok){msg.className='msg saved';msg.textContent='保存しました';row.classList.add('edited');loadStats();}
+    else{msg.className='msg err';msg.textContent=j.errors.join(' / ');}
+    return;
+  }
+  const chip=e.target.closest('.chip');
+  if(chip){ loadChar(chip.dataset.char,0); return; }
+  const ndtab=e.target.closest('.ndtab');
+  if(ndtab){ loadND(ndtab.dataset.ndcat,0); return; }
+  const tab=e.target.closest('.tab');
+  if(tab){ showTab(tab.dataset.tab); }
+});
+
+document.getElementById('go').onclick  =()=>loadScan('row='+(parseInt(document.getElementById('off').value)||0));
+document.getElementById('next').onclick=()=>loadScan('goff='+scanNav.next_goff);
+document.getElementById('prev').onclick=()=>loadScan('goff='+scanNav.prev_goff);
+
+loadStats().then(()=>loadScan('goff=0'));
+</script>
+</body>
+</html>

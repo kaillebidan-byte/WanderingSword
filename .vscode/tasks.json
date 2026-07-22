@@ -1,0 +1,74 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "校正ループ起動 (loop_proofread)",
+            "type": "shell",
+            "command": "python",
+            "args": ["_tools/loop_proofread.py"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "校正ループ起動 --max 100 (loop_proofread)",
+            "type": "shell",
+            "command": "python",
+            "args": ["_tools/loop_proofread.py", "--max", "100"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "進捗確認 (status.py)",
+            "type": "shell",
+            "command": "python",
+            "args": ["_tools/status.py"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+            "group": "none",
+            "problemMatcher": []
+        }
+    ]
+}

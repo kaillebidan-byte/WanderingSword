@@ -1,0 +1,23 @@
+{
+ "reviewed": 0,
+ "fixes": [
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "22456_FinishingDlgs_Index12_Text",
+   "new_ja": "19714 - 蓮芯 $@$ふふふ……もちろん彼です。彼でなければ、どうして今の内外二層の天仏窟の局面があり得たでしょうか？"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "32083_FinishingDlgs_Index3_Text",
+   "new_ja": "19714 - 蓮芯 $@$ふふふ、私ですら保証できないことを、少侠はなぜそこまで断言できるのですか？"
+  },
+  {
+   "target": "Quests任务表",
+   "ns": "Quests",
+   "key": "7052_FinishingDlgs_Index0_Text",
+   "new_ja": "19714 - 蓮芯 $@$ふふふ、鳳凰洞にはどれほどの危険が潜んでいるか分かりません。本当に私を連れて行くのですか？"
+  }
+ ]
+}
