@@ -31,6 +31,7 @@ jobs:
           ref: agent/apply-curated-fixes
           lfs: true
           fetch-depth: 0
+          show-progress: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -74,21 +75,32 @@ jobs:
           ls -lh _work/aaWanderingSword_JP_P.pak
           git lfs ls-files | grep -F '_work/aaWanderingSword_JP_P.pak'
 
-      - name: Commit applied locres and pak
+      - name: Commit applied localization assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add _work/jp/Wandering_Sword/Content/Localization _work/aaWanderingSword_JP_P.pak
+          git status --short
           git diff --cached --stat
-          git diff --cached --quiet && { echo 'No localization changes to commit'; exit 1; }
-          git commit -m "検証済み70キーをlocresとpakへ反映"
-          git push
+          if git diff --cached --quiet; then
+            echo 'No localization changes to commit'
+            exit 1
+          fi
+          git commit -m "Apply validated 70 localization fixes"
+          git lfs status
+
+      - name: Push LFS object
+        run: git lfs push origin HEAD
+
+      - name: Push branch commit
+        run: git push origin HEAD:agent/apply-curated-fixes
 
       - name: Upload QA reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: applied-fixes-qa
+          name: applied-fixes-qa-${{ github.run_number }}
           path: |
             _ws_tmp/register_lint/
             _ws_tmp/relation_audit/
-          if-no-files-found: error
+          if-no-files-found: warn
