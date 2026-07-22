@@ -1,0 +1,7 @@
+interface:
+  display_name: "中日ゲーム翻訳（Codex版）"
+  short_description: "武侠・時代物ゲームの中日翻訳を一貫管理"
+  default_prompt: "Use $zhja-game-translation-codex to set up and run a Chinese-to-Japanese game translation project."
+
+policy:
+  allow_implicit_invocation: true
