@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-23",
+  "principle": "初回校正の完走、ペルソナ確定、関係性マップ記載は、最終的な正当性や品質保証を意味しない。原文・現訳・前後文を一次資料として再監査する。",
+  "stages": {
+    "initial_pass": "キャラ単位の初回校正でカーソルを最後まで進めた状態。品質保証ではない。",
+    "evidence_inventory": "対象人物・関係の原文、現訳、前後文、呼称、時系列を抽出した状態。",
+    "persona_reviewed": "ペルソナの各規則を一次資料で検証し、根拠・反例・不明点を記録した状態。",
+    "relation_reviewed": "関係性と呼称の時系列・場面差を一次資料で検証した状態。",
+    "translation_reaudited": "対象範囲の既訳を意味・声・関係性の三面で再読し、修正案を検証した状態。",
+    "game_verified": "反映後にゲーム内で表示と場面適合を確認した状態。"
+  },
+  "project": {
+    "initial_pass": {
+      "status": "complete",
+      "characters": 888,
+      "meaning": "一巡完了"
+    },
+    "quality_reaudit": {
+      "status": "in_progress",
+      "strategy": "関係クラスタ単位で、人物・関係性・既訳を同時に検証"
+    }
+  },
+  "queue": [
+    {
+      "id": "wudang_core",
+      "label": "武当師門中核",
+      "status": "in_progress",
+      "reason": "主人公の基調、師弟関係、主要呼称、敬体と常体の境界を決める基盤。",
+      "pairs": [
+        "宇文逸↔清虚道長",
+        "宇文逸↔清霄道長",
+        "宇文逸↔莫問",
+        "宇文逸↔莫棄",
+        "宇文逸↔元啓",
+        "宇文逸↔元風",
+        "宇文逸↔程鈺"
+      ]
+    },
+    {
+      "id": "yuwen_close_relations",
+      "label": "宇文逸の近親・義兄弟・親密関係",
+      "status": "queued"
+    },
+    {
+      "id": "mode_switch_characters",
+      "label": "多モード主要人物",
+      "status": "queued"
+    },
+    {
+      "id": "factions_and_titles",
+      "label": "門派横断・役職・呼称",
+      "status": "queued"
+    },
+    {
+      "id": "remaining_characters",
+      "label": "残り人物と端役",
+      "status": "queued"
+    }
+  ],
+  "current": {
+    "cluster": "wudang_core",
+    "pair": "宇文逸↔清虚道長",
+    "stage": "evidence_inventory",
+    "status": "in_progress",
+    "next_action": "両者が同席する会話ブロックと相互呼称行を原文・現訳・前後文つきで抽出する"
+  }
+}
