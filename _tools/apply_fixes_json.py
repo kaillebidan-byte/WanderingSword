@@ -53,8 +53,7 @@ class TargetPlan:
 def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
     offset = 17
     (array_offset,) = struct.unpack_from("<q", data, offset)
-    offset += 8
-    offset += 4
+    offset += 12
     (namespace_count,) = struct.unpack_from("<I", data, offset)
     offset += 4
 
@@ -104,10 +103,7 @@ def expand_paths(raw_paths: Iterable[str]) -> list[str]:
 
 
 def load_fix_files(paths: Iterable[str]) -> tuple[dict[str, str], dict[str, str]]:
-    """複数JSONを統合し、同一キーの競合を検出する。
-
-    戻り値は ``(fixes, first_source_by_key)``。
-    """
+    """複数JSONを統合し、同一キーの競合を検出する。"""
     fixes: dict[str, str] = {}
     sources: dict[str, str] = {}
     for path in expand_paths(paths):
@@ -135,14 +131,24 @@ def load_fix_files(paths: Iterable[str]) -> tuple[dict[str, str], dict[str, str]
     return fixes, sources
 
 
+def select_locres(table: str, matches: Iterable[Path]) -> Path:
+    """同一ディレクトリに補助locresがあっても、テーブル同名の正本を選ぶ。"""
+    candidates = sorted(matches)
+    if not candidates:
+        raise FileNotFoundError(f"{table}: locresが見つからない")
+    exact = [path for path in candidates if path.stem == table]
+    if len(exact) == 1:
+        return exact[0]
+    if len(candidates) == 1:
+        return candidates[0]
+    raise FileNotFoundError(
+        f"{table}: 正本locresを一意に選べない: "
+        + ", ".join(str(path) for path in candidates)
+    )
+
+
 def locate_locres(table: str) -> Path:
-    matches = sorted((LOC / table / "zh-Hans").glob("*.locres"))
-    if len(matches) != 1:
-        raise FileNotFoundError(
-            f"{table}: locresは1件必要だが{len(matches)}件: "
-            + ", ".join(str(path) for path in matches)
-        )
-    return matches[0]
+    return select_locres(table, (LOC / table / "zh-Hans").glob("*.locres"))
 
 
 def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
@@ -165,8 +171,7 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
         applied = 0
 
         for namespace, key, new_value in grouped[table]:
-            compound = namespace + "\x1f" + key
-            index = index_map.get(compound)
+            index = index_map.get(namespace + "\x1f" + key)
             if index is None:
                 missing.append(f"{table}|{namespace}|{key}")
                 continue
@@ -199,12 +204,11 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
 def write_plans(plans: Iterable[TargetPlan]) -> None:
     """全targetの検査完了後にだけlocresを書き込む。"""
     for plan in plans:
-        if not plan.pending:
-            continue
-        rebuilt = plan.original[: plan.array_offset] + L.write_string_array(
-            plan.values, plan.version
-        )
-        plan.path.write_bytes(rebuilt)
+        if plan.pending:
+            rebuilt = plan.original[: plan.array_offset] + L.write_string_array(
+                plan.values, plan.version
+            )
+            plan.path.write_bytes(rebuilt)
 
 
 def repack() -> None:
@@ -252,16 +256,10 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     for plan in plans:
-        print(
-            f"  {plan.table}: 未適用{plan.pending}件 / "
-            f"適用済み{plan.applied}件"
-        )
+        print(f"  {plan.table}: 未適用{plan.pending}件 / 適用済み{plan.applied}件")
 
     if not args.apply:
-        print(
-            f"[プレビュー] 計{pending}件 / 適用済み{applied}件 / "
-            "--apply で書込"
-        )
+        print(f"[プレビュー] 計{pending}件 / 適用済み{applied}件 / --apply で書込")
         return 0
 
     if pending == 0:
