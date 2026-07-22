@@ -1,22 +1,19 @@
-name: Apply curated localization fixes
+name: Verify applied localization fixes
 
 on:
   push:
     branches:
       - agent/apply-curated-fixes
-    paths:
-      - .github/workflows/apply-curated-fixes.yml
   pull_request:
     branches:
       - main
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply-and-build:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+  verify-applied-build:
     runs-on: windows-latest
     defaults:
       run:
@@ -28,7 +25,6 @@ jobs:
       - name: Checkout with LFS assets
         uses: actions/checkout@v4
         with:
-          ref: agent/apply-curated-fixes
           lfs: true
           fetch-depth: 0
           show-progress: false
@@ -38,19 +34,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate all curated fix sets before application
+      - name: Verify curated fixes are applied
         run: |
-          python _tools/validate_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json
-          python _tools/validate_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
-          python _tools/validate_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+          python _tools/validate_fixes_json.py --allow-applied \
+            _phase4_proofread/fixes_cross_register_20260723.json \
+            _phase4_proofread/fixes_cross_register_coldhawk_20260723.json \
+            _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
 
-      - name: Apply fixes and rebuild pak
-        run: |
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json --apply
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json --apply
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json --apply
-
-      - name: Verify all fixes are now present
+      - name: Verify no pending differences remain
         run: |
           for file in \
             _phase4_proofread/fixes_cross_register_20260723.json \
@@ -74,26 +65,7 @@ jobs:
           test -s _work/aaWanderingSword_JP_P.pak
           ls -lh _work/aaWanderingSword_JP_P.pak
           git lfs ls-files | grep -F '_work/aaWanderingSword_JP_P.pak'
-
-      - name: Commit applied localization assets
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _work/jp/Wandering_Sword/Content/Localization _work/aaWanderingSword_JP_P.pak
           git status --short
-          git diff --cached --stat
-          if git diff --cached --quiet; then
-            echo 'No localization changes to commit'
-            exit 1
-          fi
-          git commit -m "Apply validated 70 localization fixes"
-          git lfs status
-
-      - name: Push LFS object
-        run: git lfs push origin HEAD
-
-      - name: Push branch commit
-        run: git push origin HEAD:agent/apply-curated-fixes
 
       - name: Upload QA reports
         if: always()
