@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import struct
 import sys
 import tempfile
 import unittest
@@ -94,6 +95,16 @@ class ApplyFixesJsonTests(unittest.TestCase):
                 "CG表",
                 [Path("first.locres"), Path("second.locres")],
             )
+
+    def test_non_utf8_ansi_fstring_round_trips_without_replacement(self) -> None:
+        raw = struct.pack("<i", 3) + b"\xbbA\x00"
+
+        value, end = target.L.rd_fstr(raw, 0)
+        rebuilt = target.L.wr_fstr(value)
+
+        self.assertEqual(len(raw), end)
+        self.assertIn("\udcbb", value)
+        self.assertEqual(raw, rebuilt)
 
 
 if __name__ == "__main__":
