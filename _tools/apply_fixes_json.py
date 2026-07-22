@@ -67,7 +67,10 @@ def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
             end = pos + chars * 2
             return blob[pos:end].decode("utf-16-le").rstrip("\x00"), end
         end = pos + length
-        return blob[pos:end].decode("utf-8").rstrip("\x00"), end
+        return (
+            blob[pos:end].decode("utf-8", "surrogateescape").rstrip("\x00"),
+            end,
+        )
 
     mapping: dict[str, int] = {}
     for _ in range(namespace_count):
