@@ -20,6 +20,11 @@ class ApplyFixesJsonTests(unittest.TestCase):
         path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
         return path
 
+    @staticmethod
+    def ansi_fstring(value: str) -> bytes:
+        encoded = value.encode("ascii") + b"\x00"
+        return struct.pack("<i", len(encoded)) + encoded
+
     def test_loads_multiple_files_and_accepts_same_duplicate(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -105,6 +110,24 @@ class ApplyFixesJsonTests(unittest.TestCase):
         self.assertEqual(len(raw), end)
         self.assertIn("\udcbb", value)
         self.assertEqual(raw, rebuilt)
+
+    def test_key_index_map_skips_source_hash_before_string_index(self) -> None:
+        data = bytearray(b"\x00" * 17)
+        data += struct.pack("<q", 256)  # string array offset
+        data += struct.pack("<I", 1)  # extra entry count/hash field
+        data += struct.pack("<I", 1)  # namespace count
+        data += struct.pack("<I", 0x11111111)  # namespace hash
+        data += self.ansi_fstring("QuestDlgs")
+        data += struct.pack("<I", 1)  # key count
+        data += struct.pack("<I", 0x22222222)  # key hash
+        data += self.ansi_fstring("100_1_Text")
+        data += struct.pack("<I", 0x33333333)  # source string hash
+        data += struct.pack("<i", 7)  # localized string array index
+
+        mapping, array_offset = target.key_index_map(bytes(data))
+
+        self.assertEqual(256, array_offset)
+        self.assertEqual({"QuestDlgs\x1f100_1_Text": 7}, mapping)
 
 
 if __name__ == "__main__":
