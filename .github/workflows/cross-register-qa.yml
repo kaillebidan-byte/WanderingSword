@@ -29,8 +29,10 @@ jobs:
 
       - name: Preview curated register fixes
         run: |
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json | tee /tmp/fixes_preview.txt
-          grep -q '\[プレビュー\] 計24件' /tmp/fixes_preview.txt
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json | tee /tmp/fixes_absolute.txt
+          grep -q '\[プレビュー\] 計24件' /tmp/fixes_absolute.txt
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json | tee /tmp/fixes_coldhawk.txt
+          grep -q '\[プレビュー\] 計32件' /tmp/fixes_coldhawk.txt
 
       - name: Scan current localization data
         env:
