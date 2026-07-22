@@ -16,3 +16,9 @@ _ws_tmp/
 .DS_Store
 .obsidian/workspace*
 .trash/
+
+# ローカル環境・生成キャッシュ
+WanderingSword/
+.claude/settings.local.json
+**/__pycache__/
+*.py[cod]

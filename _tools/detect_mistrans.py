@@ -37,8 +37,17 @@ def _find_claude():
 CLAUDE_EXE = _find_claude()
 
 
+class RateLimited(Exception):
+    """Haiku CLI がレートリミット/過負荷を返した。呼び出し側で長めのバックオフをする。"""
+
+
+_RL_MARKERS = ("429", "rate_limit", "rate limit", "overloaded", "usage limit",
+               "usage_limit", "quota", "too many requests", "resets at", "upgrade")
+
+
 def call_haiku(prompt):
-    """Claude Haiku を headless(-p)で呼び s/v 判定。Gemini/OpenRouter の無料枠に依存しない。"""
+    """Claude Haiku を headless(-p)で呼び s/v 判定。Gemini/OpenRouter の無料枠に依存しない。
+    レートリミット/過負荷は RateLimited を投げ、呼び出し側で長時間バックオフさせる(=途切れ対策)。"""
     if not CLAUDE_EXE:
         raise RuntimeError("claude 実体が見つからない(_find_claude)")
     # 検出器はツールを使わない純テキスト分類(JSONL出力のみ)なので権限は不要。
@@ -50,10 +59,24 @@ def call_haiku(prompt):
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=ROOT,
     )
     raw = r.stdout.decode("utf-8", "replace")
+    err = r.stderr.decode("utf-8", "replace")
     try:
-        return json.loads(raw).get("result", raw)
+        d = json.loads(raw)
     except json.JSONDecodeError:
+        # JSONで返らない=CLI自体の異常。stderr にレート痕跡があればレート扱い。
+        blob = (raw + " " + err).lower()
+        if r.returncode != 0 and any(m in blob for m in _RL_MARKERS):
+            raise RateLimited(blob[:200])
         return raw
+    # is_error / api_error_status / result からレートリミットを判定
+    if d.get("is_error"):
+        status = str(d.get("api_error_status", "")) + " " + str(d.get("subtype", ""))
+        blob = (status + " " + str(d.get("result", "")) + " " + err).lower()
+        if any(m in blob for m in _RL_MARKERS):
+            raise RateLimited(blob[:200])
+        # レート以外のエラーは通常例外(短い再試行で拾う)
+        raise RuntimeError(f"haiku is_error: {blob[:200]}")
+    return d.get("result", raw)
 
 PROMPT_HEAD = (
     "あなたは中日翻訳の検査器。各行の zh(中国語原文)と ja(日本語訳)を比べ、2軸で0〜1を付ける。\n"
@@ -161,21 +184,64 @@ def main():
         meta_lines, rows = load_tsv(inp)
     # 無料枠のレート制限対策: チャンク間に待機。完走監査(多チャンク)は既定4秒、バッチ(1チャンク)は0。
     sleep = float(args[args.index("--sleep") + 1]) if "--sleep" in args else (4.0 if audit_mode else 0.0)
+    # レートリミット・バックオフ設定(--rl-max回まで指数待機。上限 --rl-cap 秒)
+    rl_max = int(args[args.index("--rl-max") + 1]) if "--rl-max" in args else 8
+    rl_cap = float(args[args.index("--rl-cap") + 1]) if "--rl-cap" in args else 300.0
+
+    # --- チェックポイント/再開(途切れ対策): 完了チャンクの結果を都度保存し、再実行時は飛ばす ---
+    # キーは入力パス+行数。合致する partial があれば読み込む(--no-resume で無効)。
+    ckpt = os.path.join(TMP, "mistrans_risk.partial.json")
     risk = {}
+    answered = set()   # 実応答が得られた idx(str)だけ。取りこぼし(safe1.0)は入れない=再開時に再試行される
+    if "--no-resume" not in args and os.path.exists(ckpt):
+        try:
+            saved = json.load(open(ckpt, encoding="utf-8"))
+            if saved.get("_meta", {}).get("inp") == os.path.abspath(inp) and \
+               saved.get("_meta", {}).get("nrows") == len(rows):
+                risk = {k: v for k, v in saved.items() if k != "_meta"}
+                answered = set(risk.keys())
+                sys.stderr.write(f"[detect] resume: {len(risk)}行を checkpoint から復元 ({ckpt})\n")
+            else:
+                sys.stderr.write("[detect] checkpoint は別入力のもの→無視(新規)\n")
+        except Exception as e:
+            sys.stderr.write(f"[detect] checkpoint 読込失敗→新規: {e!r}\n")
+
+    def save_ckpt():
+        # 実応答のあった idx だけ保存(safe1.0の取りこぼしは残さない=次回再試行させる)
+        tmp = ckpt + ".tmp"
+        d = {k: risk[k] for k in answered if k in risk}
+        d["_meta"] = {"inp": os.path.abspath(inp), "nrows": len(rows)}
+        json.dump(d, open(tmp, "w", encoding="utf-8"), ensure_ascii=False)
+        os.replace(tmp, ckpt)   # アトミック置換(書込中の死でも壊れない)
+
     for s in range(0, len(rows), chunk):
         block = rows[s:s + chunk]
+        # 再開: このチャンクの全 idx が既に有れば丸ごとスキップ
+        if all(str(s + j) in risk for j in range(len(block))):
+            continue
         lines = "\n".join(f'[{s+j}] zh: {r["zh"]}\n     ja: {r["ja"]}' for j, r in enumerate(block))
         prompt = PROMPT_HEAD + lines
         got = {}
         if backend == "haiku":
-            # 既定: Claude Haiku(無料枠APIに依存しない)を2回試行
-            for attempt in range(2):
+            # 既定: Claude Haiku。通常エラーは2回、レートリミットは指数バックオフで rl_max 回まで粘る。
+            attempt = 0; rl_hits = 0
+            while attempt < 2:
                 try:
                     got = parse_jsonl(call_haiku(prompt))
                     if got:
                         break
+                    attempt += 1
+                except RateLimited as e:
+                    rl_hits += 1
+                    if rl_hits > rl_max:
+                        sys.stderr.write(f"[detect] haiku RATE LIMIT 上限 (chunk {s}) 断念→安全側\n")
+                        break
+                    wait = min(rl_cap, 15.0 * (2 ** (rl_hits - 1)))   # 15,30,60,120,240,300...
+                    sys.stderr.write(f"[detect] haiku RATE LIMIT (chunk {s}) #{rl_hits}: {wait:.0f}s 待機 :: {e}\n")
+                    time.sleep(wait)   # attempt は増やさない=レートは粘る
                 except Exception as e:
                     sys.stderr.write(f"[detect] haiku ERR (chunk {s}) try{attempt}: {e!r}\n")
+                    attempt += 1
                     time.sleep(1)
         else:
             # backend=gemini: Google AI Studio(主) を2回試行
@@ -205,16 +271,24 @@ def main():
             idx = s + j
             if idx in got:
                 sv, vv, rs = got[idx]
+                answered.add(str(idx))   # 実応答→checkpoint対象(再開時スキップ)
             else:
-                sv, vv, rs = 1.0, 1.0, "no_response(safe)"   # 取りこぼし=安全側でzh必須
+                sv, vv, rs = 1.0, 1.0, "no_response(safe)"   # 取りこぼし=安全側でzh必須(checkpoint非対象=次回再試行)
             # 注: スコアを `s` に入れると外側ループの「チャンク開始オフセット s」を壊す(idxが小数化する)。必ず別名で受ける。
             risk[str(idx)] = {"s": round(sv, 2), "v": round(vv, 2),
                               "risk": round(max(sv, vv), 2), "reason": rs, "key": r["key"]}
+        save_ckpt()   # チャンク毎に都度保存(途切れても完了分は残る)
         if sleep:
             time.sleep(sleep)
 
     out = os.path.join(TMP, "mistrans_risk.json")
     json.dump(risk, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+    # 完走したら取りこぼしの有無を報告。全行に実応答があれば checkpoint を掃除。
+    missed = len(rows) - len(answered)
+    if missed == 0 and os.path.exists(ckpt):
+        os.remove(ckpt)
+    elif missed:
+        sys.stderr.write(f"[detect] 取りこぼし {missed}行(=safe1.0)。同じコマンドで再実行すると checkpoint から続きを再試行します\n")
     hi = sum(1 for v in risk.values() if v["risk"] >= 0.7)
     mid = sum(1 for v in risk.values() if 0.3 <= v["risk"] < 0.7)
     lo = len(risk) - hi - mid
