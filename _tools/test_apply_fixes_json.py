@@ -72,6 +72,29 @@ class ApplyFixesJsonTests(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 target.expand_paths([str(Path(tmp) / "missing-*.json")])
 
+    def test_selects_table_named_locres_from_multiple_candidates(self) -> None:
+        candidates = [
+            Path("CG表.backup.locres"),
+            Path("CG表.locres"),
+            Path("other.locres"),
+        ]
+
+        selected = target.select_locres("CG表", candidates)
+
+        self.assertEqual(Path("CG表.locres"), selected)
+
+    def test_selects_only_locres_as_fallback(self) -> None:
+        selected = target.select_locres("CG表", [Path("only.locres")])
+
+        self.assertEqual(Path("only.locres"), selected)
+
+    def test_rejects_ambiguous_nonmatching_locres(self) -> None:
+        with self.assertRaisesRegex(FileNotFoundError, "一意に選べない"):
+            target.select_locres(
+                "CG表",
+                [Path("first.locres"), Path("second.locres")],
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
