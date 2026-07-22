@@ -1,0 +1,133 @@
+name: Apply curated localization fixes
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/fixes_*.json"
+      - "_tools/apply_fixes_json.py"
+      - "_tools/validate_fixes_json.py"
+      - "_tools/test_apply_fixes_json.py"
+      - ".github/workflows/apply-curated-fixes.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-curated-fixes-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  apply-and-build:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'github-actions[bot]'
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    env:
+      WS_TMP: ${{ github.workspace }}/_ws_tmp
+      PYTHONIOENCODING: utf-8
+
+    steps:
+      - name: Checkout PR branch with LFS assets
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          lfs: true
+          fetch-depth: 0
+          show-progress: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect all curated fix batches
+        shell: bash
+        run: |
+          shopt -s nullglob
+          files=(_phase4_proofread/fixes_*.json)
+          if ((${#files[@]} == 0)); then
+            echo 'No curated fix batches found' >&2
+            exit 1
+          fi
+          printf '%s\n' "${files[@]}" > _ws_all_fix_files.txt
+          printf 'Found %s curated fix batches\n' "${#files[@]}"
+
+      - name: Validate pending and applied fixes
+        shell: bash
+        run: |
+          mapfile -t files < _ws_all_fix_files.txt
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}"
+
+      - name: Detect pending fixes
+        id: pending
+        shell: bash
+        run: |
+          mapfile -t files < _ws_all_fix_files.txt
+          output="$(python _tools/apply_fixes_json.py "${files[@]}")"
+          printf '%s\n' "$output"
+          if printf '%s\n' "$output" | grep -q '^\[プレビュー\] 計0件'; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply all pending fixes and rebuild pak once
+        if: steps.pending.outputs.changed == 'true'
+        shell: bash
+        run: |
+          mapfile -t files < _ws_all_fix_files.txt
+          python _tools/apply_fixes_json.py "${files[@]}" --apply
+
+      - name: Verify no pending differences remain
+        shell: bash
+        run: |
+          mapfile -t files < _ws_all_fix_files.txt
+          output="$(python _tools/apply_fixes_json.py "${files[@]}")"
+          printf '%s\n' "$output"
+          printf '%s\n' "$output" | grep -q '^\[プレビュー\] 計0件'
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}"
+
+      - name: Run regression tests and scans
+        shell: bash
+        run: |
+          python _tools/test_apply_fixes_json.py
+          python _tools/test_lint_register.py
+          python _tools/test_extract_relation_context.py
+          python _tools/lint_register.py --out-dir _ws_tmp/register_lint
+          python _tools/extract_relation_context.py --out-dir _ws_tmp/relation_audit
+
+      - name: Verify packaged output
+        shell: bash
+        run: |
+          test -s _work/aaWanderingSword_JP_P.pak
+          ls -lh _work/aaWanderingSword_JP_P.pak
+          git lfs ls-files | grep -F '_work/aaWanderingSword_JP_P.pak'
+
+      - name: Commit applied localization assets
+        if: steps.pending.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _work/jp/Wandering_Sword/Content/Localization _work/aaWanderingSword_JP_P.pak
+          git status --short
+          git diff --cached --stat
+          git diff --cached --quiet && { echo 'No localization changes to commit'; exit 1; }
+          git commit -m "Apply curated localization fix batches"
+          git lfs push origin HEAD
+          git push origin HEAD:${{ github.head_ref }}
+
+      - name: Upload QA reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: curated-fixes-qa-${{ github.run_number }}
+          path: |
+            _ws_tmp/register_lint/
+            _ws_tmp/relation_audit/
+          if-no-files-found: warn
