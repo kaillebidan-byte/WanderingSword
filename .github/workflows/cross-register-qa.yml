@@ -27,12 +27,16 @@ jobs:
       - name: Unit tests
         run: python _tools/test_lint_register.py
 
+      - name: Validate curated register fixes
+        run: |
+          python _tools/validate_fixes_json.py \
+            _phase4_proofread/fixes_cross_register_20260723.json \
+            _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
+
       - name: Preview curated register fixes
         run: |
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json | tee /tmp/fixes_absolute.txt
-          grep -q '\[プレビュー\] 計24件' /tmp/fixes_absolute.txt
-          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json | tee /tmp/fixes_coldhawk.txt
-          grep -q '\[プレビュー\] 計32件' /tmp/fixes_coldhawk.txt
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_20260723.json
+          python _tools/apply_fixes_json.py _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
 
       - name: Scan current localization data
         env:
