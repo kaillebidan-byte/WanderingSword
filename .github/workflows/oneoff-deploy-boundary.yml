@@ -22,7 +22,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Patch RUNBOOK
-        run: python _tools/_oneoff_patch_deploy_boundary.py
+        run: python3 _tools/_oneoff_patch_deploy_boundary.py
 
       - name: Commit patched RUNBOOK
         run: |
