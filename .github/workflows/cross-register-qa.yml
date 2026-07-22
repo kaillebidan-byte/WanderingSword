@@ -28,8 +28,6 @@ jobs:
         run: python _tools/test_lint_register.py
 
       - name: Validate curated register fixes
-        id: validate
-        continue-on-error: true
         run: |
           mkdir -p _ws_tmp/register_lint
           python _tools/validate_fixes_json.py \
@@ -55,9 +53,3 @@ jobs:
           name: register-lint-report
           path: _ws_tmp/register_lint/
           if-no-files-found: error
-
-      - name: Enforce validation result
-        if: always()
-        run: |
-          cat _ws_tmp/register_lint/fixes_validation.txt
-          test "${{ steps.validate.outcome }}" = "success"
