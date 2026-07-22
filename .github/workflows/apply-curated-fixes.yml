@@ -6,6 +6,9 @@ on:
       - agent/apply-curated-fixes
     paths:
       - .github/workflows/apply-curated-fixes.yml
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -13,6 +16,7 @@ permissions:
 
 jobs:
   apply-and-build:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     env:
       WS_TMP: ${{ github.workspace }}/_ws_tmp
