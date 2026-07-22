@@ -24,7 +24,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 129,
+      "applied_keys": 161,
       "targets": [
         "CG表",
         "Npc"
@@ -34,7 +34,8 @@
         "_phase4_proofread/APPLIED_FIXES_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH2_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH3_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH4_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH4_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH5_2026-07-23.md"
       ]
     }
   },
@@ -73,6 +74,12 @@
       "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch4.json",
       "keys": 18,
       "scope": "9133系の継承・莫問・悪人谷行き・口訣継承場面",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch5.json",
+      "keys": 32,
+      "scope": "5622・5994・6156・9202・9212系の残場面と私的な気遣い",
       "status": "applied_and_pak_built"
     }
   ],
@@ -118,9 +125,10 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "complete_for_pair_scope",
       "relation_reviewed": "complete_for_pair_scope",
-      "translation_reaudited": "in_progress",
-      "build_verified": "batch4_complete",
+      "translation_reaudited": "high_confidence_pass_complete",
+      "build_verified": "batch5_complete",
       "game_verified": "not_started",
+      "residual_candidates": "low_confidence_or_game_context_dependent",
       "evidence": {
         "raw_blocks": 171,
         "unique_blocks": 157,
@@ -157,15 +165,22 @@
           "scope": "9133系の秘密告白・莫問の身の上・悪人谷行き・口訣継承",
           "status": "applied_and_pak_built",
           "validation": "実変更18キーを適用。適用前差分・接頭辞・制御トークン、適用後ゼロ差分、回帰走査、pak実体とLFS管理を確認。"
+        },
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch5.json",
+          "keys": 32,
+          "scope": "曹煜天戦前・秘伝伝授・莫問訓戒・西域と玄火教・南疆準備の残場面",
+          "status": "applied_and_pak_built",
+          "validation": "恒久workflowで既存129キーと合わせた161キーを一括検査。色タグ2行を修正後、適用・一回再パック・ゼロ差分・回帰走査・LFS確定を確認。"
         }
       ]
     }
   },
   "current": {
     "cluster": "wudang_core",
-    "pair": "宇文逸↔清虚道長",
-    "stage": "translation_reaudited",
-    "status": "in_progress",
-    "next_action": "残る5994・9202・9212・5622・6156系の個別場面を終末束として監査し、宇文逸↔清虚道長の人物ペア再監査を収束させる"
+    "pair": "宇文逸↔清霄道長",
+    "stage": "evidence_inventory",
+    "status": "not_started",
+    "next_action": "宇文逸↔清霄道長の同席・相互呼称・時系列ブロックを抽出し、清虚との師モード差と対外registerを検証する"
   }
 }
