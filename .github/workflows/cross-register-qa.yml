@@ -28,10 +28,14 @@ jobs:
         run: python _tools/test_lint_register.py
 
       - name: Validate curated register fixes
+        id: validate
+        continue-on-error: true
         run: |
+          mkdir -p _ws_tmp/register_lint
           python _tools/validate_fixes_json.py \
             _phase4_proofread/fixes_cross_register_20260723.json \
-            _phase4_proofread/fixes_cross_register_coldhawk_20260723.json
+            _phase4_proofread/fixes_cross_register_coldhawk_20260723.json \
+            > _ws_tmp/register_lint/fixes_validation.txt 2>&1
 
       - name: Preview curated register fixes
         run: |
@@ -44,9 +48,16 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: python _tools/lint_register.py --out-dir _ws_tmp/register_lint
 
-      - name: Upload report
+      - name: Upload report and diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: register-lint-report
           path: _ws_tmp/register_lint/
           if-no-files-found: error
+
+      - name: Enforce validation result
+        if: always()
+        run: |
+          cat _ws_tmp/register_lint/fixes_validation.txt
+          test "${{ steps.validate.outcome }}" = "success"
