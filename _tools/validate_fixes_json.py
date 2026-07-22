@@ -101,12 +101,20 @@ def validate_files(
                 continue
 
             pending += 1
-            if speaker_prefix(old_value) != speaker_prefix(new_value):
-                errors.append(f"{label}: 話者接頭辞が変化")
-            if control_tokens(old_value) != control_tokens(new_value):
+            old_prefix = speaker_prefix(old_value)
+            new_prefix = speaker_prefix(new_value)
+            if old_prefix != new_prefix:
+                errors.append(
+                    f"{label}: 話者接頭辞が変化 "
+                    f"{old_prefix!r} -> {new_prefix!r}"
+                )
+            old_tokens = control_tokens(old_value)
+            new_tokens = control_tokens(new_value)
+            if old_tokens != new_tokens:
                 errors.append(
                     f"{label}: 制御トークンが変化 "
-                    f"{control_tokens(old_value)!r} -> {control_tokens(new_value)!r}"
+                    f"{old_tokens!r} -> {new_tokens!r} / "
+                    f"current={old_value!r} / proposed={new_value!r}"
                 )
 
     return checked, pending, applied, errors
