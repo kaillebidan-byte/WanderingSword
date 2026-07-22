@@ -7,7 +7,8 @@
 2つの顔: (1) Obsidian Vault = 翻訳設定資料、(2) `_tools/` の Python パイプライン(repakで再パック)。
 
 ## 正本(まずここを読む)
-- **手順の正本**: [_tools/RUNBOOK_翻訳自動実行.md](_tools/RUNBOOK_翻訳自動実行.md)。フェーズ判定・1回の作業量・進め方はRUNBOOKを参照。
+- **デプロイ境界の正本・最優先**: [00_ルール/デプロイ境界.md](00_ルール/デプロイ境界.md)。修正適用・locres書き戻し・pak再生成・検証まではエージェント側、ゲームフォルダへの配置だけユーザー側。RUNBOOKや過去ログの古いデプロイ指示より優先する。
+- **手順の正本**: [_tools/RUNBOOK_翻訳自動実行.md](_tools/RUNBOOK_翻訳自動実行.md)。フェーズ判定・1回の作業量・進め方はRUNBOOKを参照。ただしデプロイ範囲は上記正本が上書きする。
 - **現在地**: `python _tools/status.py`。初回校正と品質再監査を分けて表示する。
 - **再監査の段階・順序**: [_phase4_proofread/audit_status.json](_phase4_proofread/audit_status.json)。
 - **横断TODO**: [_phase4_proofread/_TODO.md](_phase4_proofread/_TODO.md)(開いてる項目のみ)。
@@ -48,8 +49,14 @@
 - `確定でない(仮訳/なし)` → 校正に進まず停止して報告。ペルソナ作成はメイン直轄。
 - `保留` → 着手しない。
 
+## 作業境界
+- mainは、修正案の作成だけで止めず、原則として**修正適用→locres書き戻し→pak再生成→構造・lint・プレビュー検証**まで行う。
+- `_tools/deploy_to_game.py` は実行しない。Steamのゲームフォルダへpakをコピー・置換しない。
+- 生成物は `_work/aaWanderingSword_JP_P.pak` を基準とし、ゲーム内確認前の `game_verified` は未完了のままにする。
+- 実行環境上適用できない場合は、未適用であることと理由を明示し、修正JSON・検証結果・適用コマンドを残す。
+
 ## エージェント編成
-main=Opus(計画・決定・統合・難所) / Sonnet(反復校正・提案のみ・デプロイ不可・完了報告必須) / Haiku(計数・整形・決定的変換)。
+main=Opus(計画・決定・統合・難所・修正適用・再パック・検証) / Sonnet(反復校正・提案のみ・デプロイ不可・完了報告必須) / Haiku(計数・整形・決定的変換)。
 優先度: `accuracy > source_intent > consistency > efficiency > style`。glossary優先・捏造禁止。
 
 ## 実行環境(Windowsネイティブ / 2026-06-15 移行)
@@ -59,8 +66,8 @@ main=Opus(計画・決定・統合・難所) / Sonnet(反復校正・提案の�
 - **`PYTHONIOENCODING=utf-8` 必須**: 無いと `pending_char.py` 等が cp932 でcrash(exit 1)・出力文字化け。
 - **CJKを含むPythonは `python -`(stdin)で渡さない**: PowerShellのパイプが日本語/中国語リテラルを化けさせる。必ず .py ファイルに書いて実行する。
 - 設定メニュー等のUIラベルは `系统` locres のhexキー。texture/FTextではなく通常のlocres編集で短縮・改名できる。
-- **ゲーム**: `C:\Program Files (x86)\Steam\steamapps\common\Wandering Sword\Wandering_Sword\Content\Paks`。
-- **移行の残**: deploy_to_game の Windows パス分岐と `/tmp/_deployverify` は未対応。詳細 [_tools/PLAN_Windows移行.md](_tools/PLAN_Windows移行.md)。
+- **ユーザー専用デプロイ先**: `C:\Program Files (x86)\Steam\steamapps\common\Wandering Sword\Wandering_Sword\Content\Paks`。エージェントは操作しない。
+- **移行の残**: deploy_to_game の Windows パス分岐と `/tmp/_deployverify` は未対応。deployスクリプトはユーザー側のローカル作業用であり、通常のエージェント実行には含めない。詳細 [_tools/PLAN_Windows移行.md](_tools/PLAN_Windows移行.md)。
 
 ## 制御タグは絶対に壊さない
 `$@$`(話者区切り。これより前=ID・話者名は変更しない)、`<Y>…</>` `<B>` `<G>` 等の色タグ、`#nl`・`\r\n`(改行)、`{0}` 等のプレースホルダ。本文だけを訳す/直す。
@@ -91,8 +98,12 @@ main:
   - planning
   - decisions
   - integration
-  - deployment
+  - correction application
+  - locres writeback
+  - pak build and verification
   - difficult cases
+- constraint:
+  - deployment to the game folder is user-only
 
 workers:
 
