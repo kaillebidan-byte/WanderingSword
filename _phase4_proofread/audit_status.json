@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "updated_at": "2026-07-23",
   "principle": "初回校正の完走、ペルソナ確定、関係性マップ記載は、最終的な正当性や品質保証を意味しない。原文・現訳・前後文を一次資料として再監査する。",
   "stages": {
@@ -8,6 +8,7 @@
     "persona_reviewed": "ペルソナの各規則を一次資料で検証し、根拠・反例・不明点を記録した状態。",
     "relation_reviewed": "関係性と呼称の時系列・場面差を一次資料で検証した状態。",
     "translation_reaudited": "対象範囲の既訳を意味・声・関係性の三面で再読し、修正案を検証した状態。",
+    "build_verified": "修正をlocresへ反映し、pakを再生成して機械検証した状態。ゲームフォルダには未配置。",
     "game_verified": "反映後にゲーム内で表示と場面適合を確認した状態。"
   },
   "project": {
@@ -19,8 +20,36 @@
     "quality_reaudit": {
       "status": "in_progress",
       "strategy": "関係クラスタ単位で、人物・関係性・既訳を同時に検証"
+    },
+    "latest_build": {
+      "status": "verified_not_deployed",
+      "pak": "_work/aaWanderingSword_JP_P.pak",
+      "applied_keys": 70,
+      "targets": ["CG表", "Npc"],
+      "game_verified": "not_started",
+      "record": "_phase4_proofread/APPLIED_FIXES_2026-07-23.md"
     }
   },
+  "applied_fix_batches": [
+    {
+      "path": "_phase4_proofread/fixes_cross_register_20260723.json",
+      "keys": 24,
+      "scope": "絶無心の対道長・対宇文逸register",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_cross_register_coldhawk_20260723.json",
+      "keys": 32,
+      "scope": "冷鷹の対主人公二人称",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json",
+      "keys": 14,
+      "scope": "宇文逸↔清虚道長の初回関係監査",
+      "status": "applied_and_pak_built"
+    }
+  ],
   "queue": [
     {
       "id": "wudang_core",
@@ -64,6 +93,7 @@
       "persona_reviewed": "complete_for_pair_scope",
       "relation_reviewed": "complete_for_pair_scope",
       "translation_reaudited": "in_progress",
+      "build_verified": "batch1_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 171,
@@ -78,8 +108,8 @@
           "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json",
           "keys": 14,
           "scope": "清虚の逸児発話に併存する汎用お前・お前たち・为师直訳臭",
-          "status": "validated",
-          "validation": "key存在・新旧差分・話者接頭辞・タグ・改行・プレースホルダ不変をGitHub Actionsで確認"
+          "status": "applied_and_pak_built",
+          "validation": "適用前にkey・実差分・話者接頭辞・タグ・改行・プレースホルダを確認。適用後は全14キーが修正値と一致し、pak再生成と回帰走査を確認。"
         }
       ]
     }
