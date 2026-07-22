@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+          show-progress: false
 
       - name: Patch RUNBOOK
         run: python3 _tools/_oneoff_patch_deploy_boundary.py
