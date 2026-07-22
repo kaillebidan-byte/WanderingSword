@@ -27,6 +27,16 @@ jobs:
       - name: Unit tests
         run: python _tools/test_extract_relation_context.py
 
+      - name: Validate curated relation fixes
+        run: >-
+          python _tools/validate_fixes_json.py
+          _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+
+      - name: Preview curated relation fixes
+        run: >-
+          python _tools/apply_fixes_json.py
+          _phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json
+
       - name: Extract current relation evidence
         env:
           WS_TMP: ${{ github.workspace }}/_ws_tmp
