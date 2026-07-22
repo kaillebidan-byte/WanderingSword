@@ -1,31 +1,71 @@
 import struct
-MAGIC=bytes.fromhex('0E147475674A03FC4A15909DC3377F1B')
-def rd_fstr(b,o):
-    (n,)=struct.unpack_from('<i',b,o); o+=4
-    if n==0: return '',o
-    if n<0: c=-n; return b[o:o+c*2].decode('utf-16-le').rstrip('\x00'),o+c*2
-    return b[o:o+n].decode('utf-8').rstrip('\x00'),o+n
-def wr_fstr(s):
-    if s=='' : return struct.pack('<i',0)
-    if all(ord(c)<128 for c in s):
-        data=s.encode('ascii')+b'\x00'; return struct.pack('<i',len(data))+data
-    data=s.encode('utf-16-le')+b'\x00\x00'; return struct.pack('<i',-(len(s)+1))+data
-def read_string_array(b,arr_off,ver):
-    p=arr_off; (sc,)=struct.unpack_from('<i',b,p); p+=4
-    arr=[]
-    for _ in range(sc):
-        s,p=rd_fstr(b,p); ref=0
-        if ver>=3: (ref,)=struct.unpack_from('<i',b,p); p+=4
-        arr.append([s,ref])
-    return arr,p
-def write_string_array(arr,ver):
-    out=bytearray(); out+=struct.pack('<i',len(arr))
-    for s,ref in arr:
-        out+=wr_fstr(s)
-        if ver>=3: out+=struct.pack('<i',ref)
-    return bytes(out)
+
+MAGIC = bytes.fromhex("0E147475674A03FC4A15909DC3377F1B")
+
+
+def rd_fstr(data, offset):
+    (length,) = struct.unpack_from("<i", data, offset)
+    offset += 4
+    if length == 0:
+        return "", offset
+    if length < 0:
+        chars = -length
+        end = offset + chars * 2
+        return data[offset:end].decode("utf-16-le").rstrip("\x00"), end
+
+    end = offset + length
+    # Unrealの正数長FStringはANSIバイト列。通常はUTF-8として読めるが、
+    # 旧資産にはcp1252等の単一バイトが残る。surrogateescapeなら
+    # 意味を勝手に置換せず、書き戻し時に元バイトへ完全往復できる。
+    return data[offset:end].decode("utf-8", "surrogateescape").rstrip("\x00"), end
+
+
+def wr_fstr(value):
+    if value == "":
+        return struct.pack("<i", 0)
+
+    has_escaped_bytes = any("\udc80" <= char <= "\udcff" for char in value)
+    if has_escaped_bytes:
+        encoded = value.encode("utf-8", "surrogateescape") + b"\x00"
+        return struct.pack("<i", len(encoded)) + encoded
+
+    if all(ord(char) < 128 for char in value):
+        encoded = value.encode("ascii") + b"\x00"
+        return struct.pack("<i", len(encoded)) + encoded
+
+    encoded = value.encode("utf-16-le") + b"\x00\x00"
+    return struct.pack("<i", -(len(value) + 1)) + encoded
+
+
+def read_string_array(data, array_offset, version):
+    offset = array_offset
+    (string_count,) = struct.unpack_from("<i", data, offset)
+    offset += 4
+    values = []
+    for _ in range(string_count):
+        value, offset = rd_fstr(data, offset)
+        ref_count = 0
+        if version >= 3:
+            (ref_count,) = struct.unpack_from("<i", data, offset)
+            offset += 4
+        values.append([value, ref_count])
+    return values, offset
+
+
+def write_string_array(values, version):
+    output = bytearray()
+    output += struct.pack("<i", len(values))
+    for value, ref_count in values:
+        output += wr_fstr(value)
+        if version >= 3:
+            output += struct.pack("<i", ref_count)
+    return bytes(output)
+
+
 def load(path):
-    b=open(path,'rb').read(); assert b[:16]==MAGIC
-    ver=b[16]; (arr_off,)=struct.unpack_from('<q',b,17)
-    arr,end=read_string_array(b,arr_off,ver)
-    return b,ver,arr_off,arr,end
+    data = open(path, "rb").read()
+    assert data[:16] == MAGIC
+    version = data[16]
+    (array_offset,) = struct.unpack_from("<q", data, 17)
+    values, end = read_string_array(data, array_offset, version)
+    return data, version, array_offset, values, end

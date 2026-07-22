@@ -8,7 +8,8 @@
 
 ## 正本(まずここを読む)
 - **デプロイ境界の正本・最優先**: [00_ルール/デプロイ境界.md](00_ルール/デプロイ境界.md)。修正適用・locres書き戻し・pak再生成・検証まではエージェント側、ゲームフォルダへの配置だけユーザー側。RUNBOOKや過去ログの古いデプロイ指示より優先する。
-- **手順の正本**: [_tools/RUNBOOK_翻訳自動実行.md](_tools/RUNBOOK_翻訳自動実行.md)。フェーズ判定・1回の作業量・進め方はRUNBOOKを参照。ただしデプロイ範囲は上記正本が上書きする。
+- **初回翻訳・校正の正本**: [_tools/RUNBOOK_翻訳自動実行.md](_tools/RUNBOOK_翻訳自動実行.md)。フェーズ判定・1回の作業量・進め方はRUNBOOKを参照。ただしデプロイ範囲は上記正本が上書きする。
+- **人物ペア再監査の入口**: [_phase4_proofread/RUNBOOK_人物ペア再監査.md](_phase4_proofread/RUNBOOK_人物ペア再監査.md)。判断の一般正本は `.agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md`。
 - **現在地**: `python _tools/status.py`。初回校正と品質再監査を分けて表示する。
 - **再監査の段階・順序**: [_phase4_proofread/audit_status.json](_phase4_proofread/audit_status.json)。
 - **横断TODO**: [_phase4_proofread/_TODO.md](_phase4_proofread/_TODO.md)(開いてる項目のみ)。
@@ -31,23 +32,35 @@
 - 一人称修正と誤訳検出は前提条件であって目的ではない。これだけに痩せると、チェックは通るのにキャラが死ぬ。
 - 多モードキャラのモード落差・比喩・相槌を平板に均さない。
 - ペルソナは着手時に読むが、**一次資料との整合を毎回検証する**。「直しすぎより触らない」。
+- 行単位で自然でも、連続会話の息切れ・言いさし・感情・因果を壊していないか場面単位で確認する。
 
 ## 「完了」と `status: 確定` の意味
 - `char_progress.json` の完走 = **初回キャラ校正を一巡した**。最終品質保証ではない。
 - ペルソナの `status: 確定` = **初回作業へ着手可能な仮説がある**。正当性の最終確認ではない。
 - 最終的な進捗は `audit_status.json` の段階で管理する:
+  - initial_pass
   - evidence_inventory
   - persona_reviewed
   - relation_reviewed
   - translation_reaudited
+  - build_verified
   - game_verified
-- 再監査では、人物単独ではなく**関係クラスタ→人物ペア→既訳**の順で見る。相手不明のままregisterを一括統一しない。
+- `build_verified` = locres反映、pak再生成、機械検証済み。ゲーム内確認ではない。
+- 再監査では、人物単独ではなく**関係クラスタ→人物ペア→場面→既訳**の順で見る。相手不明のままregisterを一括統一しない。
 
 ## ペルソナ着手関門(初回作業用)
 `10_人物/<キャラ>.md` の `status:` を確認:
 - `確定` → 初回翻訳・校正の足場として使用可。ただし反例を見つけたら監督へ戻し、資料を修正する。
-- `確定でない(仮訳/なし)` → 校正に進まず停止して報告。ペルソナ作成はメイン直轄。
+- `確定でない(仮訳/なし)` → 初回校正に進まず停止して報告。ペルソナ作成はメイン直轄。
 - `保留` → 着手しない。
+
+## 修正束と適用フロー
+- 高確度の実変更だけを `_phase4_proofread/fixes_*.json` へ収録する。既一致行、好みだけの言い換え、宛先・時系列不明は含めない。
+- 複数修正束は `python _tools/apply_fixes_json.py _phase4_proofread/fixes_*.json` でまとめてプレビューできる。
+- 同一キー・異なる値は競合として書き込み前に停止する。
+- 適用時は対象locresを各1回だけ書き、pakを1回だけ再生成する。未適用0件ならrepakしない。
+- PRでは `.github/workflows/apply-curated-fixes.yml` を使う。人物名・日付・バッチ番号をハードコードした一時apply workflowは作らない。
+- 読み取りCIは relation/register 修正束をglobで動的検出する。
 
 ## 作業境界
 - mainは、修正案の作成だけで止めず、原則として**修正適用→locres書き戻し→pak再生成→構造・lint・プレビュー検証**まで行う。
@@ -64,7 +77,7 @@ main=Opus(計画・決定・統合・難所・修正適用・再パック・検�
 - **repak**: `_tools/repak.exe`(0.2.3)。スクリプトは `os.name=="nt"` 分岐で `.exe` を選ぶ。Linux版ELF `_tools/repak` は残置。
 - **中間ファイル**: 環境変数 **`WS_TMP`** を作業フォルダ内(`_ws_tmp/`)に設定。素の `/tmp` は同期ラグがあるため避ける。
 - **`PYTHONIOENCODING=utf-8` 必須**: 無いと `pending_char.py` 等が cp932 でcrash(exit 1)・出力文字化け。
-- **CJKを含むPythonは `python -`(stdin)で渡さない**: PowerShellのパイプが日本語/中国語リテラルを化けさせる。必ず .py ファイルに書いて実行する。
+- **CJKを含むPython/JSONはstdinで渡さない**: PowerShellのパイプやheredocで日本語・中国語リテラルを化けさせない。必ずUTF-8ファイルに書いて実行する。
 - 設定メニュー等のUIラベルは `系统` locres のhexキー。texture/FTextではなく通常のlocres編集で短縮・改名できる。
 - **ユーザー専用デプロイ先**: `C:\Program Files (x86)\Steam\steamapps\common\Wandering Sword\Wandering_Sword\Content\Paks`。エージェントは操作しない。
 - **移行の残**: deploy_to_game の Windows パス分岐と `/tmp/_deployverify` は未対応。deployスクリプトはユーザー側のローカル作業用であり、通常のエージェント実行には含めない。詳細 [_tools/PLAN_Windows移行.md](_tools/PLAN_Windows移行.md)。
@@ -160,5 +173,5 @@ Escalate back to main if confidence is low.
 
 - git → Windows native
 - correction tool → WS_TMP
-- JSON → bash heredoc
+- JSON → UTF-8 file
 - completed schedules → disable
