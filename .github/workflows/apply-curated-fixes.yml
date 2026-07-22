@@ -48,6 +48,7 @@ jobs:
       - name: Collect all curated fix batches
         shell: bash
         run: |
+          mkdir -p _ws_tmp/apply_fixes
           shopt -s nullglob
           files=(_phase4_proofread/fixes_*.json)
           if ((${#files[@]} == 0)); then
@@ -61,16 +62,19 @@ jobs:
         shell: bash
         run: |
           mapfile -t files < _ws_all_fix_files.txt
-          python _tools/validate_fixes_json.py --allow-applied "${files[@]}"
+          set -o pipefail
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
+            2>&1 | tee _ws_tmp/apply_fixes/fixes_validation.txt
 
       - name: Detect pending fixes
         id: pending
         shell: bash
         run: |
           mapfile -t files < _ws_all_fix_files.txt
-          output="$(python _tools/apply_fixes_json.py "${files[@]}")"
-          printf '%s\n' "$output"
-          if printf '%s\n' "$output" | grep -q '^\[プレビュー\] 計0件'; then
+          set -o pipefail
+          python _tools/apply_fixes_json.py "${files[@]}" \
+            2>&1 | tee _ws_tmp/apply_fixes/fixes_preview_before.txt
+          if grep -q '^\[プレビュー\] 計0件' _ws_tmp/apply_fixes/fixes_preview_before.txt; then
             echo 'changed=false' >> "$GITHUB_OUTPUT"
           else
             echo 'changed=true' >> "$GITHUB_OUTPUT"
@@ -81,16 +85,20 @@ jobs:
         shell: bash
         run: |
           mapfile -t files < _ws_all_fix_files.txt
-          python _tools/apply_fixes_json.py "${files[@]}" --apply
+          set -o pipefail
+          python _tools/apply_fixes_json.py "${files[@]}" --apply \
+            2>&1 | tee _ws_tmp/apply_fixes/apply.txt
 
       - name: Verify no pending differences remain
         shell: bash
         run: |
           mapfile -t files < _ws_all_fix_files.txt
-          output="$(python _tools/apply_fixes_json.py "${files[@]}")"
-          printf '%s\n' "$output"
-          printf '%s\n' "$output" | grep -q '^\[プレビュー\] 計0件'
-          python _tools/validate_fixes_json.py --allow-applied "${files[@]}"
+          set -o pipefail
+          python _tools/apply_fixes_json.py "${files[@]}" \
+            2>&1 | tee _ws_tmp/apply_fixes/fixes_preview_after.txt
+          grep -q '^\[プレビュー\] 計0件' _ws_tmp/apply_fixes/fixes_preview_after.txt
+          python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
+            2>&1 | tee _ws_tmp/apply_fixes/fixes_validation_after.txt
 
       - name: Run regression tests and scans
         shell: bash
@@ -128,6 +136,7 @@ jobs:
         with:
           name: curated-fixes-qa-${{ github.run_number }}
           path: |
+            _ws_tmp/apply_fixes/
             _ws_tmp/register_lint/
             _ws_tmp/relation_audit/
           if-no-files-found: warn
