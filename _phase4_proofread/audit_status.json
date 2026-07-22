@@ -24,10 +24,13 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 70,
+      "applied_keys": 94,
       "targets": ["CG表", "Npc"],
       "game_verified": "not_started",
-      "record": "_phase4_proofread/APPLIED_FIXES_2026-07-23.md"
+      "records": [
+        "_phase4_proofread/APPLIED_FIXES_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXU_BATCH2_2026-07-23.md"
+      ]
     }
   },
   "applied_fix_batches": [
@@ -47,6 +50,12 @@
       "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json",
       "keys": 14,
       "scope": "宇文逸↔清虚道長の初回関係監査",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json",
+      "keys": 24,
+      "scope": "清虚の为师直訳・私・師・お前系の第2監査",
       "status": "applied_and_pak_built"
     }
   ],
@@ -93,7 +102,7 @@
       "persona_reviewed": "complete_for_pair_scope",
       "relation_reviewed": "complete_for_pair_scope",
       "translation_reaudited": "in_progress",
-      "build_verified": "batch1_complete",
+      "build_verified": "batch2_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 171,
@@ -110,6 +119,13 @@
           "scope": "清虚の逸児発話に併存する汎用お前・お前たち・为师直訳臭",
           "status": "applied_and_pak_built",
           "validation": "適用前にkey・実差分・話者接頭辞・タグ・改行・プレースホルダを確認。適用後は全14キーが修正値と一致し、pak再生成と回帰走査を確認。"
+        },
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json",
+          "keys": 24,
+          "scope": "太極神功・天龍幇・程家堡・南疆行き等で崩れた清虚の師モード",
+          "status": "applied_and_pak_built",
+          "validation": "適用前に全24キーの実差分・接頭辞・制御タグを確認。適用後ゼロ差分、関係抽出、register走査、pak実体とLFS管理を確認。"
         }
       ]
     }
@@ -119,6 +135,6 @@
     "pair": "宇文逸↔清虚道長",
     "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "弟子・为师の直訳臭と意味ズレ候補を次バッチへ絞り、宇文逸↔清虚道長の既訳再監査を続ける"
+    "next_action": "病床・継承・莫問関連の感情場面を第3束として文脈監査し、宇文逸↔清虚道長の残候補を減らす"
   }
 }
