@@ -1,0 +1,38 @@
+name: Cross register QA
+
+on:
+  push:
+    branches:
+      - agent/cross-register-qa
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: python _tools/test_lint_register.py
+
+      - name: Scan current localization data
+        env:
+          WS_TMP: ${{ github.workspace }}/_ws_tmp
+          PYTHONIOENCODING: utf-8
+        run: python _tools/lint_register.py --out-dir _ws_tmp/register_lint
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: register-lint-report
+          path: _ws_tmp/register_lint/
+          if-no-files-found: error
