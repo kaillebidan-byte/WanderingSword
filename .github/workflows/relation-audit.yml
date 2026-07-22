@@ -1,0 +1,38 @@
+name: Relation audit extraction
+
+on:
+  push:
+    branches:
+      - agent/rebuild-audit-baseline
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: python _tools/test_extract_relation_context.py
+
+      - name: Extract current relation evidence
+        env:
+          WS_TMP: ${{ github.workspace }}/_ws_tmp
+          PYTHONIOENCODING: utf-8
+        run: python _tools/extract_relation_context.py --out-dir _ws_tmp/relation_audit
+
+      - name: Upload evidence inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: relation-audit-evidence
+          path: _ws_tmp/relation_audit/
+          if-no-files-found: error
