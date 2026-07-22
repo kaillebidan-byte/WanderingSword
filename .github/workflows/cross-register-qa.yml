@@ -43,15 +43,18 @@ jobs:
         run: |
           mkdir -p _ws_tmp/register_lint
           mapfile -t files < _ws_register_fix_files.txt
+          set -o pipefail
           python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
-            > _ws_tmp/register_lint/fixes_validation.txt 2>&1
-          cat _ws_tmp/register_lint/fixes_validation.txt
+            2>&1 | tee _ws_tmp/register_lint/fixes_validation.txt
 
       - name: Preview curated register fixes once
         shell: bash
         run: |
+          mkdir -p _ws_tmp/register_lint
           mapfile -t files < _ws_register_fix_files.txt
-          python _tools/apply_fixes_json.py "${files[@]}"
+          set -o pipefail
+          python _tools/apply_fixes_json.py "${files[@]}" \
+            2>&1 | tee _ws_tmp/register_lint/fixes_preview.txt
 
       - name: Scan current localization data
         env:
