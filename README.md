@@ -18,7 +18,7 @@
 
 1. [`AGENTS.md`](AGENTS.md) — プロジェクト全体の地図、資料の優先順位、作業境界
 2. [`_phase4_proofread/SESSION_BOOTSTRAP.md`](_phase4_proofread/SESSION_BOOTSTRAP.md) — 起動文を受けたときの固定行動契約
-3. [`_phase4_proofread/CURRENT_WORK.json`](_phase4_proofread/CURRENT_WORK.json) — 現在の人物ペア、完了束、累計、直ちに着手する場面
+3. [`_phase4_proofread/CURRENT_WORK.json`](_phase4_proofread/CURRENT_WORK.json) — verified checkpoint、現在の人物ペア、完了束、累計、直ちに着手する場面
 4. [`_phase4_proofread/CURRENT_HANDOFF.md`](_phase4_proofread/CURRENT_HANDOFF.md) — 人間向けの短い申し送り
 5. [`_phase4_proofread/audit_status.json`](_phase4_proofread/audit_status.json) — 品質段階、累計、監査キューの機械可読正本
 6. [`_phase4_proofread/RUNBOOK_人物ペア再監査.md`](_phase4_proofread/RUNBOOK_人物ペア再監査.md) — このプロジェクト固有の再監査入口
@@ -33,16 +33,31 @@
 - head SHAのGitHub Actions
 - 直近のmerged PR
 
-未統合PRが前チャットの続きなら、`CURRENT_WORK.json.immediate_next` よりそのPRを優先します。
+未統合PRは、開いているという理由だけで現行作業にしません。`active / superseded / abandoned / unrelated` に分類し、`active` のものだけを `CURRENT_WORK.json.immediate_next` より優先します。置換PRを作った場合は、旧PRへ置換先をコメントして閉じます。
+
+## checkpoint
+
+`CURRENT_WORK.checkpoint.status` は二値です。
+
+- `verified`: 状態文書、監査索引、件数、適用記録、最終CIが同期し、mainへ統合可能
+- `pending_audit_sync`: 翻訳適用後の状態同期途中。差分は警告として扱うが、mainへは統合しない
+
+apply workflowのbot書き戻し後にworkflowが `action_required` となる場合があります。これは翻訳失敗ではありません。bot差分を確認し、人手コミットでcheckpointを `verified` にして最終HEADを再検証します。
+
+統合前は次を成功させます。
+
+```text
+python _tools/check_handoff_consistency.py --require-verified
+```
 
 ## 資料が食い違う場合
 
 優先順位は次です。
 
 1. 原文zh、現訳ja、同一場面の前後、話者、相手、時系列、分岐
-2. GitHub上の未統合PR、最新HEAD、Actionsの実状態
+2. GitHub上でactiveと判定した未統合PR、最新HEAD、Actionsの実状態
 3. 設定・用語・デプロイ境界の正本
-4. `CURRENT_WORK.json` の現在地と直近作業
+4. `CURRENT_WORK.json` のverified checkpointと直近作業
 5. `audit_status.json` の品質段階・累計
 6. ペルソナ、関係性・呼称マップ
 7. `_TODO.md`、過去の監査記録、適用記録
@@ -56,8 +71,8 @@
 
 通常は次の四点だけを短く報告し、そのまま作業へ入ります。
 
-- 復元した現在ペア・完了束・累計
-- 未統合PRまたはCIの状態
+- 復元した現在ペア・完了束・累計・checkpoint状態
+- 未統合PRの分類とCI状態
 - 直ちに着手する場面・作業
 - 古い資料や矛盾の扱い
 
@@ -68,9 +83,10 @@
 ```text
 python _tools/status.py
 python _tools/check_handoff_consistency.py
+python _tools/check_handoff_consistency.py --require-verified
 ```
 
-`status.py` は起動文、現在地、即時作業を表示します。`check_handoff_consistency.py` は再開プロトコルの存在、起動文、現在ペア、完了束、適用キー数、最新適用記録が状態文書間で一致するか検証します。
+`status.py` は起動文、checkpoint、現在地、即時作業を表示します。`check_handoff_consistency.py` は再開プロトコル、checkpoint、現在ペア、完了束、適用キー数、適用記録、監査索引の整合を検証します。
 
 ## 作業境界
 
