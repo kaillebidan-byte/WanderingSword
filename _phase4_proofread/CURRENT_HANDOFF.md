@@ -14,8 +14,8 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
-- checkpointを生成する翻訳PR: #62（active）
+- checkpoint: `verified`
+- checkpointを生成した翻訳PR: #62
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
@@ -25,11 +25,11 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 直近のmerged翻訳PR: #59、#60
+- 直近の翻訳PR: #60、#62
 
 ## 直ちに着手する作業
 
-PR #62の監査索引同期とverified checkpoint化を完了する。active PRがない状態になった後は、`5274_1 / 5278_1` の平康城からの帰還報告と、莫問・莫棄を伴う次の平康城調査開始を連続場面として監査する。
+active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還報告と、莫問・莫棄を伴う次の平康城調査開始を連続場面として監査する。
 
 宇文逸の誇張気味の報告、莫問の即時の安否確認と情報整理、三人場面での落ち着いた方針提示を分ける。莫棄所有の行はcross-register束との所有を確認する。
 
