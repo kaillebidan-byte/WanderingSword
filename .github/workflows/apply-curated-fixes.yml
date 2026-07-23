@@ -6,11 +6,15 @@ on:
       - main
     paths:
       - "_phase4_proofread/fixes_*.json"
+      - "_phase4_proofread/APPLIED_FIXES_*.md"
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/CURRENT_HANDOFF.md"
       - "_tools/apply_fixes_json.py"
       - "_tools/validate_fixes_json.py"
       - "_tools/test_apply_fixes_json.py"
       - "_tools/update_audit_status.py"
       - "_tools/test_update_audit_status.py"
+      - "_tools/check_handoff_consistency.py"
       - ".github/workflows/apply-curated-fixes.yml"
 
 permissions:
@@ -129,6 +133,10 @@ jobs:
           else
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Check handoff checkpoint after audit refresh
+        shell: bash
+        run: python _tools/check_handoff_consistency.py
 
       - name: Commit applied assets and audit status
         if: >-
