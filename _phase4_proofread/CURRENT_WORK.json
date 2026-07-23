@@ -3,8 +3,8 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "b5079057413c1135f5499ad39fb93769dc55a9a7",
-  "state_base_commit": "17ba4b33c1d6b03d835e3f377ed2801b890750f0",
+  "translation_base_commit": "7ec63763faf4fd21076998c15f336e01a74e9c17",
+  "state_base_commit": "7ec63763faf4fd21076998c15f336e01a74e9c17",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -14,7 +14,7 @@
   "project_applied_keys": 1388,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
-  "last_merged_translation_pr": 66,
+  "last_merged_translation_pr": 68,
   "checkpoint": {
     "status": "verified",
     "batch": 44,
@@ -22,8 +22,8 @@
     "project_applied_keys": 1388,
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH44_2026-07-24.md",
     "produced_by_pr": 68,
-    "translation_head": "b5079057413c1135f5499ad39fb93769dc55a9a7",
-    "verified_head": "17ba4b33c1d6b03d835e3f377ed2801b890750f0"
+    "translation_head": "7ec63763faf4fd21076998c15f336e01a74e9c17",
+    "verified_head": "7ec63763faf4fd21076998c15f336e01a74e9c17"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
