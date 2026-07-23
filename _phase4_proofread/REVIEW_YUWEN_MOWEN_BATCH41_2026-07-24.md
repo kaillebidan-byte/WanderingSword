@@ -7,7 +7,7 @@
 - 修正対象: 7キー
 - 新規修正束: 4キー
 - 既存第3束の再改訂: 3キー
-- status: applied_pending_audit_sync
+- status: verified
 
 ## 場面境界
 
@@ -49,14 +49,15 @@
 - 既存第3束の3キーは新規束へ重複させず、元の束を直接再改訂する。
 - 高確度の変更だけを収録し、既に自然な3行は変更しない。
 
-## 適用結果
+## 適用・検証結果
 
 - locres反映済み
 - pak再生成済み
 - 全1359キーの適用後差分0
 - register lint、関係抽出、単体テスト、回帰走査、LFS確認成功
 - 適用記録追加済み
-- `audit_status.record_index` 同期待ち
+- `audit_status.record_index` 同期済み
+- checkpoint: `verified`
 
 ## 累計
 
