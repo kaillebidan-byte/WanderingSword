@@ -3,7 +3,7 @@
 - 日付: 2026-07-23
 - 対象: `CG表 / QuestDlgs`
 - 修正束: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch21.json`
-- status: synchronized_ci_requested
+- status: ci_event_triggered
 - 予定キー数: 38
 
 ## 場面境界
