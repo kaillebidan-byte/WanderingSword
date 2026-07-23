@@ -3,27 +3,27 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "7ec63763faf4fd21076998c15f336e01a74e9c17",
-  "state_base_commit": "7ec63763faf4fd21076998c15f336e01a74e9c17",
+  "translation_base_commit": "a7331090851ed045ddcc02b54e37e8ba2bfd0da2",
+  "state_base_commit": "629a34e277023215d4fc571d54050297308f50a8",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 44,
-  "pair_applied_keys": 1126,
-  "project_applied_keys": 1388,
+  "last_completed_batch": 45,
+  "pair_applied_keys": 1130,
+  "project_applied_keys": 1403,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 68,
   "checkpoint": {
     "status": "verified",
-    "batch": 44,
-    "pair_applied_keys": 1126,
-    "project_applied_keys": 1388,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH44_2026-07-24.md",
-    "produced_by_pr": 68,
-    "translation_head": "7ec63763faf4fd21076998c15f336e01a74e9c17",
-    "verified_head": "7ec63763faf4fd21076998c15f336e01a74e9c17"
+    "batch": 45,
+    "pair_applied_keys": 1130,
+    "project_applied_keys": 1403,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH45_2026-07-24.md",
+    "produced_by_pr": 70,
+    "translation_head": "a7331090851ed045ddcc02b54e37e8ba2bfd0da2",
+    "verified_head": "629a34e277023215d4fc571d54050297308f50a8"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -78,9 +78,9 @@
     ]
   },
   "immediate_next": {
-    "scene_groups": ["5297_2"],
-    "task": "絶無心が李天宝への潜入捜査と天龍幇との繋がりを明かし、宇文逸の介入を責めた後、莫問が別の手を示唆する場面を監査する。",
-    "boundary": "絶無心の軽口・捜査説明・怒り・諦め、宇文逸の気づきと弁明、莫問の短い思案を分ける。絶無心所有の行はcross-register束へ分離し、既存第4束所有の莫問Index15は新規束へ重複させない。",
+    "scene_groups": ["5298_1"],
+    "task": "平康城任務の復命として、宇文逸が李天宝を殺した分岐、莫問が先に帳簿を確保した事実、清虚と清霄の対立する評価を連続場面として監査する。",
+    "boundary": "宇文逸の反省と莫問への言及を人物ペア対象とし、清虚・清霄の師兄弟間の諫言と価値観対立は各cross-registerまたは既存所有へ分離する。5297_2の気絶分岐を5298_1へ混入させない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -99,7 +99,8 @@
     ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
     "10_人物/宇文逸.md",
     "10_人物/莫問.md",
-    "10_人物/絶無心.md"
+    "10_人物/清虚道長.md",
+    "10_人物/清霄道長.md"
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
