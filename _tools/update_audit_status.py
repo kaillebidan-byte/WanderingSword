@@ -34,13 +34,21 @@ def latest_batch(paths: list[Path]) -> int | None:
     return max(batches) if batches else None
 
 
+def relative_record_paths(fixes_dir: Path) -> list[str]:
+    root = fixes_dir.parent
+    records = sorted(fixes_dir.glob("APPLIED_FIXES_*.md"))
+    return [path.relative_to(root).as_posix() for path in records]
+
+
 def update_status(status_path: Path, fixes_dir: Path) -> bool:
     status: dict[str, Any] = json.loads(status_path.read_text(encoding="utf-8"))
     before = json.dumps(status, ensure_ascii=False, sort_keys=True)
 
     all_fixes = sorted(fixes_dir.glob("fixes_*.json"))
     total = sum(load_fix_count(path) for path in all_fixes)
-    status["project"]["latest_build"]["applied_keys"] = total
+    latest_build = status["project"]["latest_build"]
+    latest_build["applied_keys"] = total
+    latest_build["record_index"] = relative_record_paths(fixes_dir)
     status["updated_at"] = datetime.now(timezone(timedelta(hours=9))).date().isoformat()
 
     pair_status = status.get("pair_status", {})
