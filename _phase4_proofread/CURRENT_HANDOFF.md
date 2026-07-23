@@ -1,131 +1,93 @@
 # 現在の申し送り
 
-> この文書は新しいチャットが短時間で現在地を復元するための人間向け入口です。固定の再開手順は `SESSION_BOOTSTRAP.md`、機械可読の現在地は `CURRENT_WORK.json`、次場面の具体的な着眼点は `NEXT_TASK_PACKET.json`、品質段階と累計は `audit_status.json` を参照します。`_handover.md` は履歴であり、現在地としては使いません。
+> 新しいチャットが過去会話なしで現在地を復元するための入口。機械可読の正本は `CURRENT_WORK.json`、次作業の具体的な着眼点は `NEXT_TASK_PACKET.json`、品質段階と件数は `audit_status.json`。`_handover.md` は履歴であり、現在地として使わない。
 
 ## 新チャットで送る一文
 
-同じChatGPTプロジェクト内なら、リポジトリURLや長い説明は不要です。
+同じChatGPTプロジェクト内では、リポジトリURLや前回作業を聞き直さず、次の一文だけで再開する。
 
 ```text
 現状把握して作業の続きを
 ```
 
-この一文を受けた側は、URLや前回作業を聞き直さず、未統合PR・CI・main・状態文書を照合します。短い現状報告だけで終わらず、同じ応答内で実作業へ進みます。現状だけ必要な場合は、ユーザーが明示します。
+受けた側は、未統合PR、GitHub Actions、main、状態文書、最新artifact、既存修正束の所有を照合する。短い報告だけで終わらず、同じ応答内で実作業へ進む。現状だけ必要な場合はユーザーが明示する。
 
 ## 現在地
 
 - checkpoint: `verified`
-- checkpointを生成した翻訳PR: #62
+- checkpointを生成した翻訳PR: #64
+- active PR: #64 `agent/yuwen-mowen-batch42-review`
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
-- 完了: 第41束
-- 宇文逸↔莫問の適用キー: 1111
-- プロジェクト全体の適用キー: 1359
+- 完了: 第42束
+- 宇文逸↔莫問の適用キー: 1117
+- プロジェクト全体の適用キー: 1370
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 直近の翻訳PR: #60、#62
+
+PR #64が開いている間は `active` としてCIと差分を先に確認する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第43束へ入る。PRは開いているだけで現行作業と決めない。
+
+## 第42束で完了したこと
+
+`5274_1 / 5278_1` の21行を通読し、18キーを再監査した。
+
+- 宇文逸の新規6キー
+- 莫問の既存第3束4キーと第4束3キーを再改訂
+- 莫棄のcross-register新規5キー
+- 人物ペア累計1117、全体1370
+- locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認済み
+
+初回relation CIは `5278_1` の莫問3キーが既存第4束の所有であることを検出した。新規束へ重複させず、第4束を直接再改訂した。
+
+莫棄の人物資料にあった `哈哈→はは` の固定規則は一次資料と衝突したため、浮かれ・ごまかし・得意げなど発話機能で笑いを裁定する規則へ改訂した。skill本体は変更していない。
 
 ## 直ちに着手する作業
 
-active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還報告と、莫問・莫棄を伴う次の平康城調査開始を連続場面として監査する。
+active PRがなければ、`5291_1 / 5292_3 / 5293_6 / 5293_7` を連続場面として監査する。
 
-宇文逸の誇張気味の報告、莫問の即時の安否確認と情報整理、三人場面での落ち着いた方針提示を分ける。莫棄所有の行はcross-register束との所有を確認する。
+- 李府潜入前の推測
+- 莫問の制止と具体的な潜入方針
+- 小声の緊急連絡と救出・足止めの役割分担
+- 絶無心が公門を盾にした脅しと、莫問の公道宣言
+- 莫問帰還時の短い応答
 
-具体的な発話順、一次資料artifactの取得方法、疑義候補、既存束所有、skill改修判定、完了条件は `_phase4_proofread/NEXT_TASK_PACKET.json` を読む。パケットは答えではなく、最新artifactと一次資料で再検証するための着眼点である。
+推測を客観事実へ強めない。宇文逸・莫問の人物ペア行と、莫棄・絶無心のcross-register所有を分ける。既存第4束所有の六キーは新規第43束へ重複させず、必要なら元の束を直接再改訂する。
 
-新チャット開始時に未統合PRが存在する場合は、そのPRを `active / superseded / abandoned / unrelated` に分類する。開いているだけで現行作業と決めず、`active` だけを先に再開する。`CURRENT_WORK.json.immediate_next` と `NEXT_TASK_PACKET.json` は、active PRがない場合の開始位置。
+具体的な発話順、全キー、ALLUSION_REVIEW、FACT_DOUBT、所有境界、完了条件は `NEXT_TASK_PACKET.json` に固定した。パケット自体も作業仮説であり、最新artifactと一次資料の反例を優先する。
 
-## 冷間再開の受入基準
+## checkpointと遷移状態
 
-`_phase4_proofread/COLD_START_ACCEPTANCE.md` に、新チャットが過去会話へ依存せず復元すべき項目を固定した。
+- `verified`: 状態文書、監査索引、件数、適用記録、次作業パケットが同期済み。統合可能。
+- `pending_audit_sync`: 翻訳適用後、監査索引の書き戻しを待つ遷移状態。作業続行は可能だが統合禁止。
+- bot書き戻し後の `action_required` は自動的に翻訳失敗と扱わない。bot差分を確認し、人手最終化後のHEADで再検証する。
+- 統合前に `python _tools/check_handoff_consistency.py --require-verified` と `python _tools/check_next_task_packet.py` を成功させる。
 
-```bash
-python _tools/check_handoff_consistency.py --require-verified
-python _tools/check_next_task_packet.py
-```
+第42束では、`pending_audit_sync`中は新しい `NEXT_TASK_PACKET`をまだ公開できない一方、workflowが無条件にパケット一致を要求して索引同期を止める循環を発見した。`check_next_task_packet.py --allow-pending` を追加し、遷移中は旧verifiedパケットの構造だけを検査する。checkpointが`verified`になれば従来どおり完全一致を要求する。apply workflowとrelation workflowの両方へ反映済み。
 
-両方が成功しない状態を、引継ぎ可能な確定状態とは扱わない。
-
-## checkpointの扱い
-
-- `verified`: 状態文書、監査索引、件数、適用記録、最終CIが同期済み。統合可能。
-- `pending_audit_sync`: 状態文書を次束へ進めた後、apply workflowの監査索引同期を待つ遷移状態。作業続行は可能だが統合禁止。
-- 初回applyでpending fixがある間は、旧verified checkpointと新監査件数が一時的に同居する。生成物commit前の完全一致検査は延期し、状態更新後のrunで検査する。
-- apply workflowのbot commit後にActionsが `action_required` となる場合がある。翻訳失敗とは扱わず、bot差分を確認し、人手コミットで `verified` にして最終HEADを再検証する。
-- 統合前に上記二つのcheckerを成功させる。
-
-## 今回までの実地試験で是正した不備
-
-1. PR #38が開いたままだったが、同じ第21束をPR #39が完全に置換・統合済みだった。#38へ置換先を記録して閉じた。
-2. 第39・40束の状態更新時、`CURRENT_WORK` が先に進み、`audit_status.record_index` の同期前に関係抽出が停止した。遷移中を `pending_audit_sync` として警告扱いに分離した。
-3. bot書き戻し後の `action_required` を失敗扱いせず、人手最終化コミット後の最新HEADで三本を再検証する手順を固定した。
-4. 第41束の初回applyで、旧verified checkpointと新監査件数の一時差を生成物commit前に検査して停止した。pending fixがあるrunでは完全一致検査を延期するようworkflowを修正した。
-5. 件数と次場面だけでは同じ着眼点を復元できないため、次場面専用の `NEXT_TASK_PACKET.json` と冷間再開checkerを追加した。
-
-## 再開時に最初に確認するもの
+## 再開時の確認順
 
 1. mainの最新状態
 2. 未統合PR、head SHA、変更ファイル
-3. PRがactiveかsupersededか
+3. PRを `active / superseded / abandoned / unrelated` に分類
 4. レビュー、未解決スレッド、GitHub Actions
 5. `CURRENT_WORK.checkpoint`
-6. `README.md`
-7. `AGENTS.md`
-8. `_phase4_proofread/SESSION_BOOTSTRAP.md`
-9. `_phase4_proofread/CURRENT_WORK.json`
-10. `_phase4_proofread/CURRENT_HANDOFF.md`
-11. `_phase4_proofread/NEXT_TASK_PACKET.json`
-12. `_phase4_proofread/COLD_START_ACCEPTANCE.md`
-13. `_phase4_proofread/audit_status.json`
-14. 人物ペアRUNBOOK、skill、style guide、register軸
-15. `10_人物/宇文逸.md` と `10_人物/莫問.md`
-16. 最新artifactに含まれる対象場面の原文・現訳・前後文・重複座標・既存修正束
+6. `README.md`、`AGENTS.md`、`SESSION_BOOTSTRAP.md`
+7. `CURRENT_WORK.json`、`CURRENT_HANDOFF.md`、`NEXT_TASK_PACKET.json`
+8. `audit_status.json` と適用記録
+9. 人物ペアRUNBOOK、skill、style guide、register軸
+10. `10_人物/宇文逸.md`、`10_人物/莫問.md`、必要なcross-register人物資料
+11. 最新relation artifactの対象場面、重複座標、既存修正束
 
-## 最初の報告形式
+## 作業精度の関門
 
-通常は次の四点だけを短く報告し、そのまま作業へ入る。
-
-- 現在ペア・完了束・累計・checkpoint状態
-- 未統合PRの分類とCI状態
-- 直ちに着手する場面・作業
-- 古い資料や矛盾の扱い
-
-確認待ちにはしない。
-
-## 作業精度を維持する関門
-
-- 一番は、その人物がその相手へ、その時点で実際に発した声として成立すること。
-- 笑い、咳、息、叫び、間、反復、文字種は表記統一へ押し込まない。
-- 中国語の文法を移して硬くなった台詞は、日本語で口から出る語順、長さ、切れ目、助詞省略へ再構成する。
-- 自然さを無難な現代会話と同一視しない。古風、豪放、尊大、陰湿、幼さ、寡黙など人物固有の癖は残す。
-- 毎バッチ冒頭で `ALLUSION_REVIEW` と `FACT_DOUBT` を別々に通す。
+- 最優先は、その人物がその相手へその時点で実際に発する声として成立すること。
+- 笑い、咳、息、叫び、間、反復、文字種を表記統一へ押し込まない。
+- 中国語構文を移した硬い台詞は、日本語で口から出る語順、長さ、切れ目、助詞省略へ再構成する。
+- `ALLUSION_REVIEW` と `FACT_DOUBT` を別々に通す。
 - 客観事実、人物の認識、推測、嘘・演技、未解決を混同しない。
-- ペルソナ、関係性マップ、完成例、適用済み訳、NEXT_TASK_PACKETは正本ではない。一次資料の反例があれば資料側を改訂する。
-- skillは毎束変更しない。複数人物・複数場面へ一般化できる新知見または既存規則への反例がある場合だけ改修する。
-- 悪役・怪人・雑兵・癖の強い端役は原文と役割に根拠があれば大胆に演出してよい。黒無常・白無常は許容強度の一例で、具体的な口調の流用元ではない。
-- 直前話者を自動的に宛先と見なさない。
-- 高確度の実変更だけを修正束へ入れ、既一致行、好みだけの言い換え、宛先・時系列不明は除外する。
-- 同一キー異値競合、話者接頭辞、タグ、改行、プレースホルダを適用前に検査する。
-- locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認まで行う。
+- ペルソナ、関係性マップ、完成例、適用済み訳、次作業パケットは正本ではない。一次資料の反例があれば資料側を直す。
+- skillは毎束変更しない。複数人物・複数場面へ一般化できる新知見か、既存規則への反例がある場合だけ改修する。
+- 高確度の実変更だけを修正束へ入れ、同一キー異値競合、話者接頭辞、タグ、改行、プレースホルダを適用前に検査する。
 - Steamゲームフォルダへの配置とゲーム内確認は行わない。
-
-## 直近で確定した重要事項
-
-- `笑いは平仮名を原則` は撤回済み。`ははは / ハハハ！ / ふっ / フッ / カカカ / ケヒヒィ` などは人物・感情・音量・場面が異なる別の発声候補。
-- 入門前の宇文逸→莫問は `莫問兄さん`、清虚が収徒を決めた後は `莫問師兄`。呼称成立点を遡及させない。
-- 莫問は礼儀正しいが、`わたくし / ご交誼 / ご散策ください` のような接客文・官僚文へ均さない。
-- 同じ `弟子告退` でも、莫問 `はい。では、失礼します。`、宇文逸 `では、失礼します。`、莫棄 `では、失礼します……` と、立場・応答・注意の向きで分ける。
-- 初任務後の説明では、入門後の `師兄` を `兄さん` へ崩さず、`找他` を指示対象不明の `あれ` にせず元風師弟を明示する。
-- 平康城前の忠告は訓戒調へせず、莫問の兄弟子としての気遣いを `気をつけてくれ` とする。丹薬の `都` を落とさない。
-- 宇文逸の昇格時の `哈哈` は、祝福を受けた短く弾む `ははっ`。笑いの汎用定訳にはしない。
-- 莫問を単純な悪役へ平坦化しない。離反・敵対後も羨望、温情、復讐、自己正当化、諦観を場面と分岐で分ける。
-- 宇文逸は敵対後も場面根拠がある限り `師兄` と呼び得る。呼称だけで和解や服従を確定しない。
-
-## 古い資料への注意
-
-- `_handover.md` は長期履歴。先頭の見出しは最新作業とは限らない。
-- `_TODO.md` は横断課題用。束数、累計、次場面が古い場合は `CURRENT_WORK.json` を優先する。
-- `audit_status.json` は品質段階と累計の正本だが、`current.next_action` より `CURRENT_WORK.json.immediate_next` と `NEXT_TASK_PACKET.json` のほうが細かく新しい場合がある。
-- `10_人物/莫問.md` の「適用済み範囲」「次の監査」や完成例には旧束の記述が残り得る。一次資料で再検証する。
