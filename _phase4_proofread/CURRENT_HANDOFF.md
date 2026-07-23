@@ -15,8 +15,8 @@
 ## 現在地
 
 - checkpoint: `verified`
-- checkpointを生成した翻訳PR: #64
-- active PR: #64 `agent/yuwen-mowen-batch42-review`
+- checkpointを生成した翻訳PR: #64（統合済み）
+- 直近の統合済み翻訳PR: #64
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
@@ -27,7 +27,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #64が開いている間は `active` としてCIと差分を先に確認する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第43束へ入る。PRは開いているだけで現行作業と決めない。
+再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなければ、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第43束へ入る。PRは開いているだけで現行作業と決めない。
 
 ## 第42束で完了したこと
 
