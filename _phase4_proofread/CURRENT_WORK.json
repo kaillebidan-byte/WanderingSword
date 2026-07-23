@@ -1,9 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "02266bc66462285187d2cebfa2ae948ac4bd90ec",
+  "state_base_commit": "226140918ac6d35ee7c8abbb807e44a2dc0d2154",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -13,7 +14,41 @@
   "project_applied_keys": 1345,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
-  "recent_merged_prs": [54, 55, 56],
+  "recent_merged_prs": [55, 56, 57],
+  "applied_record_batch_token": "APPLIED_FIXES_YUWEN_MOWEN_BATCH",
+  "session_bootstrap": {
+    "protocol": "_phase4_proofread/SESSION_BOOTSTRAP.md",
+    "trigger_phrase": "現状把握して作業の続きを",
+    "accepted_variants": [
+      "現状を確認して続けて",
+      "作業の続きを",
+      "前の作業を再開して"
+    ],
+    "same_project_repository_known": true,
+    "ask_repository_again": false,
+    "resume_work_in_same_response": true,
+    "status_only_when_explicitly_requested": true,
+    "startup_checks": [
+      "mainの最新状態",
+      "未統合PRとhead SHA",
+      "変更ファイル、レビュー、未解決スレッド",
+      "head SHAのGitHub Actions",
+      "直近のmerged PR",
+      "CURRENT_WORKとaudit_statusの整合",
+      "既存修正束との競合"
+    ],
+    "state_resolution_order": [
+      "関連する未統合PRとActions",
+      "merged済みだが未反映の状態文書",
+      "CURRENT_WORK.immediate_next"
+    ],
+    "first_report": [
+      "現在ペア・完了束・累計",
+      "未統合PRまたはCIの状態",
+      "直ちに着手する場面・作業",
+      "古い資料や矛盾の扱い"
+    ]
+  },
   "immediate_next": {
     "scene_groups": [
       "11962_3",
@@ -25,6 +60,7 @@
   "mandatory_read_order": [
     "README.md",
     "AGENTS.md",
+    "_phase4_proofread/SESSION_BOOTSTRAP.md",
     "_phase4_proofread/CURRENT_WORK.json",
     "_phase4_proofread/CURRENT_HANDOFF.md",
     "_phase4_proofread/audit_status.json",
@@ -38,6 +74,7 @@
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
+    "GitHub上の未統合PR・最新HEAD・Actionsの実状態",
     "設定・用語・デプロイ境界の正本",
     "CURRENT_WORK.jsonの現在地と直近作業",
     "audit_status.jsonの品質段階・累計",
