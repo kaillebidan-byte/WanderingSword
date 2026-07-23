@@ -3,15 +3,15 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "17201ad0e02512e140bc2187ae9e5df2a5f7b3c0",
-  "state_base_commit": "7ae59fd0176bf35ba121aefcc81d569f319df09d",
+  "translation_base_commit": "0045e0b7aa2d78a6ea3267967113dd41dfd7ac3e",
+  "state_base_commit": "a7727febdcf70e3e8bd92f4cf212ff00ac552c51",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 39,
-  "pair_applied_keys": 1103,
-  "project_applied_keys": 1351,
+  "last_completed_batch": 40,
+  "pair_applied_keys": 1107,
+  "project_applied_keys": 1355,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "recent_merged_prs": [57, 58, 59],
@@ -51,10 +51,11 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "5240_4"
+      "5244_3",
+      "5245_1"
     ],
-    "task": "初任務後の門派説明を場面通読し、師兄呼称、指示対象、感謝、帰室時の別れを日本語の実発話へ戻す。",
-    "boundary": "敬語を消すのではなく、宇文逸の弟弟子らしい素直さと莫問の兄弟子としての説明を保つ。既存束に収録済みのキーは新束へ重複させず、元の束を直接再改訂する。"
+    "task": "平康城へ向かう前の忠告・丹薬の手渡しと、資深弟子昇格後の祝福・感謝・師父への面会を連続場面として監査する。",
+    "boundary": "莫問の気遣いを硬い訓戒へせず、宇文逸の感謝と笑いを場面の発声として裁定する。既存第3束の所有キーと新規キーを分離する。"
   },
   "mandatory_read_order": [
     "README.md",
