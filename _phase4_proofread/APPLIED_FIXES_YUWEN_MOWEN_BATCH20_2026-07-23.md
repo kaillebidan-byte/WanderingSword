@@ -11,6 +11,7 @@
 - pak: `_work/aaWanderingSword_JP_P.pak`
 - ゲームフォルダ配置: 未実施
 - ゲーム内確認: 未実施
+- 最終HEAD検証: 要求済み
 
 ## 対象場面
 
