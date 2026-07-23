@@ -15,8 +15,15 @@
     "game_verified": "ゲーム内で表示と場面適合を確認した状態。"
   },
   "project": {
-    "initial_pass": {"status": "complete", "characters": 888, "meaning": "一巡完了"},
-    "quality_reaudit": {"status": "in_progress", "strategy": "関係クラスタ→人物ペア→場面→既訳の順で再監査"},
+    "initial_pass": {
+      "status": "complete",
+      "characters": 888,
+      "meaning": "一巡完了"
+    },
+    "quality_reaudit": {
+      "status": "in_progress",
+      "strategy": "関係クラスタ→人物ペア→場面→既訳の順で再監査"
+    },
     "narrative_readthrough": {
       "status": "queued_after_pair_reaudit",
       "plan": "_phase4_proofread/PLAN_章別通読監査.md",
@@ -25,8 +32,12 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 322,
-      "targets": ["CG表", "Npc", "Quests任务表"],
+      "applied_keys": 360,
+      "targets": [
+        "CG表",
+        "Npc",
+        "Quests任务表"
+      ],
       "game_verified": "not_started",
       "record_index": [
         "_phase4_proofread/APPLIED_FIXES_2026-07-23.md",
@@ -40,56 +51,202 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH4_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH1_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH2_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH4_2026-07-23.md"
       ]
     }
   },
   "applied_fix_batches": [
-    {"path": "_phase4_proofread/fixes_cross_register_20260723.json", "keys": 24, "scope": "絶無心の対道長・対宇文逸register", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_cross_register_coldhawk_20260723.json", "keys": 32, "scope": "冷鷹の対主人公二人称", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json", "keys": 14, "scope": "宇文逸↔清虚道長 初回", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json", "keys": 24, "scope": "清虚の師モード", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json", "keys": 17, "scope": "清虚の病床場面", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch4.json", "keys": 18, "scope": "清虚の継承・莫問関連", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch5.json", "keys": 32, "scope": "清虚の残場面", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch1.json", "keys": 19, "scope": "清霄の病身・託宣・後継評価", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json", "keys": 31, "scope": "清霄の盟主号令・後継・訓練", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch3.json", "keys": 24, "scope": "清霄の対外・敵対register", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch4.json", "keys": 7, "scope": "清霄の分岐整合", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json", "keys": 29, "scope": "莫問の入門直後兄弟子モード", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json", "keys": 17, "scope": "莫問の門派・武学説明と剣の贈与", "status": "applied_and_pak_built"},
-    {"path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json", "keys": 34, "scope": "莫問の初任務・状況分析・門派任務説明・平康城前後", "status": "applied_and_pak_built"}
+    {
+      "path": "_phase4_proofread/fixes_cross_register_20260723.json",
+      "keys": 24,
+      "scope": "絶無心の対道長・対宇文逸register",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_cross_register_coldhawk_20260723.json",
+      "keys": 32,
+      "scope": "冷鷹の対主人公二人称",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch1.json",
+      "keys": 14,
+      "scope": "宇文逸↔清虚道長 初回",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json",
+      "keys": 24,
+      "scope": "清虚の師モード",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json",
+      "keys": 17,
+      "scope": "清虚の病床場面",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch4.json",
+      "keys": 18,
+      "scope": "清虚の継承・莫問関連",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch5.json",
+      "keys": 32,
+      "scope": "清虚の残場面",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch1.json",
+      "keys": 19,
+      "scope": "清霄の病身・託宣・後継評価",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json",
+      "keys": 31,
+      "scope": "清霄の盟主号令・後継・訓練",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch3.json",
+      "keys": 24,
+      "scope": "清霄の対外・敵対register",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch4.json",
+      "keys": 7,
+      "scope": "清霄の分岐整合",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json",
+      "keys": 29,
+      "scope": "莫問の入門直後兄弟子モード",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json",
+      "keys": 17,
+      "scope": "莫問の門派・武学説明と剣の贈与",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json",
+      "keys": 34,
+      "scope": "莫問の初任務・状況分析・門派任務説明・平康城前後",
+      "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch4.json",
+      "keys": 38,
+      "scope": "莫問の平康城潜入・絶無心対峙・夜稽古・家族観",
+      "status": "applied_and_pak_built"
+    }
   ],
   "queue": [
-    {"id": "wudang_core", "label": "武当師門中核", "status": "in_progress", "pairs": ["宇文逸↔清虚道長", "宇文逸↔清霄道長", "宇文逸↔莫問", "宇文逸↔莫棄", "宇文逸↔元啓", "宇文逸↔元風", "宇文逸↔程鈺"]},
-    {"id": "yuwen_close_relations", "label": "宇文逸の近親・義兄弟・親密関係", "status": "queued"},
-    {"id": "mode_switch_characters", "label": "多モード主要人物", "status": "queued"},
-    {"id": "factions_and_titles", "label": "門派横断・役職・呼称", "status": "queued"},
-    {"id": "remaining_characters", "label": "残り人物と端役", "status": "queued"}
+    {
+      "id": "wudang_core",
+      "label": "武当師門中核",
+      "status": "in_progress",
+      "pairs": [
+        "宇文逸↔清虚道長",
+        "宇文逸↔清霄道長",
+        "宇文逸↔莫問",
+        "宇文逸↔莫棄",
+        "宇文逸↔元啓",
+        "宇文逸↔元風",
+        "宇文逸↔程鈺"
+      ]
+    },
+    {
+      "id": "yuwen_close_relations",
+      "label": "宇文逸の近親・義兄弟・親密関係",
+      "status": "queued"
+    },
+    {
+      "id": "mode_switch_characters",
+      "label": "多モード主要人物",
+      "status": "queued"
+    },
+    {
+      "id": "factions_and_titles",
+      "label": "門派横断・役職・呼称",
+      "status": "queued"
+    },
+    {
+      "id": "remaining_characters",
+      "label": "残り人物と端役",
+      "status": "queued"
+    }
   ],
   "pair_status": {
     "宇文逸↔清虚道長": {
-      "evidence_inventory": "complete", "persona_reviewed": "complete_for_pair_scope", "relation_reviewed": "complete_for_pair_scope",
-      "translation_reaudited": "high_confidence_pass_complete", "build_verified": "batch5_complete", "game_verified": "not_started",
-      "evidence": {"raw_blocks": 171, "unique_blocks": 157, "duplicate_blocks": 14, "direct_exchange_blocks": 117, "explicit_reference_blocks": 40, "unique_rows": 1160},
-      "applied_keys": 105, "residual_candidates": "low_confidence_or_game_context_dependent"
+      "evidence_inventory": "complete",
+      "persona_reviewed": "complete_for_pair_scope",
+      "relation_reviewed": "complete_for_pair_scope",
+      "translation_reaudited": "high_confidence_pass_complete",
+      "build_verified": "batch5_complete",
+      "game_verified": "not_started",
+      "evidence": {
+        "raw_blocks": 171,
+        "unique_blocks": 157,
+        "duplicate_blocks": 14,
+        "direct_exchange_blocks": 117,
+        "explicit_reference_blocks": 40,
+        "unique_rows": 1160
+      },
+      "applied_keys": 105,
+      "residual_candidates": "low_confidence_or_game_context_dependent"
     },
     "宇文逸↔清霄道長": {
-      "evidence_inventory": "complete", "persona_reviewed": "complete_for_pair_scope", "relation_reviewed": "complete_for_pair_scope",
-      "translation_reaudited": "high_confidence_pass_complete", "build_verified": "batch4_complete", "game_verified": "not_started",
-      "evidence": {"raw_blocks": 229, "unique_blocks": 206, "duplicate_blocks": 23, "direct_exchange_blocks": 102, "explicit_reference_blocks": 104, "unique_rows": 1202, "qingxiao_rows": 323, "yuwen_rows": 428},
-      "applied_keys": 81, "residual_candidates": "game_context_dependent_or_belongs_to_other_pair"
+      "evidence_inventory": "complete",
+      "persona_reviewed": "complete_for_pair_scope",
+      "relation_reviewed": "complete_for_pair_scope",
+      "translation_reaudited": "high_confidence_pass_complete",
+      "build_verified": "batch4_complete",
+      "game_verified": "not_started",
+      "evidence": {
+        "raw_blocks": 229,
+        "unique_blocks": 206,
+        "duplicate_blocks": 23,
+        "direct_exchange_blocks": 102,
+        "explicit_reference_blocks": 104,
+        "unique_rows": 1202,
+        "qingxiao_rows": 323,
+        "yuwen_rows": 428
+      },
+      "applied_keys": 81,
+      "residual_candidates": "game_context_dependent_or_belongs_to_other_pair"
     },
     "宇文逸↔莫問": {
-      "evidence_inventory": "complete", "persona_reviewed": "in_progress", "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch3_complete_next_scenes_pending", "build_verified": "batch3_complete", "game_verified": "not_started",
-      "evidence": {"raw_blocks": 285, "unique_blocks": 277, "duplicate_blocks": 8, "direct_exchange_blocks": 232, "explicit_reference_blocks": 45, "unique_rows": 1820, "mowen_rows": 546, "yuwen_rows": 640},
-      "applied_keys": 80,
+      "evidence_inventory": "complete",
+      "persona_reviewed": "in_progress",
+      "relation_reviewed": "in_progress",
+      "translation_reaudited": "batch4_complete_next_scenes_pending",
+      "build_verified": "batch4_complete",
+      "game_verified": "not_started",
+      "evidence": {
+        "raw_blocks": 285,
+        "unique_blocks": 277,
+        "duplicate_blocks": 8,
+        "direct_exchange_blocks": 232,
+        "explicit_reference_blocks": 45,
+        "unique_rows": 1820,
+        "mowen_rows": 546,
+        "yuwen_rows": 640
+      },
+      "applied_keys": 118,
       "provisional_findings": [
         "入門直後の宇文師弟・師弟には一次資料の根拠がある",
         "呼称の敬意と弟弟子への全面敬体は別であり、兄弟子の地声は自然な常体",
         "村人・師叔への対外敬体と、弟分への常体を同じ場面内でも切り分ける",
         "案内・教導・世話・危機判断を同じ語尾へ均さない",
+        "危機判断では簡潔な断定、夜稽古では慰めと教導へ切り替わる",
         "人物口調の監査でも鋳剣と剣術、趁手などの意味誤りを同時に確認する",
         "宇文師弟固定、温情、諦観は離反・敵対・再会・終盤分岐まで検証後に確定する"
       ]
@@ -100,6 +257,6 @@
     "pair": "宇文逸↔莫問",
     "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "5278〜5302系の平康城潜入、危機判断、絶無心との対峙、夜の稽古と家族観を監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
+    "next_action": "5331以降の門内大比・品剣大会前後を監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
   }
 }
