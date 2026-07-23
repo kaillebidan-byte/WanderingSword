@@ -3,27 +3,27 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "e8a3643d9d7d952851fbbad23a3d71bc1e0fdeb8",
-  "state_base_commit": "e8a3643d9d7d952851fbbad23a3d71bc1e0fdeb8",
+  "translation_base_commit": "6fd7994b8bf211f1b90fe7df73517b3114223ec8",
+  "state_base_commit": "a34586afb6caa4902bf46d39cc518a51f6cd244f",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 42,
-  "pair_applied_keys": 1117,
-  "project_applied_keys": 1370,
+  "last_completed_batch": 43,
+  "pair_applied_keys": 1124,
+  "project_applied_keys": 1383,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 64,
   "checkpoint": {
     "status": "verified",
-    "batch": 42,
-    "pair_applied_keys": 1117,
-    "project_applied_keys": 1370,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH42_2026-07-24.md",
-    "produced_by_pr": 64,
-    "translation_head": "e8a3643d9d7d952851fbbad23a3d71bc1e0fdeb8",
-    "verified_head": "e8a3643d9d7d952851fbbad23a3d71bc1e0fdeb8"
+    "batch": 43,
+    "pair_applied_keys": 1124,
+    "project_applied_keys": 1383,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH43_2026-07-24.md",
+    "produced_by_pr": 66,
+    "translation_head": "6fd7994b8bf211f1b90fe7df73517b3114223ec8",
+    "verified_head": "a34586afb6caa4902bf46d39cc518a51f6cd244f"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -78,9 +78,9 @@
     ]
   },
   "immediate_next": {
-    "scene_groups": ["5291_1", "5292_3", "5293_6", "5293_7"],
-    "task": "李府潜入前の推測、救出時の役割分担、公門への対峙、莫問帰還を連続場面として監査する。",
-    "boundary": "宇文逸・莫問の人物ペア行と、莫棄・絶無心のcross-register所有を分離する。推測を事実へ強めず、莫問の制止・役割分担・公道の宣言が同じ声に平坦化されていないか確認する。",
+    "scene_groups": ["5296_7"],
+    "task": "平康城事件の収束、品剣大会の初出説明、莫棄の軽口、武当への帰還決定を一場面として監査する。",
+    "boundary": "莫問の事件評価と大会説明、宇文逸の問いと期待、莫棄のからかいと励ましを分ける。既存第4束所有の莫問・宇文逸5キーは新規束へ重複させず、必要なら元の束を直接再改訂する。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
