@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "task_id": "yuwen-mowen-batch42-planned",
+  "based_on_checkpoint": {
+    "batch": 41,
+    "pair_applied_keys": 1111,
+    "project_applied_keys": 1359,
+    "produced_by_pr": 62,
+    "merge_commit": "f76b5e8d95d821cb15efd9e96ee8ffa3f3fc120a"
+  },
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": ["5274_1", "5278_1"],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "families": ["5274_1_Dlgs", "5278_1_Dlgs"],
+    "artifact_workflow": "Relation audit extraction",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "freshness_rule": "mainまたはactive PRの最新成功runから取得し、過去チャットや古い展開済みartifactだけで訳を確定しない"
+  },
+  "scene_flow": [
+    {
+      "scene": "5274_1",
+      "function": "平康城から戻った宇文逸が旅の出来事と悪党を大げさ気味に報告し、莫問が安否確認から情報整理へ切り替え、殿内への報告を促す",
+      "speaker_order": ["莫問", "宇文逸", "宇文逸", "莫問", "莫問", "莫問", "宇文逸"],
+      "focus_keys": [
+        "5274_1_Dlgs_Index0_Text",
+        "5274_1_Dlgs_Index1_Text",
+        "5274_1_Dlgs_Index2_Text",
+        "5274_1_Dlgs_Index3_Text",
+        "5274_1_Dlgs_Index4_Text",
+        "5274_1_Dlgs_Index5_Text",
+        "5274_1_Dlgs_Index6_Text"
+      ],
+      "voice_questions": [
+        "宇文逸の唉・师兄你有所不知を説明文や過剰敬語にせず、聞いてほしい勢いとして発話化できているか",
+        "师弟我差点就交代在那里了の自己演出と危機感を落としすぎていないか",
+        "莫問の安否確認が即時の心配として出た後、平康城の情報へ頭を切り替える呼吸になっているか",
+        "好像为的就是这事の不確実性を客観事実へ強めていないか"
+      ]
+    },
+    {
+      "scene": "5278_1",
+      "function": "莫問・莫棄・宇文逸の三人で李員外の居所と悪事の手がかりを探す方針を決める",
+      "speaker_order": ["莫棄", "莫棄", "莫棄", "宇文逸", "宇文逸", "莫棄", "莫棄", "莫問", "莫問", "莫問", "莫棄", "莫棄", "宇文逸", "宇文逸"],
+      "focus_keys": [
+        "5278_1_Dlgs_Index0_Text",
+        "5278_1_Dlgs_Index2_Text",
+        "5278_1_Dlgs_Index3_Text",
+        "5278_1_Dlgs_Index4_Text",
+        "5278_1_Dlgs_Index5_Text",
+        "5278_1_Dlgs_Index6_Text",
+        "5278_1_Dlgs_Index7_Text",
+        "5278_1_Dlgs_Index8_Text",
+        "5278_1_Dlgs_Index9_Text",
+        "5278_1_Dlgs_Index10_Text",
+        "5278_1_Dlgs_Index11_Text",
+        "5278_1_Dlgs_Index12_Text",
+        "5278_1_Dlgs_Index13_Text",
+        "5278_1_Dlgs_Index14_Text"
+      ],
+      "voice_questions": [
+        "莫棄の三種類の哈哈を一律表記にせず、浮かれ・ごまかし・自分の案への得意げな笑いとして分ける必要があるか",
+        "莫棄の長い質問を中国語の説明順のまま硬くせず、小逸への直接の問いとして切れるか",
+        "莫問の师弟莫慌を叱責にせず、落ち着かせて探索手順を示す兄弟子の声にできているか",
+        "想来・一般・略知一二の推量と限定を断定へ強めていないか",
+        "宇文逸の两位师兄说的是と这些地方を、師兄方・これらの場所という翻訳語のまま残していないか"
+      ]
+    }
+  ],
+  "allusion_and_fact_gates": {
+    "allusion_review_candidates": [
+      {
+        "phrase": "无头苍蝇",
+        "classification_hint": "定着した比喩・成語候補。字面像を残すか自然な慣用表現へ寄せるかを場面声で裁定し、典籍引用とは即断しない"
+      }
+    ],
+    "fact_doubts": [
+      "宇文逸は以前の平康城訪問時に李員外本人にも会わず、屋敷にも行かず、博坊で救出しただけという知識状態を保持する",
+      "左江龍の来訪目的は莫問の好像による推測であり、確定情報にしない",
+      "李員外の悪事の追加情報はこれから聞き込む段階であり、既知の事実を補わない"
+    ]
+  },
+  "ownership_boundary": {
+    "pair_batch": "宇文逸↔莫問の発話と明示参照を第42束候補として扱う",
+    "cross_register": "莫棄の台詞は同じ場面を通読するが、修正する場合は莫棄cross-register束または適切な人物ペア所有へ分離する",
+    "do_not_do": [
+      "莫棄の笑い方を宇文逸や莫問へ流用しない",
+      "同一場面だからという理由で全話者を一つの人物ペア修正束へ入れない",
+      "既存修正束のキーを新規束へ重複追加せず、既存所有束を確認する"
+    ]
+  },
+  "skill_review": {
+    "default": "no_change",
+    "rule": "既存skillで説明できる崩れは監査記録へ残し、複数人物・複数場面へ一般化できる新知見または既存規則への反例が出た場合だけskill/reference/test/workflowを改修する",
+    "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
+  },
+  "expected_outputs": [
+    "対象全行の原文・現訳・前後文・話者・相手・時系列・既存束所有を確認",
+    "ALLUSION_REVIEWとFACT_DOUBTを別々に記録",
+    "高確度の変更だけを修正JSONへ収録",
+    "人物ペア束とcross-register束を所有者別に分離",
+    "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
+    "CURRENT_WORK、CURRENT_HANDOFF、audit_status、適用記録、次のNEXT_TASK_PACKETを同じPRで更新",
+    "checkpoint verifiedと最終HEAD三本成功後に統合"
+  ],
+  "cold_start_first_report": {
+    "current": "宇文逸↔莫問・第41束・1111キー・全1359キー・verified",
+    "open_pr": "未統合PRを実検索し、active/superseded/abandoned/unrelatedへ分類する",
+    "start": "active PRがなければ5274_1 / 5278_1のartifactを取得し、同じ応答内で場面通読へ入る",
+    "drift": "TODO・人物資料・audit_status.next_actionが食い違えば一次資料とCURRENT_WORK/NEXT_TASK_PACKETを優先し、資料側を修正候補にする"
+  }
+}
