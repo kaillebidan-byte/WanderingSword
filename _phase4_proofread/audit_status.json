@@ -1,6 +1,6 @@
 {
   "schema_version": 5,
-  "updated_at": "2026-07-23",
+  "updated_at": "2026-07-24",
   "principle": "初回校正の完走、ペルソナ確定、関係性マップ記載は、最終的な正当性や品質保証を意味しない。原文・現訳・前後文を一次資料として再監査する。",
   "stages": {
     "initial_pass": "キャラ単位の初回校正を一巡した状態。品質保証ではない。",
@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 1259,
+      "applied_keys": 1265,
       "targets": [
         "CG表",
         "Npc",
@@ -61,6 +61,7 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH26_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH27_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH28_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH29_2026-07-24.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH2_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH4_2026-07-23.md",
@@ -257,8 +258,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch28_complete_next_scenes_pending",
-      "build_verified": "batch28_complete",
+      "translation_reaudited": "batch29_complete_next_scenes_pending",
+      "build_verified": "batch29_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
@@ -270,7 +271,7 @@
         "mowen_rows": 546,
         "yuwen_rows": 640
       },
-      "applied_keys": 1015,
+      "applied_keys": 1021,
       "provisional_findings": [
         "入門直後から品剣大会期まで宇文師弟・師弟には一次資料の根拠がある",
         "呼称の敬意と弟弟子への全面敬体は別であり、兄弟子の地声は自然な常体",
