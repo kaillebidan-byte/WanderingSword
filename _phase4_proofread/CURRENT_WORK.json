@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-24",
+  "repository": "kaillebidan-byte/WanderingSword",
+  "base_branch": "main",
+  "translation_base_commit": "02266bc66462285187d2cebfa2ae948ac4bd90ec",
+  "current_cluster": "wudang_core",
+  "current_pair": "宇文逸↔莫問",
+  "stage": "translation_reaudited",
+  "status": "in_progress",
+  "last_completed_batch": 38,
+  "pair_applied_keys": 1101,
+  "project_applied_keys": 1345,
+  "build_status": "verified_not_deployed",
+  "game_verified": "not_started",
+  "recent_merged_prs": [54, 55, 56],
+  "immediate_next": {
+    "scene_groups": [
+      "11962_3",
+      "11970_3"
+    ],
+    "task": "重複する漢文定型『弟子告退』を、莫問・宇文逸・莫棄それぞれの人物声と場面温度へ分けて監査する。",
+    "boundary": "同一原文定型を一律訳へ統一しない。話者、相手、儀礼度、感情、重複座標、既存修正束の所有を確認してから、既存束の再改訂か新規束かを決める。"
+  },
+  "mandatory_read_order": [
+    "README.md",
+    "AGENTS.md",
+    "_phase4_proofread/CURRENT_WORK.json",
+    "_phase4_proofread/CURRENT_HANDOFF.md",
+    "_phase4_proofread/audit_status.json",
+    "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+    ".agents/skills/zhja-game-translation-codex/SKILL.md",
+    ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+    ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+    ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+    "10_人物/宇文逸.md",
+    "10_人物/莫問.md"
+  ],
+  "source_priority": [
+    "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
+    "設定・用語・デプロイ境界の正本",
+    "CURRENT_WORK.jsonの現在地と直近作業",
+    "audit_status.jsonの品質段階・累計",
+    "ペルソナ・関係性マップ",
+    "TODO・過去の監査記録・適用記録",
+    "_handover.mdの履歴"
+  ],
+  "non_negotiable_principles": [
+    "最優先は、その人物がその相手へその時点で実際に発する声として成立すること。",
+    "笑い・咳・息・叫び・間・文字種を表記統一へ押し込まず、人物と場面で裁定する。",
+    "典故疑義と設定事実疑義を別々に通し、原文の曖昧さや人物の誤認を勝手に解消しない。",
+    "中国語構文を移した硬い訳を、意味を保った自然な日本語の語順・切れ目・助詞省略へ再構成する。",
+    "ペルソナ、関係性マップ、完成例、過去の適用記録は作業仮説であり、一次資料の反例があれば資料側を直す。",
+    "修正束は場面または同じ崩れ方で区切り、既存束との同一キー異値競合を適用前に止める。",
+    "話者接頭辞、タグ、改行、プレースホルダを保持し、locres反映、pak再生成、ゼロ差分、lint、関係抽出、回帰、LFSまで確認する。",
+    "ゲームフォルダへの配置とゲーム内確認は行わない。"
+  ],
+  "known_document_drift": [
+    "audit_status.jsonのcurrent.next_actionは第38束直後の即時作業より古い場合がある。即時着手先は本ファイルを優先する。",
+    "_TODO.mdの宇文逸↔莫問の束数・累計・次場面は更新が遅れることがある。横断課題だけを参照する。",
+    "10_人物/莫問.mdの適用済み範囲・次の監査・完成例には旧束の記述が残る場合がある。声の核と関係段階も一次資料で再検証する。",
+    "_handover.mdは履歴アーカイブであり、先頭見出しを最新作業と解釈しない。"
+  ]
+}
