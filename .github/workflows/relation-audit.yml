@@ -22,7 +22,9 @@ jobs:
           python-version: "3.12"
 
       - name: Check handoff consistency
-        run: python _tools/check_handoff_consistency.py
+        run: |
+          python _tools/check_handoff_consistency.py
+          python _tools/check_next_task_packet.py
 
       - name: Unit tests
         run: |
