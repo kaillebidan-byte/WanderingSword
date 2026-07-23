@@ -23,3 +23,4 @@
 - 関係抽出成功
 - 単体テスト・回帰走査成功
 - pak実体・Git LFS確認成功
+- `audit_status.json / CURRENT_WORK.json / CURRENT_HANDOFF.md` を第40束の確定値へ同期後、最終HEADを再検証する
