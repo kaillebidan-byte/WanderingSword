@@ -3,18 +3,18 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "02266bc66462285187d2cebfa2ae948ac4bd90ec",
-  "state_base_commit": "226140918ac6d35ee7c8abbb807e44a2dc0d2154",
+  "translation_base_commit": "17201ad0e02512e140bc2187ae9e5df2a5f7b3c0",
+  "state_base_commit": "7ae59fd0176bf35ba121aefcc81d569f319df09d",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 38,
-  "pair_applied_keys": 1101,
-  "project_applied_keys": 1345,
+  "last_completed_batch": 39,
+  "pair_applied_keys": 1103,
+  "project_applied_keys": 1351,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
-  "recent_merged_prs": [55, 56, 57],
+  "recent_merged_prs": [57, 58, 59],
   "applied_record_batch_token": "APPLIED_FIXES_YUWEN_MOWEN_BATCH",
   "session_bootstrap": {
     "protocol": "_phase4_proofread/SESSION_BOOTSTRAP.md",
@@ -51,11 +51,10 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "11962_3",
-      "11970_3"
+      "5240_4"
     ],
-    "task": "重複する漢文定型『弟子告退』を、莫問・宇文逸・莫棄それぞれの人物声と場面温度へ分けて監査する。",
-    "boundary": "同一原文定型を一律訳へ統一しない。話者、相手、儀礼度、感情、重複座標、既存修正束の所有を確認してから、既存束の再改訂か新規束かを決める。"
+    "task": "初任務後の門派説明を場面通読し、師兄呼称、指示対象、感謝、帰室時の別れを日本語の実発話へ戻す。",
+    "boundary": "敬語を消すのではなく、宇文逸の弟弟子らしい素直さと莫問の兄弟子としての説明を保つ。既存束に収録済みのキーは新束へ重複させず、元の束を直接再改訂する。"
   },
   "mandatory_read_order": [
     "README.md",
@@ -93,7 +92,7 @@
     "ゲームフォルダへの配置とゲーム内確認は行わない。"
   ],
   "known_document_drift": [
-    "audit_status.jsonのcurrent.next_actionは第38束直後の即時作業より古い場合がある。即時着手先は本ファイルを優先する。",
+    "audit_status.jsonのcurrent.next_actionは即時作業より古い場合がある。即時着手先は本ファイルを優先する。",
     "_TODO.mdの宇文逸↔莫問の束数・累計・次場面は更新が遅れることがある。横断課題だけを参照する。",
     "10_人物/莫問.mdの適用済み範囲・次の監査・完成例には旧束の記述が残る場合がある。声の核と関係段階も一次資料で再検証する。",
     "_handover.mdは履歴アーカイブであり、先頭見出しを最新作業と解釈しない。"
