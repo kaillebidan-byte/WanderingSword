@@ -14,6 +14,8 @@
 
 ## 現在地
 
+- checkpoint: `verified`
+- checkpointを生成した翻訳PR: #60
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
@@ -23,8 +25,7 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 直近のmerged PR: #57、#58、#59
-- 第40束の作業PR: #60
+- 直近の翻訳PR: #59、#60（ともにmerged）
 
 ## 直ちに着手する作業
 
@@ -32,28 +33,43 @@
 
 莫問の気遣いを硬い訓戒へせず、宇文逸の感謝と笑いをその場面の発声として裁定する。既存第3束の所有キーと新規キーを分離する。
 
-ただし、新チャット開始時に関連する未統合PRが存在する場合は、そのPRとActionsを先に再開する。`CURRENT_WORK.json.immediate_next` は、未完了PRがない場合の開始位置。
+ただし、新チャット開始時に未統合PRが存在する場合は、そのPRを `active / superseded / abandoned / unrelated` に分類する。開いているだけで現行作業と決めず、`active` だけを先に再開する。`CURRENT_WORK.json.immediate_next` は、active PRがない場合の開始位置。
+
+## checkpointの扱い
+
+- `verified`: 状態文書、監査索引、件数、適用記録、最終CIが同期済み。統合可能。
+- `pending_audit_sync`: 状態文書を次束へ進めた後、apply workflowの監査索引同期を待つ遷移状態。作業続行は可能だが統合禁止。
+- apply workflowのbot commit後にActionsが `action_required` となる場合がある。翻訳失敗とは扱わず、bot差分を確認し、人手コミットで `verified` にして最終HEADを再検証する。
+- 統合前に `python _tools/check_handoff_consistency.py --require-verified` を成功させる。
+
+## 今回の実地試験で是正した不備
+
+1. PR #38が開いたままだったが、同じ第21束をPR #39が完全に置換・統合済みだった。#38へ置換先を記録して閉じた。
+2. 第39・40束の状態更新時、`CURRENT_WORK` が先に進み、`audit_status.record_index` の同期前に関係抽出が停止した。遷移中を `pending_audit_sync` として警告扱いに分離した。
+3. bot書き戻し後の `action_required` を失敗扱いせず、人手最終化コミット後の最新HEADで三本を再検証する手順を固定した。
 
 ## 再開時に最初に確認するもの
 
 1. mainの最新状態
 2. 未統合PR、head SHA、変更ファイル
-3. レビュー、未解決スレッド、GitHub Actions
-4. `README.md`
-5. `AGENTS.md`
-6. `_phase4_proofread/SESSION_BOOTSTRAP.md`
-7. `_phase4_proofread/CURRENT_WORK.json`
-8. `_phase4_proofread/audit_status.json`
-9. 人物ペアRUNBOOK、skill、style guide、register軸
-10. `10_人物/宇文逸.md` と `10_人物/莫問.md`
-11. 対象場面の原文・現訳・前後文・重複座標・既存修正束
+3. PRがactiveかsupersededか
+4. レビュー、未解決スレッド、GitHub Actions
+5. `CURRENT_WORK.checkpoint`
+6. `README.md`
+7. `AGENTS.md`
+8. `_phase4_proofread/SESSION_BOOTSTRAP.md`
+9. `_phase4_proofread/CURRENT_WORK.json`
+10. `_phase4_proofread/audit_status.json`
+11. 人物ペアRUNBOOK、skill、style guide、register軸
+12. `10_人物/宇文逸.md` と `10_人物/莫問.md`
+13. 対象場面の原文・現訳・前後文・重複座標・既存修正束
 
 ## 最初の報告形式
 
 通常は次の四点だけを短く報告し、そのまま作業へ入る。
 
-- 現在ペア・完了束・累計
-- 未統合PRまたはCIの状態
+- 現在ペア・完了束・累計・checkpoint状態
+- 未統合PRの分類とCI状態
 - 直ちに着手する場面・作業
 - 古い資料や矛盾の扱い
 

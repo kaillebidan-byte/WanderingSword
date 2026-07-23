@@ -1,10 +1,10 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "0045e0b7aa2d78a6ea3267967113dd41dfd7ac3e",
-  "state_base_commit": "a7727febdcf70e3e8bd92f4cf212ff00ac552c51",
+  "state_base_commit": "9bbfe1fbce24429eac6b9642170d5d346cb03574",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -14,8 +14,34 @@
   "project_applied_keys": 1355,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
-  "recent_merged_prs": [57, 58, 59],
-  "applied_record_batch_token": "APPLIED_FIXES_YUWEN_MOWEN_BATCH",
+  "last_merged_translation_pr": 60,
+  "checkpoint": {
+    "status": "verified",
+    "batch": 40,
+    "pair_applied_keys": 1107,
+    "project_applied_keys": 1355,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH40_2026-07-24.md",
+    "produced_by_pr": 60,
+    "translation_head": "0045e0b7aa2d78a6ea3267967113dd41dfd7ac3e",
+    "verified_head": "00dd70468a30d164459603dba367a65151d5ad21"
+  },
+  "pr_continuity": {
+    "open_prs_require_triage": true,
+    "triage_states": [
+      "active",
+      "superseded",
+      "abandoned",
+      "unrelated"
+    ],
+    "known_superseded": [
+      {
+        "pr": 38,
+        "superseded_by": 39,
+        "reason": "同じ第21束を固定ブランチから再作成し、#39で検証・適用・統合済み"
+      }
+    ],
+    "replacement_rule": "置換PRを作った時点で旧PRへ置換先をコメントし、旧PRを閉じる。開いているという理由だけで現行作業と判定しない。"
+  },
   "session_bootstrap": {
     "protocol": "_phase4_proofread/SESSION_BOOTSTRAP.md",
     "trigger_phrase": "現状把握して作業の続きを",
@@ -28,23 +54,29 @@
     "ask_repository_again": false,
     "resume_work_in_same_response": true,
     "status_only_when_explicitly_requested": true,
+    "open_pr_triage_required": true,
+    "bot_action_required_is_not_failure": true,
+    "merge_requires_verified_checkpoint": true,
     "startup_checks": [
       "mainの最新状態",
       "未統合PRとhead SHA",
+      "未統合PRがactiveかsupersededかの分類",
       "変更ファイル、レビュー、未解決スレッド",
       "head SHAのGitHub Actions",
+      "bot書き戻し後のaction_required判定",
       "直近のmerged PR",
       "CURRENT_WORKとaudit_statusの整合",
+      "checkpoint状態と適用記録",
       "既存修正束との競合"
     ],
     "state_resolution_order": [
-      "関連する未統合PRとActions",
+      "activeと判定した未統合PRとActions",
       "merged済みだが未反映の状態文書",
       "CURRENT_WORK.immediate_next"
     ],
     "first_report": [
-      "現在ペア・完了束・累計",
-      "未統合PRまたはCIの状態",
+      "現在ペア・完了束・累計・checkpoint状態",
+      "未統合PRの分類とCI状態",
       "直ちに着手する場面・作業",
       "古い資料や矛盾の扱い"
     ]
@@ -74,9 +106,9 @@
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
-    "GitHub上の未統合PR・最新HEAD・Actionsの実状態",
+    "GitHub上でactiveと判定した未統合PR・最新HEAD・Actionsの実状態",
     "設定・用語・デプロイ境界の正本",
-    "CURRENT_WORK.jsonの現在地と直近作業",
+    "CURRENT_WORK.jsonのverified checkpointと直近作業",
     "audit_status.jsonの品質段階・累計",
     "ペルソナ・関係性マップ",
     "TODO・過去の監査記録・適用記録",

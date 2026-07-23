@@ -4,7 +4,7 @@
 
 `char_progress.json` の完走は「初回キャラ校正を一巡した」ことだけを表す。
 最終品質やペルソナ・関係性の正当性は `audit_status.json` の再監査段階で別管理する。
-直ちに着手する作業は `CURRENT_WORK.json` を正本とする。
+直ちに着手する作業とcheckpointは `CURRENT_WORK.json` を正本とする。
 固定の再開手順は `SESSION_BOOTSTRAP.md` を正本とする。
 """
 
@@ -44,11 +44,18 @@ def main() -> None:
         print("未管理: CURRENT_WORK.json なし、またはJSON不正")
     else:
         bootstrap = work.get("session_bootstrap", {})
+        checkpoint = work.get("checkpoint", {})
+        continuity = work.get("pr_continuity", {})
         print(f"起動文: {bootstrap.get('trigger_phrase', '(未設定)')}")
         print(f"プロトコル: {bootstrap.get('protocol', '(未設定)')}")
         print(f"同じプロジェクトではURL既知: {bootstrap.get('same_project_repository_known', '(未設定)')}")
         print(f"現状報告後に同じ応答で再開: {bootstrap.get('resume_work_in_same_response', '(未設定)')}")
-        print("起動後は未統合PRとActionsを確認し、未完了PRがなければimmediate_nextへ進む。")
+        print(f"checkpoint: {checkpoint.get('status', '(未設定)')}")
+        print(f"checkpoint生成PR: {checkpoint.get('produced_by_pr', '(未設定)')}")
+        print(f"適用記録: {checkpoint.get('applied_record', '(未設定)')}")
+        print(f"未統合PRの分類必須: {continuity.get('open_prs_require_triage', '(未設定)')}")
+        print("起動後は未統合PRをactive/superseded/abandoned/unrelatedへ分類し、activeがなければimmediate_nextへ進む。")
+        print("bot書き戻し後のaction_requiredは失敗と断定せず、checkpointを最終化して再検証する。")
 
     bc = load_json(f"{P4}/by_character.json", {"order": [], "count": {}})
     order, count = bc["order"], bc["count"]
@@ -91,7 +98,9 @@ def main() -> None:
     else:
         immediate = work.get("immediate_next", {})
         scenes = immediate.get("scene_groups", [])
+        checkpoint = work.get("checkpoint", {})
         print(f"更新日: {work.get('updated_at', '(未設定)')}")
+        print(f"checkpoint: {checkpoint.get('status', '(未設定)')}")
         print(f"現在ペア: {work.get('current_pair', '(未設定)')}")
         print(f"完了束: 第{work.get('last_completed_batch', '?')}束")
         print(f"人物ペア適用キー: {work.get('pair_applied_keys', '(未設定)')}")
@@ -99,7 +108,9 @@ def main() -> None:
         print(f"対象場面: {', '.join(map(str, scenes)) if scenes else '(未設定)'}")
         print(f"次: {immediate.get('task', '(未設定)')}")
         print(f"境界: {immediate.get('boundary', '(未設定)')}")
-        print("※ 関連する未統合PRがある場合は、上記よりPRとActionsの続行を優先。")
+        print("※ activeと判定した未統合PRがある場合は、上記よりPRとActionsの続行を優先。")
+        if checkpoint.get("status") != "verified":
+            print("※ checkpointは遷移中。作業は続行できるがmainへは統合しない。")
 
     print("\n--- 整合警告 ---")
     warnings: list[str] = []
@@ -107,16 +118,21 @@ def main() -> None:
         audit_current = audit.get("current", {})
         latest_build = audit.get("project", {}).get("latest_build", {})
         pair_status = audit.get("pair_status", {}).get(work.get("current_pair"), {})
+        checkpoint_state = work.get("checkpoint", {}).get("status")
+        prefix = "TRANSITIONAL" if checkpoint_state == "pending_audit_sync" else "WARNING"
         if audit_current.get("pair") != work.get("current_pair"):
-            warnings.append("CURRENT_WORK と audit_status の現在ペアが不一致")
+            warnings.append(f"{prefix}: CURRENT_WORK と audit_status の現在ペアが不一致")
         if latest_build.get("applied_keys") != work.get("project_applied_keys"):
-            warnings.append("CURRENT_WORK と audit_status の全体適用キー数が不一致")
+            warnings.append(f"{prefix}: CURRENT_WORK と audit_status の全体適用キー数が不一致")
         if pair_status.get("applied_keys") != work.get("pair_applied_keys"):
-            warnings.append("CURRENT_WORK と audit_status の人物ペア適用キー数が不一致")
+            warnings.append(f"{prefix}: CURRENT_WORK と audit_status の人物ペア適用キー数が不一致")
+        applied_record = work.get("checkpoint", {}).get("applied_record")
+        if applied_record and applied_record not in latest_build.get("record_index", []):
+            warnings.append(f"{prefix}: checkpoint適用記録がaudit_status.record_indexに未同期")
         audit_next = audit_current.get("next_action")
         work_next = work.get("immediate_next", {}).get("task")
         if audit_next and work_next and audit_next != work_next:
-            warnings.append("audit_status.current.next_action より CURRENT_WORK.immediate_next を優先")
+            warnings.append("WARNING: audit_status.current.next_action より CURRENT_WORK.immediate_next を優先")
 
     todo_lines = readlines(f"{P4}/_TODO.md")
     current_pair = work.get("current_pair") if work else None
@@ -126,11 +142,11 @@ def main() -> None:
     )
     match = re.search(r"計(\d+)キー", pair_line)
     if match and work and int(match.group(1)) != work.get("pair_applied_keys"):
-        warnings.append(f"_TODO.md の{current_pair}累計が古い。現在値は CURRENT_WORK/audit_status を参照")
+        warnings.append(f"WARNING: _TODO.md の{current_pair}累計が古い。現在値は CURRENT_WORK/audit_status を参照")
 
     if warnings:
         for warning in warnings:
-            print(f"WARNING: {warning}")
+            print(warning)
     else:
         print("(なし)")
 
@@ -148,8 +164,8 @@ def main() -> None:
         print("(見出しなし)")
 
     print(
-        "\n※ 起動手順は SESSION_BOOTSTRAP.md、現在地と即時作業は CURRENT_WORK.json、"
-        "品質段階と累計は audit_status.json。ペルソナ・関係性マップ・TODO・過去ログは反例があれば改訂する。"
+        "\n※ 起動手順は SESSION_BOOTSTRAP.md、確定状態と即時作業は CURRENT_WORK.json、"
+        "品質段階と累計は audit_status.json。統合前は check_handoff_consistency.py --require-verified を実行する。"
     )
 
 
