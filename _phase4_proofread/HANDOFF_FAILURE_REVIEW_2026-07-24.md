@@ -1,7 +1,7 @@
 # 新チャット引継ぎ制度 実地再検証
 
 - 日付: 2026-07-24
-- 実地対象: 宇文逸↔莫問 第39束・第40束
+- 実地対象: 宇文逸↔莫問 第39束・第40束・第41束
 - 結論: 一文起動と現在地復元は機能したが、PR継続判定と状態同期の遷移に不備があった。以下を再現し、制度とCIを改修した。
 
 ## 1. 開いている旧PRを現行作業と誤認する危険
@@ -75,6 +75,27 @@ apply workflowがlocres、pak、`audit_status.json` をbot commitとしてPR bra
 - apply workflowで監査状態更新後にhandoff checkerを実行
 - `verified / pending_audit_sync` の差を単体テスト
 - 状態文書・適用記録・checker変更でもapply workflowを起動
+
+## 6. 初回applyと旧verified checkpointの競合
+
+### 再現
+
+第41束の初回applyで、翻訳適用、locres、pak、全1359キーのゼロ差分、回帰、LFS、監査件数更新までは成功した。その直後、apply workflow内のhandoff checkerが停止した。
+
+- `CURRENT_WORK` は、PR作成時点では第40束・1355キーの `verified` checkpointを保持していた。
+- 初回applyは第41束を適用し、作業ツリー上の `audit_status` を1359キーへ更新した。
+- 生成物をbot commitする前にcheckerを実行したため、旧verified checkpointと新監査件数の一時差を確定状態の不整合として扱った。
+- checkerが先に失敗したため、正しいlocres・pak・監査集計もcommitされなかった。
+
+これは第39・40束で見つかった「状態を先に進めた場合」と逆向きの競合である。初回applyでは状態文書が旧checkpointのまま、監査集計だけが先に進む。
+
+### 是正
+
+- `steps.pending.outputs.changed == 'true'`、すなわち実際に翻訳修正を適用した初回runでは、監査更新後のcheckpoint完全一致検査を延期する。
+- そのrunでは、翻訳適用、ゼロ差分、回帰、pak・LFSを検証し、生成物と監査件数をbot commitする。
+- 適用記録と `CURRENT_WORK` を `pending_audit_sync` へ進めた後のrunでは、pending fixが0件なのでcheckerを実行する。
+- 監査索引同期後に `verified` へ移し、最終HEADで三本を再検証する。
+- 初回applyのcheckpoint検査延期は、検証の省略ではない。旧checkpointと新生成物が同居する短い遷移区間を、確定状態として誤検査しないための順序制御である。
 
 ## 確定した再開契約
 

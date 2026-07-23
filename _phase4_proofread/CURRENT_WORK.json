@@ -3,27 +3,27 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "0045e0b7aa2d78a6ea3267967113dd41dfd7ac3e",
-  "state_base_commit": "9bbfe1fbce24429eac6b9642170d5d346cb03574",
+  "translation_base_commit": "20f6bd4e6f745081195703110c0fe26a75913927",
+  "state_base_commit": "3ccdc237ccab18821d94ca487408f45c51074cb6",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 40,
-  "pair_applied_keys": 1107,
-  "project_applied_keys": 1355,
+  "last_completed_batch": 41,
+  "pair_applied_keys": 1111,
+  "project_applied_keys": 1359,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
-  "last_merged_translation_pr": 60,
+  "last_merged_translation_pr": 62,
   "checkpoint": {
     "status": "verified",
-    "batch": 40,
-    "pair_applied_keys": 1107,
-    "project_applied_keys": 1355,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH40_2026-07-24.md",
-    "produced_by_pr": 60,
-    "translation_head": "0045e0b7aa2d78a6ea3267967113dd41dfd7ac3e",
-    "verified_head": "00dd70468a30d164459603dba367a65151d5ad21"
+    "batch": 41,
+    "pair_applied_keys": 1111,
+    "project_applied_keys": 1359,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH41_2026-07-24.md",
+    "produced_by_pr": 62,
+    "translation_head": "20f6bd4e6f745081195703110c0fe26a75913927",
+    "verified_head": "3ccdc237ccab18821d94ca487408f45c51074cb6"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -83,11 +83,11 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "5244_3",
-      "5245_1"
+      "5274_1",
+      "5278_1"
     ],
-    "task": "平康城へ向かう前の忠告・丹薬の手渡しと、資深弟子昇格後の祝福・感謝・師父への面会を連続場面として監査する。",
-    "boundary": "莫問の気遣いを硬い訓戒へせず、宇文逸の感謝と笑いを場面の発声として裁定する。既存第3束の所有キーと新規キーを分離する。"
+    "task": "平康城からの帰還報告と、莫問・莫棄を伴う次の平康城調査開始を連続場面として監査する。",
+    "boundary": "宇文逸の誇張気味の報告、莫問の即時の安否確認と情報整理、三人場面での莫問の落ち着いた方針提示を分ける。莫棄所有の行はcross-register束との所有を確認する。"
   },
   "mandatory_read_order": [
     "README.md",

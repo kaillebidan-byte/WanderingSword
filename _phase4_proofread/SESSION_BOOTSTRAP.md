@@ -121,16 +121,19 @@ mainへ統合可能な確定状態。
 
 `python _tools/check_handoff_consistency.py` は遷移中の差を警告として表示します。統合前は `python _tools/check_handoff_consistency.py --require-verified` が成功することを確認します。
 
+初回applyで実際の翻訳差分がある間は、PR branch上の `CURRENT_WORK` が前回の `verified` checkpointを指し、作業ツリー上の `audit_status` だけが新件数へ進む。この短い区間ではcheckpoint完全一致検査を延期し、生成物と監査件数を先にbot commitする。これは検証省略ではなく、旧checkpointと新生成物の一時差を確定状態として誤検査しないための順序制御である。
+
 ## 束終了時の標準順序
 
-1. 修正束・監査記録を作成してPRを開く
-2. 初回CIで修正適用、locres、pak、ゼロ差分、回帰、LFSを確認する
-3. 適用記録、`CURRENT_WORK`、`CURRENT_HANDOFF` を更新し、checkpointを `pending_audit_sync` にする
-4. apply workflowで `audit_status` と記録索引を同期する
-5. bot書き戻し後の差分を確認する
-6. 人手コミットでcheckpointを `verified` にし、`verified_head` をbot書き戻しHEADへ更新する
-7. 最新HEADの三本と `--require-verified` を成功させる
-8. レビュー、未解決スレッド、変更ファイルを確認してmergeする
+1. 修正束・監査記録を作成してPRを開く。`CURRENT_WORK` は前回の `verified` checkpointのままにする
+2. 初回CIで修正適用、locres、pak、ゼロ差分、回帰、LFSを確認する。pending fixがあるrunではcheckpoint完全一致検査を延期する
+3. botが生成物と監査件数を書き戻したことを確認する
+4. 適用記録、`CURRENT_WORK`、`CURRENT_HANDOFF` を更新し、checkpointを `pending_audit_sync` にする
+5. pending fix 0件のapply workflowで `audit_status` の記録索引を同期し、handoff checkerを通す
+6. bot書き戻し後の差分を確認する
+7. 人手コミットでcheckpointを `verified` にし、`verified_head` をbot書き戻しHEADへ更新する
+8. 最新HEADの三本と `--require-verified` を成功させる
+9. レビュー、未解決スレッド、変更ファイルを確認してmergeする
 
 ## 翻訳判断の最低関門
 
@@ -168,6 +171,7 @@ mainへ統合可能な確定状態。
 - `CURRENT_WORK.json` だけを読み、active PRを見落とす
 - `pending_audit_sync` のままmergeする
 - bot commitの `action_required` を翻訳失敗と断定する
+- 初回apply中の旧checkpointと新監査件数の一時差を、確定状態の不整合として停止する
 - 現状報告だけで作業を終える
 - 過去チャットの要約だけで翻訳判断を再現する
 - CI成功を確認せず「完了」「統合済み」と報告する

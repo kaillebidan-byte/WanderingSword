@@ -137,8 +137,17 @@ jobs:
           fi
 
       - name: Check handoff checkpoint after audit refresh
+        if: steps.pending.outputs.changed == 'false'
         shell: bash
         run: python _tools/check_handoff_consistency.py
+
+      - name: Explain deferred checkpoint check
+        if: steps.pending.outputs.changed == 'true'
+        shell: bash
+        run: |
+          echo 'Pending translation fixes were applied in this run.'
+          echo 'CURRENT_WORK may still describe the previous verified checkpoint until the generated assets and audit counts are committed.'
+          echo 'Checkpoint consistency will be checked on the next human-authored state update.'
 
       - name: Commit applied assets and audit status
         if: >-
