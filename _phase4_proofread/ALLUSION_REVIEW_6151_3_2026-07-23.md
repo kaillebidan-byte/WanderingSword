@@ -1,7 +1,7 @@
 # 典故・古典引用疑義: `6151_3_Dlgs`
 
 - 日付: 2026-07-23
-- status: reviewed
+- status: ci_validation_requested
 - 分類: `ALLUSION_REVIEW`
 - 対象場面: 宇文逸と莫問の決裂・初対決
 
