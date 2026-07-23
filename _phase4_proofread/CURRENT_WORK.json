@@ -3,27 +3,27 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "b0e91d12fb6f0422a7c1f182e2dbd78545f301ab",
-  "state_base_commit": "b0e91d12fb6f0422a7c1f182e2dbd78545f301ab",
+  "translation_base_commit": "b5079057413c1135f5499ad39fb93769dc55a9a7",
+  "state_base_commit": "7545abb1e1154c0097ed427de02c864681eb660b",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 43,
-  "pair_applied_keys": 1124,
-  "project_applied_keys": 1383,
+  "last_completed_batch": 44,
+  "pair_applied_keys": 1126,
+  "project_applied_keys": 1388,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 66,
   "checkpoint": {
-    "status": "verified",
-    "batch": 43,
-    "pair_applied_keys": 1124,
-    "project_applied_keys": 1383,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH43_2026-07-24.md",
-    "produced_by_pr": 66,
-    "translation_head": "b0e91d12fb6f0422a7c1f182e2dbd78545f301ab",
-    "verified_head": "b0e91d12fb6f0422a7c1f182e2dbd78545f301ab"
+    "status": "pending_audit_sync",
+    "batch": 44,
+    "pair_applied_keys": 1126,
+    "project_applied_keys": 1388,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH44_2026-07-24.md",
+    "produced_by_pr": 68,
+    "translation_head": "b5079057413c1135f5499ad39fb93769dc55a9a7",
+    "verified_head": "9a8cfb8e58cd19f3503774211b7e6101d1e3f753"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -78,9 +78,9 @@
     ]
   },
   "immediate_next": {
-    "scene_groups": ["5296_7"],
-    "task": "平康城事件の収束、品剣大会の初出説明、莫棄の軽口、武当への帰還決定を一場面として監査する。",
-    "boundary": "莫問の事件評価と大会説明、宇文逸の問いと期待、莫棄のからかいと励ましを分ける。既存第4束所有の莫問・宇文逸5キーは新規束へ重複させず、必要なら元の束を直接再改訂する。",
+    "scene_groups": ["5297_2"],
+    "task": "絶無心が李天宝への潜入捜査と天龍幇との繋がりを明かし、宇文逸の介入を責めた後、莫問が別の手を示唆する場面を監査する。",
+    "boundary": "絶無心の軽口・捜査説明・怒り・諦め、宇文逸の気づきと弁明、莫問の短い思案を分ける。絶無心所有の行はcross-register束へ分離し、既存第4束所有の莫問Index15は新規束へ重複させない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -99,7 +99,7 @@
     ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
     "10_人物/宇文逸.md",
     "10_人物/莫問.md",
-    "10_人物/莫棄.md"
+    "10_人物/絶無心.md"
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
