@@ -15,9 +15,8 @@
 ## 現在地
 
 - checkpoint: `verified`
-- checkpointを生成した翻訳PR: #66
-- active PR: #66 `agent/yuwen-mowen-batch43-review`
-- 直近の統合済み翻訳PR: #64
+- checkpointを生成した翻訳PR: #66（統合済み）
+- 直近の統合済み翻訳PR: #66
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
@@ -28,7 +27,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #66が開いている間は `active` として最新HEAD、三本のworkflow、レビュー、未解決スレッドを先に確認する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第44束へ入る。PRは開いているだけで現行作業と決めない。
+再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなければ、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第44束へ入る。PRは開いているだけで現行作業と決めない。
 
 ## 第43束で完了したこと
 
@@ -65,7 +64,7 @@ active PRがなければ、`5296_7` を第44束として監査する。
 
 `每隔一段时间` を具体的な周期へ確定しない。`庄主所铸` を鍛えたと狭めず、武器制作の意味を確認する。宇文逸の期待、莫棄の軽口、莫問の説明を同じ語調へ均さない。
 
-既存第4束は莫問Index1・3・4・9と宇文逸Index5を所有する。新規束へ重複させず、必要なら元の束を直接再改訂する。莫棄Index0・6・7はcross-register所有へ分離する。
+既存第4束は莫問Index1・3・4・9と宇文逸Index5を所有する。新規第44束へ重複させず、必要なら元の束を直接再改訂する。莫棄Index0・6・7はcross-register所有へ分離する。
 
 具体的な発話順、全キー、ALLUSION_REVIEW、FACT_DOUBT、所有境界、完了条件は `NEXT_TASK_PACKET.json` に固定した。パケット自体も作業仮説であり、最新artifactと一次資料の反例を優先する。
 
