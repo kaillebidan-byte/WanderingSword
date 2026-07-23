@@ -3,27 +3,27 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "20f6bd4e6f745081195703110c0fe26a75913927",
-  "state_base_commit": "3ccdc237ccab18821d94ca487408f45c51074cb6",
+  "translation_base_commit": "71d546419476d9dcf9ae9db8675c0ea7bf5b0fe5",
+  "state_base_commit": "f739f381844fbfaf6d0c8dbb7ea24adaf4ec92a3",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 41,
-  "pair_applied_keys": 1111,
-  "project_applied_keys": 1359,
+  "last_completed_batch": 42,
+  "pair_applied_keys": 1117,
+  "project_applied_keys": 1370,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 62,
   "checkpoint": {
     "status": "verified",
-    "batch": 41,
-    "pair_applied_keys": 1111,
-    "project_applied_keys": 1359,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH41_2026-07-24.md",
-    "produced_by_pr": 62,
-    "translation_head": "20f6bd4e6f745081195703110c0fe26a75913927",
-    "verified_head": "3ccdc237ccab18821d94ca487408f45c51074cb6"
+    "batch": 42,
+    "pair_applied_keys": 1117,
+    "project_applied_keys": 1370,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH42_2026-07-24.md",
+    "produced_by_pr": 64,
+    "translation_head": "71d546419476d9dcf9ae9db8675c0ea7bf5b0fe5",
+    "verified_head": "f739f381844fbfaf6d0c8dbb7ea24adaf4ec92a3"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -78,9 +78,9 @@
     ]
   },
   "immediate_next": {
-    "scene_groups": ["5274_1", "5278_1"],
-    "task": "平康城からの帰還報告と、莫問・莫棄を伴う次の平康城調査開始を連続場面として監査する。",
-    "boundary": "宇文逸の誇張気味の報告、莫問の即時の安否確認と情報整理、三人場面での莫問の落ち着いた方針提示を分ける。莫棄所有の行はcross-register束との所有を確認する。",
+    "scene_groups": ["5291_1", "5292_3", "5293_6", "5293_7"],
+    "task": "李府潜入前の推測、救出時の役割分担、公門への対峙、莫問帰還を連続場面として監査する。",
+    "boundary": "宇文逸・莫問の人物ペア行と、莫棄・絶無心のcross-register所有を分離する。推測を事実へ強めず、莫問の制止・役割分担・公道の宣言が同じ声に平坦化されていないか確認する。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -98,7 +98,8 @@
     ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
     ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
     "10_人物/宇文逸.md",
-    "10_人物/莫問.md"
+    "10_人物/莫問.md",
+    "10_人物/莫棄.md"
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",

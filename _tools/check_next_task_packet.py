@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """NEXT_TASK_PACKET.jsonがverified checkpointと次作業を十分に復元できるか検査する。"""
 from __future__ import annotations
+
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -25,12 +27,30 @@ def load(path: Path) -> dict[str, Any]:
     return value
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--allow-pending",
+        action="store_true",
+        help=(
+            "pending_audit_sync中は旧verified checkpoint由来のパケット保持を許容する。"
+            "checkpointがverifiedなら通常どおり完全一致を要求する"
+        ),
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
     work = load(WORK_PATH)
     packet = load(PACKET_PATH)
     errors: list[str] = []
 
     checkpoint = work.get("checkpoint", {})
+    checkpoint_status = checkpoint.get("status")
+    transitional = checkpoint_status == "pending_audit_sync"
+    allow_transitional = args.allow_pending and transitional
+
     based = packet.get("based_on_checkpoint", {})
     expected = {
         "batch": work.get("last_completed_batch"),
@@ -38,11 +58,12 @@ def main() -> int:
         "project_applied_keys": work.get("project_applied_keys"),
         "produced_by_pr": checkpoint.get("produced_by_pr"),
     }
-    for key, value in expected.items():
-        if based.get(key) != value:
-            errors.append(f"checkpoint {key} mismatch: packet={based.get(key)!r} work={value!r}")
+    if not allow_transitional:
+        for key, value in expected.items():
+            if based.get(key) != value:
+                errors.append(f"checkpoint {key} mismatch: packet={based.get(key)!r} work={value!r}")
 
-    if checkpoint.get("status") != "verified":
+    if checkpoint_status != "verified" and not allow_transitional:
         errors.append("NEXT_TASK_PACKET may be published only from a verified checkpoint")
     if packet.get("status") != "ready":
         errors.append("NEXT_TASK_PACKET.status must be ready")
@@ -51,13 +72,21 @@ def main() -> int:
 
     work_scenes = work.get("immediate_next", {}).get("scene_groups", [])
     packet_scenes = packet.get("scene_groups", [])
-    if packet_scenes != work_scenes:
+    if not allow_transitional and packet_scenes != work_scenes:
         errors.append(f"scene_groups mismatch: packet={packet_scenes!r} work={work_scenes!r}")
     if not packet_scenes:
         errors.append("scene_groups must not be empty")
 
     source = packet.get("source", {})
-    for key in ("target", "namespace", "families", "artifact_workflow", "artifact_name", "artifact_file", "freshness_rule"):
+    for key in (
+        "target",
+        "namespace",
+        "families",
+        "artifact_workflow",
+        "artifact_name",
+        "artifact_file",
+        "freshness_rule",
+    ):
         if not source.get(key):
             errors.append(f"source.{key} is required")
 
@@ -103,15 +132,24 @@ def main() -> int:
 
     print("=== Next task cold-start packet ===")
     print(f"pair: {packet.get('current_pair')}")
-    print(f"checkpoint batch: {based.get('batch')}")
-    print(f"next scenes: {', '.join(map(str, packet_scenes))}")
+    print(f"checkpoint status: {checkpoint_status}")
+    print(f"packet checkpoint batch: {based.get('batch')}")
+    print(f"packet scenes: {', '.join(map(str, packet_scenes))}")
     print(f"task id: {packet.get('task_id')}")
+    if allow_transitional:
+        print(
+            "TRANSITIONAL: CURRENT_WORKは次束へ進んでいるが、"
+            "NEXT_TASK_PACKETは監査索引同期とverified確定まで旧checkpoint版を保持する"
+        )
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: cold-start packet is complete and matches CURRENT_WORK")
+    if allow_transitional:
+        print("OK TRANSITIONAL: packet structure valid; checkpoint/scene一致はverified時に再検査")
+    else:
+        print("OK: cold-start packet is complete and matches CURRENT_WORK")
     return 0
 
 

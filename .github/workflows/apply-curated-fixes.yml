@@ -114,7 +114,7 @@ jobs:
         shell: bash
         run: |
           python _tools/test_check_handoff_consistency.py
-          python _tools/check_next_task_packet.py
+          python _tools/check_next_task_packet.py --allow-pending
           python _tools/test_apply_fixes_json.py
           python _tools/test_update_audit_status.py
           python _tools/test_lint_register.py
@@ -145,7 +145,7 @@ jobs:
         shell: bash
         run: |
           python _tools/check_handoff_consistency.py
-          python _tools/check_next_task_packet.py
+          python _tools/check_next_task_packet.py --allow-pending
 
       - name: Explain deferred checkpoint check
         if: steps.pending.outputs.changed == 'true'
