@@ -1,6 +1,16 @@
 # 現在の申し送り
 
-> この文書は新しいチャットが数分で現在地を復元するための短い入口。機械可読の値は `CURRENT_WORK.json`、品質段階と累計は `audit_status.json` を参照する。過去の全履歴は `_handover.md` に残すが、現在地としては使わない。
+> この文書は新しいチャットが短時間で現在地を復元するための人間向け入口です。固定の再開手順は `SESSION_BOOTSTRAP.md`、機械可読の現在地は `CURRENT_WORK.json`、品質段階と累計は `audit_status.json` を参照します。`_handover.md` は履歴であり、現在地としては使いません。
+
+## 新チャットで送る一文
+
+同じChatGPTプロジェクト内なら、リポジトリURLや長い説明は不要です。
+
+```text
+現状把握して作業の続きを
+```
+
+この一文を受けた側は、URLや前回作業を聞き直さず、未統合PR・CI・main・状態文書を照合します。短い現状報告だけで終わらず、同じ応答内で実作業へ進みます。現状だけ必要な場合は、ユーザーが明示します。
 
 ## 現在地
 
@@ -13,7 +23,7 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 直近統合PR: #54、#55、#56
+- 直近統合PR: #55、#56、#57
 
 ## 直ちに着手する作業
 
@@ -21,19 +31,32 @@
 
 同じ原文定型でも一律に同じ日本語へ揃えない。莫問、宇文逸、莫棄の話者差、相手、儀礼度、場面温度、発話の長さ、前後の退場動作を確認する。重複座標と既存修正束の所有を先に調べ、既存束の直接再改訂か新規束かを決める。
 
-## 最初に読むもの
+ただし、新チャット開始時に関連する未統合PRが存在する場合は、そのPRとActionsを先に再開する。`CURRENT_WORK.json.immediate_next` は、未完了PRがない場合の開始位置。
 
-1. `README.md`
-2. `AGENTS.md`
-3. `_phase4_proofread/CURRENT_WORK.json`
-4. `_phase4_proofread/audit_status.json`
-5. `_phase4_proofread/RUNBOOK_人物ペア再監査.md`
-6. `.agents/skills/zhja-game-translation-codex/SKILL.md`
-7. `.agents/skills/zhja-game-translation-codex/references/03_style_guide.md`
-8. `.agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md`
-9. `.agents/skills/zhja-game-translation-codex/references/10_register_axes.md`
+## 再開時に最初に確認するもの
+
+1. mainの最新状態
+2. 未統合PR、head SHA、変更ファイル
+3. レビュー、未解決スレッド、GitHub Actions
+4. `README.md`
+5. `AGENTS.md`
+6. `_phase4_proofread/SESSION_BOOTSTRAP.md`
+7. `_phase4_proofread/CURRENT_WORK.json`
+8. `_phase4_proofread/audit_status.json`
+9. 人物ペアRUNBOOK、skill、style guide、register軸
 10. `10_人物/宇文逸.md` と `10_人物/莫問.md`
 11. 対象場面の原文・現訳・前後文・重複座標・既存修正束
+
+## 最初の報告形式
+
+通常は次の四点だけを短く報告し、そのまま作業へ入る。
+
+- 現在ペア・完了束・累計
+- 未統合PRまたはCIの状態
+- 直ちに着手する場面・作業
+- 古い資料や矛盾の扱い
+
+確認待ちにはしない。
 
 ## 作業精度を維持する関門
 
@@ -44,6 +67,7 @@
 - 毎バッチ冒頭で `ALLUSION_REVIEW` と `FACT_DOUBT` を別々に通す。
 - 客観事実、人物の認識、推測、嘘・演技、未解決を混同しない。
 - ペルソナ、関係性マップ、完成例、適用済み訳は正本ではない。一次資料の反例があれば資料側を改訂する。
+- 悪役・怪人・雑兵・癖の強い端役は原文と役割に根拠があれば大胆に演出してよい。黒無常・白無常は許容強度の一例で、具体的な口調の流用元ではない。
 - 直前話者を自動的に宛先と見なさない。
 - 高確度の実変更だけを修正束へ入れ、既一致行、好みだけの言い換え、宛先・時系列不明は除外する。
 - 同一キー異値競合、話者接頭辞、タグ、改行、プレースホルダを適用前に検査する。
@@ -65,13 +89,3 @@
 - `_TODO.md` は横断課題用。束数、累計、次場面が古い場合は `CURRENT_WORK.json` を優先する。
 - `audit_status.json` は品質段階と累計の正本だが、`current.next_action` より `CURRENT_WORK.json.immediate_next` のほうが細かく新しい場合がある。
 - `10_人物/莫問.md` の「適用済み範囲」「次の監査」や完成例には旧束の記述が残り得る。一次資料で再検証する。
-
-## 新チャット開始プロンプト
-
-```text
-このリポジトリを正本としてWandering Sword日本語翻訳の続きを行ってください。
-README.mdの再開手順に従い、CURRENT_WORK.json、CURRENT_HANDOFF.md、audit_status.json、人物ペアRUNBOOK、skill、現在ペアの人物資料を読んでください。
-復元した現在地、直ちに着手する場面、資料間の矛盾・古い記述を短く報告してください。
-その後、原文・現訳・前後文・話者・相手・時系列を優先し、人物として実際に発する声を最上位にして作業を続けてください。
-修正はlocres反映、pak再生成、ゼロ差分、lint、関係抽出、回帰、LFS確認まで行い、ゲームフォルダへは配置しないでください。
-```
