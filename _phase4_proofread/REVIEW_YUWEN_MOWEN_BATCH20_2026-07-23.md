@@ -3,7 +3,7 @@
 - 日付: 2026-07-23
 - 対象: `Quests任务表 / Quests`
 - 修正束: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch20.json`
-- status: pending_validation
+- status: validation_requested
 
 ## 対象キー
 
