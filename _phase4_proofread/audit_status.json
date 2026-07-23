@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 360,
+      "applied_keys": 425,
       "targets": [
         "CG表",
         "Npc",
@@ -52,7 +52,8 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH1_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH2_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-23.md",
-        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH4_2026-07-23.md"
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH4_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH5_2026-07-23.md"
       ]
     }
   },
@@ -146,6 +147,12 @@
       "keys": 38,
       "scope": "莫問の平康城潜入・絶無心対峙・夜稽古・家族観",
       "status": "applied_and_pak_built"
+    },
+    {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
+      "keys": 65,
+      "scope": "莫問の門内大比・品剣大会道中・対外礼・迷煙襲撃・負傷後の忠告",
+      "status": "applied_and_pak_built"
     }
   ],
   "queue": [
@@ -227,8 +234,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch4_complete_next_scenes_pending",
-      "build_verified": "batch4_complete",
+      "translation_reaudited": "batch5_complete_next_scenes_pending",
+      "build_verified": "batch5_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
@@ -240,15 +247,16 @@
         "mowen_rows": 546,
         "yuwen_rows": 640
       },
-      "applied_keys": 118,
+      "applied_keys": 183,
       "provisional_findings": [
-        "入門直後の宇文師弟・師弟には一次資料の根拠がある",
+        "入門直後から品剣大会期まで宇文師弟・師弟には一次資料の根拠がある",
         "呼称の敬意と弟弟子への全面敬体は別であり、兄弟子の地声は自然な常体",
-        "村人・師叔への対外敬体と、弟分への常体を同じ場面内でも切り分ける",
+        "村人・師叔・少林高僧への対外敬体と、弟分への常体を同じ場面内でも切り分ける",
+        "門内大比では進行役として簡潔に宣告し、私的な励ましとは語尾を分ける",
+        "旅同行では警戒、役割分担、皆の安全への責任を行動語で示す",
         "案内・教導・世話・危機判断を同じ語尾へ均さない",
-        "危機判断では簡潔な断定、夜稽古では慰めと教導へ切り替わる",
-        "人物口調の監査でも鋳剣と剣術、趁手などの意味誤りを同時に確認する",
-        "宇文師弟固定、温情、諦観は離反・敵対・再会・終盤分岐まで検証後に確定する"
+        "人物口調の監査でも鋳剣、無堅不摧、望塵莫及などの意味誤りを同時に確認する",
+        "宇文師弟固定、温情、諦観は義兄弟化・離反・敵対・再会・終盤分岐まで検証後に確定する"
       ]
     }
   },
@@ -257,6 +265,6 @@
     "pair": "宇文逸↔莫問",
     "stage": "translation_reaudited",
     "status": "in_progress",
-    "next_action": "5331以降の門内大比・品剣大会前後を監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
+    "next_action": "5444〜5455系の品剣大会後・帰路・分岐差分を監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
   }
 }
