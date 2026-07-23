@@ -15,6 +15,7 @@ on:
       - "_tools/update_audit_status.py"
       - "_tools/test_update_audit_status.py"
       - "_tools/check_handoff_consistency.py"
+      - "_tools/test_check_handoff_consistency.py"
       - ".github/workflows/apply-curated-fixes.yml"
 
 permissions:
@@ -109,6 +110,7 @@ jobs:
       - name: Run regression tests and scans
         shell: bash
         run: |
+          python _tools/test_check_handoff_consistency.py
           python _tools/test_apply_fixes_json.py
           python _tools/test_update_audit_status.py
           python _tools/test_lint_register.py
