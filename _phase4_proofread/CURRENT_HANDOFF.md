@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> この文書は新しいチャットが短時間で現在地を復元するための人間向け入口です。固定の再開手順は `SESSION_BOOTSTRAP.md`、機械可読の現在地は `CURRENT_WORK.json`、品質段階と累計は `audit_status.json` を参照します。`_handover.md` は履歴であり、現在地としては使いません。
+> この文書は新しいチャットが短時間で現在地を復元するための人間向け入口です。固定の再開手順は `SESSION_BOOTSTRAP.md`、機械可読の現在地は `CURRENT_WORK.json`、次場面の具体的な着眼点は `NEXT_TASK_PACKET.json`、品質段階と累計は `audit_status.json` を参照します。`_handover.md` は履歴であり、現在地としては使いません。
 
 ## 新チャットで送る一文
 
@@ -33,7 +33,20 @@ active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還�
 
 宇文逸の誇張気味の報告、莫問の即時の安否確認と情報整理、三人場面での落ち着いた方針提示を分ける。莫棄所有の行はcross-register束との所有を確認する。
 
-新チャット開始時に未統合PRが存在する場合は、そのPRを `active / superseded / abandoned / unrelated` に分類する。開いているだけで現行作業と決めず、`active` だけを先に再開する。`CURRENT_WORK.json.immediate_next` は、active PRがない場合の開始位置。
+具体的な発話順、一次資料artifactの取得方法、疑義候補、既存束所有、skill改修判定、完了条件は `_phase4_proofread/NEXT_TASK_PACKET.json` を読む。パケットは答えではなく、最新artifactと一次資料で再検証するための着眼点である。
+
+新チャット開始時に未統合PRが存在する場合は、そのPRを `active / superseded / abandoned / unrelated` に分類する。開いているだけで現行作業と決めず、`active` だけを先に再開する。`CURRENT_WORK.json.immediate_next` と `NEXT_TASK_PACKET.json` は、active PRがない場合の開始位置。
+
+## 冷間再開の受入基準
+
+`_phase4_proofread/COLD_START_ACCEPTANCE.md` に、新チャットが過去会話へ依存せず復元すべき項目を固定した。
+
+```bash
+python _tools/check_handoff_consistency.py --require-verified
+python _tools/check_next_task_packet.py
+```
+
+両方が成功しない状態を、引継ぎ可能な確定状態とは扱わない。
 
 ## checkpointの扱い
 
@@ -41,14 +54,15 @@ active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還�
 - `pending_audit_sync`: 状態文書を次束へ進めた後、apply workflowの監査索引同期を待つ遷移状態。作業続行は可能だが統合禁止。
 - 初回applyでpending fixがある間は、旧verified checkpointと新監査件数が一時的に同居する。生成物commit前の完全一致検査は延期し、状態更新後のrunで検査する。
 - apply workflowのbot commit後にActionsが `action_required` となる場合がある。翻訳失敗とは扱わず、bot差分を確認し、人手コミットで `verified` にして最終HEADを再検証する。
-- 統合前に `python _tools/check_handoff_consistency.py --require-verified` を成功させる。
+- 統合前に上記二つのcheckerを成功させる。
 
-## 今回の実地試験で是正した不備
+## 今回までの実地試験で是正した不備
 
 1. PR #38が開いたままだったが、同じ第21束をPR #39が完全に置換・統合済みだった。#38へ置換先を記録して閉じた。
 2. 第39・40束の状態更新時、`CURRENT_WORK` が先に進み、`audit_status.record_index` の同期前に関係抽出が停止した。遷移中を `pending_audit_sync` として警告扱いに分離した。
 3. bot書き戻し後の `action_required` を失敗扱いせず、人手最終化コミット後の最新HEADで三本を再検証する手順を固定した。
 4. 第41束の初回applyで、旧verified checkpointと新監査件数の一時差を生成物commit前に検査して停止した。pending fixがあるrunでは完全一致検査を延期するようworkflowを修正した。
+5. 件数と次場面だけでは同じ着眼点を復元できないため、次場面専用の `NEXT_TASK_PACKET.json` と冷間再開checkerを追加した。
 
 ## 再開時に最初に確認するもの
 
@@ -61,10 +75,13 @@ active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還�
 7. `AGENTS.md`
 8. `_phase4_proofread/SESSION_BOOTSTRAP.md`
 9. `_phase4_proofread/CURRENT_WORK.json`
-10. `_phase4_proofread/audit_status.json`
-11. 人物ペアRUNBOOK、skill、style guide、register軸
-12. `10_人物/宇文逸.md` と `10_人物/莫問.md`
-13. 対象場面の原文・現訳・前後文・重複座標・既存修正束
+10. `_phase4_proofread/CURRENT_HANDOFF.md`
+11. `_phase4_proofread/NEXT_TASK_PACKET.json`
+12. `_phase4_proofread/COLD_START_ACCEPTANCE.md`
+13. `_phase4_proofread/audit_status.json`
+14. 人物ペアRUNBOOK、skill、style guide、register軸
+15. `10_人物/宇文逸.md` と `10_人物/莫問.md`
+16. 最新artifactに含まれる対象場面の原文・現訳・前後文・重複座標・既存修正束
 
 ## 最初の報告形式
 
@@ -85,7 +102,8 @@ active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還�
 - 自然さを無難な現代会話と同一視しない。古風、豪放、尊大、陰湿、幼さ、寡黙など人物固有の癖は残す。
 - 毎バッチ冒頭で `ALLUSION_REVIEW` と `FACT_DOUBT` を別々に通す。
 - 客観事実、人物の認識、推測、嘘・演技、未解決を混同しない。
-- ペルソナ、関係性マップ、完成例、適用済み訳は正本ではない。一次資料の反例があれば資料側を改訂する。
+- ペルソナ、関係性マップ、完成例、適用済み訳、NEXT_TASK_PACKETは正本ではない。一次資料の反例があれば資料側を改訂する。
+- skillは毎束変更しない。複数人物・複数場面へ一般化できる新知見または既存規則への反例がある場合だけ改修する。
 - 悪役・怪人・雑兵・癖の強い端役は原文と役割に根拠があれば大胆に演出してよい。黒無常・白無常は許容強度の一例で、具体的な口調の流用元ではない。
 - 直前話者を自動的に宛先と見なさない。
 - 高確度の実変更だけを修正束へ入れ、既一致行、好みだけの言い換え、宛先・時系列不明は除外する。
@@ -109,5 +127,5 @@ active PRがない状態では、`5274_1 / 5278_1` の平康城からの帰還�
 
 - `_handover.md` は長期履歴。先頭の見出しは最新作業とは限らない。
 - `_TODO.md` は横断課題用。束数、累計、次場面が古い場合は `CURRENT_WORK.json` を優先する。
-- `audit_status.json` は品質段階と累計の正本だが、`current.next_action` より `CURRENT_WORK.json.immediate_next` のほうが細かく新しい場合がある。
+- `audit_status.json` は品質段階と累計の正本だが、`current.next_action` より `CURRENT_WORK.json.immediate_next` と `NEXT_TASK_PACKET.json` のほうが細かく新しい場合がある。
 - `10_人物/莫問.md` の「適用済み範囲」「次の監査」や完成例には旧束の記述が残り得る。一次資料で再検証する。
