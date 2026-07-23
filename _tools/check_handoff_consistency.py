@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""新チャット再開プロトコルと監査状態の整合を検査する。"""
+"""新チャット再開プロトコルと監査checkpointの整合を検査する。"""
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import subprocess
@@ -22,6 +23,8 @@ README_PATH = ROOT / "README.md"
 AGENTS_PATH = ROOT / "AGENTS.md"
 EXPECTED_TRIGGER = "現状把握して作業の続きを"
 EXPECTED_PROTOCOL = "_phase4_proofread/SESSION_BOOTSTRAP.md"
+VALID_CHECKPOINT_STATES = {"verified", "pending_audit_sync"}
+VALID_PR_TRIAGE_STATES = {"active", "superseded", "abandoned", "unrelated"}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -82,7 +85,32 @@ def require_bool(
         errors.append(f"session_bootstrap.{key} must be {expected!r}, got {observed!r}")
 
 
+def report_sync_mismatch(
+    message: str,
+    *,
+    checkpoint_verified: bool,
+    errors: list[str],
+    warnings: list[str],
+) -> None:
+    """確定checkpointでは不整合、遷移中checkpointでは同期待ちとして扱う。"""
+    if checkpoint_verified:
+        errors.append(message)
+    else:
+        warnings.append(f"TRANSITIONAL: {message}")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--require-verified",
+        action="store_true",
+        help="pending_audit_syncを許容せず、merge可能なverified checkpointを要求する",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
     current = load_json(CURRENT_PATH)
     audit = load_json(AUDIT_PATH)
     errors: list[str] = []
@@ -96,8 +124,81 @@ def main() -> int:
     }
 
     schema_version = current.get("schema_version")
-    if not isinstance(schema_version, int) or schema_version < 2:
-        errors.append(f"CURRENT_WORK.schema_version must be >= 2, got {schema_version!r}")
+    if not isinstance(schema_version, int) or schema_version < 3:
+        errors.append(f"CURRENT_WORK.schema_version must be >= 3, got {schema_version!r}")
+
+    checkpoint = current.get("checkpoint")
+    if not isinstance(checkpoint, dict):
+        errors.append("CURRENT_WORK.checkpoint must be an object")
+        checkpoint = {}
+    checkpoint_state = checkpoint.get("status")
+    if checkpoint_state not in VALID_CHECKPOINT_STATES:
+        errors.append(
+            f"checkpoint.status must be one of {sorted(VALID_CHECKPOINT_STATES)}, "
+            f"got {checkpoint_state!r}"
+        )
+    checkpoint_verified = checkpoint_state == "verified"
+    if args.require_verified and not checkpoint_verified:
+        errors.append(
+            "verified checkpoint required before merge; "
+            f"current checkpoint.status={checkpoint_state!r}"
+        )
+
+    last_batch = current.get("last_completed_batch")
+    pair_keys = current.get("pair_applied_keys")
+    project_keys = current.get("project_applied_keys")
+    for key, expected in (
+        ("batch", last_batch),
+        ("pair_applied_keys", pair_keys),
+        ("project_applied_keys", project_keys),
+    ):
+        if checkpoint.get(key) != expected:
+            errors.append(
+                f"checkpoint.{key} mismatch: checkpoint={checkpoint.get(key)!r}, "
+                f"CURRENT_WORK={expected!r}"
+            )
+
+    applied_record = checkpoint.get("applied_record")
+    if not isinstance(applied_record, str) or not applied_record:
+        errors.append("checkpoint.applied_record must be a non-empty repository path")
+    else:
+        record_path = ROOT / applied_record
+        if not record_path.is_file():
+            errors.append(f"checkpoint.applied_record does not exist: {applied_record}")
+
+    produced_by_pr = checkpoint.get("produced_by_pr")
+    if not isinstance(produced_by_pr, int) or produced_by_pr <= 0:
+        errors.append(f"checkpoint.produced_by_pr must be a positive integer, got {produced_by_pr!r}")
+
+    for label in ("translation_head", "verified_head"):
+        value = checkpoint.get(label)
+        if not isinstance(value, str) or not value:
+            errors.append(f"checkpoint.{label} must be a non-empty commit SHA")
+        elif label == "translation_head" or checkpoint_verified:
+            check_git_ancestor(f"checkpoint.{label}", value, errors, warnings)
+
+    continuity = current.get("pr_continuity")
+    if not isinstance(continuity, dict):
+        errors.append("CURRENT_WORK.pr_continuity must be an object")
+        continuity = {}
+    if continuity.get("open_prs_require_triage") is not True:
+        errors.append("pr_continuity.open_prs_require_triage must be true")
+    triage_states = continuity.get("triage_states")
+    if not isinstance(triage_states, list) or set(triage_states) != VALID_PR_TRIAGE_STATES:
+        errors.append(
+            "pr_continuity.triage_states must contain exactly "
+            f"{sorted(VALID_PR_TRIAGE_STATES)}"
+        )
+    known_superseded = continuity.get("known_superseded", [])
+    if not isinstance(known_superseded, list):
+        errors.append("pr_continuity.known_superseded must be a list")
+    else:
+        for item in known_superseded:
+            if not isinstance(item, dict):
+                errors.append("each known_superseded entry must be an object")
+                continue
+            if not isinstance(item.get("pr"), int) or not isinstance(item.get("superseded_by"), int):
+                errors.append(f"invalid known_superseded entry: {item!r}")
 
     bootstrap = current.get("session_bootstrap")
     if not isinstance(bootstrap, dict):
@@ -117,6 +218,9 @@ def main() -> int:
     require_bool(bootstrap, "ask_repository_again", False, errors)
     require_bool(bootstrap, "resume_work_in_same_response", True, errors)
     require_bool(bootstrap, "status_only_when_explicitly_requested", True, errors)
+    require_bool(bootstrap, "open_pr_triage_required", True, errors)
+    require_bool(bootstrap, "bot_action_required_is_not_failure", True, errors)
+    require_bool(bootstrap, "merge_requires_verified_checkpoint", True, errors)
 
     for label in ("README.md", "CURRENT_HANDOFF.md", "SESSION_BOOTSTRAP.md"):
         text = texts.get(label, "")
@@ -129,6 +233,10 @@ def main() -> int:
         "GitHub Actions",
         "同じ応答内で実作業",
         "URLや前回作業を聞き直さず",
+        "開いているだけで現行作業と決めない",
+        "action_required",
+        "pending_audit_sync",
+        "verified",
     ):
         if session_text and required_phrase not in session_text:
             errors.append(f"SESSION_BOOTSTRAP.md lacks required contract phrase: {required_phrase}")
@@ -149,36 +257,26 @@ def main() -> int:
 
     current_pair = current.get("current_pair")
     audit_current = audit.get("current", {})
-    if current_pair != audit_current.get("pair"):
-        errors.append(
-            f"current pair mismatch: CURRENT_WORK={current_pair!r}, "
-            f"audit_status={audit_current.get('pair')!r}"
-        )
-
     current_cluster = current.get("current_cluster")
-    if current_cluster != audit_current.get("cluster"):
-        errors.append(
-            f"current cluster mismatch: CURRENT_WORK={current_cluster!r}, "
-            f"audit_status={audit_current.get('cluster')!r}"
-        )
-
     latest_build = audit.get("project", {}).get("latest_build", {})
-    project_keys = current.get("project_applied_keys")
-    if project_keys != latest_build.get("applied_keys"):
-        errors.append(
-            f"project applied key mismatch: CURRENT_WORK={project_keys!r}, "
-            f"audit_status={latest_build.get('applied_keys')!r}"
-        )
-
     pair_status = audit.get("pair_status", {}).get(current_pair, {})
-    pair_keys = current.get("pair_applied_keys")
-    if pair_keys != pair_status.get("applied_keys"):
-        errors.append(
-            f"pair applied key mismatch: CURRENT_WORK={pair_keys!r}, "
-            f"audit_status={pair_status.get('applied_keys')!r}"
-        )
 
-    last_batch = current.get("last_completed_batch")
+    for message, left, right in (
+        ("current pair mismatch", current_pair, audit_current.get("pair")),
+        ("current cluster mismatch", current_cluster, audit_current.get("cluster")),
+        ("project applied key mismatch", project_keys, latest_build.get("applied_keys")),
+        ("pair applied key mismatch", pair_keys, pair_status.get("applied_keys")),
+        ("build status mismatch", current.get("build_status"), latest_build.get("status")),
+        ("game verification mismatch", current.get("game_verified"), latest_build.get("game_verified")),
+    ):
+        if left != right:
+            report_sync_mismatch(
+                f"{message}: CURRENT_WORK={left!r}, audit_status={right!r}",
+                checkpoint_verified=checkpoint_verified,
+                errors=errors,
+                warnings=warnings,
+            )
+
     translation_batch = batch_number(pair_status.get("translation_reaudited"))
     build_batch = batch_number(pair_status.get("build_verified"))
     for label, observed in (
@@ -186,39 +284,35 @@ def main() -> int:
         ("build_verified", build_batch),
     ):
         if observed is None:
-            errors.append(f"audit_status pair field has no batch number: {label}")
+            report_sync_mismatch(
+                f"audit_status pair field has no batch number: {label}",
+                checkpoint_verified=checkpoint_verified,
+                errors=errors,
+                warnings=warnings,
+            )
         elif observed != last_batch:
-            errors.append(
+            report_sync_mismatch(
                 f"completed batch mismatch for {label}: CURRENT_WORK={last_batch!r}, "
-                f"audit_status={observed!r}"
+                f"audit_status={observed!r}",
+                checkpoint_verified=checkpoint_verified,
+                errors=errors,
+                warnings=warnings,
             )
 
-    record_token = current.get("applied_record_batch_token")
-    if not isinstance(record_token, str) or not record_token:
-        errors.append("CURRENT_WORK.applied_record_batch_token must be a non-empty string")
-    else:
+    if isinstance(applied_record, str) and applied_record:
         record_index = latest_build.get("record_index", [])
-        expected_record = f"{record_token}{last_batch}_"
-        if not any(expected_record in str(path) for path in record_index):
-            errors.append(
-                "latest applied record is absent from audit_status.record_index: "
-                f"{expected_record}"
+        if applied_record not in record_index:
+            report_sync_mismatch(
+                "checkpoint applied record is absent from audit_status.record_index: "
+                f"{applied_record}",
+                checkpoint_verified=checkpoint_verified,
+                errors=errors,
+                warnings=warnings,
             )
 
     immediate = current.get("immediate_next", {})
     if not isinstance(immediate, dict) or not immediate.get("scene_groups") or not immediate.get("task"):
         errors.append("CURRENT_WORK.immediate_next must include scene_groups and task")
-
-    if current.get("build_status") != latest_build.get("status"):
-        errors.append(
-            f"build status mismatch: CURRENT_WORK={current.get('build_status')!r}, "
-            f"audit_status={latest_build.get('status')!r}"
-        )
-    if current.get("game_verified") != latest_build.get("game_verified"):
-        errors.append(
-            f"game verification mismatch: CURRENT_WORK={current.get('game_verified')!r}, "
-            f"audit_status={latest_build.get('game_verified')!r}"
-        )
 
     check_git_ancestor(
         "translation_base_commit",
@@ -260,7 +354,8 @@ def main() -> int:
     print("=== Handoff consistency ===")
     print(f"trigger: {bootstrap.get('trigger_phrase')}")
     print(f"protocol: {bootstrap.get('protocol')}")
-    print(f"resume in same response: {bootstrap.get('resume_work_in_same_response')}")
+    print(f"checkpoint: {checkpoint_state}")
+    print(f"checkpoint PR: {produced_by_pr}")
     print(f"pair: {current_pair}")
     print(f"completed batch: {last_batch}")
     print(f"pair keys: {pair_keys}")
@@ -276,7 +371,10 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s), {len(warnings)} warning(s)")
         return 1
-    print(f"OK: {len(warnings)} warning(s)")
+    if checkpoint_verified:
+        print(f"OK VERIFIED: {len(warnings)} warning(s)")
+    else:
+        print(f"OK TRANSITIONAL: {len(warnings)} warning(s); merge is not allowed")
     return 0
 
 
