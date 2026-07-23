@@ -3,8 +3,8 @@
 - 日付: 2026-07-23
 - 対象: `CG表 / QuestDlgs`
 - 修正束: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch22.json`
-- status: review_ready
-- 予定キー数: 38
+- status: applied_and_verified
+- 適用キー数: 38
 
 ## 場面境界
 
@@ -39,9 +39,15 @@
 - `6198_3_Dlgs_Index3_Text` と `6214_4_Dlgs_Index3_Text`、および両場面の Index5 は同一値を使用する。
 - 既に自然な短句、呻き、変更差分のない行は修正束へ含めない。
 
-## 構造検証項目
+## 検証結果
 
-- `$@$` 前の話者接頭辞を全38キーで保持する。
-- 制御タグ、改行、プレースホルダは変更しない。
-- 既存1100キーとの座標競合を適用前に検査する。
-- locres反映後、全キーのゼロ差分、register lint、関係抽出、単体テスト、回帰走査、pak・LFSを確認する。
+恒久workflowで以下を確認した。
+
+- 38キーの実在と既存1100キーとの競合なし
+- `$@$` 前の話者接頭辞、制御タグ、改行、プレースホルダの保全
+- locres反映とpak一回再生成
+- 全1138キーの適用後ゼロ差分
+- register lint、関係抽出、単体テスト、回帰走査の成功
+- pak実体とGit LFS管理
+- `audit_status.json` の自動集計
+- ゲームフォルダへの配置とゲーム内確認は未実施
