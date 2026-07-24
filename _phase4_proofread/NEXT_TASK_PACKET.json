@@ -53,7 +53,10 @@
     "target_rows": {"min": 15, "max": 30},
     "adjacent_candidates_checked": ["5371_FinishingDlgs_Index0_Text", "5371_FinishingDlgs_Index3_Text", "5444_2", "5446_1", "5449_2", "5450_3"],
     "grouping_decision": "5444_2と5446_1を、品剣大会後の起床から桟橋合流・出航まで連続する一つの出立場面としてまとめる",
-    "exception": "12行の小束。5371_FinishingDlgsはQuests任务表で単一source packetへ混在できず、5449_2は大会結果分岐、5450_3は数値順と時系列が一致しないため、件数合わせで追加しない"
+    "exception": {
+      "reason_code": "no_adjacent_in_scope_scene",
+      "detail": "5371_FinishingDlgsはQuests任务表で単一source packetへ混在できず、5449_2は大会結果分岐、5450_3は数値順と時系列が一致しないため、件数合わせで追加しない"
+    }
   },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
