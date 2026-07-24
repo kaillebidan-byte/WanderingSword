@@ -1,61 +1,55 @@
 # 現在の申し送り
 
-> 現在地の機械正本は`CURRENT_WORK.json`、CI列車は`CI_TRAIN_MANIFEST.json`、
-> 次の小束は`NEXT_TASK_PACKET.json`、公開運用は`PUBLIC_CI_WINDOW.md`と`CI_TRAIN_PHASE1.md`。
+> 現在地の機械正本は`CURRENT_WORK.json`、CI列車は`CI_TRAIN_MANIFEST.json`、次の小束は`NEXT_TASK_PACKET.json`。
+
+## 新チャットで送る一文
+
+```text
+現状把握して作業の続きを
+```
 
 ## 現在地
 
-- 実visibility: private（GitHub metadataで確認）
-- checkpoint: 第60束、人物ペア1166、全1517、`verified`
-- 宣言operation mode: `private_translation_work`
-- 第60束翻訳PR #103・状態PR #104は統合済み
-- 未統合PR: private PR作成APIが502のため未作成。管理Issue #105をactive列車ポインタとして確認
+- 実visibility: private（毎回GitHub metadataで再確認）
+- verified checkpoint: 第60束 / 人物ペア1166 / 全1517
+- reviewed pending CI: 第61束
+- applied件数はまだ第60束のまま
 - active branch: `agent/ci-train-phase1-pilot`
-- tracking issue: #105 `Active CI train: yuwen-mowen-train-01`
+- tracking issue: #105
+- open PR: なし。public release時に同じbranchから一つ作る
 - train: `yuwen-mowen-train-01`
 - train status: `accumulating`
-- train totals: 0束 / 0行 / 0修正キー
-- 次の小束: 第61束 `5452_1` 5行
+- train totals: 1束 / 5行 / 3修正キー / 人物ペア新規0
+- release条件: 4束、40行、20修正キーのいずれか
 
-## 第一段階制度
+## 第61束で完了したこと
 
-第61束から小束ごとの公開をやめ、完成小束をprivateで列車へ積む。
+`5452_1`の5行を通読し、3キーを修正、2キーを保持した。
 
-通常release:
-- 4束
-- 40行
-- 20修正キー
+- 莫問Index0: 短い祝福を保持
+- 莫棄Index1: 明るい笑いと小逸への直接的な興奮へ再改訂
+- 莫棄Index2: `快`と名剣を見たがる勢いを戻して再改訂
+- 宇文逸Index3: 短い応答と間を保持
+- 清虚Index4: 強行収招と内勁反噬の因果を推測へ弱めずcross-registerへ追加
 
-いずれかへ到達した時点。上限は6束または60行。
-workflow/schema/security/緊急build確認だけはmanifestへ理由を記録して早期releaseできる。
+この束ではlocres、pak、audit_status件数を更新していない。manifest上の`reviewed_pending_ci`であり、公開はまだ依頼しない。
 
-小束完了時は修正JSON、レビュー記録、所有・疑義を完成させるが、locres・pak・audit_status件数は更新しない。
-`CI_TRAIN_MANIFEST`へ`reviewed_pending_ci`として追加し、次束へ進む。
-verified checkpointは第60束のまま維持する。
+## 次の第62束
 
-private PR作成APIが利用できなかったため、Issue #105を列車branchの所在保存用にした。CI開始要求ではない。public release時に同じbranchからPRを一つ作る。
-release時は同じPRをready化し、別PRへ束を分散しない。
+`5455_1`の6行を監査する。
 
-## 第61束
+- 清虚が名剣山荘へ先行し、品剣大会前の合流を指示する
+- 問児へ三人の引率を任せる
+- 莫問が師命へ短く応じる
+- 一同を下がらせ、宇文逸だけを呼び止める
+- 後続`5501_2`の追跡発覚とは混ぜない
 
-`5452_1`の宇文逸首位分岐5行。
+所有は、清虚Index4だけ既存の宇文逸↔清虚第1束。Index0〜2は清虚cross-register候補、莫問Index3と宇文逸Index5は第62束候補。
 
-- 莫問の短い祝福
-- 莫棄の笑い、小逸呼び、湛盧剣への興奮
-- 宇文逸の短い応答
-- 清虚の強行収招・内勁反噬を踏まえた負傷確認
-- `5449_2`の莫棄首位分岐とは混ぜない
+## 再開手順
 
-所有:
-- 既存第6束: 莫棄 Index1・2
-- 第61束候補: 莫問 Index0、宇文逸 Index3
-- 清虚cross-register候補: Index4
-
-## 再開
-
-1. metadataでvisibilityを確認
-2. phase1 pilotのdraft PR、なければ管理Issue #105からactive branchを判定
-3. active branchの`CURRENT_WORK`、manifest、next packetを読む
-4. manifestがaccumulatingなら次小束を同じbranchへ積む
-5. release未達ならpublic化を依頼しない
-6. release到達後だけreadyへ遷移し、一度の公開CI窓を依頼する
+1. metadataでprivateを確認する
+2. draft PRがなければIssue #105からactive branchを復元する
+3. branch上のCURRENT_WORK、manifest、next packetを読む
+4. manifestがaccumulatingなら第62束を同じbranchへ積む
+5. release条件未達ならpublic化を依頼しない
