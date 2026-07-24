@@ -15,69 +15,68 @@
 ## 現在地
 
 - checkpoint: `verified`
-- active PR: 状態同期PRをGitHubで実確認
-- checkpointを生成した翻訳PR: #101（統合済み）
+- active PR: #103 `agent/yuwen-mowen-batch60-review`
+- checkpointを生成した翻訳PR: #103
 - 直近の統合済み翻訳PR: #101
-- 直近の状態同期PR: #99（統合済み。第59束のpost-merge同期は進行中）
+- 直近の状態同期PR: #102（統合済み）
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
-- 完了: 第59束
-- 宇文逸↔莫問の適用キー: 1165
-- プロジェクト全体の適用キー: 1516
+- 完了: 第60束
+- 宇文逸↔莫問の適用キー: 1166
+- プロジェクト全体の適用キー: 1517
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 宣言operation mode: `private_translation_work`
+- 宣言operation mode: `ready_for_public_ci`
 - 実visibility: public（GitHub metadataで確認済み）
-- 第59束squash統合SHA: `74ddd6fd862d3c4c8adca767b58119f47c0bc373`
+- 適用資産HEAD: `a0be407017da5e74af3cd9e004fd1976d56a8b2f`
 
 ## 公開CI窓の状態
 
-- PR #101は最終HEADでRelation audit extraction、Cross register QA、Apply curated localization fixesが成功し、未適用0件、verified checkpoint、未解決レビューthread 0件を確認してsquash統合した。
-- 第59束のsquash統合SHAは `74ddd6fd862d3c4c8adca767b58119f47c0bc373`。CURRENT_WORK、NEXT_TASK_PACKET、CURRENT_HANDOFFの参照をこのSHAへ付け替えるpost-merge状態同期を行う。
-- mainの宣言状態は`private_translation_work`へ戻す。実visibilityがpublicの間は導出状態`return_private_required`であり、新しい翻訳を始めない。
-- 状態同期PRの三本成功・未解決thread 0件・squash統合後、ユーザーへprivate復帰を依頼する。
+- PR #103の初回HEAD `48d7ea50dcd7989ab925e1c918be45e0ad1a0281`でRelation audit extraction、Cross register QA、Apply curated localization fixesが成功した。
+- Applyは6キーをlocresへ反映し、pakを再生成し、全修正束の未適用0件、register lint、関係抽出、回帰走査、pak実体・LFS確認を完了した。
+- bot書き戻しHEAD `a0be407017da5e74af3cd9e004fd1976d56a8b2f`へ、第60束checkpoint、件数、適用記録、第61束パケット、公開CI粒度の観測値を同期する。
+- 未解決レビューthreadは0件。
+- 同期後の最終HEADで三本を確認してからsquash統合する。
+- public中は新しい場面の翻訳を始めない。
 
-## 第59束で完了したこと
+## 第60束で完了したこと
 
-`5444_2`・`5446_1`の12行を通読し、12キーを再監査した。
+`5450_3`の9行を通読し、6キーを修正、3キーを現訳保持とした。
 
-- 既存第6束の再改訂: 10キー
-- 第59束の人物ペア新規: 莫問Index3・5の2キー
-- 人物ペア累計1165、全体1516
-- locres反映、pak再生成、全1516キー差分0、register lint、関係抽出、単体テスト、回帰走査、pak実体・LFS確認済み
+- 既存第6束の再改訂: Index1・2・3・4・6の5キー
+- 第60束の人物ペア新規: 莫問Index5の1キー
+- 人物ペア累計1166、全体1517
+- locres反映、pak再生成、全1517キー差分0、register lint、関係抽出、単体テスト、回帰走査、pak実体・LFS確認済み
 
 主な裁定は次のとおり。
 
-- 莫問の起床確認、出立判断、道案内、同意を、古風な`うむ`ではなく旅をまとめる兄弟子の簡潔な声へ戻した
-- 宇文逸の`欧陽姑娘`をこの時点の距離に合う`欧陽さん`へし、瑶姫への不要な`殿`を外した
-- 寝坊後の宇文逸を、復命調・整った謝罪文ではなく同行者へ砕けて詫びる発話へした
-- 瑶姫の美人二人という自負、待ちぼうけの誇張、語尾の伸ばしを地モードのからかいとして残した
-- 欧陽雪の取りなしと出発提案を、対宇文逸の柔らかさと同行者への礼が同居する声へした
-- 桟橋と進路の表示タグ、姑蘇から北西という方角、莫問の推測強度を保持した
+- 元鳴の`有些人`を名指しの断罪へせず、`誰かさん`という遠回しな嫌味と自己保身の棘へ戻した
+- 莫問の宇文逸擁護を`侠義を行う`という翻訳調から、短く断定する兄弟子の声へした
+- 莫棄の重ねた同意、四大悪人への軽視、再戦の戦意を豪放な常体へ戻した
+- 莫問の制止を格言調から即時の`無茶をするな`へした
+- 相手の余力と警戒対象は莫問の推測に留め、品剣大会前の不穏さと早めの出航判断を保持した
 
-同一の出立場面をCG表内で閉じるため12行の小束例外とした。別targetの`5371_FinishingDlgs`、大会結果分岐の`5449_2`、時系列の異なる`5450_3`は件数合わせで混在させていない。
+## 次の校正
 
-今回の崩れは既存skillで扱えたため、skill・人物資料は変更していない。
+`5452_1`の5行を第61束として監査する。
 
-### 次の校正
+- 宇文逸首位分岐で、莫問が短く祝福する
+- 莫棄が小逸の強さと湛盧剣に興奮する
+- 宇文逸が短く応じる
+- 清虚が無理な収招による内勁反噬と傷の具合を案じる
+- 莫棄首位の`5449_2`、大会前の`5450_3`、武当出立前の`5455_1`とは混在させない
 
-`5450_3`の9行を第60束として監査する。
+実所有は、既存第6束が莫棄Index1・2の2キー。未所有は莫問Index0、宇文逸Index3、清虚Index4で、人物ペア第61束と清虚cross-registerへ分離する。
 
-- 杜彪との対峙直後、莫問が再襲の危険を見積もる
-- 元鳴が宇文逸を責め、莫問が武当弟子の侠義を擁護する
-- 莫棄の強気を莫問が制し、四大悪人を軽視しないよう警告する
-- 相手が全力を出していなかった可能性と品剣大会前の不穏さを検討する
-- 名剣山荘へ早めに向かう判断を示し、宇文逸が渡し場へ進むことに同意する
+## 公開CI粒度の見直し
 
-実所有は、既存第6束がIndex0・1・2・3・4・6・7・8の8キー、未所有は莫問Index5の1キー。既存所有キーは第60束へ重複追加せず、必要な再改訂は既存第6束側で行う。
-
-5449_2と5452_1は門内大比の結果分岐、5455_1は清虚による別時点の出立指示である。数値順だけで併合すると時系列と分岐境界を壊すため、9行の小束例外とする。
+第59束と第60束の実測を `_phase4_proofread/CI_CADENCE_REVIEW_NOTES_2026-07-25.md` に蓄積中。第60束の翻訳PR・post-merge状態PRまで完了した後、候補制度と移行手順を提示できる状態へする。現時点では提案を確定しない。
 
 ## checkpointと遷移状態
 
-- `verified`: 第59束の状態文書、監査索引、件数、適用記録、第60束パケットが同期済み。
-- `private_translation_work`: 第59束の翻訳PR統合後、次の翻訳作業へ戻る宣言状態。
-- 実visibilityがpublicなら`return_private_required`。post-merge状態PRの統合まではCI・状態同期だけを行い、新しい翻訳は始めない。
+- `verified`: 第60束の適用資産と件数は確認済み。
+- `ready_for_public_ci`: PR #103の最終検証と統合を行う公開CI窓。
+- 翻訳PRのsquash統合後、post-merge状態PRでsquash commit参照へ同期し、mainを`private_translation_work`へ戻す。
