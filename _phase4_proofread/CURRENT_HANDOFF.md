@@ -10,36 +10,36 @@
 
 ## 現在地
 
-- 実visibility: public。PR #111統合後にprivate復帰が必要
-- active PR: #111 `agent/yuwen-mowen-train-02`
+- 実visibility: private
+- open PR: 0件
+- active Issue: #112
+- active branch: `agent/yuwen-mowen-train-03`
+- operation mode: `private_translation_work`
+- active train: `yuwen-mowen-train-03` / accumulating
+- train totals: 0束 / 0行 / 0修正 / 新規人物ペア0キー
 - checkpoint: 第65束 / 人物ペア1167 / 全1521 / verified
-- release id: `yuwen-mowen-train-02-r1`
-- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_02.json`
-- Relation run `30132675608`: success
-- Cross run `30132675610`: success
-- Apply run `30132675582`: success
-- release CI HEAD: `4d48cf98e3e86d1f082437e483c516289d1ea24b`
-- synchronized asset HEAD: `c002f38238b489967cc3c7d5bcf4581f790a882a`
+- last release: `yuwen-mowen-train-02-r1`
+- release PR: #111 / squash merge `5503402b430291739f3da84a5d439a7e62a173e6`
 - 未適用fix: 0
-- bot資産書き戻し後のRelation / Cross / Apply追加起動: 0
-- 監査同期bot後のRelation / Cross / Apply追加起動: 0
-- post-merge状態PR: 不要
+- build: verified_not_deployed
+- game verification: not_started
 
-## train-02実地検証
+## 第二段階の確認済み事項
 
 - 第62〜65束を4束・30行・8修正・22保持で通常releaseした
 - 新規キー3件、既存所有再改訂5件
-- locres反映、pak再生成、LFS、回帰、監査索引同期を同じPR内で完了した
-- 第二段階のevent gateにより、二度のbot pushで重い三本は自動再起動しなかった
-- 最終状態commitでは`CI train phase2 gate`だけを起動する
+- Relation / Cross / Apply、locres、pak、LFS、回帰、監査索引同期を同じPR内で完了した
+- bot資産書き戻し後と監査同期bot後のRelation / Cross / Apply追加起動はいずれも0件
+- 最終状態commitではphase2 gateだけが起動して成功した
+- 未解決review thread 0件、post-merge状態PR 0件
 
-## 残り
+## 次に行うこと
 
-1. 最終phase2 gate成功を確認する
-2. 未解決review thread 0件を確認する
-3. PR #111をsquash統合する
-4. post-merge状態PRを作らない
-5. `privateへ戻してください。`と依頼する
-6. private確認後、第66束`5504_3`へ進む
+1. `agent/yuwen-mowen-train-03`とIssue #112をactiveとして確認する。
+2. 第66束`5504_3`の14行を一次資料から監査する。
+3. 既存第7束所有、未所有人物ペア、瑶姫cross-registerを分離する。
+4. FACT_DOUBTとALLUSION_REVIEWを分離する。
+5. 小束ではlocresとpakを更新せず、`reviewed_pending_ci`としてtrain-03へ積む。
+6. `last_reviewed_batch`だけを進め、verified checkpoint第65束はreleaseまで維持する。
 
-public中は新しい翻訳判断を追加しない。private確認後は同じ応答内で実作業を再開する。
+privateなので、新規チャットは状態報告だけで止まらず、同じ応答内で第66束の実作業へ進む。
