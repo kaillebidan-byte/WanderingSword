@@ -7,8 +7,8 @@
     "pair_applied_keys": 1158,
     "project_applied_keys": 1503,
     "produced_by_pr": 94,
-    "translation_head": "469f84155f851b3bf63af3ac4efb2418e776d8b9",
-    "verified_head": "fccd3af29c9c273d8bc82f192bce80d89781c2cd"
+    "translation_head": "8986d4f8ce8714eb54d3b2abf0be94da06cf0629",
+    "verified_head": "8986d4f8ce8714eb54d3b2abf0be94da06cf0629"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": ["5359_3", "5359_4", "5359_5", "5360_10"],
@@ -142,8 +142,8 @@
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・第56束・1158キー・全1503キー・verified",
-    "open_pr": "PR #94をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
-    "start": "状態同期後は5359_3・5359_4・5359_5・5360_10の最新artifactを取得し、莫問・宇文逸・慧空の警戒、即応、追跡判断を20行で通読する",
+    "open_pr": "未統合PRを検索し、activeなら最新HEADのActions・レビュー・未解決スレッドを確認する。activeがなければ第57束へ進む",
+    "start": "5359_3・5359_4・5359_5・5360_10の最新artifactを取得し、莫問・宇文逸・慧空の警戒、即応、追跡判断を20行で通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
