@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #88 `agent/yuwen-mowen-batch53-review`
 - checkpointを生成した翻訳PR: #88
 - 直近の統合済み翻訳PR: #86
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #88が開いている間はactiveとして扱い、第54束パケットの実所有を確認した後、checkpointを`verified`へ確定する。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功するまで統合しない。
+PR #88が開いている間はactiveとして扱う。第53束の監査索引、件数、適用記録、第54束の20行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
 
 ## 第53束で完了したこと
 
@@ -70,7 +70,7 @@ PR #88が開いている間はactiveとして扱い、第54束パケットの実
 
 単独20行で通読目標内。次の`5357_2`は戦闘後の別人物への対応に移るため含めない。
 
-既存第5束が莫問Index0・5・6・9、宇文逸Index16を所有する。宇文逸Index13・14・15は新規第54束候補、莫棄Index3・4・17と杜彪Index1・2・7・8・10・11・12・18・19は人物別cross-register候補として機械所有表へ記録した。
+既存第5束が莫問Index0・5・6・9、宇文逸Index16を所有する。宇文逸Index13・14・15は新規第54束候補、莫棄Index3・4・17と杜彪Index1・2・7・8・10・11・12・18・19は人物別cross-register候補として機械所有検査で未所有確認済み。
 
 袖裡乾坤、股下をくぐる屈辱、士可殺不可辱、閻羅殿の典故・定着表現を分けて確認し、杜彪の弟子関係・本心・約束、宇文逸の悪人谷評、戦闘結果を原文以上に確定しない。
 
