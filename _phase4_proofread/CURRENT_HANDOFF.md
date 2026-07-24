@@ -54,8 +54,8 @@ release時は同じPRをready化し、別PRへ束を分散しない。
 ## 再開
 
 1. metadataでvisibilityを確認
-2. open PRからphase1 pilot draftをactive判定
-3. PR headの`CURRENT_WORK`、manifest、next packetを読む
+2. phase1 pilotのdraft PR、なければ管理Issue #105からactive branchを判定
+3. active branchの`CURRENT_WORK`、manifest、next packetを読む
 4. manifestがaccumulatingなら次小束を同じbranchへ積む
 5. release未達ならpublic化を依頼しない
 6. release到達後だけreadyへ遷移し、一度の公開CI窓を依頼する

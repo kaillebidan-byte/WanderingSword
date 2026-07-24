@@ -40,7 +40,7 @@
 ## private中の所在ポインタ
 
 第一段階では、列車branchの所在を新チャットから復元できるよう、private中に一つのdraft PRを開いてよい。
-private repositoryでPR作成APIが利用できない場合は、管理Issueを一つ開く。branch・HEAD・manifest totals・次束を記録する。
+private repositoryでPR作成APIが利用できない場合は、管理Issueを一つ開き、branch・HEAD・manifest totals・次束を記録する。
 
 - draft PRまたは管理IssueはCI実行・統合要求ではない。
 - `open_pr_only_after_ready`はready状態の通常PRに対する制限として維持する。管理IssueはPRではない。
@@ -54,7 +54,7 @@ private repositoryでPR作成APIが利用できない場合は、管理Issueを�
 3. `CI_TRAIN_MANIFEST.status`と`CURRENT_WORK.ci_train.status`を`ready_for_public_ci`へする。
 4. `CURRENT_WORK.operation_mode.declared_state`を`ready_for_public_ci`へする。
 5. ユーザーへ一度だけpublic化を依頼する。
-6. 同じdraft PRをready化し、Relation / Cross / Applyを実行する。
+6. draft PRがあればready化する。管理Issue fallbackならpublic確認後に同じbranchからPRを一つ作り、Relation / Cross / Applyを実行する。
 7. 列車内の全修正をまとめてlocresへ適用し、pakを一度再生成する。
 8. 未適用0件、所有競合0件、lint、関係抽出、回帰、LFS、未解決thread 0件を確認する。
 9. 第一段階では既存のcheckpoint最終化とpost-merge状態PRを残す。
