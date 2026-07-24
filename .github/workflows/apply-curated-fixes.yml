@@ -2,6 +2,11 @@ name: Apply curated localization fixes
 
 on:
   pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - labeled
     branches:
       - main
     paths:
@@ -32,7 +37,8 @@ jobs:
   apply-and-build:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
-      github.actor != 'github-actions[bot]'
+      github.actor != 'github-actions[bot]' &&
+      (github.event.action != 'labeled' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: windows-latest
     defaults:
       run:
