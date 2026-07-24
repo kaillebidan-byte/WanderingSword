@@ -4,7 +4,7 @@
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "223a9888cf41fa5f30ae2d95b120787c2c7aa561",
-  "state_base_commit": "efeaf11937ead702289fdae7d8fd3fdca4aa7466",
+  "state_base_commit": "aab3f512d060d34d8efefe8d0d19a5f0463ac1f7",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -16,14 +16,14 @@
   "game_verified": "not_started",
   "last_merged_translation_pr": 84,
   "checkpoint": {
-    "status": "pending_audit_sync",
+    "status": "verified",
     "batch": 52,
     "pair_applied_keys": 1140,
     "project_applied_keys": 1446,
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH52_2026-07-24.md",
     "produced_by_pr": 86,
     "translation_head": "223a9888cf41fa5f30ae2d95b120787c2c7aa561",
-    "verified_head": "efeaf11937ead702289fdae7d8fd3fdca4aa7466"
+    "verified_head": "aab3f512d060d34d8efefe8d0d19a5f0463ac1f7"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -56,7 +56,7 @@
   "immediate_next": {
     "scene_groups": ["5352_1", "5352_3"],
     "task": "梧桐村からの出発再開として、蛇の襲来と五仙教への推測、宇文逸の小彤への疑念、莫棄による大師兄・無塵の誇張、莫問の武器観と名剣山荘への道案内を19行で連続監査する。",
-    "boundary": "5352_3の莫棄Index7、宇文逸Index8、莫問Index11・15は既存第5束所有。ほか15キーはNEXT_TASK_PACKETの機械所有表を作る前に全fix JSONと照合する。五仙教の関与、小彤の正体・所在、無塵の性能、欧陽荘主の鋳造事実、何本も斬れるという莫棄の誇張を話者外の事実へ確定しない。",
+    "boundary": "5352_3の莫棄Index7、宇文逸Index8、莫問Index11・15は既存第5束所有。ほか15キーはNEXT_TASK_PACKETの機械所有表で未所有確認済み。五仙教の関与、小彤の正体・所在、無塵の性能、欧陽荘主の鋳造事実、何本も斬れるという莫棄の誇張を話者外の事実へ確定しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md", "10_人物/莫棄.md", "10_人物/元鳴.md"],
