@@ -3,7 +3,7 @@
 - 日付: 2026-07-25
 - 場面: `5450_3`
 - 通読行数: 9
-- status: `review_ready`
+- status: `verified`
 - ALLUSION_REVIEW: 該当なし
 
 ## 場面の機能
@@ -30,10 +30,10 @@
 - keep: 3
 - 既存第6束の再改訂: 5キー（Index1・2・3・4・6）
 - 第60束の人物ペア新規: 1キー（莫問Index5）
-- 人物ペア累計予定: 1166
-- プロジェクト全体累計予定: 1517
-- 既存所有キーは `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json` を更新する。
-- 未所有の Index5だけを `_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch60.json` へ追加する。
+- 人物ペア累計: 1166
+- プロジェクト全体累計: 1517
+- 既存所有キーは `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json` を更新した。
+- 未所有の Index5だけを `_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch60.json` へ追加した。
 
 ## FACT_DOUBT
 
@@ -46,6 +46,10 @@
 ## 束境界
 
 `5450_3`の対峙後判断を一場面で閉じる。`5449_2`と`5452_1`は門内大比の結果分岐、`5455_1`は清虚による別時点の出立指示である。数値順や件数合わせでは混在させず、9行の小束例外とする。
+
+## 機械検証
+
+Relation audit extraction、Cross register QA、Apply curated localization fixesが成功した。locres反映、pak再生成、全1517キー未適用0件、register lint、関係抽出、単体テスト、回帰走査、pak実体・LFSを確認した。ゲームフォルダへの配置とゲーム内確認は行っていない。
 
 ## skill・資料
 
