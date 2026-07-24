@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir -p _ws_tmp/relation_audit
           python _tools/report_next_task_ownership.py \
+            --out _ws_tmp/relation_audit/next_task_ownership.json \
             2>&1 | tee _ws_tmp/relation_audit/next_task_ownership.txt
 
       - name: Check handoff consistency

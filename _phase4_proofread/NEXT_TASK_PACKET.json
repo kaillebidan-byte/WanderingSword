@@ -1,21 +1,21 @@
 {
   "schema_version": 3,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch56-planned",
+  "task_id": "yuwen-mowen-batch57-planned",
   "based_on_checkpoint": {
-    "batch": 55,
-    "pair_applied_keys": 1154,
-    "project_applied_keys": 1485,
-    "produced_by_pr": 92,
-    "translation_head": "393db9a6aa5b21a0e605cac6e6fb7d5060d0b904",
-    "verified_head": "393db9a6aa5b21a0e605cac6e6fb7d5060d0b904"
+    "batch": 56,
+    "pair_applied_keys": 1158,
+    "project_applied_keys": 1503,
+    "produced_by_pr": 94,
+    "translation_head": "469f84155f851b3bf63af3ac4efb2418e776d8b9",
+    "verified_head": "fccd3af29c9c273d8bc82f192bce80d89781c2cd"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5358_5"],
+  "scene_groups": ["5359_3", "5359_4", "5359_5", "5360_10"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5358_5_Dlgs"],
+    "families": ["5359_3_Dlgs", "5359_4_Dlgs", "5359_5_Dlgs", "5360_10_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,88 +23,106 @@
   },
   "scene_flow": [
     {
-      "scene": "5358_5",
-      "function": "迎仙楼で少林の慧平・慧空と再会し、互いの紹介と武名への礼を交わす。少林側に部屋がないと知った莫問が一部屋を譲り、宇文逸が遠慮を解いて翌日の名剣山荘行きを共にする約束へつなげる",
-      "speaker_order": ["慧平", "莫問", "莫問", "慧平", "慧平", "莫問", "慧空", "慧空", "慧平", "慧平", "莫問", "莫問", "莫問", "慧空", "慧空", "宇文逸", "宇文逸", "慧空", "慧平", "慧平", "宇文逸", "慧平", "慧平", "宇文逸", "慧空"],
+      "scene": "5359_3",
+      "function": "迎仙楼の夜、眠れない宇文逸と警戒を続ける莫問が話し、莫問が戸外の異変を察する",
+      "speaker_order": ["莫問", "宇文逸", "宇文逸", "莫問", "莫問", "莫問", "莫問"],
       "focus_keys": [
-        "5358_5_Dlgs_Index0_Text", "5358_5_Dlgs_Index1_Text", "5358_5_Dlgs_Index2_Text", "5358_5_Dlgs_Index3_Text", "5358_5_Dlgs_Index4_Text",
-        "5358_5_Dlgs_Index5_Text", "5358_5_Dlgs_Index6_Text", "5358_5_Dlgs_Index7_Text", "5358_5_Dlgs_Index8_Text", "5358_5_Dlgs_Index9_Text",
-        "5358_5_Dlgs_Index10_Text", "5358_5_Dlgs_Index11_Text", "5358_5_Dlgs_Index12_Text", "5358_5_Dlgs_Index13_Text", "5358_5_Dlgs_Index14_Text",
-        "5358_5_Dlgs_Index15_Text", "5358_5_Dlgs_Index16_Text", "5358_5_Dlgs_Index17_Text", "5358_5_Dlgs_Index18_Text", "5358_5_Dlgs_Index19_Text",
-        "5358_5_Dlgs_Index20_Text", "5358_5_Dlgs_Index21_Text", "5358_5_Dlgs_Index22_Text", "5358_5_Dlgs_Index23_Text", "5358_5_Dlgs_Index24_Text"
+        "5359_3_Dlgs_Index0_Text", "5359_3_Dlgs_Index1_Text", "5359_3_Dlgs_Index2_Text", "5359_3_Dlgs_Index3_Text", "5359_3_Dlgs_Index4_Text", "5359_3_Dlgs_Index5_Text", "5359_3_Dlgs_Index7_Text"
       ],
       "voice_questions": [
-        "慧平の再会の驚き、豪快な笑い、師兄紹介、宿探しへの焦り、翌日の同行約束を、堅苦しい僧侶語へ均さず若い僧の地声にできるか",
-        "慧平の師兄を兄・兄さんへ変えず、少林の同門関係として師兄を保持できるか",
-        "慧空の南無阿弥陀仏、謙遜、莫問への返礼、部屋を譲られる遠慮と感謝を、過剰な古語や自己卑下へしないか",
-        "莫問の少林高僧への対外礼、慧空の武名への敬意、部屋を譲る提案を同じ儀礼文へ均さず、場面ごとの機能を分けられるか",
-        "宇文逸の与人方便与己方便を字面説明へせず、旅先の助け合いとして自然に言えるか",
-        "宇文逸の遠慮を解く声、名剣山荘行きへの喜び、翌日の約束、休息への案内を同じ敬語へ均さないか",
-        "笑い、呼称、話者接頭辞、表示上の間を人物と場面に応じて保持できるか"
+        "宇文逸の眠れない言いよどみと笑いを、説明的な不眠申告へ整えすぎないか",
+        "莫問の夜警、連続する異変への警戒、大師兄としての責任を同じ硬い訓戒へ均さないか",
+        "戸外の物音を確認前の察知として保ち、襲撃者や目的を先に確定しないか"
+      ]
+    },
+    {
+      "scene": "5359_4",
+      "function": "莫問が迷煙を見抜き、宇文逸へ息を止めるよう即座に命じる",
+      "speaker_order": ["莫問", "宇文逸"],
+      "focus_keys": ["5359_4_Dlgs_Index0_Text", "5359_4_Dlgs_Index1_Text"],
+      "voice_questions": [
+        "危機判断を説明文にせず、迷煙の識別から命令へ短く切り替えられるか",
+        "宇文逸の返答を復命調へ膨らませず、声を潜めた即答として保てるか"
+      ]
+    },
+    {
+      "scene": "5359_5",
+      "function": "莫問が受け身で待つことを拒み、自分は外を確認し、宇文逸には同行者を起こすよう役割を分ける",
+      "speaker_order": ["莫問", "莫問", "宇文逸"],
+      "focus_keys": ["5359_5_Dlgs_Index0_Text", "5359_5_Dlgs_Index1_Text", "5359_5_Dlgs_Index2_Text"],
+      "voice_questions": [
+        "坐以待毙を成句解説へせず、危機下で動く判断へ機能訳できるか",
+        "莫問の役割分担を自己犠牲や英雄的決意へ膨らませないか",
+        "宇文逸の短い了承に不要な感情説明を加えないか"
+      ]
+    },
+    {
+      "scene": "5360_10",
+      "function": "襲撃後、毒を受けた慧空が杜彪と無名の危険を理由に宇文逸の単独追跡を止めようとする。宇文逸は捕らわれた莫棄を追う決意を変えず、目印と伝言を託す",
+      "speaker_order": ["慧空", "慧空", "宇文逸", "宇文逸", "慧空", "宇文逸", "慧空", "慧空"],
+      "focus_keys": [
+        "5360_10_Dlgs_Index0_Text", "5360_10_Dlgs_Index1_Text", "5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index5_Text", "5360_10_Dlgs_Index6_Text", "5360_10_Dlgs_Index7_Text", "5360_10_Dlgs_Index8_Text"
+      ],
+      "voice_questions": [
+        "慧空の制止を、毒を受けた状況と力量判断に基づく真摯な忠告として出せるか",
+        "杜彪の力量と無名の所在を、慧空の比較・推測以上の客観事実へしないか",
+        "宇文逸の莫棄への責任感を、無謀さの説明や結果の先取りへ変えないか",
+        "目印・莫問への伝言・後発の捜索を、確実に成功する計画として補強しないか"
       ]
     }
   ],
   "batch_planning": {
-    "reviewed_rows": 25,
+    "reviewed_rows": 20,
     "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": ["5358_5", "5359_3"],
-    "grouping_decision": "5358_5単独で25行あり通読目標内。少林僧との再会、部屋の譲渡、翌日の同行約束まで一つの交歓場面として完結する。次の5359_3は夜間警戒と襲撃前兆へ事件が切り替わるため含めない",
+    "adjacent_candidates_checked": ["5359_3", "5359_4", "5359_5", "5360_10"],
+    "grouping_decision": "5359_3〜5359_5の12行だけでは目標未満。間の襲撃・戦闘場面には宇文逸↔莫問の抽出行がなく、5360_10は同じ迷煙襲撃直後の追跡判断なので8行を併合する",
     "exception": null
   },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [
-      "与人方便与己方便は定着した言い回しとして、旅先の助け合いへ機能訳する",
-      "阿弥陀佛は慧空の口頭禅として南無阿弥陀仏を保持する",
-      "少林七十二絶技、禅宗伏魔功、武当無塵剣は武功・異名として保持し、能力説明を補わない"
+      "坐以待毙は定着した成句として、受け身で待ってやられることを拒む場面判断へ機能訳する"
     ],
     "fact_doubts": [
-      "慧空が少林七十二絶技と禅宗伏魔功を極めたことは莫問の聞き及んだ評判として扱い、客観的な力量確定へ広げない",
-      "無塵剣の名声は慧空の返礼として保持し、江湖全体の評価を台詞外で補強しない",
-      "城内の宿がすべて満室という判断は丘掌柜の先ほどの説明と莫問の推測の範囲に留める",
-      "慧平・慧空が船を得られなかった理由、翌日の出航可否、同行が確実に実現することを先取りしない",
-      "二部屋の具体的な割り振り、同室者、手配者の意図を補わない"
+      "戸外の物音の主、迷煙を放った人物、襲撃目的を察知段階で確定しない",
+      "師父が一行を託したことを、後の被害への莫問の客観的責任認定へ広げない",
+      "杜彪が一行全員より確実に強いこと、無名が実際に近くにいることを慧空の判断以上に確定しない",
+      "莫棄の捕縛後の状態、追跡結果、宇文逸の安全、莫問の帰還を先取りしない",
+      "慧空と慧平の中毒・負傷、治療後の捜索は場面内情報として保持し、回復時刻や成功を補わない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "莫問Index1・2・5・10・11・12は既存第5束所有。宇文逸Index15・16・20・23は未所有の人物ペア候補で、変更時は新規第56束へ収録する",
-    "cross_register": "慧平Index0・3・4・8・9・18・19・21・22は慧平cross-register、慧空Index6・7・13・14・17・24は慧空cross-registerの未所有候補",
+    "pair_batch": "5359_3の莫問Index0・3・4・5・7、5359_4の莫問Index0、5359_5の莫問Index0・1は既存第5束所有。5360_10の宇文逸Index2・3・6は既存第35束所有。未所有の人物ペア候補は5359_3の宇文逸Index1・2、5359_4の宇文逸Index1、5359_5の宇文逸Index2の4キー",
+    "cross_register": "5360_10の慧空Index0・1・5・7・8は慧空cross-registerの未所有候補",
     "machine_ownership": {
       "existing": [
         {
           "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
           "keys": [
-            "5358_5_Dlgs_Index1_Text", "5358_5_Dlgs_Index2_Text", "5358_5_Dlgs_Index5_Text", "5358_5_Dlgs_Index10_Text", "5358_5_Dlgs_Index11_Text", "5358_5_Dlgs_Index12_Text"
+            "5359_3_Dlgs_Index0_Text", "5359_3_Dlgs_Index3_Text", "5359_3_Dlgs_Index4_Text", "5359_3_Dlgs_Index5_Text", "5359_3_Dlgs_Index7_Text", "5359_4_Dlgs_Index0_Text", "5359_5_Dlgs_Index0_Text", "5359_5_Dlgs_Index1_Text"
           ]
+        },
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json",
+          "keys": ["5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index6_Text"]
         }
       ],
       "unowned": [
-        {"key": "5358_5_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index14_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index15_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
-        {"key": "5358_5_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
-        {"key": "5358_5_Dlgs_Index17_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index18_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index19_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index20_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
-        {"key": "5358_5_Dlgs_Index21_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index22_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
-        {"key": "5358_5_Dlgs_Index23_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
-        {"key": "5358_5_Dlgs_Index24_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"}
+        {"key": "5359_3_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
+        {"key": "5359_3_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
+        {"key": "5359_4_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
+        {"key": "5359_5_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
+        {"key": "5360_10_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
+        {"key": "5360_10_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
+        {"key": "5360_10_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
+        {"key": "5360_10_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
+        {"key": "5360_10_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"}
       ]
     },
     "do_not_do": [
-      "既存第5束所有キーを新規第56束やcross-registerへ重複追加しない",
+      "既存第5束・第35束所有キーを新規第57束へ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
-      "慧平・慧空のキーを宇文逸↔莫問の新規キー数へ算入しない",
-      "少林武功・無塵剣の評判・宿不足・翌日の同行を話者の発言以上に確定しない",
-      "5359_3の夜間警戒を同じ束へ混ぜない"
+      "慧空のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "襲撃者、杜彪と無名の力量・所在、莫棄の状態、追跡結果を話者の認識以上に確定しない"
     ]
   },
   "skill_review": {
@@ -113,9 +131,9 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5358_5の25行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
+    "5359_3・5359_4・5359_5・5360_10の20行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
     "ALLUSION_REVIEWとFACT_DOUBTを分離して記録",
-    "既存第5束再改訂、新規第56束、慧平cross-register、慧空cross-registerを所有者別に分離",
+    "既存第5束・第35束再改訂、新規第57束、慧空cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -123,9 +141,9 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第55束・1154キー・全1485キー・verified",
-    "open_pr": "未統合PRを検索し、activeなら最新HEADのActions・レビュー・未解決スレッドを確認する。activeがなければ第56束へ進む",
-    "start": "5358_5の最新artifactを取得し、慧平・慧空・莫問・宇文逸の声と事実認識を分けて25行を通読する",
+    "current": "宇文逸↔莫問・第56束・1158キー・全1503キー・verified",
+    "open_pr": "PR #94をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5359_3・5359_4・5359_5・5360_10の最新artifactを取得し、莫問・宇文逸・慧空の警戒、即応、追跡判断を20行で通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
