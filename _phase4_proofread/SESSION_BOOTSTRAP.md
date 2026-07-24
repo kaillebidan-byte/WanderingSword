@@ -101,6 +101,13 @@ release時は同じPRをready化する。別PRへ小束を分散しない。
 
 privateでaccumulatingなら報告だけで止まらず、同じ応答内で次小束へ進む。
 
+## 既存再開契約との互換
+
+- `未統合PR`と`GitHub Actions`を実確認し、PRは開いているだけで現行作業と決めない。
+- 新チャットではURLや前回作業を聞き直さず、翻訳可能なら同じ応答内で実作業へ進む。
+- bot書き戻し後の`action_required`は直ちに翻訳失敗と断定しない。
+- 適用後の状態同期中は`pending_audit_sync`を使い、最終検証後に`verified`へ進める。
+
 ## 禁止事項
 
 - 小束一つごとのpublic化
