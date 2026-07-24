@@ -2,6 +2,12 @@
 
 > 機械正本は`CURRENT_WORK.json`、第一段階列車は`CI_TRAIN_MANIFEST.json`、次束は`NEXT_TASK_PACKET.json`。
 
+## 新チャットで送る一文
+
+```text
+現状把握して作業の続きを
+```
+
 ## 現在地
 
 - 実visibility: public
