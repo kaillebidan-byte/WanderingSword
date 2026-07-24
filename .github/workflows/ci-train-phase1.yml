@@ -39,19 +39,37 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Prepare diagnostics
+        run: mkdir -p _ws_tmp/ci_train
+
       - name: Validate operation mode
-        run: >-
-          python _tools/check_operation_mode.py
-          --repository-visibility "${{ github.event.repository.visibility }}"
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_operation_mode.py \
+            --repository-visibility "${{ github.event.repository.visibility }}" \
+            2>&1 | tee _ws_tmp/ci_train/operation_mode.txt
 
       - name: Validate CI train manifest
-        run: python _tools/check_ci_train_manifest.py --require-ready
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_ci_train_manifest.py --require-ready \
+            2>&1 | tee _ws_tmp/ci_train/manifest.txt
 
       - name: Validate next-task packet
-        run: python _tools/check_next_task_packet.py --allow-pending
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_next_task_packet.py --allow-pending \
+            2>&1 | tee _ws_tmp/ci_train/next_task_packet.txt
 
       - name: Validate handoff consistency
-        run: python _tools/check_handoff_consistency.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_handoff_consistency.py \
+            2>&1 | tee _ws_tmp/ci_train/handoff_consistency.txt
 
       - name: Test operation mode
         run: python _tools/test_check_operation_mode.py
@@ -64,3 +82,11 @@ jobs:
 
       - name: Test handoff consistency
         run: python _tools/test_check_handoff_consistency.py
+
+      - name: Upload phase1 diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-train-phase1-diagnostics
+          path: _ws_tmp/ci_train/
+          if-no-files-found: error
