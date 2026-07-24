@@ -9,24 +9,24 @@
 ## 合格条件
 
 1. GitHub metadataで実visibilityを確認する。
-2. open PRとActionsを確認し、active列車を復元する。
-3. `CURRENT_WORK`、`CI_TRAIN_MANIFEST`、`NEXT_TASK_PACKET`を照合する。
-4. 第61束・人物ペア1166・全1518・verifiedを復元する。
-5. public中は第62束の翻訳を始めず、PR #106とpost-merge状態同期だけを続ける。
-6. 公開CI窓完了後はprivate復帰を依頼する。
-7. private確認後、第二段階制度改修へ進む。
+2. open PRとActionsを確認する。
+3. 第61束・人物ペア1166・全1518・verifiedを復元する。
+4. 第一段階パイロットがPR #106・squash `f12089d1d74b18b6e25a916b9e8eb3536de0064a`で完了したと復元する。
+5. public中は状態同期だけを行い、新しい翻訳を始めない。
+6. 状態PR統合後はprivate復帰を依頼する。
+7. private確認後、第二段階制度改修を翻訳より先に開始する。
+8. 第二段階完了後、第62束`5455_1`へ戻る。
 
 ## 現在の期待値
 
-- train: `yuwen-mowen-train-01`
-- train status: `verified`
 - completed batch: 61
-- next batch: 62 / `5455_1`
 - pair applied: 1166
 - project applied: 1518
 - checkpoint: verified
-- active translation PR: #106（統合前なら継続）
-- 実visibility: GitHubで毎回確認
+- phase1: completed
+- phase2: pending private system-work
+- queued translation: batch62 / `5455_1`
+- actual visibility: GitHubで毎回確認
 
 ## 機械検査
 
