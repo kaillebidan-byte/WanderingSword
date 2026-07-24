@@ -13,7 +13,7 @@
 - 人物ペア新規: 0
 - 人物ペア累計: 1166
 - プロジェクト全体累計: 1518
-- status: `applied_and_pak_built_pending_audit_sync`
+- status: `applied_and_pak_built`
 - build: `verified_not_deployed`
 - game verification: `not_started`
 - Apply run: `30122728746`
@@ -40,6 +40,6 @@
 - validate、register lint、関係抽出、単体テスト、回帰走査成功
 - pak実体・LFS確認成功
 - audit_statusは全1518キーへ更新済み
-- 適用記録索引と最終verified checkpointは次の同期runで確定する
+- 適用記録索引へ収録済み。第61束・人物ペア1166・全1518のverified checkpointへ同期済み
 
 ゲームフォルダへの配置とゲーム内確認は行っていない。
