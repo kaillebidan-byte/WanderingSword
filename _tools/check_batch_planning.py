@@ -84,6 +84,8 @@ def validate(packet: dict[str, Any]) -> list[str]:
 
     if isinstance(reviewed_rows, int) and reviewed_rows > 0:
         outside = reviewed_rows < TARGET_MIN or reviewed_rows > TARGET_MAX
+        if reviewed_rows < TARGET_MIN and not adjacent:
+            errors.append("small batch exception requires adjacent_candidates_checked")
         if not outside:
             if exception is not None:
                 errors.append("batch_planning.exception must be null inside the target range")
@@ -100,10 +102,6 @@ def validate(packet: dict[str, Any]) -> list[str]:
                     )
                 if not isinstance(detail, str) or not detail.strip():
                     errors.append("batch_planning.exception.detail is required")
-                if reviewed_rows < TARGET_MIN and not adjacent:
-                    errors.append(
-                        "small batch exception requires adjacent_candidates_checked"
-                    )
 
     return errors
 
