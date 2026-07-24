@@ -13,87 +13,29 @@
     "translation_head": "4bd86ddbf7fbafae6b06c86b7290f9a159b902ce",
     "verified_head": "4bd86ddbf7fbafae6b06c86b7290f9a159b902ce"
   },
-  "thresholds": {
-    "bundle_count": 4,
-    "reviewed_rows": 40,
-    "fix_keys": 20
-  },
-  "caps": {
-    "bundle_count": 6,
-    "reviewed_rows": 60
-  },
-  "allowed_early_release_reasons": [
-    "workflow_change",
-    "schema_change",
-    "security_or_visibility",
-    "urgent_build_verification"
-  ],
-  "release_trigger": {
-    "reason": "schema_change",
-    "detail": "第一段階CI列車制度のschema・機械検査・再開規則を、第61束の実データと同じ一往復で検証するためのパイロット早期release。"
-  },
-  "totals": {
-    "bundle_count": 1,
+  "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
+  "caps": {"bundle_count": 6, "reviewed_rows": 60},
+  "allowed_early_release_reasons": ["workflow_change", "schema_change", "security_or_visibility", "urgent_build_verification"],
+  "release_trigger": {"reason": "schema_change", "detail": "第一段階CI列車制度を第61束の実データと同じ一往復で検証した。"},
+  "totals": {"bundle_count": 1, "reviewed_rows": 5, "fix_keys": 3, "new_pair_keys": 0},
+  "bundles": [{
+    "batch": 61,
+    "status": "reviewed_pending_ci",
+    "scene_groups": ["5452_1"],
     "reviewed_rows": 5,
     "fix_keys": 3,
-    "new_pair_keys": 0
-  },
-  "bundles": [
-    {
-      "batch": 61,
-      "status": "reviewed_pending_ci",
-      "scene_groups": [
-        "5452_1"
-      ],
-      "reviewed_rows": 5,
-      "fix_keys": 3,
-      "new_pair_keys": 0,
-      "keep_keys": 2,
-      "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json",
-        "_phase4_proofread/fixes_cross_register_qingxu_tournament_result_20260725.json"
-      ],
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH61_2026-07-25.md",
-      "ownership_summary": {
-        "existing_keys": 2,
-        "new_keys": 1,
-        "cross_register_keys": 1
-      },
-      "allusion_review_candidates": [],
-      "fact_doubts": [
-        "宇文逸首位を莫棄首位分岐へ遡及させない",
-        "湛盧剣の性能・使用結果・莫棄の接触を追加しない",
-        "傷の重さ・回復時期を清虚の問い以上に確定しない"
-      ],
-      "source_artifact": {
-        "workflow": "Relation audit extraction",
-        "run_id": 30118760320,
-        "artifact_id": 8606495032,
-        "digest": "sha256:757e84636c643bcea1fbbbf4c0da8f6ca129490cf7b20e96156158e0cb9784f3"
-      }
-    }
-  ],
-  "pilot_acceptance": {
-    "single_public_round_trip": true,
-    "single_translation_pr": true,
-    "keep_bundle_files_separate": true,
-    "post_merge_state_pr_retained_in_phase1": true
-  },
+    "new_pair_keys": 0,
+    "keep_keys": 2,
+    "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json", "_phase4_proofread/fixes_cross_register_qingxu_tournament_result_20260725.json"],
+    "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH61_2026-07-25.md",
+    "ownership_summary": {"existing_keys": 2, "new_keys": 1, "cross_register_keys": 1},
+    "allusion_review_candidates": [],
+    "fact_doubts": ["宇文逸首位を莫棄首位分岐へ遡及させない", "湛盧剣の性能・使用結果・莫棄の接触を追加しない", "傷の重さ・回復時期を清虚の問い以上に確定しない"],
+    "source_artifact": {"workflow": "Relation audit extraction", "run_id": 30118760320, "artifact_id": 8606495032, "digest": "sha256:757e84636c643bcea1fbbbf4c0da8f6ca129490cf7b20e96156158e0cb9784f3"}
+  }],
+  "pilot_acceptance": {"single_public_round_trip": true, "single_translation_pr": true, "keep_bundle_files_separate": true, "post_merge_state_pr_retained_in_phase1": true},
   "tracking_issue": 105,
-  "tracking_mode": "pull_request",
-  "applied_result": {
-    "apply_run": 30122728746,
-    "asset_head": "239a0aaa9a6ed7d27d7dc3642065529b6f50970e",
-    "pair_applied_keys": 1166,
-    "project_applied_keys": 1518,
-    "pending_fixes": 0,
-    "checkpoint_status": "verified"
-  },
-  "verified_result": {
-    "audit_head": "351c666c309a4f927472e74ae8e39c835c49610b",
-    "record_index_synced": true,
-    "pair_applied_keys": 1166,
-    "project_applied_keys": 1518,
-    "pending_fixes": 0
-  }
+  "tracking_mode": "completed",
+  "applied_result": {"apply_run": 30122728746, "asset_head": "f12089d1d74b18b6e25a916b9e8eb3536de0064a", "pair_applied_keys": 1166, "project_applied_keys": 1518, "pending_fixes": 0, "checkpoint_status": "verified"},
+  "verified_result": {"audit_head": "f12089d1d74b18b6e25a916b9e8eb3536de0064a", "record_index_synced": true, "translation_merge_sha": "f12089d1d74b18b6e25a916b9e8eb3536de0064a", "pair_applied_keys": 1166, "project_applied_keys": 1518, "pending_fixes": 0}
 }
