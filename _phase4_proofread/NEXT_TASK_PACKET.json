@@ -1,21 +1,21 @@
 {
   "schema_version": 3,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch57-planned",
+  "task_id": "yuwen-mowen-batch58-planned",
   "based_on_checkpoint": {
-    "batch": 56,
-    "pair_applied_keys": 1158,
-    "project_applied_keys": 1503,
-    "produced_by_pr": 94,
-    "translation_head": "8986d4f8ce8714eb54d3b2abf0be94da06cf0629",
-    "verified_head": "8986d4f8ce8714eb54d3b2abf0be94da06cf0629"
+    "batch": 57,
+    "pair_applied_keys": 1160,
+    "project_applied_keys": 1509,
+    "produced_by_pr": 96,
+    "translation_head": "673dc115220c99bbeaa1a2080b29438d2c6962a8",
+    "verified_head": "dacb0de0f34ceca7f53de29a2b9a4da71332c67a"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5359_3", "5359_4", "5359_5", "5360_10"],
+  "scene_groups": ["5370_1", "5388_1", "5389_2", "5389_4"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5359_3_Dlgs", "5359_4_Dlgs", "5359_5_Dlgs", "5360_10_Dlgs"],
+    "families": ["5370_1_Dlgs", "5388_1_Dlgs", "5389_2_Dlgs", "5389_4_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,106 +23,102 @@
   },
   "scene_flow": [
     {
-      "scene": "5359_3",
-      "function": "迎仙楼の夜、眠れない宇文逸と警戒を続ける莫問が話し、莫問が戸外の異変を察する",
-      "speaker_order": ["莫問", "宇文逸", "宇文逸", "莫問", "莫問", "莫問", "莫問"],
-      "focus_keys": [
-        "5359_3_Dlgs_Index0_Text", "5359_3_Dlgs_Index1_Text", "5359_3_Dlgs_Index2_Text", "5359_3_Dlgs_Index3_Text", "5359_3_Dlgs_Index4_Text", "5359_3_Dlgs_Index5_Text", "5359_3_Dlgs_Index7_Text"
-      ],
-      "voice_questions": [
-        "宇文逸の眠れない言いよどみと笑いを、説明的な不眠申告へ整えすぎないか",
-        "莫問の夜警、連続する異変への警戒、大師兄としての責任を同じ硬い訓戒へ均さないか",
-        "戸外の物音を確認前の察知として保ち、襲撃者や目的を先に確定しないか"
-      ]
-    },
-    {
-      "scene": "5359_4",
-      "function": "莫問が迷煙を見抜き、宇文逸へ息を止めるよう即座に命じる",
-      "speaker_order": ["莫問", "宇文逸"],
-      "focus_keys": ["5359_4_Dlgs_Index0_Text", "5359_4_Dlgs_Index1_Text"],
-      "voice_questions": [
-        "危機判断を説明文にせず、迷煙の識別から命令へ短く切り替えられるか",
-        "宇文逸の返答を復命調へ膨らませず、声を潜めた即答として保てるか"
-      ]
-    },
-    {
-      "scene": "5359_5",
-      "function": "莫問が受け身で待つことを拒み、自分は外を確認し、宇文逸には同行者を起こすよう役割を分ける",
+      "scene": "5370_1",
+      "function": "欧陽荘主の登場から品剣大会の開始を察し、莫問が武当の師弟たちへ席に戻るよう促す",
       "speaker_order": ["莫問", "莫問", "宇文逸"],
-      "focus_keys": ["5359_5_Dlgs_Index0_Text", "5359_5_Dlgs_Index1_Text", "5359_5_Dlgs_Index2_Text"],
+      "focus_keys": ["5370_1_Dlgs_Index0_Text", "5370_1_Dlgs_Index1_Text", "5370_1_Dlgs_Index2_Text"],
       "voice_questions": [
-        "坐以待毙を成句解説へせず、危機下で動く判断へ機能訳できるか",
-        "莫問の役割分担を自己犠牲や英雄的決意へ膨らませないか",
-        "宇文逸の短い了承に不要な感情説明を加えないか"
+        "莫問の欧陽荘主への認識と大会開始の判断を、実況説明ではなく周囲を見て動く兄弟子の声にできるか",
+        "複数の師弟への公的な指示を、私的な宇文逸への語尾と混同しないか",
+        "宇文逸の返答を過剰な復命調へしないか"
       ]
     },
     {
-      "scene": "5360_10",
-      "function": "襲撃後、毒を受けた慧空が杜彪と無名の危険を理由に宇文逸の単独追跡を止めようとする。宇文逸は捕らわれた莫棄を追う決意を変えず、目印と伝言を託す",
-      "speaker_order": ["慧空", "慧空", "宇文逸", "宇文逸", "慧空", "宇文逸", "慧空", "慧空"],
+      "scene": "5388_1",
+      "function": "方闊海との試合で傷ついた宇文逸が咳き込み、方闊海が勝ち誇って次の一刀を脅す。莫問が即座に割って入る",
+      "speaker_order": ["宇文逸", "方闊海", "方闊海", "莫問"],
+      "focus_keys": ["5388_1_Dlgs_Index0_Text", "5388_1_Dlgs_Index1_Text", "5388_1_Dlgs_Index2_Text", "5388_1_Dlgs_Index3_Text"],
+      "voice_questions": [
+        "宇文逸の咳を表記統一で処理せず、負傷後の呼吸として自然な文字種・強度にできるか",
+        "方闊海の笑い、見下し、次の一刀の脅しを同じ平板な悪役語へ均さないか",
+        "莫問の且慢を儀礼的な制止ではなく、弟弟子を守る即時の割り込みとして出せるか"
+      ]
+    },
+    {
+      "scene": "5389_2",
+      "function": "負傷した宇文逸を莫問が見舞い、翌日の試合に無理に出ず命を優先するよう静かに勧める分岐",
+      "speaker_order": ["宇文逸", "莫問", "莫問", "莫問", "宇文逸", "莫問"],
       "focus_keys": [
-        "5360_10_Dlgs_Index0_Text", "5360_10_Dlgs_Index1_Text", "5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index5_Text", "5360_10_Dlgs_Index6_Text", "5360_10_Dlgs_Index7_Text", "5360_10_Dlgs_Index8_Text"
+        "5389_2_Dlgs_Index0_Text", "5389_2_Dlgs_Index1_Text", "5389_2_Dlgs_Index2_Text", "5389_2_Dlgs_Index3_Text", "5389_2_Dlgs_Index4_Text", "5389_2_Dlgs_Index5_Text"
       ],
       "voice_questions": [
-        "慧空の制止を、毒を受けた状況と力量判断に基づく真摯な忠告として出せるか",
-        "杜彪の力量と無名の所在を、慧空の比較・推測以上の客観事実へしないか",
-        "宇文逸の莫棄への責任感を、無謀さの説明や結果の先取りへ変えないか",
-        "目印・莫問への伝言・後発の捜索を、確実に成功する計画として補強しないか"
+        "宇文逸の礼と回復申告を、痛みの消失や完治の確定へ広げないか",
+        "莫問の安堵、出場を控える提案、命を優先する教えを同じ訓戒口調へ均さないか",
+        "莫問の気遣いを過保護な感情説明へ膨らませず、選択肢と判断として示せるか",
+        "宇文逸の了承と礼、莫問の退室を自然な会話の終わりにできるか"
+      ]
+    },
+    {
+      "scene": "5389_4",
+      "function": "別分岐で、莫問が宇文逸の健闘を認めつつ、方闊海の功力を強引に高める秘術を警戒し、翌日の試合で注意するよう促す",
+      "speaker_order": ["宇文逸", "莫問", "莫問", "莫問", "宇文逸", "莫問"],
+      "focus_keys": [
+        "5389_4_Dlgs_Index0_Text", "5389_4_Dlgs_Index1_Text", "5389_4_Dlgs_Index2_Text", "5389_4_Dlgs_Index3_Text", "5389_4_Dlgs_Index4_Text", "5389_4_Dlgs_Index5_Text"
+      ],
+      "voice_questions": [
+        "5389_2と共通する礼・安堵・退室を同一訳として整合させながら、分岐固有の助言を潰さないか",
+        "方闊海の秘術を、莫問が知る範囲を越えた能力解説へしないか",
+        "翌日の注意を全面的な出場禁止や勝敗予告へ広げないか"
       ]
     }
   ],
   "batch_planning": {
-    "reviewed_rows": 20,
+    "reviewed_rows": 19,
     "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": ["5359_3", "5359_4", "5359_5", "5360_10"],
-    "grouping_decision": "5359_3〜5359_5の12行だけでは目標未満。間の襲撃・戦闘場面には宇文逸↔莫問の抽出行がなく、5360_10は同じ迷煙襲撃直後の追跡判断なので8行を併合する",
+    "adjacent_candidates_checked": ["5370_1", "5388_1", "5389_2", "5389_4"],
+    "grouping_decision": "5370_1の開会前3行と5388_1〜5389系の負傷・見舞い16行を、同じ品剣大会における莫問の公的指示・即時制止・私的な気遣いの変化としてまとめる。5389_2と5389_4は同一見舞い場面の分岐差分なので併読する",
     "exception": null
   },
   "allusion_and_fact_gates": {
-    "allusion_review_candidates": [
-      "坐以待毙は定着した成句として、受け身で待ってやられることを拒む場面判断へ機能訳する"
-    ],
+    "allusion_review_candidates": [],
     "fact_doubts": [
-      "戸外の物音の主、迷煙を放った人物、襲撃目的を察知段階で確定しない",
-      "師父が一行を託したことを、後の被害への莫問の客観的責任認定へ広げない",
-      "杜彪が一行全員より確実に強いこと、無名が実際に近くにいることを慧空の判断以上に確定しない",
-      "莫棄の捕縛後の状態、追跡結果、宇文逸の安全、莫問の帰還を先取りしない",
-      "慧空と慧平の中毒・負傷、治療後の捜索は場面内情報として保持し、回復時刻や成功を補わない"
+      "欧陽荘主の登場から大会が直ちに始まることを、莫問の推測以上に確定しない",
+      "宇文逸の咳から負傷部位・重症度・完治を補わない",
+      "方闊海が次の一刀で実際に制御を失うことを脅し以上の事実へしない",
+      "方闊海の秘術の仕組み・代償・持続時間を補わない",
+      "翌日の出場、勝敗、負傷悪化を分岐台詞から先取りしない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "5359_3の莫問Index0・3・4・5・7、5359_4の莫問Index0、5359_5の莫問Index0・1は既存第5束所有。5360_10の宇文逸Index2・3・6は既存第35束所有。未所有の人物ペア候補は5359_3の宇文逸Index1・2、5359_4の宇文逸Index1、5359_5の宇文逸Index2の4キー",
-    "cross_register": "5360_10の慧空Index0・1・5・7・8は慧空cross-registerの未所有候補",
+    "pair_batch": "既存第5束が5370_1の莫問Index1、5389_2の宇文逸Index0・4と莫問Index2・3・5、5389_4の宇文逸Index0・4と莫問Index2・3・5を所有する。5370_1の莫問Index0・宇文逸Index2、5388_1の宇文逸Index0・莫問Index3、5389_2と5389_4の莫問Index1は未所有の人物ペア候補",
+    "cross_register": "5388_1の方闊海Index1・2は方闊海cross-registerの未所有候補",
     "machine_ownership": {
       "existing": [
         {
           "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
           "keys": [
-            "5359_3_Dlgs_Index0_Text", "5359_3_Dlgs_Index3_Text", "5359_3_Dlgs_Index4_Text", "5359_3_Dlgs_Index5_Text", "5359_3_Dlgs_Index7_Text", "5359_4_Dlgs_Index0_Text", "5359_5_Dlgs_Index0_Text", "5359_5_Dlgs_Index1_Text"
+            "5370_1_Dlgs_Index1_Text",
+            "5389_2_Dlgs_Index0_Text", "5389_2_Dlgs_Index2_Text", "5389_2_Dlgs_Index3_Text", "5389_2_Dlgs_Index4_Text", "5389_2_Dlgs_Index5_Text",
+            "5389_4_Dlgs_Index0_Text", "5389_4_Dlgs_Index2_Text", "5389_4_Dlgs_Index3_Text", "5389_4_Dlgs_Index4_Text", "5389_4_Dlgs_Index5_Text"
           ]
-        },
-        {
-          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json",
-          "keys": ["5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index6_Text"]
         }
       ],
       "unowned": [
-        {"key": "5359_3_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
-        {"key": "5359_3_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
-        {"key": "5359_4_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
-        {"key": "5359_5_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
-        {"key": "5360_10_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
-        {"key": "5360_10_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
-        {"key": "5360_10_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
-        {"key": "5360_10_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
-        {"key": "5360_10_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"}
+        {"key": "5370_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch58.json"},
+        {"key": "5370_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch58.json"},
+        {"key": "5388_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch58.json"},
+        {"key": "5388_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_fangkuohai_injury_threat_20260724.json"},
+        {"key": "5388_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_fangkuohai_injury_threat_20260724.json"},
+        {"key": "5388_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch58.json"},
+        {"key": "5389_2_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch58.json"},
+        {"key": "5389_4_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch58.json"}
       ]
     },
     "do_not_do": [
-      "既存第5束・第35束所有キーを新規第57束へ重複追加しない",
+      "既存第5束所有キーを新規第58束へ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
-      "慧空のキーを宇文逸↔莫問の新規キー数へ算入しない",
-      "襲撃者、杜彪と無名の力量・所在、莫棄の状態、追跡結果を話者の認識以上に確定しない"
+      "方闊海のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "二つの5389分岐を一つの出来事として混ぜ、固有の助言を失わせない"
     ]
   },
   "skill_review": {
@@ -131,9 +127,9 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5359_3・5359_4・5359_5・5360_10の20行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
-    "ALLUSION_REVIEWとFACT_DOUBTを分離して記録",
-    "既存第5束・第35束再改訂、新規第57束、慧空cross-registerを所有者別に分離",
+    "5370_1・5388_1・5389_2・5389_4の19行を原文・現訳・前後文・話者・分岐・実所有とともに確認",
+    "FACT_DOUBTを記録し、典故候補がなければ無理に作らない",
+    "既存第5束再改訂、新規第58束、方闊海cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -141,9 +137,9 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第56束・1158キー・全1503キー・verified",
-    "open_pr": "未統合PRを検索し、activeなら最新HEADのActions・レビュー・未解決スレッドを確認する。activeがなければ第57束へ進む",
-    "start": "5359_3・5359_4・5359_5・5360_10の最新artifactを取得し、莫問・宇文逸・慧空の警戒、即応、追跡判断を20行で通読する",
+    "current": "宇文逸↔莫問・第57束・1160キー・全1509キー・pending_audit_sync",
+    "open_pr": "PR #96をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5370_1・5388_1・5389_2・5389_4の最新artifactを取得し、莫問の公的指示・即時制止・私的な気遣いを19行で通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
