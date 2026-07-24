@@ -91,7 +91,7 @@
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "5359_3の莫問Index0・3・4・5・7、5359_4の莫問Index0、5359_5の莫問Index0・1は既存第5束所有。5359_3の宇文逸Index1・2、5359_4の宇文逸Index1、5359_5の宇文逸Index2、5360_10の宇文逸Index2・3・6は未所有の人物ペア候補",
+    "pair_batch": "5359_3の莫問Index0・3・4・5・7、5359_4の莫問Index0、5359_5の莫問Index0・1は既存第5束所有。5360_10の宇文逸Index2・3・6は既存第35束所有。未所有の人物ペア候補は5359_3の宇文逸Index1・2、5359_4の宇文逸Index1、5359_5の宇文逸Index2の4キー",
     "cross_register": "5360_10の慧空Index0・1・5・7・8は慧空cross-registerの未所有候補",
     "machine_ownership": {
       "existing": [
@@ -100,6 +100,10 @@
           "keys": [
             "5359_3_Dlgs_Index0_Text", "5359_3_Dlgs_Index3_Text", "5359_3_Dlgs_Index4_Text", "5359_3_Dlgs_Index5_Text", "5359_3_Dlgs_Index7_Text", "5359_4_Dlgs_Index0_Text", "5359_5_Dlgs_Index0_Text", "5359_5_Dlgs_Index1_Text"
           ]
+        },
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json",
+          "keys": ["5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index6_Text"]
         }
       ],
       "unowned": [
@@ -109,16 +113,13 @@
         {"key": "5359_5_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
         {"key": "5360_10_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
         {"key": "5360_10_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
-        {"key": "5360_10_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
-        {"key": "5360_10_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
         {"key": "5360_10_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
-        {"key": "5360_10_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch57.json"},
         {"key": "5360_10_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"},
         {"key": "5360_10_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json"}
       ]
     },
     "do_not_do": [
-      "既存第5束所有キーを新規第57束へ重複追加しない",
+      "既存第5束・第35束所有キーを新規第57束へ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
       "慧空のキーを宇文逸↔莫問の新規キー数へ算入しない",
       "襲撃者、杜彪と無名の力量・所在、莫棄の状態、追跡結果を話者の認識以上に確定しない"
@@ -132,7 +133,7 @@
   "expected_outputs": [
     "5359_3・5359_4・5359_5・5360_10の20行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
     "ALLUSION_REVIEWとFACT_DOUBTを分離して記録",
-    "既存第5束再改訂、新規第57束、慧空cross-registerを所有者別に分離",
+    "既存第5束・第35束再改訂、新規第57束、慧空cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
