@@ -29,6 +29,7 @@ jobs:
       - name: Unit tests
         run: |
           python _tools/test_check_handoff_consistency.py
+          python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_apply_fixes_json.py
           python _tools/test_extract_relation_context.py
 

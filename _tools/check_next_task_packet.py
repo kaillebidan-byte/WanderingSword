@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
 WORK_PATH = P4 / "CURRENT_WORK.json"
 PACKET_PATH = P4 / "NEXT_TASK_PACKET.json"
+FIX_GLOB = "fixes_*.json"
+FIELD_SEPARATOR = "\x1f"
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -34,10 +36,145 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help=(
             "pending_audit_sync中は旧verified checkpoint由来のパケット保持を許容する。"
-            "checkpointがverifiedなら通常どおり完全一致を要求する"
+            "また、未所有候補がpacketで宣言したplanned_ownerへ同一PR内で収録された状態を許容する。"
+            "checkpointがverifiedならcheckpoint・場面一致は通常どおり要求する"
         ),
     )
     return parser.parse_args()
+
+
+def full_key(source: dict[str, Any], short_key: str) -> str:
+    return FIELD_SEPARATOR.join(
+        (str(source.get("target", "")), str(source.get("namespace", "")), short_key)
+    )
+
+
+def collect_fix_owners(errors: list[str]) -> dict[str, list[str]]:
+    owners: dict[str, list[str]] = {}
+    for path in sorted(P4.glob(FIX_GLOB)):
+        try:
+            value = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            errors.append(f"cannot read ownership source {path.relative_to(ROOT)}: {exc}")
+            continue
+        if not isinstance(value, dict):
+            errors.append(f"ownership source must be object: {path.relative_to(ROOT)}")
+            continue
+        rel = path.relative_to(ROOT).as_posix()
+        for key in value:
+            if isinstance(key, str) and key.count(FIELD_SEPARATOR) == 2:
+                owners.setdefault(key, []).append(rel)
+    return owners
+
+
+def validate_machine_ownership(
+    packet: dict[str, Any],
+    owners: dict[str, list[str]],
+    *,
+    allow_consumed: bool,
+    errors: list[str],
+    transitions: list[str],
+) -> None:
+    ownership = packet.get("ownership_boundary", {})
+    machine = ownership.get("machine_ownership") if isinstance(ownership, dict) else None
+    if not isinstance(machine, dict):
+        errors.append("ownership_boundary.machine_ownership must be an object")
+        return
+
+    existing = machine.get("existing")
+    unowned = machine.get("unowned")
+    if not isinstance(existing, list):
+        errors.append("machine_ownership.existing must be a list")
+        existing = []
+    if not isinstance(unowned, list):
+        errors.append("machine_ownership.unowned must be a list")
+        unowned = []
+
+    source = packet.get("source", {})
+    flow = packet.get("scene_flow", [])
+    focus_keys: list[str] = []
+    if isinstance(flow, list):
+        for item in flow:
+            if isinstance(item, dict) and isinstance(item.get("focus_keys"), list):
+                focus_keys.extend(key for key in item["focus_keys"] if isinstance(key, str))
+
+    if len(focus_keys) != len(set(focus_keys)):
+        errors.append("scene_flow focus_keys must not contain duplicates")
+    focus_set = set(focus_keys)
+    claimed: dict[str, str] = {}
+
+    def claim(short_key: str, label: str) -> None:
+        if short_key in claimed:
+            errors.append(
+                f"machine ownership duplicate claim: {short_key!r} in {claimed[short_key]} and {label}"
+            )
+        claimed[short_key] = label
+        if short_key not in focus_set:
+            errors.append(f"machine ownership claims non-focus key: {short_key!r}")
+
+    for index, entry in enumerate(existing):
+        if not isinstance(entry, dict):
+            errors.append(f"machine_ownership.existing[{index}] must be an object")
+            continue
+        path = entry.get("path")
+        keys = entry.get("keys")
+        if not isinstance(path, str) or not path.startswith("_phase4_proofread/fixes_") or not path.endswith(".json"):
+            errors.append(f"machine_ownership.existing[{index}].path is invalid: {path!r}")
+            continue
+        if not isinstance(keys, list) or not keys:
+            errors.append(f"machine_ownership.existing[{index}].keys must be a non-empty list")
+            continue
+        if not (ROOT / path).is_file():
+            errors.append(f"declared ownership source does not exist: {path}")
+        for short_key in keys:
+            if not isinstance(short_key, str):
+                errors.append(f"machine_ownership.existing[{index}] contains non-string key")
+                continue
+            claim(short_key, path)
+            observed = owners.get(full_key(source, short_key), [])
+            if path not in observed:
+                errors.append(
+                    f"ownership mismatch for {short_key}: declared={path!r}, observed={observed!r}"
+                )
+            if len(observed) > 1:
+                errors.append(f"multiple fix owners for {short_key}: {observed!r}")
+
+    for index, entry in enumerate(unowned):
+        if not isinstance(entry, dict):
+            errors.append(f"machine_ownership.unowned[{index}] must be an object")
+            continue
+        short_key = entry.get("key")
+        planned_owner = entry.get("planned_owner")
+        if not isinstance(short_key, str):
+            errors.append(f"machine_ownership.unowned[{index}].key must be a string")
+            continue
+        if (
+            not isinstance(planned_owner, str)
+            or not planned_owner.startswith("_phase4_proofread/fixes_")
+            or not planned_owner.endswith(".json")
+        ):
+            errors.append(
+                f"machine_ownership.unowned[{index}].planned_owner is invalid: {planned_owner!r}"
+            )
+            continue
+        claim(short_key, f"unowned->{planned_owner}")
+        observed = owners.get(full_key(source, short_key), [])
+        if not observed:
+            continue
+        if allow_consumed and observed == [planned_owner]:
+            transitions.append(f"planned owner consumed {short_key}: {planned_owner}")
+            continue
+        errors.append(
+            f"key declared unowned is already owned: {short_key}, observed={observed!r}, "
+            f"planned_owner={planned_owner!r}"
+        )
+
+    missing = sorted(focus_set - set(claimed))
+    extra = sorted(set(claimed) - focus_set)
+    if missing:
+        errors.append(f"machine ownership does not cover focus keys: {missing!r}")
+    if extra:
+        errors.append(f"machine ownership contains extra keys: {extra!r}")
 
 
 def main() -> int:
@@ -45,6 +182,7 @@ def main() -> int:
     work = load(WORK_PATH)
     packet = load(PACKET_PATH)
     errors: list[str] = []
+    transitions: list[str] = []
 
     checkpoint = work.get("checkpoint", {})
     checkpoint_status = checkpoint.get("status")
@@ -111,6 +249,14 @@ def main() -> int:
     ownership = packet.get("ownership_boundary", {})
     if not ownership.get("pair_batch") or not ownership.get("cross_register"):
         errors.append("ownership_boundary must define pair_batch and cross_register")
+    owners = collect_fix_owners(errors)
+    validate_machine_ownership(
+        packet,
+        owners,
+        allow_consumed=args.allow_pending,
+        errors=errors,
+        transitions=transitions,
+    )
 
     skill = packet.get("skill_review", {})
     if skill.get("default") != "no_change":
@@ -141,13 +287,15 @@ def main() -> int:
             "TRANSITIONAL: CURRENT_WORKは次束へ進んでいるが、"
             "NEXT_TASK_PACKETは監査索引同期とverified確定まで旧checkpoint版を保持する"
         )
+    for message in transitions:
+        print(f"TRANSITIONAL: {message}")
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    if allow_transitional:
-        print("OK TRANSITIONAL: packet structure valid; checkpoint/scene一致はverified時に再検査")
+    if allow_transitional or transitions:
+        print("OK TRANSITIONAL: packet structure and machine ownership are valid")
     else:
         print("OK: cold-start packet is complete and matches CURRENT_WORK")
     return 0
