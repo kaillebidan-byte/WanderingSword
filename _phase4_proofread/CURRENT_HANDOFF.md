@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #82 `agent/yuwen-mowen-batch50-review`
 - checkpointを生成した翻訳PR: #82
 - 直近の統合済み翻訳PR: #80
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #82が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。botの監査索引書き戻し後、checkpointを`verified`へ確定し、最終HEADで三本成功後に統合する。統合済みなら第51束へ入る。
+PR #82が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。最終HEADで三本成功後に統合する。統合済みなら第51束へ入る。
 
 ## 第50束で完了したこと
 
@@ -64,11 +64,13 @@ PR #82が開いている間は `active` とし、最新HEADのRelation audit、C
 - 再改訂・cross-registerのみのゼロ増分束でも、適用記録を正本として完了束を進める
 - 回帰テストで、件数3を維持したままbatch2→batch3へ進む例を追加した
 
+実地検証では、人物ペア1139キーを維持したまま `translation_reaudited=batch50_complete_next_scenes_pending`、`build_verified=batch50_complete` へ進んだ。
+
 翻訳判断は既存skillで扱えたため、skill本体と人物資料は変更していない。ゼロ増分束の状態表現は監査・CI制度の問題として修正した。
 
 ## 次の校正
 
-状態同期後、`5345_1` の7行を第51束として監査する。
+active PRがなくなれば、`5345_1` の7行を第51束として監査する。
 
 - 清虚が名剣山荘へ同行しないことを告げる
 - 大会中の判断を清霄へ託し、清霄が先行して各派と要事を協議する
@@ -76,11 +78,11 @@ PR #82が開いている間は `active` とし、最新HEADのRelation audit、C
 - 莫問が師命へ短く応じる
 - 清霄が一同へ支度を命じ、宇文逸だけを残す
 
-7キーは現時点で未所有候補として機械表に置いた。
+実所有は次のとおり。
 
-- 清虚Index0〜3: 変更時は清虚cross-register
-- 莫問Index4・宇文逸Index6: 変更時は新規第51束
-- 清霄Index5: 変更時は清霄cross-register
+- 清霄Index5: 既存の宇文逸↔清霄第2束所有。変更時は元束を直接再改訂する
+- 清虚Index0〜3: 未所有候補。変更時は清虚cross-register
+- 莫問Index4・宇文逸Index6: 未所有候補。変更時は新規第51束
 
 清虚が同行しない理由、清霄が協議する要事の内容、莫問が引率する三人の具体名、清霄が宇文逸だけを残す理由は補わない。機械所有検査で既存所有が見つかった場合は、自由記述ではなく実修正JSONに合わせてパケットを訂正する。
 
