@@ -3,47 +3,35 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "23cb0273c74406059b61d4f1ad7214ec98f5f0a9",
-  "state_base_commit": "23cb0273c74406059b61d4f1ad7214ec98f5f0a9",
+  "translation_base_commit": "b27576ffbf2fea04170ac71d0ec3b04ee1bbacf2",
+  "state_base_commit": "3fd8ae1bb197d310638d9defca1492b0018a7af1",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 47,
-  "pair_applied_keys": 1134,
-  "project_applied_keys": 1418,
+  "last_completed_batch": 48,
+  "pair_applied_keys": 1138,
+  "project_applied_keys": 1422,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 76,
   "checkpoint": {
-    "status": "verified",
-    "batch": 47,
-    "pair_applied_keys": 1134,
-    "project_applied_keys": 1418,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH47_2026-07-24.md",
-    "produced_by_pr": 76,
-    "translation_head": "23cb0273c74406059b61d4f1ad7214ec98f5f0a9",
-    "verified_head": "23cb0273c74406059b61d4f1ad7214ec98f5f0a9"
+    "status": "pending_audit_sync",
+    "batch": 48,
+    "pair_applied_keys": 1138,
+    "project_applied_keys": 1422,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH48_2026-07-24.md",
+    "produced_by_pr": 78,
+    "translation_head": "b27576ffbf2fea04170ac71d0ec3b04ee1bbacf2",
+    "verified_head": "b8402ec6c5b0ce1d981e075c342652624459d097"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
     "triage_states": ["active", "superseded", "abandoned", "unrelated"],
     "known_superseded": [
-      {
-        "pr": 38,
-        "superseded_by": 39,
-        "reason": "同じ第21束を固定ブランチから再作成し、#39で検証・適用・統合済み"
-      },
-      {
-        "pr": 74,
-        "superseded_by": 76,
-        "reason": "第47束のpull_requestイベントが生成されず、main最新点から置換PRを作成"
-      },
-      {
-        "pr": 75,
-        "superseded_by": 76,
-        "reason": "同じ第47束の置換PRでもイベント生成が遅延したため、新ブランチの#76へ集約"
-      }
+      {"pr": 38, "superseded_by": 39, "reason": "同じ第21束を固定ブランチから再作成し、#39で検証・適用・統合済み"},
+      {"pr": 74, "superseded_by": 76, "reason": "第47束のpull_requestイベントが生成されず、main最新点から置換PRを作成"},
+      {"pr": 75, "superseded_by": 76, "reason": "同じ第47束の置換PRでもイベント生成が遅延したため、新ブランチの#76へ集約"}
     ],
     "replacement_rule": "置換PRを作った時点で旧PRへ置換先をコメントし、旧PRを閉じる。開いているという理由だけで現行作業と判定しない。"
   },
@@ -61,80 +49,18 @@
     "next_task_packet_required": true,
     "next_task_packet": "_phase4_proofread/NEXT_TASK_PACKET.json",
     "cold_start_acceptance": "_phase4_proofread/COLD_START_ACCEPTANCE.md",
-    "startup_checks": [
-      "mainの最新状態",
-      "未統合PRとhead SHA",
-      "未統合PRがactiveかsupersededかの分類",
-      "変更ファイル、レビュー、未解決スレッド",
-      "head SHAのGitHub Actions",
-      "bot書き戻し後のaction_required判定",
-      "直近のmerged PR",
-      "CURRENT_WORKとaudit_statusの整合",
-      "checkpoint状態と適用記録",
-      "NEXT_TASK_PACKETとCURRENT_WORKの整合",
-      "最新relation artifactの取得方法と鮮度",
-      "既存修正束との競合"
-    ],
-    "state_resolution_order": [
-      "activeと判定した未統合PRとActions",
-      "merged済みだが未反映の状態文書",
-      "CURRENT_WORK.immediate_nextとNEXT_TASK_PACKET"
-    ],
-    "first_report": [
-      "現在ペア・完了束・累計・checkpoint状態",
-      "未統合PRの分類とCI状態",
-      "直ちに着手する場面・作業",
-      "古い資料や矛盾の扱い"
-    ]
+    "startup_checks": ["mainの最新状態", "未統合PRとhead SHA", "未統合PRがactiveかsupersededかの分類", "変更ファイル、レビュー、未解決スレッド", "head SHAのGitHub Actions", "bot書き戻し後のaction_required判定", "直近のmerged PR", "CURRENT_WORKとaudit_statusの整合", "checkpoint状態と適用記録", "NEXT_TASK_PACKETとCURRENT_WORKの整合", "最新relation artifactの取得方法と鮮度", "既存修正束との競合"],
+    "state_resolution_order": ["activeと判定した未統合PRとActions", "merged済みだが未反映の状態文書", "CURRENT_WORK.immediate_nextとNEXT_TASK_PACKET"],
+    "first_report": ["現在ペア・完了束・累計・checkpoint状態", "未統合PRの分類とCI状態", "直ちに着手する場面・作業", "古い資料や矛盾の扱い"]
   },
   "immediate_next": {
-    "scene_groups": ["5302_2", "5302_3", "5302_4"],
-    "task": "平康城任務後の夜稽古として、莫問の慰めと武学指導、宇文逸の反省、莫問の家族への言及までを連続場面として監査する。",
-    "boundary": "5302_2・5302_3・5302_4は既存第4束の所有が多い。新規束へ重複させず、必要な修正は第4束を直接再改訂する。罪証取得、宇文逸の衝動、莫問の出自は各台詞が示す範囲を越えて補わない。",
+    "scene_groups": ["5303_1"],
+    "task": "夜稽古後の宇文逸の独白として、莫問との似た境遇、叔父への軽い愚痴、莫問への感謝、品剣大会への期待、翌日の師門任務までを一続きで監査する。",
+    "boundary": "宇文逸の内心として発声を整える。両親の不在、叔父の頼もしさ、莫問の好み、品剣大会への参加可否、翌日の予定は原文が示す範囲を越えて確定しない。既存第4束所有キーは新規束へ重複させない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
-  "mandatory_read_order": [
-    "README.md",
-    "AGENTS.md",
-    "_phase4_proofread/SESSION_BOOTSTRAP.md",
-    "_phase4_proofread/CURRENT_WORK.json",
-    "_phase4_proofread/CURRENT_HANDOFF.md",
-    "_phase4_proofread/NEXT_TASK_PACKET.json",
-    "_phase4_proofread/COLD_START_ACCEPTANCE.md",
-    "_phase4_proofread/audit_status.json",
-    "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
-    ".agents/skills/zhja-game-translation-codex/SKILL.md",
-    ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
-    ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
-    ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
-    "10_人物/宇文逸.md",
-    "10_人物/莫問.md"
-  ],
-  "source_priority": [
-    "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
-    "GitHub上でactiveと判定した未統合PR・最新HEAD・Actionsの実状態",
-    "設定・用語・デプロイ境界の正本",
-    "CURRENT_WORK.jsonのverified checkpointとNEXT_TASK_PACKET",
-    "audit_status.jsonの品質段階・累計",
-    "ペルソナ・関係性マップ",
-    "TODO・過去の監査記録・適用記録",
-    "_handover.mdの履歴"
-  ],
-  "non_negotiable_principles": [
-    "最優先は、その人物がその相手へその時点で実際に発する声として成立すること。",
-    "笑い・咳・息・叫び・間・文字種を表記統一へ押し込まず、人物と場面で裁定する。",
-    "典故疑義と設定事実疑義を別々に通し、原文の曖昧さや人物の誤認を勝手に解消しない。",
-    "中国語構文を移した硬い訳を、意味を保った自然な日本語の語順・切れ目・助詞省略へ再構成する。",
-    "ペルソナ、関係性マップ、完成例、過去の適用記録、NEXT_TASK_PACKETは作業仮説であり、一次資料の反例があれば資料側を直す。",
-    "skillは毎束変更せず、複数人物・複数場面へ一般化できる新知見または既存規則への反例がある場合だけ改修する。",
-    "修正束は場面または同じ崩れ方で区切り、既存束との同一キー異値競合を適用前に止める。",
-    "話者接頭辞、タグ、改行、プレースホルダを保持し、locres反映、pak再生成、ゼロ差分、lint、関係抽出、回帰、LFSまで確認する。",
-    "ゲームフォルダへの配置とゲーム内確認は行わない。"
-  ],
-  "known_document_drift": [
-    "audit_status.jsonのcurrent.next_actionは即時作業より古い場合がある。即時着手先はCURRENT_WORKとNEXT_TASK_PACKETを優先する。",
-    "_TODO.mdの宇文逸↔莫問の束数・累計・次場面は更新が遅れることがある。横断課題だけを参照する。",
-    "10_人物/莫問.mdの適用済み範囲・次の監査・完成例には旧束の記述が残る場合がある。声の核と関係段階も一次資料で再検証する。",
-    "_handover.mdは履歴アーカイブであり、先頭見出しを最新作業と解釈しない。"
-  ]
+  "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md"],
+  "source_priority": ["原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐", "GitHub上でactiveと判定した未統合PR・最新HEAD・Actionsの実状態", "設定・用語・デプロイ境界の正本", "CURRENT_WORK.jsonのverified checkpointとNEXT_TASK_PACKET", "audit_status.jsonの品質段階・累計", "ペルソナ・関係性マップ", "TODO・過去の監査記録・適用記録", "_handover.mdの履歴"],
+  "non_negotiable_principles": ["最優先は、その人物がその相手へその時点で実際に発する声として成立すること。", "笑い・咳・息・叫び・間・文字種を表記統一へ押し込まず、人物と場面で裁定する。", "典故疑義と設定事実疑義を別々に通し、原文の曖昧さや人物の誤認を勝手に解消しない。", "中国語構文を移した硬い訳を、意味を保った自然な日本語の語順・切れ目・助詞省略へ再構成する。", "ペルソナ、関係性マップ、完成例、過去の適用記録、NEXT_TASK_PACKETは作業仮説であり、一次資料の反例があれば資料側を直す。", "skillは毎束変更せず、複数人物・複数場面へ一般化できる新知見または既存規則への反例がある場合だけ改修する。", "修正束は場面または同じ崩れ方で区切り、既存束との同一キー異値競合を適用前に止める。", "話者接頭辞、タグ、改行、プレースホルダを保持し、locres反映、pak再生成、ゼロ差分、lint、関係抽出、回帰、LFSまで確認する。", "ゲームフォルダへの配置とゲーム内確認は行わない。"],
+  "known_document_drift": ["audit_status.jsonのcurrent.next_actionは即時作業より古い場合がある。即時着手先はCURRENT_WORKとNEXT_TASK_PACKETを優先する。", "_TODO.mdの宇文逸↔莫問の束数・累計・次場面は更新が遅れることがある。横断課題だけを参照する。", "10_人物/莫問.mdの適用済み範囲・次の監査・完成例には旧束の記述が残る場合がある。声の核と関係段階も一次資料で再検証する。", "_handover.mdは履歴アーカイブであり、先頭見出しを最新作業と解釈しない。"]
 }
