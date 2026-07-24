@@ -26,7 +26,7 @@
     "verified_head": "74ddd6fd862d3c4c8adca767b58119f47c0bc373"
   },
   "operation_mode": {
-    "declared_state": "private_translation_work",
+    "declared_state": "ready_for_public_ci",
     "protocol": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
     "actual_visibility_source": "github_repository_metadata",
     "visibility_change_actor": "user",
@@ -49,6 +49,12 @@
     "open_pr_only_after_ready": true,
     "public_translation_forbidden": true,
     "deep_failure_returns_private": true
+  },
+  "process_review": {
+    "status": "observation_only",
+    "topic": "public_ci_cadence",
+    "note": "_phase4_proofread/CI_CADENCE_REVIEW_NOTES_2026-07-25.md",
+    "proposal_after": "batch60_public_ci_complete"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -144,12 +150,15 @@
     "_phase4_proofread/COLD_START_ACCEPTANCE.md",
     "_phase4_proofread/audit_status.json",
     "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+    "_phase4_proofread/CI_CADENCE_REVIEW_NOTES_2026-07-25.md",
     ".agents/skills/zhja-game-translation-codex/SKILL.md",
     ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
     ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
     ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
     "10_人物/宇文逸.md",
-    "10_人物/莫問.md"
+    "10_人物/莫問.md",
+    "10_人物/元鳴.md",
+    "10_人物/莫棄.md"
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
