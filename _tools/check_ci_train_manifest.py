@@ -71,6 +71,19 @@ def release_state(manifest: dict[str, Any]) -> tuple[bool, list[str]]:
     return bool(reached), reached
 
 
+def _compare_mapping(
+    label: str,
+    observed: dict[str, Any],
+    expected: dict[str, Any],
+    errors: list[str],
+) -> None:
+    for key, value in expected.items():
+        if observed.get(key) != value:
+            errors.append(
+                f"{label} {key} mismatch: observed={observed.get(key)!r} expected={value!r}"
+            )
+
+
 def validate_manifest(
     manifest: dict[str, Any],
     current: dict[str, Any],
@@ -106,24 +119,10 @@ def validate_manifest(
     if not isinstance(allowed, list) or set(allowed) != ALLOWED_EARLY_RELEASE:
         errors.append("allowed_early_release_reasons must match the phase1 allowlist")
 
-    checkpoint = current.get("checkpoint", {})
-    base = manifest.get("base_checkpoint")
-    if not isinstance(base, dict):
-        errors.append("base_checkpoint must be an object")
-        base = {}
-    expected_base = {
-        "batch": checkpoint.get("batch"),
-        "pair_applied_keys": checkpoint.get("pair_applied_keys"),
-        "project_applied_keys": checkpoint.get("project_applied_keys"),
-        "produced_by_pr": checkpoint.get("produced_by_pr"),
-        "translation_head": checkpoint.get("translation_head"),
-        "verified_head": checkpoint.get("verified_head"),
-    }
-    for key, expected in expected_base.items():
-        if base.get(key) != expected:
-            errors.append(
-                f"base_checkpoint {key} mismatch: manifest={base.get(key)!r} current={expected!r}"
-            )
+    checkpoint = current.get("checkpoint")
+    if not isinstance(checkpoint, dict):
+        errors.append("CURRENT_WORK.checkpoint must be an object")
+        checkpoint = {}
 
     current_train = current.get("ci_train")
     if not isinstance(current_train, dict):
@@ -142,6 +141,61 @@ def validate_manifest(
     if current_train.get("caps") != PILOT_CAPS:
         errors.append("CURRENT_WORK.ci_train.caps mismatch")
 
+    base = manifest.get("base_checkpoint")
+    if not isinstance(base, dict):
+        errors.append("base_checkpoint must be an object")
+        base = {}
+
+    base_batch = base.get("batch")
+    declared_base_batch = current_train.get("base_checkpoint_batch")
+    if base_batch != declared_base_batch:
+        errors.append(
+            "base_checkpoint batch must match CURRENT_WORK.ci_train.base_checkpoint_batch: "
+            f"manifest={base_batch!r} current_train={declared_base_batch!r}"
+        )
+
+    checkpoint_batch = checkpoint.get("batch")
+    checkpoint_advanced = (
+        isinstance(base_batch, int)
+        and isinstance(checkpoint_batch, int)
+        and checkpoint_batch > base_batch
+    )
+
+    # 蓄積中とrelease直前は、列車の出発checkpointとCURRENT_WORKの確定点が同一。
+    # 適用後はmanifest.base_checkpointを出発点として固定し、進んだcheckpointは
+    # applied_resultと束末尾に対して別に検査する。
+    if not checkpoint_advanced:
+        expected_base = {
+            "batch": checkpoint.get("batch"),
+            "pair_applied_keys": checkpoint.get("pair_applied_keys"),
+            "project_applied_keys": checkpoint.get("project_applied_keys"),
+            "produced_by_pr": checkpoint.get("produced_by_pr"),
+            "translation_head": checkpoint.get("translation_head"),
+            "verified_head": checkpoint.get("verified_head"),
+        }
+        _compare_mapping("base_checkpoint", base, expected_base, errors)
+    else:
+        if status not in {"in_public_ci", "verified"}:
+            errors.append("checkpoint may advance beyond train base only in_public_ci or verified")
+        checkpoint_status = checkpoint.get("status")
+        if checkpoint_status not in {"pending_audit_sync", "verified"}:
+            errors.append(
+                "advanced train checkpoint must be pending_audit_sync or verified: "
+                f"{checkpoint_status!r}"
+            )
+        applied = current_train.get("applied_result")
+        if not isinstance(applied, dict):
+            errors.append("advanced train checkpoint requires CURRENT_WORK.ci_train.applied_result")
+        else:
+            expected_applied = {
+                "pair_applied_keys": checkpoint.get("pair_applied_keys"),
+                "project_applied_keys": checkpoint.get("project_applied_keys"),
+                "asset_head": checkpoint.get("translation_head"),
+            }
+            _compare_mapping("ci_train.applied_result", applied, expected_applied, errors)
+            if applied.get("pending_fixes") != 0:
+                errors.append("ci_train.applied_result.pending_fixes must be 0")
+
     bundles = manifest.get("bundles")
     if not isinstance(bundles, list):
         errors.append("bundles must be a list")
@@ -155,7 +209,6 @@ def validate_manifest(
         "fix_keys": 0,
         "new_pair_keys": 0,
     }
-    base_batch = base.get("batch")
     expected_batch = base_batch + 1 if isinstance(base_batch, int) else None
 
     for index, bundle in enumerate(bundles):
@@ -172,7 +225,7 @@ def validate_manifest(
             seen_batches.add(batch)
             if expected_batch is not None and batch != expected_batch:
                 errors.append(
-                    f"bundle batches must be consecutive from checkpoint: "
+                    "bundle batches must be consecutive from checkpoint: "
                     f"expected {expected_batch}, got {batch}"
                 )
             expected_batch = batch + 1
@@ -221,6 +274,16 @@ def validate_manifest(
             for key in ("existing_keys", "new_keys", "cross_register_keys"):
                 if not _nonnegative_int(ownership.get(key)):
                     errors.append(f"{label}.ownership_summary.{key} must be non-negative")
+
+    if checkpoint_advanced:
+        last_bundle_batch = bundles[-1].get("batch") if bundles and isinstance(bundles[-1], dict) else None
+        if checkpoint_batch != last_bundle_batch:
+            errors.append(
+                "advanced checkpoint batch must equal final train bundle: "
+                f"checkpoint={checkpoint_batch!r} final_bundle={last_bundle_batch!r}"
+            )
+    if status == "verified" and checkpoint.get("status") != "verified":
+        errors.append("verified manifest requires verified CURRENT_WORK checkpoint")
 
     totals = manifest.get("totals")
     if not isinstance(totals, dict):
