@@ -10,30 +10,30 @@
 
 ## 現在地
 
-- 実visibility: public
-- active PR: #106 `agent/ci-train-phase1-pilot`
-- CI列車: `yuwen-mowen-train-01` / `verified`
+- 実visibility: public。状態PR統合後にprivate復帰が必要
+- 第61束翻訳PR #106: squash統合済み
+- translation squash: `f12089d1d74b18b6e25a916b9e8eb3536de0064a`
+- CI列車第一段階: `verified_single_round_trip`
 - 第61束 `5452_1`: 5行、3修正、2保持
 - 人物ペア適用: 1166
 - プロジェクト全体: 1518
-- checkpoint: `verified`
-- Apply成功run: `30122728746`
-- 適用資産HEAD: `239a0aaa9a6ed7d27d7dc3642065529b6f50970e`
-- 監査索引同期HEAD: `351c666c309a4f927472e74ae8e39c835c49610b`
-- 次場面: 第62束 `5455_1`（public中は着手しない）
+- checkpoint: 第61束 / `verified`
+- 次の翻訳束: 第62束 `5455_1`
 
-## 第一段階で確認できたこと
+## 第一段階の結果
 
 - review済み小束と適用済みcheckpointを分離できた
-- 列車の出発checkpoint第60束を固定したまま、第61束をpendingからverifiedへ進められた
-- manifestの閾値・上限・連番・所有・早期releaseを専用gateで検査できた
-- 次束番号を列車出発点と積載束数から復元できた
-- 3修正を一度のApplyでlocresへ反映し、pak再生成、未適用0件、回帰、LFSを確認した
+- 列車の出発checkpointを固定したまま、適用後checkpointをpendingからverifiedへ進められた
+- manifest、operation mode、次束所有、冷間再開を専用gateで検査できた
+- Relation / Cross / Apply / CI train gateの四本が最終HEADで成功した
+- 翻訳PRは一つ、visibility往復は一回で処理した
 
-## 残り
+## 次の作業
 
-1. 最終HEADでRelation / Cross / Apply / CI train gateを成功させる
-2. 未解決thread 0件を確認し、PR #106をsquash統合する
-3. 第一段階ではpost-merge状態PRを作成・統合する
-4. 公開CI窓完了後、privateへ戻す
-5. private確認後、第二段階制度改修へ進む
+1. このpost-merge状態PRを四本成功・未解決thread 0件でsquash統合する
+2. `privateへ戻してください。`と依頼する
+3. privateをmetadataで確認する
+4. 第二段階制度改修を翻訳より先に行う
+5. 第二段階完了後、第62束`5455_1`へ戻る
+
+第二段階では、squash SHA参照付け替えによるpost-merge状態PRと、bot書き戻し後の重複検査を削減する仕組みを実装する。
