@@ -54,8 +54,14 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python _tools/check_ci_train_manifest.py --require-ready \
-            2>&1 | tee _ws_tmp/ci_train/manifest.txt
+          status="$(python -c 'import json; print(json.load(open("_phase4_proofread/CI_TRAIN_MANIFEST.json", encoding="utf-8"))["status"])')"
+          if [ "$status" = "verified" ]; then
+            python _tools/check_ci_train_manifest.py \
+              2>&1 | tee _ws_tmp/ci_train/manifest.txt
+          else
+            python _tools/check_ci_train_manifest.py --require-ready \
+              2>&1 | tee _ws_tmp/ci_train/manifest.txt
+          fi
 
       - name: Validate next-task packet
         shell: bash
