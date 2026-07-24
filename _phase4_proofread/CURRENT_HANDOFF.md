@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #96 `agent/yuwen-mowen-batch57-review`
 - checkpointを生成した翻訳PR: #96
 - 直近の統合済み翻訳PR: #94
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #96が開いている間はactiveとして扱う。第57束の監査索引、件数、適用記録、第58束の19行パケットを同期中。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
+PR #96が開いている間はactiveとして扱う。第57束の監査索引、件数、適用記録、第58束の19行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
 
 ## 第57束で完了したこと
 
@@ -64,7 +64,7 @@ PR #96が開いている間はactiveとして扱う。第57束の監査索引、
 
 19行で通読目標内。品剣大会における莫問の公的指示・即時制止・私的な気遣いの変化としてまとめ、5389_2と5389_4は同一見舞い場面の分岐差分として併読する。
 
-既存第5束が11キーを所有する。未所有候補は宇文逸・莫問6キーと方闊海2キーで、`NEXT_TASK_PACKET.json`の機械所有検査により全fix JSONと照合する。
+実所有は既存第5束11キー、未所有の人物ペア6キー、未所有の方闊海2キーで、機械所有検査と一致した。
 
 宇文逸の負傷、方闊海の脅しと秘術、翌日の出場・勝敗を台詞以上に確定しない。
 
