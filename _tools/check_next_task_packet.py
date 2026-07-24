@@ -215,11 +215,14 @@ def validate_train_packet(
     if train.get("do_not_apply_until_release") is not True:
         errors.append("ci_train.do_not_apply_until_release must be true")
 
-    checkpoint_batch = current.get("checkpoint", {}).get("batch")
+    # 次束番号は現在の適用checkpointではなく、列車の出発checkpointと
+    # manifestへ積んだ束数から求める。適用後のpending_audit_syncでは
+    # CURRENT_WORK.checkpointが最終bundleまで進むため、二重加算してはならない。
+    base_batch = manifest.get("base_checkpoint", {}).get("batch")
     bundles = manifest.get("bundles", [])
     expected_batch = (
-        checkpoint_batch + len(bundles) + 1
-        if isinstance(checkpoint_batch, int) and isinstance(bundles, list)
+        base_batch + len(bundles) + 1
+        if isinstance(base_batch, int) and isinstance(bundles, list)
         else None
     )
     if train.get("planned_batch") != expected_batch:
