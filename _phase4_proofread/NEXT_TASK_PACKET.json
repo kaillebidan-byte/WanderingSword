@@ -1,21 +1,21 @@
 {
   "schema_version": 3,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch52-planned",
+  "task_id": "yuwen-mowen-batch53-planned",
   "based_on_checkpoint": {
-    "batch": 51,
+    "batch": 52,
     "pair_applied_keys": 1140,
-    "project_applied_keys": 1436,
-    "produced_by_pr": 84,
-    "translation_head": "fc6c6723f42f67c7da21196ef13048bc616e20ae",
-    "verified_head": "fc6c6723f42f67c7da21196ef13048bc616e20ae"
+    "project_applied_keys": 1446,
+    "produced_by_pr": 86,
+    "translation_head": "223a9888cf41fa5f30ae2d95b120787c2c7aa561",
+    "verified_head": "aab3f512d060d34d8efefe8d0d19a5f0463ac1f7"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5347_1"],
+  "scene_groups": ["5352_1", "5352_3"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5347_1_Dlgs"],
+    "families": ["5352_1_Dlgs", "5352_3_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,77 +23,113 @@
   },
   "scene_flow": [
     {
-      "scene": "5347_1",
-      "function": "名剣山荘への出発時、宇文逸が梧桐村への寄り道を願い、江吟風を裏切り者とみなす元鳴が反発する。莫問と莫棄が立ち寄りを認め、元鳴も不承不承同行する",
-      "speaker_order": ["宇文逸", "莫棄", "莫棄", "宇文逸", "宇文逸", "元鳴", "元鳴", "莫問", "元鳴", "元鳴", "莫棄", "莫棄", "莫棄", "宇文逸", "元鳴", "宇文逸"],
+      "scene": "5352_1",
+      "function": "梧桐村を発つ直前に大量の蛇が現れ、莫問が笛で毒蛇を操る五仙教の手段かもしれないと推測し、宇文逸が小彤ではないかと疑う",
+      "speaker_order": ["元鳴", "莫問", "宇文逸"],
       "focus_keys": [
-        "5347_1_Dlgs_Index0_Text", "5347_1_Dlgs_Index1_Text", "5347_1_Dlgs_Index2_Text", "5347_1_Dlgs_Index3_Text",
-        "5347_1_Dlgs_Index4_Text", "5347_1_Dlgs_Index5_Text", "5347_1_Dlgs_Index6_Text", "5347_1_Dlgs_Index8_Text",
-        "5347_1_Dlgs_Index9_Text", "5347_1_Dlgs_Index10_Text", "5347_1_Dlgs_Index11_Text", "5347_1_Dlgs_Index12_Text",
-        "5347_1_Dlgs_Index13_Text", "5347_1_Dlgs_Index15_Text", "5347_1_Dlgs_Index16_Text", "5347_1_Dlgs_Index17_Text"
+        "5352_1_Dlgs_Index0_Text",
+        "5352_1_Dlgs_Index1_Text",
+        "5352_1_Dlgs_Index2_Text"
       ],
       "voice_questions": [
-        "几位师兄を翻訳語の師兄方へ固定せず、目の前の複数の師兄への呼びかけとして自然に言えるか",
-        "宇文逸の寄り道願いを当然の要求へせず、日程を変えてもらう遠慮と江吟風への思いを保てるか",
-        "元鳴の反発を一般論へ弱めず、江吟風を裏切り者とみなす個人的な敵意として出せるか",
-        "莫問の江師叔への敬意と日程判断を、宇文逸への一方的な贔屓へ変えていないか",
-        "莫棄の哈哈を場を軽くする笑いとして扱い、師父に隠す提案と酒への期待を同じ声へ均していないか",
-        "元鳴の清霄師伯への言及を、実際の処罰や清霄の客観的判断へ確定しないか",
-        "宇文逸の最後の感謝を硬い複数敬称へせず、許可を得た安堵と喜びとして発声できるか"
+        "元鳴の突然の蛇への動揺を、説明的な疑問文へ整えず言いよどみと驚きとして出せるか",
+        "莫問の五仙教判断を断定せず、笛と毒蛇から導く冷静な推測として保てるか",
+        "宇文逸の小彤への疑念を再会確定や五仙教所属の説明へ広げず、反射的な驚きとして出せるか"
+      ]
+    },
+    {
+      "scene": "5352_3",
+      "function": "蛇を操った人物が去った後に出発を再開し、宇文逸が名剣山荘の場所を聞いていなかったことに気づく。莫棄が莫問の前回大会首位と無塵を誇張して語り、莫問が武器観を述べて姑蘇経由の道筋へ話を戻す",
+      "speaker_order": ["莫問", "莫問", "宇文逸", "宇文逸", "莫棄", "莫棄", "莫棄", "宇文逸", "莫棄", "宇文逸", "莫問", "莫問", "宇文逸", "莫問", "莫問", "宇文逸"],
+      "focus_keys": [
+        "5352_3_Dlgs_Index0_Text",
+        "5352_3_Dlgs_Index1_Text",
+        "5352_3_Dlgs_Index3_Text",
+        "5352_3_Dlgs_Index4_Text",
+        "5352_3_Dlgs_Index5_Text",
+        "5352_3_Dlgs_Index6_Text",
+        "5352_3_Dlgs_Index7_Text",
+        "5352_3_Dlgs_Index8_Text",
+        "5352_3_Dlgs_Index9_Text",
+        "5352_3_Dlgs_Index10_Text",
+        "5352_3_Dlgs_Index11_Text",
+        "5352_3_Dlgs_Index12_Text",
+        "5352_3_Dlgs_Index13_Text",
+        "5352_3_Dlgs_Index14_Text",
+        "5352_3_Dlgs_Index15_Text",
+        "5352_3_Dlgs_Index16_Text"
+      ],
+      "voice_questions": [
+        "莫問の人已走了／应该を、人影を見失った後の推測として保ち、逃走事実や正体を確定しないか",
+        "宇文逸の数日遅れへの自責と、名剣山荘の場所を聞いていなかった気づきを、同じ平板な説明声へ均していないか",
+        "莫棄の哈哈、前回首位の自慢、啧啧啧、無塵の誇張を、大師兄を立てる快活な兄弟子の一続きの発話として出せるか",
+        "莫棄の我々・安物・何本も斬れるという誇張を、無塵の客観的性能へ確定しないか",
+        "宇文逸の驚きと大師兄への問いを、武器性能の説明文へ変えず素直な反応として保てるか",
+        "莫問の無奈、武器は外物という教え、本題への復帰、道案内を、同じ硬い訓戒口調へ均さないか",
+        "東南方向の姑蘇城と船という経路、表示タグ、話者接頭辞を保持できるか"
       ]
     }
   ],
   "batch_planning": {
-    "reviewed_rows": 16,
+    "reviewed_rows": 19,
     "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": [],
-    "grouping_decision": "5347_1単独で16行あり、通読目標15〜30行の範囲内なので、時系列上の次場面を混ぜず一続きの出発場面として監査する",
+    "adjacent_candidates_checked": ["5352_1", "5352_3", "5353_5"],
+    "grouping_decision": "5352_1の蛇襲来3行だけでは短いため、同じ梧桐村出発再開の直後場面5352_3の16行と併合する。次の5353_5は姑蘇道中の杜彪遭遇へ事件が切り替わるため含めない",
     "exception": null
   },
   "allusion_and_fact_gates": {
-    "allusion_review_candidates": [],
+    "allusion_review_candidates": [
+      "无坚不摧は特定典籍の直接引用と即断せず、莫棄の武器誇張として意味と発声を確認する",
+      "剑始终只是外物は武侠・道家的な一般命題として扱い、特定の出典を補わない"
+    ],
     "fact_doubts": [
-      "江吟風が実際に裏切り者であることを元鳴の発言だけから確定しない",
-      "清霄が知れば必ず厳罰にするという元鳴の予測を客観的事実へしない",
-      "日程に余裕があるという莫問の判断から具体的な残日数や経路を補わない",
-      "師父に知られないという莫棄の見込みを事実へ確定しない",
-      "梧桐村へ寄る目的は江吟風への墓参りであり、酒を飲むことを主目的へ変えない"
+      "蛇を操った人物が五仙教であることを莫問の推測だけから確定しない",
+      "宇文逸の反応だけから、その人物が小彤であることや小彤の現在地を確定しない",
+      "莫問が二年前の品剣大会首位だったという莫棄の発言は場面内情報として保持するが、別資料との整合を確認する",
+      "無塵を欧陽荘主が寒泉で鍛えたこと、断てぬものがないこと、何本も剣を斬れることを、莫棄の語りを越えて確定しない",
+      "宇文逸が遅らせた具体的日数以上の旅程遅延や大会開催日を補わない",
+      "名剣山荘への経路は姑蘇城から船という場面内説明を保持し、地理の追加説明をしない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "宇文逸Index0・3・4・17と莫問Index8は既存第5束の所有。必要な修正は第5束を直接再改訂する。宇文逸Index15だけが未所有の人物ペア候補で、変更時は新規第52束へ収録する",
-    "cross_register": "莫棄Index1・2・11・12・13と元鳴Index5・6・9・10・16は別話者の未所有候補。変更時は人物別cross-registerへ分離する",
+    "pair_batch": "5352_1の莫問Index1・宇文逸Index2、5352_3の莫問Index0・1・12・14、宇文逸Index3・4・10・13・16は未所有候補。変更時は新規第53束へ収録する。5352_3の宇文逸Index8、莫問Index11・15は既存第5束を直接再改訂する",
+    "cross_register": "5352_1の元鳴Index0は元鳴cross-register、5352_3の莫棄Index5・6・9は莫棄cross-registerの未所有候補。莫棄Index7は既存第5束所有",
     "machine_ownership": {
       "existing": [
         {
           "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
           "keys": [
-            "5347_1_Dlgs_Index0_Text", "5347_1_Dlgs_Index3_Text", "5347_1_Dlgs_Index4_Text",
-            "5347_1_Dlgs_Index8_Text", "5347_1_Dlgs_Index17_Text"
+            "5352_3_Dlgs_Index7_Text",
+            "5352_3_Dlgs_Index8_Text",
+            "5352_3_Dlgs_Index11_Text",
+            "5352_3_Dlgs_Index15_Text"
           ]
         }
       ],
       "unowned": [
-        {"key": "5347_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index10_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index11_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index12_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index15_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
-        {"key": "5347_1_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"}
+        {"key": "5352_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_snake_encounter_20260724.json"},
+        {"key": "5352_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wuchen_boast_20260724.json"},
+        {"key": "5352_3_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wuchen_boast_20260724.json"},
+        {"key": "5352_3_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wuchen_boast_20260724.json"},
+        {"key": "5352_3_Dlgs_Index10_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index12_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index14_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"},
+        {"key": "5352_3_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch53.json"}
       ]
     },
     "do_not_do": [
-      "既存第5束所有キーを新規第52束へ重複追加しない",
+      "既存第5束所有キーを新規第53束や新規cross-registerへ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
-      "莫棄・元鳴のキーを宇文逸↔莫問の新規キー数へ算入しない",
-      "元鳴の江吟風評や清霄の反応予測を客観的事実へしない",
-      "師父に隠す提案を正当な門規判断へ変えない",
-      "酒への期待を墓参りの目的より前面に出さない"
+      "元鳴・莫棄のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "五仙教、小彤、無塵の性能、欧陽荘主の鋳造を話者の推測・誇張以上に確定しない",
+      "5353_5の杜彪遭遇を同じ束へ混ぜない"
     ]
   },
   "skill_review": {
@@ -102,19 +138,19 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5347_1の16行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
-    "FACT_DOUBTを記録し、ALLUSION_REVIEW候補がないことも明示",
-    "既存第5束再改訂、新規第52束、莫棄cross-register、元鳴cross-registerを所有者別に分離",
+    "5352_1と5352_3の19行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
+    "ALLUSION_REVIEWとFACT_DOUBTを分離して記録",
+    "既存第5束再改訂、新規第53束、莫棄cross-register、元鳴cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
-    "高確度の変更だけを修正JSONへ収録",
+    "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
     "CURRENT_WORK、CURRENT_HANDOFF、audit_status、適用記録、次のNEXT_TASK_PACKETを同じPRで更新",
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第51束・1140キー・全1436キー・verified",
-    "open_pr": "未統合PRがあればactive / superseded / abandoned / unrelatedを確認する。active PRがなければ第52束へ入る",
-    "start": "5347_1の最新artifactを取得し、宇文逸・莫問・莫棄・元鳴の声と事実認識を分けて16行を通読する",
+    "current": "宇文逸↔莫問・第52束・1140キー・全1446キー・verified",
+    "open_pr": "PR #86をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5352_1と5352_3の最新artifactを取得し、元鳴・莫問・宇文逸・莫棄の声と事実認識を分けて19行を通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
