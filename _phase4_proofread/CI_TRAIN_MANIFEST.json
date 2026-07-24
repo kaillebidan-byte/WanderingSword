@@ -30,12 +30,46 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "fix_keys": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 5,
+    "fix_keys": 3,
     "new_pair_keys": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 61,
+      "status": "reviewed_pending_ci",
+      "scene_groups": [
+        "5452_1"
+      ],
+      "reviewed_rows": 5,
+      "fix_keys": 3,
+      "new_pair_keys": 0,
+      "keep_keys": 2,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json",
+        "_phase4_proofread/fixes_cross_register_qingxu_tournament_result_20260725.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH61_2026-07-25.md",
+      "ownership_summary": {
+        "existing_keys": 2,
+        "new_keys": 1,
+        "cross_register_keys": 1
+      },
+      "allusion_review_candidates": [],
+      "fact_doubts": [
+        "宇文逸首位を莫棄首位分岐へ遡及させない",
+        "湛盧剣の性能・使用結果・莫棄の接触を追加しない",
+        "傷の重さ・回復時期を清虚の問い以上に確定しない"
+      ],
+      "source_artifact": {
+        "workflow": "Relation audit extraction",
+        "run_id": 30118760320,
+        "artifact_id": 8606495032,
+        "digest": "sha256:757e84636c643bcea1fbbbf4c0da8f6ca129490cf7b20e96156158e0cb9784f3"
+      }
+    }
+  ],
   "pilot_acceptance": {
     "single_public_round_trip": true,
     "single_translation_pr": true,
