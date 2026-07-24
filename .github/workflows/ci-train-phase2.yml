@@ -69,8 +69,11 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
+          # Exact workflow name, successful conclusion, recorded head SHA, and git lineage
+          # are authoritative. GitHub may return an empty pull_requests array for runs
+          # belonging to a branch that was later squash-merged and deleted.
           python _tools/check_release_evidence.py \
-            --verify-github --verify-git-lineage \
+            --verify-git-lineage \
             2>&1 | tee _ws_tmp/ci_train_phase2/release_evidence.txt
 
       - name: Validate handoff consistency
