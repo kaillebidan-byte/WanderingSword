@@ -53,22 +53,27 @@
   },
   "ownership_boundary": {
     "pair_batch": "莫問Index4と宇文逸Index6は現時点で未所有候補。変更が必要な場合のみ新規第51束へ収録する",
-    "cross_register": "清虚Index0〜3と清霄Index5は別話者。変更する場合は人物別cross-registerへ分離し、宇文逸↔莫問の新規キー数へ算入しない",
+    "cross_register": "清虚Index0〜3は未所有候補。清霄Index5は既存の宇文逸↔清霄第2束の所有。変更時は元束を直接再改訂し、いずれも宇文逸↔莫問の新規キー数へ算入しない",
     "machine_ownership": {
-      "existing": [],
+      "existing": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json",
+          "keys": ["5345_1_Dlgs_Index5_Text"]
+        }
+      ],
       "unowned": [
         {"key": "5345_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
         {"key": "5345_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
         {"key": "5345_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
         {"key": "5345_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
         {"key": "5345_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"},
-        {"key": "5345_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxiao_swordmeet_departure_20260724.json"},
         {"key": "5345_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"}
       ]
     },
     "do_not_do": [
       "未所有キーを束数のために無理に変更しない",
       "清虚・清霄のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "清霄Index5を新しいcross-registerへ重複追加しない",
       "清虚が同行しない理由を補わない",
       "莫問が引率する三人の具体名を台詞外から固定しない",
       "清霄が宇文逸を残す理由を次場面から先取りしない"
@@ -82,7 +87,7 @@
   "expected_outputs": [
     "5345_1の7行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
     "FACT_DOUBTを記録し、ALLUSION_REVIEW候補がないことも明示",
-    "新規第51束、清虚cross-register、清霄cross-registerを所有者別に分離",
+    "新規第51束、清虚cross-register、既存清霄第2束再改訂を所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
