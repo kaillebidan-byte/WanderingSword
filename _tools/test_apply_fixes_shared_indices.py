@@ -23,6 +23,10 @@ class SharedLocresIndexTests(unittest.TestCase):
             struct.pack_into("<i", original, 8, 0)
             locres.write_bytes(original)
             fixes = {"CG表\x1fQuestDlgs\x1fkey_new": "はい、師兄。"}
+            index_map = {
+                "QuestDlgs\x1fkey_old": 0,
+                "QuestDlgs\x1fkey_new": 0,
+            }
             records = {
                 "QuestDlgs\x1fkey_old": target.KeyIndexRecord(0, 4),
                 "QuestDlgs\x1fkey_new": target.KeyIndexRecord(0, 8),
@@ -31,6 +35,7 @@ class SharedLocresIndexTests(unittest.TestCase):
 
             with (
                 patch.object(target, "locate_locres", return_value=locres),
+                patch.object(target, "key_index_map", return_value=(index_map, 12)),
                 patch.object(target, "key_index_records", return_value=(records, 12)),
                 patch.object(
                     target.L,
@@ -58,6 +63,10 @@ class SharedLocresIndexTests(unittest.TestCase):
                 "CG表\x1fQuestDlgs\x1fkey_a": "新訳A",
                 "CG表\x1fQuestDlgs\x1fkey_b": "新訳B",
             }
+            index_map = {
+                "QuestDlgs\x1fkey_a": 0,
+                "QuestDlgs\x1fkey_b": 0,
+            }
             records = {
                 "QuestDlgs\x1fkey_a": target.KeyIndexRecord(0, 0),
                 "QuestDlgs\x1fkey_b": target.KeyIndexRecord(0, 4),
@@ -66,6 +75,7 @@ class SharedLocresIndexTests(unittest.TestCase):
 
             with (
                 patch.object(target, "locate_locres", return_value=locres),
+                patch.object(target, "key_index_map", return_value=(index_map, 8)),
                 patch.object(target, "key_index_records", return_value=(records, 8)),
                 patch.object(
                     target.L,
