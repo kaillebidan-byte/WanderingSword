@@ -7,8 +7,8 @@
     "pair_applied_keys": 1144,
     "project_applied_keys": 1454,
     "produced_by_pr": 88,
-    "translation_head": "74d63ca51a29f6f0da671e20fd3aa3fcf5f9d796",
-    "verified_head": "3ff6e230128a29105c90091808f1825e6e6aa3cb"
+    "translation_head": "80d9d3057434b7c30ee5b3038ee97e97e46a7d41",
+    "verified_head": "80d9d3057434b7c30ee5b3038ee97e97e46a7d41"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": ["5353_5"],
@@ -143,8 +143,8 @@
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・第53束・1144キー・全1454キー・verified",
-    "open_pr": "PR #88をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
-    "start": "状態同期後は5353_5の最新artifactを取得し、莫問・莫棄・杜彪・宇文逸の声と典故・事実状態を分けて20行を通読する",
+    "open_pr": "未統合PRを検索し、activeなら最新HEADのActions・レビュー・未解決スレッドを確認する。activeがなければ第54束へ進む",
+    "start": "5353_5の最新artifactを取得し、莫問・莫棄・杜彪・宇文逸の声と典故・事実状態を分けて20行を通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
