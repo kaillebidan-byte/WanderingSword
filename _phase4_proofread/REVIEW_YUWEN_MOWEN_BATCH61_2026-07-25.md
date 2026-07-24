@@ -2,7 +2,7 @@
 
 - 日付: 2026-07-25
 - CI列車: `yuwen-mowen-train-01`
-- 状態: `reviewed_pending_ci`
+- 状態: `applied_pending_audit_sync`
 - 場面: `5452_1`
 - 通読: 5行
 - 修正: 3キー
@@ -68,4 +68,4 @@
 
 ## 第一段階の扱い
 
-この束ではlocres、pak、audit_status件数を更新しない。修正JSONと本記録をCI列車へ積み、release時にほかの完成束とまとめて適用・検証する。
+schema変更を理由とする第一段階パイロットの早期releaseで、PR #106のApply run `30122728746`が3修正を反映した。locres、pak、audit_statusは更新済みで、人物ペア1166・全1518。適用記録索引とverified checkpointの同期待ち。
