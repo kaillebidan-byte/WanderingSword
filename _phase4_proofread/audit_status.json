@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 1418,
+      "applied_keys": 1422,
       "targets": [
         "CG表",
         "Npc",
@@ -276,8 +276,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch47_complete_next_scenes_pending",
-      "build_verified": "batch47_complete",
+      "translation_reaudited": "batch48_complete_next_scenes_pending",
+      "build_verified": "batch48_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
@@ -289,7 +289,7 @@
         "mowen_rows": 546,
         "yuwen_rows": 640
       },
-      "applied_keys": 1134,
+      "applied_keys": 1138,
       "provisional_findings": [
         "入門直後から品剣大会期まで宇文師弟・師弟には一次資料の根拠がある",
         "呼称の敬意と弟弟子への全面敬体は別であり、兄弟子の地声は自然な常体",
