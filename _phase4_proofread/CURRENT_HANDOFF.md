@@ -15,9 +15,8 @@
 ## 現在地
 
 - checkpoint: `verified`
-- active PR: #86 `agent/yuwen-mowen-batch52-review`
-- checkpointを生成した翻訳PR: #86
-- 直近の統合済み翻訳PR: #84
+- checkpointを生成した翻訳PR: #86（統合済み）
+- 直近の統合済み翻訳PR: #86
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -29,7 +28,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #86が開いている間はactiveとして扱う。第52束の監査索引、件数、適用記録、第53束の19行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
+再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなければ、第53束`5352_1`・`5352_3`の19行へ入る。
 
 ## 第52束で完了したこと
 
