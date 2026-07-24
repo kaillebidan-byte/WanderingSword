@@ -7,8 +7,8 @@
     "pair_applied_keys": 1139,
     "project_applied_keys": 1423,
     "produced_by_pr": 80,
-    "translation_head": "7a6e6aef2a8f367ea6287a1d445fe97917fae73b",
-    "verified_head": "5937dadf31eebc227d8b301c0536776f709a891a"
+    "translation_head": "792a5633d8355ccbe6d7c1490c9f5e289bd97465",
+    "verified_head": "792a5633d8355ccbe6d7c1490c9f5e289bd97465"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": ["5331_1", "5343_4"],
@@ -62,18 +62,9 @@
   ],
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [
-      {
-        "phrase": "湛卢",
-        "classification_hint": "古剣名。既存表記《湛盧》を基準にするが、剣の由来・所有者・効能など台詞外の伝承は足さない"
-      },
-      {
-        "phrase": "幸不辱命",
-        "classification_hint": "定着した復命表現。字面の辱めを残さず、任務・期待を果たした正式な報告の格を保つ"
-      },
-      {
-        "phrase": "翘楚／垂之千古",
-        "classification_hint": "若手の傑出と武当の名が長く伝わることを称える凝縮表現。現代的な説明へ平板化しすぎない"
-      }
+      {"phrase": "湛卢", "classification_hint": "古剣名。既存表記《湛盧》を基準にするが、剣の由来・所有者・効能など台詞外の伝承は足さない"},
+      {"phrase": "幸不辱命", "classification_hint": "定着した復命表現。字面の辱めを残さず、任務・期待を果たした正式な報告の格を保つ"},
+      {"phrase": "翘楚／垂之千古", "classification_hint": "若手の傑出と武当の名が長く伝わることを称える凝縮表現。現代的な説明へ平板化しすぎない"}
     ],
     "fact_doubts": [
       "品剣大会が六扇門の天龍幇対策として設けられたという説明は清虚の推測であり、確定事実にしない",
@@ -141,8 +132,8 @@
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・第49束・1139キー・全1423キー・verified",
-    "open_pr": "PR #80をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
-    "start": "状態同期後は5331_1・5343_4の最新artifactを取得し、招待状引用と清虚・宇文逸の声を分けて20行を通読する",
+    "open_pr": "未統合PRを実検索し、active・superseded・abandoned・unrelatedへ分類する",
+    "start": "active PRがなければ5331_1・5343_4の最新artifactを取得し、招待状引用と清虚・宇文逸の声を分けて20行を通読する",
     "drift": "自由記述の所有説明ではなくmachine_ownershipと実fix JSONを優先し、矛盾時はパケット側を修正する"
   }
 }
