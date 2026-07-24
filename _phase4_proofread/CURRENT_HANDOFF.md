@@ -55,7 +55,11 @@ PR #84が開いている間は `active` とし、最新HEADのRelation audit、C
 
 第51束の初期パケットでは清霄Index5を未所有候補としていたが、機械所有検査により `_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json` の既存所有と判明した。実修正JSONを優先してパケットを訂正し、新規cross-registerへの重複追加を防いだ。
 
-翻訳判断は既存skillで扱えたため、skill本体と人物資料は変更していない。今回の所有誤認は既存の機械検査で止められたため、追加の制度改修は行っていない。
+第52束の初期パケットでも全16キーを未所有候補としたが、所有診断artifactにより、宇文逸Index0・3・4・17と莫問Index8は `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json` の既存所有と判明した。未所有の人物ペア候補は宇文逸Index15だけである。
+
+今後、所有検査が失敗してもログ末尾の切断に依存しないよう、focus keyごとの `observed_owners` をRelation auditとApplyのQA artifactへ必ず出す `_tools/report_next_task_ownership.py` を追加した。
+
+翻訳判断は既存skillで扱えたため、skill本体と人物資料は変更していない。
 
 ## 次の校正
 
@@ -68,11 +72,12 @@ PR #84が開いている間は `active` とし、最新HEADのRelation audit、C
 - 元鳴が不承不承ながら同行する
 - 宇文逸が複数の師兄へ感謝する
 
-第52束パケットでは16キーを未所有候補として機械表に置いた。CIが実修正JSONを照合し、既存所有が見つかった場合はパケットを訂正する。
+実所有は次のとおり。
 
-- 宇文逸Index0・3・4・15・17、莫問Index8: 変更時は新規第52束
-- 莫棄Index1・2・11・12・13: 変更時は莫棄cross-register
-- 元鳴Index5・6・9・10・16: 変更時は元鳴cross-register
+- 既存第5束: 宇文逸Index0・3・4・17、莫問Index8。変更時は元束を直接再改訂する
+- 未所有の人物ペア: 宇文逸Index15のみ。変更時は新規第52束
+- 未所有の莫棄: Index1・2・11・12・13。変更時は莫棄cross-register
+- 未所有の元鳴: Index5・6・9・10・16。変更時は元鳴cross-register
 
 江吟風が客観的に裏切り者であること、清霄が必ず処罰すること、具体的な残日数・経路、師父に知られないことを確定しない。酒への期待を墓参りの主目的へ変えない。
 
