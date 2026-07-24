@@ -26,7 +26,7 @@
     "verified_head": "96f8de93800576c39ea4b1736dad295e355fd2bd"
   },
   "operation_mode": {
-    "declared_state": "private_translation_work",
+    "declared_state": "ready_for_public_ci",
     "protocol": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
     "actual_visibility_source": "github_repository_metadata",
     "visibility_change_actor": "user",
