@@ -175,30 +175,29 @@ def split_shared_indices(
     array_offset: int,
     version: int,
     values: list,
-    records: dict[str, KeyIndexRecord],
+    index_map: dict[str, int],
     desired: dict[str, str],
 ) -> bytes:
     """異なる訳文を要求する共有indexを分離し、key側indexも更新する。"""
     prefix = bytearray(original[:array_offset])
-    records_by_index: dict[int, list[tuple[str, KeyIndexRecord]]] = {}
-    for compound_key, record in records.items():
-        records_by_index.setdefault(record.index, []).append((compound_key, record))
+    keys_by_index: dict[int, list[str]] = {}
+    for compound_key, index in index_map.items():
+        keys_by_index.setdefault(index, []).append(compound_key)
 
-    affected_by_index: dict[int, list[tuple[str, str, KeyIndexRecord]]] = {}
+    affected_by_index: dict[int, list[tuple[str, str]]] = {}
     for compound_key, new_value in desired.items():
-        record = records[compound_key]
-        if values[record.index][0] != new_value:
-            affected_by_index.setdefault(record.index, []).append(
-                (compound_key, new_value, record)
-            )
+        index = index_map[compound_key]
+        if values[index][0] != new_value:
+            affected_by_index.setdefault(index, []).append((compound_key, new_value))
 
+    records: dict[str, KeyIndexRecord] | None = None
     for index, affected in affected_by_index.items():
         current_value = values[index][0]
-        desired_groups: dict[str, list[KeyIndexRecord]] = {}
-        for _, new_value, record in affected:
-            desired_groups.setdefault(new_value, []).append(record)
+        desired_groups: dict[str, list[str]] = {}
+        for compound_key, new_value in affected:
+            desired_groups.setdefault(new_value, []).append(compound_key)
 
-        all_refs = records_by_index[index]
+        all_refs = keys_by_index[index]
         unaffected_count = len(all_refs) - len(affected)
         current_group_count = len(desired_groups.get(current_value, []))
         if unaffected_count or current_group_count:
@@ -211,10 +210,14 @@ def split_shared_indices(
         for new_value, group in desired_groups.items():
             if new_value == keep_value:
                 continue
+            if records is None:
+                records, _ = key_index_records(original)
             new_index = len(values)
             values.append([new_value, len(group)])
-            for record in group:
-                struct.pack_into("<i", prefix, record.index_offset, new_index)
+            for compound_key in group:
+                struct.pack_into(
+                    "<i", prefix, records[compound_key].index_offset, new_index
+                )
             moved_count += len(group)
 
         if version >= 3 and moved_count:
@@ -237,7 +240,7 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
     for table in sorted(grouped):
         path = locate_locres(table)
         original = path.read_bytes()
-        records, array_offset = key_index_records(original)
+        index_map, array_offset = key_index_map(original)
         _, version, _, values, _ = L.load(str(path))
         pending = 0
         applied = 0
@@ -246,12 +249,12 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
 
         for namespace, key, new_value in grouped[table]:
             compound_key = namespace + "\x1f" + key
-            record = records.get(compound_key)
-            if record is None:
+            index = index_map.get(compound_key)
+            if index is None:
                 missing.append(f"{table}|{namespace}|{key}")
                 continue
             desired[compound_key] = new_value
-            observed = values[record.index][0]
+            observed = values[index][0]
             if observed == new_value:
                 applied += 1
             else:
@@ -266,7 +269,7 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
                 array_offset,
                 version,
                 values,
-                records,
+                index_map,
                 desired,
             )
 
