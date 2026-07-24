@@ -63,6 +63,7 @@ python _tools/check_batch_planning.py
 - 複数target: 各locresを1回だけ書く
 - 複数修正束: pakを1回だけ生成
 - 未適用0件: repak省略
+- 未適用が残る場合: key、所有ファイル、期待値、実値をプレビューへ表示
 
 ## 4. PR上の自動適用
 
@@ -82,6 +83,17 @@ python _tools/check_batch_planning.py
 
 - `.github/workflows/relation-audit.yml`: `fixes_relation_*.json` を動的検出
 - `.github/workflows/cross-register-qa.yml`: `fixes_cross_register*.json` を動的検出
+
+### PR更新とActions使用量
+
+GitHubの`paths`判定は最新commitだけでなくPR全体の差分を対象にする。修正JSONを含むPRでは、後から記録ファイルだけを一件ずつ更新しても、PRの`synchronize`ごとにApply・Relation・Cross-registerが再実行される。
+
+- PRを開く前に、修正JSON、レビュー、適用記録、必要な資料修正を可能な限り一つの原子commitへまとめる。
+- 複数ファイルを更新できるツールでは、tree/commitを使い、一つの論理状態をファイルごとの連続commitへ分割しない。
+- botの生成資産commit後に行う`CURRENT_WORK`、`NEXT_TASK_PACKET`、`CURRENT_HANDOFF`、review statusの確定も、一つの人手commitへまとめる。
+- squash後の状態PRは参照付け替えだけを一つの原子commitで行う。
+- 診断のためのcommit・再実行を重ねる前に、既存artifactとjob logを読む。runner開始前の失敗を翻訳失敗として扱わない。
+- Actions使用枠やrunnerが止まった場合も、三本成功というmerge条件を弱めない。PRを開いたまま保持し、一次資料の通読や次束の境界確認を進める。
 
 ## 5. 完了段階
 

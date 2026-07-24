@@ -29,10 +29,16 @@ jobs:
             2>&1 | tee _ws_tmp/relation_audit/next_task_ownership.txt
 
       - name: Check handoff consistency
+        shell: bash
         run: |
-          python _tools/check_handoff_consistency.py
-          python _tools/check_next_task_packet.py --allow-pending
-          python _tools/check_batch_planning.py
+          mkdir -p _ws_tmp/relation_audit
+          set -o pipefail
+          python _tools/check_handoff_consistency.py \
+            2>&1 | tee _ws_tmp/relation_audit/handoff_consistency.txt
+          python _tools/check_next_task_packet.py --allow-pending \
+            2>&1 | tee _ws_tmp/relation_audit/next_task_packet_check.txt
+          python _tools/check_batch_planning.py \
+            2>&1 | tee _ws_tmp/relation_audit/batch_planning_check.txt
 
       - name: Unit tests
         run: |
