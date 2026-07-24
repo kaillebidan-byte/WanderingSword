@@ -14,22 +14,22 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #76 `agent/yuwen-mowen-batch47-review-v2`
 - superseded PR: #74・#75
-- checkpointを生成する翻訳PR: #76
+- checkpointを生成した翻訳PR: #76
 - 直近の統合済み翻訳PR: #72
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
-- 完了済み翻訳適用: 第47束
+- 完了: 第47束
 - 宇文逸↔莫問の適用キー: 1134
 - プロジェクト全体の適用キー: 1418
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #76が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。checkpointを`verified`へ進め、最終HEADで三本成功するまで統合しない。
+PR #76が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。最終HEADで三本成功後に統合する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第48束へ入る。
 
 ## 第47束で完了したこと
 
@@ -39,7 +39,7 @@ PR #76が開いている間は `active` とし、最新HEADのRelation audit、C
 - 莫棄cross-register新規3キー: Index1・2・5
 - 莫問Index4・6は既存第4束の現訳と所有を保持
 - 人物ペア累計1134、全体1418
-- locres反映、pak再生成、全1418キー差分0、register lint、単体テスト、回帰走査、pak実体・LFS確認済み
+- locres反映、pak再生成、全1418キー差分0、register lint、関係抽出、単体テスト、回帰走査、pak実体・LFS確認済み
 
 主な修正は次のとおり。
 
@@ -49,22 +49,24 @@ PR #76が開いている間は `active` とし、最新HEADのRelation audit、C
 - `打了几场架` を莫棄の地声に合わせて `何度かひと暴れした` とした
 - `師兄方` を廃し、目の前の二人へ `お二人とも、また明日！` とした
 
-初回Actionsは生成が遅延した。生成後、Cross register QAは成功し、applyは翻訳適用・生成物・回帰検証まで成功した。Relation auditとapplyの最終checkpoint検査だけが、第46束のverified状態を残していたため停止した。翻訳内容の失敗ではなく、状態同期を行って再検査する。
+初回Actionsは生成が遅延した。生成後、翻訳適用・生成物・回帰検証は成功し、状態文書を第47束へ同期した後にcheckpointもverifiedとなった。PR #74・#75は#76へ置換済み。
 
 skill本体と人物資料は変更していない。今回の判断は既存規則で処理できる。
 
 ## 次の校正
 
-第47束のcheckpointをverifiedにした後、`5302_2`・`5302_3`・`5302_4` を第48束として監査する。
+active PRがなければ、`5302_2`・`5302_3`・`5302_4` を第48束として監査する。
 
 - 莫問の夜稽古と、宇文逸の尊敬・焦り
 - 平康城任務への宇文逸の反省と、莫問の慰め
-- `一蹴而就`、`日积月累`、武学口訣を字面化しない
+- `日积月累`・`一蹴而就`・武学口訣の並行と格
 - 莫問が絶無心戦で見た招式を指導する場面
 - 宇文逸が家族を尋ね、莫問が幼少時の遺棄と清虚への家族意識を語る場面
 - 気まずさを逸らす宇文逸の咳と、稽古への戻り
 
-これら三場面は既存第4束の所有が多い。新規第48束へ重複させず、必要な修正は第4束を直接再改訂する。罪証取得、宇文逸の衝動、莫問の出自は台詞が示す範囲を越えて補わない。
+三場面27行のうち、既存第4束が21キーを所有している。必要な修正は第4束を直接再改訂し、未所有キーだけを変更が必要な場合に第48束へ収録する。罪証取得、宇文逸の衝動、莫問の出自は台詞が示す範囲を越えて補わない。
+
+具体的な全キー、ALLUSION_REVIEW、FACT_DOUBT、所有境界、完了条件は `NEXT_TASK_PACKET.json` に固定した。パケット自体も作業仮説であり、最新artifactと一次資料の反例を優先する。
 
 ## checkpointと遷移状態
 
