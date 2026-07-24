@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #90 `agent/yuwen-mowen-batch54-review`
 - checkpointを生成した翻訳PR: #90
 - 直近の統合済み翻訳PR: #88
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #90が開いている間はactiveとして扱い、第55束パケットの実所有を確認した後、checkpointを`verified`へ確定する。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功するまで統合しない。
+PR #90が開いている間はactiveとして扱う。第54束の監査索引、件数、適用記録、第55束の23行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
 
 ## 第54束で完了したこと
 
@@ -70,7 +70,7 @@ PR #90が開いている間はactiveとして扱い、第55束パケットの実
 
 23行で通読目標内。次の`5358_5`は少林僧との再会と部屋の譲渡へ話題が移るため含めない。
 
-既存第5束が`5357_2`の莫問Index2、`5358_1`の莫問Index8・10を所有する。宇文逸と莫問の未所有9キー、船夫4キー、丘掌柜7キーは第55束パケットの機械所有表で実所有を確認する。
+既存第5束が`5357_2`の莫問Index2、`5358_1`の莫問Index8・10を所有する。宇文逸と莫問の未所有9キー、船夫4キー、丘掌柜7キーは第55束パケットの機械所有検査で未所有確認済み。
 
 嵐、手配者、灯会祭・郭大家・楓橋水雲・宿不足の情報を話者の説明以上に確定しない。既来之則安之は正体不明の手配を全面信用する意味へせず、警戒を残して宿泊を受け入れる判断として扱う。
 
