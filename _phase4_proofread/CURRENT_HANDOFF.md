@@ -10,42 +10,26 @@
 
 ## 現在地
 
-- 実visibility: public。PR #109統合後にprivate復帰が必要
-- active制度PR: #109 `agent/ci-train-phase2`
-- 第二段階の検証HEAD: `a0274dd1fcfa4ac66657d820a6fafaf985c3a209`
-- Relation run `30128857082`: success
-- Cross run `30128857149`: success
-- Apply run `30128857114`: success
-- phase2 gate run `30128857099`: success
-- 未適用fix: 0
-- asset rebuild: skipped
-- bot writeback: none
+- 実visibility: private
+- open PR: 0件
+- 管理Issue: #110
+- active branch: `agent/yuwen-mowen-train-02`
+- operation mode: `ready_for_public_ci`
 - checkpoint: 第61束 / 人物ペア1166 / 全1518 / verified
-- release id: `yuwen-mowen-train-01-r1`
+- base release: `yuwen-mowen-train-01-r1`
+- review済み: 第62〜65束
+- train-02: 4束 / 30行 / 8修正 / 新規人物ペア4キー
+- release理由: 通常閾値`bundle_count=4`
 
-## 第二段階で確定したこと
+## 公開一往復で確認すること
 
-- checkpointをsquash SHA依存からrelease evidenceへ移行した
-- Relation / Cross / Applyは修正JSON・検査コード・当該workflow変更だけで起動する
-- bot actor、locres、pak、audit status、状態文書では重い三本を再起動しない
-- 状態だけの最終commitは`CI train phase2 gate`だけで検査する
-- 同じPR内で状態を確定し、post-merge状態PRを作らない
-- 旧phase1自動gateは手動legacyへ退役した
+1. 同じbranchからPRを一つだけ開く。
+2. Relation / Cross / Applyを明示的に一度成功させる。
+3. Applyが8件をlocres・pak・audit statusへ実際に書き戻す。
+4. bot書き戻し後、Relation / Cross / Applyの追加起動が0件であることを確認する。
+5. 最終状態commitではphase2 gateだけを起動する。
+6. release evidenceと第66束packetを同じPR内で確定する。
+7. 未解決thread 0件でsquash統合し、post-merge状態PRは作らない。
+8. private復帰後、第66束`5504_3`へ進む。
 
-## PR #109統合後のprivate再開点
-
-- active CI列車: `yuwen-mowen-train-02`
-- branch: `agent/yuwen-mowen-train-02`
-- status: `accumulating`
-- totals: 0束 / 0行 / 0修正キー
-- 次の翻訳束: 第62束 `5455_1`
-- publicの間は新しい翻訳判断を始めない
-
-## 残り
-
-1. この状態commitでphase2 gateだけが起動することを確認する
-2. 未解決review thread 0件を確認する
-3. PR #109をsquash統合する
-4. post-merge状態PRを作らない
-5. `privateへ戻してください。`と依頼する
-6. privateを実metadataで確認後、第62束`5455_1`へ進む
+public中は新しい翻訳判断を追加しない。
