@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""翻訳作業回と公開CI窓の宣言状態・実visibilityを検査する。"""
-
+"""翻訳作業回、phase1 CI列車、公開CI窓の宣言状態・実visibilityを検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -20,7 +19,16 @@ VALID_DECLARED_STATES = {
 }
 VALID_DERIVED_STATES = {"public_ci_window", "return_private_required"}
 VALID_VISIBILITIES = {"private", "public"}
+VALID_TRAIN_STATUSES = {
+    "accumulating",
+    "ready_for_public_ci",
+    "in_public_ci",
+    "verified",
+    "aborted",
+}
 EXPECTED_PROTOCOL = "_phase4_proofread/PUBLIC_CI_WINDOW.md"
+EXPECTED_TRAIN_POLICY = "_phase4_proofread/CI_TRAIN_PHASE1.md"
+EXPECTED_TRAIN_MANIFEST = "_phase4_proofread/CI_TRAIN_MANIFEST.json"
 EXPECTED_VISIBILITY_SOURCE = "github_repository_metadata"
 EXPECTED_VISIBILITY_ACTOR = "user"
 REQUIRED_COMPLETION_CHECKS = {
@@ -48,7 +56,6 @@ def load_current(path: Path = CURRENT_PATH) -> dict[str, Any]:
 
 
 def resolve_effective_mode(declared_state: str, visibility: str | None) -> str:
-    """宣言状態とGitHub実visibilityから、その場で取るべき状態を返す。"""
     if visibility is None:
         return declared_state
     if visibility not in VALID_VISIBILITIES:
@@ -112,11 +119,42 @@ def validate_operation_mode(current: dict[str, Any]) -> list[str]:
             errors.append(f"operation_mode.public_ci_exit_checks missing: {missing!r}")
 
     if mode.get("open_pr_only_after_ready") is not True:
-        errors.append("operation_mode.open_pr_only_after_ready must be true")
+        errors.append("operation_mode.open_pr_only_after_ready must remain true for non-draft PRs")
+    if mode.get("draft_train_pr_allowed_while_private") is not True:
+        errors.append("operation_mode.draft_train_pr_allowed_while_private must be true")
+    if mode.get("train_release_requires_manifest_ready") is not True:
+        errors.append("operation_mode.train_release_requires_manifest_ready must be true")
     if mode.get("public_translation_forbidden") is not True:
         errors.append("operation_mode.public_translation_forbidden must be true")
     if mode.get("deep_failure_returns_private") is not True:
         errors.append("operation_mode.deep_failure_returns_private must be true")
+
+    train = current.get("ci_train")
+    if not isinstance(train, dict):
+        errors.append("CURRENT_WORK.ci_train must be an object")
+        return errors
+    if train.get("phase") != "phase1_pilot":
+        errors.append("ci_train.phase must be phase1_pilot")
+    if train.get("policy") != EXPECTED_TRAIN_POLICY:
+        errors.append(f"ci_train.policy must be {EXPECTED_TRAIN_POLICY!r}")
+    elif not (ROOT / EXPECTED_TRAIN_POLICY).is_file():
+        errors.append(f"CI train policy does not exist: {EXPECTED_TRAIN_POLICY}")
+    if train.get("manifest") != EXPECTED_TRAIN_MANIFEST:
+        errors.append(f"ci_train.manifest must be {EXPECTED_TRAIN_MANIFEST!r}")
+    elif not (ROOT / EXPECTED_TRAIN_MANIFEST).is_file():
+        errors.append(f"CI train manifest does not exist: {EXPECTED_TRAIN_MANIFEST}")
+    if not isinstance(train.get("train_id"), str) or not train.get("train_id"):
+        errors.append("ci_train.train_id must be a non-empty string")
+    if not isinstance(train.get("branch"), str) or not train.get("branch", "").startswith("agent/"):
+        errors.append("ci_train.branch must be an agent/* branch")
+
+    train_status = train.get("status")
+    if train_status not in VALID_TRAIN_STATUSES:
+        errors.append(f"ci_train.status must be one of {sorted(VALID_TRAIN_STATUSES)!r}")
+    if train_status == "accumulating" and declared != "private_translation_work":
+        errors.append("accumulating train requires private_translation_work")
+    if train_status in {"ready_for_public_ci", "in_public_ci"} and declared != "ready_for_public_ci":
+        errors.append("ready/in_public_ci train requires ready_for_public_ci")
 
     return errors
 
@@ -136,31 +174,37 @@ def main() -> int:
     current = load_current()
     errors = validate_operation_mode(current)
     mode = current.get("operation_mode", {})
+    train = current.get("ci_train", {})
     declared = str(mode.get("declared_state", ""))
-    effective = resolve_effective_mode(declared, args.repository_visibility) if declared in VALID_DECLARED_STATES else "invalid"
+    effective = (
+        resolve_effective_mode(declared, args.repository_visibility)
+        if declared in VALID_DECLARED_STATES
+        else "invalid"
+    )
 
     print("=== Operation mode ===")
     print(f"declared state: {declared}")
     print(f"repository visibility: {args.repository_visibility or 'not supplied'}")
     print(f"effective state: {effective}")
+    print(f"CI train: {train.get('train_id')} / {train.get('status')}")
 
     if effective == "return_private_required":
-        print("ACTION REQUIRED: public CI work is not active; ask the user to return the repository to private")
+        print("ACTION REQUIRED: public CI is not active; return the repository to private")
     elif effective == "ready_for_public_ci":
-        print("ACTION REQUIRED: completed HEAD is waiting for the user to open the public CI window")
+        print("ACTION REQUIRED: a released CI train is waiting for the public window")
     elif effective == "public_ci_window":
-        print("OK WINDOW: run CI and integration work only; do not begin translation")
+        print("OK WINDOW: run CI and integration only; do not add translation bundles")
     elif effective == "public_ci_blocked":
-        print("BLOCKED PRIVATE: repair the deep failure while the repository is private")
+        print("BLOCKED PRIVATE: repair the deep failure while private")
     elif effective == "private_translation_work":
-        print("OK PRIVATE: translation and preparation work may continue only when actual visibility is private")
+        print("OK PRIVATE: continue the active CI train while actual visibility is private")
 
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: operation mode contract is structurally valid")
+    print("OK: operation mode and CI train contract are structurally valid")
     return 0
 
 
