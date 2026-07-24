@@ -1,21 +1,25 @@
 {
   "schema_version": 3,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch59-planned",
+  "task_id": "yuwen-mowen-batch60-planned",
   "based_on_checkpoint": {
-    "batch": 58,
-    "pair_applied_keys": 1163,
-    "project_applied_keys": 1514,
-    "produced_by_pr": 98,
-    "translation_head": "96f8de93800576c39ea4b1736dad295e355fd2bd",
-    "verified_head": "96f8de93800576c39ea4b1736dad295e355fd2bd"
+    "batch": 59,
+    "pair_applied_keys": 1165,
+    "project_applied_keys": 1516,
+    "produced_by_pr": 101,
+    "translation_head": "9cc0bc0e8538520b0e91cebed9cf9a7212f029a2",
+    "verified_head": "9cc0bc0e8538520b0e91cebed9cf9a7212f029a2"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5444_2", "5446_1"],
+  "scene_groups": [
+    "5450_3"
+  ],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5444_2_Dlgs", "5446_1_Dlgs"],
+    "families": [
+      "5450_3_Dlgs"
+    ],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,73 +27,99 @@
   },
   "scene_flow": [
     {
-      "scene": "5444_2",
-      "function": "品剣大会後の朝、宇文逸が目を覚まし、莫問が各派の出立とこちらの出発を告げる。宇文逸は欧陽雪・瑶姫の所在を尋ね、山荘外の桟橋へ急ぐ",
-      "speaker_order": ["莫問", "莫問", "宇文逸", "莫問", "宇文逸", "莫問"],
-      "focus_keys": ["5444_2_Dlgs_Index0_Text", "5444_2_Dlgs_Index1_Text", "5444_2_Dlgs_Index2_Text", "5444_2_Dlgs_Index3_Text", "5444_2_Dlgs_Index4_Text", "5444_2_Dlgs_Index5_Text"],
+      "scene": "5450_3",
+      "function": "姑蘇で杜彪と対峙した直後、莫問が再襲の危険を見積もる。元鳴が宇文逸を責め、莫問が武当弟子の侠義を擁護する。莫棄の強気を制し、相手が全力を出していなかった可能性と品剣大会前の不穏さから、名剣山荘へ早めに向かう判断を示す",
+      "speaker_order": [
+        "莫問",
+        "元鳴",
+        "莫問",
+        "莫棄",
+        "莫棄",
+        "莫問",
+        "莫問",
+        "莫問",
+        "宇文逸"
+      ],
+      "focus_keys": [
+        "5450_3_Dlgs_Index0_Text",
+        "5450_3_Dlgs_Index1_Text",
+        "5450_3_Dlgs_Index2_Text",
+        "5450_3_Dlgs_Index3_Text",
+        "5450_3_Dlgs_Index4_Text",
+        "5450_3_Dlgs_Index5_Text",
+        "5450_3_Dlgs_Index6_Text",
+        "5450_3_Dlgs_Index7_Text",
+        "5450_3_Dlgs_Index8_Text"
+      ],
       "voice_questions": [
-        "莫問の起床確認と出立判断を古風な威厳へ寄せず、旅を取りまとめる兄弟子の簡潔な声にできるか",
-        "宇文逸の了承から二人の所在を思い出す流れを、説明的な接続語や不自然な敬称で固めないか",
-        "原文の欧阳姑娘を未翻訳の姑娘のまま残さず、宇文逸と欧陽雪の関係段階に合う呼び方へできるか",
-        "桟橋の表示タグを保持し、急ぐ提案と莫問の同意を場面の速度に合う短い発話へできるか"
-      ]
-    },
-    {
-      "scene": "5446_1",
-      "function": "山荘外の桟橋で瑶姫が遅刻をからかい、宇文逸が寝過ごしを詫びる。欧陽雪が取りなし、船の準備を伝え、莫問が姑蘇から峋谷関への道筋を示して一行が出発する",
-      "speaker_order": ["瑶姫", "宇文逸", "欧陽雪", "欧陽雪", "莫問", "宇文逸"],
-      "focus_keys": ["5446_1_Dlgs_Index0_Text", "5446_1_Dlgs_Index1_Text", "5446_1_Dlgs_Index2_Text", "5446_1_Dlgs_Index3_Text", "5446_1_Dlgs_Index4_Text", "5446_1_Dlgs_Index5_Text"],
-      "voice_questions": [
-        "瑶姫の地モードのからかい、二人の美人という自負、語尾の伸ばしを丁寧な苦情へ均さないか",
-        "宇文逸の笑いと寝坊の謝罪を改まりすぎた敬語へせず、同行者間の軽さを出せるか",
-        "欧陽雪の取りなしを対宇文逸の柔らかさと同行者への礼の両方がある声にし、恋情説明へ膨らませないか",
-        "莫問の峋谷関への道筋説明で表示タグと方角を保持し、うむ等の硬さが人物声として必要かを疑えるか",
-        "宇文逸の即時出発を復命調へせず、一行を前へ動かす自然な了承にできるか"
+        "莫問の初動警戒、宇文逸への擁護、莫棄への制止、敵情推測、旅程判断を同じ説明口調へ均さず、機能ごとの速度を出せるか",
+        "元鳴の責任転嫁を端正な忠告へ弱めず、宇文逸への棘と自己保身を発話として残せるか",
+        "莫棄の四大悪人軽視と再戦の豪放さを、無難な同意や一般論へ痩せさせないか",
+        "相手が全力でなかったこと、警戒対象、杜彪の再襲を莫問の推測以上の事実へ強めないか",
+        "品剣大会前、姑蘇、名剣山荘、渡し場の時系列と表示タグを保ち、宇文逸の了承を復命調へしないか"
       ]
     }
   ],
   "batch_planning": {
-    "reviewed_rows": 12,
-    "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": ["5371_FinishingDlgs_Index0_Text", "5371_FinishingDlgs_Index3_Text", "5444_2", "5446_1", "5449_2", "5450_3"],
-    "grouping_decision": "5444_2と5446_1を、品剣大会後の起床から桟橋合流・出航まで連続する一つの出立場面としてまとめる",
+    "reviewed_rows": 9,
+    "target_rows": {
+      "min": 15,
+      "max": 30
+    },
+    "adjacent_candidates_checked": [
+      "5449_2",
+      "5450_3",
+      "5452_1",
+      "5455_1"
+    ],
+    "grouping_decision": "5450_3を、杜彪対峙直後の責任論・危険評価・名剣山荘への移動判断が一続きの場面として単独で監査する",
     "exception": {
       "reason_code": "no_adjacent_in_scope_scene",
-      "detail": "5371_FinishingDlgsはQuests任务表で単一source packetへ混在できず、5449_2は大会結果分岐、5450_3は数値順と時系列が一致しないため、件数合わせで追加しない"
+      "detail": "5449_2と5452_1は門内大比の結果分岐、5455_1は清虚による別時点の出立指示である。数値順だけで併合すると時系列と分岐境界を壊すため、9行の小束例外とする"
     }
   },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
     "fact_doubts": [
-      "各派が山荘を離れたことから、全参加者や大会の全日程終了まで補わない",
-      "欧陽雪と瑶姫が桟橋にいるという莫問の推測を、確認済みの事実へ強めない",
-      "瑶姫の美人二人というからかいを、宇文逸への恋愛感情の直接表明へ膨らませない",
-      "欧陽雪の取りなしから瑶姫の本心や到着時刻を台詞以上に確定しない",
-      "姑蘇から北西へ向かう説明を、旅程・所要時間・安全性の追加設定へ広げない"
+      "杜彪が実際に再襲することを、莫問の警戒以上に確定しない",
+      "元鳴の非難から、宇文逸に一行が強敵へ狙われた責任があると確定しない",
+      "相手が全力を出していなかったことや何を警戒していたかを、莫問の感触以上に確定しない",
+      "四大悪人の実力差や莫棄が再び退けられることを、強気な発言から事実化しない",
+      "品剣大会の開始時刻、船の所要時間、道中の安全を追加設定しない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "既存第6束が5444_2のIndex0・1・2・4と5446_1の全6キーを所有する。未所有は5444_2の莫問Index3・5のみで、第59束の新規候補とする",
-    "cross_register": "瑶姫Index0と欧陽雪Index2・3を含む5446_1全6キーは既存第6束所有。新規cross-register束へ重複追加せず、再改訂が必要なら既存所有者を更新する",
+    "pair_batch": "既存第6束が5450_3のIndex0・1・2・3・4・6・7・8を所有する。未所有は莫問の制止Index5のみで、第60束の新規候補とする",
+    "cross_register": "元鳴Index1と莫棄Index3・4は既存第6束所有。別cross-register束へ重複追加せず、再改訂が必要なら既存所有者を更新する",
     "machine_ownership": {
       "existing": [
         {
           "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json",
-          "keys": ["5444_2_Dlgs_Index0_Text", "5444_2_Dlgs_Index1_Text", "5444_2_Dlgs_Index2_Text", "5444_2_Dlgs_Index4_Text", "5446_1_Dlgs_Index0_Text", "5446_1_Dlgs_Index1_Text", "5446_1_Dlgs_Index2_Text", "5446_1_Dlgs_Index3_Text", "5446_1_Dlgs_Index4_Text", "5446_1_Dlgs_Index5_Text"]
+          "keys": [
+            "5450_3_Dlgs_Index0_Text",
+            "5450_3_Dlgs_Index1_Text",
+            "5450_3_Dlgs_Index2_Text",
+            "5450_3_Dlgs_Index3_Text",
+            "5450_3_Dlgs_Index4_Text",
+            "5450_3_Dlgs_Index6_Text",
+            "5450_3_Dlgs_Index7_Text",
+            "5450_3_Dlgs_Index8_Text"
+          ]
         }
       ],
       "unowned": [
-        {"key": "5444_2_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5444_2_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"}
+        {
+          "key": "5450_3_Dlgs_Index5_Text",
+          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch60.json"
+        }
       ]
     },
     "do_not_do": [
-      "12行を15行へ合わせるため、targetや時系列の異なる場面を足さない",
-      "既存第6束所有キーを新規第59束へ重複追加しない",
-      "現訳で機能する未所有キーを新規束へ無理に追加しない",
-      "瑶姫・欧陽雪の既存所有キーを別cross-register束へ重複追加しない",
-      "欧陽姑娘の処理を用語置換だけで決めず、この時点の呼称と相手関係を確認する",
-      "表示タグ、話者接頭辞、行内の伸ばしを失わない"
+      "9行を15行へ合わせるため、時系列や分岐の異なる5449_2・5452_1・5455_1を足さない",
+      "既存第6束所有キーを新規第60束へ重複追加しない",
+      "元鳴・莫棄の既存所有キーを別cross-register束へ重複追加しない",
+      "莫問の推測を設定事実へ強めない",
+      "表示タグ、話者接頭辞、品剣大会前という時系列を失わない"
     ]
   },
   "skill_review": {
@@ -98,9 +128,9 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5444_2・5446_1の12行を原文・現訳・前後文・話者・相手・表示タグ・実所有とともに確認",
+    "5450_3の9行を原文・現訳・前後文・話者・相手・表示タグ・実所有とともに確認",
     "FACT_DOUBTを記録し、典故候補がなければ無理に作らない",
-    "既存第6束の再改訂と新規第59束を所有者別に分離し、重複所有を作らない",
+    "既存第6束の再改訂と新規第60束を所有者別に分離し、重複所有を作らない",
     "機械所有表を全fix JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -108,9 +138,9 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第58束・1163キー・全1514キー・verified",
-    "open_pr": "未統合PRをactive / superseded / abandoned / unrelatedへ分類し、状態同期PRがあれば最新HEADと三本のActionsを最優先で確認する",
-    "start": "active PRがなければ5444_2・5446_1の12行を最新relation artifactから開き、既存第6束10キーと未所有2キーを分けて監査する",
+    "current": "宇文逸↔莫問・第59束・1165キー・全1516キー・verified",
+    "open_pr": "PR #101が開いていればactiveとして最新HEAD、三本のActions、bot起因action_required、レビューthreadを確認する",
+    "start": "PR #101が統合済みでactive PRがなくprivateなら5450_3の9行を最新relation artifactから開き、既存第6束8キーと未所有1キーを分けて監査する",
     "drift": "audit_status.current.next_action、_TODO、人物資料の適用済み範囲が古い場合は、CURRENT_WORKとこのpacketを優先しつつ一次資料で再検証する"
   }
 }
