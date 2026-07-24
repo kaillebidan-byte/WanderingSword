@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# Phase2 manifest-migration rerun anchor: release identity is authoritative.
 from __future__ import annotations
 
 import json

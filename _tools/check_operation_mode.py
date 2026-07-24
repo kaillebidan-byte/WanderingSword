@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""翻訳作業回、phase1 CI列車、公開CI窓の宣言状態・実visibilityを検査する。"""
+"""翻訳作業回、CI列車、公開CI窓、phase2単一PR最終化を検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,6 @@ VALID_DECLARED_STATES = {
     "ready_for_public_ci",
     "public_ci_blocked",
 }
-VALID_DERIVED_STATES = {"public_ci_window", "return_private_required"}
 VALID_VISIBILITIES = {"private", "public"}
 VALID_TRAIN_STATUSES = {
     "accumulating",
@@ -27,11 +26,12 @@ VALID_TRAIN_STATUSES = {
     "aborted",
 }
 EXPECTED_PROTOCOL = "_phase4_proofread/PUBLIC_CI_WINDOW.md"
-EXPECTED_TRAIN_POLICY = "_phase4_proofread/CI_TRAIN_PHASE1.md"
 EXPECTED_TRAIN_MANIFEST = "_phase4_proofread/CI_TRAIN_MANIFEST.json"
 EXPECTED_VISIBILITY_SOURCE = "github_repository_metadata"
 EXPECTED_VISIBILITY_ACTOR = "user"
-REQUIRED_COMPLETION_CHECKS = {
+PHASE1_POLICY = "_phase4_proofread/CI_TRAIN_PHASE1.md"
+PHASE2_POLICY = "_phase4_proofread/CI_TRAIN_PHASE2.md"
+PHASE1_COMPLETION_CHECKS = {
     "relation_audit_success",
     "cross_register_success",
     "apply_curated_fixes_success",
@@ -40,6 +40,17 @@ REQUIRED_COMPLETION_CHECKS = {
     "zero_unresolved_review_threads",
     "translation_pr_squash_merged",
     "post_merge_state_pr_squash_merged",
+}
+PHASE2_COMPLETION_CHECKS = {
+    "relation_audit_success",
+    "cross_register_success",
+    "apply_curated_fixes_success",
+    "zero_pending_fixes",
+    "release_evidence_verified",
+    "single_pr_state_finalized",
+    "verified_checkpoint",
+    "zero_unresolved_review_threads",
+    "translation_pr_squash_merged",
 }
 
 
@@ -87,64 +98,72 @@ def validate_operation_mode(current: dict[str, Any]) -> list[str]:
         errors.append(f"operation mode protocol does not exist: {protocol}")
 
     if mode.get("actual_visibility_source") != EXPECTED_VISIBILITY_SOURCE:
-        errors.append(
-            "operation_mode.actual_visibility_source must be "
-            f"{EXPECTED_VISIBILITY_SOURCE!r}"
-        )
+        errors.append("operation_mode.actual_visibility_source is invalid")
     if mode.get("visibility_change_actor") != EXPECTED_VISIBILITY_ACTOR:
-        errors.append(
-            f"operation_mode.visibility_change_actor must be {EXPECTED_VISIBILITY_ACTOR!r}"
-        )
+        errors.append("operation_mode.visibility_change_actor is invalid")
 
     phrases = mode.get("phrases")
     if not isinstance(phrases, dict):
         errors.append("operation_mode.phrases must be an object")
     else:
-        for key in (
-            "request_public",
-            "confirm_public",
-            "request_private",
-            "confirm_private",
-        ):
-            value = phrases.get(key)
-            if not isinstance(value, str) or not value.strip():
-                errors.append(f"operation_mode.phrases.{key} must be a non-empty string")
-
-    checks = mode.get("public_ci_exit_checks")
-    if not isinstance(checks, list) or any(not isinstance(item, str) for item in checks):
-        errors.append("operation_mode.public_ci_exit_checks must be a string list")
-    else:
-        missing = sorted(REQUIRED_COMPLETION_CHECKS - set(checks))
-        if missing:
-            errors.append(f"operation_mode.public_ci_exit_checks missing: {missing!r}")
-
-    if mode.get("open_pr_only_after_ready") is not True:
-        errors.append("operation_mode.open_pr_only_after_ready must remain true for non-draft PRs")
-    if mode.get("draft_train_pr_allowed_while_private") is not True:
-        errors.append("operation_mode.draft_train_pr_allowed_while_private must be true")
-    if mode.get("train_release_requires_manifest_ready") is not True:
-        errors.append("operation_mode.train_release_requires_manifest_ready must be true")
-    if mode.get("public_translation_forbidden") is not True:
-        errors.append("operation_mode.public_translation_forbidden must be true")
-    if mode.get("deep_failure_returns_private") is not True:
-        errors.append("operation_mode.deep_failure_returns_private must be true")
+        for key in ("request_public", "confirm_public", "request_private", "confirm_private"):
+            if not isinstance(phrases.get(key), str) or not phrases.get(key, "").strip():
+                errors.append(f"operation_mode.phrases.{key} must be non-empty")
 
     train = current.get("ci_train")
     if not isinstance(train, dict):
         errors.append("CURRENT_WORK.ci_train must be an object")
         return errors
+
+    finalization_phase = train.get("finalization_phase", "phase1")
+    if finalization_phase not in {"phase1", "phase2"}:
+        errors.append("ci_train.finalization_phase must be phase1 or phase2")
+        finalization_phase = "phase1"
+    required_checks = (
+        PHASE2_COMPLETION_CHECKS if finalization_phase == "phase2" else PHASE1_COMPLETION_CHECKS
+    )
+    checks = mode.get("public_ci_exit_checks")
+    if not isinstance(checks, list) or any(not isinstance(item, str) for item in checks):
+        errors.append("operation_mode.public_ci_exit_checks must be a string list")
+    else:
+        missing = sorted(required_checks - set(checks))
+        if missing:
+            errors.append(f"operation_mode.public_ci_exit_checks missing: {missing!r}")
+        if finalization_phase == "phase2" and "post_merge_state_pr_squash_merged" in checks:
+            errors.append("phase2 must not require post_merge_state_pr_squash_merged")
+
+    for key in (
+        "open_pr_only_after_ready",
+        "draft_train_pr_allowed_while_private",
+        "train_release_requires_manifest_ready",
+        "public_translation_forbidden",
+        "deep_failure_returns_private",
+    ):
+        if mode.get(key) is not True:
+            errors.append(f"operation_mode.{key} must be true")
+
+    if finalization_phase == "phase2":
+        if mode.get("single_pr_finalization") is not True:
+            errors.append("phase2 requires operation_mode.single_pr_finalization=true")
+        if mode.get("post_merge_state_pr_required") is not False:
+            errors.append("phase2 requires operation_mode.post_merge_state_pr_required=false")
+    else:
+        if mode.get("post_merge_state_pr_required") is False:
+            errors.append("phase1 cannot disable post_merge_state_pr_required")
+
     if train.get("phase") != "phase1_pilot":
-        errors.append("ci_train.phase must be phase1_pilot")
-    if train.get("policy") != EXPECTED_TRAIN_POLICY:
-        errors.append(f"ci_train.policy must be {EXPECTED_TRAIN_POLICY!r}")
-    elif not (ROOT / EXPECTED_TRAIN_POLICY).is_file():
-        errors.append(f"CI train policy does not exist: {EXPECTED_TRAIN_POLICY}")
+        errors.append("ci_train.phase must remain phase1_pilot for accumulation-schema compatibility")
+    expected_policy = PHASE2_POLICY if finalization_phase == "phase2" else PHASE1_POLICY
+    if train.get("policy") != expected_policy:
+        errors.append(f"ci_train.policy must be {expected_policy!r}")
+    elif not (ROOT / expected_policy).is_file():
+        errors.append(f"CI train policy does not exist: {expected_policy}")
     if train.get("manifest") != EXPECTED_TRAIN_MANIFEST:
         errors.append(f"ci_train.manifest must be {EXPECTED_TRAIN_MANIFEST!r}")
     elif not (ROOT / EXPECTED_TRAIN_MANIFEST).is_file():
         errors.append(f"CI train manifest does not exist: {EXPECTED_TRAIN_MANIFEST}")
     if not isinstance(train.get("train_id"), str) or not train.get("train_id"):
-        errors.append("ci_train.train_id must be a non-empty string")
+        errors.append("ci_train.train_id must be non-empty")
     if not isinstance(train.get("branch"), str) or not train.get("branch", "").startswith("agent/"):
         errors.append("ci_train.branch must be an agent/* branch")
 
@@ -161,11 +180,7 @@ def validate_operation_mode(current: dict[str, Any]) -> list[str]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--repository-visibility",
-        choices=sorted(VALID_VISIBILITIES),
-        help="GitHub repository metadataから取得した実visibility",
-    )
+    parser.add_argument("--repository-visibility", choices=sorted(VALID_VISIBILITIES))
     return parser.parse_args()
 
 
@@ -187,13 +202,14 @@ def main() -> int:
     print(f"repository visibility: {args.repository_visibility or 'not supplied'}")
     print(f"effective state: {effective}")
     print(f"CI train: {train.get('train_id')} / {train.get('status')}")
+    print(f"finalization: {train.get('finalization_phase', 'phase1')}")
 
     if effective == "return_private_required":
         print("ACTION REQUIRED: public CI is not active; return the repository to private")
     elif effective == "ready_for_public_ci":
         print("ACTION REQUIRED: a released CI train is waiting for the public window")
     elif effective == "public_ci_window":
-        print("OK WINDOW: run CI and integration only; do not add translation bundles")
+        print("OK WINDOW: run CI and single-PR integration only")
     elif effective == "public_ci_blocked":
         print("BLOCKED PRIVATE: repair the deep failure while private")
     elif effective == "private_translation_work":

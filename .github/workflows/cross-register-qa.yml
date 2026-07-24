@@ -2,15 +2,35 @@ name: Cross register QA
 
 on:
   pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - labeled
     branches:
       - main
+    paths:
+      - "_phase4_proofread/fixes_*.json"
+      - "_tools/apply_fixes_json.py"
+      - "_tools/validate_fixes_json.py"
+      - "_tools/lint_register.py"
+      - "_tools/test_apply_fixes_json.py"
+      - "_tools/test_lint_register.py"
+      - ".github/workflows/cross-register-qa.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: cross-register-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event.action != 'labeled' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,7 +56,7 @@ jobs:
             exit 1
           fi
           printf '%s\n' "${files[@]}" > _ws_register_fix_files.txt
-          printf 'Found %s register fix batches\n' "${#files[@]}"
+          printf 'Found %s curated fix batches\n' "${#files[@]}"
 
       - name: Validate curated register fixes
         shell: bash

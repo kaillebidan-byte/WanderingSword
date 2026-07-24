@@ -2,19 +2,52 @@ name: Relation audit extraction
 
 on:
   pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - labeled
     branches:
       - main
+    paths:
+      - "_phase4_proofread/fixes_*.json"
+      - "_tools/apply_fixes_json.py"
+      - "_tools/validate_fixes_json.py"
+      - "_tools/extract_relation_context.py"
+      - "_tools/report_next_task_ownership.py"
+      - "_tools/check_operation_mode.py"
+      - "_tools/check_handoff_consistency_v2.py"
+      - "_tools/check_release_evidence.py"
+      - "_tools/check_next_task_packet.py"
+      - "_tools/check_batch_planning.py"
+      - "_tools/test_check_operation_mode.py"
+      - "_tools/test_check_handoff_consistency_v2.py"
+      - "_tools/test_check_release_evidence.py"
+      - "_tools/test_check_next_task_packet_ownership.py"
+      - "_tools/test_check_batch_planning.py"
+      - "_tools/test_apply_fixes_json.py"
+      - "_tools/test_extract_relation_context.py"
+      - ".github/workflows/relation-audit.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: relation-audit-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   extract:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event.action != 'labeled' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -36,8 +69,10 @@ jobs:
           python _tools/check_operation_mode.py \
             --repository-visibility "${{ github.event.repository.visibility }}" \
             2>&1 | tee _ws_tmp/relation_audit/operation_mode.txt
-          python _tools/check_handoff_consistency.py \
+          python _tools/check_handoff_consistency_v2.py \
             2>&1 | tee _ws_tmp/relation_audit/handoff_consistency.txt
+          python _tools/check_release_evidence.py \
+            2>&1 | tee _ws_tmp/relation_audit/release_evidence.txt
           python _tools/check_next_task_packet.py --allow-pending \
             2>&1 | tee _ws_tmp/relation_audit/next_task_packet_check.txt
           python _tools/check_batch_planning.py \
@@ -46,7 +81,8 @@ jobs:
       - name: Unit tests
         run: |
           python _tools/test_check_operation_mode.py
-          python _tools/test_check_handoff_consistency.py
+          python _tools/test_check_handoff_consistency_v2.py
+          python _tools/test_check_release_evidence.py
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_check_batch_planning.py
           python _tools/test_apply_fixes_json.py
