@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #94 `agent/yuwen-mowen-batch56-review`
 - checkpointを生成した翻訳PR: #94
 - 直近の統合済み翻訳PR: #92
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #94が開いている間はactiveとして扱う。第56束の監査索引、件数、適用記録、第57束の20行パケットを同期中。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
+PR #94が開いている間はactiveとして扱う。第56束の監査索引、件数、適用記録、第57束の20行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
 
 ## 第56束で完了したこと
 
