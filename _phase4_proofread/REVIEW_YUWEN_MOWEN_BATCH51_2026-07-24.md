@@ -2,7 +2,7 @@
 
 - 日付: 2026-07-24
 - 対象: `CG表 / QuestDlgs / 5345_1_Dlgs`
-- status: review_ready
+- status: verified
 - 場面通読: 7行
 - 修正対象: 3キー
 - 人物ペア新規: 1キー
@@ -51,6 +51,19 @@
 
 第51束パケットで清霄Index5を未所有とした初期仮説は、機械所有検査により既存宇文逸↔清霄第2束所有と判明した。実修正JSONを優先してパケットを訂正し、新規cross-registerへの重複追加を防いだ。
 
+第52束パケットでも既存所有5キーを検出した。ログ末尾の切断に依存せず調査できるよう、focus keyごとの実所有をQA artifactへ出す `_tools/report_next_task_ownership.py` を追加し、Relation auditとApply workflowへ接続した。
+
+## 検証結果
+
+- locres反映済み
+- pak再生成済み
+- 全1436キー差分0
+- register lint成功
+- 関係抽出成功
+- 単体テスト・回帰走査成功
+- pak実体・Git LFS確認成功
+- audit_statusは`batch51_complete`・人物ペア1140・全体1436で同期
+
 ## skill改修判定
 
-今回の翻訳判断は既存skillの指示文、役割委任、到達方向、定型的な師命応答、事実疑義で扱える。新しい一般則ではないためskill本体と人物資料は変更しない。
+今回の翻訳判断は既存skillの指示文、役割委任、到達方向、定型的な師命応答、事実疑義で扱える。新しい一般則ではないためskill本体と人物資料は変更しない。所有診断の不足はworkflow・再開制度へ反映した。
