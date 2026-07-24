@@ -1,8 +1,8 @@
 # 公開CI窓の粒度 観察メモ
 
-- status: `observation_only`
-- proposal timing: 第60束の公開CI窓終了後
-- current-cycle rule: 現行制度を変更せず、第60束を同じ手順で完了する
+- status: `measurement_complete`
+- proposal timing: 第60束の公開CI窓終了後、ユーザーが提案を求めた時点
+- current-cycle rule: 第60束までは現行制度を変更せず完了した
 
 ## 問題意識
 
@@ -20,7 +20,7 @@
 - visibility操作: public化とprivate復帰
 - squash SHA確定後に、checkpoint・次作業パケットの参照付け替えが必要
 
-## 第60束で観測中の実作業
+## 第60束で観測した実作業
 
 - 通読: 9行
 - 修正: 6キー
@@ -29,9 +29,13 @@
 - 初回HEADのworkflow: Relation、Cross、Applyの3本成功
 - bot書き戻し: 1回
 - bot資産HEAD: `a0be407017da5e74af3cd9e004fd1976d56a8b2f`
-- 状態同期後の最終HEAD再検証: 実行待ち
-- post-merge状態PR: 翻訳PR統合後に実測する
-- visibility操作: public化済み、private復帰は公開CI窓終了後
+- 状態同期後の最終検証: 最初のRelationが例外コード名だけで1回失敗し、修正後に三本成功
+- 翻訳PRの最終成功workflow: Relation、Cross、Applyの3本
+- 翻訳PRのsquash統合: #103、SHA `4bd86ddbf7fbafae6b06c86b7290f9a159b902ce`
+- post-merge状態PR: 1本
+- post-merge状態PRのworkflow: Relation、Cross、Applyの3本
+- visibility操作: public化とprivate復帰の1往復
+- 9行・新規1キーに対しても、第59束と同じ二PR・複数回CI・参照付け替えが発生した
 
 ## 安全境界と反復候補
 
@@ -40,7 +44,7 @@
 - bot書き戻し後の同一三本再検証、squash SHA参照の手動付け替え、post-merge状態PR、毎束のHANDOFF・COLD_START全面同期は反復削減候補である。
 - ただし、まとめた場合も失敗した束の特定、部分ロールバック、冷間再開の現在地を失わない設計が必要である。
 
-## 次回提案で比較する論点
+## 提案時に比較する論点
 
 - `verified checkpoint`を小束ごとではなく複数束をまとめた単位にできるか
 - privateで複数の翻訳束を完成させ、一つの公開CI窓でまとめて適用できるか
@@ -48,4 +52,4 @@
 - CURRENT_HANDOFFやCOLD_START_ACCEPTANCEなどの生成・同期を、毎束ではなく確定単位へ寄せられるか
 - まとめた場合でも、所有競合、未適用0件、回帰、失敗束の特定、ロールバックを維持できるか
 
-この文書では結論を出さない。第60束のpost-merge状態PRまで実測を加えた後、候補制度と移行手順を提示する。
+実測は完了した。この文書では結論を出さず、ユーザーが次に制度案を求めた時点で候補制度と移行手順を提示する。

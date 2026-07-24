@@ -15,10 +15,10 @@
 ## 現在地
 
 - checkpoint: `verified`
-- active PR: #103 `agent/yuwen-mowen-batch60-review`
-- checkpointを生成した翻訳PR: #103
-- 直近の統合済み翻訳PR: #101
-- 直近の状態同期PR: #102（統合済み）
+- active PR: post-merge状態同期PRをGitHubで実確認
+- checkpointを生成した翻訳PR: #103（統合済み）
+- 直近の統合済み翻訳PR: #103
+- 直近の状態同期PR: #102（統合済み。第60束のpost-merge同期は進行中）
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -29,18 +29,16 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 宣言operation mode: `ready_for_public_ci`
+- 宣言operation mode: `private_translation_work`
 - 実visibility: public（GitHub metadataで確認済み）
-- 適用資産HEAD: `a0be407017da5e74af3cd9e004fd1976d56a8b2f`
+- 第60束squash統合SHA: `4bd86ddbf7fbafae6b06c86b7290f9a159b902ce`
 
 ## 公開CI窓の状態
 
-- PR #103の初回HEAD `48d7ea50dcd7989ab925e1c918be45e0ad1a0281`でRelation audit extraction、Cross register QA、Apply curated localization fixesが成功した。
-- Applyは6キーをlocresへ反映し、pakを再生成し、全修正束の未適用0件、register lint、関係抽出、回帰走査、pak実体・LFS確認を完了した。
-- bot書き戻しHEAD `a0be407017da5e74af3cd9e004fd1976d56a8b2f`へ、第60束checkpoint、件数、適用記録、第61束パケット、公開CI粒度の観測値を同期する。
-- 未解決レビューthreadは0件。
-- 同期後の最終HEADで三本を確認してからsquash統合する。
-- public中は新しい場面の翻訳を始めない。
+- PR #103は最終HEADでRelation audit extraction、Cross register QA、Apply curated localization fixesが成功し、未適用0件、verified checkpoint、未解決レビューthread 0件を確認してsquash統合した。
+- 第60束のsquash統合SHAは `4bd86ddbf7fbafae6b06c86b7290f9a159b902ce`。CURRENT_WORK、NEXT_TASK_PACKET、CURRENT_HANDOFFの参照をこのSHAへ付け替えるpost-merge状態同期を行う。
+- mainの宣言状態は`private_translation_work`へ戻す。実visibilityがpublicの間は導出状態`return_private_required`であり、新しい翻訳を始めない。
+- 状態同期PRの三本成功・未解決thread 0件・squash統合後、ユーザーへprivate復帰を依頼する。
 
 ## 第60束で完了したこと
 
@@ -73,10 +71,10 @@
 
 ## 公開CI粒度の見直し
 
-第59束と第60束の実測を `_phase4_proofread/CI_CADENCE_REVIEW_NOTES_2026-07-25.md` に蓄積中。第60束の翻訳PR・post-merge状態PRまで完了した後、候補制度と移行手順を提示できる状態へする。現時点では提案を確定しない。
+第59束と第60束の実測は `_phase4_proofread/CI_CADENCE_REVIEW_NOTES_2026-07-25.md` に蓄積済み。候補制度と移行手順を提示できる状態だが、ユーザーの指示どおり、公開CI窓を完全に閉じた後に求められた時点で提示する。
 
 ## checkpointと遷移状態
 
-- `verified`: 第60束の適用資産と件数は確認済み。
-- `ready_for_public_ci`: PR #103の最終検証と統合を行う公開CI窓。
-- 翻訳PRのsquash統合後、post-merge状態PRでsquash commit参照へ同期し、mainを`private_translation_work`へ戻す。
+- `verified`: 第60束の状態文書、監査索引、件数、適用記録、第61束パケットが同期済み。
+- `private_translation_work`: 第60束の翻訳PR統合後、次の翻訳作業へ戻る宣言状態。
+- 実visibilityがpublicなら`return_private_required`。post-merge状態PRの統合まではCI・状態同期だけを行い、新しい翻訳は始めない。
