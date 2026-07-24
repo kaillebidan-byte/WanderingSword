@@ -31,7 +31,7 @@
 - ready_for_public_ci + public + manifest ready:
   public_ci_window。CI、review、統合だけを行う。
 - public_ci_blocked:
-  publicならprivate復帰を依頼し、privateならf��い修正を行う。
+  publicならprivate復帰を依頼し、privateなら深い修正を行う。
 
 ## 正本の読順
 
@@ -82,7 +82,7 @@
 
 ## draft PR
 
-private中に一つのdraft CI列車PRを開いてよい。所在保存用でありCI開始要求ではない。
+private中に一つのdraft CI列車PRを開いてよい。private PR作成APIが利用できない場合は管理Issueを一つ開く。どちらも所在保存用でありCI開始要求ではない。
 release時は同じPRをready化する。別PRへ小束を分散しない。
 
 ## public中
@@ -107,7 +107,7 @@ privateでaccumulatingなら報告だけで止まらず、同じ応答内で次�
 - 件数合わせで別場面を混ぜる
 - verified checkpointと未適用小束を混同する
 - release未達で理由なくreadyへする
-- active trainを無覐c��てmainから別branchを作る
+- active trainを無視してmainから別branchを作る
 - public中に新しい小束を追加する
 - manifest totalsを手計算だけで信用する
 - CI成功前に完了と報告する
