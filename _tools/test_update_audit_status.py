@@ -46,6 +46,23 @@ def main() -> int:
         assert pair["build_verified"] == "batch2_complete"
         assert update_status(status_path, fixes) is False
 
+        # 新しい人物ペアJSONがない再改訂・cross-registerのみの束でも、
+        # 適用記録があれば完了束を進める。キー件数は増えない。
+        (fixes / "APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-24.md").write_text(
+            "# zero-new-key batch\n", encoding="utf-8"
+        )
+        assert update_status(status_path, fixes) is True
+        status = json.loads(status_path.read_text(encoding="utf-8"))
+        pair = status["pair_status"]["宇文逸↔莫問"]
+        assert pair["applied_keys"] == 3
+        assert pair["translation_reaudited"] == "batch3_complete_next_scenes_pending"
+        assert pair["build_verified"] == "batch3_complete"
+        assert (
+            "proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH3_2026-07-24.md"
+            in status["project"]["latest_build"]["record_index"]
+        )
+        assert update_status(status_path, fixes) is False
+
     print("update_audit_status tests passed")
     return 0
 
