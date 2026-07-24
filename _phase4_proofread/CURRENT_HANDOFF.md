@@ -10,41 +10,42 @@
 
 ## 現在地
 
-- 実visibility: private
-- open PR: 0件
-- 管理Issue: #108
-- active制度改修branch: `agent/ci-train-phase2`
-- operation mode: `ready_for_public_ci`
-- 早期release理由: `workflow_change`
+- 実visibility: public。PR #109統合後にprivate復帰が必要
+- active制度PR: #109 `agent/ci-train-phase2`
+- 第二段階の検証HEAD: `a0274dd1fcfa4ac66657d820a6fafaf985c3a209`
+- Relation run `30128857082`: success
+- Cross run `30128857149`: success
+- Apply run `30128857114`: success
+- phase2 gate run `30128857099`: success
+- 未適用fix: 0
+- asset rebuild: skipped
+- bot writeback: none
 - checkpoint: 第61束 / 人物ペア1166 / 全1518 / verified
 - release id: `yuwen-mowen-train-01-r1`
-- 次の翻訳束: 第62束 `5455_1`（制度改修統合・private復帰まで着手しない）
 
-## 第二段階の実装
+## 第二段階で確定したこと
 
-- Relation / Cross / Applyの起動を修正JSON・検査コード・当該workflow変更へ限定
-- bot actorを重い三本から除外
-- locres、pak、audit status、状態文書では重い三本を再起動しない
-- 最終状態文書は`CI train phase2 gate`だけで検査
-- checkpointをsquash SHA依存からrelease evidenceへ移行
-- 同じPR内で状態を確定し、post-merge状態PRを廃止
-- 旧phase1自動gateを手動legacyへ退役
+- checkpointをsquash SHA依存からrelease evidenceへ移行した
+- Relation / Cross / Applyは修正JSON・検査コード・当該workflow変更だけで起動する
+- bot actor、locres、pak、audit status、状態文書では重い三本を再起動しない
+- 状態だけの最終commitは`CI train phase2 gate`だけで検査する
+- 同じPR内で状態を確定し、post-merge状態PRを作らない
+- 旧phase1自動gateは手動legacyへ退役した
 
-## private検証
+## PR #109統合後のprivate再開点
 
-- release evidence回帰: 成功
-- phase2 handoff回帰: 成功
-- operation mode回帰: 成功
-- Python compile: 成功
-- JSON / workflow YAML構文: 成功
+- active CI列車: `yuwen-mowen-train-02`
+- branch: `agent/yuwen-mowen-train-02`
+- status: `accumulating`
+- totals: 0束 / 0行 / 0修正キー
+- 次の翻訳束: 第62束 `5455_1`
+- publicの間は新しい翻訳判断を始めない
 
-## 公開CIで測ること
+## 残り
 
-1. 制度PR初回HEADでRelation / Cross / Apply / phase2 gateが一度ずつ起動する
-2. bot書き戻し後に重い三本が再起動しない
-3. 最終状態commitでphase2 gateだけが起動する
-4. 未解決thread 0件で同じPRをsquash統合する
-5. post-merge状態PRを作らない
-6. privateへ戻した後、第62束`5455_1`へ進む
-
-public中は新しい翻訳判断を追加しない。
+1. この状態commitでphase2 gateだけが起動することを確認する
+2. 未解決review thread 0件を確認する
+3. PR #109をsquash統合する
+4. post-merge状態PRを作らない
+5. `privateへ戻してください。`と依頼する
+6. privateを実metadataで確認後、第62束`5455_1`へ進む
