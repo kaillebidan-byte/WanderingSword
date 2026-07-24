@@ -36,11 +36,11 @@
 - 人物ペア適用キー: 1166
 - 全体適用キー: 1517
 - checkpoint: verified
-- 宣言operation mode: `ready_for_public_ci`
+- 宣言operation mode: `private_translation_work`
 - 実visibility: GitHubで毎回確認
-- 実visibilityがpublicなら導出状態: `public_ci_window`
-- active PR: #103をGitHubで実確認
-- PR #103が統合済みでactive PRがなくprivateなら次場面: `5452_1`
+- 実visibilityがpublicなら導出状態: `return_private_required`
+- active PR: post-merge状態同期PRをGitHubで実確認
+- PR #103は統合済み。状態同期PRも統合済みでactive PRがなくprivateなら次場面: `5452_1`
 
 ## 機械検査
 
