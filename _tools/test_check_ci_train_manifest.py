@@ -23,6 +23,7 @@ def load_module():
 def current(status="accumulating", declared="private_translation_work"):
     return {
         "checkpoint": {
+            "status": "verified",
             "batch": 60,
             "pair_applied_keys": 1166,
             "project_applied_keys": 1517,
@@ -37,6 +38,7 @@ def current(status="accumulating", declared="private_translation_work"):
             "train_id": "test-train",
             "branch": "agent/test-train",
             "status": status,
+            "base_checkpoint_batch": 60,
             "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
             "caps": {"bundle_count": 6, "reviewed_rows": 60},
         },
@@ -105,6 +107,26 @@ def recalc(manifest):
     }
 
 
+def advanced_current(checkpoint_status="pending_audit_sync"):
+    value = current("in_public_ci", "ready_for_public_ci")
+    value["checkpoint"] = {
+        "status": checkpoint_status,
+        "batch": 61,
+        "pair_applied_keys": 1166,
+        "project_applied_keys": 1518,
+        "produced_by_pr": 106,
+        "translation_head": "b" * 40,
+        "verified_head": "a" * 40,
+    }
+    value["ci_train"]["applied_result"] = {
+        "asset_head": "b" * 40,
+        "pair_applied_keys": 1166,
+        "project_applied_keys": 1518,
+        "pending_fixes": 0,
+    }
+    return value
+
+
 def main() -> None:
     module = load_module()
 
@@ -152,6 +174,33 @@ def main() -> None:
         over, current("ready_for_public_ci", "ready_for_public_ci")
     )
     assert any("reviewed_rows exceeds" in error for error in errors)
+
+    pending = base_manifest("in_public_ci")
+    pending["release_trigger"] = {
+        "reason": "schema_change",
+        "detail": "verify the pilot with one real bundle",
+    }
+    pending["bundles"] = [bundle(61, "scene-61", rows=5, fixes=3)]
+    recalc(pending)
+    errors = module.validate_manifest(pending, advanced_current(), require_ready=True)
+    assert errors == [], errors
+
+    bad_asset = advanced_current()
+    bad_asset["ci_train"]["applied_result"]["asset_head"] = "c" * 40
+    errors = module.validate_manifest(pending, bad_asset, require_ready=True)
+    assert any("asset_head mismatch" in error for error in errors)
+
+    wrong_base = copy.deepcopy(pending)
+    wrong_base["base_checkpoint"]["batch"] = 59
+    errors = module.validate_manifest(wrong_base, advanced_current(), require_ready=True)
+    assert any("base_checkpoint batch" in error for error in errors)
+
+    verified_manifest = copy.deepcopy(pending)
+    verified_manifest["status"] = "verified"
+    verified_current = advanced_current("verified")
+    verified_current["ci_train"]["status"] = "verified"
+    errors = module.validate_manifest(verified_manifest, verified_current)
+    assert errors == [], errors
 
     print("test_check_ci_train_manifest: OK")
 
