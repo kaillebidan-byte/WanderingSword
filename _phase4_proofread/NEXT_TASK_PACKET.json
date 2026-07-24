@@ -11,11 +11,15 @@
     "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_01.json"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5504_3"],
+  "scene_groups": [
+    "5504_3"
+  ],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5504_3_Dlgs"],
+    "families": [
+      "5504_3_Dlgs"
+    ],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -25,12 +29,37 @@
     {
       "scene": "5504_3",
       "function": "迂回後も追手が現れ、莫問が湛盧情報を餌にした妨害策を推測する。峋谷関への危機感が高まる一方、瑶姫が船頭不在という直近の実務へ話を戻す場面",
-      "speaker_order": ["宇文逸", "宇文逸", "莫問", "莫問", "欧陽雪", "欧陽雪", "欧陽雪", "宇文逸", "宇文逸", "瑶姫", "瑶姫", "宇文逸", "宇文逸", "幽雲沢船夫"],
+      "speaker_order": [
+        "宇文逸",
+        "宇文逸",
+        "莫問",
+        "莫問",
+        "欧陽雪",
+        "欧陽雪",
+        "欧陽雪",
+        "宇文逸",
+        "宇文逸",
+        "瑶姫",
+        "瑶姫",
+        "宇文逸",
+        "宇文逸",
+        "幽雲沢船夫"
+      ],
       "focus_keys": [
-        "5504_3_Dlgs_Index0_Text", "5504_3_Dlgs_Index1_Text", "5504_3_Dlgs_Index2_Text", "5504_3_Dlgs_Index3_Text",
-        "5504_3_Dlgs_Index4_Text", "5504_3_Dlgs_Index5_Text", "5504_3_Dlgs_Index6_Text", "5504_3_Dlgs_Index7_Text",
-        "5504_3_Dlgs_Index8_Text", "5504_3_Dlgs_Index9_Text", "5504_3_Dlgs_Index10_Text", "5504_3_Dlgs_Index11_Text",
-        "5504_3_Dlgs_Index12_Text", "5504_3_Dlgs_Index13_Text"
+        "5504_3_Dlgs_Index0_Text",
+        "5504_3_Dlgs_Index1_Text",
+        "5504_3_Dlgs_Index2_Text",
+        "5504_3_Dlgs_Index3_Text",
+        "5504_3_Dlgs_Index4_Text",
+        "5504_3_Dlgs_Index5_Text",
+        "5504_3_Dlgs_Index6_Text",
+        "5504_3_Dlgs_Index7_Text",
+        "5504_3_Dlgs_Index8_Text",
+        "5504_3_Dlgs_Index9_Text",
+        "5504_3_Dlgs_Index10_Text",
+        "5504_3_Dlgs_Index11_Text",
+        "5504_3_Dlgs_Index12_Text",
+        "5504_3_Dlgs_Index13_Text"
       ],
       "voice_questions": [
         "宇文逸の推測を断定へ強めず、若い焦りと論理を両立できるか",
@@ -43,8 +72,15 @@
   ],
   "batch_planning": {
     "reviewed_rows": 14,
-    "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": ["5502_6", "5504_3", "5506_3"],
+    "target_rows": {
+      "min": 15,
+      "max": 30
+    },
+    "adjacent_candidates_checked": [
+      "5502_6",
+      "5504_3",
+      "5506_3"
+    ],
     "grouping_decision": "5504_3は追手の意図推測から峋谷関への危機感、船頭探しへの転換まで一つの会話機能で閉じる。後続5506_3は船旅開始後の別局面なので混ぜない。",
     "exception": {
       "reason_code": "high_risk_scene",
@@ -62,25 +98,46 @@
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "宇文逸・莫問の変更は第66束人物ペア所有へ収録する。",
-    "cross_register": "欧陽雪、瑶姫、幽雲沢船夫の変更は話者別cross-registerへ分離する。",
+    "pair_batch": "宇文逸・莫問の既存キーは第7束を再改訂し、未所有キーだけ第66束人物ペア所有へ収録する。",
+    "cross_register": "欧陽雪と幽雲沢船夫の既存キーも第7束を再改訂する。未所有の瑶姫Index9〜10だけ話者別cross-registerへ分離する。",
     "machine_ownership": {
-      "existing": [],
+      "existing": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch7.json",
+          "keys": [
+            "5504_3_Dlgs_Index1_Text",
+            "5504_3_Dlgs_Index3_Text",
+            "5504_3_Dlgs_Index4_Text",
+            "5504_3_Dlgs_Index5_Text",
+            "5504_3_Dlgs_Index6_Text",
+            "5504_3_Dlgs_Index7_Text",
+            "5504_3_Dlgs_Index11_Text",
+            "5504_3_Dlgs_Index12_Text",
+            "5504_3_Dlgs_Index13_Text"
+          ]
+        }
+      ],
       "unowned": [
-        {"key": "5504_3_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index11_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index12_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"},
-        {"key": "5504_3_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_ouyang_threat_analysis_20260725.json"},
-        {"key": "5504_3_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_ouyang_threat_analysis_20260725.json"},
-        {"key": "5504_3_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_ouyang_threat_analysis_20260725.json"},
-        {"key": "5504_3_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yaoji_boatman_20260725.json"},
-        {"key": "5504_3_Dlgs_Index10_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yaoji_boatman_20260725.json"},
-        {"key": "5504_3_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_youyun_boatman_20260725.json"}
+        {
+          "key": "5504_3_Dlgs_Index0_Text",
+          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"
+        },
+        {
+          "key": "5504_3_Dlgs_Index2_Text",
+          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"
+        },
+        {
+          "key": "5504_3_Dlgs_Index8_Text",
+          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch66.json"
+        },
+        {
+          "key": "5504_3_Dlgs_Index9_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_yaoji_boatman_20260725.json"
+        },
+        {
+          "key": "5504_3_Dlgs_Index10_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_yaoji_boatman_20260725.json"
+        }
       ]
     }
   },
@@ -100,13 +157,15 @@
   "expected_outputs": [
     "train-02統合とprivate復帰後に5504_3の14行を確認",
     "FACT_DOUBTとALLUSION_REVIEWを分離",
-    "人物ペア第66束と話者別cross-registerを分離",
+    "人物ペア第66束と既存第7束・話者別cross-registerを分離",
     "高確度の変更だけを収録しkeepを変更数へ含めない",
-    "小束ではlocresとpakを更新せず次列車へ積む"
+    "小束ではlocresとpakを更新せずreviewed_pending_ciとして次列車へ積む",
+    "CURRENT_WORKのlast_reviewed_batchとcheckpoint verifiedの分離を維持する",
+    "CI_TRAIN_MANIFESTへ束・行数・修正数・所有を追記する"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・適用完了第61束・レビュー完了第65束・人物ペア1166・全1518。train-02は4束30行8修正で公開CI待ち。",
-    "open_pr": "privateではIssue #110とagent/yuwen-mowen-train-02を正本とする。publicなら同branchの単一PRでCIを続ける。",
+    "current": "宇文逸↔莫問・適用完了第61束・レビュー完了第65束・人物ペア1166・全1518。train-02は4束30行8修正で公開CI中。",
+    "open_pr": "PR #111とagent/yuwen-mowen-train-02を正本とし、CI・bot書き戻し・単一PR最終化だけを続ける。",
     "start": "まずtrain-02の公開一往復を完了し、private復帰後に5504_3へ進む。",
     "drift": "squash SHAではなくcheckpoint release evidenceを優先する。"
   },
@@ -117,7 +176,12 @@
     "planned_batch": 66,
     "bundle_status_on_completion": "reviewed_pending_ci",
     "do_not_apply_until_release": true,
-    "current_totals": {"bundle_count": 4, "reviewed_rows": 30, "fix_keys": 8, "new_pair_keys": 4},
+    "current_totals": {
+      "bundle_count": 4,
+      "reviewed_rows": 30,
+      "fix_keys": 8,
+      "new_pair_keys": 4
+    },
     "after_bundle": [
       "修正JSONとレビュー記録を個別ファイルで完成",
       "manifestへ束・行数・修正数・所有を追記",
@@ -129,8 +193,9 @@
     "single_pr_finalization": true,
     "release_evidence_on_release": "_phase4_proofread/RELEASE_EVIDENCE_<TRAIN>.json",
     "live_release": {
-      "status": "ready_for_public_ci",
+      "status": "in_public_ci",
       "tracking_issue": 110,
+      "pr": 111,
       "release_reason": "bundle_count",
       "pending_fix_keys": 8
     }
