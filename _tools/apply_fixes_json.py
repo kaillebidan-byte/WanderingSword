@@ -48,6 +48,7 @@ class TargetPlan:
     values: list
     pending: int
     applied: int
+    pending_details: list[tuple[str, str, str]]
 
 
 def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
@@ -173,15 +174,20 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
         _, version, _, values, _ = L.load(str(path))
         pending = 0
         applied = 0
+        pending_details: list[tuple[str, str, str]] = []
 
         for namespace, key, new_value in grouped[table]:
             index = index_map.get(namespace + "\x1f" + key)
             if index is None:
                 missing.append(f"{table}|{namespace}|{key}")
                 continue
-            if values[index][0] == new_value:
+            observed = values[index][0]
+            if observed == new_value:
                 applied += 1
             else:
+                pending_details.append(
+                    (f"{table}\x1f{namespace}\x1f{key}", new_value, observed)
+                )
                 values[index][0] = new_value
                 pending += 1
 
@@ -195,6 +201,7 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
                 values=values,
                 pending=pending,
                 applied=applied,
+                pending_details=pending_details,
             )
         )
         total_pending += pending
@@ -253,7 +260,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     try:
-        fixes, _ = load_fix_files(args.paths)
+        fixes, sources = load_fix_files(args.paths)
         plans, pending, applied = build_plans(fixes)
     except (
         FileNotFoundError,
@@ -268,6 +275,10 @@ def main(argv: list[str] | None = None) -> int:
 
     for plan in plans:
         print(f"  {plan.table}: 未適用{plan.pending}件 / 適用済み{plan.applied}件")
+        for full_key, expected, observed in plan.pending_details:
+            print(f"    PENDING: {full_key} ({sources.get(full_key, '')})")
+            print(f"      expected: {expected!r}")
+            print(f"      observed: {observed!r}")
 
     if not args.apply:
         print(f"[プレビュー] 計{pending}件 / 適用済み{applied}件 / --apply で書込")
