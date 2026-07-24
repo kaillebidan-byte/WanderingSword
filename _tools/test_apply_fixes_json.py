@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# Phase2 compatibility rerun anchor: validated PR head is not a squash SHA.
 from __future__ import annotations
 
 import json
