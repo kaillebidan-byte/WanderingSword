@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> 新しいチャットが過去会話なしで現在地を復元するための入口。機械可読の正本は `CURRENT_WORK.json`、次作業の具体的な着眼点と所有表は `NEXT_TASK_PACKET.json`、品質段階と件数は `audit_status.json`。`_handover.md` は履歴であり、現在地として使わない。
+> 新しいチャットが過去会話なしで現在地を復元するための入口。機械可読の正本は `CURRENT_WORK.json`、次作業の具体的な着眼点と所有表・監査行数計画は `NEXT_TASK_PACKET.json`、品質段階と件数は `audit_status.json`。`_handover.md` は履歴であり、現在地として使わない。
 
 ## 新チャットで送る一文
 
@@ -14,10 +14,9 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
-- active PR: #84 `agent/yuwen-mowen-batch51-review`
-- checkpointを生成した翻訳PR: #84
-- 直近の統合済み翻訳PR: #82
+- checkpoint: `verified`
+- checkpointを生成した翻訳PR: #84（統合済み）
+- 直近の統合済み翻訳PR: #84
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -29,7 +28,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #84が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。botの監査索引書き戻し後、checkpointを`verified`へ確定し、最終HEADで三本成功後に統合する。統合済みなら第52束へ入る。
+再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなければ、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第52束へ入る。PRは開いているだけで現行作業と決めない。
 
 ## 第51束で完了したこと
 
@@ -57,13 +56,23 @@ PR #84が開いている間は `active` とし、最新HEADのRelation audit、C
 
 第52束の初期パケットでも全16キーを未所有候補としたが、所有診断artifactにより、宇文逸Index0・3・4・17と莫問Index8は `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json` の既存所有と判明した。未所有の人物ペア候補は宇文逸Index15だけである。
 
-今後、所有検査が失敗してもログ末尾の切断に依存しないよう、focus keyごとの `observed_owners` をRelation auditとApplyのQA artifactへ必ず出す `_tools/report_next_task_ownership.py` を追加した。
+focus keyごとの `observed_owners` をRelation auditとApplyのQA artifactへ必ず出す `_tools/report_next_task_ownership.py` を追加済み。
 
-翻訳判断は既存skillで扱えたため、skill本体と人物資料は変更していない。
+## 監査行数制度の改修
+
+第42〜51束の通読行数は `21, 19, 11, 16, 11, 8, 27, 8, 20, 7` で、単調減少ではない。一方、短い一場面をそのまま一束にすることで、7〜8行でもPR・生成物検証・checkpoint・統合後状態PRを一式回す非効率があった。
+
+- 通読対象を原則15〜30行とする
+- 同じ時系列・事件・関係段階の隣接場面は、意味境界を壊さない範囲で一束へまとめる
+- 修正JSONの件数と通読行数を分離し、変更0件・少数でもよい。件数合わせの言い換えは禁止
+- 15行未満または30行超では、確認した隣接候補、分離理由、例外コードを `NEXT_TASK_PACKET.batch_planning` へ必須記録
+- `_tools/check_batch_planning.py` と回帰テストをRelation audit CIへ接続
+
+詳細は `_phase4_proofread/BATCH_SIZE_REVIEW_2026-07-24.md`。
 
 ## 次の校正
 
-状態同期後、`5347_1` の16行を第52束として監査する。
+`5347_1` の16行を第52束として監査する。新しい通読目標15〜30行の範囲内であり、単独場面のまま進めてよい。
 
 - 宇文逸が梧桐村へ寄り、江吟風の墓参りを願う
 - 元鳴が江吟風を裏切り者とみなして反発する
