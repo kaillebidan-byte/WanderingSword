@@ -56,7 +56,7 @@
   "immediate_next": {
     "scene_groups": ["5347_1"],
     "task": "名剣山荘への出発時として、宇文逸の梧桐村への寄り道願い、元鳴の江吟風への反発、莫問の行程判断、莫棄の仲裁と酒への期待、元鳴の不承不承の同行を連続場面で監査する。",
-    "boundary": "宇文逸・莫問6キーは現時点で未所有候補。莫棄5キーと元鳴5キーは変更時に人物別cross-registerへ分離する。江吟風が実際に裏切り者か、清霄の処罰、具体的な日程、師父に知られない見込みを確定しない。",
+    "boundary": "宇文逸Index0・3・4・17と莫問Index8は既存第5束所有。宇文逸Index15だけが未所有の人物ペア候補。莫棄5キーと元鳴5キーは未所有候補で、変更時は人物別cross-registerへ分離する。江吟風が実際に裏切り者か、清霄の処罰、具体的な日程、師父に知られない見込みを確定しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md", "10_人物/莫棄.md", "10_人物/元鳴.md"],
