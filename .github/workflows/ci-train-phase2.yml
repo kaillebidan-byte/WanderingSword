@@ -1,0 +1,106 @@
+name: CI train phase2 gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/RELEASE_EVIDENCE_*.json"
+      - "_phase4_proofread/APPLIED_FIXES_*.md"
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/CI_TRAIN_PHASE2.md"
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/CURRENT_HANDOFF.md"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+      - "_phase4_proofread/SESSION_BOOTSTRAP.md"
+      - "_phase4_proofread/PUBLIC_CI_WINDOW.md"
+      - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
+      - "_tools/check_release_evidence.py"
+      - "_tools/test_check_release_evidence.py"
+      - "_tools/check_handoff_consistency_v2.py"
+      - "_tools/test_check_handoff_consistency_v2.py"
+      - "_tools/check_operation_mode.py"
+      - "_tools/test_check_operation_mode.py"
+      - "_tools/check_ci_train_manifest.py"
+      - "_tools/test_check_ci_train_manifest.py"
+      - "_tools/check_next_task_packet.py"
+      - "_tools/test_check_next_task_packet_ownership.py"
+      - ".github/workflows/ci-train-phase2.yml"
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+concurrency:
+  group: ci-train-phase2-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate-release:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Prepare diagnostics
+        run: mkdir -p _ws_tmp/ci_train_phase2
+
+      - name: Validate operation mode
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_operation_mode.py \
+            --repository-visibility "${{ github.event.repository.visibility }}" \
+            2>&1 | tee _ws_tmp/ci_train_phase2/operation_mode.txt
+
+      - name: Validate release evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_release_evidence.py \
+            --verify-github --verify-git-lineage \
+            2>&1 | tee _ws_tmp/ci_train_phase2/release_evidence.txt
+
+      - name: Validate handoff consistency
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_handoff_consistency_v2.py --require-verified \
+            2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
+
+      - name: Validate train and next packet
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_ci_train_manifest.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
+          python _tools/check_next_task_packet.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/next_task_packet.txt
+
+      - name: Regression tests
+        run: |
+          python _tools/test_check_operation_mode.py
+          python _tools/test_check_release_evidence.py
+          python _tools/test_check_handoff_consistency_v2.py
+          python _tools/test_check_ci_train_manifest.py
+          python _tools/test_check_next_task_packet_ownership.py
+
+      - name: Upload phase2 diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-train-phase2-diagnostics
+          path: _ws_tmp/ci_train_phase2/
+          if-no-files-found: error

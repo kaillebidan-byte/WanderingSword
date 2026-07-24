@@ -4,13 +4,26 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "_phase4_proofread/fixes_*.json"
+      - "_tools/apply_fixes_json.py"
+      - "_tools/validate_fixes_json.py"
+      - "_tools/lint_register.py"
+      - "_tools/test_apply_fixes_json.py"
+      - "_tools/test_lint_register.py"
+      - ".github/workflows/cross-register-qa.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: cross-register-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
