@@ -4,7 +4,7 @@
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "2b5b6af4a2962156681970c078e03e932950a819",
-  "state_base_commit": "2b5b6af4a2962156681970c078e03e932950a819",
+  "state_base_commit": "6b303f53f7c2d6034fd7a34a997252ae81e6c2f9",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -16,14 +16,14 @@
   "game_verified": "not_started",
   "last_merged_translation_pr": 80,
   "checkpoint": {
-    "status": "pending_audit_sync",
+    "status": "verified",
     "batch": 50,
     "pair_applied_keys": 1139,
     "project_applied_keys": 1433,
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH50_2026-07-24.md",
     "produced_by_pr": 82,
     "translation_head": "2b5b6af4a2962156681970c078e03e932950a819",
-    "verified_head": "792a5633d8355ccbe6d7c1490c9f5e289bd97465"
+    "verified_head": "6b303f53f7c2d6034fd7a34a997252ae81e6c2f9"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -56,7 +56,7 @@
   "immediate_next": {
     "scene_groups": ["5345_1"],
     "task": "品剣大会への出立前として、清虚の不同行と清霄への現地判断委任、莫問への三人の引率命令、清霄の支度号令と宇文逸だけを残す切り替えを監査する。",
-    "boundary": "7キーは現時点で未所有候補。莫問・宇文逸は変更時のみ新規第51束へ、清虚・清霄は人物別cross-registerへ分離する。同行しない理由、要事の内容、三人の具体名、宇文逸を残す理由を補わない。",
+    "boundary": "清霄Index5は既存の宇文逸↔清霄第2束所有。清虚Index0〜3、莫問Index4、宇文逸Index6は未所有候補で、変更時は人物別cross-registerまたは新規第51束へ分離する。同行しない理由、要事の内容、三人の具体名、宇文逸を残す理由を補わない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md", "10_人物/清虚道長.md", "10_人物/清霄道長.md"],
