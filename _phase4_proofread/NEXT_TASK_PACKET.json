@@ -1,21 +1,21 @@
 {
   "schema_version": 2,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch50-planned",
+  "task_id": "yuwen-mowen-batch51-planned",
   "based_on_checkpoint": {
-    "batch": 49,
+    "batch": 50,
     "pair_applied_keys": 1139,
-    "project_applied_keys": 1423,
-    "produced_by_pr": 80,
-    "translation_head": "792a5633d8355ccbe6d7c1490c9f5e289bd97465",
+    "project_applied_keys": 1433,
+    "produced_by_pr": 82,
+    "translation_head": "2b5b6af4a2962156681970c078e03e932950a819",
     "verified_head": "792a5633d8355ccbe6d7c1490c9f5e289bd97465"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5331_1", "5343_4"],
+  "scene_groups": ["5345_1"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5331_1_Dlgs", "5343_4_Dlgs"],
+    "families": ["5345_1_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,96 +23,55 @@
   },
   "scene_flow": [
     {
-      "scene": "5331_1",
-      "function": "清虚が名剣山荘からの招待状を読み、品剣大会が六扇門の天龍幇対策である可能性を説明する。宇文逸が仇討ちのため参加を願い、門内大比で三位以内に入ることを条件に許され、莫問への伝達へ向かう",
-      "speaker_order": ["清虚道長", "清虚道長", "清虚道長", "宇文逸", "清虚道長", "清虚道長", "宇文逸", "宇文逸", "清虚道長", "清虚道長", "宇文逸"],
+      "scene": "5345_1",
+      "function": "品剣大会への出立前、清虚が同行しないことと清霄が大会中の判断を担うことを告げ、莫問に三人の引率を命じる。清霄は一同に支度を命じ、宇文逸だけを残す",
+      "speaker_order": ["清虚道長", "清虚道長", "清虚道長", "清虚道長", "莫問", "清霄道長", "宇文逸"],
       "focus_keys": [
-        "5331_1_Dlgs_Index0_Text", "5331_1_Dlgs_Index1_Text", "5331_1_Dlgs_Index2_Text", "5331_1_Dlgs_Index3_Text",
-        "5331_1_Dlgs_Index4_Text", "5331_1_Dlgs_Index5_Text", "5331_1_Dlgs_Index6_Text", "5331_1_Dlgs_Index7_Text",
-        "5331_1_Dlgs_Index8_Text", "5331_1_Dlgs_Index9_Text", "5331_1_Dlgs_Index10_Text"
+        "5345_1_Dlgs_Index0_Text", "5345_1_Dlgs_Index1_Text", "5345_1_Dlgs_Index2_Text", "5345_1_Dlgs_Index3_Text",
+        "5345_1_Dlgs_Index4_Text", "5345_1_Dlgs_Index5_Text", "5345_1_Dlgs_Index6_Text"
       ],
       "voice_questions": [
-        "Index0は清虚自身の発話ではなく招待状の文面であることを保ち、鄙庄を清虚の我が荘へ誤帰属させていないか",
-        "古剣湛盧への驚きと、名剣山荘が宝剣を出す重みを清虚の老人語へ均しすぎていないか",
-        "很可能・应该・看来を客観的事実へ確定せず、清虚の推測として残しているか",
-        "对付天龙帮を機械的な討伐確定へ強めず、六扇門の対策と宇文逸の仇討ちを分けているか",
-        "宇文逸の参加願望を幼い興奮だけへ寄せず、葬龍谷の仇を討ちたい切実さを保てるか",
-        "清虚の問児への伝達命令、門内大比、三位以内という条件を自然な指示の順序で出せるか",
-        "太好了を悪役的・過剰な叫びへせず、許可条件を得た宇文逸の素直な喜びとして発声できるか"
-      ]
-    },
-    {
-      "scene": "5343_4",
-      "function": "門内大比後、宇文逸が清虚へ復命し、莫問が不参加だったから勝てたと謙遜する。清虚が若手一同を称え、宇文逸が武当の侠義を継ぐと誓う",
-      "speaker_order": ["宇文逸", "清虚道長", "清虚道長", "宇文逸", "清虚道長", "清虚道長", "清虚道長", "宇文逸", "清虚道長"],
-      "focus_keys": [
-        "5343_4_Dlgs_Index0_Text", "5343_4_Dlgs_Index1_Text", "5343_4_Dlgs_Index2_Text", "5343_4_Dlgs_Index3_Text",
-        "5343_4_Dlgs_Index4_Text", "5343_4_Dlgs_Index5_Text", "5343_4_Dlgs_Index6_Text", "5343_4_Dlgs_Index7_Text",
-        "5343_4_Dlgs_Index8_Text"
-      ],
-      "voice_questions": [
-        "幸不辱命を弱い結果報告や偶然の成功へせず、師父への正式な復命として発声できるか",
-        "宇文逸の哈哈を通常の安堵と謙遜の笑いとして扱い、莫問不参加への他責や卑下へ傾けていないか",
-        "不够看を勝敗の断定以上に膨らませず、莫問への敬意を含む自然な謙遜にできるか",
-        "清虚の呵呵二箇所を表記統一で決めず、若手への満足と最終的な確信を場面機能で分けられるか",
-        "翘楚・垂之千古を説明文へ散文化しすぎず、試剣台で一同を称える格を保てるか",
-        "宇文逸の誓いを個人だけの宣言へ狭めず、弟子等人と我派侠义之风の集団性を保てるか"
+        "清虚が同行しないという事実を、病状・門派事情・別任務など台詞外の理由で補っていないか",
+        "一切事情都由清霄师兄做主を、清虚の権限放棄ではなく大会期間中の現地判断の委任として自然に言えるか",
+        "清霄が先行して各派と要事を協議することを、協議結果や具体的議題まで確定していないか",
+        "清虚の問児への引率命令を、三人の具体名や序列を台詞外から補わず、師として簡潔に命じられるか",
+        "莫問の弟子遵命を過剰敬語へ膨らませず、公的な師命への短い応答として発声できるか",
+        "清霄の好了を会話の切り替えと号令として出し、清虚と同じ老人語へ均していないか",
+        "宇文逸の是を、清霄に一人残る緊張や理由の先取りを足さず短く受けられるか"
       ]
     }
   ],
   "allusion_and_fact_gates": {
-    "allusion_review_candidates": [
-      {"phrase": "湛卢", "classification_hint": "古剣名。既存表記《湛盧》を基準にするが、剣の由来・所有者・効能など台詞外の伝承は足さない"},
-      {"phrase": "幸不辱命", "classification_hint": "定着した復命表現。字面の辱めを残さず、任務・期待を果たした正式な報告の格を保つ"},
-      {"phrase": "翘楚／垂之千古", "classification_hint": "若手の傑出と武当の名が長く伝わることを称える凝縮表現。現代的な説明へ平板化しすぎない"}
-    ],
+    "allusion_review_candidates": [],
     "fact_doubts": [
-      "品剣大会が六扇門の天龍幇対策として設けられたという説明は清虚の推測であり、確定事実にしない",
-      "六扇門の密偵が有用な情報を得たことも清虚の推量であり、具体的な情報内容を補わない",
-      "重宝で各派を招くことから、湛盧が必ず優勝賞品になる、または譲渡されると確定しない",
-      "宇文逸が天龍幇への仇討ちを望むことと、実際に討伐へ参加できることを分ける",
-      "門内大比三位以内は名剣山荘へ赴く条件であり、品剣大会本戦の勝利や参加形式を補わない",
-      "莫問が門内大比へ参加しなかった理由を補わない",
-      "清虚の武当が千古に名を残すという発言は称揚であり、未来の客観的事実として固定しない"
+      "清虚が名剣山荘へ同行しない理由を補わない",
+      "清霄が各派と協議する要事の内容、合意、六扇門との関係を補わない",
+      "莫問が引率する三人の具体名はこの場面の台詞だけから列挙しない",
+      "清霄が宇文逸だけを残す理由や次の訓戒内容を先取りしない",
+      "この場面だけから出立時刻、経路、護衛体制を確定しない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "宇文逸Index3・7・10（5331_1）とIndex0・3・7（5343_4）は既存第34束の所有。必要な修正は第34束を直接再改訂する。5331_1 Index6は未所有で、変更が必要な場合のみ第50束へ収録する",
-    "cross_register": "清虚の13キーは既存の宇文逸↔清虚5束に存在しない未所有キー。変更する場合は清虚cross-register束へ分離し、宇文逸↔莫問の新規キー数へ算入しない",
+    "pair_batch": "莫問Index4と宇文逸Index6は現時点で未所有候補。変更が必要な場合のみ新規第51束へ収録する",
+    "cross_register": "清虚Index0〜3と清霄Index5は別話者。変更する場合は人物別cross-registerへ分離し、宇文逸↔莫問の新規キー数へ算入しない",
     "machine_ownership": {
-      "existing": [
-        {
-          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch34.json",
-          "keys": [
-            "5331_1_Dlgs_Index3_Text", "5331_1_Dlgs_Index7_Text", "5331_1_Dlgs_Index10_Text",
-            "5343_4_Dlgs_Index0_Text", "5343_4_Dlgs_Index3_Text", "5343_4_Dlgs_Index7_Text"
-          ]
-        }
-      ],
+      "existing": [],
       "unowned": [
-        {"key": "5331_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch50.json"},
-        {"key": "5331_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5331_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5331_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5331_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5331_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5331_1_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5331_1_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5343_4_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5343_4_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5343_4_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5343_4_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5343_4_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
-        {"key": "5343_4_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"}
+        {"key": "5345_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
+        {"key": "5345_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
+        {"key": "5345_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
+        {"key": "5345_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
+        {"key": "5345_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"},
+        {"key": "5345_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxiao_swordmeet_departure_20260724.json"},
+        {"key": "5345_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"}
       ]
     },
     "do_not_do": [
-      "既存第34束所有キーを新規第50束へ重複追加しない",
-      "清虚の13キーを宇文逸↔莫問の新規キー数へ算入しない",
-      "招待状の鄙庄を清虚自身の武当・我が荘へ誤帰属させない",
-      "清虚の推測を客観的事実へ確定しない",
-      "宇文逸の仇討ち願望から大会参加・討伐成功を先取りしない",
-      "莫問不参加の理由を補わない"
+      "未所有キーを束数のために無理に変更しない",
+      "清虚・清霄のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "清虚が同行しない理由を補わない",
+      "莫問が引率する三人の具体名を台詞外から固定しない",
+      "清霄が宇文逸を残す理由を次場面から先取りしない"
     ]
   },
   "skill_review": {
@@ -121,9 +80,9 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "二場面20行の原文・現訳・引用声・前後文・話者・時系列・既存束所有を確認",
-    "ALLUSION_REVIEWとFACT_DOUBTを別々に記録",
-    "既存第34束再改訂、新規第50束、清虚cross-registerを所有者別に分離",
+    "5345_1の7行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
+    "FACT_DOUBTを記録し、ALLUSION_REVIEW候補がないことも明示",
+    "新規第51束、清虚cross-register、清霄cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -131,9 +90,9 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第49束・1139キー・全1423キー・verified",
-    "open_pr": "未統合PRを実検索し、active・superseded・abandoned・unrelatedへ分類する",
-    "start": "active PRがなければ5331_1・5343_4の最新artifactを取得し、招待状引用と清虚・宇文逸の声を分けて20行を通読する",
-    "drift": "自由記述の所有説明ではなくmachine_ownershipと実fix JSONを優先し、矛盾時はパケット側を修正する"
+    "current": "宇文逸↔莫問・第50束・1139キー・全1433キー・pending_audit_sync",
+    "open_pr": "PR #82をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5345_1の最新artifactを取得し、清虚・莫問・清霄・宇文逸の声を分けて7行を通読する",
+    "drift": "machine_ownershipと実fix JSONを優先し、未所有候補に既存所有が見つかった場合はパケット側を訂正する"
   }
 }
