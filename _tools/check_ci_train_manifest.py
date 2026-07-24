@@ -84,6 +84,16 @@ def _compare_mapping(
             )
 
 
+def _checkpoint_asset_head(checkpoint: dict[str, Any]) -> Any:
+    """phase2はrelease identity、phase1は旧translation_headを使う。"""
+    identity = checkpoint.get("release_identity")
+    if isinstance(identity, dict):
+        validated = identity.get("validated_head")
+        if isinstance(validated, str) and validated:
+            return validated
+    return checkpoint.get("translation_head")
+
+
 def validate_manifest(
     manifest: dict[str, Any],
     current: dict[str, Any],
@@ -170,9 +180,13 @@ def validate_manifest(
             "pair_applied_keys": checkpoint.get("pair_applied_keys"),
             "project_applied_keys": checkpoint.get("project_applied_keys"),
             "produced_by_pr": checkpoint.get("produced_by_pr"),
-            "translation_head": checkpoint.get("translation_head"),
-            "verified_head": checkpoint.get("verified_head"),
         }
+        identity = checkpoint.get("release_identity")
+        if isinstance(identity, dict):
+            expected_base["release_identity"] = identity
+        else:
+            expected_base["translation_head"] = checkpoint.get("translation_head")
+            expected_base["verified_head"] = checkpoint.get("verified_head")
         _compare_mapping("base_checkpoint", base, expected_base, errors)
     else:
         if status not in {"in_public_ci", "verified"}:
@@ -190,7 +204,7 @@ def validate_manifest(
             expected_applied = {
                 "pair_applied_keys": checkpoint.get("pair_applied_keys"),
                 "project_applied_keys": checkpoint.get("project_applied_keys"),
-                "asset_head": checkpoint.get("translation_head"),
+                "asset_head": _checkpoint_asset_head(checkpoint),
             }
             _compare_mapping("ci_train.applied_result", applied, expected_applied, errors)
             if applied.get("pending_fixes") != 0:
