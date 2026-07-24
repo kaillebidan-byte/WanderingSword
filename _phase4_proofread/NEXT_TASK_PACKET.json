@@ -26,9 +26,7 @@
       "scene": "5444_2",
       "function": "品剣大会後の朝、宇文逸が目を覚まし、莫問が各派の出立とこちらの出発を告げる。宇文逸は欧陽雪・瑶姫の所在を尋ね、山荘外の桟橋へ急ぐ",
       "speaker_order": ["莫問", "莫問", "宇文逸", "莫問", "宇文逸", "莫問"],
-      "focus_keys": [
-        "5444_2_Dlgs_Index0_Text", "5444_2_Dlgs_Index1_Text", "5444_2_Dlgs_Index2_Text", "5444_2_Dlgs_Index3_Text", "5444_2_Dlgs_Index4_Text", "5444_2_Dlgs_Index5_Text"
-      ],
+      "focus_keys": ["5444_2_Dlgs_Index0_Text", "5444_2_Dlgs_Index1_Text", "5444_2_Dlgs_Index2_Text", "5444_2_Dlgs_Index3_Text", "5444_2_Dlgs_Index4_Text", "5444_2_Dlgs_Index5_Text"],
       "voice_questions": [
         "莫問の起床確認と出立判断を古風な威厳へ寄せず、旅を取りまとめる兄弟子の簡潔な声にできるか",
         "宇文逸の了承から二人の所在を思い出す流れを、説明的な接続語や不自然な敬称で固めないか",
@@ -40,9 +38,7 @@
       "scene": "5446_1",
       "function": "山荘外の桟橋で瑶姫が遅刻をからかい、宇文逸が寝過ごしを詫びる。欧陽雪が取りなし、船の準備を伝え、莫問が姑蘇から峋谷関への道筋を示して一行が出発する",
       "speaker_order": ["瑶姫", "宇文逸", "欧陽雪", "欧陽雪", "莫問", "宇文逸"],
-      "focus_keys": [
-        "5446_1_Dlgs_Index0_Text", "5446_1_Dlgs_Index1_Text", "5446_1_Dlgs_Index2_Text", "5446_1_Dlgs_Index3_Text", "5446_1_Dlgs_Index4_Text", "5446_1_Dlgs_Index5_Text"
-      ],
+      "focus_keys": ["5446_1_Dlgs_Index0_Text", "5446_1_Dlgs_Index1_Text", "5446_1_Dlgs_Index2_Text", "5446_1_Dlgs_Index3_Text", "5446_1_Dlgs_Index4_Text", "5446_1_Dlgs_Index5_Text"],
       "voice_questions": [
         "瑶姫の地モードのからかい、二人の美人という自負、語尾の伸ばしを丁寧な苦情へ均さないか",
         "宇文逸の笑いと寝坊の謝罪を改まりすぎた敬語へせず、同行者間の軽さを出せるか",
@@ -70,29 +66,25 @@
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "5444_2の6キー、5446_1の宇文逸Index1・莫問Index4・宇文逸Index5は第59束の人物ペア候補。keep判断は修正件数へ含めない",
-    "cross_register": "5446_1の瑶姫Index0は瑶姫cross-register候補、欧陽雪Index2・3は欧陽雪cross-register候補として人物ペア修正と分離する",
+    "pair_batch": "既存第6束が5444_2のIndex0・1・2・4と5446_1の全6キーを所有する。未所有は5444_2の莫問Index3・5のみで、第59束の新規候補とする",
+    "cross_register": "瑶姫Index0と欧陽雪Index2・3を含む5446_1全6キーは既存第6束所有。新規cross-register束へ重複追加せず、再改訂が必要なら既存所有者を更新する",
     "machine_ownership": {
-      "existing": [],
+      "existing": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json",
+          "keys": ["5444_2_Dlgs_Index0_Text", "5444_2_Dlgs_Index1_Text", "5444_2_Dlgs_Index2_Text", "5444_2_Dlgs_Index4_Text", "5446_1_Dlgs_Index0_Text", "5446_1_Dlgs_Index1_Text", "5446_1_Dlgs_Index2_Text", "5446_1_Dlgs_Index3_Text", "5446_1_Dlgs_Index4_Text", "5446_1_Dlgs_Index5_Text"]
+        }
+      ],
       "unowned": [
-        {"key": "5444_2_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5444_2_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5444_2_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
         {"key": "5444_2_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5444_2_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5444_2_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5446_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yaoji_departure_banter_20260725.json"},
-        {"key": "5446_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5446_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_ouyangxue_departure_support_20260725.json"},
-        {"key": "5446_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_ouyangxue_departure_support_20260725.json"},
-        {"key": "5446_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"},
-        {"key": "5446_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"}
+        {"key": "5444_2_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json"}
       ]
     },
     "do_not_do": [
       "12行を15行へ合わせるため、targetや時系列の異なる場面を足さない",
-      "現訳で機能する台詞を新規束へ無理に追加しない",
-      "瑶姫・欧陽雪の台詞を宇文逸↔莫問の人物ペア新規キー数へ算入しない",
+      "既存第6束所有キーを新規第59束へ重複追加しない",
+      "現訳で機能する未所有キーを新規束へ無理に追加しない",
+      "瑶姫・欧陽雪の既存所有キーを別cross-register束へ重複追加しない",
       "欧陽姑娘の処理を用語置換だけで決めず、この時点の呼称と相手関係を確認する",
       "表示タグ、話者接頭辞、行内の伸ばしを失わない"
     ]
@@ -105,7 +97,7 @@
   "expected_outputs": [
     "5444_2・5446_1の12行を原文・現訳・前後文・話者・相手・表示タグ・実所有とともに確認",
     "FACT_DOUBTを記録し、典故候補がなければ無理に作らない",
-    "宇文逸↔莫問の第59束、瑶姫cross-register、欧陽雪cross-registerを所有者別に分離",
+    "既存第6束の再改訂と新規第59束を所有者別に分離し、重複所有を作らない",
     "機械所有表を全fix JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -115,7 +107,7 @@
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・第58束・1163キー・全1514キー・verified",
     "open_pr": "未統合PRをactive / superseded / abandoned / unrelatedへ分類し、#98が残っていれば最新HEADと三本のActionsを最優先で確認する",
-    "start": "active PRがなければ5444_2・5446_1の12行を最新relation artifactから開き、出立場面の人物声と実所有を監査する",
+    "start": "active PRがなければ5444_2・5446_1の12行を最新relation artifactから開き、既存第6束10キーと未所有2キーを分けて監査する",
     "drift": "audit_status.current.next_action、_TODO、人物資料の適用済み範囲が古い場合は、CURRENT_WORKとこのpacketを優先しつつ一次資料で再検証する"
   }
 }
