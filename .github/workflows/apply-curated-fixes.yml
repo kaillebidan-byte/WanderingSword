@@ -12,10 +12,8 @@ on:
       - "_phase4_proofread/NEXT_TASK_PACKET.json"
       - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
       - "_tools/apply_fixes_json.py"
-      - "_tools/report_pending_fixes.py"
       - "_tools/validate_fixes_json.py"
       - "_tools/test_apply_fixes_json.py"
-      - "_tools/test_report_pending_fixes.py"
       - "_tools/update_audit_status.py"
       - "_tools/test_update_audit_status.py"
       - "_tools/check_handoff_consistency.py"
@@ -113,9 +111,6 @@ jobs:
           set -o pipefail
           python _tools/apply_fixes_json.py "${files[@]}" \
             2>&1 | tee _ws_tmp/apply_fixes/fixes_preview_after.txt
-          python _tools/report_pending_fixes.py "${files[@]}" \
-            --out _ws_tmp/apply_fixes/pending_after.json \
-            2>&1 | tee _ws_tmp/apply_fixes/pending_after.txt
           grep -q '^\[プレビュー\] 計0件' _ws_tmp/apply_fixes/fixes_preview_after.txt
           python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
             2>&1 | tee _ws_tmp/apply_fixes/fixes_validation_after.txt
@@ -127,7 +122,6 @@ jobs:
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/check_next_task_packet.py --allow-pending
           python _tools/test_apply_fixes_json.py
-          python _tools/test_report_pending_fixes.py
           python _tools/test_update_audit_status.py
           python _tools/test_lint_register.py
           python _tools/test_extract_relation_context.py
