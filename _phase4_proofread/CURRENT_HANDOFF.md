@@ -15,10 +15,10 @@
 ## 現在地
 
 - checkpoint: `verified`
-- active PR: #101 `agent/yuwen-mowen-batch59-review`
-- checkpointを生成した翻訳PR: #101
-- 直近の統合済み翻訳PR: #98
-- 直近の状態同期PR: #99（統合済み）
+- active PR: 状態同期PRをGitHubで実確認
+- checkpointを生成した翻訳PR: #101（統合済み）
+- 直近の統合済み翻訳PR: #101
+- 直近の状態同期PR: #99（統合済み。第59束のpost-merge同期は進行中）
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -29,18 +29,16 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 宣言operation mode: `ready_for_public_ci`
+- 宣言operation mode: `private_translation_work`
 - 実visibility: public（GitHub metadataで確認済み）
-- 適用資産HEAD: `9cc0bc0e8538520b0e91cebed9cf9a7212f029a2`
+- 第59束squash統合SHA: `74ddd6fd862d3c4c8adca767b58119f47c0bc373`
 
 ## 公開CI窓の状態
 
-- PR #101の初回HEAD `dcd670360b459c75f9f44648e0b876e7f761d6e9`でRelation audit extraction、Cross register QA、Apply curated localization fixesが成功した。
-- Applyは12キーをlocresへ反映し、pakを再生成し、全修正束の未適用0件、register lint、関係抽出、回帰走査、pak実体・LFS確認を完了した。
-- bot書き戻しHEAD `9cc0bc0e8538520b0e91cebed9cf9a7212f029a2`の三本が`action_required`なのはbot起因runを開始しない既知の挙動で、失敗ではない。
-- 未解決レビューthreadは0件。
-- 第59束のcheckpoint、件数、適用記録、第60束パケットを同期した最終HEADで三本を確認してからsquash統合する。
-- public中は新しい場面の翻訳を始めない。
+- PR #101は最終HEADでRelation audit extraction、Cross register QA、Apply curated localization fixesが成功し、未適用0件、verified checkpoint、未解決レビューthread 0件を確認してsquash統合した。
+- 第59束のsquash統合SHAは `74ddd6fd862d3c4c8adca767b58119f47c0bc373`。CURRENT_WORK、NEXT_TASK_PACKET、CURRENT_HANDOFFの参照をこのSHAへ付け替えるpost-merge状態同期を行う。
+- mainの宣言状態は`private_translation_work`へ戻す。実visibilityがpublicの間は導出状態`return_private_required`であり、新しい翻訳を始めない。
+- 状態同期PRの三本成功・未解決thread 0件・squash統合後、ユーザーへprivate復帰を依頼する。
 
 ## 第59束で完了したこと
 
@@ -64,7 +62,7 @@
 
 今回の崩れは既存skillで扱えたため、skill・人物資料は変更していない。
 
-## 次の校正
+### 次の校正
 
 `5450_3`の9行を第60束として監査する。
 
@@ -81,5 +79,5 @@
 ## checkpointと遷移状態
 
 - `verified`: 第59束の状態文書、監査索引、件数、適用記録、第60束パケットが同期済み。
-- `ready_for_public_ci`: PR #101の最終検証と統合を行う公開CI窓。
-- 翻訳PRのsquash統合後、post-merge状態PRでsquash commit参照へ同期し、mainを`private_translation_work`へ戻す。
+- `private_translation_work`: 第59束の翻訳PR統合後、次の翻訳作業へ戻る宣言状態。
+- 実visibilityがpublicなら`return_private_required`。post-merge状態PRの統合まではCI・状態同期だけを行い、新しい翻訳は始めない。

@@ -7,8 +7,8 @@
     "pair_applied_keys": 1165,
     "project_applied_keys": 1516,
     "produced_by_pr": 101,
-    "translation_head": "9cc0bc0e8538520b0e91cebed9cf9a7212f029a2",
-    "verified_head": "9cc0bc0e8538520b0e91cebed9cf9a7212f029a2"
+    "translation_head": "74ddd6fd862d3c4c8adca767b58119f47c0bc373",
+    "verified_head": "74ddd6fd862d3c4c8adca767b58119f47c0bc373"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
@@ -139,7 +139,7 @@
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・第59束・1165キー・全1516キー・verified",
-    "open_pr": "PR #101が開いていればactiveとして最新HEAD、三本のActions、bot起因action_required、レビューthreadを確認する",
+    "open_pr": "未統合PRをactive / superseded / abandoned / unrelatedへ分類する。PR #101は統合済み。状態同期PRがあれば最新HEADと三本のActionsを確認する",
     "start": "PR #101が統合済みでactive PRがなくprivateなら5450_3の9行を最新relation artifactから開き、既存第6束8キーと未所有1キーを分けて監査する",
     "drift": "audit_status.current.next_action、_TODO、人物資料の適用済み範囲が古い場合は、CURRENT_WORKとこのpacketを優先しつつ一次資料で再検証する"
   }
