@@ -23,9 +23,8 @@
 
 ## 所有
 
-- Index1: 既存 `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch7.json` を再改訂。
-- Index2: `_phase4_proofread/fixes_cross_register_ouyang_tracking_inference_20260725.json`
-- 第64束専用の新規人物ペア所有キーは0件。
+- Index1・Index2: 既存 `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch7.json` を再改訂。
+- 第64束専用の新規所有キーは0件。既存人物ペア場面の所有を維持する。
 
 ## FACT_DOUBT
 
