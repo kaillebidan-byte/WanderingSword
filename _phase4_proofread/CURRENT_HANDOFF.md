@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #86 `agent/yuwen-mowen-batch52-review`
 - checkpointを生成した翻訳PR: #86
 - 直近の統合済み翻訳PR: #84
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #86が開いている間はactiveとして扱い、次作業パケットの実所有を確認した後、checkpointを`verified`へ確定する。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功するまで統合しない。
+PR #86が開いている間はactiveとして扱う。第52束の監査索引、件数、適用記録、第53束の19行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
 
 ## 第52束で完了したこと
 
@@ -73,7 +73,7 @@ Index15は未所有だが、元鳴の返事をうかがう言いよどみとし�
 
 通読は3行＋16行の計19行で、同じ出発再開の時系列として扱う。次の`5353_5`は杜彪遭遇へ事件が切り替わるため含めない。
 
-既存第5束が`5352_3`の莫棄Index7、宇文逸Index8、莫問Index11・15を所有している。残り15キーは`NEXT_TASK_PACKET.json`の機械所有表で全fix JSONと照合する。
+既存第5束が`5352_3`の莫棄Index7、宇文逸Index8、莫問Index11・15を所有する。残り15キーは`NEXT_TASK_PACKET.json`の機械所有検査で未所有確認済み。
 
 五仙教の関与、小彤の正体・所在、無塵の具体的性能、欧陽荘主の鋳造事実、何本も剣を斬れるという莫棄の誇張を、話者外の客観事実へ確定しない。
 
