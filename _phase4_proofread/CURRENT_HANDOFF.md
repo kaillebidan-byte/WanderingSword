@@ -10,7 +10,7 @@
 
 ## 現在地
 
-- 実visibility: private（毎回GitHub metadataで再確認）
+- 実visibility: public（GitHub metadataで確認済み）
 - verified checkpoint: 第60束 / 人物ペア1166 / 全1517
 - reviewed pending CI: 第61束
 - applied件数はまだ第60束のまま
@@ -18,9 +18,9 @@
 - tracking issue: #105
 - open PR: なし。public release時に同じbranchから一つ作る
 - train: `yuwen-mowen-train-01`
-- train status: `accumulating`
+- train status: `ready_for_public_ci`
 - train totals: 1束 / 5行 / 3修正キー / 人物ペア新規0
-- release条件: 4束、40行、20修正キーのいずれか
+- early release: `schema_change`（第一段階制度を第61束の実データと同時検証）
 
 ## 第61束で完了したこと
 
@@ -32,7 +32,7 @@
 - 宇文逸Index3: 短い応答と間を保持
 - 清虚Index4: 強行収招と内勁反噬の因果を推測へ弱めずcross-registerへ追加
 
-この束ではlocres、pak、audit_status件数を更新していない。manifest上の`reviewed_pending_ci`であり、公開はまだ依頼しない。
+この束ではlocres、pak、audit_status件数をまだ更新していない。manifest上は`reviewed_pending_ci`だが、第一段階制度自体のschema変更を検証する早期releaseとして公開CIへ送る。
 
 ## 次の第62束
 
@@ -48,8 +48,8 @@
 
 ## 再開手順
 
-1. metadataでprivateを確認する
+1. metadataでpublicを確認する
 2. draft PRがなければIssue #105からactive branchを復元する
 3. branch上のCURRENT_WORK、manifest、next packetを読む
-4. manifestがaccumulatingなら第62束を同じbranchへ積む
-5. release条件未達ならpublic化を依頼しない
+4. 公開中は新しい翻訳を始めず、同じbranchのPRと三本のCIだけを進める
+5. 第一段階パイロット完了後はprivateへ戻して第二段階制度改修へ進む
