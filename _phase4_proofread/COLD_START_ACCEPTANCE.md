@@ -32,15 +32,15 @@
 ## 現在の冷間再開期待値
 
 - 人物ペア: 宇文逸↔莫問
-- 完了: 第58束
-- 人物ペア適用キー: 1163
-- 全体適用キー: 1514
+- 完了: 第59束
+- 人物ペア適用キー: 1165
+- 全体適用キー: 1516
 - checkpoint: verified
-- 宣言operation mode: `private_translation_work`
+- 宣言operation mode: `ready_for_public_ci`
 - 実visibility: GitHubで毎回確認
-- 実visibilityがpublicなら導出状態: `return_private_required`
-- active PR: GitHubで実検索して判定
-- active PRがなくprivateなら次場面: `5444_2 / 5446_1`
+- 実visibilityがpublicなら導出状態: `public_ci_window`
+- active PR: #101をGitHubで実確認
+- PR #101が統合済みでactive PRがなくprivateなら次場面: `5450_3`
 
 ## 機械検査
 

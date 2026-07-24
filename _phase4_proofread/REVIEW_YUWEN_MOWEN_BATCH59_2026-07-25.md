@@ -3,7 +3,7 @@
 - 日付: 2026-07-25
 - 場面: `5444_2`・`5446_1`
 - 通読行数: 12
-- status: `review_ready`
+- status: `verified`
 - ALLUSION_REVIEW: 該当なし
 
 ## 場面の機能
@@ -33,10 +33,10 @@
 - keep: 0
 - 既存第6束の再改訂: 10キー
 - 第59束の人物ペア新規: 2キー
-- 人物ペア累計予定: 1165
-- プロジェクト全体累計予定: 1516
-- 既存所有キーは `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json` を更新する。
-- 未所有の `5444_2` Index3・5だけを `_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json` へ追加する。
+- 人物ペア累計: 1165
+- プロジェクト全体累計: 1516
+- 既存所有キーは `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json` を更新した。
+- 未所有の `5444_2` Index3・5だけを `_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch59.json` へ追加した。
 
 ## FACT_DOUBT
 
@@ -53,3 +53,12 @@
 ## skill・資料
 
 今回の崩れは、既存の発声優先、直訳臭除去、人物register、呼称と敬体の分離、事実疑義分離で扱える。skill・人物資料は変更しない。
+
+## CI・適用確認
+
+- 初回HEAD `dcd670360b459c75f9f44648e0b876e7f761d6e9`でRelation audit extraction、Cross register QA、Apply curated localization fixesが成功した。
+- Apply後の未適用は0件。
+- locres反映、pak再生成、全1516キー差分0、register lint、関係抽出、単体テスト、回帰走査、pak実体・LFS確認に成功した。
+- 適用資産HEADは `9cc0bc0e8538520b0e91cebed9cf9a7212f029a2`。
+- bot書き戻しHEADの三本が`action_required`なのは既知のbot起因run抑止で、失敗ではない。
+- 未解決レビューthreadは0件。
