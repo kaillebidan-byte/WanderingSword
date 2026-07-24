@@ -3,8 +3,8 @@
   "phase": "phase1_pilot",
   "train_id": "yuwen-mowen-train-01",
   "branch": "agent/ci-train-phase1-pilot",
-  "draft_pr": null,
-  "status": "ready_for_public_ci",
+  "draft_pr": 106,
+  "status": "in_public_ci",
   "base_checkpoint": {
     "batch": 60,
     "pair_applied_keys": 1166,
@@ -80,5 +80,13 @@
     "post_merge_state_pr_retained_in_phase1": true
   },
   "tracking_issue": 105,
-  "tracking_mode": "issue_until_public_release"
+  "tracking_mode": "pull_request",
+  "applied_result": {
+    "apply_run": 30122728746,
+    "asset_head": "239a0aaa9a6ed7d27d7dc3642065529b6f50970e",
+    "pair_applied_keys": 1166,
+    "project_applied_keys": 1518,
+    "pending_fixes": 0,
+    "checkpoint_status": "pending_audit_sync"
+  }
 }
