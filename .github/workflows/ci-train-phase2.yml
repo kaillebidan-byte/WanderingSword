@@ -16,7 +16,9 @@ on:
       - "_phase4_proofread/PUBLIC_CI_WINDOW.md"
       - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
       - "_tools/check_release_evidence.py"
+      - "_tools/check_release_evidence_github.py"
       - "_tools/test_check_release_evidence.py"
+      - "_tools/test_check_release_evidence_github.py"
       - "_tools/check_handoff_consistency_v2.py"
       - "_tools/test_check_handoff_consistency_v2.py"
       - "_tools/check_operation_mode.py"
@@ -69,12 +71,10 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          # Exact workflow name, successful conclusion, recorded head SHA, and git lineage
-          # are authoritative. GitHub may return an empty pull_requests array for runs
-          # belonging to a branch that was later squash-merged and deleted.
-          python _tools/check_release_evidence.py \
-            --verify-git-lineage \
+          python _tools/check_release_evidence.py --verify-git-lineage \
             2>&1 | tee _ws_tmp/ci_train_phase2/release_evidence.txt
+          python _tools/check_release_evidence_github.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/release_evidence_github.txt
 
       - name: Validate handoff consistency
         shell: bash
@@ -96,6 +96,7 @@ jobs:
         run: |
           python _tools/test_check_operation_mode.py
           python _tools/test_check_release_evidence.py
+          python _tools/test_check_release_evidence_github.py
           python _tools/test_check_handoff_consistency_v2.py
           python _tools/test_check_ci_train_manifest.py
           python _tools/test_check_next_task_packet_ownership.py
