@@ -20,7 +20,7 @@
 
 人物ペア監査台帳はskillの `templates/pair_audit_template.md` を使う。
 
-## 2. 修正束の命名
+## 2. 修正束の命名と監査量
 
 推奨:
 
@@ -31,7 +31,18 @@ fixes_cross_register_<scope>_<YYYYMMDD>.json
 
 名前は記録用。workflowへ人物名、日付、バッチ番号をハードコードしない。
 
-一つの束は同じ場面または同じ崩れ方へ限定する。目安は10〜40キー。既一致行、判断保留、好みだけの言い換えは含めない。
+一つの束は、同じ場面だけでなく、時系列・事件・関係段階が連続する隣接場面群をまとめてよい。**通読対象は原則15〜30行**とし、一場面が短い場合は次の隣接場面を確認して、意味上の境界を壊さない範囲で併合する。
+
+15行未満または30行超の束は例外扱いとし、`NEXT_TASK_PACKET.batch_planning` に次を記録する。
+
+- 実際の通読行数
+- 確認した隣接候補
+- 併合または分離の判断理由
+- 分岐境界、高リスク場面、対象範囲内の隣接場面なし、不可分な重複群などの例外理由
+
+**通読行数と修正JSONのキー数を混同しない。** 修正JSONには高確度の実変更だけを収録するため、通読15〜30行でも変更0件または少数でよい。件数を満たすための言い換え、既一致行、判断保留、好みだけの変更は含めない。逆に、同一場面や不可分な重複群で変更が多い場合は、人物声と事実状態を一続きで判断できる範囲を優先する。
+
+`_tools/check_batch_planning.py` は、通読目標、focus key数との一致、小束例外の根拠を機械検査する。
 
 ## 3. ローカル・読み取り検証
 
@@ -41,6 +52,8 @@ python _tools/validate_fixes_json.py --allow-applied _phase4_proofread/fixes_*.j
 python _tools/apply_fixes_json.py _phase4_proofread/fixes_*.json
 python _tools/test_lint_register.py
 python _tools/test_extract_relation_context.py
+python _tools/test_check_batch_planning.py
+python _tools/check_batch_planning.py
 ```
 
 `apply_fixes_json.py` は複数JSONを統合する。
