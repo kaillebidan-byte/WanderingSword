@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> 新しいチャットが過去会話なしで現在地を復元するための入口。機械可読の正本は `CURRENT_WORK.json`、次作業の具体的な着眼点と所有表・監査行数計画は `NEXT_TASK_PACKET.json`、品質段階と件数は `audit_status.json`。`_handover.md` は履歴であり、現在地として使わない。
+> 新しいチャットが過去会話なしで現在地を復元するための入口。機械可読の正本は `CURRENT_WORK.json`、公開CI窓の運用正本は `PUBLIC_CI_WINDOW.md`、次作業の具体的な着眼点と所有表・監査行数計画は `NEXT_TASK_PACKET.json`、品質段階と件数は `audit_status.json`。`_handover.md` は履歴であり、現在地として使わない。
 
 ## 新チャットで送る一文
 
@@ -10,13 +10,14 @@
 現状把握して作業の続きを
 ```
 
-受けた側は、未統合PR、GitHub Actions、main、状態文書、最新artifact、既存修正束の実所有を照合する。短い報告だけで終わらず、同じ応答内で実作業へ進む。現状だけ必要な場合はユーザーが明示する。
+受けた側は、最初にGitHub repository metadataの実visibilityと`CURRENT_WORK.operation_mode`を照合し、その後に未統合PR、GitHub Actions、main、状態文書、最新artifact、既存修正束の実所有を確認する。短い報告だけで終わらず、実visibilityがprivateで翻訳作業可能なら同じ応答内で実作業へ進む。visibility操作が必要な場合は、それを翻訳より先に依頼する。
 
 ## 現在地
 
 - checkpoint: `verified`
 - checkpointを生成した翻訳PR: #98（統合済み）
 - 直近の統合済み翻訳PR: #98
+- 直近の状態同期PR: #99（統合済み）
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -27,8 +28,21 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
+- 宣言operation mode: `private_translation_work`
+- 実visibility: GitHub metadataで毎回確認
 
-再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなければ、第59束`5444_2`・`5446_1`の12行へ入る。
+## visibilityと作業モード
+
+- 宣言状態が`private_translation_work`で実visibilityがprivateなら、第59束の翻訳作業へ進む。
+- 宣言状態が`private_translation_work`なのに実visibilityがpublicなら、導出状態は`return_private_required`。新しい翻訳や追加commitへ入らず、ユーザーへprivate復帰を依頼する。
+- 翻訳作業はprivateで完成させ、PRを開く前にbranch上の宣言状態を`ready_for_public_ci`へする。
+- `ready_for_public_ci`でprivateなら、完成HEADと終了条件を示してユーザーへ`公開CI窓を開いてください。`と依頼する。
+- ユーザーの`公開した`だけで進めず、GitHub metadataでpublicを確認してからPR作成・三本CI・統合へ進む。
+- public中はCI、artifact調査、局所修正、レビュー確認、翻訳PRとpost-merge状態PRのsquash統合だけを行い、次束の翻訳は始めない。
+- 深い再検討が必要なら`public_ci_blocked`としてprivate復帰を依頼する。
+- 公開CI窓の終了後、mainは`private_translation_work`へ戻す。実visibilityがpublicならprivate復帰を依頼する。
+
+再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなく、実visibilityがprivateなら、第59束`5444_2`・`5446_1`の12行へ入る。
 
 ## 第58束で完了したこと
 

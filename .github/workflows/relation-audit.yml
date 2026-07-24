@@ -28,11 +28,14 @@ jobs:
             --out _ws_tmp/relation_audit/next_task_ownership.json \
             2>&1 | tee _ws_tmp/relation_audit/next_task_ownership.txt
 
-      - name: Check handoff consistency
+      - name: Check operation mode and handoff consistency
         shell: bash
         run: |
           mkdir -p _ws_tmp/relation_audit
           set -o pipefail
+          python _tools/check_operation_mode.py \
+            --repository-visibility "${{ github.event.repository.visibility }}" \
+            2>&1 | tee _ws_tmp/relation_audit/operation_mode.txt
           python _tools/check_handoff_consistency.py \
             2>&1 | tee _ws_tmp/relation_audit/handoff_consistency.txt
           python _tools/check_next_task_packet.py --allow-pending \
@@ -42,6 +45,7 @@ jobs:
 
       - name: Unit tests
         run: |
+          python _tools/test_check_operation_mode.py
           python _tools/test_check_handoff_consistency.py
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_check_batch_planning.py
