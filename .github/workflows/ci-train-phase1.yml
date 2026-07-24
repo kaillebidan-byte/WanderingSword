@@ -39,19 +39,28 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate phase1 train release
-        shell: bash
-        run: |
-          set -o pipefail
-          python _tools/check_operation_mode.py \
-            --repository-visibility "${{ github.event.repository.visibility }}"
-          python _tools/check_ci_train_manifest.py --require-ready
-          python _tools/check_next_task_packet.py --allow-pending
-          python _tools/check_handoff_consistency.py
+      - name: Validate operation mode
+        run: >-
+          python _tools/check_operation_mode.py
+          --repository-visibility "${{ github.event.repository.visibility }}"
 
-      - name: Run phase1 contract tests
-        run: |
-          python _tools/test_check_operation_mode.py
-          python _tools/test_check_ci_train_manifest.py
-          python _tools/test_check_next_task_packet_ownership.py
-          python _tools/test_check_handoff_consistency.py
+      - name: Validate CI train manifest
+        run: python _tools/check_ci_train_manifest.py --require-ready
+
+      - name: Validate next-task packet
+        run: python _tools/check_next_task_packet.py --allow-pending
+
+      - name: Validate handoff consistency
+        run: python _tools/check_handoff_consistency.py
+
+      - name: Test operation mode
+        run: python _tools/test_check_operation_mode.py
+
+      - name: Test CI train manifest
+        run: python _tools/test_check_ci_train_manifest.py
+
+      - name: Test next-task ownership
+        run: python _tools/test_check_next_task_packet_ownership.py
+
+      - name: Test handoff consistency
+        run: python _tools/test_check_handoff_consistency.py
