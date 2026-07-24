@@ -1,21 +1,21 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch51-planned",
+  "task_id": "yuwen-mowen-batch52-planned",
   "based_on_checkpoint": {
-    "batch": 50,
-    "pair_applied_keys": 1139,
-    "project_applied_keys": 1433,
-    "produced_by_pr": 82,
-    "translation_head": "2290b4d6c7915aa420ddc179b02b71009ddd755f",
+    "batch": 51,
+    "pair_applied_keys": 1140,
+    "project_applied_keys": 1436,
+    "produced_by_pr": 84,
+    "translation_head": "1ef5276a2c6703bee9dc185e0d3a282fcc77a82d",
     "verified_head": "2290b4d6c7915aa420ddc179b02b71009ddd755f"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5345_1"],
+  "scene_groups": ["5347_1"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5345_1_Dlgs"],
+    "families": ["5347_1_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,60 +23,77 @@
   },
   "scene_flow": [
     {
-      "scene": "5345_1",
-      "function": "品剣大会への出立前、清虚が同行しないことと清霄が大会中の判断を担うことを告げ、莫問に三人の引率を命じる。清霄は一同に支度を命じ、宇文逸だけを残す",
-      "speaker_order": ["清虚道長", "清虚道長", "清虚道長", "清虚道長", "莫問", "清霄道長", "宇文逸"],
+      "scene": "5347_1",
+      "function": "名剣山荘への出発時、宇文逸が梧桐村への寄り道を願い、江吟風を裏切り者とみなす元鳴が反発する。莫問と莫棄が立ち寄りを認め、元鳴も不承不承同行する",
+      "speaker_order": ["宇文逸", "莫棄", "莫棄", "宇文逸", "宇文逸", "元鳴", "元鳴", "莫問", "元鳴", "元鳴", "莫棄", "莫棄", "莫棄", "宇文逸", "元鳴", "宇文逸"],
       "focus_keys": [
-        "5345_1_Dlgs_Index0_Text", "5345_1_Dlgs_Index1_Text", "5345_1_Dlgs_Index2_Text", "5345_1_Dlgs_Index3_Text",
-        "5345_1_Dlgs_Index4_Text", "5345_1_Dlgs_Index5_Text", "5345_1_Dlgs_Index6_Text"
+        "5347_1_Dlgs_Index0_Text", "5347_1_Dlgs_Index1_Text", "5347_1_Dlgs_Index2_Text", "5347_1_Dlgs_Index3_Text",
+        "5347_1_Dlgs_Index4_Text", "5347_1_Dlgs_Index5_Text", "5347_1_Dlgs_Index6_Text", "5347_1_Dlgs_Index8_Text",
+        "5347_1_Dlgs_Index9_Text", "5347_1_Dlgs_Index10_Text", "5347_1_Dlgs_Index11_Text", "5347_1_Dlgs_Index12_Text",
+        "5347_1_Dlgs_Index13_Text", "5347_1_Dlgs_Index15_Text", "5347_1_Dlgs_Index16_Text", "5347_1_Dlgs_Index17_Text"
       ],
       "voice_questions": [
-        "清虚が同行しないという事実を、病状・門派事情・別任務など台詞外の理由で補っていないか",
-        "一切事情都由清霄师兄做主を、清虚の権限放棄ではなく大会期間中の現地判断の委任として自然に言えるか",
-        "清霄が先行して各派と要事を協議することを、協議結果や具体的議題まで確定していないか",
-        "清虚の問児への引率命令を、三人の具体名や序列を台詞外から補わず、師として簡潔に命じられるか",
-        "莫問の弟子遵命を過剰敬語へ膨らませず、公的な師命への短い応答として発声できるか",
-        "清霄の好了を会話の切り替えと号令として出し、清虚と同じ老人語へ均していないか",
-        "宇文逸の是を、清霄に一人残る緊張や理由の先取りを足さず短く受けられるか"
+        "几位师兄を翻訳語の師兄方へ固定せず、目の前の複数の師兄への呼びかけとして自然に言えるか",
+        "宇文逸の寄り道願いを当然の要求へせず、日程を変えてもらう遠慮と江吟風への思いを保てるか",
+        "元鳴の反発を一般論へ弱めず、江吟風を裏切り者とみなす個人的な敵意として出せるか",
+        "莫問の江師叔への敬意と日程判断を、宇文逸への一方的な贔屓へ変えていないか",
+        "莫棄の哈哈を場を軽くする笑いとして扱い、師父に隠す提案と酒への期待を同じ声へ均していないか",
+        "元鳴の清霄師伯への言及を、実際の処罰や清霄の客観的判断へ確定しないか",
+        "宇文逸の最後の感謝を硬い複数敬称へせず、許可を得た安堵と喜びとして発声できるか"
       ]
     }
   ],
+  "batch_planning": {
+    "reviewed_rows": 16,
+    "target_rows": {"min": 15, "max": 30},
+    "adjacent_candidates_checked": [],
+    "grouping_decision": "5347_1単独で16行あり、通読目標15〜30行の範囲内なので、時系列上の次場面を混ぜず一続きの出発場面として監査する",
+    "exception": null
+  },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
     "fact_doubts": [
-      "清虚が名剣山荘へ同行しない理由を補わない",
-      "清霄が各派と協議する要事の内容、合意、六扇門との関係を補わない",
-      "莫問が引率する三人の具体名はこの場面の台詞だけから列挙しない",
-      "清霄が宇文逸だけを残す理由や次の訓戒内容を先取りしない",
-      "この場面だけから出立時刻、経路、護衛体制を確定しない"
+      "江吟風が実際に裏切り者であることを元鳴の発言だけから確定しない",
+      "清霄が知れば必ず厳罰にするという元鳴の予測を客観的事実へしない",
+      "日程に余裕があるという莫問の判断から具体的な残日数や経路を補わない",
+      "師父に知られないという莫棄の見込みを事実へ確定しない",
+      "梧桐村へ寄る目的は江吟風への墓参りであり、酒を飲むことを主目的へ変えない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "莫問Index4と宇文逸Index6は現時点で未所有候補。変更が必要な場合のみ新規第51束へ収録する",
-    "cross_register": "清虚Index0〜3は未所有候補。清霄Index5は既存の宇文逸↔清霄第2束の所有。変更時は元束を直接再改訂し、いずれも宇文逸↔莫問の新規キー数へ算入しない",
+    "pair_batch": "宇文逸Index0・3・4・17と莫問Index8は既存第5束の所有。必要な修正は第5束を直接再改訂する。宇文逸Index15だけが未所有の人物ペア候補で、変更時は新規第52束へ収録する",
+    "cross_register": "莫棄Index1・2・11・12・13と元鳴Index5・6・9・10・16は別話者の未所有候補。変更時は人物別cross-registerへ分離する",
     "machine_ownership": {
       "existing": [
         {
-          "path": "_phase4_proofread/fixes_relation_yuwen_qingxiao_20260723_batch2.json",
-          "keys": ["5345_1_Dlgs_Index5_Text"]
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
+          "keys": [
+            "5347_1_Dlgs_Index0_Text", "5347_1_Dlgs_Index3_Text", "5347_1_Dlgs_Index4_Text",
+            "5347_1_Dlgs_Index8_Text", "5347_1_Dlgs_Index17_Text"
+          ]
         }
       ],
       "unowned": [
-        {"key": "5345_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
-        {"key": "5345_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
-        {"key": "5345_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
-        {"key": "5345_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json"},
-        {"key": "5345_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"},
-        {"key": "5345_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"}
+        {"key": "5347_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index10_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index11_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index12_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
+        {"key": "5347_1_Dlgs_Index15_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
+        {"key": "5347_1_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"}
       ]
     },
     "do_not_do": [
+      "既存第5束所有キーを新規第52束へ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
-      "清虚・清霄のキーを宇文逸↔莫問の新規キー数へ算入しない",
-      "清霄Index5を新しいcross-registerへ重複追加しない",
-      "清虚が同行しない理由を補わない",
-      "莫問が引率する三人の具体名を台詞外から固定しない",
-      "清霄が宇文逸を残す理由を次場面から先取りしない"
+      "莫棄・元鳴のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "元鳴の江吟風評や清霄の反応予測を客観的事実へしない",
+      "師父に隠す提案を正当な門規判断へ変えない",
+      "酒への期待を墓参りの目的より前面に出さない"
     ]
   },
   "skill_review": {
@@ -85,9 +102,9 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5345_1の7行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
+    "5347_1の16行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
     "FACT_DOUBTを記録し、ALLUSION_REVIEW候補がないことも明示",
-    "新規第51束、清虚cross-register、既存清霄第2束再改訂を所有者別に分離",
+    "既存第5束再改訂、新規第52束、莫棄cross-register、元鳴cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -95,9 +112,9 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第50束・1139キー・全1433キー・verified",
-    "open_pr": "未統合PRを実検索し、active・superseded・abandoned・unrelatedへ分類する",
-    "start": "active PRがなければ5345_1の最新artifactを取得し、清虚・莫問・清霄・宇文逸の声を分けて7行を通読する",
-    "drift": "machine_ownershipと実fix JSONを優先し、未所有候補に既存所有が見つかった場合はパケット側を訂正する"
+    "current": "宇文逸↔莫問・第51束・1140キー・全1436キー・pending_audit_sync",
+    "open_pr": "PR #84をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5347_1の最新artifactを取得し、宇文逸・莫問・莫棄・元鳴の声と事実認識を分けて16行を通読する",
+    "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }

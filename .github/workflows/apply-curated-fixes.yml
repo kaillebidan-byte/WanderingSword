@@ -18,6 +18,7 @@ on:
       - "_tools/test_update_audit_status.py"
       - "_tools/check_handoff_consistency.py"
       - "_tools/check_next_task_packet.py"
+      - "_tools/report_next_task_ownership.py"
       - "_tools/test_check_handoff_consistency.py"
       - "_tools/test_check_next_task_packet_ownership.py"
       - ".github/workflows/apply-curated-fixes.yml"
@@ -68,6 +69,9 @@ jobs:
           fi
           printf '%s\n' "${files[@]}" > _ws_all_fix_files.txt
           printf 'Found %s curated fix batches\n' "${#files[@]}"
+
+      - name: Report next-task ownership
+        run: python _tools/report_next_task_ownership.py --out _ws_tmp/apply_fixes/next_task_ownership.json
 
       - name: Validate pending and applied fixes
         shell: bash
