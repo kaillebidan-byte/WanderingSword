@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #80 `agent/yuwen-mowen-batch49-review`
 - checkpointを生成した翻訳PR: #80
 - 直近の統合済み翻訳PR: #78
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #80が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。botの監査索引書き戻し後、checkpointを`verified`へ確定し、最終HEADで三本成功後に統合する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第50束へ入る。
+PR #80が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。最終HEADで三本成功後に統合する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第50束へ入る。
 
 ## 第49束で完了したこと
 
@@ -70,7 +70,7 @@ ALLUSION_REVIEW候補はない。両親の死亡・失踪、叔父の恒常的�
 
 ## 次の校正
 
-状態同期後、`5331_1`・`5343_4` の20行を第50束として監査する。
+active PRがなくなれば、`5331_1`・`5343_4` の20行を第50束として監査する。
 
 - 名剣山荘の招待状を読む引用声と、古剣《湛盧》の重み
 - 品剣大会が六扇門の天龍幇対策であるという清虚の推測
