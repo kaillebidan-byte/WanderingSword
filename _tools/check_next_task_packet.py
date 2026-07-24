@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""NEXT_TASK_PACKET.jsonがverified checkpointと次作業を十分に復元できるか検査する。"""
+"""NEXT_TASK_PACKETがverified checkpoint、phase1 CI列車、次小束、所有を復元できるか検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -9,10 +9,13 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from check_ci_train_manifest import validate_manifest
+
 ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
 WORK_PATH = P4 / "CURRENT_WORK.json"
 PACKET_PATH = P4 / "NEXT_TASK_PACKET.json"
+MANIFEST_PATH = P4 / "CI_TRAIN_MANIFEST.json"
 FIX_GLOB = "fixes_*.json"
 FIELD_SEPARATOR = "\x1f"
 
@@ -35,9 +38,8 @@ def parse_args() -> argparse.Namespace:
         "--allow-pending",
         action="store_true",
         help=(
-            "pending_audit_sync中は旧verified checkpoint由来のパケット保持を許容する。"
-            "また、未所有候補がpacketで宣言したplanned_ownerへ同一PR内で収録された状態を許容する。"
-            "checkpointがverifiedならcheckpoint・場面一致は通常どおり要求する"
+            "pending_audit_sync中の旧verified packetと、planned_ownerへ同一PR内で"
+            "収録済みの所有遷移を許容する"
         ),
     )
     return parser.parse_args()
@@ -67,6 +69,16 @@ def collect_fix_owners(errors: list[str]) -> dict[str, list[str]]:
     return owners
 
 
+def focus_keys(packet: dict[str, Any]) -> list[str]:
+    result: list[str] = []
+    flow = packet.get("scene_flow", [])
+    if isinstance(flow, list):
+        for item in flow:
+            if isinstance(item, dict) and isinstance(item.get("focus_keys"), list):
+                result.extend(key for key in item["focus_keys"] if isinstance(key, str))
+    return result
+
+
 def validate_machine_ownership(
     packet: dict[str, Any],
     owners: dict[str, list[str]],
@@ -91,22 +103,17 @@ def validate_machine_ownership(
         unowned = []
 
     source = packet.get("source", {})
-    flow = packet.get("scene_flow", [])
-    focus_keys: list[str] = []
-    if isinstance(flow, list):
-        for item in flow:
-            if isinstance(item, dict) and isinstance(item.get("focus_keys"), list):
-                focus_keys.extend(key for key in item["focus_keys"] if isinstance(key, str))
-
-    if len(focus_keys) != len(set(focus_keys)):
+    focus = focus_keys(packet)
+    if len(focus) != len(set(focus)):
         errors.append("scene_flow focus_keys must not contain duplicates")
-    focus_set = set(focus_keys)
+    focus_set = set(focus)
     claimed: dict[str, str] = {}
 
     def claim(short_key: str, label: str) -> None:
         if short_key in claimed:
             errors.append(
-                f"machine ownership duplicate claim: {short_key!r} in {claimed[short_key]} and {label}"
+                f"machine ownership duplicate claim: {short_key!r} in "
+                f"{claimed[short_key]} and {label}"
             )
         claimed[short_key] = label
         if short_key not in focus_set:
@@ -118,11 +125,15 @@ def validate_machine_ownership(
             continue
         path = entry.get("path")
         keys = entry.get("keys")
-        if not isinstance(path, str) or not path.startswith("_phase4_proofread/fixes_") or not path.endswith(".json"):
+        if (
+            not isinstance(path, str)
+            or not path.startswith("_phase4_proofread/fixes_")
+            or not path.endswith(".json")
+        ):
             errors.append(f"machine_ownership.existing[{index}].path is invalid: {path!r}")
             continue
         if not isinstance(keys, list) or not keys:
-            errors.append(f"machine_ownership.existing[{index}].keys must be a non-empty list")
+            errors.append(f"machine_ownership.existing[{index}].keys must be non-empty")
             continue
         if not (ROOT / path).is_file():
             errors.append(f"declared ownership source does not exist: {path}")
@@ -134,7 +145,8 @@ def validate_machine_ownership(
             observed = owners.get(full_key(source, short_key), [])
             if path not in observed:
                 errors.append(
-                    f"ownership mismatch for {short_key}: declared={path!r}, observed={observed!r}"
+                    f"ownership mismatch for {short_key}: declared={path!r}, "
+                    f"observed={observed!r}"
                 )
             if len(observed) > 1:
                 errors.append(f"multiple fix owners for {short_key}: {observed!r}")
@@ -154,7 +166,8 @@ def validate_machine_ownership(
             or not planned_owner.endswith(".json")
         ):
             errors.append(
-                f"machine_ownership.unowned[{index}].planned_owner is invalid: {planned_owner!r}"
+                f"machine_ownership.unowned[{index}].planned_owner is invalid: "
+                f"{planned_owner!r}"
             )
             continue
         claim(short_key, f"unowned->{planned_owner}")
@@ -165,8 +178,8 @@ def validate_machine_ownership(
             transitions.append(f"planned owner consumed {short_key}: {planned_owner}")
             continue
         errors.append(
-            f"key declared unowned is already owned: {short_key}, observed={observed!r}, "
-            f"planned_owner={planned_owner!r}"
+            f"key declared unowned is already owned: {short_key}, "
+            f"observed={observed!r}, planned_owner={planned_owner!r}"
         )
 
     missing = sorted(focus_set - set(claimed))
@@ -177,10 +190,56 @@ def validate_machine_ownership(
         errors.append(f"machine ownership contains extra keys: {extra!r}")
 
 
+def validate_train_packet(
+    current: dict[str, Any],
+    manifest: dict[str, Any],
+    packet: dict[str, Any],
+    errors: list[str],
+) -> None:
+    train = packet.get("ci_train")
+    if not isinstance(train, dict):
+        errors.append("NEXT_TASK_PACKET.ci_train must be an object")
+        return
+
+    current_train = current.get("ci_train", {})
+    for key in ("phase", "train_id"):
+        if train.get(key) != current_train.get(key):
+            errors.append(
+                f"ci_train.{key} mismatch: packet={train.get(key)!r}, "
+                f"current={current_train.get(key)!r}"
+            )
+    if train.get("manifest") != "_phase4_proofread/CI_TRAIN_MANIFEST.json":
+        errors.append("ci_train.manifest path is invalid")
+    if train.get("bundle_status_on_completion") != "reviewed_pending_ci":
+        errors.append("ci_train.bundle_status_on_completion must be reviewed_pending_ci")
+    if train.get("do_not_apply_until_release") is not True:
+        errors.append("ci_train.do_not_apply_until_release must be true")
+
+    # 次束番号は現在の適用checkpointではなく、列車の出発checkpointと
+    # manifestへ積んだ束数から求める。適用後のpending_audit_syncでは
+    # CURRENT_WORK.checkpointが最終bundleまで進むため、二重加算してはならない。
+    base_batch = manifest.get("base_checkpoint", {}).get("batch")
+    bundles = manifest.get("bundles", [])
+    expected_batch = (
+        base_batch + len(bundles) + 1
+        if isinstance(base_batch, int) and isinstance(bundles, list)
+        else None
+    )
+    if train.get("planned_batch") != expected_batch:
+        errors.append(
+            f"ci_train.planned_batch mismatch: packet={train.get('planned_batch')!r}, "
+            f"expected={expected_batch!r}"
+        )
+
+    manifest_errors = validate_manifest(manifest, current)
+    errors.extend(f"CI_TRAIN_MANIFEST: {error}" for error in manifest_errors)
+
+
 def main() -> int:
     args = parse_args()
     work = load(WORK_PATH)
     packet = load(PACKET_PATH)
+    manifest = load(MANIFEST_PATH)
     errors: list[str] = []
     transitions: list[str] = []
 
@@ -199,10 +258,12 @@ def main() -> int:
     if not allow_transitional:
         for key, value in expected.items():
             if based.get(key) != value:
-                errors.append(f"checkpoint {key} mismatch: packet={based.get(key)!r} work={value!r}")
+                errors.append(
+                    f"checkpoint {key} mismatch: packet={based.get(key)!r} work={value!r}"
+                )
 
     if checkpoint_status != "verified" and not allow_transitional:
-        errors.append("NEXT_TASK_PACKET may be published only from a verified checkpoint")
+        errors.append("NEXT_TASK_PACKET requires a verified base checkpoint")
     if packet.get("status") != "ready":
         errors.append("NEXT_TASK_PACKET.status must be ready")
     if packet.get("current_pair") != work.get("current_pair"):
@@ -244,7 +305,7 @@ def main() -> int:
 
     gates = packet.get("allusion_and_fact_gates", {})
     if "allusion_review_candidates" not in gates or "fact_doubts" not in gates:
-        errors.append("allusion_and_fact_gates must keep allusion and fact doubts separate")
+        errors.append("allusion_and_fact_gates must separate allusion and fact doubts")
 
     ownership = packet.get("ownership_boundary", {})
     if not ownership.get("pair_batch") or not ownership.get("cross_register"):
@@ -260,14 +321,20 @@ def main() -> int:
 
     skill = packet.get("skill_review", {})
     if skill.get("default") != "no_change":
-        errors.append("skill_review.default must be no_change; modify only on a generalizable finding")
+        errors.append("skill_review.default must be no_change")
     if not skill.get("rule") or not skill.get("separate_layers"):
         errors.append("skill_review must define promotion rule and layer separation")
 
     outputs = packet.get("expected_outputs", [])
-    required_tokens = ("locres", "pak", "CURRENT_WORK", "checkpoint verified")
     joined = "\n".join(map(str, outputs))
-    for token in required_tokens:
+    for token in (
+        "locres",
+        "pak",
+        "CURRENT_WORK",
+        "checkpoint verified",
+        "CI_TRAIN_MANIFEST",
+        "reviewed_pending_ci",
+    ):
         if token not in joined:
             errors.append(f"expected_outputs missing token: {token}")
 
@@ -276,17 +343,20 @@ def main() -> int:
         if not report.get(key):
             errors.append(f"cold_start_first_report.{key} is required")
 
+    validate_train_packet(work, manifest, packet, errors)
+
     print("=== Next task cold-start packet ===")
     print(f"pair: {packet.get('current_pair')}")
     print(f"checkpoint status: {checkpoint_status}")
     print(f"packet checkpoint batch: {based.get('batch')}")
     print(f"packet scenes: {', '.join(map(str, packet_scenes))}")
     print(f"task id: {packet.get('task_id')}")
+    print(
+        f"CI train: {manifest.get('train_id')} / {manifest.get('status')} / "
+        f"{manifest.get('totals', {}).get('bundle_count')} bundle(s)"
+    )
     if allow_transitional:
-        print(
-            "TRANSITIONAL: CURRENT_WORKは次束へ進んでいるが、"
-            "NEXT_TASK_PACKETは監査索引同期とverified確定まで旧checkpoint版を保持する"
-        )
+        print("TRANSITIONAL: old verified packet is allowed during pending_audit_sync")
     for message in transitions:
         print(f"TRANSITIONAL: {message}")
     for error in errors:
@@ -294,10 +364,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    if allow_transitional or transitions:
-        print("OK TRANSITIONAL: packet structure and machine ownership are valid")
-    else:
-        print("OK: cold-start packet is complete and matches CURRENT_WORK")
+    print("OK: packet, ownership, and CI train state are complete")
     return 0
 
 

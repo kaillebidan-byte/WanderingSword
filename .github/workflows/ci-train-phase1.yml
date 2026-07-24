@@ -1,0 +1,98 @@
+name: CI train phase1 gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/CI_TRAIN_PHASE1.md"
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/CURRENT_HANDOFF.md"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+      - "_phase4_proofread/SESSION_BOOTSTRAP.md"
+      - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
+      - "_tools/check_ci_train_manifest.py"
+      - "_tools/test_check_ci_train_manifest.py"
+      - "_tools/check_operation_mode.py"
+      - "_tools/test_check_operation_mode.py"
+      - "_tools/check_next_task_packet.py"
+      - "_tools/test_check_next_task_packet_ownership.py"
+      - "_tools/check_handoff_consistency.py"
+      - "_tools/test_check_handoff_consistency.py"
+      - ".github/workflows/ci-train-phase1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Prepare diagnostics
+        run: mkdir -p _ws_tmp/ci_train
+
+      - name: Validate operation mode
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_operation_mode.py \
+            --repository-visibility "${{ github.event.repository.visibility }}" \
+            2>&1 | tee _ws_tmp/ci_train/operation_mode.txt
+
+      - name: Validate CI train manifest
+        shell: bash
+        run: |
+          set -o pipefail
+          status="$(python -c 'import json; print(json.load(open("_phase4_proofread/CI_TRAIN_MANIFEST.json", encoding="utf-8"))["status"])')"
+          if [ "$status" = "verified" ]; then
+            python _tools/check_ci_train_manifest.py \
+              2>&1 | tee _ws_tmp/ci_train/manifest.txt
+          else
+            python _tools/check_ci_train_manifest.py --require-ready \
+              2>&1 | tee _ws_tmp/ci_train/manifest.txt
+          fi
+
+      - name: Validate next-task packet
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_next_task_packet.py --allow-pending \
+            2>&1 | tee _ws_tmp/ci_train/next_task_packet.txt
+
+      - name: Validate handoff consistency
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_handoff_consistency.py \
+            2>&1 | tee _ws_tmp/ci_train/handoff_consistency.txt
+
+      - name: Test operation mode
+        run: python _tools/test_check_operation_mode.py
+
+      - name: Test CI train manifest
+        run: python _tools/test_check_ci_train_manifest.py
+
+      - name: Test next-task ownership
+        run: python _tools/test_check_next_task_packet_ownership.py
+
+      - name: Test handoff consistency
+        run: python _tools/test_check_handoff_consistency.py
+
+      - name: Upload phase1 diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-train-phase1-diagnostics
+          path: _ws_tmp/ci_train/
+          if-no-files-found: error
