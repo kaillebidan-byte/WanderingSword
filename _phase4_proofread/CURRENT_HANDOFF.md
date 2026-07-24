@@ -14,21 +14,22 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #78 `agent/yuwen-mowen-batch48-review`
+- checkpointを生成した翻訳PR: #78
 - 直近の統合済み翻訳PR: #76
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
 - 段階: 既訳再監査を継続中
-- 翻訳適用完了: 第48束
+- 完了: 第48束
 - 宇文逸↔莫問の適用キー: 1138
 - プロジェクト全体の適用キー: 1422
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #78が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。checkpointを`verified`へ進め、最終HEADで三本成功するまで統合しない。
+PR #78が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。最終HEADで三本成功後に統合する。統合済みなら、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第49束へ入る。
 
 ## 第48束で完了したこと
 
@@ -55,7 +56,7 @@ skill本体と人物資料は変更していない。今回の判断は既存規
 
 ## 次の校正
 
-第48束をverifiedにした後、`5303_1` の8行を第49束として監査する。
+active PRがなければ、`5303_1` の8行を第49束として監査する。
 
 - 莫問と自分がともに両親不在だと知った宇文逸の独白
 - 叔父への感謝と軽い愚痴
@@ -65,6 +66,8 @@ skill本体と人物資料は変更していない。今回の判断は既存規
 - 翌日の元風師兄・師門任務への切り替え
 
 既存第4束はIndex1・2・3・5・6・7を所有している。Index0・4は未所有だが、変更が必要な場合だけ新規第49束へ収録する。宇文逸の両親の状態、叔父の人物評価、莫問の好み、品剣大会への参加可否は独白が示す範囲を越えて補わない。
+
+具体的な全キー、FACT_DOUBT、所有境界、完了条件は `NEXT_TASK_PACKET.json` に固定した。パケット自体も作業仮説であり、最新artifactと一次資料の反例を優先する。
 
 ## checkpointと遷移状態
 
