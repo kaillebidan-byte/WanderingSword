@@ -56,7 +56,7 @@
   "immediate_next": {
     "scene_groups": ["5359_3", "5359_4", "5359_5", "5360_10"],
     "task": "迎仙楼の夜間警戒から迷煙への即応、襲撃後に捕らわれた莫棄を追うかという判断までを20行で監査する。",
-    "boundary": "5359_3・5359_4・5359_5の莫問8キーは既存第5束所有。宇文逸7キーと5360_10の慧空5キーはNEXT_TASK_PACKETの機械所有表を全fix JSONと照合する。襲撃者、杜彪と無名の力量・所在、莫棄の状態、追跡結果を話者の認識以上に確定しない。",
+    "boundary": "5359_3・5359_4・5359_5の莫問8キーは既存第5束所有。5360_10の宇文逸Index2・3・6は既存第35束所有。未所有候補は宇文逸4キーと慧空5キー。襲撃者、杜彪と無名の力量・所在、莫棄の状態、追跡結果を話者の認識以上に確定しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md", "10_人物/慧空.md"],
