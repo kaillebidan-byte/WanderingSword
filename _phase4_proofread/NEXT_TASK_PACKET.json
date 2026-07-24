@@ -8,7 +8,7 @@
     "project_applied_keys": 1446,
     "produced_by_pr": 86,
     "translation_head": "223a9888cf41fa5f30ae2d95b120787c2c7aa561",
-    "verified_head": "c022b23a6bad2d2cc05cfd81bcd98ca370c8e6ee"
+    "verified_head": "aab3f512d060d34d8efefe8d0d19a5f0463ac1f7"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": ["5352_1", "5352_3"],
@@ -148,7 +148,7 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第52束・1140キー・全1446キー・pending_audit_sync",
+    "current": "宇文逸↔莫問・第52束・1140キー・全1446キー・verified",
     "open_pr": "PR #86をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
     "start": "状態同期後は5352_1と5352_3の最新artifactを取得し、元鳴・莫問・宇文逸・莫棄の声と事実認識を分けて19行を通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
