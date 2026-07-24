@@ -15,10 +15,10 @@
 ## 現在地
 
 - checkpoint: `verified`
-- active PR: 状態同期PRをGitHubで実確認
 - checkpointを生成した翻訳PR: #101（統合済み）
 - 直近の統合済み翻訳PR: #101
-- 直近の状態同期PR: #99（統合済み。第59束のpost-merge同期は進行中）
+- 直近の状態同期PR: #102（統合済み）
+- 未統合PR: なし
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -29,55 +29,52 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 宣言operation mode: `private_translation_work`
-- 実visibility: public（GitHub metadataで確認済み）
-- 第59束squash統合SHA: `74ddd6fd862d3c4c8adca767b58119f47c0bc373`
+- 宣言operation mode: `ready_for_public_ci`
+- 実visibility: private（GitHub metadataで確認済み）
+- 完成ブランチ: `agent/yuwen-mowen-batch60-review`
+- PR: public確認後に作成
 
-## 公開CI窓の状態
+## visibilityと作業モード
 
-- PR #101は最終HEADでRelation audit extraction、Cross register QA、Apply curated localization fixesが成功し、未適用0件、verified checkpoint、未解決レビューthread 0件を確認してsquash統合した。
-- 第59束のsquash統合SHAは `74ddd6fd862d3c4c8adca767b58119f47c0bc373`。CURRENT_WORK、NEXT_TASK_PACKET、CURRENT_HANDOFFの参照をこのSHAへ付け替えるpost-merge状態同期を行う。
-- mainの宣言状態は`private_translation_work`へ戻す。実visibilityがpublicの間は導出状態`return_private_required`であり、新しい翻訳を始めない。
-- 状態同期PRの三本成功・未解決thread 0件・squash統合後、ユーザーへprivate復帰を依頼する。
+- 第60束の翻訳判断、修正JSON、レビュー、適用待ち記録はprivateブランチ上で完成済み。
+- 宣言状態は`ready_for_public_ci`。実visibilityがprivateなら、完成HEADと終了条件を示してユーザーへ`公開CI窓を開いてください。`と依頼する。
+- ユーザーの`公開した`だけで進めず、GitHub metadataでpublicを確認してからPR作成・三本CI・統合へ進む。
+- public中はCI、artifact調査、局所修正、レビュー確認、翻訳PRとpost-merge状態PRのsquash統合だけを行い、次束の翻訳は始めない。
+- 深い再検討が必要なら`public_ci_blocked`としてprivate復帰を依頼する。
+- 公開CI窓の終了後、mainは`private_translation_work`へ戻す。実visibilityがpublicならprivate復帰を依頼する。
 
-## 第59束で完了したこと
+## 第60束の公開CI待ち状態
 
-`5444_2`・`5446_1`の12行を通読し、12キーを再監査した。
+`5450_3`の9行を通読し、6キーを修正対象、3キーを現訳保持とした。
 
-- 既存第6束の再改訂: 10キー
-- 第59束の人物ペア新規: 莫問Index3・5の2キー
-- 人物ペア累計1165、全体1516
-- locres反映、pak再生成、全1516キー差分0、register lint、関係抽出、単体テスト、回帰走査、pak実体・LFS確認済み
+- 既存第6束の再改訂: Index1・2・3・4・6の5キー
+- 第60束の人物ペア新規: 莫問Index5の1キー
+- 人物ペア累計予定: 1166
+- プロジェクト全体累計予定: 1517
+- レビュー: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH60_2026-07-25.md`
+- 適用待ち記録: `_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH60_2026-07-25.md`
 
 主な裁定は次のとおり。
 
-- 莫問の起床確認、出立判断、道案内、同意を、古風な`うむ`ではなく旅をまとめる兄弟子の簡潔な声へ戻した
-- 宇文逸の`欧陽姑娘`をこの時点の距離に合う`欧陽さん`へし、瑶姫への不要な`殿`を外した
-- 寝坊後の宇文逸を、復命調・整った謝罪文ではなく同行者へ砕けて詫びる発話へした
-- 瑶姫の美人二人という自負、待ちぼうけの誇張、語尾の伸ばしを地モードのからかいとして残した
-- 欧陽雪の取りなしと出発提案を、対宇文逸の柔らかさと同行者への礼が同居する声へした
-- 桟橋と進路の表示タグ、姑蘇から北西という方角、莫問の推測強度を保持した
+- 元鳴の`有些人`を名指しの断罪へせず、`誰かさん`という遠回しな嫌味と自己保身の棘へ戻した
+- 莫問の宇文逸擁護を`侠義を行う`という翻訳調から、短く断定する兄弟子の声へした
+- 莫棄の重ねた同意、四大悪人への軽視、再戦の戦意を豪放な常体へ戻した
+- 莫問の制止を格言調から即時の`無茶をするな`へした
+- 相手の余力と警戒対象は莫問の推測に留め、品剣大会前の不穏さと早めの出航判断を保持した
+- `杜彪が再襲すること`、`宇文逸に責任があること`、`相手が全力でなかったこと`を設定事実へ強めていない
 
-同一の出立場面をCG表内で閉じるため12行の小束例外とした。別targetの`5371_FinishingDlgs`、大会結果分岐の`5449_2`、時系列の異なる`5450_3`は件数合わせで混在させていない。
+`5450_3`の対峙後判断を一場面で閉じる。`5449_2`と`5452_1`は門内大比の結果分岐、`5455_1`は清虚による別時点の出立指示である。数値順や件数合わせでは混在させず、9行の小束例外とした。
 
 今回の崩れは既存skillで扱えたため、skill・人物資料は変更していない。
 
-### 次の校正
+## 公開CI粒度の見直し
 
-`5450_3`の9行を第60束として監査する。
+センパイから、翻訳量に対して公開CI窓の往復と状態同期が細かすぎるとの指摘があった。今回は現行制度のまま第60束を完了し、次の公開CI窓終了後に制度案を提示する。
 
-- 杜彪との対峙直後、莫問が再襲の危険を見積もる
-- 元鳴が宇文逸を責め、莫問が武当弟子の侠義を擁護する
-- 莫棄の強気を莫問が制し、四大悪人を軽視しないよう警告する
-- 相手が全力を出していなかった可能性と品剣大会前の不穏さを検討する
-- 名剣山荘へ早めに向かう判断を示し、宇文逸が渡し場へ進むことに同意する
-
-実所有は、既存第6束がIndex0・1・2・3・4・6・7・8の8キー、未所有は莫問Index5の1キー。既存所有キーは第60束へ重複追加せず、必要な再改訂は既存第6束側で行う。
-
-5449_2と5452_1は門内大比の結果分岐、5455_1は清虚による別時点の出立指示である。数値順だけで併合すると時系列と分岐境界を壊すため、9行の小束例外とする。
+観測値と比較論点は `_phase4_proofread/CI_CADENCE_REVIEW_NOTES_2026-07-25.md` に記録した。現時点では結論を出さず、第60束の実測を追加してから、翻訳量、安全境界、失敗切り分け、冷間再開精度を比較する。
 
 ## checkpointと遷移状態
 
-- `verified`: 第59束の状態文書、監査索引、件数、適用記録、第60束パケットが同期済み。
-- `private_translation_work`: 第59束の翻訳PR統合後、次の翻訳作業へ戻る宣言状態。
-- 実visibilityがpublicなら`return_private_required`。post-merge状態PRの統合まではCI・状態同期だけを行い、新しい翻訳は始めない。
+- 現在の確定checkpointは第59束の`verified`。第60束はまだlocres・pak未反映。
+- `ready_for_public_ci`: private上で翻訳判断と準備が完成し、PR作成・三本CI・統合のためのpublic化を待つ状態。
+- `pending_audit_sync`: 翻訳適用後、botの監査索引書き戻しと最終状態確定を待つ遷移状態。統合禁止。
