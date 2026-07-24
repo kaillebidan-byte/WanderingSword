@@ -37,14 +37,15 @@
 6. `CURRENT_WORK.last_reviewed_batch`と`NEXT_TASK_PACKET`だけを次束へ進める。
 7. release条件未達なら`private_translation_work`を維持し、public化を依頼しない。
 
-## draft PR
+## private中の所在ポインタ
 
 第一段階では、列車branchの所在を新チャットから復元できるよう、private中に一つのdraft PRを開いてよい。
+private repositoryでPR作成APIが利用できない場合は、管理Issueを一つ開く。branch・HEAD・manifest totals・次束を記録する。
 
-- draft PRはCI実行・統合要求ではない。
-- `open_pr_only_after_ready`はready状態の通常PRに対する制限として維持する。
-- draft PRのhead branch、`CI_TRAIN_MANIFEST`、`CURRENT_WORK.ci_train`が一致しなければならない。
-- release時は同じPRを使用し、最終commitをpushしてからready化する。別PRへ束を分散しない。
+- draft PRまたは管理IssueはCI実行・統合要求ではない。
+- `open_pr_only_after_ready`はready状態の通常PRに対する制限として維持する。管理IssueはPRではない。
+- draft PRまたは管理Issueのbranch、`CI_TRAIN_MANIFEST`、`CURRENT_WORK.ci_train`が一致しなければならない。
+- draft PRがある場合はrelease時に同じPRを使用する。管理Issue fallbackの場合はpublic確認後に同じbranchからPRを一つ作る。別branch・別PRへ束を分散しない。
 
 ## release時
 
