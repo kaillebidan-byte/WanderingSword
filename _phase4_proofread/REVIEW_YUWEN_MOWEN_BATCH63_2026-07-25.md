@@ -21,7 +21,8 @@
 
 ## 所有
 
-- Index5: `fixes_relation_yuwen_mowen_20260725_batch63.json`
+- Index5: 既存 `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch7.json` を再改訂。
+- 第63束専用の新規所有キーは0件。重複所有を作らない。
 
 ## FACT_DOUBT
 
