@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "status": "ready",
   "task_id": "yuwen-mowen-batch52-planned",
   "based_on_checkpoint": {
@@ -43,6 +43,13 @@
       ]
     }
   ],
+  "batch_planning": {
+    "reviewed_rows": 16,
+    "target_rows": {"min": 15, "max": 30},
+    "adjacent_candidates_checked": [],
+    "grouping_decision": "5347_1単独で16行あり、通読目標15〜30行の範囲内なので、時系列上の次場面を混ぜず一続きの出発場面として監査する",
+    "exception": null
+  },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
     "fact_doubts": [
