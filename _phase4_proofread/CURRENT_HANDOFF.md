@@ -9,8 +9,9 @@
 - checkpoint: 第60束、人物ペア1166、全1517、`verified`
 - 宣言operation mode: `private_translation_work`
 - 第60束翻訳PR #103・状態PR #104は統合済み
-- 未統合PR: phase1 pilotのdraft CI列車PRをGitHubで確認
+- 未統合PR: private PR作成APIが502のため未作成。管理Issue #105をactive列車ポインタとして確認
 - active branch: `agent/ci-train-phase1-pilot`
+- tracking issue: #105 `Active CI train: yuwen-mowen-train-01`
 - train: `yuwen-mowen-train-01`
 - train status: `accumulating`
 - train totals: 0束 / 0行 / 0修正キー
@@ -32,7 +33,7 @@ workflow/schema/security/緊急build確認だけはmanifestへ理由を記録し
 `CI_TRAIN_MANIFEST`へ`reviewed_pending_ci`として追加し、次束へ進む。
 verified checkpointは第60束のまま維持する。
 
-private中のdraft PRは列車branchの所在保存用で、CI開始要求ではない。
+private PR作成APIが利用できなかったため、Issue #105を列車branchの所在保存用にした。CI開始要求ではない。public release時に同じbranchからPRを一つ作る。
 release時は同じPRをready化し、別PRへ束を分散しない。
 
 ## 第61束
