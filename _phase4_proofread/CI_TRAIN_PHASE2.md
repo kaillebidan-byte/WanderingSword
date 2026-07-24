@@ -23,11 +23,22 @@
 
 ## 重いCIの起動境界
 
-Relation / Cross / Applyは次の場合だけ起動する。
+GitHubの`pull_request.paths`は最新commitではなくPR全体差分で評価される。そのためpath指定だけでは、同じPRの状態commitによる再起動を防げない。
 
-- `fixes_*.json`が変わった
-- 翻訳資産の適用・検査コードが変わった
-- 当該workflow自身が変わった
+Relation / Cross / Applyの自動起動eventは次に限定する。
+
+- PRをpublic中に新規作成した`opened`
+- private draft PRをpublic中にready化した`ready_for_review`
+- 閉じたrelease PRを再開した`reopened`
+- 局所修正後、`ci-heavy-rerun`ラベルを付けた`labeled`
+
+通常の` synchronize`では重い三本を起動しない。修正後に再検証が必要な場合は、同じPRへ`ci-heavy-rerun`ラベルを明示的に付ける。再度使う場合は一度ラベルを外してから付け直す。
+
+各workflowのpath条件は、上記eventの中でさらに対象を限定する。
+
+- `fixes_*.json`が含まれる
+- 翻訳資産の適用・検査コードが含まれる
+- 当該workflow自身が含まれる
 
 次の変更だけでは起動しない。
 
@@ -49,20 +60,22 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 - 適用記録
 - branch内祖先関係、または移行済みreleaseのsquash merge SHA
 
-`check_release_evidence.py`は構造、件数、run名、run結論、PR対応、HEAD、git lineageを検査する。
+`check_release_evidence.py`は構造、件数、run名、run結論、HEAD、git lineageを検査する。
+`check_release_evidence_github.py`はGitHub Actionsの実runを取得し、activeな`branch_ancestor` releaseではrunのPR添付を必須とする。過去の`squash_merged` releaseでGitHubが空の`pull_requests`配列を返す場合は、対象PRのmerged状態とmerge SHAを必須の代替証跡とする。
 
 ## 単一PRの順序
 
 1. privateで複数小束を完成し、manifestをrelease可能にする。
 2. public確認後、同じbranchから翻訳PRを一つだけ使う。
-3. Relation / Cross / Applyを同じCI HEADで成功させる。
-4. Applyがlocres、pak、audit statusを同じbranchへ一度だけ書き戻す。
-5. bot書き戻しでは重い三本を再起動しない。
-6. 人間作成の最終状態commitで、適用記録、release evidence、CURRENT_WORK、manifest、next packet、handoffを確定する。
-7. `CI train phase2 gate`だけを実行し、過去の三本成功runと現在HEADの状態整合を検証する。
-8. 未解決thread 0件を確認し、同じ翻訳PRをsquash統合する。
-9. mainにはすでにprivate作業状態と次束packetが含まれるため、post-merge状態PRは作らない。
-10. private復帰を依頼する。
+3. PR作成またはready化でRelation / Cross / Applyを同じCI HEADに対して実行する。
+4. 局所修正後に再検証が必要なら`ci-heavy-rerun`ラベルを使う。
+5. Applyがlocres、pak、audit statusを同じbranchへ一度だけ書き戻す。
+6. bot書き戻しでは重い三本を再起動しない。
+7. 人間作成の最終状態commitで、適用記録、release evidence、CURRENT_WORK、manifest、next packet、handoffを確定する。
+8. `CI train phase2 gate`だけを実行し、三本の成功runと現在HEADの状態整合を検証する。
+9. 未解決thread 0件を確認し、同じ翻訳PRをsquash統合する。
+10. mainにはすでにprivate作業状態と次束packetが含まれるため、post-merge状態PRは作らない。
+11. private復帰を依頼する。
 
 ## checkpoint
 
@@ -90,14 +103,15 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 - 冷間再開文書
 - phase2回帰テスト
 
-このgateは状態文書に反応するが、locresやpakを再生成しない。
+このgateは状態文書とphase2 checkerに反応するが、locresやpakを再生成しない。
 
 ## 失敗時
 
-- 三本の失敗は、原因小束または検査コードをprivateで直して再releaseする。
+- 三本の失敗が局所的な制度・構造修正ならpublic中に直し、`ci-heavy-rerun`ラベルで再検証する。
+- 原因小束または翻訳判断を直す必要がある場合はprivateへ戻して再releaseする。
 - bot書き戻し後の`action_required`だけを失敗とみなさない。
 - release evidenceが不完全なら統合しない。
-- phase2 gateが過去runを確認できない場合、run IDを書き換えて通すのではなく実runとHEADを再確認する。
+- phase2 gateが過去runを確認できない場合、run IDを書き換えて通すのではなく実run、HEAD、PR lineageを再確認する。
 - 深い翻訳判断をpublicで反復しない。
 
 ## 第二段階の受入条件
