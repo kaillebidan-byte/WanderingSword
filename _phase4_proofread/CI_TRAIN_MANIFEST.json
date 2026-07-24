@@ -4,7 +4,7 @@
   "train_id": "yuwen-mowen-train-01",
   "branch": "agent/ci-train-phase1-pilot",
   "draft_pr": null,
-  "status": "accumulating",
+  "status": "ready_for_public_ci",
   "base_checkpoint": {
     "batch": 60,
     "pair_applied_keys": 1166,
@@ -28,7 +28,10 @@
     "security_or_visibility",
     "urgent_build_verification"
   ],
-  "release_trigger": null,
+  "release_trigger": {
+    "reason": "schema_change",
+    "detail": "第一段階CI列車制度のschema・機械検査・再開規則を、第61束の実データと同じ一往復で検証するためのパイロット早期release。"
+  },
   "totals": {
     "bundle_count": 1,
     "reviewed_rows": 5,
