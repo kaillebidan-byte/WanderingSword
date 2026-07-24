@@ -10,16 +10,16 @@
 
 1. GitHub metadataで実visibilityを確認する。
 2. 未統合PRとGitHub Actionsを確認し、PRは開いているだけで現行作業と決めない。
-3. 管理Issue #108、`agent/ci-train-phase2`、CURRENT_WORKを照合する。
-4. 第61束・人物ペア1166・全1518・verifiedを復元する。
-5. checkpointのrelease evidence `yuwen-mowen-train-01-r1`を復元する。
-6. operation mode `ready_for_public_ci`と早期release理由`workflow_change`を復元する。
-7. privateなら完成HEADと検証項目を示して公開CI窓を依頼する。
-8. publicなら制度CI・単一PR最終化だけを行い、第62束へ着手しない。
-9. bot書き戻し後の重い三本再起動0件を確認する。
-10. 最終状態commitではphase2 gateだけを確認する。
-11. 同じPRをsquash統合し、post-merge状態PRを作らない。
-12. private復帰後、第62束`5455_1`へ戻る。
+3. PR #109が未統合なら、制度CI・未解決thread確認・squash統合だけを続ける。
+4. PR #109が統合済みでpublicなら、post-merge状態PRを作らずprivate復帰を依頼する。
+5. 第61束・人物ペア1166・全1518・verifiedを復元する。
+6. checkpointのrelease evidence `yuwen-mowen-train-01-r1`を復元する。
+7. 第二段階の検証HEAD `a0274dd1fcfa4ac66657d820a6fafaf985c3a209`と四本の成功runを復元する。
+8. 最終状態commitではphase2 gateだけが起動し、Relation / Cross / Applyが起動しないことを確認する。
+9. private確認後、`yuwen-mowen-train-02`を0束・0行・0修正キーから開始する。
+10. 第62束`5455_1`をtrain-02の最初の小束として監査する。
+11. 後続`5501_2`を件数合わせで混ぜない。
+12. 今後のreleaseも単一PR内でrelease evidenceと状態を確定し、post-merge状態PRを作らない。
 
 ## 現在の期待値
 
@@ -28,9 +28,11 @@
 - project applied: 1518
 - checkpoint: verified
 - release id: `yuwen-mowen-train-01-r1`
-- phase2: ready for public CI
-- tracking issue: #108
-- active branch: `agent/ci-train-phase2`
+- phase2 system PR: #109
+- phase2 validation head: `a0274dd1fcfa4ac66657d820a6fafaf985c3a209`
+- next train: `yuwen-mowen-train-02`
+- next train status: accumulating
+- next train totals: 0束 / 0行 / 0修正キー
 - queued translation: batch62 / `5455_1`
 - actual visibility: GitHubで毎回確認
 
@@ -49,4 +51,4 @@ python _tools/test_check_ci_train_manifest.py
 python _tools/test_check_next_task_packet_ownership.py
 ```
 
-すべてが成功しない状態を第二段階の確定状態として扱わない。
+すべてが成功しない状態を第二段階の確定状態またはprivate翻訳再開状態として扱わない。
