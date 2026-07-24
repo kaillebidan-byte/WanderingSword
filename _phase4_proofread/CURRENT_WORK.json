@@ -4,7 +4,7 @@
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "673dc115220c99bbeaa1a2080b29438d2c6962a8",
-  "state_base_commit": "dacb0de0f34ceca7f53de29a2b9a4da71332c67a",
+  "state_base_commit": "c1cfa50609370205cd0089fb595522e3bd592521",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -16,14 +16,14 @@
   "game_verified": "not_started",
   "last_merged_translation_pr": 94,
   "checkpoint": {
-    "status": "pending_audit_sync",
+    "status": "verified",
     "batch": 57,
     "pair_applied_keys": 1160,
     "project_applied_keys": 1509,
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH57_2026-07-24.md",
     "produced_by_pr": 96,
     "translation_head": "673dc115220c99bbeaa1a2080b29438d2c6962a8",
-    "verified_head": "dacb0de0f34ceca7f53de29a2b9a4da71332c67a"
+    "verified_head": "c1cfa50609370205cd0089fb595522e3bd592521"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -56,7 +56,7 @@
   "immediate_next": {
     "scene_groups": ["5370_1", "5388_1", "5389_2", "5389_4"],
     "task": "品剣大会の開会前、方闊海戦での負傷と制止、翌日出場を巡る二分岐を19行で監査し、莫問の公的指示・即時制止・私的な気遣いを分ける。",
-    "boundary": "既存第5束が11キーを所有。未所有候補は宇文逸・莫問6キーと方闊海2キー。機械所有検査で全fix JSONと照合する。宇文逸の負傷、方闊海の脅しと秘術、翌日の出場・勝敗を台詞以上に確定しない。",
+    "boundary": "既存第5束が11キーを所有。未所有候補は宇文逸・莫問6キーと方闊海2キー。機械所有検査で全fix JSONと照合済み。宇文逸の負傷、方闊海の脅しと秘術、翌日の出場・勝敗を台詞以上に確定しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md", "10_人物/方闊海.md"],
