@@ -1,21 +1,21 @@
 {
   "schema_version": 2,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch49-planned",
+  "task_id": "yuwen-mowen-batch50-planned",
   "based_on_checkpoint": {
-    "batch": 48,
-    "pair_applied_keys": 1138,
-    "project_applied_keys": 1422,
-    "produced_by_pr": 78,
-    "translation_head": "5b716620dc9e70b371f545b972a90d4b33810150",
+    "batch": 49,
+    "pair_applied_keys": 1139,
+    "project_applied_keys": 1423,
+    "produced_by_pr": 80,
+    "translation_head": "7a6e6aef2a8f367ea6287a1d445fe97917fae73b",
     "verified_head": "5b716620dc9e70b371f545b972a90d4b33810150"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5303_1"],
+  "scene_groups": ["5331_1", "5343_4"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5303_1_Dlgs"],
+    "families": ["5331_1_Dlgs", "5343_4_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,63 +23,147 @@
   },
   "scene_flow": [
     {
-      "scene": "5303_1",
-      "function": "夜稽古後の宇文逸の独白。莫問と自分の似た境遇を思い、叔父への感謝と軽い愚痴、莫問への礼、品剣大会への期待、翌日の師門任務へ思考が移る",
-      "speaker_order": ["宇文逸", "宇文逸", "宇文逸", "宇文逸", "宇文逸", "宇文逸", "宇文逸", "宇文逸"],
+      "scene": "5331_1",
+      "function": "清虚が名剣山荘からの招待状を読み、品剣大会が六扇門の天龍幇対策である可能性を説明する。宇文逸が仇討ちのため参加を願い、門内大比で三位以内に入ることを条件に許され、莫問への伝達へ向かう",
+      "speaker_order": ["清虚道長", "清虚道長", "清虚道長", "宇文逸", "清虚道長", "清虚道長", "宇文逸", "宇文逸", "清虚道長", "清虚道長", "宇文逸"],
       "focus_keys": [
-        "5303_1_Dlgs_Index0_Text", "5303_1_Dlgs_Index1_Text", "5303_1_Dlgs_Index2_Text", "5303_1_Dlgs_Index3_Text",
-        "5303_1_Dlgs_Index4_Text", "5303_1_Dlgs_Index5_Text", "5303_1_Dlgs_Index6_Text", "5303_1_Dlgs_Index7_Text"
+        "5331_1_Dlgs_Index0_Text", "5331_1_Dlgs_Index1_Text", "5331_1_Dlgs_Index2_Text", "5331_1_Dlgs_Index3_Text",
+        "5331_1_Dlgs_Index4_Text", "5331_1_Dlgs_Index5_Text", "5331_1_Dlgs_Index6_Text", "5331_1_Dlgs_Index7_Text",
+        "5331_1_Dlgs_Index8_Text", "5331_1_Dlgs_Index9_Text", "5331_1_Dlgs_Index10_Text"
       ],
       "voice_questions": [
-        "内心の一人称・表記を機械的に統一せず、宇文逸の独白として自然に続くか",
-        "両親不在という似た境遇への気づきを、莫問の出自や感情の確定へ膨らませていないか",
-        "叔父への感謝と頼りなさへの軽い愚痴を、侮蔑や深刻な不信へ強めていないか",
-        "莫問への感謝を義兄弟化や恋愛的な含意へ変えていないか",
-        "莫問の好みは未確定のまま、ほかの師兄へ尋ねる予定として保てるか",
-        "品剣大会を賑やかそうだと期待する声を、参加確定へ変えていないか",
-        "翌日の元風師兄・師門任務への切り替えを、説明調ではなく寝る直前の独白として発声できるか"
+        "Index0は清虚自身の発話ではなく招待状の文面であることを保ち、鄙庄を清虚の我が荘へ誤帰属させていないか",
+        "古剣湛盧への驚きと、名剣山荘が宝剣を出す重みを清虚の老人語へ均しすぎていないか",
+        "很可能・应该・看来を客観的事実へ確定せず、清虚の推測として残しているか",
+        "对付天龙帮を機械的な討伐確定へ強めず、六扇門の対策と宇文逸の仇討ちを分けているか",
+        "宇文逸の参加願望を幼い興奮だけへ寄せず、葬龍谷の仇を討ちたい切実さを保てるか",
+        "清虚の問児への伝達命令、門内大比、三位以内という条件を自然な指示の順序で出せるか",
+        "太好了を悪役的・過剰な叫びへせず、許可条件を得た宇文逸の素直な喜びとして発声できるか"
+      ]
+    },
+    {
+      "scene": "5343_4",
+      "function": "門内大比後、宇文逸が清虚へ復命し、莫問が不参加だったから勝てたと謙遜する。清虚が若手一同を称え、宇文逸が武当の侠義を継ぐと誓う",
+      "speaker_order": ["宇文逸", "清虚道長", "清虚道長", "宇文逸", "清虚道長", "清虚道長", "清虚道長", "宇文逸", "清虚道長"],
+      "focus_keys": [
+        "5343_4_Dlgs_Index0_Text", "5343_4_Dlgs_Index1_Text", "5343_4_Dlgs_Index2_Text", "5343_4_Dlgs_Index3_Text",
+        "5343_4_Dlgs_Index4_Text", "5343_4_Dlgs_Index5_Text", "5343_4_Dlgs_Index6_Text", "5343_4_Dlgs_Index7_Text",
+        "5343_4_Dlgs_Index8_Text"
+      ],
+      "voice_questions": [
+        "幸不辱命を弱い結果報告や偶然の成功へせず、師父への正式な復命として発声できるか",
+        "宇文逸の哈哈を通常の安堵と謙遜の笑いとして扱い、莫問不参加への他責や卑下へ傾けていないか",
+        "不够看を勝敗の断定以上に膨らませず、莫問への敬意を含む自然な謙遜にできるか",
+        "清虚の呵呵二箇所を表記統一で決めず、若手への満足と最終的な確信を場面機能で分けられるか",
+        "翘楚・垂之千古を説明文へ散文化しすぎず、試剣台で一同を称える格を保てるか",
+        "宇文逸の誓いを個人だけの宣言へ狭めず、弟子等人と我派侠义之风の集団性を保てるか"
       ]
     }
   ],
   "allusion_and_fact_gates": {
-    "allusion_review_candidates": [],
+    "allusion_review_candidates": [
+      {
+        "phrase": "湛卢",
+        "classification_hint": "古剣名。既存表記《湛盧》を基準にするが、剣の由来・所有者・効能など台詞外の伝承は足さない"
+      },
+      {
+        "phrase": "幸不辱命",
+        "classification_hint": "定着した復命表現。字面の辱めを残さず、任務・期待を果たした正式な報告の格を保つ"
+      },
+      {
+        "phrase": "翘楚／垂之千古",
+        "classification_hint": "若手の傑出と武当の名が長く伝わることを称える凝縮表現。現代的な説明へ平板化しすぎない"
+      }
+    ],
     "fact_doubts": [
-      "宇文逸が両親不在だと認識していることは独白の範囲で保持するが、死亡・失踪・理由を確定しない",
-      "叔父が時々頼りにならないという評価を、恒常的な無責任や敵意へ強めない",
-      "莫問の好みや礼の具体物を先取りしない",
-      "品剣大会は見に行けたらよいという希望であり、参加・見物の確定ではない",
-      "翌日に元風師兄から師門任務を受ける予定以上の任務内容を補わない"
+      "品剣大会が六扇門の天龍幇対策として設けられたという説明は清虚の推測であり、確定事実にしない",
+      "六扇門の密偵が有用な情報を得たことも清虚の推量であり、具体的な情報内容を補わない",
+      "重宝で各派を招くことから、湛盧が必ず優勝賞品になる、または譲渡されると確定しない",
+      "宇文逸が天龍幇への仇討ちを望むことと、実際に討伐へ参加できることを分ける",
+      "門内大比三位以内は名剣山荘へ赴く条件であり、品剣大会本戦の勝利や参加形式を補わない",
+      "莫問が門内大比へ参加しなかった理由を補わない",
+      "清虚の武当が千古に名を残すという発言は称揚であり、未来の客観的事実として固定しない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "Index1・2・3・5・6・7は既存第33束の所有。必要な修正は第33束を直接再改訂する。Index0・4は未所有で、変更が必要な場合のみ第49束へ収録する",
-    "cross_register": "全8行が宇文逸の独白であり、別話者のcross-register追加は予定しない。前後場面から別話者キーが必要になった場合は人物ペア束へ混ぜず分離する",
+    "pair_batch": "宇文逸Index3・7・10（5331_1）とIndex0・3・7（5343_4）は既存第34束の所有。必要な修正は第34束を直接再改訂する。5331_1 Index6は未所有で、変更が必要な場合のみ第50束へ収録する",
+    "cross_register": "清虚の13キーは既存の宇文逸↔清虚5束に存在しない未所有キー。変更する場合は清虚cross-register束へ分離し、宇文逸↔莫問の新規キー数へ算入しない",
     "machine_ownership": {
       "existing": [
         {
-          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch33.json",
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch34.json",
           "keys": [
-            "5303_1_Dlgs_Index1_Text", "5303_1_Dlgs_Index2_Text", "5303_1_Dlgs_Index3_Text",
-            "5303_1_Dlgs_Index5_Text", "5303_1_Dlgs_Index6_Text", "5303_1_Dlgs_Index7_Text"
+            "5331_1_Dlgs_Index3_Text", "5331_1_Dlgs_Index7_Text", "5331_1_Dlgs_Index10_Text",
+            "5343_4_Dlgs_Index0_Text", "5343_4_Dlgs_Index3_Text", "5343_4_Dlgs_Index7_Text"
           ]
         }
       ],
       "unowned": [
         {
-          "key": "5303_1_Dlgs_Index0_Text",
-          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch49.json"
+          "key": "5331_1_Dlgs_Index6_Text",
+          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch50.json"
         },
         {
-          "key": "5303_1_Dlgs_Index4_Text",
-          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch49.json"
+          "key": "5331_1_Dlgs_Index0_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5331_1_Dlgs_Index1_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5331_1_Dlgs_Index2_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5331_1_Dlgs_Index4_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5331_1_Dlgs_Index5_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5331_1_Dlgs_Index8_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5331_1_Dlgs_Index9_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5343_4_Dlgs_Index1_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5343_4_Dlgs_Index2_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5343_4_Dlgs_Index4_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5343_4_Dlgs_Index5_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5343_4_Dlgs_Index6_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
+        },
+        {
+          "key": "5343_4_Dlgs_Index8_Text",
+          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
         }
       ]
     },
     "do_not_do": [
-      "既存第33束所有キーを新規第49束へ重複追加しない",
-      "未所有Index0・4を束数のために無理に変更しない",
-      "両親・叔父・莫問の好み・大会参加可否を独白以上に確定しない",
-      "内心の一人称や句読点を表記統一だけで決めない"
+      "既存第34束所有キーを新規第50束へ重複追加しない",
+      "清虚の13キーを宇文逸↔莫問の新規キー数へ算入しない",
+      "招待状の鄙庄を清虚自身の武当・我が荘へ誤帰属させない",
+      "清虚の推測を客観的事実へ確定しない",
+      "宇文逸の仇討ち願望から大会参加・討伐成功を先取りしない",
+      "莫問不参加の理由を補わない"
     ]
   },
   "skill_review": {
@@ -88,19 +172,19 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5303_1の8行を原文・現訳・前後文・時系列・既存束所有とともに確認",
-    "FACT_DOUBTを記録し、ALLUSION_REVIEW候補がないことも明示",
-    "既存第33束再改訂と新規第49束を所有者別に分離",
-    "機械所有表を実修正JSONと照合し、自由記述の所有誤記をCIで止める",
+    "二場面20行の原文・現訳・引用声・前後文・話者・時系列・既存束所有を確認",
+    "ALLUSION_REVIEWとFACT_DOUBTを別々に記録",
+    "既存第34束再改訂、新規第50束、清虚cross-registerを所有者別に分離",
+    "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
     "CURRENT_WORK、CURRENT_HANDOFF、audit_status、適用記録、次のNEXT_TASK_PACKETを同じPRで更新",
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第48束・1138キー・全1422キー・verified",
-    "open_pr": "未統合PRを実検索し、active/superseded/abandoned/unrelatedへ分類する",
-    "start": "active PRがなければ5303_1の最新artifactを取得し、同じ応答内で8行の通読へ入る",
-    "drift": "TODO・人物資料・audit_status.next_actionが食い違えば一次資料とCURRENT_WORK/NEXT_TASK_PACKETを優先し、資料側を修正候補にする"
+    "current": "宇文逸↔莫問・第49束・1139キー・全1423キー・pending_audit_sync",
+    "open_pr": "PR #80をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5331_1・5343_4の最新artifactを取得し、招待状引用と清虚・宇文逸の声を分けて20行を通読する",
+    "drift": "自由記述の所有説明ではなくmachine_ownershipと実fix JSONを優先し、矛盾時はパケット側を修正する"
   }
 }
