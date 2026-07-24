@@ -8,6 +8,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -128,6 +129,38 @@ class ApplyFixesJsonTests(unittest.TestCase):
 
         self.assertEqual(256, array_offset)
         self.assertEqual({"QuestDlgs\x1f100_1_Text": 7}, mapping)
+
+    def test_build_plans_records_pending_key_and_values(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            locres = Path(tmp) / "CG表.locres"
+            locres.write_bytes(b"dummy")
+            fixes = {
+                "CG表\x1fQuestDlgs\x1fkey_ok": "新訳A",
+                "CG表\x1fQuestDlgs\x1fkey_pending": "新訳B",
+            }
+            index_map = {
+                "QuestDlgs\x1fkey_ok": 0,
+                "QuestDlgs\x1fkey_pending": 1,
+            }
+            values = [["新訳A"], ["旧訳B"]]
+
+            with (
+                patch.object(target, "locate_locres", return_value=locres),
+                patch.object(target, "key_index_map", return_value=(index_map, 0)),
+                patch.object(
+                    target.L,
+                    "load",
+                    return_value=(None, 1, None, values, None),
+                ),
+            ):
+                plans, pending, applied = target.build_plans(fixes)
+
+            self.assertEqual(1, pending)
+            self.assertEqual(1, applied)
+            self.assertEqual(
+                [("CG表\x1fQuestDlgs\x1fkey_pending", "新訳B", "旧訳B")],
+                plans[0].pending_details,
+            )
 
 
 if __name__ == "__main__":
