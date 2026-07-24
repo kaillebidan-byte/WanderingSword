@@ -114,6 +114,37 @@ def main() -> None:
         finally:
             module.ROOT = original_root
 
+    # 適用後はCURRENT_WORK.checkpointが最終bundleまで進むが、次束番号は
+    # manifestの出発checkpoint + 積載束数 + 1で求める。
+    original_validate_manifest = module.validate_manifest
+    module.validate_manifest = lambda manifest, current: []
+    try:
+        current = {
+            "checkpoint": {"batch": 61},
+            "ci_train": {"phase": "phase1_pilot", "train_id": "test-train"},
+        }
+        manifest = {"base_checkpoint": {"batch": 60}, "bundles": [{"batch": 61}]}
+        packet = {
+            "ci_train": {
+                "phase": "phase1_pilot",
+                "train_id": "test-train",
+                "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+                "bundle_status_on_completion": "reviewed_pending_ci",
+                "do_not_apply_until_release": True,
+                "planned_batch": 62,
+            }
+        }
+        errors = []
+        module.validate_train_packet(current, manifest, packet, errors)
+        assert errors == [], errors
+
+        packet["ci_train"]["planned_batch"] = 63
+        errors = []
+        module.validate_train_packet(current, manifest, packet, errors)
+        assert any("planned_batch mismatch" in error for error in errors)
+    finally:
+        module.validate_manifest = original_validate_manifest
+
     print("test_check_next_task_packet_ownership: OK")
 
 
