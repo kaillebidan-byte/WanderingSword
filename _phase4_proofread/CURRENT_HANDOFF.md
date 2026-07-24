@@ -14,7 +14,7 @@
 
 ## 現在地
 
-- checkpoint: `pending_audit_sync`
+- checkpoint: `verified`
 - active PR: #92 `agent/yuwen-mowen-batch55-review`
 - checkpointを生成した翻訳PR: #92
 - 直近の統合済み翻訳PR: #90
@@ -29,7 +29,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #92が開いている間はactiveとして扱う。第55束の監査索引、件数、適用記録、第56束の25行パケットを同期中。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
+PR #92が開いている間はactiveとして扱う。第55束の監査索引、件数、適用記録、第56束の25行パケットと実所有は同期済み。最終HEADでRelation audit、Cross register QA、Apply curated localization fixesがすべて成功し、未解決レビューがなければ統合する。
 
 ## 第55束で完了したこと
 
@@ -68,7 +68,7 @@ PR #92が開いている間はactiveとして扱う。第55束の監査索引、
 
 単独25行で通読目標内。次の`5359_3`は夜間警戒と襲撃前兆へ事件が切り替わるため含めない。
 
-既存第5束が莫問Index1・2・5・10・11・12を所有する。宇文逸Index15・16・20・23、慧平9キー、慧空6キーは`NEXT_TASK_PACKET.json`の機械所有表を全fix JSONと照合する。
+既存第5束が莫問Index1・2・5・10・11・12を所有する。宇文逸Index15・16・20・23、慧平9キー、慧空6キーは`NEXT_TASK_PACKET.json`の機械所有検査で未所有確認済み。
 
 慧空の武功、無塵剣の名声、宿不足、翌日の出航・同行を話者の発言以上に確定しない。慧平は堅苦しい僧侶語へ均さず、慧空は謙虚さを過剰な自己卑下へしない。
 
