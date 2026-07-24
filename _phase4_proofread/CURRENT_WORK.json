@@ -4,7 +4,7 @@
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "79bd7f0d960db7deee28b53337c50151b3a2f433",
-  "state_base_commit": "2aad393a09764b50466ec7081bd67bf44942e6e9",
+  "state_base_commit": "478876c89724dcbe8eb9a7b27ad0aeac3e3deebe",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
@@ -16,14 +16,14 @@
   "game_verified": "not_started",
   "last_merged_translation_pr": 90,
   "checkpoint": {
-    "status": "pending_audit_sync",
+    "status": "verified",
     "batch": 55,
     "pair_applied_keys": 1154,
     "project_applied_keys": 1485,
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH55_2026-07-24.md",
     "produced_by_pr": 92,
     "translation_head": "79bd7f0d960db7deee28b53337c50151b3a2f433",
-    "verified_head": "2aad393a09764b50466ec7081bd67bf44942e6e9"
+    "verified_head": "478876c89724dcbe8eb9a7b27ad0aeac3e3deebe"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -56,7 +56,7 @@
   "immediate_next": {
     "scene_groups": ["5358_5"],
     "task": "迎仙楼での少林僧再会として、慧平・慧空との紹介と武名への礼、部屋の譲渡、旅先の助け合い、翌日の名剣山荘同行約束を25行で監査する。",
-    "boundary": "莫問Index1・2・5・10・11・12は既存第5束所有。宇文逸Index15・16・20・23、慧平9キー、慧空6キーはNEXT_TASK_PACKETの機械所有表を全fix JSONと照合する。少林武功・無塵剣の評判、宿不足、翌日の出航・同行を話者の発言以上に確定しない。",
+    "boundary": "莫問Index1・2・5・10・11・12は既存第5束所有。宇文逸Index15・16・20・23、慧平9キー、慧空6キーはNEXT_TASK_PACKETの機械所有検査で未所有確認済み。少林武功・無塵剣の評判、宿不足、翌日の出航・同行を話者の発言以上に確定しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": ["README.md", "AGENTS.md", "_phase4_proofread/SESSION_BOOTSTRAP.md", "_phase4_proofread/CURRENT_WORK.json", "_phase4_proofread/CURRENT_HANDOFF.md", "_phase4_proofread/NEXT_TASK_PACKET.json", "_phase4_proofread/COLD_START_ACCEPTANCE.md", "_phase4_proofread/audit_status.json", "_phase4_proofread/RUNBOOK_人物ペア再監査.md", ".agents/skills/zhja-game-translation-codex/SKILL.md", ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "10_人物/宇文逸.md", "10_人物/莫問.md", "10_人物/慧平.md", "10_人物/慧空.md"],
