@@ -8,7 +8,7 @@
     "project_applied_keys": 1423,
     "produced_by_pr": 80,
     "translation_head": "7a6e6aef2a8f367ea6287a1d445fe97917fae73b",
-    "verified_head": "5b716620dc9e70b371f545b972a90d4b33810150"
+    "verified_head": "5937dadf31eebc227d8b301c0536776f709a891a"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": ["5331_1", "5343_4"],
@@ -99,62 +99,20 @@
         }
       ],
       "unowned": [
-        {
-          "key": "5331_1_Dlgs_Index6_Text",
-          "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch50.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index0_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index1_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index2_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index4_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index5_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index8_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5331_1_Dlgs_Index9_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5343_4_Dlgs_Index1_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5343_4_Dlgs_Index2_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5343_4_Dlgs_Index4_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5343_4_Dlgs_Index5_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5343_4_Dlgs_Index6_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        },
-        {
-          "key": "5343_4_Dlgs_Index8_Text",
-          "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"
-        }
+        {"key": "5331_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch50.json"},
+        {"key": "5331_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5331_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5331_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5331_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5331_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5331_1_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5331_1_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5343_4_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5343_4_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5343_4_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5343_4_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5343_4_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"},
+        {"key": "5343_4_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json"}
       ]
     },
     "do_not_do": [
@@ -182,7 +140,7 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第49束・1139キー・全1423キー・pending_audit_sync",
+    "current": "宇文逸↔莫問・第49束・1139キー・全1423キー・verified",
     "open_pr": "PR #80をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
     "start": "状態同期後は5331_1・5343_4の最新artifactを取得し、招待状引用と清虚・宇文逸の声を分けて20行を通読する",
     "drift": "自由記述の所有説明ではなくmachine_ownershipと実fix JSONを優先し、矛盾時はパケット側を修正する"
