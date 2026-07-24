@@ -73,6 +73,9 @@ def main() -> None:
     assert module.validate_operation_mode(
         sample_current("ready_for_public_ci", "ready_for_public_ci")
     ) == []
+    assert module.validate_operation_mode(
+        sample_current("in_public_ci", "ready_for_public_ci")
+    ) == []
 
     bad = sample_current("accumulating", "ready_for_public_ci")
     errors = module.validate_operation_mode(bad)
@@ -80,7 +83,7 @@ def main() -> None:
 
     bad = sample_current("ready_for_public_ci", "private_translation_work")
     errors = module.validate_operation_mode(bad)
-    assert any("ready/in_public_ci train" in error for errors)
+    assert any("ready/in_public_ci train" in error for error in errors)
 
     broken = {"operation_mode": {"declared_state": "public_ci_window"}}
     errors = module.validate_operation_mode(broken)
