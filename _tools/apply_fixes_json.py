@@ -38,6 +38,12 @@ REPAK = ROOT / "_tools" / ("repak.exe" if os.name == "nt" else "repak")
 OUTPAK = ROOT / "_work" / "aaWanderingSword_JP_P.pak"
 
 
+@dataclass(frozen=True)
+class KeyIndexRecord:
+    index: int
+    index_offset: int
+
+
 @dataclass
 class TargetPlan:
     table: str
@@ -51,7 +57,8 @@ class TargetPlan:
     pending_details: list[tuple[str, str, str]]
 
 
-def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
+def key_index_records(data: bytes) -> tuple[dict[str, KeyIndexRecord], int]:
+    """各keyの文字列配列indexと、そのindexを書き換えるbyte位置を返す。"""
     offset = 17
     (array_offset,) = struct.unpack_from("<q", data, offset)
     offset += 12
@@ -73,7 +80,7 @@ def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
             end,
         )
 
-    mapping: dict[str, int] = {}
+    mapping: dict[str, KeyIndexRecord] = {}
     for _ in range(namespace_count):
         offset += 4  # namespace hash
         namespace, offset = read_fstring(data, offset)
@@ -83,10 +90,17 @@ def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
             offset += 4  # key hash
             key, offset = read_fstring(data, offset)
             offset += 4  # source string hash
+            index_offset = offset
             (index,) = struct.unpack_from("<i", data, offset)
             offset += 4
-            mapping[namespace + "\x1f" + key] = index
+            mapping[namespace + "\x1f" + key] = KeyIndexRecord(index, index_offset)
     return mapping, array_offset
+
+
+def key_index_map(data: bytes) -> tuple[dict[str, int], int]:
+    """互換用。各keyの文字列配列indexだけを返す。"""
+    records, array_offset = key_index_records(data)
+    return {key: record.index for key, record in records.items()}, array_offset
 
 
 def expand_paths(raw_paths: Iterable[str]) -> list[str]:
@@ -156,6 +170,59 @@ def locate_locres(table: str) -> Path:
     return select_locres(table, (LOC / table / "zh-Hans").glob("*.locres"))
 
 
+def split_shared_indices(
+    original: bytes,
+    array_offset: int,
+    version: int,
+    values: list,
+    records: dict[str, KeyIndexRecord],
+    desired: dict[str, str],
+) -> bytes:
+    """異なる訳文を要求する共有indexを分離し、key側indexも更新する。"""
+    prefix = bytearray(original[:array_offset])
+    records_by_index: dict[int, list[tuple[str, KeyIndexRecord]]] = {}
+    for compound_key, record in records.items():
+        records_by_index.setdefault(record.index, []).append((compound_key, record))
+
+    affected_by_index: dict[int, list[tuple[str, str, KeyIndexRecord]]] = {}
+    for compound_key, new_value in desired.items():
+        record = records[compound_key]
+        if values[record.index][0] != new_value:
+            affected_by_index.setdefault(record.index, []).append(
+                (compound_key, new_value, record)
+            )
+
+    for index, affected in affected_by_index.items():
+        current_value = values[index][0]
+        desired_groups: dict[str, list[KeyIndexRecord]] = {}
+        for _, new_value, record in affected:
+            desired_groups.setdefault(new_value, []).append(record)
+
+        all_refs = records_by_index[index]
+        unaffected_count = len(all_refs) - len(affected)
+        current_group_count = len(desired_groups.get(current_value, []))
+        if unaffected_count or current_group_count:
+            keep_value = current_value
+        else:
+            keep_value = next(iter(desired_groups))
+            values[index][0] = keep_value
+
+        moved_count = 0
+        for new_value, group in desired_groups.items():
+            if new_value == keep_value:
+                continue
+            new_index = len(values)
+            values.append([new_value, len(group)])
+            for record in group:
+                struct.pack_into("<i", prefix, record.index_offset, new_index)
+            moved_count += len(group)
+
+        if version >= 3 and moved_count:
+            values[index][1] = max(0, values[index][1] - moved_count)
+
+    return bytes(prefix) + original[array_offset:]
+
+
 def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
     grouped: dict[str, list[tuple[str, str, str]]] = {}
     for full_key, new_value in fixes.items():
@@ -170,26 +237,38 @@ def build_plans(fixes: dict[str, str]) -> tuple[list[TargetPlan], int, int]:
     for table in sorted(grouped):
         path = locate_locres(table)
         original = path.read_bytes()
-        index_map, array_offset = key_index_map(original)
+        records, array_offset = key_index_records(original)
         _, version, _, values, _ = L.load(str(path))
         pending = 0
         applied = 0
         pending_details: list[tuple[str, str, str]] = []
+        desired: dict[str, str] = {}
 
         for namespace, key, new_value in grouped[table]:
-            index = index_map.get(namespace + "\x1f" + key)
-            if index is None:
+            compound_key = namespace + "\x1f" + key
+            record = records.get(compound_key)
+            if record is None:
                 missing.append(f"{table}|{namespace}|{key}")
                 continue
-            observed = values[index][0]
+            desired[compound_key] = new_value
+            observed = values[record.index][0]
             if observed == new_value:
                 applied += 1
             else:
                 pending_details.append(
                     (f"{table}\x1f{namespace}\x1f{key}", new_value, observed)
                 )
-                values[index][0] = new_value
                 pending += 1
+
+        if not missing:
+            original = split_shared_indices(
+                original,
+                array_offset,
+                version,
+                values,
+                records,
+                desired,
+            )
 
         plans.append(
             TargetPlan(
