@@ -3,26 +3,26 @@
   "updated_at": "2026-07-24",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "5feef04699fcb5ade2821bbb8d402f666a0f6e54",
-  "state_base_commit": "5feef04699fcb5ade2821bbb8d402f666a0f6e54",
+  "translation_base_commit": "630cfab3d11401ce360129167c28ce038f62f4ad",
+  "state_base_commit": "630cfab3d11401ce360129167c28ce038f62f4ad",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
   "status": "in_progress",
-  "last_completed_batch": 46,
-  "pair_applied_keys": 1131,
-  "project_applied_keys": 1412,
+  "last_completed_batch": 47,
+  "pair_applied_keys": 1134,
+  "project_applied_keys": 1418,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 72,
   "checkpoint": {
-    "status": "verified",
-    "batch": 46,
-    "pair_applied_keys": 1131,
-    "project_applied_keys": 1412,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH46_2026-07-24.md",
-    "produced_by_pr": 72,
-    "translation_head": "5feef04699fcb5ade2821bbb8d402f666a0f6e54",
+    "status": "pending_audit_sync",
+    "batch": 47,
+    "pair_applied_keys": 1134,
+    "project_applied_keys": 1418,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH47_2026-07-24.md",
+    "produced_by_pr": 76,
+    "translation_head": "630cfab3d11401ce360129167c28ce038f62f4ad",
     "verified_head": "5feef04699fcb5ade2821bbb8d402f666a0f6e54"
   },
   "pr_continuity": {
@@ -33,6 +33,16 @@
         "pr": 38,
         "superseded_by": 39,
         "reason": "同じ第21束を固定ブランチから再作成し、#39で検証・適用・統合済み"
+      },
+      {
+        "pr": 74,
+        "superseded_by": 76,
+        "reason": "第47束のpull_requestイベントが生成されず、main最新点から置換PRを作成"
+      },
+      {
+        "pr": 75,
+        "superseded_by": 76,
+        "reason": "同じ第47束の置換PRでもイベント生成が遅延したため、新ブランチの#76へ集約"
       }
     ],
     "replacement_rule": "置換PRを作った時点で旧PRへ置換先をコメントし、旧PRを閉じる。開いているという理由だけで現行作業と判定しない。"
@@ -78,9 +88,9 @@
     ]
   },
   "immediate_next": {
-    "scene_groups": ["5300_1"],
-    "task": "両道長の言い争いを見た宇文逸へ莫棄が清霄の人柄を説明し、莫問が一同を休ませる平康城後日談を監査する。",
-    "boundary": "宇文逸の戸惑い、莫棄の笑いと師父評、莫問の場の収束、三人の別れを分ける。既存第4束所有の莫問Index4・6は新規束へ重複させず、莫棄所有はcross-registerへ分離する。",
+    "scene_groups": ["5302_2", "5302_3", "5302_4"],
+    "task": "平康城任務後の夜稽古として、莫問の慰めと武学指導、宇文逸の反省、莫問の家族への言及までを連続場面として監査する。",
+    "boundary": "5302_2・5302_3・5302_4は既存第4束の所有が多い。新規束へ重複させず、必要な修正は第4束を直接再改訂する。罪証取得、宇文逸の衝動、莫問の出自は各台詞が示す範囲を越えて補わない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -98,8 +108,7 @@
     ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
     ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
     "10_人物/宇文逸.md",
-    "10_人物/莫問.md",
-    "10_人物/莫棄.md"
+    "10_人物/莫問.md"
   ],
   "source_priority": [
     "原文zh・現訳ja・同一場面の前後・話者・相手・時系列・分岐",
