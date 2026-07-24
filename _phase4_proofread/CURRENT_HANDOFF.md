@@ -15,9 +15,8 @@
 ## 現在地
 
 - checkpoint: `verified`
-- active PR: #82 `agent/yuwen-mowen-batch50-review`
-- checkpointを生成した翻訳PR: #82
-- 直近の統合済み翻訳PR: #80
+- checkpointを生成した翻訳PR: #82（統合済み）
+- 直近の統合済み翻訳PR: #82
 - superseded PR: #74・#75
 - クラスタ: 武当師門中核
 - 人物ペア: 宇文逸↔莫問
@@ -29,7 +28,7 @@
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
 
-PR #82が開いている間は `active` とし、最新HEADのRelation audit、Cross register QA、Apply curated localization fixes、レビュー、未解決スレッドを確認する。最終HEADで三本成功後に統合する。統合済みなら第51束へ入る。
+再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなければ、`CURRENT_WORK.immediate_next` と `NEXT_TASK_PACKET.json` から第51束へ入る。PRは開いているだけで現行作業と決めない。
 
 ## 第50束で完了したこと
 
@@ -57,20 +56,18 @@ PR #82が開いている間は `active` とし、最新HEADのRelation audit、C
 
 ## 制度改修
 
-第50束は人物ペア新規キー0件だった。従来の `update_audit_status.py` はrelation fix JSONの最大束だけを完了束と見なすため、件数を増やさず第50束完了へ進めなかった。
+第50束は人物ペア新規キー0件だったため、監査索引がrelation fix JSONの最大束だけを見る従来仕様では完了束を進められなかった。
 
 - 適用キー数は従来どおり実修正JSONから数える
 - 完了束は修正JSONと `APPLIED_FIXES_*_BATCH*.md` の双方から最大値を取る
 - 再改訂・cross-registerのみのゼロ増分束でも、適用記録を正本として完了束を進める
-- 回帰テストで、件数3を維持したままbatch2→batch3へ進む例を追加した
-
-実地検証では、人物ペア1139キーを維持したまま `translation_reaudited=batch50_complete_next_scenes_pending`、`build_verified=batch50_complete` へ進んだ。
+- 実地検証で人物ペア1139キーを維持したまま `batch50_complete` へ進んだ
 
 翻訳判断は既存skillで扱えたため、skill本体と人物資料は変更していない。ゼロ増分束の状態表現は監査・CI制度の問題として修正した。
 
 ## 次の校正
 
-active PRがなくなれば、`5345_1` の7行を第51束として監査する。
+active PRがなければ、`5345_1` の7行を第51束として監査する。
 
 - 清虚が名剣山荘へ同行しないことを告げる
 - 大会中の判断を清霄へ託し、清霄が先行して各派と要事を協議する
