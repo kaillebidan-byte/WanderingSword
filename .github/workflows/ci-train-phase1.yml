@@ -1,0 +1,57 @@
+name: CI train phase1 gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/CI_TRAIN_PHASE1.md"
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/CURRENT_HANDOFF.md"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+      - "_phase4_proofread/SESSION_BOOTSTRAP.md"
+      - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
+      - "_tools/check_ci_train_manifest.py"
+      - "_tools/test_check_ci_train_manifest.py"
+      - "_tools/check_operation_mode.py"
+      - "_tools/test_check_operation_mode.py"
+      - "_tools/check_next_task_packet.py"
+      - "_tools/test_check_next_task_packet_ownership.py"
+      - "_tools/check_handoff_consistency.py"
+      - "_tools/test_check_handoff_consistency.py"
+      - ".github/workflows/ci-train-phase1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate phase1 train release
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_operation_mode.py \
+            --repository-visibility "${{ github.event.repository.visibility }}"
+          python _tools/check_ci_train_manifest.py --require-ready
+          python _tools/check_next_task_packet.py --allow-pending
+          python _tools/check_handoff_consistency.py
+
+      - name: Run phase1 contract tests
+        run: |
+          python _tools/test_check_operation_mode.py
+          python _tools/test_check_ci_train_manifest.py
+          python _tools/test_check_next_task_packet_ownership.py
+          python _tools/test_check_handoff_consistency.py
