@@ -54,30 +54,34 @@
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "宇文逸Index0・3・4・15・17と莫問Index8は現時点で未所有候補。変更時は新規第52束へ収録する",
-    "cross_register": "莫棄Index1・2・11・12・13と元鳴Index5・6・9・10・16は別話者。変更時は人物別cross-registerへ分離する",
+    "pair_batch": "宇文逸Index0・3・4・17と莫問Index8は既存第5束の所有。必要な修正は第5束を直接再改訂する。宇文逸Index15だけが未所有の人物ペア候補で、変更時は新規第52束へ収録する",
+    "cross_register": "莫棄Index1・2・11・12・13と元鳴Index5・6・9・10・16は別話者の未所有候補。変更時は人物別cross-registerへ分離する",
     "machine_ownership": {
-      "existing": [],
+      "existing": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
+          "keys": [
+            "5347_1_Dlgs_Index0_Text", "5347_1_Dlgs_Index3_Text", "5347_1_Dlgs_Index4_Text",
+            "5347_1_Dlgs_Index8_Text", "5347_1_Dlgs_Index17_Text"
+          ]
+        }
+      ],
       "unowned": [
-        {"key": "5347_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
         {"key": "5347_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
-        {"key": "5347_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
         {"key": "5347_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
         {"key": "5347_1_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index10_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index11_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index12_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_moqi_wutong_detour_20260724.json"},
         {"key": "5347_1_Dlgs_Index15_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"},
-        {"key": "5347_1_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"},
-        {"key": "5347_1_Dlgs_Index17_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch52.json"}
+        {"key": "5347_1_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_yuanming_wutong_detour_20260724.json"}
       ]
     },
     "do_not_do": [
+      "既存第5束所有キーを新規第52束へ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
       "莫棄・元鳴のキーを宇文逸↔莫問の新規キー数へ算入しない",
       "元鳴の江吟風評や清霄の反応予測を客観的事実へしない",
@@ -93,7 +97,7 @@
   "expected_outputs": [
     "5347_1の16行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
     "FACT_DOUBTを記録し、ALLUSION_REVIEW候補がないことも明示",
-    "新規第52束、莫棄cross-register、元鳴cross-registerを所有者別に分離",
+    "既存第5束再改訂、新規第52束、莫棄cross-register、元鳴cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -104,6 +108,6 @@
     "current": "宇文逸↔莫問・第51束・1140キー・全1436キー・pending_audit_sync",
     "open_pr": "PR #84をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
     "start": "状態同期後は5347_1の最新artifactを取得し、宇文逸・莫問・莫棄・元鳴の声と事実認識を分けて16行を通読する",
-    "drift": "machine_ownershipと実fix JSONを優先し、未所有候補に既存所有が見つかった場合はパケット側を訂正する"
+    "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
