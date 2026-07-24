@@ -1,21 +1,21 @@
 {
   "schema_version": 3,
   "status": "ready",
-  "task_id": "yuwen-mowen-batch55-planned",
+  "task_id": "yuwen-mowen-batch56-planned",
   "based_on_checkpoint": {
-    "batch": 54,
-    "pair_applied_keys": 1147,
-    "project_applied_keys": 1467,
-    "produced_by_pr": 90,
-    "translation_head": "368906ee05c6325b1f64816ebcc3f2523d47dfbd",
-    "verified_head": "368906ee05c6325b1f64816ebcc3f2523d47dfbd"
+    "batch": 55,
+    "pair_applied_keys": 1154,
+    "project_applied_keys": 1485,
+    "produced_by_pr": 92,
+    "translation_head": "79bd7f0d960db7deee28b53337c50151b3a2f433",
+    "verified_head": "478876c89724dcbe8eb9a7b27ad0aeac3e3deebe"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5357_1", "5357_2", "5358_1"],
+  "scene_groups": ["5358_5"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5357_1_Dlgs", "5357_2_Dlgs", "5358_1_Dlgs"],
+    "families": ["5358_5_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,116 +23,88 @@
   },
   "scene_flow": [
     {
-      "scene": "5357_1",
-      "function": "一行が名剣山荘行きの船を求めるが、船夫は嵐の到来を理由に断り、正体不明の人物が迎仙楼での宿泊を手配済みだと告げる",
-      "speaker_order": ["宇文逸", "船夫", "莫問", "船夫", "船夫", "船夫", "宇文逸"],
+      "scene": "5358_5",
+      "function": "迎仙楼で少林の慧平・慧空と再会し、互いの紹介と武名への礼を交わす。少林側に部屋がないと知った莫問が一部屋を譲り、宇文逸が遠慮を解いて翌日の名剣山荘行きを共にする約束へつなげる",
+      "speaker_order": ["慧平", "莫問", "莫問", "慧平", "慧平", "莫問", "慧空", "慧空", "慧平", "慧平", "莫問", "莫問", "莫問", "慧空", "慧空", "宇文逸", "宇文逸", "慧空", "慧平", "慧平", "宇文逸", "慧平", "慧平", "宇文逸", "慧空"],
       "focus_keys": [
-        "5357_1_Dlgs_Index0_Text", "5357_1_Dlgs_Index1_Text", "5357_1_Dlgs_Index2_Text",
-        "5357_1_Dlgs_Index3_Text", "5357_1_Dlgs_Index4_Text", "5357_1_Dlgs_Index5_Text",
-        "5357_1_Dlgs_Index6_Text"
+        "5358_5_Dlgs_Index0_Text", "5358_5_Dlgs_Index1_Text", "5358_5_Dlgs_Index2_Text", "5358_5_Dlgs_Index3_Text", "5358_5_Dlgs_Index4_Text",
+        "5358_5_Dlgs_Index5_Text", "5358_5_Dlgs_Index6_Text", "5358_5_Dlgs_Index7_Text", "5358_5_Dlgs_Index8_Text", "5358_5_Dlgs_Index9_Text",
+        "5358_5_Dlgs_Index10_Text", "5358_5_Dlgs_Index11_Text", "5358_5_Dlgs_Index12_Text", "5358_5_Dlgs_Index13_Text", "5358_5_Dlgs_Index14_Text",
+        "5358_5_Dlgs_Index15_Text", "5358_5_Dlgs_Index16_Text", "5358_5_Dlgs_Index17_Text", "5358_5_Dlgs_Index18_Text", "5358_5_Dlgs_Index19_Text",
+        "5358_5_Dlgs_Index20_Text", "5358_5_Dlgs_Index21_Text", "5358_5_Dlgs_Index22_Text", "5358_5_Dlgs_Index23_Text", "5358_5_Dlgs_Index24_Text"
       ],
       "voice_questions": [
-        "宇文逸の年長の船夫への問いを、過剰敬語や幼い呼びかけへ寄せず自然にできるか",
-        "莫問の急ぎの依頼を、我々・お力添えなどの事務的な敬語へ均さず、対外礼と切迫を両立できるか",
-        "船夫の拒否、天候説明、手配済みの案内を同じ接客文へ均さず、地元の年長者の声として分けられるか",
-        "嵐の到来と宿の手配を船夫の説明範囲に留め、客観的事実や手配者の正体へ確定しないか",
-        "宇文逸の手配済みへの疑念を説明文へせず、短い心内語として保てるか"
-      ]
-    },
-    {
-      "scene": "5357_2",
-      "function": "船が出ないと判断した宇文逸が迎仙楼へ向かうか莫問へ確認し、莫問が船夫に今のところ悪意はないと見て宿を確かめに行く",
-      "speaker_order": ["宇文逸", "宇文逸", "莫問", "宇文逸"],
-      "focus_keys": [
-        "5357_2_Dlgs_Index0_Text", "5357_2_Dlgs_Index1_Text",
-        "5357_2_Dlgs_Index2_Text", "5357_2_Dlgs_Index3_Text"
-      ],
-      "voice_questions": [
-        "宇文逸が大師兄へ状況判断を仰ぐ声を、単なる旅程説明へしないか",
-        "城門口の迎仙楼という表示タグと場所情報を保持できるか",
-        "莫問の並無悪意／看看再説を安全確定へ強めず、警戒を残した暫定判断にできるか",
-        "最後の了承を場面に不釣り合いな硬い復命へしないか"
-      ]
-    },
-    {
-      "scene": "5358_1",
-      "function": "迎仙楼で二部屋が大金を払って手配されていると知り、丘掌柜から灯会祭と楓橋水雲の琴譜による宿不足を聞く。莫問は手配者を問うが明かされず、警戒を保ちながら宿泊を受け入れる",
-      "speaker_order": ["宇文逸", "丘掌柜", "丘掌柜", "宇文逸", "丘掌柜", "丘掌柜", "丘掌柜", "宇文逸", "莫問", "丘掌柜", "莫問", "丘掌柜"],
-      "focus_keys": [
-        "5358_1_Dlgs_Index0_Text", "5358_1_Dlgs_Index1_Text", "5358_1_Dlgs_Index2_Text",
-        "5358_1_Dlgs_Index3_Text", "5358_1_Dlgs_Index4_Text", "5358_1_Dlgs_Index5_Text",
-        "5358_1_Dlgs_Index6_Text", "5358_1_Dlgs_Index7_Text", "5358_1_Dlgs_Index8_Text",
-        "5358_1_Dlgs_Index9_Text", "5358_1_Dlgs_Index10_Text", "5358_1_Dlgs_Index11_Text"
-      ],
-      "voice_questions": [
-        "宇文逸の部屋の問い、大金への驚き、楓橋水雲への好奇心を同じ丁寧な説明声へ均さないか",
-        "丘掌柜の呵呵、客への案内、祭りと賞品の説明、秘密を明かせない謝罪、再案内を同じ過剰接客敬語へしないか",
-        "灯会祭、猜灯谜、郭大家、楓橋水雲を意味範囲を狭めず、原文以上の文化説明も足さずに扱えるか",
-        "莫問の手配者への問いを対外礼として保ち、店主への不信や詰問へ強めないか",
-        "既来之则安之を字面訓読せず、正体不明の手配を警戒しつつ今夜は宿を取る判断として発話化できるか"
+        "慧平の再会の驚き、豪快な笑い、師兄紹介、宿探しへの焦り、翌日の同行約束を、堅苦しい僧侶語へ均さず若い僧の地声にできるか",
+        "慧平の師兄を兄・兄さんへ変えず、少林の同門関係として師兄を保持できるか",
+        "慧空の南無阿弥陀仏、謙遜、莫問への返礼、部屋を譲られる遠慮と感謝を、過剰な古語や自己卑下へしないか",
+        "莫問の少林高僧への対外礼、慧空の武名への敬意、部屋を譲る提案を同じ儀礼文へ均さず、場面ごとの機能を分けられるか",
+        "宇文逸の与人方便与己方便を字面説明へせず、旅先の助け合いとして自然に言えるか",
+        "宇文逸の遠慮を解く声、名剣山荘行きへの喜び、翌日の約束、休息への案内を同じ敬語へ均さないか",
+        "笑い、呼称、話者接頭辞、表示上の間を人物と場面に応じて保持できるか"
       ]
     }
   ],
   "batch_planning": {
-    "reviewed_rows": 23,
+    "reviewed_rows": 25,
     "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": ["5357_1", "5357_2", "5358_1", "5358_5"],
-    "grouping_decision": "5357_1と5357_2だけでは11行のため、同じ正体不明の宿泊手配が続く5358_1の12行を併合する。次の5358_5は少林僧との再会と部屋の譲渡へ話題が移るため含めない",
+    "adjacent_candidates_checked": ["5358_5", "5359_3"],
+    "grouping_decision": "5358_5単独で25行あり通読目標内。少林僧との再会、部屋の譲渡、翌日の同行約束まで一つの交歓場面として完結する。次の5359_3は夜間警戒と襲撃前兆へ事件が切り替わるため含めない",
     "exception": null
   },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [
-      "楓橋水雲は琴譜名として保持し、実在性・作者・内容を台詞外で補わない",
-      "既来之則安之は定着した成句として、宿泊を受け入れる場面判断へ機能訳する",
-      "灯謎は祭りの催しとして保持し、遊び方の説明を台詞へ追加しない"
+      "与人方便与己方便は定着した言い回しとして、旅先の助け合いへ機能訳する",
+      "阿弥陀佛は慧空の口頭禅として南無阿弥陀仏を保持する",
+      "少林七十二絶技、禅宗伏魔功、武当無塵剣は武功・異名として保持し、能力説明を補わない"
     ],
     "fact_doubts": [
-      "嵐が必ず来ることを船夫の予測以上に確定しない",
-      "宿泊を手配した人物の正体・目的・善悪を先取りしない",
-      "灯会祭が二日後で年一回という情報、郭大家と楓橋水雲、宿の満室は丘掌柜の説明範囲として保持する",
-      "大金の具体額、二部屋を手配した時刻、手配者と船夫・丘掌柜の関係を補わない",
-      "莫問が宿泊を受け入れたことを、手配者を全面的に信用した判断へしない"
+      "慧空が少林七十二絶技と禅宗伏魔功を極めたことは莫問の聞き及んだ評判として扱い、客観的な力量確定へ広げない",
+      "無塵剣の名声は慧空の返礼として保持し、江湖全体の評価を台詞外で補強しない",
+      "城内の宿がすべて満室という判断は丘掌柜の先ほどの説明と莫問の推測の範囲に留める",
+      "慧平・慧空が船を得られなかった理由、翌日の出航可否、同行が確実に実現することを先取りしない",
+      "二部屋の具体的な割り振り、同室者、手配者の意図を補わない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "5357_2の莫問Index2、5358_1の莫問Index8・10は既存第5束所有。5357_1の宇文逸Index0・6と莫問Index2、5357_2の宇文逸Index0・1・3、5358_1の宇文逸Index0・3・7は未所有の人物ペア候補で、変更時は新規第55束へ収録する",
-    "cross_register": "5357_1の船夫Index1・3・4・5は船夫cross-register、5358_1の丘掌柜Index1・2・4・5・6・9・11は丘掌柜cross-registerの未所有候補",
+    "pair_batch": "莫問Index1・2・5・10・11・12は既存第5束所有。宇文逸Index15・16・20・23は未所有の人物ペア候補で、変更時は新規第56束へ収録する",
+    "cross_register": "慧平Index0・3・4・8・9・18・19・21・22は慧平cross-register、慧空Index6・7・13・14・17・24は慧空cross-registerの未所有候補",
     "machine_ownership": {
       "existing": [
         {
           "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
-          "keys": ["5357_2_Dlgs_Index2_Text", "5358_1_Dlgs_Index8_Text", "5358_1_Dlgs_Index10_Text"]
+          "keys": [
+            "5358_5_Dlgs_Index1_Text", "5358_5_Dlgs_Index2_Text", "5358_5_Dlgs_Index5_Text", "5358_5_Dlgs_Index10_Text", "5358_5_Dlgs_Index11_Text", "5358_5_Dlgs_Index12_Text"
+          ]
         }
       ],
       "unowned": [
-        {"key": "5357_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5357_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_boatman_storm_detour_20260724.json"},
-        {"key": "5357_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5357_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_boatman_storm_detour_20260724.json"},
-        {"key": "5357_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_boatman_storm_detour_20260724.json"},
-        {"key": "5357_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_boatman_storm_detour_20260724.json"},
-        {"key": "5357_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5357_2_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5357_2_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5357_2_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5358_1_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5358_1_Dlgs_Index1_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"},
-        {"key": "5358_1_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"},
-        {"key": "5358_1_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5358_1_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"},
-        {"key": "5358_1_Dlgs_Index5_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"},
-        {"key": "5358_1_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"},
-        {"key": "5358_1_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch55.json"},
-        {"key": "5358_1_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"},
-        {"key": "5358_1_Dlgs_Index11_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_qiu_inn_arrangement_20260724.json"}
+        {"key": "5358_5_Dlgs_Index0_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index3_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index4_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index6_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index7_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index8_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index9_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index14_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index15_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
+        {"key": "5358_5_Dlgs_Index16_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
+        {"key": "5358_5_Dlgs_Index17_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index18_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index19_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index20_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
+        {"key": "5358_5_Dlgs_Index21_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index22_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huiping_inn_reunion_20260724.json"},
+        {"key": "5358_5_Dlgs_Index23_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch56.json"},
+        {"key": "5358_5_Dlgs_Index24_Text", "planned_owner": "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json"}
       ]
     },
     "do_not_do": [
-      "既存第5束所有キーを新規第55束へ重複追加しない",
+      "既存第5束所有キーを新規第56束やcross-registerへ重複追加しない",
       "未所有キーを束数のために無理に変更しない",
-      "船夫・丘掌柜のキーを宇文逸↔莫問の新規キー数へ算入しない",
-      "天候予測、手配者、祭りと琴譜の情報を話者の説明以上に確定しない",
-      "5358_5の少林僧再会を同じ束へ混ぜない"
+      "慧平・慧空のキーを宇文逸↔莫問の新規キー数へ算入しない",
+      "少林武功・無塵剣の評判・宿不足・翌日の同行を話者の発言以上に確定しない",
+      "5359_3の夜間警戒を同じ束へ混ぜない"
     ]
   },
   "skill_review": {
@@ -141,9 +113,9 @@
     "separate_layers": "翻訳判断の一般則はskill、人物固有の癖は人物資料、CI・引継ぎ事故はworkflowと再開制度へ反映する"
   },
   "expected_outputs": [
-    "5357_1・5357_2・5358_1の23行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
+    "5358_5の25行を原文・現訳・前後文・話者・時系列・実所有とともに確認",
     "ALLUSION_REVIEWとFACT_DOUBTを分離して記録",
-    "既存第5束再改訂、新規第55束、船夫cross-register、丘掌柜cross-registerを所有者別に分離",
+    "既存第5束再改訂、新規第56束、慧平cross-register、慧空cross-registerを所有者別に分離",
     "機械所有表を実修正JSONと照合し、全focus keyの所有状態を検証",
     "高確度の変更だけを修正JSONへ収録し、keepを変更件数へ含めない",
     "locres反映、pak再生成、全修正束ゼロ差分、register lint、関係抽出、単体テスト、回帰走査、LFS確認",
@@ -151,9 +123,9 @@
     "checkpoint verifiedと最終HEAD三本成功後に統合"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第54束・1147キー・全1467キー・verified",
-    "open_pr": "未統合PRを検索し、activeなら最新HEADのActions・レビュー・未解決スレッドを確認する。activeがなければ第55束へ進む",
-    "start": "5357_1・5357_2・5358_1の最新artifactを取得し、宇文逸・莫問・船夫・丘掌柜の声と事実認識を分けて23行を通読する",
+    "current": "宇文逸↔莫問・第55束・1154キー・全1485キー・verified",
+    "open_pr": "PR #92をactiveとして最新HEADのActions・レビュー・未解決スレッドを確認する。統合済みなら未統合PRを再検索する",
+    "start": "状態同期後は5358_5の最新artifactを取得し、慧平・慧空・莫問・宇文逸の声と事実認識を分けて25行を通読する",
     "drift": "machine_ownershipと実fix JSONを優先し、自由記述と矛盾する場合は実所有へ訂正する"
   }
 }
