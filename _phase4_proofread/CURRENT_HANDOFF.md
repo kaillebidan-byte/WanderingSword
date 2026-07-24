@@ -28,21 +28,19 @@
 - 最新pak: `_work/aaWanderingSword_JP_P.pak`
 - build: 検証済み・ゲーム未配置
 - game verification: 未開始
-- 宣言operation mode: `private_translation_work`
+- 宣言operation mode: `ready_for_public_ci`
 - 実visibility: GitHub metadataで毎回確認
+- 完成ブランチ: `agent/yuwen-mowen-batch59-review`
+- PR: public確認後に作成
 
 ## visibilityと作業モード
 
-- 宣言状態が`private_translation_work`で実visibilityがprivateなら、第59束の翻訳作業へ進む。
-- 宣言状態が`private_translation_work`なのに実visibilityがpublicなら、導出状態は`return_private_required`。新しい翻訳や追加commitへ入らず、ユーザーへprivate復帰を依頼する。
-- 翻訳作業はprivateで完成させ、PRを開く前にbranch上の宣言状態を`ready_for_public_ci`へする。
-- `ready_for_public_ci`でprivateなら、完成HEADと終了条件を示してユーザーへ`公開CI窓を開いてください。`と依頼する。
+- 第59束の翻訳判断、修正JSON、レビュー、適用待ち記録はprivateブランチ上で完成済み。
+- 宣言状態は`ready_for_public_ci`。実visibilityがprivateなら、完成HEADと終了条件を示してユーザーへ`公開CI窓を開いてください。`と依頼する。
 - ユーザーの`公開した`だけで進めず、GitHub metadataでpublicを確認してからPR作成・三本CI・統合へ進む。
 - public中はCI、artifact調査、局所修正、レビュー確認、翻訳PRとpost-merge状態PRのsquash統合だけを行い、次束の翻訳は始めない。
 - 深い再検討が必要なら`public_ci_blocked`としてprivate復帰を依頼する。
 - 公開CI窓の終了後、mainは`private_translation_work`へ戻す。実visibilityがpublicならprivate復帰を依頼する。
-
-再開時に未統合PRがあれば、まず `active / superseded / abandoned / unrelated` に分類する。active PRがなく、実visibilityがprivateなら、第59束`5444_2`・`5446_1`の12行へ入る。
 
 ## 第58束で完了したこと
 
@@ -67,23 +65,32 @@ Apply初回では、`5370_1`と既存`5756_2`が異なる訳文を要求しな�
 
 翻訳判断は既存skillで扱えたため、skill・人物資料は変更していない。一般化できる実装欠陥としてlocres書込とPR更新運用だけを改修した。
 
-## 次の校正
+## 第59束の公開CI待ち状態
 
-`5444_2`・`5446_1`の12行を第59束として監査する。
+`5444_2`・`5446_1`の12行を通読し、12キーを修正対象とした。
 
-- 品剣大会後、宇文逸が目を覚まし、莫問が各派の出立とこちらの出発を告げる
-- 宇文逸が欧陽雪と瑶姫の居場所を尋ね、山荘外の桟橋へ急ぐ
-- 瑶姫が遅刻をからかい、宇文逸が寝過ごしを詫びる
-- 欧陽雪が柔らかく取りなし、姑蘇行きの船の準備を伝える
-- 莫問が姑蘇から峋谷関へ向かう道筋を示し、宇文逸が即時出発を決める
+- 既存第6束の再改訂: 10キー
+- 第59束の人物ペア新規: 莫問Index3・5の2キー
+- 人物ペア累計予定: 1165
+- プロジェクト全体累計予定: 1516
+- レビュー: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH59_2026-07-25.md`
+- 適用待ち記録: `_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH59_2026-07-25.md`
 
-同一の出立場面をCG表内で閉じるため12行の小束例外とする。別targetの`5371_FinishingDlgs`は混ぜず後続候補へ回す。数値が隣接するだけの大会結果分岐`5449_2`や、時系列の異なる杜彪後日談`5450_3`を件数合わせで足さない。
+主な裁定は次のとおり。
 
-実所有は、既存第6束が10キー、未所有は`5444_2`の莫問Index3・5の2キー。既存所有キーは第59束へ重複追加せず、必要な再改訂は既存第6束側で行う。
+- 莫問の起床確認、出立判断、道案内、同意を、古風な`うむ`ではなく旅をまとめる兄弟子の簡潔な声へ戻した
+- 宇文逸の`欧陽姑娘`をこの時点の距離に合う`欧陽さん`へし、瑶姫への不要な`殿`を外した
+- 寝坊後の宇文逸を、復命調・整った謝罪文ではなく同行者へ砕けて詫びる発話へした
+- 瑶姫の美人二人という自負、待ちぼうけの誇張、語尾の伸ばしを地モードのからかいとして残した
+- 欧陽雪の取りなしと出発提案を、対宇文逸の柔らかさと同行者への礼が同居する声へした
+- 桟橋と進路の表示タグ、姑蘇から北西という方角、莫問の推測強度を保持した
 
-莫問の兄弟子らしい簡潔さ、宇文逸の寝坊後の砕け方、瑶姫の地モードのからかいと伸ばし、欧陽雪の対宇文逸・同行者への柔らかな取りなしを同じ丁寧語へ均さない。`欧陽姑娘`の現訳混在、`うむ`の硬さ、表示タグを一次資料で確認する。
+同一の出立場面をCG表内で閉じるため12行の小束例外とした。別targetの`5371_FinishingDlgs`、大会結果分岐の`5449_2`、時系列の異なる`5450_3`は件数合わせで混在させていない。
+
+今回の崩れは既存skillで扱えたため、skill・人物資料は変更していない。
 
 ## checkpointと遷移状態
 
-- `verified`: 状態文書、監査索引、件数、適用記録、次作業パケットが同期済み。統合可能。
-- `pending_audit_sync`: 翻訳適用後、botの監査索引書き戻しと最終状態確定を待つ遷移状態。作業続行は可能だが統合禁止。
+- 現在の確定checkpointは第58束の`verified`。第59束はまだlocres・pak未反映。
+- `ready_for_public_ci`: private上で翻訳判断と準備が完成し、PR作成・三本CI・統合のためのpublic化を待つ状態。
+- `pending_audit_sync`: 翻訳適用後、botの監査索引書き戻しと最終状態確定を待つ遷移状態。統合禁止。
