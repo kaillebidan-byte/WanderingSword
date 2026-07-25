@@ -30,8 +30,11 @@
 10. private_translation_work + publicなら、翻訳を開始せずprivate復帰を依頼する。
 11. ready_for_public_ci + privateなら、完成HEADと集計を確認してpublic化を依頼する。
 12. verified checkpointと未適用小束を混同しない。
-13. 小束ではlocresとpakを更新せず、release時だけ適用する。
-14. post-merge状態PRを作らない。
+13. `fix_keys=0`のkeep-only束は`fix_files=[]`を正規状態として扱い、架空の修正JSONを要求しない。
+14. accumulating中だけCURRENT_WORK.immediate_nextとNEXT_TASK_PACKET.scene_groupsの一致を要求する。
+15. ready/in_public_ci/verifiedではCURRENT_WORKはrelease作業、NEXT_TASK_PACKETはrelease後の次束を指し得るため、両者を混同しない。
+16. 小束ではlocresとpakを更新せず、release時だけ適用する。
+17. post-merge状態PRを作らない。
 
 ## 動的期待値
 
@@ -53,7 +56,7 @@ python _tools/check_visibility_preflight_contract.py
 python _tools/check_operation_mode.py --repository-visibility <private|public>
 python _tools/check_release_evidence.py --verify-git-lineage
 python _tools/check_handoff_consistency_v2.py --require-verified
-python _tools/check_ci_train_manifest.py
+python _tools/check_ci_train_manifest_v2.py
 python _tools/check_next_task_packet.py
 python _tools/test_check_visibility_preflight_contract.py
 python _tools/test_check_operation_mode.py
@@ -62,6 +65,7 @@ python _tools/test_check_release_evidence_github.py
 python _tools/test_check_handoff_consistency_v2.py
 python _tools/test_check_ci_train_manifest.py
 python _tools/test_check_next_task_packet_ownership.py
+python _tools/test_check_ci_train_state_v2.py
 ```
 
 すべてが成功しない状態を確定状態として扱わない。
