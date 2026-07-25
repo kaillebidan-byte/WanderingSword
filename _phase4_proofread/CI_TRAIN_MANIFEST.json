@@ -4,7 +4,7 @@
   "train_id": "yuwen-mowen-train-06",
   "branch": "agent/yuwen-mowen-train-06",
   "draft_pr": 118,
-  "status": "accumulating",
+  "status": "ready_for_public_ci",
   "base_checkpoint": {
     "batch": 76,
     "pair_applied_keys": 1171,
@@ -15,7 +15,7 @@
   "thresholds": {"bundle_count":4,"reviewed_rows":40,"fix_keys":20},
   "caps": {"bundle_count":6,"reviewed_rows":60},
   "allowed_early_release_reasons": ["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],
-  "release_trigger": null,
+  "release_trigger": "bundle_count_or_reviewed_rows",
   "totals": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16,"new_pair_keys":0,"keep_only_bundles":0},
   "bundles": [
     {
@@ -61,8 +61,22 @@
   "single_pr_finalization": true,
   "release_evidence": null,
   "previous_release": {"train_id":"yuwen-mowen-train-05","release_id":"yuwen-mowen-train-05-r2","pr":117,"merge_sha":"6f1b92f979ce53cef0a25e4058828b53492bbe7d","status":"verified"},
-  "quality_gate": {"policy":"_phase4_proofread/TRANSLATION_QUALITY_GATE.md","status":"not_evaluated_until_release"},
-  "private_stage": {"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"private_encoding","status":"fourth_encoding_complete"},
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 50,
+    "unique_reviewed_rows": 50,
+    "fix_keys": 16,
+    "unique_fix_rows": 16,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 16,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed",
+    "challenge_pass": null
+  },
+  "private_stage": {"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"ready_for_public_ci","status":"ready"},
   "process_findings": [{"id":"encoding_to_preparation_accumulation_loop","status":"repaired_in_train_06","detail":"release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"}],
-  "next_release": {"candidate_scene":null,"formal_batch":80,"current_private_stage":"private_encoding"}
+  "next_release": {"candidate_scene":null,"formal_batch":80,"current_private_stage":"ready_for_public_ci"}
 }
