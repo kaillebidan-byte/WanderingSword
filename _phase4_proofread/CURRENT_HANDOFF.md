@@ -6,16 +6,16 @@
 
 ## 現在地
 
-- 実visibility: private（GitHub repository metadataで確認）
+- 実visibility: public（GitHub repository metadataで確認）
 - main HEAD: `eee509ccbf323810df28bebf41ec5cc65f0ec6a9`
 - active branch: `agent/yuwen-mowen-train-07`
-- active PR: なし
+- active PR: draft PR #120
 - verified checkpoint: 第80束
 - 人物ペア適用済み: 1171
 - プロジェクト全体適用済み: 1529
 - 前release: `yuwen-mowen-train-06-r1`
 - 翻訳段階: `translation_frozen`
-- transport: `ready_for_public_ci`
+- transport: `in_public_ci`
 
 ## train-07 wave-01
 
@@ -28,25 +28,23 @@ Relation artifact run `30169356037` / artifact `8622473127`を使用した。
 - 第83束: `5583_2` / 18行 / 10修正
 - 第84束: `5585_4 + 5586_3 + 5586_5` / 23行 / 12修正
 
-合計28修正。新規人物ペアキー5、新規プロジェクトキー21、横断キー7。既存owner更新は7キー。
+合計28修正。新規人物ペアキー4、新規プロジェクトキー20、横断キー7。既存owner更新は8キー。
 
-修正は既存の宇文逸↔莫問owner、清虚owner、新規人物ペアowner、洪飛・欧陽雪の横断ownerへ分離した。
+第84束の`5585_4_Dlgs_Index0_Text`は既存ownerにあったため、監査値を既存ownerへ移し、新規ownerとの重複を解消した。訳文判断は変更していない。
 
 locres、pak、verified checkpoint、audit statusはまだ更新していない。
 
 ## 次作業
 
-公開CI窓でdraft PRを作成し、翻訳判断を凍結したままRelation・Cross・Apply・phase2を輸送する。
-
-公開が確認できるまではPR作成とCI輸送を始めない。
+PR #120の最終人手HEADでRelation・Cross・Applyを再実行する。Applyのbot書き戻し後、release evidenceとverified checkpointを同じPR内で確定し、phase2を通す。
 
 ## 禁止
 
 - public中に翻訳判断を再開しない。
-- fix JSON、owner、review record、正式束を追加・変更しない。
+- 第85束候補`5603_1`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
 - CI検証前にcheckpointをverifiedへ進めない。
 
 ## 再開時
 
-実visibility、main、未統合PR、Actionsを確認する。publicなら`agent/yuwen-mowen-train-07`からdraft PRを作成してCI輸送へ進む。privateなら公開CI窓を依頼する。
+実visibility、main、PR #120のHEAD、Actionsを確認する。翻訳判断を凍結したままCI輸送だけを続ける。
