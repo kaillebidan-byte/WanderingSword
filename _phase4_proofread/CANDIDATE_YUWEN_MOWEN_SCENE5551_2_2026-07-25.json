@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": ["5551_2"],
+  "source_artifact": {
+    "workflow": "Relation audit extraction",
+    "run_id": 30149789606,
+    "artifact_id": 8617244568,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+    "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
+  },
+  "scene_context": {
+    "before": ["5540_4"],
+    "current": "5551_2",
+    "after": ["5572_6", "5572_9"],
+    "timeline": "遼城到着時、宇文逸が叔父との再会を期待し、育ての親としての思いを語る。後続の遼城事件は別場面。",
+    "branch_note": "5551_2自体にduplicate_locationsはない。"
+  },
+  "rows": [
+    {"key":"5551_2_Dlgs_Index0_Text","speaker":"宇文逸","zh":"哈哈，不管这些了……我们还是赶紧进城吧！","ja":"はは、まあいい……とにかく、早く城へ入ろう！"},
+    {"key":"5551_2_Dlgs_Index1_Text","speaker":"宇文逸","zh":"这么久没见，叔叔他看到我一定很高兴！！","ja":"これだけ長く会っていないんだ。叔父さん、私を見たらきっと喜んでくれる！"},
+    {"key":"5551_2_Dlgs_Index2_Text","speaker":"欧陽雪","zh":"宇文公子和你叔叔的感情还是这么好。","ja":"宇文公子は、叔父上と今も変わらず仲がおよろしいのですね。"},
+    {"key":"5551_2_Dlgs_Index3_Text","speaker":"宇文逸","zh":"哈哈那当然，其实我跟师兄一样，很小就没了父母！","ja":"はは、もちろんさ。実は私も師兄と同じで、幼い頃に両親を亡くしているんだ。"},
+    {"key":"5551_2_Dlgs_Index4_Text","speaker":"宇文逸","zh":"是叔叔把我养大……咳，虽然从没告诉过他，但我心里其实一直是把他当作父亲看待的！","ja":"叔父さんが私を育ててくれた……こほん。本人には言ったことがないけど、心の中ではずっと父親だと思っている。"},
+    {"key":"5551_2_Dlgs_Index5_Text","speaker":"莫問","zh":"当作父亲吗……","ja":"父親、か……"},
+    {"key":"5551_2_Dlgs_Index6_Text","speaker":"莫問","zh":"……能遇到如此诚心以待之人，我们都很幸运。","ja":"……あれほど真心から向き合ってくれる人に出会えた。わたしたちは、幸運だな。"},
+    {"key":"5551_2_Dlgs_Index7_Text","speaker":"宇文逸","zh":"是啊是啊，我也这么觉得！","ja":"ああ、私もそう思う！"},
+    {"key":"5551_2_Dlgs_Index8_Text","speaker":"宇文逸","zh":"叔叔他虽然喜欢喝酒，但人真的特别好，每次我带朋友回家，他都会亲自下厨……","ja":"叔父さんは酒好きだけど、本当にいい人なんだ。友人を連れて帰るたび、いつも自分で腕を振るってくれて……"},
+    {"key":"5551_2_Dlgs_Index9_Text","speaker":"宇文逸","zh":"哈哈，总之等你们见到他就知道了！","ja":"はは、とにかく、会えばすぐに分かるよ！"},
+    {"key":"5551_2_Dlgs_Index10_Text","speaker":"宇文逸","zh":"我家就在城东，很好认的……我们快走！","ja":"家は城の東だ。すぐ分かる……急ごう！"}
+  ],
+  "ownership_inventory": {
+    "existing_owner": {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json",
+      "keys": [
+        "5551_2_Dlgs_Index0_Text",
+        "5551_2_Dlgs_Index1_Text",
+        "5551_2_Dlgs_Index2_Text",
+        "5551_2_Dlgs_Index3_Text",
+        "5551_2_Dlgs_Index4_Text",
+        "5551_2_Dlgs_Index5_Text",
+        "5551_2_Dlgs_Index6_Text",
+        "5551_2_Dlgs_Index7_Text",
+        "5551_2_Dlgs_Index8_Text",
+        "5551_2_Dlgs_Index9_Text",
+        "5551_2_Dlgs_Index10_Text"
+      ]
+    },
+    "unowned": [],
+    "decision_deferred_to": "private_encoding_after_quality_audit"
+  },
+  "candidate_questions": [
+    "宇文逸の再会への高揚と、叔父を父親と思う私的な告白が同じ説明調へ均されていないか",
+    "咳が照れ隠し・言い直しとして働く流れを、日本語の不自然な咳払いへ固定していないか",
+    "莫問の父親という語への間と、我们都很幸运の対象を原文以上に説明していないか",
+    "欧陽雪の相槌が宇文逸との親密さを弱めるほど他人行儀になっていないか",
+    "宇文逸の叔父自慢と城へ急ぐ勢いが重い身の上説明だけに沈んでいないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [],
+    "fact_doubts": [
+      "叔父が実際に喜ぶか、現在どのような状態かを確定しない",
+      "宇文逸の両親の死因・時期・経緯を補わない",
+      "莫問の如此诚心以待之人を単一の具体的人物へ固定しない",
+      "莫問の父親観・過去・師父との関係を台詞以上に説明しない",
+      "叔父が友人へ料理した回数や具体的な料理を補わない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "owner_change",
+    "formal_bundle_completion",
+    "throughput_metrics_as_quality_evidence"
+  ]
+}
