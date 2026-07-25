@@ -3,7 +3,7 @@
   "phase": "phase1_pilot",
   "train_id": "yuwen-mowen-train-06",
   "branch": "agent/yuwen-mowen-train-06",
-  "draft_pr": null,
+  "draft_pr": 118,
   "status": "accumulating",
   "base_checkpoint": {
     "batch": 76,
