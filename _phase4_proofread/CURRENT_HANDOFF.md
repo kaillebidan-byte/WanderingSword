@@ -16,12 +16,13 @@
 - active branch: `agent/yuwen-mowen-train-05`
 - operation mode: `ready_for_public_ci`
 - effective mode: `public_ci_window`
-- active train: `yuwen-mowen-train-05` / in_public_ci
+- active train: `yuwen-mowen-train-05` / verified
 - train totals: 3束 / 53行 / 3修正 / 新規人物ペア0キー
-- reviewed / applied: 第76束まで
-- checkpoint: 第76束 / 人物ペア1170 / 全1528 / pending_audit_sync
+- reviewed / completed: 第76束まで
+- checkpoint: 第76束 / 人物ペア1170 / 全1528 / verified
 - release evidence: `yuwen-mowen-train-05-r1`
-- CI / verified asset HEAD: `9e767dbd85895fff5b298d605954b0aec91fee22`
+- CI HEAD: `9e767dbd85895fff5b298d605954b0aec91fee22`
+- verified asset HEAD: `4d5ad76ebad311de0a6afdd501b02af666b6c6be`
 - 未適用fix: 0
 - build: verified_not_deployed
 - game verification: not_started
@@ -38,16 +39,16 @@
 - Cross run `30148094731` 成功
 - Apply run `30148094737` 成功
 - locres反映、pak再生成、LFS、register lint、関係抽出、回帰検査成功
-- 適用記録とrelease evidenceをPR #117へ追加済み
+- audit_statusは第76束・全1528キー・人物ペア1170キーへ同期済み
+- 適用記録、release evidence、verified checkpointを同じPR内で確定済み
 
 ## 次に行うこと
 
-1. Apply状態同期でaudit_statusのrecord indexと第76束を更新する。
-2. release evidenceのasset HEADを最終同期HEADへ固定し、checkpointをverifiedへ更新する。
-3. public phase2 gateと未解決review thread 0件を確認する。
-4. 実visibilityをprivateへ戻す。
-5. private metadata closeout後、PR #117をsquash統合する。
-6. mainの第76束verified checkpointから新しいprivate列車を開始する。
-7. 第77束`5540_4`を監査する。
+1. public phase2 gateを成功させる。
+2. 未解決review thread 0件を確認する。
+3. 実visibilityをprivateへ戻す。
+4. private metadata closeout後、PR #117をsquash統合する。
+5. mainの第76束verified checkpointから新しいprivate列車を開始する。
+6. 第77束`5540_4`を監査する。
 
 public中は第77束の翻訳判断を始めない。
