@@ -50,8 +50,10 @@ def collect_fix_owners(p4: Path = P4) -> tuple[dict[str, list[str]], list[str]]:
     return owners, errors
 
 
-def current_candidate_paths(state_path: Path = STATE_PATH) -> list[Path]:
+def current_candidate_paths(state_path: Path = STATE_PATH) -> tuple[list[Path], set[str]]:
     state = load_object(state_path)
+    policy = state.get("ownership_policy", {})
+    legacy = set(policy.get("legacy_candidate_paths", [])) if isinstance(policy, dict) else set()
     result: list[Path] = []
     for packet in state.get("wave", {}).get("packets", []):
         if not isinstance(packet, dict):
@@ -59,7 +61,7 @@ def current_candidate_paths(state_path: Path = STATE_PATH) -> list[Path]:
         path = packet.get("preparation_record", {}).get("candidate_packet")
         if isinstance(path, str) and path:
             result.append(state_path.parent.parent / path)
-    return result
+    return result, legacy
 
 
 def candidate_source(candidate: dict[str, Any]) -> tuple[str, str]:
@@ -144,8 +146,9 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     paths = [path if path.is_absolute() else ROOT / path for path in args.paths]
+    legacy_paths: set[str] = set()
     if not paths:
-        paths = current_candidate_paths()
+        paths, legacy_paths = current_candidate_paths()
     if not paths:
         print("ERROR: no candidate packet paths found")
         return 1
@@ -155,7 +158,9 @@ def main() -> int:
     legacy_skipped = 0
     for path in paths:
         candidate = load_object(path)
-        require = args.require_current_wave or int(candidate.get("schema_version", 1)) >= 2 or "ownership_snapshot" in candidate
+        rel = path.relative_to(ROOT).as_posix()
+        is_legacy = rel in legacy_paths
+        require = (args.require_current_wave and not is_legacy) or int(candidate.get("schema_version", 1)) >= 2 or "ownership_snapshot" in candidate
         if args.write:
             snapshot, errors = compute_snapshot(candidate)
             all_errors.extend(f"{path.relative_to(ROOT)}: {error}" for error in errors)
