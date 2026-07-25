@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、現在の品質入力は`CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json`。
+> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、現在の品質判断は`AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md`。
 
 ## 現在地
 
@@ -8,7 +8,7 @@
 - active draft PR: #118
 - active branch: `agent/yuwen-mowen-train-06`
 - operation mode: `private_translation_work`
-- private stage: `private_quality_audit`
+- private stage: `private_encoding`
 - checkpoint: 第76束 / 人物ペア1171 / 全1529 / 未適用0件
 - last reviewed: 第79束
 - release checkpoint: `yuwen-mowen-train-05-r2` / verified
@@ -31,21 +31,11 @@
 
 ### 第79束 `5572_6`
 
-preparation、quality audit、private encodingを完了した。
-
-- preparation: `_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md`
-- audit: `_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md`
 - review: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md`
 - owner: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`
 - status: `reviewed_pending_ci`
 
-監査済みの次の三候補だけを既存ownerへ収録した。
-
-- `5572_6_Dlgs_Index7_Text`: 瑶姫の`我看／应该`と天龍幇への仮定を回復
-- `5572_6_Dlgs_Index9_Text`: 莫問が師父たちへ尋ねる具体的行動を回復
-- `5572_6_Dlgs_Index11_Text`: `要紧`と衣冠塚後の出発順序の衝突を解消
-
-保持九行、新規owner、cross-registerには触れていない。`借刀杀人`は一般成句用法として現訳を保持した。locres、pak、audit status、verified checkpointも更新していない。
+`借刀杀人`は一般成句用法として現訳を保持した。locres、pak、audit status、verified checkpointは更新していない。
 
 ## 列車集計
 
@@ -56,40 +46,39 @@ preparation、quality audit、private encodingを完了した。
 
 release閾値は4束・40行・20修正のため、まだ`accumulating`。
 
-## 段階往復
-
-release条件未達の蓄積列車で次束へ進める`private_encoding -> private_preparation`を条件付きで追加済み。
-
-第79束encoding後もこの遷移を使い、第80束候補`5572_9 + 5581_5`のpreparationまで実走した。
-
 ## 第80束候補 `5572_9 + 5581_5`
 
-preparationを完了し、quality auditがactive。
+preparationとquality auditを完了し、private encodingがactive。
 
 - preparation: `_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md`
 - candidate: `_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json`
-- audit record: `_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md`
+- audit: `_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md`
 - existing owner: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`
 
-遼城出発時の莫問の上の空と道順提示、黎城到着後の瑶姫の離脱・助力への礼・再会示唆を一続きの移動境界として読む。合計14行。
+### 監査で確定した修正候補
 
-14キー中13キーは既存owner内。未所有は次の1キー。
+- `5572_9_Dlgs_Index1_Text`: 宇文逸の師兄への案じ方を、書面調の観察と名詞句の問いから実際の連続した問いへ戻す
+- `5581_5_Dlgs_Index1_Text`: 不自然な`義父へ復命に戻る`を、義父のもとへ戻って復命する行動へ整理する
+- `5581_5_Dlgs_Index4_Text`: `出手太狠`を`少し手荒`として弱めた箇所へ、手荒すぎる強度を戻す
+- `5581_5_Dlgs_Index5_Text`: 欧陽雪の`怎么会`を儀礼的な`そのようなことは`から柔らかな`そんなこと……`へ戻す
+- `5581_5_Dlgs_Index10_Text`: `太想我`を恋愛感情へ固定する`私を恋しがる`から、同行者全体への`寂しがる`軽口へ戻す
 
-- `5572_9_Dlgs_Index0_Text` — 莫問 `……ん？`
+### 疑ったうえで保持
 
-監査軸:
+- 莫問の未所有`……ん？`
+- 莫問の事情を伏せた道順提示と`<Y>東へ</>`タグ
+- 宇文逸の瑶姫への短い問いと離脱への驚き
+- 瑶姫の再会機会を示す安心
+- 欧陽雪の助力への感謝
+- 莫問の簡潔な評価と瑶姫のからかい
+- 瑶姫が別れを切り上げる行
 
-- 莫問の上の空を怪人との既知関係へ先取りしない
-- 宇文逸の師兄への案じ方と問いの連続
-- 莫問の道順提示が事務説明へ平坦化していないか
-- 瑶姫の離脱告知、暴力への軽口、別れのからかい
-- 欧陽雪の否定・感謝の柔らかさ
-- 莫問の評価と瑶姫の反応を過度な親密化へ変えていないか
+合計14行のうち修正候補5、保持9。追加文脈とALLUSION_REVIEW候補はない。
 
-ALLUSION_REVIEW候補はなし。`葬龍谷`は場所名として扱う。
+`5572_9_Dlgs_Index0_Text`は未所有だが保持のためownerを新設しない。ほか13キーは既存owner内にあり、五候補だけを再収録する。
 
 ## 次作業
 
-`5572_9 + 5581_5`をprivate quality auditし、fix候補、疑った保持、追加文脈、FACT_DOUBT、ALLUSION_REVIEWだけを監査記録へ確定する。
+`private_encoding`として、監査済み五候補だけを既存ownerへ反映し、第80束レビュー記録を作る。
 
-quality audit中は修正JSON、owner、正式な束、manifest件数、release残量を変更しない。public化もまだ不要。
+新しい訳文判断、保持九行の変更、未所有保持行のowner新設、新規cross-register、locres、pak、audit statusには触れない。疑義が出た場合は`private_quality_audit`へ戻す。public化はまだ不要。
