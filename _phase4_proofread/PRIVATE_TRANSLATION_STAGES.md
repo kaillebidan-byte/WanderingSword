@@ -1,140 +1,117 @@
-# private翻訳四段階
+# private翻訳四段階 wave v2
 
 ## 目的
 
-既存の荒い翻訳を見つけて直す品質判断と、束・所有・修正JSON・CI輸送を同時に処理しない。
-作業者が「あと何行」「あと何束」を意識してkeepへ寄せることを防ぎ、判断後にだけ制度化する。
+翻訳判断と制度操作を分離するだけでなく、準備・品質監査・収録の認知モードを一列車の中でまとまった区間として維持する。
 
-機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在段階は`PRIVATE_STAGE_STATE.json`、
-検査は`python _tools/check_private_translation_stage.py`を正本とする。
+schema v1では、一packetだけを`private_preparation`から渡し、`private_quality_audit -> private_encoding -> private_preparation`を一束ごとに繰り返した。これは停止を避けたが、認知モードを再び混在させた。wave v2では、複数packetを先に準備し、sealed queue全体を監査し、その後にまとめて収録する。
 
-## 四段階
+機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在状態は`PRIVATE_STAGE_STATE.json`、検査は`python _tools/check_private_translation_stage.py`を正本とする。
 
-### 1. `private_preparation`
+## 1. `private_preparation`
 
-翻訳判断をしない準備回。
+一列車分のcandidate packetを先に作る。
 
 許可:
-- 原文、現訳、前後、話者、相手、時系列、分岐を抽出する。
-- 重複familyと既存ownerを調べる。
-- 典故候補と設定疑義候補を未確定のまま置く。
-- 校正用candidate packetを作る。
+
+- 原文、現訳、前後、話者、相手、時系列、分岐を固定する。
+- 重複familyと既存ownerを参照する。
+- candidate packetとpreparation recordを`PRIVATE_STAGE_STATE.wave.packets`へ追加する。
+- queueのpacket数とunique reviewed rows相当を輸送設計として集計する。
 
 禁止:
-- fix / keepを確定する。
-- 修正JSON、レビュー結論、pair key、cross-register keyを作る。
-- 正式な束番号を確定する。
-- releaseまでの残り行数や束数を品質判断者へ表示する。
 
-### 2. `private_quality_audit`
+- fix / keep判断を行う。
+- fix JSON、review record、owner新設、正式束番号を作る。
+- candidate packetを`CI_TRAIN_MANIFEST.json`へ入れる。
 
-読むことと校正判断だけを行う回。
+通常sealは次のいずれかを満たす。
+
+- 4 packet以上
+- 40 unique reviewed rows相当以上
+- 意味境界上、追加候補が存在しない`scope_exhausted`
+
+上限は6 packet / 60 rowsとする。`scope_exhausted`は具体的なattestationを必須とする。一packetを作っただけで通常sealすることは`preparation_underfilled`として失敗する。
+
+## 2. `private_quality_audit`
+
+sealed queueの全packetを続けて監査する。
+
+packetごとに、少なくとも次を記録する。
+
+- `fix_candidate`
+- `challenged_keep`
+- `needs_context`
+- `FACT_DOUBT`
+- `ALLUSION_REVIEW`
 
 許可:
+
 - 原文の意味、強弱、発話役割、人物声、設定追加、欠落、不自然さを判断する。
-- `fix_candidate`、`challenged_keep`、`needs_context`を記録する。
-- ownerと重複情報を参照する。
+- 既存ownerと重複情報を参照する。
+- packetを`audited`または`needs_repreparation`へ更新する。
 
 禁止:
-- 修正JSONへ書き込む。
-- pair / cross-register ownerを新設する。
-- 束を完了扱いにする。
-- manifest件数、release閾値、残り行数を見ることを前提に判断する。
 
-この段階で必要な構造情報は参照できるが、制度操作はできない。
-所有情報を隠し切ると重複分岐やcross-registerを落とすため、情報参照と書込み権限を分ける。
+- 一packet完了ごとにencodingへ移る。
+- fix JSON、owner、review record、正式束番号、manifest件数を書く。
+- `metrics_snapshot`、release残量、閾値、処理件数を監査判断へ渡す。
 
-### 3. `private_encoding`
+queueがsealedでない場合、quality auditへ進めない。
 
-品質監査で確定した判断だけを制度化する回。
+## 3. `private_encoding`
+
+全packetの監査完了後、確定済み判断だけをまとめて収録する。
 
 許可:
-- 確定済み修正をfix JSONへ収録する。
-- pair / cross-register所有を決める。
-- 重複分岐へ鏡写しする。
-- レビュー記録、FACT_DOUBT、ALLUSION_REVIEWを整形する。
-- unique rowsとreviewed keysを集計し、最後に束番号を確定する。
+
+- fix JSONへ確定済み修正を収録する。
+- owner、重複family、review record、FACT_DOUBT、ALLUSION_REVIEWを制度化する。
+- 正式束番号を割り当てる。
+- encoding済み正式束だけをmanifestへ追加する。
+- `review_status`と`apply_status`を別々に記録する。
 
 禁止:
-- 新しい翻訳判断をその場で追加する。
-- encoding中に疑義が出た行を便宜的にfixまたはkeepへ決める。
 
-新しい疑義や監査記録との矛盾が出た場合は
-`private_quality_audit`へ戻し、判断記録を更新してから再びencodingへ進む。
+- 新しい翻訳判断を行う。
+- 未監査packetを残したまま収録を開始する。
+- 一部packetを未収録のまま翻訳凍結へ進む。
 
-列車がrelease条件未達で蓄積を続ける場合は、現在束のencodingを完了してmanifestへ収録した後、
-`private_preparation`へ戻って次場面の文脈・重複・所有だけを準備する。
-この戻りでは前束の品質判断を再開せず、次束のfix / keep判断も行わない。
+新しい疑義が出たpacketだけを`needs_reaudit`へし、`private_quality_audit`へ戻す。他packetの監査を無効化しない。
 
-### 4. `ready_for_public_ci`
+## 4. `translation_frozen`
 
-翻訳判断と収録を凍結し、public CIへ送る待機状態。
+全packetのencoding完了後、翻訳判断と収録を凍結する。これはCI輸送状態ではない。
 
-許可:
-- 完成HEAD、品質ゲート、未適用キー、CI対象を確認する。
-- 利用者へpublic化を依頼する。
-- public後にRelation / Cross / Apply / phase2 gateを実行する。
+翻訳段階を`translation_frozen`に保ったまま、輸送軸だけを次の順に進める。
 
-禁止:
-- 新しい場面を読む。
-- 訳文判断を変更する。
-- fix keyや束を追加する。
+`not_ready -> ready_for_public_ci -> in_public_ci -> verified -> awaiting_private_merge -> merged`
 
-品質問題が見つかった場合はpublicで直さずprivateへ戻し、
-`private_quality_audit`から再開する。
+public CI中も翻訳判断、fix追加、owner変更、正式束追加を再開しない。品質上の疑義が出た場合はprivateへ戻し、対象packetを`needs_reaudit`としてquality auditへ戻す。
 
-## 遷移
+## replenishment例外
 
-一列車をreleaseする通常順:
-`private_preparation -> private_quality_audit -> private_encoding -> ready_for_public_ci`
+`private_encoding -> private_preparation`は通常遷移ではない。次の理由コードを伴うreplenishmentだけを許す。
 
-release条件未達で次束を蓄積する通常ループ:
-`private_encoding -> private_preparation -> private_quality_audit -> private_encoding`
+- `packet_invalidated`
+- `duplicate_normalization_reduced_scope`
+- `needs_context_unresolved`
+- `prepared_source_became_stale`
+- `scope_boundary_corrected`
 
-再作業:
-- `private_encoding -> private_quality_audit`
-- `ready_for_public_ci -> private_quality_audit`
+第一段階が十分なpacketを準備しなかっただけの場合は例外にしない。checkerは`preparation_underfilled`として失敗させる。
 
-次は禁止:
-- preparationからencodingまたはCI待ちへの飛越
-- quality auditからCI待ちへの飛越
-- public CIから品質判断を再開すること
-- encoding完了前に次束のpreparationへ移ること
+## manifest境界
 
-各遷移は`PRIVATE_STAGE_STATE.json.history`へ証拠とともに記録する。
-`private_encoding -> private_preparation`はmanifestが`accumulating`で、直前束のレビュー記録と所有記録が完成している場合だけ使う。
+candidate packetは`PRIVATE_STAGE_STATE.json`だけで管理する。
 
-## 指標の扱い
+`CI_TRAIN_MANIFEST.json`にはencoding済みの正式束、review/apply状態、輸送集計だけを置く。旧`reviewed_pending_ci`へ複数意味を押し込まず、次へ分ける。
 
-- preparation / quality auditでは`metrics_snapshot`を持たない。
-- quality audit中は束数、行数、修正率、release閾値を判断材料にしない。
-- encodingで重複をunique rowsへ正規化した後にだけ集計する。
-- ready_for_public_ciでは集計を輸送情報として表示してよい。
-- 束数・通読行数・修正数は品質成果ではなくCI輸送指標である。
+- `review_status: complete`
+- `apply_status: pending | verified`
 
-低収穫ゲートは`TRANSLATION_QUALITY_GATE.md`を併用する。
-低収穫時の二巡目監査もquality audit段階で行い、encodingへ持ち込まない。
+## 現行状態の移行
 
-## 報告
+train-06第77〜80束の既存記録は改変せず、schema v1の四往復を一つの移行waveへ統合して表現する。PR #118はsquash統合済みであり、輸送状態は`merged`、翻訳段階は`translation_frozen`とする。
 
-quality audit回の報告順:
-1. 修正候補と理由
-2. 疑ったが保持した箇所
-3. 追加文脈が必要な箇所
-4. 件数は原則として表示しない
-
-encoding回の報告順:
-1. 監査判断がどのfix / ownerへ収録されたか
-2. 重複・所有・FACT_DOUBTの整合
-3. 品質ゲート結果
-4. 最後に輸送件数
-
-## train-05とtrain-06への適用
-
-train-05は初回public検証後に低収穫再監査を行ったため、
-既存記録から四段階の証拠を遡及して`PRIVATE_STAGE_STATE.json`へ固定した。
-これは段階飛越を正当化するものではない。
-
-train-06の第77束で初めて四段階を順番に実走したところ、release条件未達時に
-`private_encoding`から次束の`private_preparation`へ戻る遷移が契約に存在しない不備が判明した。
-蓄積列車だけに限定してこの遷移を追加し、次束から往復自体を検証する。
+`5581_7 + 5581_8`は次waveの予約だけであり、preparation・quality audit・encoding・正式束番号は未開始とする。

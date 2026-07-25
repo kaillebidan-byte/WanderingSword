@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""CI train manifestのkeep-only束を含むphase2互換検査。"""
+"""CI train manifestのkeep-only正式束を含むwave v2互換検査。"""
 from __future__ import annotations
 
 import argparse
@@ -21,16 +21,10 @@ def validate_manifest(
     *,
     require_ready: bool = False,
 ) -> list[str]:
-    errors = legacy.validate_manifest(
-        manifest,
-        current,
-        require_ready=require_ready,
-    )
-
+    errors = legacy.validate_manifest(manifest, current, require_ready=require_ready)
     bundles = manifest.get("bundles")
     if not isinstance(bundles, list):
         return errors
-
     removable: set[str] = set()
     for index, bundle in enumerate(bundles):
         if not isinstance(bundle, dict):
@@ -38,24 +32,16 @@ def validate_manifest(
         fix_keys = bundle.get("fix_keys")
         fix_files = bundle.get("fix_files")
         legacy_error = f"bundles[{index}].fix_files must be a non-empty list"
-
         if fix_keys == 0 and fix_files == []:
             removable.add(legacy_error)
         elif fix_keys == 0 and isinstance(fix_files, list) and fix_files:
-            errors.append(
-                f"bundles[{index}] keep-only bundle must not declare fix_files"
-            )
-
+            errors.append(f"bundles[{index}] keep-only bundle must not declare fix_files")
     return [error for error in errors if error not in removable]
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--require-ready",
-        action="store_true",
-        help="公開CIへ出す列車としてrelease可能な状態を要求する",
-    )
+    parser.add_argument("--require-ready", action="store_true")
     return parser.parse_args()
 
 
@@ -65,12 +51,12 @@ def main() -> int:
     manifest = load_object(MANIFEST_PATH)
     errors = validate_manifest(manifest, current, require_ready=args.require_ready)
     ready, reasons = release_state(manifest)
-
     totals = manifest.get("totals", {})
-    print("=== CI train phase2-compatible manifest ===")
+    print("=== CI train phase2-compatible wave manifest ===")
     print(f"train: {manifest.get('train_id')}")
     print(f"branch: {manifest.get('branch')}")
     print(f"status: {manifest.get('status')}")
+    print(f"transport: {manifest.get('transport', {}).get('status')}")
     print(
         "totals: "
         f"{totals.get('bundle_count')} bundle(s), "
@@ -85,7 +71,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: CI train manifest is structurally valid, including keep-only bundles")
+    print("OK: wave manifest is structurally valid, including keep-only formal bundles")
     return 0
 
 
