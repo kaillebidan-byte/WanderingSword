@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、確定releaseはcheckpointが指すrelease evidence、次束は`NEXT_TASK_PACKET.json`。
+> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、確定releaseはcheckpointが指すrelease evidence、次束は`NEXT_TASK_PACKET.json`。turn入口は`VISIBILITY_PREFLIGHT_CONTRACT.json`を最初に適用する。
 
 ## 新しいチャットで送る一文
 
@@ -10,11 +10,12 @@
 
 ## 現在地
 
-- 実visibility: private
+- 実visibility: public（GitHub metadataで確認済み）
 - open PR: 0件
 - active Issue: #112
 - active branch: `agent/yuwen-mowen-train-03`
 - operation mode: `ready_for_public_ci`
+- effective mode: `public_ci_window`
 - active train: `yuwen-mowen-train-03` / ready_for_public_ci
 - train totals: 4束 / 32行 / 4修正 / 新規人物ペア2キー
 - reviewed: 第69束まで
@@ -35,14 +36,24 @@
 - locres、pak、audit_status、適用件数は更新していない
 - 完成4束へ達したため通常release条件`bundle_count=4`を満たした
 
+## visibility入口制度の修正
+
+- repository metadata取得を、利用者向け進捗報告より先に行う最初の無言ゲートへ変更した
+- metadata結果前の計画、開始宣言、途中報告を禁止した
+- 利用者のvisibility申告はhint扱いとし、metadata確認を必須にした
+- 固定batch・件数を複製していた冷間受入基準を動的正本参照へ変更した
+- `VISIBILITY_PREFLIGHT_CONTRACT.json`、専用checker、否定ケースtestを追加した
+- `CI train phase2 gate`で契約検査とtestを実行するようにした
+- この修正は訳文、修正JSON値、人物声、所有境界を変更しない行政修正である
+
 ## 次に行うこと
 
-1. ユーザーへ一度だけpublic化を依頼する。
-2. public確認後、同じ`agent/yuwen-mowen-train-03`からPRを一つ作る。
-3. Relation / Cross / Applyを実行し、locres・pak・audit statusを書き戻す。
-4. bot書き戻し後に重い三本が再起動しないことを確認する。
-5. 同じPR内でrelease evidenceとverified checkpointを確定する。
+1. 同じ`agent/yuwen-mowen-train-03`から翻訳PRを一つ作る。
+2. Relation / Cross / Applyを実行し、locres・pak・audit statusを書き戻す。
+3. bot書き戻し後に重い三本が再起動しないことを確認する。
+4. 同じPR内でrelease evidenceとverified checkpointを確定する。
+5. visibility preflight契約testを含むphase2 gateを成功させる。
 6. 未解決thread 0件を確認し、squash統合する。
 7. private復帰後に第70束`5522_1`を次列車で開始する。
 
-public確認前はPRを作らず、第70束の翻訳判断も始めない。
+public中は第70束の翻訳判断を始めない。制度修正が翻訳再判断へ広がる場合はprivateへ戻す。
