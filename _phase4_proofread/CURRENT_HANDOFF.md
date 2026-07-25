@@ -2,64 +2,48 @@
 
 > 再開指示: `現状把握して作業の続きを`
 >
-> 機械正本は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、private waveは`PRIVATE_STAGE_STATE.json`、次候補予約は`NEXT_TASK_PACKET.json`。制度PRの実状態はGitHub PR metadataとActionsを優先する。
+> 機械正本は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、private waveは`PRIVATE_STAGE_STATE.json`、次段階は`NEXT_TASK_PACKET.json`。実visibilityとGitHub PR metadataを文書より優先する。
 
 ## 現在地
 
-- 実visibility: public（GitHub repository metadataで確認）
-- main HEAD: `56c8eecfc4eb1a44a23708d25d9566d68cea016c`
-- PR #118: squash統合済み
-- active制度branch: `agent/four-stage-wave-v2`
-- active制度PR: #119（ready for review）
-- 制度PR HEAD: `2789e17e087f1e6a247cfeb0e5667f1eddb61c2c`
+- 実visibility: private（GitHub repository metadataで確認）
+- main HEAD: `eee509ccbf323810df28bebf41ec5cc65f0ec6a9`
+- 四段階wave v2制度PR #119: squash統合済み
+- active branch: `agent/yuwen-mowen-train-07`
+- active PR: なし
 - verified checkpoint: 第80束
 - 人物ペア適用済み: 1171
 - プロジェクト全体適用済み: 1529
-- release: `yuwen-mowen-train-06-r1`
-- 翻訳段階: `translation_frozen`
-- train-06輸送: `merged`
+- 前release: `yuwen-mowen-train-06-r1`
+- 現在の翻訳段階: `private_preparation`
+- transport: `not_ready`
 
-## wave v2検証結果
+## train-07 wave-01
 
-四段階制度を一packet loopからmulti-packet waveへ置き換えた。
+最新Relation artifact run `30169356037` / artifact `8622473127`を使用した。
 
-- preparationで複数packetを先に準備してsealする。
-- sealed queue全体をquality auditする。
-- 全監査済みpacketをまとめてencodingする。
-- 全収録後は`translation_frozen`にし、CI輸送statusを別軸で進める。
-- `encoding -> preparation`は理由コード付きreplenishmentだけにする。
-- candidate packetをmanifestから外す。
-- bundleの`review_status`と`apply_status`を分ける。
+四つのcandidate packetを翻訳判断なしで準備し、queueを`packet_threshold`でsealした。
 
-public CI結果:
+- `5581_7 + 5581_8`
+- `5583_1`
+- `5583_2`
+- `5585_4 + 5586_3 + 5586_5`
 
-- CI train phase2 gate: run `30169409176` 成功
-- Relation audit extraction: run `30169356037` 成功
-- Apply curated localization fixes: run `30169356031` 成功
-- Apply未適用差分: 0件
-- 資産再生成・bot commit: skipped
-- PR #119未解決review thread: 0件
+candidate packetとpreparation recordは`PRIVATE_STAGE_STATE.json`にだけ接続した。manifestへ正式束は追加していない。
 
-初回phase2 runでは、PR #118のsquash統合後もrelease evidenceが`branch_ancestor`のままだったため停止した。`RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json`を実履歴どおり`lineage.mode=squash_merged`、merge SHA `56c8eecfc4eb1a44a23708d25d9566d68cea016c`へ同期し、再実行で成功した。
+## 次作業
 
-## 次候補
+sealed queue全体を`private_quality_audit`で連続監査する。
 
-`5581_7 + 5581_8`は予約だけ。preparation・quality audit・encoding・正式束番号は未開始。制度改修PRを統合するまで翻訳作業へ進まない。
-
-## 残作業
-
-1. repositoryをprivateへ戻す。
-2. GitHub metadataでprivate復帰を確認する。
-3. PR #119をsquash統合する。
-4. PR #119がすでに統合済みなら、post-merge状態PRは作らず、privateで新しいopen waveを作成して複数candidate packetのpreparationを開始する。
+監査時は件数、release残量、正式束番号、fix JSON、owner書込みを判断へ渡さない。一packetごとにencodingへ移らない。
 
 ## 禁止
 
-- 訳文、fix JSON、人物owner、FACT_DOUBT、ALLUSION_REVIEWを変更しない。
-- 第81束の翻訳監査を制度PR統合前に開始しない。
-- PR #118の履歴を変更しない。
-- public中に翻訳判断を再開しない。
+- quality audit前にfix JSON、review record、正式束番号を作らない。
+- preparationの件数を品質判断へ使わない。
+- public化しない。
+- ゲームフォルダへ配置しない。
 
 ## 再開時
 
-最初に実visibilityを無言で確認する。その後、main、未統合PR、GitHub Actions、制度正本を読む。PR #119のlive metadataを文書内のdraft/private表記より優先する。#119がopenならprivate復帰後の統合を優先し、mergedならwave v2を現行制度として新waveへ進む。
+最初に実visibility、main、未統合PR、GitHub Actionsを確認する。`agent/yuwen-mowen-train-07`のlive状態を確認し、privateならsealed waveのquality auditへ進む。
