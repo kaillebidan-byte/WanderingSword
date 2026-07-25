@@ -16,14 +16,10 @@
 
 ## 所有境界
 
-既存ownerは`_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`。
+既存owner:
 
-既存キー:
-
-- `5583_1_Dlgs_Index0_Text`
-- `5583_1_Dlgs_Index4_Text`
-- `5583_1_Dlgs_Index5_Text`
-- `5583_1_Dlgs_Index9_Text`
+- `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`: `5583_1_Dlgs_Index0_Text`、`Index4`、`Index5`、`Index9`
+- `_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json`: `5583_1_Dlgs_Index6_Text`
 
 その他の抽出キーは未所有として保持する。ownerはquality audit後のencodingまで変更しない。
 
