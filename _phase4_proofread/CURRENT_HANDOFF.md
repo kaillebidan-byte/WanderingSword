@@ -2,6 +2,12 @@
 
 > 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、品質制度は`TRANSLATION_QUALITY_GATE.md`、確定releaseはcheckpointが指すevidence、次束は`NEXT_TASK_PACKET.json`。
 
+## 新しいチャットで送る一文
+
+```text
+現状把握して作業の続きを
+```
+
 ## 現在地
 
 - 実visibility: public（GitHub metadataで確認済み）
