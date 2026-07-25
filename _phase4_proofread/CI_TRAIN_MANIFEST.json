@@ -4,7 +4,7 @@
   "train_id": "yuwen-mowen-train-06",
   "branch": "agent/yuwen-mowen-train-06",
   "draft_pr": 118,
-  "status": "ready_for_public_ci",
+  "status": "verified",
   "base_checkpoint": {
     "batch": 76,
     "pair_applied_keys": 1171,
@@ -59,7 +59,7 @@
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
-  "release_evidence": null,
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json",
   "previous_release": {"train_id":"yuwen-mowen-train-05","release_id":"yuwen-mowen-train-05-r2","pr":117,"merge_sha":"6f1b92f979ce53cef0a25e4058828b53492bbe7d","status":"verified"},
   "quality_gate": {
     "schema_version": 1,
@@ -77,6 +77,9 @@
     "challenge_pass": null
   },
   "private_stage": {"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"ready_for_public_ci","status":"ready"},
-  "process_findings": [{"id":"encoding_to_preparation_accumulation_loop","status":"repaired_in_train_06","detail":"release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"}],
-  "next_release": {"candidate_scene":null,"formal_batch":80,"current_private_stage":"ready_for_public_ci"}
+  "process_findings": [
+    {"id":"encoding_to_preparation_accumulation_loop","status":"repaired_in_train_06","detail":"release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"},
+    {"id":"audit_only_apply_transition","status":"repaired_in_train_06","detail":"audit statusだけが変わるApplyでも旧checkpoint検査を先行せず、bot書き戻し後のstate-only phase2へ延期する。"}
+  ],
+  "next_release": {"candidate_scene":["5581_7","5581_8"],"formal_batch":81,"current_private_stage":"ready_for_public_ci"}
 }
