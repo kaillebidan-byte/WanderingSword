@@ -10,7 +10,7 @@
   "stage": "translation_reaudited",
   "status": "in_progress",
   "last_completed_batch": 76,
-  "last_reviewed_batch": 78,
+  "last_reviewed_batch": 79,
   "pair_applied_keys": 1171,
   "project_applied_keys": 1529,
   "build_status": "verified_not_deployed",
@@ -73,20 +73,20 @@
       "merge_sha": "6f1b92f979ce53cef0a25e4058828b53492bbe7d"
     },
     "private_stage": {
-      "stage": "private_encoding",
+      "stage": "private_quality_audit",
       "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-      "completed_bundle": 78,
-      "completed_review": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md",
-      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
-      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
+      "completed_bundle": 79,
+      "completed_review": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md",
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json",
+      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md",
       "preparation_status": "complete",
-      "audit_status": "complete"
+      "audit_status": "not_started"
     },
     "stage_transition_finding": {
       "id": "encoding_to_preparation_accumulation_loop",
       "status": "repaired_and_exercised",
-      "detail": "第78束encoding後もrelease条件未達のため、第79束候補5572_6のprivate_preparationへ合法的に戻り、private_quality_auditを完了してprivate_encodingへ進んだ。",
+      "detail": "第79束encoding後もrelease条件未達のため、第80束候補5572_9 + 5581_5のprivate_preparationへ合法的に戻り、private_quality_audit入口まで遷移した。",
       "evidence": [
         "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
         "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
@@ -94,7 +94,7 @@
         "_tools/test_check_private_translation_stage.py"
       ]
     },
-    "next": "監査で確定した5572_6の三候補だけを既存ownerと第79束レビュー記録へ収録する"
+    "next": "5572_9 + 5581_5をprivate_quality_auditし、fix候補・疑った保持・追加文脈・ALLUSION_REVIEWの要否だけを監査記録へ残す"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -121,9 +121,9 @@
     "cold_start_acceptance": "_phase4_proofread/COLD_START_ACCEPTANCE.md"
   },
   "immediate_next": {
-    "scene_groups": ["5572_6"],
-    "task": "private_encodingとして監査済み三候補だけを既存fix fileと第79束レビュー記録へ収録する。",
-    "boundary": "新しい訳文判断、保持九行の変更、新規owner、locres、pak、audit statusには触れない。疑義が出たらprivate_quality_auditへ戻す。",
+    "scene_groups": ["5572_9", "5581_5"],
+    "task": "private_quality_auditとして候補packetの14行を通読し、翻訳判断だけを監査記録へ確定する。",
+    "boundary": "修正JSON、owner変更、正式な束完了、manifest件数、release残量、locres、pakには触れない。莫問の上の空と瑶姫の再会示唆を後続事実へ確定しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -178,16 +178,16 @@
     "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
     "caps": {"bundle_count": 6, "reviewed_rows": 60},
     "totals": {
-      "bundle_count": 2,
-      "reviewed_rows": 24,
-      "reviewed_keys": 24,
-      "unique_reviewed_rows": 24,
-      "fix_keys": 8,
-      "unique_fix_rows": 8,
+      "bundle_count": 3,
+      "reviewed_rows": 36,
+      "reviewed_keys": 36,
+      "unique_reviewed_rows": 36,
+      "fix_keys": 11,
+      "unique_fix_rows": 11,
       "new_pair_keys": 0
     },
     "quality_gate": {"status": "not_evaluated_until_release"},
-    "private_stage": {"stage": "private_encoding", "status": "third_quality_audit_complete"},
+    "private_stage": {"stage": "private_quality_audit", "status": "fourth_preparation_complete"},
     "tracking_issue": null,
     "draft_pr": 118,
     "finalization_phase": "phase2",
