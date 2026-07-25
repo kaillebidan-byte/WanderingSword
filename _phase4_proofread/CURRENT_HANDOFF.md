@@ -10,12 +10,12 @@
 
 ## 現在地
 
-- 実visibility: public（GitHub metadataで確認済み）
+- 実visibility: private（GitHub metadataで確認済み）
 - open PR: #113
 - active Issue: #112
 - active branch: `agent/yuwen-mowen-train-03`
-- operation mode: `ready_for_public_ci`
-- effective mode: `public_ci_window`
+- operation mode: `private_translation_work`
+- effective mode: `private_translation_work`
 - active train: `yuwen-mowen-train-03` / verified
 - train totals: 4束 / 32行 / 4修正 / 新規人物ペア2キー
 - reviewed / completed: 第69束まで
@@ -37,13 +37,14 @@
 - Cross run `30140191816` 成功
 - Apply run `30140191802` 成功
 - audit index sync Apply run `30140505551` 成功
+- public phase2 gate run `30140712053` 成功
 - locres反映、pak再生成、LFS、register lint、関係抽出、回帰検査成功
 - audit_statusは第69束・全1525キー・人物ペア1169キーへ同期済み
 - 適用記録、release evidence、verified checkpointを同じPR内で確定済み
 
 ## 制度不備の修正
 
-- repository metadata取得を、利用者向け進捗報告より先に行う最初の無言ゲートへ変更した
+- repository metadata取得を利用者向け報告より先に行う最初の無言ゲートへ変更した
 - metadata verdict前の計画、開始宣言、途中報告を禁止した
 - 利用者のvisibility申告はhint扱いとし、metadata確認を必須にした
 - 固定batch・件数を複製していた冷間受入基準を動的正本参照へ変更した
@@ -55,10 +56,10 @@
 
 ## 次に行うこと
 
-1. public状態でphase2 gateを成功させる。
-2. 実visibilityをprivateへ戻す。
-3. 同じPRでoperation modeを`private_translation_work`へ確定し、最終private phase2 gateを通す。
-4. 未解決thread 0件を確認し、PR #113をsquash統合する。
-5. private確認後、第70束`5522_1`を次列車で開始する。
+1. private状態のoperation modeをphase2 gateで確認する。
+2. 未解決thread 0件を再確認し、PR #113をsquash統合する。
+3. mainの第69束verified checkpointから新しいprivate列車を開始する。
+4. 第70束`5522_1`の7行を原文・現訳・前後・話者・相手・時系列・所有とともに監査する。
+5. 次のrelease条件到達までlocres・pak・audit_statusを更新しない。
 
-public中は第70束の翻訳判断を始めない。
+第70束以降の翻訳判断はprivateでのみ行う。
