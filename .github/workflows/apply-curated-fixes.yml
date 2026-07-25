@@ -3,14 +3,12 @@ name: Apply curated localization fixes
 on:
   pull_request:
     types:
-      - opened
-      - reopened
-      - ready_for_review
       - labeled
     branches:
       - main
     paths:
       - "_phase4_proofread/fixes_*.json"
+      - "_phase4_proofread/CANDIDATE_*.json"
       - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
       - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
       - "_tools/apply_fixes_json.py"
@@ -19,6 +17,8 @@ on:
       - "_tools/test_apply_fixes_shared_indices.py"
       - "_tools/update_audit_status.py"
       - "_tools/test_update_audit_status.py"
+      - "_tools/check_candidate_ownership.py"
+      - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_handoff_consistency_v2.py"
       - "_tools/check_release_evidence.py"
       - "_tools/check_next_task_packet.py"
@@ -42,7 +42,8 @@ jobs:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
       github.actor != 'github-actions[bot]' &&
-      (github.event.action != 'labeled' || github.event.label.name == 'ci-heavy-rerun')
+      github.event.repository.visibility == 'public' &&
+      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: windows-latest
     defaults:
       run:
@@ -65,14 +66,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate translation quality gate
+      - name: Validate translation quality gate and candidate ownership
         shell: bash
         run: |
           mkdir -p _ws_tmp/apply_fixes
           set -o pipefail
           python _tools/check_translation_quality_gate.py \
             2>&1 | tee _ws_tmp/apply_fixes/translation_quality_gate.txt
+          python _tools/check_candidate_ownership.py --require-current-wave \
+            2>&1 | tee _ws_tmp/apply_fixes/candidate_ownership.txt
           python _tools/test_check_translation_quality_gate.py
+          python _tools/test_check_candidate_ownership.py
 
       - name: Collect all curated fix batches
         shell: bash
@@ -135,10 +139,12 @@ jobs:
       - name: Run regression tests and scans
         shell: bash
         run: |
+          python _tools/test_check_candidate_ownership.py
           python _tools/test_check_handoff_consistency_v2.py
           python _tools/test_check_release_evidence.py
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_check_translation_quality_gate.py
+          python _tools/check_candidate_ownership.py --require-current-wave
           python _tools/check_handoff_consistency_v2.py
           python _tools/check_release_evidence.py
           python _tools/check_next_task_packet.py --allow-pending
@@ -187,8 +193,8 @@ jobs:
         shell: bash
         run: |
           echo 'Pending translation fixes or audit-status changes were produced in this run.'
-          echo 'The same PR will receive generated assets, then a state-only phase2 gate will finalize release evidence.'
-          echo 'Relation/Cross/Apply will not restart for the generated asset commit or final state-only commit.'
+          echo 'The same PR will receive generated assets, then a finalize-release label will run phase2.'
+          echo 'Relation/Cross/Apply will not restart for generated asset or final state commits.'
 
       - name: Commit applied assets and audit status
         if: >-
