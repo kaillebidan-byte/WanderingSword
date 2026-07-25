@@ -170,7 +170,9 @@ jobs:
           fi
 
       - name: Check checkpoint after audit refresh
-        if: steps.pending.outputs.changed == 'false'
+        if: >-
+          steps.pending.outputs.changed == 'false' &&
+          steps.audit_status.outputs.changed == 'false'
         shell: bash
         run: |
           python _tools/check_handoff_consistency_v2.py
@@ -179,10 +181,12 @@ jobs:
           python _tools/check_translation_quality_gate.py
 
       - name: Explain deferred checkpoint check
-        if: steps.pending.outputs.changed == 'true'
+        if: >-
+          steps.pending.outputs.changed == 'true' ||
+          steps.audit_status.outputs.changed == 'true'
         shell: bash
         run: |
-          echo 'Pending translation fixes were applied in this run.'
+          echo 'Pending translation fixes or audit-status changes were produced in this run.'
           echo 'The same PR will receive generated assets, then a state-only phase2 gate will finalize release evidence.'
           echo 'Relation/Cross/Apply will not restart for the generated asset commit or final state-only commit.'
 
