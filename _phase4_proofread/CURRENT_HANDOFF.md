@@ -10,12 +10,12 @@
 - main HEAD: `eee509ccbf323810df28bebf41ec5cc65f0ec6a9`
 - active branch: `agent/yuwen-mowen-train-07`
 - active PR: draft PR #120
-- checkpoint: 第84束 `pending_audit_sync`
+- verified checkpoint: 第84束
 - 人物ペア適用済み: 1165
 - プロジェクト全体適用済み: 1539
 - release: `yuwen-mowen-train-07-r1`
 - 翻訳段階: `translation_frozen`
-- transport: `in_public_ci`
+- transport: `verified`
 
 ## train-07 wave-01
 
@@ -27,20 +27,21 @@
 - CI HEAD: `993a1a89f330def5a9679a9cbf03dbfdf2854ce9`
 - asset HEAD: `5f91916675d6d21a761d06fa817e39b3a6f7c7dc`
 - 未適用: 0件
+- audit status: 第84束・人物ペア1165・全1539へ同期済み
 
-release evidenceと第81〜84束の適用記録は作成済み。owner競合は、人物ペア既存owner更新とcross-register ownerへの移管で解消した。訳文判断は変更していない。
+release evidence、適用記録、verified checkpoint、manifest、private stageを同じPR内で確定した。owner競合は人物ペア既存owner更新とcross-register ownerへの移管で解消し、訳文判断は変更していない。
 
 ## 次作業
 
-Applyを未適用0件で再走し、適用記録からaudit statusの完了束とrecord indexを第84束へ同期する。bot書き戻し後、checkpoint・manifest・private stageを`verified`へ確定し、state-only phase2を通す。
+state-only phase2の成功と未解決review thread 0件を確認する。条件がそろったらユーザーへprivate復帰を依頼し、private確認後にPR #120をsquash統合する。
 
 ## 禁止
 
 - public中に翻訳判断を再開しない。
 - 第85束候補`5603_1`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
-- audit status同期前にcheckpointをverifiedへ変えない。
+- publicのままPR #120を統合しない。
 
 ## 再開時
 
-実visibility、main、PR #120のHEAD、Actionsを確認する。`pending_audit_sync`ならApplyによる状態同期だけを続ける。
+実visibility、main、PR #120のHEAD、Actions、review threadを確認する。verifiedならprivate復帰を依頼する。
