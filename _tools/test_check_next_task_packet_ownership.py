@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""check_next_task_packet の機械所有表を回帰検証する。"""
-
+"""check_next_task_packet_v2 の機械所有表を回帰検証する。"""
 from __future__ import annotations
 
 import importlib.util
@@ -9,13 +8,13 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODULE_PATH = ROOT / "_tools" / "check_next_task_packet.py"
+MODULE_PATH = ROOT / "_tools" / "check_next_task_packet_v2.py"
 
 
 def load_module():
-    spec = importlib.util.spec_from_file_location("check_next_task_packet", MODULE_PATH)
+    spec = importlib.util.spec_from_file_location("check_next_task_packet_v2", MODULE_PATH)
     if spec is None or spec.loader is None:
-        raise RuntimeError("failed to load check_next_task_packet.py")
+        raise RuntimeError("failed to load check_next_task_packet_v2.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -114,8 +113,6 @@ def main() -> None:
         finally:
             module.ROOT = original_root
 
-    # 適用後はCURRENT_WORK.checkpointが最終bundleまで進むが、次束番号は
-    # manifestの出発checkpoint + 積載束数 + 1で求める。
     original_validate_manifest = module.validate_manifest
     module.validate_manifest = lambda manifest, current: []
     try:
