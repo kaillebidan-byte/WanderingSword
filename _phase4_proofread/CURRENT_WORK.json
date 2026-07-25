@@ -73,13 +73,14 @@
       "merge_sha": "6f1b92f979ce53cef0a25e4058828b53492bbe7d"
     },
     "private_stage": {
-      "stage": "private_quality_audit",
+      "stage": "private_encoding",
       "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
       "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
       "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md"
+      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
+      "audit_status": "complete"
     },
-    "next": "5540_4をquality auditし、fix候補・疑った保持・追加文脈の要否だけを監査記録へ残す"
+    "next": "監査で確定した5540_4の四候補だけを既存ownerとレビュー記録へ収録する"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -107,8 +108,8 @@
   },
   "immediate_next": {
     "scene_groups": ["5540_4"],
-    "task": "private_quality_auditとして候補packetを通読し、翻訳判断だけを監査記録へ確定する。",
-    "boundary": "修正JSON、owner新設、正式な束完了、manifest件数、release残量、locres、pakには触れない。",
+    "task": "private_encodingとして監査済み四候補だけを既存fix fileとレビュー記録へ収録する。",
+    "boundary": "新しい訳文判断、保持行の変更、新規owner、locres、pak、audit statusには触れない。疑義が出たらprivate_quality_auditへ戻す。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -171,8 +172,8 @@
       "unique_fix_rows": 0,
       "new_pair_keys": 0
     },
-    "quality_gate": {"status": "not_evaluated_before_encoding"},
-    "private_stage": {"stage": "private_quality_audit", "status": "preparation_complete"},
+    "quality_gate": {"status": "audit_complete_pending_encoding"},
+    "private_stage": {"stage": "private_encoding", "status": "quality_audit_complete"},
     "tracking_issue": null,
     "draft_pr": 118,
     "finalization_phase": "phase2",
