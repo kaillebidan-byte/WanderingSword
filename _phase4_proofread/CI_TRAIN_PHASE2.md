@@ -32,7 +32,7 @@ Relation / Cross / Applyの自動起動eventは次に限定する。
 - 閉じたrelease PRを再開した`reopened`
 - 局所修正後、`ci-heavy-rerun`ラベルを付けた`labeled`
 
-通常の` synchronize`では重い三本を起動しない。修正後に再検証が必要な場合は、同じPRへ`ci-heavy-rerun`ラベルを明示的に付ける。再度使う場合は一度ラベルを外してから付け直す。
+通常の`synchronize`では重い三本を起動しない。修正後に再検証が必要な場合は、同じPRへ`ci-heavy-rerun`ラベルを明示的に付ける。再度使う場合は一度ラベルを外してから付け直す。
 
 各workflowのpath条件は、上記eventの中でさらに対象を限定する。
 
@@ -72,10 +72,12 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 5. Applyがlocres、pak、audit statusを同じbranchへ一度だけ書き戻す。
 6. bot書き戻しでは重い三本を再起動しない。
 7. 人間作成の最終状態commitで、適用記録、release evidence、CURRENT_WORK、manifest、next packet、handoffを確定する。
-8. `CI train phase2 gate`だけを実行し、三本の成功runと現在HEADの状態整合を検証する。
-9. 未解決thread 0件を確認し、同じ翻訳PRをsquash統合する。
-10. mainにはすでにprivate作業状態と次束packetが含まれるため、post-merge状態PRは作らない。
-11. private復帰を依頼する。
+8. public中に`CI train phase2 gate`を実行し、三本の成功runと現在HEADの状態整合を検証する。
+9. 未解決thread 0件を確認する。
+10. private復帰を依頼し、repository metadataでprivateを確認する。
+11. private復帰後はCIを再要求せず、operation modeとhandoffをprivate状態へ同期する。
+12. 同じ翻訳PRをsquash統合する。
+13. mainにはすでにprivate作業状態と次束packetが含まれるため、post-merge状態PRは作らない。
 
 ## checkpoint
 
@@ -93,7 +95,7 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 
 ## phase2 gate
 
-軽量gateは次を検査する。
+軽量gateはpublic CI窓の中で次を検査する。
 
 - operation modeと実visibility
 - release evidenceのGitHub Actions実体
@@ -104,6 +106,20 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 - phase2回帰テスト
 
 このgateは状態文書とphase2 checkerに反応するが、locresやpakを再生成しない。
+`ci-train-phase2.yml`のjobはrepository visibilityがpublicのときだけ実行する。private復帰後の状態commitではrunner成功を要求しない。
+
+## private復帰確認
+
+public phase2 gate成功後のprivate復帰は、次で確認する。
+
+- GitHub repository metadataがprivate
+- `CURRENT_WORK.operation_mode.declared_state`が`private_translation_work`
+- checkpointがverified
+- 未適用fixが0
+- 未解決threadが0
+- 次束packetがverified checkpointを基準にしている
+
+private Actionsのrunner開始可否は終了条件に含めない。runner開始前失敗、stepなし、artifactなし、logなしのrunをrelease失敗として扱わない。
 
 ## 失敗時
 
@@ -111,7 +127,8 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 - 原因小束または翻訳判断を直す必要がある場合はprivateへ戻して再releaseする。
 - bot書き戻し後の`action_required`だけを失敗とみなさない。
 - release evidenceが不完全なら統合しない。
-- phase2 gateが過去runを確認できない場合、run IDを書き換えて通すのではなく実run、HEAD、PR lineageを再確認する。
+- public phase2 gateが過去runを確認できない場合、run IDを書き換えて通すのではなく実run、HEAD、PR lineageを再確認する。
+- private復帰後のrunner未開始を理由にpublicへ戻さない。
 - 深い翻訳判断をpublicで反復しない。
 
 ## 第二段階の受入条件
@@ -120,7 +137,8 @@ verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json
 - post-merge状態PR 0件
 - Applyの資産書き戻し後、Relation / Cross / Applyの追加起動0回
 - 最終状態commit後、重い三本の追加起動0回
-- phase2 gate成功
+- public phase2 gate成功
 - 未適用0件、pak・LFS・回帰成功
 - 未解決thread 0件
+- repository metadataでprivate復帰確認
 - squash後のmainからrelease evidenceと次束を復元可能
