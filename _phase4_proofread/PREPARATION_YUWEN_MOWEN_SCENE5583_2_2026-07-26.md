@@ -16,15 +16,10 @@ Relation artifactではIndex6を含まない18行が抽出対象。対象family�
 
 ## 所有境界
 
-既存ownerは`_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`。
+既存owner:
 
-既存キー:
-
-- `5583_2_Dlgs_Index0_Text`
-- `5583_2_Dlgs_Index7_Text`
-- `5583_2_Dlgs_Index8_Text`
-- `5583_2_Dlgs_Index14_Text`
-- `5583_2_Dlgs_Index17_Text`
+- `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`: `5583_2_Dlgs_Index0_Text`、`Index7`、`Index8`、`Index14`、`Index17`
+- `_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json`: `5583_2_Dlgs_Index2_Text`、`Index5`、`Index11`、`Index18`
 
 その他の抽出キーは未所有として保持する。ownerはquality audit後のencodingまで変更しない。
 
