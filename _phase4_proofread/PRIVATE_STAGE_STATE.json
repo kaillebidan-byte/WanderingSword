@@ -2,15 +2,9 @@
   "schema_version": 1,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-06",
-  "stage": "private_encoding",
+  "stage": "ready_for_public_ci",
   "mode": "live_four_stage_validation",
-  "permissions": {
-    "translation_judgment_allowed": false,
-    "fix_writes_allowed": true,
-    "encoding_writes_allowed": true,
-    "throughput_metrics_visible": true,
-    "metrics_frozen": false
-  },
+  "permissions": {"translation_judgment_allowed":false,"fix_writes_allowed":false,"encoding_writes_allowed":false,"throughput_metrics_visible":true,"metrics_frozen":false},
   "history": [
     {"stage":"private_preparation","status":"complete","completed_at":"2026-07-25","evidence":{"source_artifact":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json","scene_context":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","ownership_inventory":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json"}},
     {"stage":"private_quality_audit","status":"complete","completed_at":"2026-07-25","evidence":{"audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","fix_candidates":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","challenged_keeps":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md"}},
@@ -23,10 +17,12 @@
     {"stage":"private_encoding","status":"complete","completed_at":"2026-07-25","evidence":{"audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md","fix_files":"_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json","review_records":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md","ownership_records":"_phase4_proofread/CI_TRAIN_MANIFEST.json"}},
     {"stage":"private_preparation","status":"complete","completed_at":"2026-07-25","evidence":{"source_artifact":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json","scene_context":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","ownership_inventory":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json"}},
     {"stage":"private_quality_audit","status":"complete","completed_at":"2026-07-25","evidence":{"audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","fix_candidates":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","challenged_keeps":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md"}},
-    {"stage":"private_encoding","status":"active","evidence":{"audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","fix_files":"_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json","review_records":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-25.md","ownership_records":"_phase4_proofread/CI_TRAIN_MANIFEST.json"}}
+    {"stage":"private_encoding","status":"complete","completed_at":"2026-07-26","evidence":{"audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","fix_files":"_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json","review_records":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md","ownership_records":"_phase4_proofread/CI_TRAIN_MANIFEST.json"}},
+    {"stage":"ready_for_public_ci","status":"active","evidence":{"quality_gate":"_phase4_proofread/CI_TRAIN_MANIFEST.json","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","next_task_packet":"_phase4_proofread/NEXT_TASK_PACKET.json"}}
   ],
+  "metrics_snapshot": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16},
   "audit_separation": {"pair_keys_follow_judgment":true,"bundle_number_assigned_in_encoding":true,"audit_metrics_suppressed":true,"public_reopens_judgment":false},
-  "process_findings": [{"id":"encoding_to_preparation_accumulation_loop","status":"repaired","evidence":["_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md","_tools/check_private_translation_stage.py","_tools/test_check_private_translation_stage.py"]}],
+  "process_findings": [{"id":"release_threshold_or_semantics","status":"corrected","evidence":["_phase4_proofread/CI_TRAIN_PHASE2.md","_phase4_proofread/TRANSLATION_QUALITY_GATE.md","_phase4_proofread/CI_TRAIN_MANIFEST.json"]}],
   "rework_policy": {"encoding_contradiction":"return_to_private_quality_audit","ready_quality_finding":"invalidate_release_and_return_to_private_quality_audit","public_quality_finding":"request_private_and_return_to_private_quality_audit"},
-  "next_validation": "encode only the five fixed 5572_9 + 5581_5 audit candidates into the existing owner and review record; keep the unowned 5572_9 index0 unowned; any new translation doubt returns to private_quality_audit"
+  "next_validation": "request public CI window; after repository metadata confirms public, ready PR 118 and run Relation, Cross, Apply, and phase2 gate without reopening translation judgment"
 }
