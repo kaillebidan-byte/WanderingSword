@@ -49,6 +49,16 @@
       ]
     }
   ],
+  "batch_planning": {
+    "reviewed_rows": 4,
+    "target_rows": {"min": 15, "max": 30},
+    "adjacent_candidates_checked": ["5581_5", "5581_7", "5581_8", "5583_1"],
+    "grouping_decision": "5581_7と5581_8は復命相手だけが異なる分岐鏡写しとして一組で確認する。後続5583_1は共通の報告本編へ機能が変わるため、private preparationで文脈を取得してから結合可否を決める。",
+    "exception": {
+      "reason_code": "isolated_branch_boundary",
+      "detail": "現在packetはpublic CI後の次候補予約であり正式束ではない。二つの短い分岐を件数合わせで後続へ混ぜず、private復帰後に5583_1との意味境界を再確認する。"
+    }
+  },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
     "fact_doubts": [
