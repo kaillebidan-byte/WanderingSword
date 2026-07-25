@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5581_7",
+    "5581_8"
+  ],
+  "source_artifact": {
+    "workflow": "Relation audit extraction",
+    "run_id": 30169356037,
+    "artifact_id": 8622473127,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:497d03bf8bb1eeb1723b4064025486e626ca59fa26ea2bd4b2ecf2be9e32ad19",
+    "head_sha": "6f0648976b548164a30fb3b65bc0e70c310f293b"
+  },
+  "scene_context": {
+    "before": ["5581_5"],
+    "current": ["5581_7", "5581_8"],
+    "after": ["5583_1", "5583_2"],
+    "timeline": "黎城到着後、瑶姫と別れた直後の分岐。莫問が宇文逸を法場へ促し、復命相手が清霄師伯か師父かで分かれる。",
+    "branch_note": "二つは鏡写しの分岐familyで、同時発生として結合しない。いずれもduplicate_locationsはない。"
+  },
+  "rows": [
+    {"key":"5581_7_Dlgs_Index0_Text","speaker":"莫問","zh":"师弟，走吧，我们也该去前面的法场，向清霄师伯复命了。","ja":"師弟、行こう。わたしたちも、前の法場で清霄師伯に復命しよう。"},
+    {"key":"5581_7_Dlgs_Index1_Text","speaker":"宇文逸","zh":"嗯，我们走。","ja":"ああ、行こう。"},
+    {"key":"5581_8_Dlgs_Index0_Text","speaker":"莫問","zh":"师弟，走吧，我们也该去前面的法场，向师父复命了。","ja":"師弟、行こう。わたしたちも、前の法場で師父に復命しよう。"},
+    {"key":"5581_8_Dlgs_Index1_Text","speaker":"宇文逸","zh":"嗯，我们走。","ja":"ああ、行こう。"}
+  ],
+  "ownership_inventory": {
+    "existing_owner": {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json",
+      "keys": ["5581_7_Dlgs_Index0_Text", "5581_7_Dlgs_Index1_Text", "5581_8_Dlgs_Index0_Text", "5581_8_Dlgs_Index1_Text"]
+    },
+    "unowned": [],
+    "decision_deferred_to": "private_encoding_after_quality_audit"
+  },
+  "candidate_questions": [
+    "莫問の兄弟子としての簡潔な促しを、命令的または過度に丁寧な調子へ変えていないか",
+    "清霄師伯と師父という復命相手の差を壊していないか",
+    "法場をこの二場面にない処刑描写や具体的用途で補っていないか",
+    "宇文逸の短い同意を儀礼的な返答へ整えすぎていないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [],
+    "fact_doubts": [
+      "5581_7と5581_8を同一時系列で同時に起きた行動へ結合しない",
+      "法場の用途、状態、そこで起きた出来事をこの二場面だけから補わない",
+      "復命する内容、清霄師伯または師父の反応、後続命令を先取りしない"
+    ]
+  },
+  "forbidden_outputs": ["fix_or_keep_decision", "fix_json_write", "new_owner_assignment", "formal_bundle_completion", "throughput_metrics"]
+}
