@@ -8,6 +8,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import check_private_translation_stage as private_stage
+
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = ROOT / "_phase4_proofread" / "CI_TRAIN_MANIFEST.json"
 OBJECTIVE = "repair_substantive_translation_defects"
@@ -99,7 +101,13 @@ def validate(manifest: dict[str, Any]) -> list[str]:
     if gate.get("low_yield_threshold_percent") != LOW_YIELD_PERCENT:
         errors.append(f"quality_gate.low_yield_threshold_percent must be {LOW_YIELD_PERCENT}")
 
-    for key in ("reviewed_keys", "unique_reviewed_rows", "fix_keys", "unique_fix_rows", "keep_only_bundles"):
+    for key in (
+        "reviewed_keys",
+        "unique_reviewed_rows",
+        "fix_keys",
+        "unique_fix_rows",
+        "keep_only_bundles",
+    ):
         if gate.get(key) != calculated[key]:
             errors.append(f"quality_gate.{key} mismatch")
 
@@ -147,13 +155,20 @@ def validate(manifest: dict[str, Any]) -> list[str]:
                 or not (ROOT / record).is_file()
             ):
                 errors.append("challenge_pass.record is invalid or missing")
-
     return errors
 
 
 def main() -> int:
     manifest = load_object()
     errors = validate(manifest)
+
+    contract = private_stage.load_object(private_stage.CONTRACT_PATH)
+    state = private_stage.load_object(private_stage.STATE_PATH)
+    current = private_stage.load_object(private_stage.CURRENT_PATH)
+    stage_manifest = private_stage.load_object(private_stage.MANIFEST_PATH)
+    stage_errors = private_stage.validate(contract, state, current, stage_manifest)
+    errors.extend(f"private stage: {error}" for error in stage_errors)
+
     gate = manifest.get("quality_gate", {})
     print("=== Translation quality gate ===")
     print(f"train: {manifest.get('train_id')}")
@@ -163,12 +178,13 @@ def main() -> int:
     print(f"unique fixes: {gate.get('unique_fix_rows')}")
     print(f"fix keys: {gate.get('fix_keys')}")
     print(f"low yield: {gate.get('low_yield_detected')}")
+    print(f"private stage: {state.get('stage')}")
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: throughput is transport-only and the translation quality gate is complete")
+    print("OK: translation quality and private-stage separation are complete")
     return 0
 
 
