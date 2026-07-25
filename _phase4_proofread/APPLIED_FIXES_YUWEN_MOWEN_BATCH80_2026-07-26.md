@@ -4,6 +4,7 @@
 - PR: #118
 - CI列車: `yuwen-mowen-train-06`
 - release: `yuwen-mowen-train-06-r1`
+- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json`
 - 品質条件: `quality_passed` / low yieldなし
 - 場面: `5540_4` / `5551_2` / `5572_6` / `5572_9` / `5581_5`
 - reviewed keys: 50
@@ -18,11 +19,8 @@
 - status: `applied_and_pak_built`
 - build: `verified_not_deployed`
 - game verification: `not_started`
-- Relation run: `30166033122`
-- Cross run: `30166033120`
-- Apply run: `30166033137`
-- CI HEAD: `645a72b16026c987e06a19cb5b381c7f4e531403`
-- verified asset HEAD: `645a72b16026c987e06a19cb5b381c7f4e531403`
+
+CI run ID・CI HEAD・asset HEADの機械正本はrelease evidenceとする。この適用記録は、適用した翻訳判断・所有・件数の正本であり、CI識別子を重複管理しない。
 
 ## 第77束 `5540_4`
 
@@ -69,12 +67,18 @@
 
 ## 機械検証
 
-- Relation audit extraction run `30166033122` 成功
-- Cross register QA run `30166033120` 成功
-- Apply curated localization fixes run `30166033137` 成功
+release evidenceが固定する最終成功run:
+
+- Relation audit extraction run `30166311919`
+- Cross register QA run `30166311912`
+- Apply curated localization fixes run `30166311917`
+- 同一CI HEAD `2b994888eae0929af76ddb886efe2c911362fcdf`
+- verified asset HEAD `39f3248e9333460e2c35e110f40e944ba3bf9927`
+- state-only phase2 gate run `30166513929`
+- 未解決review thread 0件
 - Applyで未適用差分0件を確認
 - locres、pak、LFS、validate、register lint、関係抽出、単体テスト、回帰走査成功
-- audit statusは人物ペア1171・全1529で整合し、生成差分はなかった
+- audit statusは第80束・人物ペア1171・全1529へ同期
 - public中に新しい翻訳判断、owner変更、次小束監査は行っていない
 
-この記録をrelease evidence `yuwen-mowen-train-06-r1`の適用正本とし、同じPR内で第80束checkpoint、manifest、次束packetを確定する。ゲームフォルダへの配置とゲーム内確認は行っていない。
+この記録とrelease evidenceを使って第80束checkpointを確定する。ゲームフォルダへの配置とゲーム内確認は行っていない。
