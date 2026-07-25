@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-06-release-complete-next-private-candidate",
+  "task_id": "yuwen-mowen-train-06-private-merge-then-next-candidate",
   "based_on_checkpoint": {
     "batch": 80,
     "pair_applied_keys": 1171,
@@ -23,7 +23,7 @@
     "artifact_id": null,
     "artifact_digest": null,
     "artifact_head": "2b994888eae0929af76ddb886efe2c911362fcdf",
-    "freshness_rule": "train-06のphase2 gateとprivate復帰・統合を完了した後に、最新Relation artifactを取得して原文・現訳・前後・分岐を改めて準備する。public中は翻訳判断しない。"
+    "freshness_rule": "train-06のprivate復帰とPR #118統合を完了した後に、最新Relation artifactを取得して原文・現訳・前後・分岐を改めて準備する。public中は翻訳判断しない。"
   },
   "scene_flow": [
     {
@@ -56,7 +56,7 @@
     "grouping_decision": "5581_7と5581_8は復命相手だけが異なる分岐鏡写しとして一組で確認する。後続5583_1は共通の報告本編へ機能が変わるため、private preparationで文脈を取得してから結合可否を決める。",
     "exception": {
       "reason_code": "isolated_branch_boundary",
-      "detail": "現在packetはrelease後の次候補予約であり正式束ではない。二つの短い分岐を件数合わせで後続へ混ぜず、private復帰後に5583_1との意味境界を再確認する。"
+      "detail": "現在packetはrelease後の次候補予約であり正式束ではない。二つの短い分岐を件数合わせで後続へ混ぜず、private復帰とPR #118統合後に5583_1との意味境界を再確認する。"
     }
   },
   "allusion_and_fact_gates": {
@@ -91,8 +91,8 @@
     "separate_layers": "翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける。"
   },
   "expected_outputs": [
-    "publicではtrain-06のstate-only phase2 gate、private復帰確認、PR #118のsquash統合だけを完了する",
-    "private復帰後に5581_7と5581_8のpreparationを新規に行い、最新artifact・分岐・前後・所有を固定する",
+    "publicではrepositoryのprivate復帰依頼だけを行い、GitHub metadataでprivate確認後にPR #118をsquash統合する",
+    "PR #118統合後のprivate作業で5581_7と5581_8のpreparationを新規に行い、最新artifact・分岐・前後・所有を固定する",
     "quality auditへ進むまでfix・keep判断、owner変更、正式な第81束を作らない"
   ],
   "release_candidate": {
@@ -100,6 +100,8 @@
     "release_id": "yuwen-mowen-train-06-r1",
     "pr": 118,
     "status": "verified",
+    "phase2_run": 30166513929,
+    "unresolved_review_threads": 0,
     "totals": {"bundle_count": 4, "reviewed_rows": 50, "reviewed_keys": 50, "unique_reviewed_rows": 50, "fix_keys": 16, "unique_fix_rows": 16, "new_pair_keys": 0},
     "quality_gate": {"schema_version": 1, "primary_objective": "repair_substantive_translation_defects", "throughput_metrics_role": "transport_only", "low_yield_threshold_percent": 15, "low_yield_detected": false, "release_decision": "quality_passed"},
     "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json",
@@ -107,9 +109,12 @@
   },
   "public_window": {
     "visibility_source": "github_repository_metadata",
+    "completed_actions": [
+      "release evidence verified",
+      "CI train phase2 gate run 30166513929 succeeded",
+      "unresolved review threads confirmed zero"
+    ],
     "remaining_actions": [
-      "run CI train phase2 gate",
-      "confirm unresolved review threads are zero",
       "request private return",
       "squash merge PR #118 after private metadata confirmation"
     ],
@@ -125,12 +130,13 @@
     "public中に新しい翻訳判断を行わない",
     "次の小束を追加・監査済み扱いにしない",
     "人物声・FACT_DOUBT・ALLUSION_REVIEWを変更しない",
+    "phase2とreview thread確認を不必要に再実行しない",
     "post-merge状態PRを作らない"
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・verified checkpoint第80束・人物ペア1171・全1529。",
-    "open_pr": "PR #118でtrain-06-r1の三本CIとasset書き戻しを完了し、state-only phase2 gate待ち。",
-    "start": "phase2 gateと未解決thread 0件を確認し、private復帰後にPR #118を統合する。",
+    "open_pr": "PR #118でtrain-06-r1の三本CI、asset書き戻し、state-only phase2 gate、review thread 0件確認まで完了済み。",
+    "start": "publicならprivate復帰を依頼する。GitHub metadataでprivate確認後、PR #118をsquash統合する。",
     "drift": "5581_7・5581_8は次候補として予約しただけで、public中にpreparation・quality audit・encodingを行わない。"
   },
   "ci_train": {
@@ -141,6 +147,7 @@
     "bundle_status_on_completion": "reviewed_pending_ci",
     "do_not_apply_until_release": true,
     "finalization_phase": "phase2",
+    "phase2_run": 30166513929,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
   }
