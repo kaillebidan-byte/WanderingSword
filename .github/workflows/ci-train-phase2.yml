@@ -2,6 +2,11 @@ name: CI train phase2 gate
 
 on:
   pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
     branches:
       - main
     paths:
@@ -9,7 +14,11 @@ on:
       - "_phase4_proofread/APPLIED_FIXES_*.md"
       - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
       - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
+      - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json"
+      - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md"
+      - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
       - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/CI_TRAIN_PHASE1.md"
       - "_phase4_proofread/CI_TRAIN_PHASE2.md"
       - "_phase4_proofread/CURRENT_WORK.json"
       - "_phase4_proofread/CURRENT_HANDOFF.md"
@@ -28,6 +37,8 @@ on:
       - "_tools/test_check_handoff_consistency_v2.py"
       - "_tools/check_operation_mode.py"
       - "_tools/test_check_operation_mode.py"
+      - "_tools/check_private_translation_stage.py"
+      - "_tools/test_check_private_translation_stage.py"
       - "_tools/check_ci_train_manifest.py"
       - "_tools/check_ci_train_manifest_v2.py"
       - "_tools/test_check_ci_train_manifest.py"
@@ -102,12 +113,14 @@ jobs:
           python _tools/check_handoff_consistency_v2.py --require-verified \
             2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
 
-      - name: Validate train, quality, and next packet
+      - name: Validate train, wave, quality, and next packet
         shell: bash
         run: |
           set -o pipefail
           python _tools/check_ci_train_manifest_v2.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
+          python _tools/check_private_translation_stage.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/private_translation_wave.txt
           python _tools/check_translation_quality_gate.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/translation_quality_gate.txt
           python _tools/check_next_task_packet.py \
@@ -117,6 +130,7 @@ jobs:
         run: |
           python _tools/test_check_visibility_preflight_contract.py
           python _tools/test_check_operation_mode.py
+          python _tools/test_check_private_translation_stage.py
           python _tools/test_check_release_evidence.py
           python _tools/test_check_release_evidence_github.py
           python _tools/test_check_handoff_consistency_v2.py
