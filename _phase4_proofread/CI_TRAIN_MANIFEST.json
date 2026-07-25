@@ -23,12 +23,12 @@
   "allowed_early_release_reasons": ["workflow_change", "schema_change", "security_or_visibility", "urgent_build_verification"],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 2,
-    "reviewed_rows": 24,
-    "reviewed_keys": 24,
-    "unique_reviewed_rows": 24,
-    "fix_keys": 8,
-    "unique_fix_rows": 8,
+    "bundle_count": 3,
+    "reviewed_rows": 36,
+    "reviewed_keys": 36,
+    "unique_reviewed_rows": 36,
+    "fix_keys": 11,
+    "unique_fix_rows": 11,
     "new_pair_keys": 0,
     "keep_only_bundles": 0
   },
@@ -103,6 +103,46 @@
         "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
         "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
       }
+    },
+    {
+      "batch": 79,
+      "status": "reviewed_pending_ci",
+      "scene_groups": ["5572_6"],
+      "reviewed_rows": 12,
+      "reviewed_keys": 12,
+      "unique_rows": 12,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "keep_keys": 9,
+      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
+      "ownership_summary": {
+        "existing_keys": 12,
+        "unowned_kept": 0,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [
+        "借刀杀人はこの場面では一般成句用法であり、他人の手を借りて始末させるという現訳で機能が伝わる"
+      ],
+      "fact_doubts": [
+        "仮面の怪人の正体・所属・目的を確定しない",
+        "風雲訣が実際に曹煜天の手にあるかを瑶姫の伝聞以上へ強めない",
+        "天龍幇が怪人を利用したという推測を確定しない",
+        "怪人の功力を瑶姫の見立て以上へ強めない",
+        "莫問の経験を江湖全体の知識へ拡張しない",
+        "師父たちが怪人の答えを知っているとは確定しない",
+        "衣冠塚から叔父の遺体・死の経緯・葬送状況を補わない"
+      ],
+      "source_artifact": {
+        "workflow": "Relation audit extraction",
+        "run_id": 30149789606,
+        "artifact_id": 8617244568,
+        "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+        "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
+      }
     }
   ],
   "candidate_packets": [
@@ -129,10 +169,20 @@
     {
       "scene_groups": ["5572_6"],
       "stage": "private_encoding",
-      "status": "quality_audit_complete",
+      "status": "complete",
       "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
       "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json",
       "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
+      "formal_batch": 79
+    },
+    {
+      "scene_groups": ["5572_9", "5581_5"],
+      "stage": "private_quality_audit",
+      "status": "preparation_complete",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md",
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json",
+      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md",
       "review_record": null,
       "formal_batch": null
     }
@@ -157,8 +207,8 @@
   "private_stage": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-    "stage": "private_encoding",
-    "status": "third_quality_audit_complete"
+    "stage": "private_quality_audit",
+    "status": "fourth_preparation_complete"
   },
   "process_findings": [
     {
@@ -168,8 +218,8 @@
     }
   ],
   "next_release": {
-    "candidate_scene": "5572_6",
+    "candidate_scene": ["5572_9", "5581_5"],
     "formal_batch": null,
-    "current_private_stage": "private_encoding"
+    "current_private_stage": "private_quality_audit"
   }
 }
