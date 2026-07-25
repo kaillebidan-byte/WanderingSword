@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、段階は`PRIVATE_STAGE_STATE.json`、公開CI入力は`NEXT_TASK_PACKET.json`。
+> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、段階は`PRIVATE_STAGE_STATE.json`、次候補は`NEXT_TASK_PACKET.json`。
 >
 > 再開指示: `現状把握して作業の続きを`
 
@@ -12,20 +12,24 @@
 - operation mode: `ready_for_public_ci`
 - effective mode: `public_ci_window`
 - private stage: `ready_for_public_ci`
-- checkpoint: 第76束 / 人物ペア1171 / 全1529 / 未適用0件
+- checkpoint: 第80束 / 人物ペア1171 / 全1529 / 未適用0件
 - last reviewed: 第80束
-- release checkpoint: `yuwen-mowen-train-05-r2` / verified
+- release checkpoint: `yuwen-mowen-train-06-r1` / verified
+- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json`
 - build: `verified_not_deployed`
 - game verification: `not_started`
 
-## train-06へ収録済み
+## train-06完了内容
 
 - 第77束 `5540_4`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md`
 - 第78束 `5551_2`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md`
 - 第79束 `5572_6`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md`
 - 第80束 `5572_9 + 5581_5`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md`
+- 適用記録: `_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH80_2026-07-26.md`
 
-第80束では監査済み5候補だけを既存ownerへ収録した。
+第77〜80束は50 reviewed keys / 50 unique reviewed rows、16修正、34保持。16修正はすべて既存ownerキーの再改訂であり、新規人物ペア・cross-registerは0。適用済みキー累計は人物ペア1171・全体1529を維持する。
+
+第80束で収録した5修正:
 
 - 宇文逸の師兄への案じ方を自然な連続した問いへ戻した
 - 瑶姫の不自然な復命表現を整理した
@@ -33,34 +37,38 @@
 - 欧陽雪の短い否定を柔らかな言いさしへ戻した
 - `太想我`を恋愛へ固定せず、別れの軽口へ戻した
 
-保持9行、新規owner、新規cross-registerには触れていない。未所有の莫問`5572_9_Dlgs_Index0_Text`は保持のため未所有のまま維持した。公開CI中も新しい翻訳判断は行わない。
+保持9行、新規owner、新規cross-registerには触れていない。未所有の莫問`5572_9_Dlgs_Index0_Text`は保持のため未所有のまま維持した。
 
-## release候補
+## 公開CI結果
 
-- bundle_count: 4
-- reviewed_rows / unique_reviewed_rows: 50
-- reviewed_keys: 50
-- fix_keys / unique_fix_rows: 16
-- new_pair_keys: 0
-- 修正率: 32%
-- low_yield_detected: false
-- quality_gate.release_decision: `quality_passed`
-- manifest status: `ready_for_public_ci`
+同一CI HEAD `2b994888eae0929af76ddb886efe2c911362fcdf`で成功:
 
-通常release条件は4束・40行・20修正のOR。第80束で4束かつ50行に達したため、次小束へ進まず公開CIへ送る。
+- Relation audit extraction: run `30166311919`
+- Cross register QA: run `30166311912`
+- Apply curated localization fixes: run `30166311917`
 
-一度、第81束候補のpreparation入口を作成したが、OR条件の再確認後に誤りと判定し、candidate・preparation・audit stubの3ファイルを削除済み。第81束の翻訳判断は一切行っていない。
+Applyは未適用0件、pak・LFS・validate・lint・関係抽出・回帰を確認し、audit statusを第80束へ更新した。bot生成HEADは`39f3248e9333460e2c35e110f40e944ba3bf9927`。
 
-## 公開CI窓の進行
+公開CI入口で次の行政不整合を修正した。
 
-PR #118はready化済み。初回Relationは`CURRENT_WORK.operation_mode.protocol`の同期漏れ、再実行Relationは本handoffのbootstrap trigger phrase欠落で停止した。どちらも訳文ではなく公開CI状態文書の行政不整合である。
+- operation protocolの参照先
+- handoffのbootstrap trigger phrase
+- next task packetのcold-start構造・所有・batch planning
+- 通常閾値releaseの`release_trigger`
+- audit statusだけが変わるApplyのcheckpoint延期条件
 
-次に`ci-heavy-rerun`を付け直し、同じ最新HEADで以下を実行する。
+これらの修正で訳文、人物声、owner、FACT_DOUBT、ALLUSION_REVIEWは変更していない。public中に新しい翻訳判断も行っていない。
 
-1. Relation / Cross / Applyを成功させる。
-2. Applyの資産書き戻し後、release evidence、checkpoint、manifest、handoff、next packetを同じPR内で最終化する。
-3. phase2 gateと未解決thread 0件を確認する。
-4. private復帰を依頼し、metadataでprivateを確認する。
-5. PR #118をsquash統合する。
+## 次候補
 
-public中に新しい翻訳判断、次小束追加、人物声・FACT_DOUBT・ALLUSION_REVIEWの変更は行わない。
+`5581_7`と`5581_8`を第81束候補としてpacketへ予約した。二つの分岐4行はまだpreparation・quality audit・encodingを行っていない。private復帰後、最新artifactを取得し、後続`5583_1`との結合可否から改めて準備する。
+
+## 残作業
+
+1. state-only `CI train phase2 gate`を成功させる。
+2. PR #118の未解決review threadが0件であることを確認する。
+3. repositoryをprivateへ戻すよう依頼し、metadataで確認する。
+4. private復帰後、同じPR #118をsquash統合する。
+5. post-merge状態PRは作らない。
+
+public中に新しい翻訳判断、次小束監査、owner変更は行わない。
