@@ -45,11 +45,12 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 - `private_quality_audit`:
   読むことと校正判断だけを行う。ownerは参照できるが、修正JSON・pair key・cross-register key・manifest件数は書かない。件数やrelease閾値を判断材料として表示しない。
 - `private_encoding`:
-  監査記録で確定済みの判断だけをJSON・所有・レビュー・束へ収録する。新しい疑義が出た場合はその場で決めず`private_quality_audit`へ戻す。
+  監査記録で確定済みの判断だけをJSON・所有・レビュー・束へ収録する。新しい疑義が出た場合はその場で決めず`private_quality_audit`へ戻す。release条件未達で列車を蓄積する場合は、現在束のencoding完成後にだけ次束の`private_preparation`へ戻る。
 - `ready_for_public_ci`:
   翻訳判断と収録を凍結し、public化依頼とCI輸送だけを行う。
 
-通常遷移は`private_preparation -> private_quality_audit -> private_encoding -> ready_for_public_ci`。
+releaseへ進む通常遷移は`private_preparation -> private_quality_audit -> private_encoding -> ready_for_public_ci`。
+蓄積を続ける通常ループは`private_encoding -> private_preparation -> private_quality_audit -> private_encoding`。
 機械検査は`python _tools/check_private_translation_stage.py`で行う。
 
 ## visibilityとoperation modeの裁定
@@ -111,7 +112,8 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 - action_requiredはbot起因runを開始しない既知の挙動なら失敗ではない。
 - 新チャットはstatus報告だけで止まらず、privateで作業可能なら同じ応答内で実作業へ進む。
 - ただしvisibility preflight前には、status報告も実作業開始宣言も行わない。
-- train-05は四段階導入前の記録を遡及固定した移行列車であり、次列車から段階遷移を順次実測する。
+- train-05は四段階導入前の記録を遡及固定した移行列車。
+- train-06第77束で四段階を実走し、release条件未達時の`private_encoding -> private_preparation`を追加した。新チャットはhistoryの繰り返しを合法な蓄積ループとして復元する。
 
 ## 禁止事項
 
@@ -125,5 +127,6 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 - post-merge状態PRを第二段階で復活させる
 - quality audit中に修正JSON・owner・束番号を作る
 - encoding中に新しい翻訳判断を追加する
+- encoding完成前に次束のpreparationへ移る
 - preparation / quality audit中にmetrics snapshotを表示する
 - private段階を飛び越えてready_for_public_ciへ進む
