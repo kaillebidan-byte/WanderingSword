@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": ["5540_4"],
+  "source_artifact": {
+    "workflow": "Relation audit extraction",
+    "run_id": 30149789606,
+    "artifact_id": 8617244568,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+    "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
+  },
+  "scene_context": {
+    "before": ["5536_3", "5536_4"],
+    "current": "5540_4",
+    "after": ["5551_2", "5572_6", "5572_9"],
+    "timeline": "黎城集合の知らせを受けた後、宇文逸が先に遼城へ戻る意向を示し、同行者が決まる。遼城到着後の出来事は後続場面。",
+    "branch_note": "5536_3と5536_4は直前の分岐family。5540_4自体にduplicate_locationsはない。"
+  },
+  "rows": [
+    {"key":"5540_4_Dlgs_Index0_Text","speaker":"瑶姫","zh":"噗嗤～行了，我也就是随口问问，不必这么认真……","ja":"ふふっ～　もういいわ、ちょっと聞いてみただけ。そんなに真剣にならなくても……"},
+    {"key":"5540_4_Dlgs_Index1_Text","speaker":"瑶姫","zh":"既然你们都找来了，那就一起去黎城吧～","ja":"みんなも来たことだし、一緒に黎城へ行きましょう～"},
+    {"key":"5540_4_Dlgs_Index2_Text","speaker":"宇文逸","zh":"原来你也收到消息了……","ja":"君も知らせを受け取っていたのか……"},
+    {"key":"5540_4_Dlgs_Index3_Text","speaker":"宇文逸","zh":"呃，不过在去黎城之前，我打算先回一趟辽城。","ja":"ああ、でも黎城へ行く前に、一度遼城へ戻ろうと思っている。"},
+    {"key":"5540_4_Dlgs_Index4_Text","speaker":"宇文逸","zh":"离家这么久，只有当初上武当的时候拜托师父帮我带了封信回去……叔叔他一定很担心。","ja":"長く家を空けているのに、武当へ向かう時、師父に手紙を託したきりで……叔父さんも心配しているはずだ。"},
+    {"key":"5540_4_Dlgs_Index5_Text","speaker":"宇文逸","zh":"你们要不要先去……","ja":"みんなは先に黎城へ……"},
+    {"key":"5540_4_Dlgs_Index6_Text","speaker":"莫問","zh":"师弟，师父特意叮嘱好好护着你，我自然不能让你一人独自去辽城。","ja":"師弟、師父からしっかり守るよう言いつけられている。ひとりで遼城へ行かせるわけにはいかない。"},
+    {"key":"5540_4_Dlgs_Index7_Text","speaker":"莫問","zh":"还有半个月，只要我们脚程快一些，时间上完全足够。","ja":"まだ半月ある。急げば十分間に合う。"},
+    {"key":"5540_4_Dlgs_Index8_Text","speaker":"欧陽雪","zh":"嗯，我也陪公子一起。","ja":"ええ。わたくしも宇文公子に同行します。"},
+    {"key":"5540_4_Dlgs_Index9_Text","speaker":"瑶姫","zh":"我倒是也没有问题，只不过……辽城的情况恐怕……","ja":"私も構わないけれど……遼城は、たぶん……"},
+    {"key":"5540_4_Dlgs_Index10_Text","speaker":"宇文逸","zh":"辽城怎么了？","ja":"遼城がどうしたんだ？"},
+    {"key":"5540_4_Dlgs_Index12_Text","speaker":"瑶姫","zh":"……没什么，我们走吧。","ja":"……何でもないわ。行きましょう。"},
+    {"key":"5540_4_Dlgs_Index13_Text","speaker":"宇文逸","zh":"好，我们这就出发！","ja":"よし、すぐに出発しよう！"}
+  ],
+  "ownership_inventory": {
+    "existing_owner": {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json",
+      "keys": [
+        "5540_4_Dlgs_Index0_Text",
+        "5540_4_Dlgs_Index1_Text",
+        "5540_4_Dlgs_Index3_Text",
+        "5540_4_Dlgs_Index4_Text",
+        "5540_4_Dlgs_Index5_Text",
+        "5540_4_Dlgs_Index6_Text",
+        "5540_4_Dlgs_Index7_Text",
+        "5540_4_Dlgs_Index8_Text",
+        "5540_4_Dlgs_Index9_Text",
+        "5540_4_Dlgs_Index12_Text"
+      ]
+    },
+    "unowned": [
+      "5540_4_Dlgs_Index2_Text",
+      "5540_4_Dlgs_Index10_Text",
+      "5540_4_Dlgs_Index13_Text"
+    ],
+    "decision_deferred_to": "private_encoding_after_quality_audit"
+  },
+  "candidate_questions": [
+    "瑶姫の軽い笑いと遼城への含みを場面内でどう区別しているか",
+    "宇文逸の叔父への心配が本人の推測の範囲に留まっているか",
+    "宇文逸の先行提案が莫問に遮られる発話の流れを保っているか",
+    "莫問の同行理由が師兄としての保護責任を越えて強められていないか",
+    "欧陽雪の同行意思が原文より弱くなっていないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [],
+    "fact_doubts": [
+      "知らせを受け取った経緯を補わない",
+      "叔父の実際の心配の程度を確定しない",
+      "師父の指示を護衛命令・監視命令へ拡張しない",
+      "半月の期限と移動可能性を保証へ強めない",
+      "瑶姫が知る遼城の事情を先取りしない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics"
+  ]
+}
