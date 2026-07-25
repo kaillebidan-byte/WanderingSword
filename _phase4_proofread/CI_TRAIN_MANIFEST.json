@@ -82,11 +82,12 @@
     },
     {
       "scene_groups": ["5551_2"],
-      "stage": "private_quality_audit",
-      "status": "preparation_complete",
+      "stage": "private_encoding",
+      "status": "quality_audit_complete",
       "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
       "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json",
       "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+      "review_record": null,
       "formal_batch": null
     }
   ],
@@ -110,8 +111,8 @@
   "private_stage": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-    "stage": "private_quality_audit",
-    "status": "second_preparation_complete"
+    "stage": "private_encoding",
+    "status": "second_quality_audit_complete"
   },
   "process_findings": [
     {
@@ -123,6 +124,6 @@
   "next_release": {
     "candidate_scene": "5551_2",
     "formal_batch": null,
-    "current_private_stage": "private_quality_audit"
+    "current_private_stage": "private_encoding"
   }
 }
