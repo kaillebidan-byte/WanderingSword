@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
   "status": "ready",
-  "task_id": "yuwen-mowen-scene5572_6-quality-audit",
+  "task_id": "yuwen-mowen-scene5572_6-private-encoding",
   "based_on_checkpoint": {
     "batch": 76,
     "pair_applied_keys": 1171,
@@ -26,7 +26,7 @@
     "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json",
     "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
     "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
-    "freshness_rule": "第78束encoding後にprivate_preparationへ戻して固定した入力。訳文判断はprivate_quality_auditでのみ行う。"
+    "freshness_rule": "quality auditで確定した三候補だけをprivate encodingで収録し、新しい訳文判断は追加しない。"
   },
   "scene_flow": [
     {
@@ -48,12 +48,10 @@
         "5572_6_Dlgs_Index11_Text"
       ],
       "voice_questions": [
-        "欧陽雪の負傷確認が二人への切迫した呼びかけとして自然か",
-        "瑶姫の軽い伸ばしと事件直後の緊張が人物声を失わず同居しているか",
-        "借刀殺人の推測を天龍幇の確定した計画へ強めていないか",
-        "怪人の功力と素性を話者の見立て以上に確定していないか",
-        "莫問の江湖経験と次行動の提示が事務説明へ平坦化していないか",
-        "宇文逸の衣冠塚への決断が弔いと黎城行きの優先を自然に結んでいるか"
+        "監査で確定した三候補だけが収録されているか",
+        "保持九行を便宜的に変更していないか",
+        "話者接頭辞・伸ばし・句読点を壊していないか",
+        "FACT_DOUBTとALLUSION_REVIEWが監査記録どおり分離されているか"
       ]
     }
   ],
@@ -64,23 +62,59 @@
     "grouping_decision": "5572_6は遼城事件直後の怪人検討と叔父の弔いを経た出発決定で意味境界が閉じる。後続5572_9は莫問の上の空と道順提示へ機能が変わるため別にする。",
     "exception": {
       "reason_code": "no_adjacent_in_scope_scene",
-      "detail": "前場面は第78束としてencoding済み、後場面は莫問の内面と移動案内へ機能が変わるため、標準下限未満でも単独候補とする。正式な束確定はencoding段階まで行わない。"
+      "detail": "前場面は第78束としてencoding済み、後場面は莫問の内面と移動案内へ機能が変わるため、標準下限未満でも単独候補とする。正式な束確定はencoding完了時に行う。"
     }
   },
+  "audit_decision": {
+    "fix_candidates": [
+      {
+        "key": "5572_6_Dlgs_Index7_Text",
+        "speaker": "瑶姫",
+        "candidate": "見たところ、あの者の功力は義父にも劣らない。並の相手ではなさそうね。もし天龍幇にあんな助っ人がいるのなら、厄介だわ～"
+      },
+      {
+        "key": "5572_6_Dlgs_Index9_Text",
+        "speaker": "莫問",
+        "candidate": "今は、黎城で師父たちと合流してから、聞いてみるしかない。"
+      },
+      {
+        "key": "5572_6_Dlgs_Index11_Text",
+        "speaker": "宇文逸",
+        "candidate": "……黎城の件も急がないと。叔父さんの衣冠塚を建てたら、出発しよう。"
+      }
+    ],
+    "challenged_keep_keys": [
+      "5572_6_Dlgs_Index0_Text",
+      "5572_6_Dlgs_Index1_Text",
+      "5572_6_Dlgs_Index2_Text",
+      "5572_6_Dlgs_Index3_Text",
+      "5572_6_Dlgs_Index4_Text",
+      "5572_6_Dlgs_Index5_Text",
+      "5572_6_Dlgs_Index6_Text",
+      "5572_6_Dlgs_Index8_Text",
+      "5572_6_Dlgs_Index10_Text"
+    ],
+    "needs_context": [],
+    "allusion_review_candidates": []
+  },
   "allusion_and_fact_gates": {
-    "allusion_review_candidates": ["借刀杀人"],
+    "allusion_review_candidates": [],
+    "allusion_review_resolved": [
+      "借刀杀人はこの場面では一般成句用法。現訳の他人の手を借りて始末させるで機能が伝わり、固有典故処理は不要。"
+    ],
     "fact_doubts": [
       "仮面の怪人の正体・所属・目的を確定しない",
       "風雲訣が実際に曹煜天の手にあるかを客観的事実へ確定しない",
       "天龍幇が怪人を利用したという推測を確定しない",
       "怪人の功力が義父と同等以上かを瑶姫の見立て以上に強めない",
       "莫問が怪人を知らないことを江湖全体で未知という意味へ広げない",
+      "師父たちが怪人の答えを知っているとは確定しない",
       "衣冠塚から叔父の遺体・死の経緯・葬送状況を補わない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "全12キーが既存ownerにある。quality auditでは参照だけを行い、encodingで修正確定したキーだけを既存ownerへ再収録する。",
-    "cross_register": "人物ペア外の問題とquality auditで確定した場合だけencoding段階で分離する。",
+    "pair_batch": "監査で確定した修正候補はすべて既存owner内にある。既存ownerを再改訂し、新規ownerは作らない。",
+    "cross_register": "人物ペア外の問題は監査で確定していないため新規cross-registerを作らない。",
     "machine_ownership": {
       "existing": [
         {
@@ -106,26 +140,19 @@
   },
   "private_stage_plan": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
-    "current_stage": "private_quality_audit",
-    "completed_stages_in_current_cycle": ["private_preparation"],
+    "current_stage": "private_encoding",
+    "completed_stages_in_current_cycle": ["private_preparation", "private_quality_audit"],
     "previous_cycle": {"formal_batch": 78, "status": "private_encoding_complete"},
     "sequence": ["private_preparation", "private_quality_audit", "private_encoding", "ready_for_public_ci"],
     "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
-    "quality_audit_restrictions": [
-      "fix JSONを書かない",
-      "ownerを変更しない",
-      "正式な束を完了扱いにしない",
-      "manifest件数とrelease残量を判断材料にしない"
-    ],
-    "encoding_rule": "quality auditで確定済みの判断だけを収録し、新しい疑義はquality auditへ戻す"
+    "encoding_rule": "監査記録の三候補だけを既存fix fileと第79束レビュー記録へ収録する。新しい疑義はprivate_quality_auditへ戻す。"
   },
   "do_not_do": [
-    "private_quality_auditで修正JSON・owner・正式な束を作らない",
-    "怪人の正体・所属・目的を先取りしない",
-    "天龍幇の関与と風雲訣の所在を客観的事実へ確定しない",
-    "莫問の未知認識を江湖全体へ拡張しない",
-    "衣冠塚から叔父の死の詳細を補わない",
-    "話者接頭辞・色タグ・制御文字を壊さない"
+    "encoding中に新しい訳文判断を追加しない",
+    "保持九行を件数合わせで修正へ変えない",
+    "新規ownerまたはcross-registerを作らない",
+    "locres・pak・audit statusをrelease前に更新しない",
+    "話者接頭辞・伸ばし・制御文字を壊さない"
   ],
   "skill_review": {
     "default": "no_change",
@@ -133,16 +160,16 @@
     "separate_layers": "翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける"
   },
   "expected_outputs": [
-    "quality auditでは原文・現訳・前後・話者・相手・時系列から判断する",
-    "fix候補・疑った保持・追加文脈の要否を監査記録へ残す",
-    "FACT_DOUBTとALLUSION_REVIEWを分離する",
-    "encodingへ移るまでfix JSON・owner・正式束・locres・pakを更新しない"
+    "監査で確定した三候補を既存ownerへ反映する",
+    "第79束レビュー記録へfix・keep・FACT_DOUBT・ALLUSION_REVIEWを収録する",
+    "所有競合と伸ばし記号を確認する",
+    "encoding完了時にだけ正式な束と輸送件数を確定する"
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・checkpoint第76束・last reviewed第78束・人物ペア1171・全1529。",
-    "open_pr": "draft PR #118で第78束encoding完了。第79束候補5572_6のpreparation完了、quality auditがactive。",
-    "start": "5572_6の候補packetを読み、翻訳判断だけを監査記録へ残す。",
-    "drift": "release条件未達時のencoding→preparation遷移を使い、品質判断と輸送指標を分離する。"
+    "open_pr": "draft PR #118で第78束encoding完了。第79束候補5572_6のquality audit完了、private encodingがactive。",
+    "start": "5572_6の監査済み三候補だけを既存ownerと第79束レビュー記録へ収録する。",
+    "drift": "encodingでは訳文判断を再開せず、疑義があればquality auditへ戻す。"
   },
   "ci_train": {
     "phase": "phase1_pilot",
@@ -156,8 +183,8 @@
     "single_pr_finalization": true,
     "private_stage": {
       "policy": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
-      "current": "private_quality_audit",
-      "previous": "private_preparation",
+      "current": "private_encoding",
+      "previous": "private_quality_audit",
       "previous_cycle_encoding": 78
     }
   }
