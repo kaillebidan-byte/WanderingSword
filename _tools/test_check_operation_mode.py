@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""check_operation_mode のphase1互換とphase2単一PR最終化を検証する。"""
+"""check_operation_modeのwave v2・翻訳凍結・CI輸送分離を検証する。"""
 from __future__ import annotations
 
+import copy
 import importlib.util
 from pathlib import Path
 
@@ -19,7 +20,7 @@ def load_module():
     return module
 
 
-def sample_current(train_status="accumulating", declared="private_translation_work", phase="phase2"):
+def sample_current(train_status="verified", declared="translation_frozen", phase="phase2"):
     phase2 = phase == "phase2"
     checks = [
         "relation_audit_success",
@@ -37,7 +38,11 @@ def sample_current(train_status="accumulating", declared="private_translation_wo
     return {
         "operation_mode": {
             "declared_state": declared,
-            "protocol": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
+            "protocol": (
+                "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md"
+                if declared == "translation_frozen"
+                else "_phase4_proofread/PUBLIC_CI_WINDOW.md"
+            ),
             "actual_visibility_source": "github_repository_metadata",
             "visibility_change_actor": "user",
             "phrases": {
@@ -56,7 +61,7 @@ def sample_current(train_status="accumulating", declared="private_translation_wo
             "post_merge_state_pr_required": not phase2,
         },
         "ci_train": {
-            "phase": "phase1_pilot",
+            "phase": "phase1_wave",
             "finalization_phase": phase,
             "policy": (
                 "_phase4_proofread/CI_TRAIN_PHASE2.md"
@@ -67,6 +72,7 @@ def sample_current(train_status="accumulating", declared="private_translation_wo
             "train_id": "test-train",
             "branch": "agent/test-train",
             "status": train_status,
+            "transport_status": "merged" if train_status == "verified" else "not_ready",
         },
     }
 
@@ -75,12 +81,16 @@ def main() -> None:
     module = load_module()
     assert module.resolve_effective_mode("private_translation_work", "private") == "private_translation_work"
     assert module.resolve_effective_mode("private_translation_work", "public") == "return_private_required"
-    assert module.resolve_effective_mode("ready_for_public_ci", "public") == "public_ci_window"
+    assert module.resolve_effective_mode("translation_frozen", "private") == "translation_frozen"
+    assert module.resolve_effective_mode("translation_frozen", "public") == "public_ci_window"
 
     assert module.validate_operation_mode(sample_current()) == []
     assert module.validate_operation_mode(sample_current(phase="phase1")) == []
     assert module.validate_operation_mode(
-        sample_current("ready_for_public_ci", "ready_for_public_ci")
+        sample_current("ready_for_public_ci", "translation_frozen")
+    ) == []
+    assert module.validate_operation_mode(
+        sample_current("in_public_ci", "translation_frozen")
     ) == []
 
     bad = sample_current()
@@ -93,9 +103,19 @@ def main() -> None:
     errors = module.validate_operation_mode(bad)
     assert any("post_merge_state_pr_required=false" in error for error in errors)
 
-    bad = sample_current("accumulating", "ready_for_public_ci")
+    bad = sample_current("accumulating", "translation_frozen")
+    bad["operation_mode"]["protocol"] = "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md"
     errors = module.validate_operation_mode(bad)
     assert any("accumulating train" in error for error in errors)
+
+    bad = sample_current("ready_for_public_ci", "ready_for_public_ci")
+    errors = module.validate_operation_mode(bad)
+    assert any("requires translation_frozen" in error for error in errors)
+
+    bad = copy.deepcopy(sample_current())
+    bad["ci_train"]["phase"] = "phase1_pilot"
+    errors = module.validate_operation_mode(bad)
+    assert any("phase1_wave" in error for error in errors)
 
     print("test_check_operation_mode: OK")
 
