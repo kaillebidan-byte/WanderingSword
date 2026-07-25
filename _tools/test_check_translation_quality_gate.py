@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import runpy
 import tempfile
 from pathlib import Path
 
@@ -115,6 +116,10 @@ def main() -> None:
 
         checker.ROOT = old_root
 
+    runpy.run_path(
+        str(ROOT / "_tools" / "test_check_private_translation_stage.py"),
+        run_name="__main__",
+    )
     print("test_check_translation_quality_gate: OK")
 
 
