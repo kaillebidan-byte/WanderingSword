@@ -1,1 +1,74 @@
-{"schema_version":1,"phase":"phase1_pilot","train_id":"yuwen-mowen-train-05","branch":"agent/yuwen-mowen-train-05","draft_pr":117,"status":"verified","base_checkpoint":{"batch":73,"pair_applied_keys":1170,"project_applied_keys":1528,"produced_by_pr":115,"release_identity":{"kind":"pr_release_v1","release_id":"yuwen-mowen-train-04-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_04.json","pr":115,"validated_head":"8046087f0903005592ff92564b5f574fe18644e9"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":60},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":3,"reviewed_rows":47,"reviewed_keys":53,"unique_reviewed_rows":47,"fix_keys":7,"unique_fix_rows":6,"new_pair_keys":1,"keep_only_bundles":0},"bundles":[{"batch":74,"status":"reviewed_pending_ci","scene_groups":["5531_3","5531_4"],"reviewed_rows":28,"reviewed_keys":28,"unique_rows":28,"fix_keys":2,"unique_fix_rows":2,"new_pair_keys":0,"keep_keys":26,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH74_2026-07-25.md","ownership_summary":{"existing_keys":22,"unowned_kept":6,"new_keys":0,"cross_register_keys":0}},{"batch":75,"status":"reviewed_pending_ci","scene_groups":["5531_7","5535_2"],"reviewed_rows":11,"reviewed_keys":11,"unique_rows":11,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":1,"keep_keys":8,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH75_2026-07-25.md","ownership_summary":{"existing_keys":9,"unowned_kept":1,"new_keys":1,"cross_register_keys":0}},{"batch":76,"status":"reviewed_pending_ci","scene_groups":["5536_3","5536_4"],"reviewed_rows":8,"reviewed_keys":14,"unique_rows":8,"fix_keys":2,"unique_fix_rows":1,"new_pair_keys":0,"keep_keys":12,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH76_2026-07-25.md","ownership_summary":{"existing_keys":10,"unowned_kept":4,"new_keys":0,"cross_register_keys":0}}],"tracking_issue":116,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json","previous_release":{"train_id":"yuwen-mowen-train-04","release_id":"yuwen-mowen-train-04-r1","pr":115,"merge_sha":"4dba3a33788cc0a1bdf6480656e0237661678ac4","status":"verified"},"invalidated_release":{"release_id":"yuwen-mowen-train-05-r1","reason":"low-yield challenge found four missed fix keys"},"applied_result":{"apply_run":30149789594,"asset_head":"1b84e1586fa13802525904cfbe192ebd3f4972bc","pair_applied_keys":1171,"project_applied_keys":1529,"pending_fixes":0,"checkpoint_status":"verified"},"verified_result":{"release_id":"yuwen-mowen-train-05-r2","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json","record_index_synced":true,"pair_applied_keys":1171,"project_applied_keys":1529,"pending_fixes":0},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":53,"unique_reviewed_rows":47,"fix_keys":7,"unique_fix_rows":6,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":3,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":44,"findings_unique_rows":3,"finding_keys":4,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN_05_2026-07-25.md"}},"private_stage":{"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"ready_for_public_ci","status":"verified_by_relation_and_apply"},"next_release":{"first_batch":77,"next_scene":"5540_4","first_private_stage":"private_preparation"}}
+{
+  "schema_version": 1,
+  "phase": "phase1_pilot",
+  "train_id": "yuwen-mowen-train-06",
+  "branch": "agent/yuwen-mowen-train-06",
+  "draft_pr": null,
+  "status": "accumulating",
+  "base_checkpoint": {
+    "batch": 76,
+    "pair_applied_keys": 1171,
+    "project_applied_keys": 1529,
+    "produced_by_pr": 117,
+    "release_identity": {
+      "kind": "pr_release_v1",
+      "release_id": "yuwen-mowen-train-05-r2",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json",
+      "pr": 117,
+      "validated_head": "1b84e1586fa13802525904cfbe192ebd3f4972bc"
+    }
+  },
+  "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
+  "caps": {"bundle_count": 6, "reviewed_rows": 60},
+  "allowed_early_release_reasons": ["workflow_change", "schema_change", "security_or_visibility", "urgent_build_verification"],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "candidate_packets": [
+    {
+      "scene_groups": ["5540_4"],
+      "stage": "private_quality_audit",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json",
+      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
+      "formal_batch": null
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "draft_pr_private_stage_pointer",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "release_evidence": null,
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-05",
+    "release_id": "yuwen-mowen-train-05-r2",
+    "pr": 117,
+    "merge_sha": "6f1b92f979ce53cef0a25e4058828b53492bbe7d",
+    "status": "verified"
+  },
+  "quality_gate": {
+    "policy": "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
+    "status": "not_evaluated_before_encoding"
+  },
+  "private_stage": {
+    "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
+    "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+    "stage": "private_quality_audit",
+    "status": "preparation_complete"
+  },
+  "next_release": {
+    "candidate_scene": "5540_4",
+    "formal_batch": null,
+    "current_private_stage": "private_quality_audit"
+  }
+}
