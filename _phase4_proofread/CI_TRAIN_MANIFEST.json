@@ -1,1 +1,85 @@
-{"schema_version":1,"phase":"phase1_pilot","train_id":"yuwen-mowen-train-05","branch":"agent/yuwen-mowen-train-05","draft_pr":117,"status":"verified","base_checkpoint":{"batch":73,"pair_applied_keys":1170,"project_applied_keys":1528,"produced_by_pr":115,"release_identity":{"kind":"pr_release_v1","release_id":"yuwen-mowen-train-04-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_04.json","pr":115,"validated_head":"8046087f0903005592ff92564b5f574fe18644e9"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":60},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":3,"reviewed_rows":47,"reviewed_keys":53,"unique_reviewed_rows":47,"fix_keys":7,"unique_fix_rows":6,"new_pair_keys":1,"keep_only_bundles":0},"bundles":[{"batch":74,"status":"reviewed_pending_ci","scene_groups":["5531_3","5531_4"],"reviewed_rows":28,"reviewed_keys":28,"unique_rows":28,"fix_keys":2,"unique_fix_rows":2,"new_pair_keys":0,"keep_keys":26,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH74_2026-07-25.md","ownership_summary":{"existing_keys":22,"unowned_kept":6,"new_keys":0,"cross_register_keys":0}},{"batch":75,"status":"reviewed_pending_ci","scene_groups":["5531_7","5535_2"],"reviewed_rows":11,"reviewed_keys":11,"unique_rows":11,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":1,"keep_keys":8,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH75_2026-07-25.md","ownership_summary":{"existing_keys":9,"unowned_kept":1,"new_keys":1,"cross_register_keys":0}},{"batch":76,"status":"reviewed_pending_ci","scene_groups":["5536_3","5536_4"],"reviewed_rows":8,"reviewed_keys":14,"unique_rows":8,"fix_keys":2,"unique_fix_rows":1,"new_pair_keys":0,"keep_keys":12,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH76_2026-07-25.md","ownership_summary":{"existing_keys":10,"unowned_kept":4,"new_keys":0,"cross_register_keys":0}}],"tracking_issue":116,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json","previous_release":{"train_id":"yuwen-mowen-train-04","release_id":"yuwen-mowen-train-04-r1","pr":115,"merge_sha":"4dba3a33788cc0a1bdf6480656e0237661678ac4","status":"verified"},"invalidated_release":{"release_id":"yuwen-mowen-train-05-r1","reason":"low-yield challenge found four missed fix keys"},"applied_result":{"apply_run":30149789594,"asset_head":"1b84e1586fa13802525904cfbe192ebd3f4972bc","pair_applied_keys":1171,"project_applied_keys":1529,"pending_fixes":0,"checkpoint_status":"verified"},"verified_result":{"release_id":"yuwen-mowen-train-05-r2","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json","record_index_synced":true,"pair_applied_keys":1171,"project_applied_keys":1529,"pending_fixes":0},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":53,"unique_reviewed_rows":47,"fix_keys":7,"unique_fix_rows":6,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":3,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":44,"findings_unique_rows":3,"finding_keys":4,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN_05_2026-07-25.md"}},"private_stage":{"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"ready_for_public_ci","status":"verified_by_relation_and_apply"},"next_release":{"first_batch":77,"next_scene":"5540_4","first_private_stage":"private_preparation"}}
+{
+  "schema_version": 1,
+  "phase": "phase1_pilot",
+  "train_id": "yuwen-mowen-train-06",
+  "branch": "agent/yuwen-mowen-train-06",
+  "draft_pr": 118,
+  "status": "verified",
+  "base_checkpoint": {
+    "batch": 76,
+    "pair_applied_keys": 1171,
+    "project_applied_keys": 1529,
+    "produced_by_pr": 117,
+    "release_identity": {"kind":"pr_release_v1","release_id":"yuwen-mowen-train-05-r2","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json","pr":117,"validated_head":"1b84e1586fa13802525904cfbe192ebd3f4972bc"}
+  },
+  "thresholds": {"bundle_count":4,"reviewed_rows":40,"fix_keys":20},
+  "caps": {"bundle_count":6,"reviewed_rows":60},
+  "allowed_early_release_reasons": ["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],
+  "release_trigger": null,
+  "totals": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16,"new_pair_keys":0,"keep_only_bundles":0},
+  "bundles": [
+    {
+      "batch":77,"status":"reviewed_pending_ci","scene_groups":["5540_4"],"reviewed_rows":13,"reviewed_keys":13,"unique_rows":13,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"keep_keys":9,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
+      "ownership_summary":{"existing_keys":10,"unowned_kept":3,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "fact_doubts":["知らせを受け取った経緯を補わない","叔父の心配を客観的事実へ確定しない","師父の指示を護衛命令・監視命令へ拡張しない","半月の移動を無条件の成功保証へ変えない","瑶姫が伏せた遼城の事情を先取りしない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
+    },
+    {
+      "batch":78,"status":"reviewed_pending_ci","scene_groups":["5551_2"],"reviewed_rows":11,"reviewed_keys":11,"unique_rows":11,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"keep_keys":7,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md",
+      "ownership_summary":{"existing_keys":11,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "fact_doubts":["叔父が実際に喜ぶことを客観的事実へ確定しない","宇文逸の両親の死因・正確な時期・経緯を補わない","莫問の如此诚心以待之人を単一の人物へ固定しない","父親という語から莫問の過去・負い目・父親観を説明しない","叔父の料理名や具体的回数を追加しない","後続の遼城事件と叔父の現在状態を先取りしない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
+    },
+    {
+      "batch":79,"status":"reviewed_pending_ci","scene_groups":["5572_6"],"reviewed_rows":12,"reviewed_keys":12,"unique_rows":12,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":0,"keep_keys":9,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
+      "ownership_summary":{"existing_keys":12,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "allusion_review_resolved":["借刀杀人はこの場面では一般成句用法であり、他人の手を借りて始末させるという現訳で機能が伝わる"],
+      "fact_doubts":["仮面の怪人の正体・所属・目的を確定しない","風雲訣が実際に曹煜天の手にあるかを瑶姫の伝聞以上へ強めない","天龍幇が怪人を利用したという推測を確定しない","怪人の功力を瑶姫の見立て以上へ強めない","莫問の経験を江湖全体の知識へ拡張しない","師父たちが怪人の答えを知っているとは確定しない","衣冠塚から叔父の遺体・死の経緯・葬送状況を補わない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
+    },
+    {
+      "batch":80,"status":"reviewed_pending_ci","scene_groups":["5572_9","5581_5"],"reviewed_rows":14,"reviewed_keys":14,"unique_rows":14,"fix_keys":5,"unique_fix_rows":5,"new_pair_keys":0,"keep_keys":9,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md",
+      "ownership_summary":{"existing_keys":13,"unowned_kept":1,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "fact_doubts":["莫問が上の空である理由を怪人との既知関係・正体認識・過去の記憶へ確定しない","遼城から黎城までの所要時間・道中の出来事・葬龍谷での行動を補わない","瑶姫が義父へ復命する内容・命令・期限を補わない","瑶姫の再会示唆を客観的な再会保証へ変えない","太想我を宇文逸または一行の恋愛感情へ固定しない","莫問の助力評価を関係段階の大幅な進展へ膨らませない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
+    }
+  ],
+  "candidate_packets": [
+    {"scene_groups":["5540_4"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md","formal_batch":77},
+    {"scene_groups":["5551_2"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md","formal_batch":78},
+    {"scene_groups":["5572_6"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md","formal_batch":79},
+    {"scene_groups":["5572_9","5581_5"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md","formal_batch":80}
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "draft_pr_private_stage_pointer",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json",
+  "previous_release": {"train_id":"yuwen-mowen-train-05","release_id":"yuwen-mowen-train-05-r2","pr":117,"merge_sha":"6f1b92f979ce53cef0a25e4058828b53492bbe7d","status":"verified"},
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 50,
+    "unique_reviewed_rows": 50,
+    "fix_keys": 16,
+    "unique_fix_rows": 16,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 16,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed",
+    "challenge_pass": null
+  },
+  "private_stage": {"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"ready_for_public_ci","status":"ready"},
+  "process_findings": [
+    {"id":"encoding_to_preparation_accumulation_loop","status":"repaired_in_train_06","detail":"release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"},
+    {"id":"audit_only_apply_transition","status":"repaired_in_train_06","detail":"audit statusだけが変わるApplyでも旧checkpoint検査を先行せず、bot書き戻し後のstate-only phase2へ延期する。"}
+  ],
+  "next_release": {"candidate_scene":["5581_7","5581_8"],"formal_batch":81,"current_private_stage":"ready_for_public_ci"}
+}

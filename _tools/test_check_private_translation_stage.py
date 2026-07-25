@@ -42,7 +42,7 @@ def contract() -> dict:
     allowed = {
         "private_preparation": ["private_quality_audit"],
         "private_quality_audit": ["private_encoding"],
-        "private_encoding": ["private_quality_audit", "ready_for_public_ci"],
+        "private_encoding": ["private_preparation", "private_quality_audit", "ready_for_public_ci"],
         "ready_for_public_ci": ["private_quality_audit"],
     }
     stages = []
@@ -90,8 +90,8 @@ def evidence(stage: str) -> dict:
     }[stage]
 
 
-def sample(stage: str, transport_status: str | None = None):
-    permissions = {
+def permissions(stage: str) -> dict:
+    return {
         "private_preparation": {
             "translation_judgment_allowed": False,
             "fix_writes_allowed": False,
@@ -120,13 +120,12 @@ def sample(stage: str, transport_status: str | None = None):
             "throughput_metrics_visible": True,
             "metrics_frozen": False,
         },
-    }
+    }[stage]
+
+
+def sample(stage: str, transport_status: str | None = None):
     history = [
-        {
-            "stage": item,
-            "status": "active" if item == stage else "complete",
-            "evidence": evidence(item),
-        }
+        {"stage": item, "status": "active" if item == stage else "complete", "evidence": evidence(item)}
         for item in STAGES[: STAGES.index(stage) + 1]
     ]
     totals = {
@@ -142,7 +141,7 @@ def sample(stage: str, transport_status: str | None = None):
         "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
         "train_id": "test-train",
         "stage": stage,
-        "permissions": permissions[stage],
+        "permissions": permissions(stage),
         "history": history,
         "audit_separation": {
             "pair_keys_follow_judgment": True,
@@ -151,7 +150,7 @@ def sample(stage: str, transport_status: str | None = None):
             "public_reopens_judgment": False,
         },
     }
-    if permissions[stage]["throughput_metrics_visible"]:
+    if permissions(stage)["throughput_metrics_visible"]:
         state["metrics_snapshot"] = totals.copy()
     status = transport_status or ("ready_for_public_ci" if stage == "ready_for_public_ci" else "accumulating")
     manifest = {"train_id": "test-train", "status": status, "totals": totals}
@@ -161,6 +160,17 @@ def sample(stage: str, transport_status: str | None = None):
         },
         "ci_train": {"status": status},
     }
+    return state, current, manifest
+
+
+def accumulation_loop_sample():
+    state, current, manifest = sample("private_preparation")
+    state["history"] = [
+        {"stage": "private_preparation", "status": "complete", "evidence": evidence("private_preparation")},
+        {"stage": "private_quality_audit", "status": "complete", "evidence": evidence("private_quality_audit")},
+        {"stage": "private_encoding", "status": "complete", "evidence": evidence("private_encoding")},
+        {"stage": "private_preparation", "status": "active", "evidence": evidence("private_preparation")},
+    ]
     return state, current, manifest
 
 
@@ -180,6 +190,9 @@ def main() -> None:
         for status in ("ready_for_public_ci", "in_public_ci", "verified"):
             state, current, manifest = sample("ready_for_public_ci", status)
             assert checker.validate(contract(), state, current, manifest) == [], status
+
+        state, current, manifest = accumulation_loop_sample()
+        assert checker.validate(contract(), state, current, manifest) == []
 
         state, current, manifest = sample("ready_for_public_ci", "accumulating")
         errors = checker.validate(contract(), state, current, manifest)

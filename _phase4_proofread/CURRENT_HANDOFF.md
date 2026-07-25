@@ -1,74 +1,75 @@
 # 現在の申し送り
 
-> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、品質制度は`TRANSLATION_QUALITY_GATE.md`、確定releaseはcheckpointが指すevidence、次束は`NEXT_TASK_PACKET.json`。
-
-## 新しいチャットで送る一文
-
-```text
-現状把握して作業の続きを
-```
+> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、段階は`PRIVATE_STAGE_STATE.json`、次候補は`NEXT_TASK_PACKET.json`。
+>
+> 再開指示: `現状把握して作業の続きを`
 
 ## 現在地
 
-- 実visibility: public（GitHub metadataで確認済み）
-- open PR: #117
-- active Issue: #116
-- active branch: `agent/yuwen-mowen-train-05`
+- 実visibility: public（GitHub metadataで確認）
+- active PR: #118（ready for review）
+- active branch: `agent/yuwen-mowen-train-06`
 - operation mode: `ready_for_public_ci`
+- effective mode: `public_ci_window`
 - private stage: `ready_for_public_ci`
-- release: `yuwen-mowen-train-05-r2` / verified
-- checkpoint: 第76束 / 人物ペア1171 / 全1529 / 未適用0件
-- reviewed: 53 keys / 47 unique rows
-- 修正: 7 keys / 6 unique rows
+- CI transport: `verified`
+- checkpoint: 第80束 / 人物ペア1171 / 全1529 / 未適用0件
+- last reviewed: 第80束
+- release checkpoint: `yuwen-mowen-train-06-r1` / verified
+- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json`
 - build: `verified_not_deployed`
 - game verification: `not_started`
 
-## r2で直した内容
+## train-06完了内容
 
-初回3修正に加え、低収穫時の全keep再監査で次の4キーを追加した。
+- 第77束 `5540_4`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md`
+- 第78束 `5551_2`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md`
+- 第79束 `5572_6`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md`
+- 第80束 `5572_9 + 5581_5`: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md`
+- 適用記録: `_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH80_2026-07-26.md`
 
-- `5535_2_Dlgs_Index2_Text`: 黄宗政本人の助力を「私の力」と明示
-- `5535_2_Dlgs_Index4_Text`: 見送る黄宗政の「失礼する」を「さらばだ」へ修正
-- `5536_3_Dlgs_Index5_Text`
-- `5536_4_Dlgs_Index5_Text`: 原文`带人`にない「門人」の設定追加を除去
+第77〜80束は50 reviewed keys / 50 unique reviewed rows、16修正、34保持。16修正はすべて既存ownerキーの再改訂であり、新規人物ペア・cross-registerは0。適用済みキー累計は人物ペア1171・全体1529を維持する。
 
-`5535_2_Dlgs_Index4_Text`は旧ownerになかったため、新規人物ペア1キー。人物ペア累計1171・全体1529となった。
+第80束で収録した5修正:
 
-## 品質・private段階制度
+- 宇文逸の師兄への案じ方を自然な連続した問いへ戻した
+- 瑶姫の不自然な復命表現を整理した
+- `出手太狠`の暴力強度を回復した
+- 欧陽雪の短い否定を柔らかな言いさしへ戻した
+- `太想我`を恋愛へ固定せず、別れの軽口へ戻した
 
-- 束数・行数・修正数は品質成果ではなくCI輸送指標
-- reviewed keysとunique rowsを分離
-- 初回修正率15%未満なら初回keep全unique rowsを第二巡で疑い直す
-- private作業を`preparation -> quality audit -> encoding -> ready for public CI`へ分離
-- preparationでは判断・fix・owner・正式束を作らない
-- quality auditでは読むことと校正判断だけを行い、件数を判断材料にしない
-- encodingでは確定済み判断だけを収録し、新しい疑義はquality auditへ戻す
-- publicでは翻訳判断を再開しない
+保持9行、新規owner、新規cross-registerには触れていない。未所有の莫問`5572_9_Dlgs_Index0_Text`は保持のため未所有のまま維持した。
 
-train-05は既存証拠から四段階を遡及固定した移行列車。次列車では第77束を`private_preparation`から順に実測する。
+## 公開CI結果
 
-## 新しい成功証跡
+同一CI HEAD `2b994888eae0929af76ddb886efe2c911362fcdf`で成功:
 
-- CI HEAD: `a568f731dcf419c766dc6a3845461aed1f83d46a`
-- Relation: `30149789606` success
-- Cross: `30149789605` success
-- Apply: `30149789594` success
-- asset HEAD: `1b84e1586fa13802525904cfbe192ebd3f4972bc`
-- Apply QA: 適用前4件、適用後0件、適用済み1529件
-- quality checker: success
-- private-stage checker / regression: success
-- audit status: 第76束・人物ペア1171・全1529
-- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json`
+- Relation audit extraction: run `30166311919`
+- Cross register QA: run `30166311912`
+- Apply curated localization fixes: run `30166311917`
 
-旧`yuwen-mowen-train-05-r1`と旧run群は履歴として残るが、merge根拠には使わない。
+Applyは未適用0件、pak・LFS・validate・lint・関係抽出・回帰を確認し、audit statusを第80束へ更新した。bot生成HEADは`39f3248e9333460e2c35e110f40e944ba3bf9927`。
 
-## 次に行うこと
+state-only `CI train phase2 gate` run `30166513929`も成功。未解決review threadは0件。phase2とthread確認は再実行対象ではない。
 
-1. 最終状態HEADのpublic phase2 gateを成功させる。
-2. 未解決review thread 0件を確認する。
-3. repositoryをprivateへ戻す。
-4. private metadata closeout後、PR #117をsquash統合する。
-5. 新しいprivate列車を`private_preparation`で開始する。
-6. 第77束`5540_4`は文脈・重複・所有の準備から始め、同じ回では翻訳判断しない。
+公開CI入口で次の行政不整合を修正した。
 
-public中は第77束を読まず、fix・owner・束を追加しない。
+- operation protocolの参照先
+- handoffのbootstrap trigger phrase
+- next task packetのcold-start構造・所有・batch planning
+- 通常閾値releaseの`release_trigger`
+- audit statusだけが変わるApplyのcheckpoint延期条件
+
+これらの修正で訳文、人物声、owner、FACT_DOUBT、ALLUSION_REVIEWは変更していない。public中に新しい翻訳判断も行っていない。
+
+## 次候補
+
+`5581_7`と`5581_8`を第81束候補としてpacketへ予約した。二つの分岐4行はまだpreparation・quality audit・encodingを行っていない。PR #118統合後のprivate作業で最新artifactを取得し、後続`5583_1`との結合可否から改めて準備する。
+
+## 残作業
+
+1. repositoryをprivateへ戻すよう依頼し、GitHub metadataでprivate復帰を確認する。
+2. private復帰後、同じPR #118をsquash統合する。
+3. post-merge状態PRは作らない。
+
+public中に新しい翻訳判断、次小束監査、owner変更は行わない。

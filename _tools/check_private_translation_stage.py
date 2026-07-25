@@ -62,13 +62,17 @@ EXPECTED = {
 ALLOWED_TRANSITIONS = {
     "private_preparation": {"private_quality_audit"},
     "private_quality_audit": {"private_encoding"},
-    "private_encoding": {"private_quality_audit", "ready_for_public_ci"},
+    "private_encoding": {"private_preparation", "private_quality_audit", "ready_for_public_ci"},
     "ready_for_public_ci": {"private_quality_audit"},
 }
 CI_TRANSPORT_STATUSES = {"ready_for_public_ci", "in_public_ci", "verified"}
 METRIC_KEYS = (
-    "bundle_count", "reviewed_rows", "reviewed_keys",
-    "unique_reviewed_rows", "fix_keys", "unique_fix_rows",
+    "bundle_count",
+    "reviewed_rows",
+    "reviewed_keys",
+    "unique_reviewed_rows",
+    "fix_keys",
+    "unique_fix_rows",
 )
 
 
@@ -119,8 +123,12 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
     for stage_id, expected in EXPECTED.items():
         item = by_id[stage_id]
         for key in (
-            "operation_state", "translation_judgment_allowed", "fix_writes_allowed",
-            "encoding_writes_allowed", "throughput_metrics_visible", "metrics_frozen",
+            "operation_state",
+            "translation_judgment_allowed",
+            "fix_writes_allowed",
+            "encoding_writes_allowed",
+            "throughput_metrics_visible",
+            "metrics_frozen",
         ):
             if item.get(key) != expected[key]:
                 errors.append(f"contract {stage_id}.{key} mismatch")
@@ -155,8 +163,11 @@ def validate(
         errors.append("state.permissions must be an object")
         permissions = {}
     for key in (
-        "translation_judgment_allowed", "fix_writes_allowed", "encoding_writes_allowed",
-        "throughput_metrics_visible", "metrics_frozen",
+        "translation_judgment_allowed",
+        "fix_writes_allowed",
+        "encoding_writes_allowed",
+        "throughput_metrics_visible",
+        "metrics_frozen",
     ):
         if permissions.get(key) != expected[key]:
             errors.append(f"state.permissions.{key} mismatch for {stage}")

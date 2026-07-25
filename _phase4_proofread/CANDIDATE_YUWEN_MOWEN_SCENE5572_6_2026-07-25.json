@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": ["5572_6"],
+  "source_artifact": {
+    "workflow": "Relation audit extraction",
+    "run_id": 30149789606,
+    "artifact_id": 8617244568,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+    "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
+  },
+  "scene_context": {
+    "before": ["5551_2", "遼城事件"],
+    "current": "5572_6",
+    "after": ["5572_9"],
+    "timeline": "遼城事件後、仮面の怪人に襲われた一行が風雲訣を狙われた理由と相手の素性を検討し、宇文逸が叔父の衣冠塚を建ててから黎城へ向かうと決める場面。",
+    "branch_note": "5572_6_Dlgs自体にduplicate_locationsはない。"
+  },
+  "rows": [
+    {"key":"5572_6_Dlgs_Index0_Text","speaker":"欧陽雪","zh":"宇文公子，瑶姬姑娘，你们没事吧！","ja":"宇文公子、瑶姫姑娘、ご無事ですか！"},
+    {"key":"5572_6_Dlgs_Index1_Text","speaker":"瑶姫","zh":"咳咳……没事，还好小雪儿你们来得及时～","ja":"ごほっ、ごほっ……平気よ。小雪ちゃんたちが間に合ってくれて助かったわ～"},
+    {"key":"5572_6_Dlgs_Index2_Text","speaker":"瑶姫","zh":"就是不知刚才那人是何来历……一出现便直接向我们下杀手，听他的意思，倒像是为了风云诀而来～","ja":"ただ、さっきの者はいったい何者かしら……現れるなり問答無用で殺しにかかってきたし、口ぶりでは風雲訣が狙いのようだったわ～"},
+    {"key":"5572_6_Dlgs_Index3_Text","speaker":"宇文逸","zh":"是啊，他刚才找我要风云诀来着！","ja":"ああ。さっき、風雲訣を渡せと迫られた！"},
+    {"key":"5572_6_Dlgs_Index4_Text","speaker":"瑶姫","zh":"可你哪有什么风云诀，不是都说风云诀在天龙帮帮主曹煜天手里吗～","ja":"でも、あなたは風雲訣なんて持っていないでしょう？　風雲訣は天龍幇の幇主・曹煜天の手にあるって話じゃなかったかしら～"},
+    {"key":"5572_6_Dlgs_Index5_Text","speaker":"欧陽雪","zh":"会不会是那人误会了什么？","ja":"あの者が、何か思い違いをしているのでしょうか？"},
+    {"key":"5572_6_Dlgs_Index6_Text","speaker":"瑶姫","zh":"这么说的话，也有可能是天龙帮的借刀杀人之计呢～","ja":"そうなると、天龍幇が他人の手を借りて私たちを始末させようとしているのかもね～"},
+    {"key":"5572_6_Dlgs_Index7_Text","speaker":"瑶姫","zh":"我看那人功力不在我义父之下，应该不是泛泛之辈，若天龙帮真有这样的帮手怕是难办了～","ja":"あの者の功力は義父にも劣らない。並の相手ではないわ。もし天龍幇に手を貸しているのなら、厄介ね～"},
+    {"key":"5572_6_Dlgs_Index8_Text","speaker":"莫問","zh":"不好说……而且这些年行走江湖，我也从未听说过如此形貌的高手。","ja":"判断はつかない……長く江湖を歩いてきたが、あんな風体の達人は聞いたことがない。"},
+    {"key":"5572_6_Dlgs_Index9_Text","speaker":"莫問","zh":"现在只能等与师父他们黎城会合之后，再问问看了。","ja":"今は黎城で師父たちと合流してから、確かめるしかない。"},
+    {"key":"5572_6_Dlgs_Index10_Text","speaker":"宇文逸","zh":"嗯……","ja":"ああ……"},
+    {"key":"5572_6_Dlgs_Index11_Text","speaker":"宇文逸","zh":"……黎城的事要紧，等我为叔叔立个衣冠冢，我们就出发吧。","ja":"……黎城の件が先だ。叔父さんの衣冠塚を建てたら、出発しよう。"}
+  ],
+  "ownership_inventory": {
+    "existing_owner": {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json",
+      "keys": [
+        "5572_6_Dlgs_Index0_Text",
+        "5572_6_Dlgs_Index1_Text",
+        "5572_6_Dlgs_Index2_Text",
+        "5572_6_Dlgs_Index3_Text",
+        "5572_6_Dlgs_Index4_Text",
+        "5572_6_Dlgs_Index5_Text",
+        "5572_6_Dlgs_Index6_Text",
+        "5572_6_Dlgs_Index7_Text",
+        "5572_6_Dlgs_Index8_Text",
+        "5572_6_Dlgs_Index9_Text",
+        "5572_6_Dlgs_Index10_Text",
+        "5572_6_Dlgs_Index11_Text"
+      ]
+    },
+    "unowned": [],
+    "decision_deferred_to": "private_encoding_after_quality_audit"
+  },
+  "candidate_questions": [
+    "欧陽雪の負傷確認が二人への切迫した呼びかけとして自然か",
+    "瑶姫の軽い伸ばしと事件直後の緊張が衝突せず同居しているか",
+    "借刀殺人の推測を天龍幇の確定した計画へ強めていないか",
+    "怪人の功力と素性について話者の推測・未確認情報を確定していないか",
+    "莫問の江湖経験と次行動の提示が事務説明へ平坦化していないか",
+    "宇文逸の衣冠塚への決断が叔父の死と黎城行きの優先を不自然に処理していないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": ["借刀杀人"],
+    "fact_doubts": [
+      "仮面の怪人の正体・所属・目的を確定しない",
+      "風雲訣が実際に曹煜天の手にあるかを客観的事実へ確定しない",
+      "天龍幇が怪人を利用したという推測を確定しない",
+      "怪人の功力が義父と同等以上かを瑶姫の見立て以上に強めない",
+      "莫問が怪人を知らないことを江湖全体で未知という意味へ広げない",
+      "衣冠塚から叔父の遺体・死の経緯・葬送状況を補わない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "owner_change",
+    "formal_bundle_completion",
+    "throughput_metrics_as_quality_evidence"
+  ]
+}
