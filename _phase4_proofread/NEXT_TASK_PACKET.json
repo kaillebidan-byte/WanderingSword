@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
   "status": "ready",
-  "task_id": "yuwen-mowen-scene5540_4-encoding",
+  "task_id": "yuwen-mowen-scene5551_2-quality-audit",
   "based_on_checkpoint": {
     "batch": 76,
     "pair_applied_keys": 1171,
@@ -11,11 +11,11 @@
     "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json"
   },
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5540_4"],
+  "scene_groups": ["5551_2"],
   "source": {
     "target": "CG表",
     "namespace": "QuestDlgs",
-    "families": ["5540_4_Dlgs"],
+    "families": ["5551_2_Dlgs"],
     "artifact_workflow": "Relation audit extraction",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
@@ -23,100 +23,103 @@
     "artifact_id": 8617244568,
     "artifact_digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
     "artifact_head": "a568f731dcf419c766dc6a3845461aed1f83d46a",
-    "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json",
-    "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-    "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-    "freshness_rule": "quality auditの確定判断だけをprivate encodingで収録し、新しい訳文判断は追加しない。"
+    "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json",
+    "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+    "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+    "freshness_rule": "第77束encoding後にprivate_preparationへ戻して固定した入力。訳文判断はprivate_quality_auditでのみ行う。"
   },
   "scene_flow": [
     {
-      "scene": "5540_4",
-      "function": "黎城へ向かう一行に瑶姫が合流し、宇文逸が遼城へ戻る意向を示す。莫問・欧陽雪も同行を申し出る一方、瑶姫は遼城の状況を言いさして伏せる場面",
-      "speaker_order": ["瑶姫", "瑶姫", "宇文逸", "宇文逸", "宇文逸", "宇文逸", "莫問", "莫問", "欧陽雪", "瑶姫", "宇文逸", "瑶姫", "宇文逸"],
+      "scene": "5551_2",
+      "function": "遼城到着時、宇文逸が叔父との再会を期待し、育ての親として父親同然に思っていることを同行者へ語る。莫問も真心から接してくれる人に出会えた幸運を自分たち双方へ広げる場面",
+      "speaker_order": ["宇文逸", "宇文逸", "欧陽雪", "宇文逸", "宇文逸", "莫問", "莫問", "宇文逸", "宇文逸", "宇文逸", "宇文逸"],
       "focus_keys": [
-        "5540_4_Dlgs_Index0_Text",
-        "5540_4_Dlgs_Index1_Text",
-        "5540_4_Dlgs_Index2_Text",
-        "5540_4_Dlgs_Index3_Text",
-        "5540_4_Dlgs_Index4_Text",
-        "5540_4_Dlgs_Index5_Text",
-        "5540_4_Dlgs_Index6_Text",
-        "5540_4_Dlgs_Index7_Text",
-        "5540_4_Dlgs_Index8_Text",
-        "5540_4_Dlgs_Index9_Text",
-        "5540_4_Dlgs_Index10_Text",
-        "5540_4_Dlgs_Index12_Text",
-        "5540_4_Dlgs_Index13_Text"
+        "5551_2_Dlgs_Index0_Text",
+        "5551_2_Dlgs_Index1_Text",
+        "5551_2_Dlgs_Index2_Text",
+        "5551_2_Dlgs_Index3_Text",
+        "5551_2_Dlgs_Index4_Text",
+        "5551_2_Dlgs_Index5_Text",
+        "5551_2_Dlgs_Index6_Text",
+        "5551_2_Dlgs_Index7_Text",
+        "5551_2_Dlgs_Index8_Text",
+        "5551_2_Dlgs_Index9_Text",
+        "5551_2_Dlgs_Index10_Text"
       ],
       "voice_questions": [
-        "監査で確定した四候補だけが収録されているか",
-        "保持判断を便宜的に変更していないか",
-        "話者接頭辞・色タグ・句読点を壊していないか",
-        "FACT_DOUBTとALLUSION_REVIEWが監査記録どおり分離されているか"
+        "宇文逸の再会への高揚と、叔父を父親と思う私的な告白が同じ説明調へ均されていないか",
+        "咳が照れ隠し・言い直しとして働く流れを、日本語の不自然な咳払いへ固定していないか",
+        "莫問の父親という語への間と、我们都很幸运の対象を原文以上に説明していないか",
+        "欧陽雪の相槌が宇文逸との親密さを弱めるほど他人行儀になっていないか",
+        "宇文逸の叔父自慢と城へ急ぐ勢いが重い身の上説明だけに沈んでいないか"
       ]
     }
   ],
   "batch_planning": {
-    "reviewed_rows": 13,
+    "reviewed_rows": 11,
     "target_rows": {"min": 15, "max": 30},
-    "adjacent_candidates_checked": ["5536_3", "5536_4", "5540_4", "5551_2"],
-    "grouping_decision": "5540_4は同行者確定と瑶姫の言いさしで意味境界が閉じる。遼城到着後の事件は別にする。",
+    "adjacent_candidates_checked": ["5540_4", "5551_2", "5572_6"],
+    "grouping_decision": "5551_2は遼城到着時の叔父への期待と育ての親の告白で意味境界が閉じる。後続5572_6は遼城事件後で情報状態が変わるため別にする。",
     "exception": {
       "reason_code": "no_adjacent_in_scope_scene",
-      "detail": "遼城到着後を混ぜると時系列・情報状態・場面機能が変わるため単独候補とする。正式な束確定はencoding完了時に行う。"
+      "detail": "前場面は第77束としてencoding済み、後場面は事件後で時系列・感情状態・場面機能が変わるため、標準下限未満でも単独候補とする。正式な束確定はencoding段階まで行わない。"
     }
   },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
     "fact_doubts": [
-      "知らせを受け取った経緯を補わない",
-      "叔父の心配を客観的事実へ強めない",
-      "師父の保護指示を監視命令へ拡張しない",
-      "半月の移動条件を旅程全体の保証へ広げない",
-      "瑶姫が伏せた遼城の事情を先取りしない"
+      "叔父が実際に喜ぶか、現在どのような状態かを確定しない",
+      "宇文逸の両親の死因・時期・経緯を補わない",
+      "莫問の如此诚心以待之人を単一の具体的人物へ固定しない",
+      "莫問の父親観・過去・師父との関係を台詞以上に説明しない",
+      "叔父が友人へ料理した回数や具体的な料理を補わない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "監査で確定した修正候補はすべて既存owner内にある。既存ownerを再改訂し、新規ownerは作らない。",
-    "cross_register": "人物ペア外の問題は監査で確定していないため新規cross-registerを作らない。",
+    "pair_batch": "全11キーが既存ownerにある。quality auditでは参照だけを行い、encodingで修正確定したキーだけを既存ownerへ再収録する。",
+    "cross_register": "人物ペア外の問題とquality auditで確定した場合だけencoding段階で分離する。",
     "machine_ownership": {
       "existing": [
         {
-          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json",
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json",
           "keys": [
-            "5540_4_Dlgs_Index0_Text",
-            "5540_4_Dlgs_Index1_Text",
-            "5540_4_Dlgs_Index3_Text",
-            "5540_4_Dlgs_Index4_Text",
-            "5540_4_Dlgs_Index5_Text",
-            "5540_4_Dlgs_Index6_Text",
-            "5540_4_Dlgs_Index7_Text",
-            "5540_4_Dlgs_Index8_Text",
-            "5540_4_Dlgs_Index9_Text",
-            "5540_4_Dlgs_Index12_Text"
+            "5551_2_Dlgs_Index0_Text",
+            "5551_2_Dlgs_Index1_Text",
+            "5551_2_Dlgs_Index2_Text",
+            "5551_2_Dlgs_Index3_Text",
+            "5551_2_Dlgs_Index4_Text",
+            "5551_2_Dlgs_Index5_Text",
+            "5551_2_Dlgs_Index6_Text",
+            "5551_2_Dlgs_Index7_Text",
+            "5551_2_Dlgs_Index8_Text",
+            "5551_2_Dlgs_Index9_Text",
+            "5551_2_Dlgs_Index10_Text"
           ]
         }
       ],
-      "unowned": [
-        {"key": "5540_4_Dlgs_Index2_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch77.json"},
-        {"key": "5540_4_Dlgs_Index10_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch77.json"},
-        {"key": "5540_4_Dlgs_Index13_Text", "planned_owner": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch77.json"}
-      ]
+      "unowned": []
     }
   },
   "private_stage_plan": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
-    "current_stage": "private_encoding",
-    "completed_stages": ["private_preparation", "private_quality_audit"],
+    "current_stage": "private_quality_audit",
+    "completed_stages_in_current_cycle": ["private_preparation"],
+    "previous_cycle": {"formal_batch": 77, "status": "private_encoding_complete"},
     "sequence": ["private_preparation", "private_quality_audit", "private_encoding", "ready_for_public_ci"],
-    "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-    "encoding_rule": "監査記録の四候補だけを既存fix fileとレビュー記録へ収録する。新しい疑義はprivate_quality_auditへ戻す。"
+    "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+    "quality_audit_restrictions": [
+      "fix JSONを書かない",
+      "ownerを変更しない",
+      "正式な束を完了扱いにしない",
+      "manifest件数とrelease残量を判断材料にしない"
+    ],
+    "encoding_rule": "quality auditで確定済みの判断だけを収録し、新しい疑義はquality auditへ戻す"
   },
   "do_not_do": [
-    "encoding中に新しい訳文判断を追加しない",
-    "保持行を件数合わせで修正へ変えない",
-    "未所有の保持キーへownerを新設しない",
-    "locres・pak・audit statusをrelease前に更新しない",
+    "private_quality_auditで修正JSON・owner・正式な束を作らない",
+    "叔父の現状や後続事件を先取りしない",
+    "宇文逸の両親や莫問の過去を台詞以上に補わない",
+    "莫問の我们を単一人物との関係へ固定しない",
     "話者接頭辞・色タグ・制御文字を壊さない"
   ],
   "skill_review": {
@@ -125,22 +128,22 @@
     "separate_layers": "翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける"
   },
   "expected_outputs": [
-    "監査で確定した四候補を既存ownerへ反映する",
-    "レビュー記録へfix・keep・FACT_DOUBT・ALLUSION_REVIEWを収録する",
-    "所有競合と重複分岐を確認する",
-    "encoding完了時にだけ正式な束と輸送件数を確定する"
+    "quality auditでは原文・現訳・前後・話者・相手・時系列から判断する",
+    "fix候補・疑った保持・追加文脈の要否を監査記録へ残す",
+    "FACT_DOUBTとALLUSION_REVIEWを分離する",
+    "encodingへ移るまでfix JSON・owner・正式束・locres・pakを更新しない"
   ],
   "cold_start_first_report": {
-    "current": "宇文逸↔莫問・第76束・人物ペア1171・全1529・train-05-r2 verified。",
-    "open_pr": "draft PR #118でpreparationとquality auditが完了し、private encodingがactive。",
-    "start": "5540_4の監査済み四候補だけを既存ownerとレビュー記録へ収録する。",
-    "drift": "PR #117は統合済み。encodingでは訳文判断を再開しない。"
+    "current": "宇文逸↔莫問・checkpoint第76束・last reviewed第77束・人物ペア1171・全1529。",
+    "open_pr": "draft PR #118で第77束encoding完了。第78束5551_2のpreparation完了、quality auditがactive。",
+    "start": "5551_2の候補packetを読み、翻訳判断だけを監査記録へ残す。",
+    "drift": "release条件未達時のencoding→preparation遷移をtrain-06で追加し、往復を実走済み。"
   },
   "ci_train": {
     "phase": "phase1_pilot",
     "train_id": "yuwen-mowen-train-06",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 77,
+    "planned_batch": 78,
     "bundle_status_on_completion": "reviewed_pending_ci",
     "do_not_apply_until_release": true,
     "finalization_phase": "phase2",
@@ -148,8 +151,9 @@
     "single_pr_finalization": true,
     "private_stage": {
       "policy": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
-      "current": "private_encoding",
-      "previous": "private_quality_audit"
+      "current": "private_quality_audit",
+      "previous": "private_preparation",
+      "previous_cycle_encoding": 77
     }
   }
 }
