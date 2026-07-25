@@ -4,6 +4,7 @@
   "train_id": "yuwen-mowen-train-06",
   "stage": "ready_for_public_ci",
   "mode": "live_four_stage_validation",
+  "transport_status": "verified",
   "permissions": {"translation_judgment_allowed":false,"fix_writes_allowed":false,"encoding_writes_allowed":false,"throughput_metrics_visible":true,"metrics_frozen":false},
   "history": [
     {"stage":"private_preparation","status":"complete","completed_at":"2026-07-25","evidence":{"source_artifact":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json","scene_context":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","ownership_inventory":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json"}},
@@ -22,7 +23,10 @@
   ],
   "metrics_snapshot": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16},
   "audit_separation": {"pair_keys_follow_judgment":true,"bundle_number_assigned_in_encoding":true,"audit_metrics_suppressed":true,"public_reopens_judgment":false},
-  "process_findings": [{"id":"release_threshold_or_semantics","status":"corrected","evidence":["_phase4_proofread/CI_TRAIN_PHASE2.md","_phase4_proofread/TRANSLATION_QUALITY_GATE.md","_phase4_proofread/CI_TRAIN_MANIFEST.json"]}],
+  "process_findings": [
+    {"id":"release_threshold_or_semantics","status":"corrected","evidence":["_phase4_proofread/CI_TRAIN_PHASE2.md","_phase4_proofread/TRANSLATION_QUALITY_GATE.md","_phase4_proofread/CI_TRAIN_MANIFEST.json"]},
+    {"id":"train06_phase2_closeout","status":"verified","evidence":{"phase2_run":30166513929,"unresolved_review_threads":0}}
+  ],
   "rework_policy": {"encoding_contradiction":"return_to_private_quality_audit","ready_quality_finding":"invalidate_release_and_return_to_private_quality_audit","public_quality_finding":"request_private_and_return_to_private_quality_audit"},
-  "next_validation": "request public CI window; after repository metadata confirms public, ready PR 118 and run Relation, Cross, Apply, and phase2 gate without reopening translation judgment"
+  "next_validation": "request repository private return; after GitHub metadata confirms private, squash merge PR 118 without reopening translation judgment"
 }
