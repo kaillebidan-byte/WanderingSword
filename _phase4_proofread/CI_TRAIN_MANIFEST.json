@@ -10,182 +10,42 @@
     "pair_applied_keys": 1171,
     "project_applied_keys": 1529,
     "produced_by_pr": 117,
-    "release_identity": {
-      "kind": "pr_release_v1",
-      "release_id": "yuwen-mowen-train-05-r2",
-      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json",
-      "pr": 117,
-      "validated_head": "1b84e1586fa13802525904cfbe192ebd3f4972bc"
-    }
+    "release_identity": {"kind":"pr_release_v1","release_id":"yuwen-mowen-train-05-r2","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json","pr":117,"validated_head":"1b84e1586fa13802525904cfbe192ebd3f4972bc"}
   },
-  "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
-  "caps": {"bundle_count": 6, "reviewed_rows": 60},
-  "allowed_early_release_reasons": ["workflow_change", "schema_change", "security_or_visibility", "urgent_build_verification"],
+  "thresholds": {"bundle_count":4,"reviewed_rows":40,"fix_keys":20},
+  "caps": {"bundle_count":6,"reviewed_rows":60},
+  "allowed_early_release_reasons": ["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],
   "release_trigger": null,
-  "totals": {
-    "bundle_count": 3,
-    "reviewed_rows": 36,
-    "reviewed_keys": 36,
-    "unique_reviewed_rows": 36,
-    "fix_keys": 11,
-    "unique_fix_rows": 11,
-    "new_pair_keys": 0,
-    "keep_only_bundles": 0
-  },
+  "totals": {"bundle_count":3,"reviewed_rows":36,"reviewed_keys":36,"unique_reviewed_rows":36,"fix_keys":11,"unique_fix_rows":11,"new_pair_keys":0,"keep_only_bundles":0},
   "bundles": [
     {
-      "batch": 77,
-      "status": "reviewed_pending_ci",
-      "scene_groups": ["5540_4"],
-      "reviewed_rows": 13,
-      "reviewed_keys": 13,
-      "unique_rows": 13,
-      "fix_keys": 4,
-      "unique_fix_rows": 4,
-      "new_pair_keys": 0,
-      "keep_keys": 9,
-      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
-      "ownership_summary": {
-        "existing_keys": 10,
-        "unowned_kept": 3,
-        "new_keys": 0,
-        "cross_register_keys": 0
-      },
-      "allusion_review_candidates": [],
-      "fact_doubts": [
-        "知らせを受け取った経緯を補わない",
-        "叔父の心配を客観的事実へ確定しない",
-        "師父の指示を護衛命令・監視命令へ拡張しない",
-        "半月の移動を無条件の成功保証へ変えない",
-        "瑶姫が伏せた遼城の事情を先取りしない"
-      ],
-      "source_artifact": {
-        "workflow": "Relation audit extraction",
-        "run_id": 30149789606,
-        "artifact_id": 8617244568,
-        "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
-        "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
-      }
+      "batch":77,"status":"reviewed_pending_ci","scene_groups":["5540_4"],"reviewed_rows":13,"reviewed_keys":13,"unique_rows":13,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"keep_keys":9,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
+      "ownership_summary":{"existing_keys":10,"unowned_kept":3,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "fact_doubts":["知らせを受け取った経緯を補わない","叔父の心配を客観的事実へ確定しない","師父の指示を護衛命令・監視命令へ拡張しない","半月の移動を無条件の成功保証へ変えない","瑶姫が伏せた遼城の事情を先取りしない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
     },
     {
-      "batch": 78,
-      "status": "reviewed_pending_ci",
-      "scene_groups": ["5551_2"],
-      "reviewed_rows": 11,
-      "reviewed_keys": 11,
-      "unique_rows": 11,
-      "fix_keys": 4,
-      "unique_fix_rows": 4,
-      "new_pair_keys": 0,
-      "keep_keys": 7,
-      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md",
-      "ownership_summary": {
-        "existing_keys": 11,
-        "unowned_kept": 0,
-        "new_keys": 0,
-        "cross_register_keys": 0
-      },
-      "allusion_review_candidates": [],
-      "fact_doubts": [
-        "叔父が実際に喜ぶことを客観的事実へ確定しない",
-        "宇文逸の両親の死因・正確な時期・経緯を補わない",
-        "莫問の如此诚心以待之人を単一の人物へ固定しない",
-        "父親という語から莫問の過去・負い目・父親観を説明しない",
-        "叔父の料理名や具体的回数を追加しない",
-        "後続の遼城事件と叔父の現在状態を先取りしない"
-      ],
-      "source_artifact": {
-        "workflow": "Relation audit extraction",
-        "run_id": 30149789606,
-        "artifact_id": 8617244568,
-        "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
-        "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
-      }
+      "batch":78,"status":"reviewed_pending_ci","scene_groups":["5551_2"],"reviewed_rows":11,"reviewed_keys":11,"unique_rows":11,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"keep_keys":7,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md",
+      "ownership_summary":{"existing_keys":11,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "fact_doubts":["叔父が実際に喜ぶことを客観的事実へ確定しない","宇文逸の両親の死因・正確な時期・経緯を補わない","莫問の如此诚心以待之人を単一の人物へ固定しない","父親という語から莫問の過去・負い目・父親観を説明しない","叔父の料理名や具体的回数を追加しない","後続の遼城事件と叔父の現在状態を先取りしない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
     },
     {
-      "batch": 79,
-      "status": "reviewed_pending_ci",
-      "scene_groups": ["5572_6"],
-      "reviewed_rows": 12,
-      "reviewed_keys": 12,
-      "unique_rows": 12,
-      "fix_keys": 3,
-      "unique_fix_rows": 3,
-      "new_pair_keys": 0,
-      "keep_keys": 9,
-      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
-      "ownership_summary": {
-        "existing_keys": 12,
-        "unowned_kept": 0,
-        "new_keys": 0,
-        "cross_register_keys": 0
-      },
-      "allusion_review_candidates": [],
-      "allusion_review_resolved": [
-        "借刀杀人はこの場面では一般成句用法であり、他人の手を借りて始末させるという現訳で機能が伝わる"
-      ],
-      "fact_doubts": [
-        "仮面の怪人の正体・所属・目的を確定しない",
-        "風雲訣が実際に曹煜天の手にあるかを瑶姫の伝聞以上へ強めない",
-        "天龍幇が怪人を利用したという推測を確定しない",
-        "怪人の功力を瑶姫の見立て以上へ強めない",
-        "莫問の経験を江湖全体の知識へ拡張しない",
-        "師父たちが怪人の答えを知っているとは確定しない",
-        "衣冠塚から叔父の遺体・死の経緯・葬送状況を補わない"
-      ],
-      "source_artifact": {
-        "workflow": "Relation audit extraction",
-        "run_id": 30149789606,
-        "artifact_id": 8617244568,
-        "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
-        "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
-      }
+      "batch":79,"status":"reviewed_pending_ci","scene_groups":["5572_6"],"reviewed_rows":12,"reviewed_keys":12,"unique_rows":12,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":0,"keep_keys":9,
+      "fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
+      "ownership_summary":{"existing_keys":12,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],
+      "allusion_review_resolved":["借刀杀人はこの場面では一般成句用法であり、他人の手を借りて始末させるという現訳で機能が伝わる"],
+      "fact_doubts":["仮面の怪人の正体・所属・目的を確定しない","風雲訣が実際に曹煜天の手にあるかを瑶姫の伝聞以上へ強めない","天龍幇が怪人を利用したという推測を確定しない","怪人の功力を瑶姫の見立て以上へ強めない","莫問の経験を江湖全体の知識へ拡張しない","師父たちが怪人の答えを知っているとは確定しない","衣冠塚から叔父の遺体・死の経緯・葬送状況を補わない"],
+      "source_artifact":{"workflow":"Relation audit extraction","run_id":30149789606,"artifact_id":8617244568,"digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","head_sha":"a568f731dcf419c766dc6a3845461aed1f83d46a"}
     }
   ],
   "candidate_packets": [
-    {
-      "scene_groups": ["5540_4"],
-      "stage": "private_encoding",
-      "status": "complete",
-      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
-      "formal_batch": 77
-    },
-    {
-      "scene_groups": ["5551_2"],
-      "stage": "private_encoding",
-      "status": "complete",
-      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
-      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md",
-      "formal_batch": 78
-    },
-    {
-      "scene_groups": ["5572_6"],
-      "stage": "private_encoding",
-      "status": "complete",
-      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
-      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md",
-      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md",
-      "formal_batch": 79
-    },
-    {
-      "scene_groups": ["5572_9", "5581_5"],
-      "stage": "private_quality_audit",
-      "status": "preparation_complete",
-      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md",
-      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md",
-      "review_record": null,
-      "formal_batch": null
-    }
+    {"scene_groups":["5540_4"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md","formal_batch":77},
+    {"scene_groups":["5551_2"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md","formal_batch":78},
+    {"scene_groups":["5572_6"],"stage":"private_encoding","status":"complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md","review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md","formal_batch":79},
+    {"scene_groups":["5572_9","5581_5"],"stage":"private_encoding","status":"quality_audit_complete","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","review_record":null,"formal_batch":null}
   ],
   "tracking_issue": null,
   "tracking_mode": "draft_pr_private_stage_pointer",
@@ -193,33 +53,9 @@
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "release_evidence": null,
-  "previous_release": {
-    "train_id": "yuwen-mowen-train-05",
-    "release_id": "yuwen-mowen-train-05-r2",
-    "pr": 117,
-    "merge_sha": "6f1b92f979ce53cef0a25e4058828b53492bbe7d",
-    "status": "verified"
-  },
-  "quality_gate": {
-    "policy": "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
-    "status": "not_evaluated_until_release"
-  },
-  "private_stage": {
-    "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
-    "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-    "stage": "private_quality_audit",
-    "status": "fourth_preparation_complete"
-  },
-  "process_findings": [
-    {
-      "id": "encoding_to_preparation_accumulation_loop",
-      "status": "repaired_in_train_06",
-      "detail": "release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"
-    }
-  ],
-  "next_release": {
-    "candidate_scene": ["5572_9", "5581_5"],
-    "formal_batch": null,
-    "current_private_stage": "private_quality_audit"
-  }
+  "previous_release": {"train_id":"yuwen-mowen-train-05","release_id":"yuwen-mowen-train-05-r2","pr":117,"merge_sha":"6f1b92f979ce53cef0a25e4058828b53492bbe7d","status":"verified"},
+  "quality_gate": {"policy":"_phase4_proofread/TRANSLATION_QUALITY_GATE.md","status":"not_evaluated_until_release"},
+  "private_stage": {"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","stage":"private_encoding","status":"fourth_quality_audit_complete"},
+  "process_findings": [{"id":"encoding_to_preparation_accumulation_loop","status":"repaired_in_train_06","detail":"release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"}],
+  "next_release": {"candidate_scene":["5572_9","5581_5"],"formal_batch":null,"current_private_stage":"private_encoding"}
 }
