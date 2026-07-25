@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
   "status": "ready",
-  "task_id": "yuwen-mowen-scene5551_2-quality-audit",
+  "task_id": "yuwen-mowen-scene5551_2-encoding",
   "based_on_checkpoint": {
     "batch": 76,
     "pair_applied_keys": 1171,
@@ -26,7 +26,7 @@
     "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json",
     "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
     "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
-    "freshness_rule": "第77束encoding後にprivate_preparationへ戻して固定した入力。訳文判断はprivate_quality_auditでのみ行う。"
+    "freshness_rule": "quality auditの確定判断だけをprivate encodingで収録し、新しい訳文判断は追加しない。"
   },
   "scene_flow": [
     {
@@ -47,11 +47,10 @@
         "5551_2_Dlgs_Index10_Text"
       ],
       "voice_questions": [
-        "宇文逸の再会への高揚と、叔父を父親と思う私的な告白が同じ説明調へ均されていないか",
-        "咳が照れ隠し・言い直しとして働く流れを、日本語の不自然な咳払いへ固定していないか",
-        "莫問の父親という語への間と、我们都很幸运の対象を原文以上に説明していないか",
-        "欧陽雪の相槌が宇文逸との親密さを弱めるほど他人行儀になっていないか",
-        "宇文逸の叔父自慢と城へ急ぐ勢いが重い身の上説明だけに沈んでいないか"
+        "監査で確定した四候補だけが収録されているか",
+        "保持判断を便宜的に変更していないか",
+        "話者接頭辞・色タグ・句読点を壊していないか",
+        "FACT_DOUBTとALLUSION_REVIEWが監査記録どおり分離されているか"
       ]
     }
   ],
@@ -62,22 +61,58 @@
     "grouping_decision": "5551_2は遼城到着時の叔父への期待と育ての親の告白で意味境界が閉じる。後続5572_6は遼城事件後で情報状態が変わるため別にする。",
     "exception": {
       "reason_code": "no_adjacent_in_scope_scene",
-      "detail": "前場面は第77束としてencoding済み、後場面は事件後で時系列・感情状態・場面機能が変わるため、標準下限未満でも単独候補とする。正式な束確定はencoding段階まで行わない。"
+      "detail": "前場面は第77束としてencoding済み、後場面は事件後で時系列・感情状態・場面機能が変わるため、標準下限未満でも単独候補とする。正式な束確定はencoding完了時に行う。"
     }
+  },
+  "audit_decision": {
+    "fix_candidates": [
+      {
+        "key": "5551_2_Dlgs_Index1_Text",
+        "speaker": "宇文逸",
+        "candidate": "長いこと会ってないんだ。叔父さんは、私を見たらきっと喜んでくれる！"
+      },
+      {
+        "key": "5551_2_Dlgs_Index2_Text",
+        "speaker": "欧陽雪",
+        "candidate": "宇文公子と叔父上は、今も変わらず仲がよろしいのですね。"
+      },
+      {
+        "key": "5551_2_Dlgs_Index4_Text",
+        "speaker": "宇文逸",
+        "candidate": "叔父さんが私を育ててくれた……こほん。本人には言ったことがないけど、心の中ではずっと父親だと思ってるんだ！"
+      },
+      {
+        "key": "5551_2_Dlgs_Index10_Text",
+        "speaker": "宇文逸",
+        "candidate": "家は<Y>城の東</>だ。すぐ見つかるよ……急ごう！"
+      }
+    ],
+    "challenged_keep_keys": [
+      "5551_2_Dlgs_Index0_Text",
+      "5551_2_Dlgs_Index3_Text",
+      "5551_2_Dlgs_Index5_Text",
+      "5551_2_Dlgs_Index6_Text",
+      "5551_2_Dlgs_Index7_Text",
+      "5551_2_Dlgs_Index8_Text",
+      "5551_2_Dlgs_Index9_Text"
+    ],
+    "needs_context": [],
+    "allusion_review_candidates": []
   },
   "allusion_and_fact_gates": {
     "allusion_review_candidates": [],
     "fact_doubts": [
-      "叔父が実際に喜ぶか、現在どのような状態かを確定しない",
+      "叔父の反応は宇文逸の期待に留める",
       "宇文逸の両親の死因・時期・経緯を補わない",
       "莫問の如此诚心以待之人を単一の具体的人物へ固定しない",
       "莫問の父親観・過去・師父との関係を台詞以上に説明しない",
-      "叔父が友人へ料理した回数や具体的な料理を補わない"
+      "叔父の料理名や具体的回数を補わない",
+      "後続の遼城事件と叔父の現在状態を先取りしない"
     ]
   },
   "ownership_boundary": {
-    "pair_batch": "全11キーが既存ownerにある。quality auditでは参照だけを行い、encodingで修正確定したキーだけを既存ownerへ再収録する。",
-    "cross_register": "人物ペア外の問題とquality auditで確定した場合だけencoding段階で分離する。",
+    "pair_batch": "監査で確定した修正候補はすべて既存owner内にある。既存ownerを再改訂し、新規ownerは作らない。",
+    "cross_register": "人物ペア外の問題は監査で確定していないため新規cross-registerを作らない。",
     "machine_ownership": {
       "existing": [
         {
@@ -102,24 +137,18 @@
   },
   "private_stage_plan": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
-    "current_stage": "private_quality_audit",
-    "completed_stages_in_current_cycle": ["private_preparation"],
+    "current_stage": "private_encoding",
+    "completed_stages_in_current_cycle": ["private_preparation", "private_quality_audit"],
     "previous_cycle": {"formal_batch": 77, "status": "private_encoding_complete"},
     "sequence": ["private_preparation", "private_quality_audit", "private_encoding", "ready_for_public_ci"],
     "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
-    "quality_audit_restrictions": [
-      "fix JSONを書かない",
-      "ownerを変更しない",
-      "正式な束を完了扱いにしない",
-      "manifest件数とrelease残量を判断材料にしない"
-    ],
-    "encoding_rule": "quality auditで確定済みの判断だけを収録し、新しい疑義はquality auditへ戻す"
+    "encoding_rule": "監査記録の四候補だけを既存fix fileとレビュー記録へ収録する。新しい疑義はprivate_quality_auditへ戻す。"
   },
   "do_not_do": [
-    "private_quality_auditで修正JSON・owner・正式な束を作らない",
-    "叔父の現状や後続事件を先取りしない",
-    "宇文逸の両親や莫問の過去を台詞以上に補わない",
-    "莫問の我们を単一人物との関係へ固定しない",
+    "encoding中に新しい訳文判断を追加しない",
+    "保持行を件数合わせで修正へ変えない",
+    "新規ownerまたはcross-registerを作らない",
+    "locres・pak・audit statusをrelease前に更新しない",
     "話者接頭辞・色タグ・制御文字を壊さない"
   ],
   "skill_review": {
@@ -128,16 +157,16 @@
     "separate_layers": "翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける"
   },
   "expected_outputs": [
-    "quality auditでは原文・現訳・前後・話者・相手・時系列から判断する",
-    "fix候補・疑った保持・追加文脈の要否を監査記録へ残す",
-    "FACT_DOUBTとALLUSION_REVIEWを分離する",
-    "encodingへ移るまでfix JSON・owner・正式束・locres・pakを更新しない"
+    "監査で確定した四候補を既存ownerへ反映する",
+    "レビュー記録へfix・keep・FACT_DOUBT・ALLUSION_REVIEWを収録する",
+    "所有競合と制御タグを確認する",
+    "encoding完了時にだけ正式な束と輸送件数を確定する"
   ],
   "cold_start_first_report": {
     "current": "宇文逸↔莫問・checkpoint第76束・last reviewed第77束・人物ペア1171・全1529。",
-    "open_pr": "draft PR #118で第77束encoding完了。第78束5551_2のpreparation完了、quality auditがactive。",
-    "start": "5551_2の候補packetを読み、翻訳判断だけを監査記録へ残す。",
-    "drift": "release条件未達時のencoding→preparation遷移をtrain-06で追加し、往復を実走済み。"
+    "open_pr": "draft PR #118で第77束encoding完了。第78束5551_2のquality audit完了、private encodingがactive。",
+    "start": "5551_2の監査済み四候補だけを既存ownerとレビュー記録へ収録する。",
+    "drift": "encodingでは訳文判断を再開せず、疑義があればquality auditへ戻す。"
   },
   "ci_train": {
     "phase": "phase1_pilot",
@@ -151,8 +180,8 @@
     "single_pr_finalization": true,
     "private_stage": {
       "policy": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
-      "current": "private_quality_audit",
-      "previous": "private_preparation",
+      "current": "private_encoding",
+      "previous": "private_quality_audit",
       "previous_cycle_encoding": 77
     }
   }
