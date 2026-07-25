@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""private翻訳作業の準備・品質監査・収録・CI待ち分離を検査する。"""
+"""private翻訳作業の準備・品質監査・収録・CI輸送分離を検査する。"""
 from __future__ import annotations
 
 import json
@@ -29,12 +29,7 @@ EXPECTED = {
         "encoding_writes_allowed": False,
         "throughput_metrics_visible": False,
         "metrics_frozen": True,
-        "required_evidence": {
-            "source_artifact",
-            "scene_context",
-            "ownership_inventory",
-            "candidate_packet",
-        },
+        "required_evidence": {"source_artifact", "scene_context", "ownership_inventory", "candidate_packet"},
     },
     "private_quality_audit": {
         "operation_state": "private_translation_work",
@@ -43,11 +38,7 @@ EXPECTED = {
         "encoding_writes_allowed": False,
         "throughput_metrics_visible": False,
         "metrics_frozen": True,
-        "required_evidence": {
-            "audit_record",
-            "fix_candidates",
-            "challenged_keeps",
-        },
+        "required_evidence": {"audit_record", "fix_candidates", "challenged_keeps"},
     },
     "private_encoding": {
         "operation_state": "private_translation_work",
@@ -56,12 +47,7 @@ EXPECTED = {
         "encoding_writes_allowed": True,
         "throughput_metrics_visible": True,
         "metrics_frozen": False,
-        "required_evidence": {
-            "audit_record",
-            "fix_files",
-            "review_records",
-            "ownership_records",
-        },
+        "required_evidence": {"audit_record", "fix_files", "review_records", "ownership_records"},
     },
     "ready_for_public_ci": {
         "operation_state": "ready_for_public_ci",
@@ -70,11 +56,7 @@ EXPECTED = {
         "encoding_writes_allowed": False,
         "throughput_metrics_visible": True,
         "metrics_frozen": False,
-        "required_evidence": {
-            "quality_gate",
-            "manifest",
-            "next_task_packet",
-        },
+        "required_evidence": {"quality_gate", "manifest", "next_task_packet"},
     },
 }
 ALLOWED_TRANSITIONS = {
@@ -83,13 +65,10 @@ ALLOWED_TRANSITIONS = {
     "private_encoding": {"private_quality_audit", "ready_for_public_ci"},
     "ready_for_public_ci": {"private_quality_audit"},
 }
+CI_TRANSPORT_STATUSES = {"ready_for_public_ci", "in_public_ci", "verified"}
 METRIC_KEYS = (
-    "bundle_count",
-    "reviewed_rows",
-    "reviewed_keys",
-    "unique_reviewed_rows",
-    "fix_keys",
-    "unique_fix_rows",
+    "bundle_count", "reviewed_rows", "reviewed_keys",
+    "unique_reviewed_rows", "fix_keys", "unique_fix_rows",
 )
 
 
@@ -117,10 +96,7 @@ def repo_paths(value: Any) -> list[str]:
     if isinstance(value, str):
         return [value] if value.startswith(("_phase4_proofread/", "_tools/", ".github/")) else []
     if isinstance(value, list):
-        result: list[str] = []
-        for item in value:
-            result.extend(repo_paths(item))
-        return result
+        return [path for item in value for path in repo_paths(item)]
     return []
 
 
@@ -139,17 +115,12 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
         if isinstance(item, dict) and isinstance(item.get("id"), str)
     }
     if set(by_id) != set(STAGE_ORDER):
-        errors.append("contract stage ids mismatch")
-        return errors
+        return errors + ["contract stage ids mismatch"]
     for stage_id, expected in EXPECTED.items():
         item = by_id[stage_id]
         for key in (
-            "operation_state",
-            "translation_judgment_allowed",
-            "fix_writes_allowed",
-            "encoding_writes_allowed",
-            "throughput_metrics_visible",
-            "metrics_frozen",
+            "operation_state", "translation_judgment_allowed", "fix_writes_allowed",
+            "encoding_writes_allowed", "throughput_metrics_visible", "metrics_frozen",
         ):
             if item.get(key) != expected[key]:
                 errors.append(f"contract {stage_id}.{key} mismatch")
@@ -178,16 +149,14 @@ def validate(
     if stage not in EXPECTED:
         return errors + [f"state.stage invalid: {stage!r}"]
     expected = EXPECTED[stage]
+
     permissions = state.get("permissions")
     if not isinstance(permissions, dict):
         errors.append("state.permissions must be an object")
         permissions = {}
     for key in (
-        "translation_judgment_allowed",
-        "fix_writes_allowed",
-        "encoding_writes_allowed",
-        "throughput_metrics_visible",
-        "metrics_frozen",
+        "translation_judgment_allowed", "fix_writes_allowed", "encoding_writes_allowed",
+        "throughput_metrics_visible", "metrics_frozen",
     ):
         if permissions.get(key) != expected[key]:
             errors.append(f"state.permissions.{key} mismatch for {stage}")
@@ -196,16 +165,19 @@ def validate(
     if not isinstance(operation, dict) or operation.get("declared_state") != expected["operation_state"]:
         errors.append(f"operation_mode.declared_state must be {expected['operation_state']!r}")
 
-    expected_manifest_status = (
-        "ready_for_public_ci" if stage == "ready_for_public_ci" else "accumulating"
-    )
-    if manifest.get("status") != expected_manifest_status:
-        errors.append(
-            f"manifest.status must be {expected_manifest_status!r} during {stage}"
-        )
+    manifest_status = manifest.get("status")
+    if stage == "ready_for_public_ci":
+        if manifest_status not in CI_TRANSPORT_STATUSES:
+            errors.append(
+                "manifest.status must be ready_for_public_ci, in_public_ci, or verified "
+                "while translation stage is ready_for_public_ci"
+            )
+    elif manifest_status != "accumulating":
+        errors.append(f"manifest.status must be 'accumulating' during {stage}")
+
     ci_train = current.get("ci_train")
-    if not isinstance(ci_train, dict) or ci_train.get("status") != expected_manifest_status:
-        errors.append("CURRENT_WORK.ci_train.status must match stage-derived manifest status")
+    if not isinstance(ci_train, dict) or ci_train.get("status") != manifest_status:
+        errors.append("CURRENT_WORK.ci_train.status must match manifest.status")
 
     history = state.get("history")
     if not isinstance(history, list) or not history:
@@ -220,15 +192,12 @@ def validate(
         if entry_stage not in EXPECTED:
             errors.append(f"{label}.stage invalid")
             continue
-        status = entry.get("status")
-        is_last = index == len(history) - 1
-        expected_status = "active" if is_last else "complete"
-        if status != expected_status:
+        expected_status = "active" if index == len(history) - 1 else "complete"
+        if entry.get("status") != expected_status:
             errors.append(f"{label}.status must be {expected_status}")
         if previous is not None and entry_stage not in ALLOWED_TRANSITIONS[previous]:
             errors.append(f"illegal transition: {previous} -> {entry_stage}")
         previous = entry_stage
-
         evidence = entry.get("evidence")
         if not isinstance(evidence, dict):
             errors.append(f"{label}.evidence must be an object")
@@ -252,28 +221,26 @@ def validate(
         if not isinstance(metrics, dict):
             errors.append(f"{stage} requires metrics_snapshot")
             metrics = {}
-        totals = manifest.get("totals")
-        if not isinstance(totals, dict):
-            totals = {}
+        totals = manifest.get("totals") if isinstance(manifest.get("totals"), dict) else {}
         for key in METRIC_KEYS:
             if metrics.get(key) != totals.get(key):
                 errors.append(f"metrics_snapshot.{key} must match manifest totals")
     elif metrics is not None:
         errors.append(f"{stage} must not expose metrics_snapshot")
 
-    audit_separation = state.get("audit_separation")
-    if not isinstance(audit_separation, dict):
+    separation = state.get("audit_separation")
+    if not isinstance(separation, dict):
         errors.append("state.audit_separation must be an object")
     else:
-        if audit_separation.get("pair_keys_follow_judgment") is not True:
-            errors.append("pair keys must follow quality judgment")
-        if audit_separation.get("bundle_number_assigned_in_encoding") is not True:
-            errors.append("bundle numbers must be assigned in encoding")
-        if audit_separation.get("audit_metrics_suppressed") is not True:
-            errors.append("quality-audit metrics must be suppressed")
-        if audit_separation.get("public_reopens_judgment") is not False:
-            errors.append("public CI must not reopen translation judgment")
-
+        checks = {
+            "pair_keys_follow_judgment": True,
+            "bundle_number_assigned_in_encoding": True,
+            "audit_metrics_suppressed": True,
+            "public_reopens_judgment": False,
+        }
+        for key, expected_value in checks.items():
+            if separation.get(key) is not expected_value:
+                errors.append(f"audit_separation.{key} mismatch")
     return errors
 
 
@@ -287,6 +254,7 @@ def main() -> int:
     print("=== Private translation stage ===")
     print(f"train: {state.get('train_id')}")
     print(f"stage: {state.get('stage')}")
+    print(f"CI transport status: {manifest.get('status')}")
     print(f"translation judgment: {permissions.get('translation_judgment_allowed')}")
     print(f"encoding writes: {permissions.get('encoding_writes_allowed')}")
     print(f"throughput metrics visible: {permissions.get('throughput_metrics_visible')}")
@@ -295,7 +263,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: preparation, quality audit, encoding, and CI transport are separated")
+    print("OK: private quality stages and CI transport status are separated")
     return 0
 
 
