@@ -10,49 +10,44 @@
 
 ## 現在地
 
-- 実visibility: private（GitHub metadataで確認済み）
-- open PR: 0件
+- 実visibility: public（GitHub metadataで確認済み）
+- open PR: #117
 - active Issue: #116
 - active branch: `agent/yuwen-mowen-train-05`
 - operation mode: `ready_for_public_ci`
-- active train: `yuwen-mowen-train-05` / ready_for_public_ci
+- effective mode: `public_ci_window`
+- active train: `yuwen-mowen-train-05` / in_public_ci
 - train totals: 3束 / 53行 / 3修正 / 新規人物ペア0キー
-- reviewed: 第76束まで
-- applied checkpoint: 第73束 / 人物ペア1170 / 全1528 / verified
-- previous release: `yuwen-mowen-train-04-r1`
-- previous PR: #115 / squash merge `4dba3a33788cc0a1bdf6480656e0237661678ac4`
-- 未適用fix: 3
+- reviewed / applied: 第76束まで
+- checkpoint: 第76束 / 人物ペア1170 / 全1528 / pending_audit_sync
+- release evidence: `yuwen-mowen-train-05-r1`
+- CI / verified asset HEAD: `9e767dbd85895fff5b298d605954b0aec91fee22`
+- 未適用fix: 0
 - build: verified_not_deployed
 - game verification: not_started
 
-## train-05
+## 第74〜76束release
 
 - 第74束`5531_3`・`5531_4`: 28行 / 2修正 / 26保持
-  - 腕輪確認の不自然な省略形を修正
-  - 徐海の`放心了`を娘の無事への安堵へ戻した
-  - `穷寇莫追`はALLUSION_REVIEWへ分離し、深追い禁止の機能訳を保持
 - 第75束`5531_7`・`5535_2`: 11行 / 1修正 / 10保持
-  - 天龍幇の人さらい目的を断定から高い可能性へ戻した
 - 第76束`5536_3`・`5536_4`: 14行 / 0修正 / 14保持
-  - 清霄師伯を待つ指示の有無だけを分岐差として保持
-- 修正は既存`fixes_relation_yuwen_mowen_20260723_batch8.json`の所有を維持
-- locres・pak・audit_statusは第73束checkpointのまま未更新
-
-## 一次資料
-
-- Relation run: `30145143325`
-- artifact: `8615729248`
-- digest: `sha256:fff1a96381862320176a51915722f7aee4bf3d85242253c4e504221a0922f27b`
-- source HEAD: `abda35f9d742d71e1562c8cdebdf2fdc07643210`
+- 3修正は既存第8束所有キーの再改訂で、適用キー件数は人物ペア1170・全1528を維持
+- `穷寇莫追`はALLUSION_REVIEW、設定事実疑義はFACT_DOUBTとして分離
+- 第77束`5540_4`は13行の短場面例外を`no_adjacent_in_scope_scene`として記録
+- Relation run `30148094728` 成功
+- Cross run `30148094731` 成功
+- Apply run `30148094737` 成功
+- locres反映、pak再生成、LFS、register lint、関係抽出、回帰検査成功
+- 適用記録とrelease evidenceをPR #117へ追加済み
 
 ## 次に行うこと
 
-1. ユーザーへpublic化を一度だけ依頼する。
-2. public確認後、同じbranchからPRを一つ作る。
-3. Relation / Cross / Applyを実行し、3修正をlocres・pak・audit_statusへ反映する。
-4. release evidenceと第76束verified checkpointを同じPR内で確定する。
-5. public phase2 gate、未解決thread 0件を確認する。
-6. private復帰後に同じPRをsquash統合する。
-7. 第77束`5540_4`はprivate復帰後に開始する。
+1. Apply状態同期でaudit_statusのrecord indexと第76束を更新する。
+2. release evidenceのasset HEADを最終同期HEADへ固定し、checkpointをverifiedへ更新する。
+3. public phase2 gateと未解決review thread 0件を確認する。
+4. 実visibilityをprivateへ戻す。
+5. private metadata closeout後、PR #117をsquash統合する。
+6. mainの第76束verified checkpointから新しいprivate列車を開始する。
+7. 第77束`5540_4`を監査する。
 
-public確認前はPRを作らず、第77束の翻訳判断も始めない。
+public中は第77束の翻訳判断を始めない。
