@@ -10,49 +10,46 @@
 
 ## 現在地
 
-- 実visibility: private（GitHub metadataで確認済み）
-- open PR: 0件
+- 実visibility: public（GitHub metadataで確認済み）
+- open PR: #115
 - active Issue: #114
 - active branch: `agent/yuwen-mowen-train-04`
 - operation mode: `ready_for_public_ci`
-- active train: `yuwen-mowen-train-04` / ready_for_public_ci
+- effective mode: `public_ci_window`
+- active train: `yuwen-mowen-train-04` / in_public_ci
 - train totals: 4束 / 34行 / 3修正 / 新規人物ペア1キー
-- reviewed: 第73束まで
-- applied checkpoint: 第69束 / 人物ペア1169 / 全1525 / verified
-- previous release: `yuwen-mowen-train-03-r1`
-- previous PR: #113 / squash merge `e4dd3f79e2facf019b7e4dc0f23d8043dd2bcd7e`
-- 未適用fix: 3
+- reviewed / completed候補: 第73束まで
+- checkpoint候補: 第73束 / 人物ペア1170 / 全1528 / pending_audit_sync
+- release evidence: `yuwen-mowen-train-04-r1`
+- CI HEAD: `abda35f9d742d71e1562c8cdebdf2fdc07643210`
+- applied asset HEAD: `9707bc23aa37054e868aa8d05c21b5f7e263c900`
+- 未適用fix: 0
 - build: verified_not_deployed
 - game verification: not_started
 
-## train-04
+## 第70〜73束release
 
 - 第70束`5522_1`: 7行 / 2修正 / 5保持
-  - 徐海の重複罵倒を整理
-  - 黄宗政の制止と咳を強化
 - 第71束`5523_1`・`5525_3`: 8行 / 1修正 / 7保持
-  - 莫問の`改变`を「一人ではどうにもできない」へ修正
 - 第72束`5525_6`: 5行 / 0修正 / 5保持
-  - 偽傷・天龍幇の目的・受制関係を推測強度のまま保持
 - 第73束`5528_7`・重複分岐`5529_5`: 14キー / 0修正 / 14保持
-  - 黒白無常の過剰演出を端役registerとして保持
-  - 完全重複分岐の文面一致を確認
-
-## 一次資料
-
-- Relation run: `30140191768`
-- artifact: `8614192158`
-- digest: `sha256:7a38ab3e453d2544fdefd886f8dcc50467b59df1c9d3088547c32297128056ad`
-- source HEAD: `1bf29e39de33d22c52291123f64474935adb8eca`
+- 黒白無常の過剰な端役registerを保持
+- FACT_DOUBTとALLUSION_REVIEWを分離
+- Relation run `30145143325` 成功
+- Cross run `30145143326` 成功
+- Apply run `30145143320` 成功
+- locres反映、pak再生成、LFS、register lint、関係抽出、回帰検査成功
+- audit_statusは全1528キー、人物ペア1170キーまで更新済み
+- 適用記録とrelease evidenceをPR #115へ追加済み
 
 ## 次に行うこと
 
-1. ユーザーへpublic化を一度だけ依頼する。
-2. public確認後、同じbranchからPRを一つ作る。
-3. Relation / Cross / Applyを実行し、3修正をlocres・pak・audit_statusへ反映する。
-4. release evidenceと第73束verified checkpointを同じPR内で確定する。
-5. public phase2 gate、未解決thread 0件を確認する。
-6. private復帰後に同じPRをsquash統合する。
-7. 第74束`5531_3`・`5531_4`はprivate復帰後に開始する。
+1. Apply jobを最新branchで再実行し、適用記録をaudit_status索引へ同期する。
+2. 第73束のtranslation_reaudited / build_verifiedとrecord indexを確認する。
+3. checkpointとmanifestを`verified`へ確定する。
+4. public phase2 gateを成功させる。
+5. 未解決thread 0件を確認する。
+6. private復帰後にmetadata closeoutし、PR #115をsquash統合する。
+7. 第74束`5531_3`・`5531_4`は統合後のprivate列車で開始する。
 
-public確認前はPRを作らず、第74束の翻訳判断も始めない。
+public中は第74束の翻訳判断を始めない。
