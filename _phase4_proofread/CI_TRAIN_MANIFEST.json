@@ -23,23 +23,70 @@
   "allowed_early_release_reasons": ["workflow_change", "schema_change", "security_or_visibility", "urgent_build_verification"],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 13,
+    "reviewed_keys": 13,
+    "unique_reviewed_rows": 13,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
     "new_pair_keys": 0,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 77,
+      "status": "reviewed_pending_ci",
+      "scene_groups": ["5540_4"],
+      "reviewed_rows": 13,
+      "reviewed_keys": 13,
+      "unique_rows": 13,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
+      "new_pair_keys": 0,
+      "keep_keys": 9,
+      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
+      "ownership_summary": {
+        "existing_keys": 10,
+        "unowned_kept": 3,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "fact_doubts": [
+        "知らせを受け取った経緯を補わない",
+        "叔父の心配を客観的事実へ確定しない",
+        "師父の指示を護衛命令・監視命令へ拡張しない",
+        "半月の移動を無条件の成功保証へ変えない",
+        "瑶姫が伏せた遼城の事情を先取りしない"
+      ],
+      "source_artifact": {
+        "workflow": "Relation audit extraction",
+        "run_id": 30149789606,
+        "artifact_id": 8617244568,
+        "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+        "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
+      }
+    }
+  ],
   "candidate_packets": [
     {
       "scene_groups": ["5540_4"],
-      "stage": "private_quality_audit",
+      "stage": "private_encoding",
+      "status": "complete",
       "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
       "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json",
       "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
+      "formal_batch": 77
+    },
+    {
+      "scene_groups": ["5551_2"],
+      "stage": "private_quality_audit",
+      "status": "preparation_complete",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json",
+      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
       "formal_batch": null
     }
   ],
@@ -58,16 +105,23 @@
   },
   "quality_gate": {
     "policy": "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
-    "status": "not_evaluated_before_encoding"
+    "status": "not_evaluated_until_release"
   },
   "private_stage": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
     "stage": "private_quality_audit",
-    "status": "preparation_complete"
+    "status": "second_preparation_complete"
   },
+  "process_findings": [
+    {
+      "id": "encoding_to_preparation_accumulation_loop",
+      "status": "repaired_in_train_06",
+      "detail": "release条件未達の蓄積列車でprivate_encodingから次束のprivate_preparationへ戻る遷移を追加し、回帰testを作成した。"
+    }
+  ],
   "next_release": {
-    "candidate_scene": "5540_4",
+    "candidate_scene": "5551_2",
     "formal_batch": null,
     "current_private_stage": "private_quality_audit"
   }
