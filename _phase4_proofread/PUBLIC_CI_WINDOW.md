@@ -54,7 +54,7 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 完成HEAD: <SHA>
 集計: <束数 / 通読行 / 修正キー>
 実行: Relation / Cross / Apply / phase2 gate
-終了条件: 三本成功、release evidence成功、未適用0件、未解決thread 0件、翻訳PR一つのsquash統合
+終了条件: 三本成功、release evidence成功、未適用0件、未解決thread 0件、private復帰確認、翻訳PR一つのsquash統合
 ```
 
 ユーザーの申告だけで進めずmetadataでpublicを確認する。確認前に公開済みとして開始報告をしない。
@@ -66,8 +66,20 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 - 適用記録、release evidence、CURRENT_WORK、manifest、next packet、handoffの最終化
 - `CI train phase2 gate`で成功run、HEAD、lineage、checkpointを検証
 - 未解決thread確認
-- 同じ翻訳PRのsquash統合
 - private復帰依頼
+
+public phase2 gateの成功を公開CIの最終検査とする。private復帰後に同じCIの成功を再要求しない。
+
+## private復帰後に行うこと
+
+- repository metadataでprivateを確認する
+- operation modeを`private_translation_work`へ同期する
+- handoffと次束packetがverified checkpointを基準にしていることを確認する
+- 未適用0件、未解決thread 0件を再確認する
+- 同じ翻訳PRをsquash統合する
+- post-merge状態PRを作らず、次のprivate列車を開始する
+
+private復帰後にrunnerが開始せず、step・artifact・logのないphase2 runが失敗表示になっても、公開中のphase2成功とmetadata確認が揃っていればrelease失敗とは扱わない。
 
 ## public中の行政修正
 
@@ -77,7 +89,7 @@ public_ci_window中に、CI窓の入口、状態検査、workflow、release evid
 2. 人物声、意味判断、所有境界、FACT_DOUBT、ALLUSION_REVIEWを変更しない。
 3. 制度文書、機械契約、検査コード、検査テスト、状態同期に限定する。
 4. 修正理由をtracking Issueへ記録する。
-5. workflowまたはgateへ影響する場合は、修正後のHEADで必要なCIを改めて通す。
+5. workflowまたはgateへ影響する場合は、修正後のHEADで必要なpublic CIを改めて通す。
 6. 行政修正が翻訳再判断へ広がる場合は`public_ci_blocked`としてprivateへ戻す。
 
 ## public中に行わないこと
@@ -97,13 +109,13 @@ public_ci_window中に、CI窓の入口、状態検査、workflow、release evid
 4. locres、pak、lint、関係抽出、回帰、LFS成功
 5. release evidenceがGitHub Actions実体と一致
 6. checkpoint verified
-7. phase2 gate成功
+7. public中のphase2 gate成功
 8. visibility preflight契約とその機械テスト成功
 9. 未解決review thread 0件
-10. 翻訳PR一つをsquash統合
-11. mainに次列車のprivate作業状態と次束packetが含まれる
-12. post-merge状態PR 0件
-13. 実visibilityをprivateへ戻す
+10. 実visibilityをrepository metadataでprivateと確認
+11. private作業状態と次束packetを同じPRへ格納
+12. 翻訳PR一つをsquash統合
+13. post-merge状態PR 0件
 
 ## 深い失敗
 
@@ -136,5 +148,6 @@ public_ci_window中に、CI窓の入口、状態検査、workflow、release evid
 - ready化後に新しい小束を追加する
 - metadataを確認せずvisibilityを決める
 - release evidenceなしで統合する
+- private復帰後のrunner成功をrelease条件へ追加する
 - squash SHA同期のためだけにpost-merge状態PRを作る
 - 公開CI終了後もpublicのまま放置する
