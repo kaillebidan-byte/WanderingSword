@@ -22,6 +22,7 @@ CHECKS = [
 ]
 TESTS = [
     ["test_check_candidate_ownership.py"],
+    ["test_release_ci_triggers.py"],
     ["test_check_operation_mode.py"],
     ["test_check_private_translation_stage.py"],
     ["test_check_ci_train_manifest.py"],
