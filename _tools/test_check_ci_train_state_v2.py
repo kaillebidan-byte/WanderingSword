@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""keep-only束とrelease待ちpacket分離を回帰検証する。"""
+"""wave v2のkeep-only正式束と次wave予約分離を回帰検証する。"""
 from __future__ import annotations
 
 import importlib.util
@@ -20,6 +20,7 @@ def load(name: str):
 
 
 def sample_current(status: str, declared: str) -> dict:
+    transport = status if status in {"ready_for_public_ci", "in_public_ci"} else "not_ready"
     return {
         "checkpoint": {
             "status": "verified",
@@ -33,11 +34,12 @@ def sample_current(status: str, declared: str) -> dict:
         "operation_mode": {"declared_state": declared},
         "immediate_next": {"scene_groups": ["release-scene"]},
         "ci_train": {
-            "phase": "phase1_pilot",
+            "phase": "phase1_wave",
             "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
             "train_id": "test-train",
             "branch": "agent/test-train",
             "status": status,
+            "transport_status": transport,
             "base_checkpoint_batch": 65,
             "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
             "caps": {"bundle_count": 6, "reviewed_rows": 60},
@@ -52,14 +54,13 @@ def sample_manifest(status: str) -> dict:
         bundles.append(
             {
                 "batch": 66 + offset,
-                "status": "reviewed_pending_ci",
+                "review_status": "complete",
+                "apply_status": "pending",
                 "scene_groups": [f"scene-{offset}"],
                 "reviewed_rows": 10,
                 "fix_keys": fixes,
                 "new_pair_keys": fixes,
-                "fix_files": (
-                    ["_phase4_proofread/fixes_relation_test.json"] if fixes else []
-                ),
+                "fix_files": (["_phase4_proofread/fixes_relation_test.json"] if fixes else []),
                 "review_record": f"_phase4_proofread/REVIEW_TEST_{offset}.md",
                 "ownership_summary": {
                     "existing_keys": 0,
@@ -69,11 +70,12 @@ def sample_manifest(status: str) -> dict:
             }
         )
     return {
-        "schema_version": 1,
-        "phase": "phase1_pilot",
+        "schema_version": 2,
+        "phase": "phase1_wave",
         "train_id": "test-train",
         "branch": "agent/test-train",
         "status": status,
+        "transport": {"status": status},
         "base_checkpoint": {
             "batch": 65,
             "pair_applied_keys": 1167,
@@ -105,7 +107,7 @@ def main() -> None:
     manifest_v2 = load("check_ci_train_manifest_v2.py")
     packet_v2 = load("check_next_task_packet_v2.py")
 
-    current_ready = sample_current("ready_for_public_ci", "ready_for_public_ci")
+    current_ready = sample_current("ready_for_public_ci", "translation_frozen")
     manifest_ready = sample_manifest("ready_for_public_ci")
     errors = manifest_v2.validate_manifest(manifest_ready, current_ready, require_ready=True)
     assert errors == [], errors
@@ -115,7 +117,7 @@ def main() -> None:
     errors = manifest_v2.validate_manifest(bad, current_ready)
     assert any("keep-only bundle" in error for error in errors)
 
-    packet = {"scene_groups": ["next-train-scene"]}
+    packet = {"scene_groups": ["next-wave-scene"]}
     errors = []
     packet_v2.validate_scene_alignment(
         current_ready,
