@@ -62,6 +62,10 @@
 新しい疑義や監査記録との矛盾が出た場合は
 `private_quality_audit`へ戻し、判断記録を更新してから再びencodingへ進む。
 
+列車がrelease条件未達で蓄積を続ける場合は、現在束のencodingを完了してmanifestへ収録した後、
+`private_preparation`へ戻って次場面の文脈・重複・所有だけを準備する。
+この戻りでは前束の品質判断を再開せず、次束のfix / keep判断も行わない。
+
 ### 4. `ready_for_public_ci`
 
 翻訳判断と収録を凍結し、public CIへ送る待機状態。
@@ -81,8 +85,11 @@
 
 ## 遷移
 
-通常:
+一列車をreleaseする通常順:
 `private_preparation -> private_quality_audit -> private_encoding -> ready_for_public_ci`
+
+release条件未達で次束を蓄積する通常ループ:
+`private_encoding -> private_preparation -> private_quality_audit -> private_encoding`
 
 再作業:
 - `private_encoding -> private_quality_audit`
@@ -92,8 +99,10 @@
 - preparationからencodingまたはCI待ちへの飛越
 - quality auditからCI待ちへの飛越
 - public CIから品質判断を再開すること
+- encoding完了前に次束のpreparationへ移ること
 
 各遷移は`PRIVATE_STAGE_STATE.json.history`へ証拠とともに記録する。
+`private_encoding -> private_preparation`はmanifestが`accumulating`で、直前束のレビュー記録と所有記録が完成している場合だけ使う。
 
 ## 指標の扱い
 
@@ -120,9 +129,12 @@ encoding回の報告順:
 3. 品質ゲート結果
 4. 最後に輸送件数
 
-## train-05への適用
+## train-05とtrain-06への適用
 
 train-05は初回public検証後に低収穫再監査を行ったため、
-既存記録から四段階の証拠を遡及して`PRIVATE_STAGE_STATE.json`へ固定する。
-これは段階飛越を正当化するものではない。次の列車からは各段階を順番に実行し、
-状態遷移そのものを往復テストする。
+既存記録から四段階の証拠を遡及して`PRIVATE_STAGE_STATE.json`へ固定した。
+これは段階飛越を正当化するものではない。
+
+train-06の第77束で初めて四段階を順番に実走したところ、release条件未達時に
+`private_encoding`から次束の`private_preparation`へ戻る遷移が契約に存在しない不備が判明した。
+蓄積列車だけに限定してこの遷移を追加し、次束から往復自体を検証する。
