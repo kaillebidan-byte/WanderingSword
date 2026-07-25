@@ -12,6 +12,7 @@
 - operation mode: `ready_for_public_ci`
 - effective mode: `public_ci_window`
 - private stage: `ready_for_public_ci`
+- CI transport: `verified`
 - checkpoint: 第80束 / 人物ペア1171 / 全1529 / 未適用0件
 - last reviewed: 第80束
 - release checkpoint: `yuwen-mowen-train-06-r1` / verified
@@ -49,6 +50,8 @@
 
 Applyは未適用0件、pak・LFS・validate・lint・関係抽出・回帰を確認し、audit statusを第80束へ更新した。bot生成HEADは`39f3248e9333460e2c35e110f40e944ba3bf9927`。
 
+state-only `CI train phase2 gate` run `30166513929`も成功。未解決review threadは0件。phase2とthread確認は再実行対象ではない。
+
 公開CI入口で次の行政不整合を修正した。
 
 - operation protocolの参照先
@@ -61,14 +64,12 @@ Applyは未適用0件、pak・LFS・validate・lint・関係抽出・回帰を�
 
 ## 次候補
 
-`5581_7`と`5581_8`を第81束候補としてpacketへ予約した。二つの分岐4行はまだpreparation・quality audit・encodingを行っていない。private復帰後、最新artifactを取得し、後続`5583_1`との結合可否から改めて準備する。
+`5581_7`と`5581_8`を第81束候補としてpacketへ予約した。二つの分岐4行はまだpreparation・quality audit・encodingを行っていない。PR #118統合後のprivate作業で最新artifactを取得し、後続`5583_1`との結合可否から改めて準備する。
 
 ## 残作業
 
-1. state-only `CI train phase2 gate`を成功させる。
-2. PR #118の未解決review threadが0件であることを確認する。
-3. repositoryをprivateへ戻すよう依頼し、metadataで確認する。
-4. private復帰後、同じPR #118をsquash統合する。
-5. post-merge状態PRは作らない。
+1. repositoryをprivateへ戻すよう依頼し、GitHub metadataでprivate復帰を確認する。
+2. private復帰後、同じPR #118をsquash統合する。
+3. post-merge状態PRは作らない。
 
 public中に新しい翻訳判断、次小束監査、owner変更は行わない。
