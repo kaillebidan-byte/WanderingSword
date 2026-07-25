@@ -7,6 +7,8 @@ on:
     paths:
       - "_phase4_proofread/RELEASE_EVIDENCE_*.json"
       - "_phase4_proofread/APPLIED_FIXES_*.md"
+      - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
+      - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
       - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
       - "_phase4_proofread/CI_TRAIN_PHASE2.md"
       - "_phase4_proofread/CURRENT_WORK.json"
@@ -33,6 +35,8 @@ on:
       - "_tools/check_next_task_packet_v2.py"
       - "_tools/test_check_next_task_packet_ownership.py"
       - "_tools/test_check_ci_train_state_v2.py"
+      - "_tools/check_translation_quality_gate.py"
+      - "_tools/test_check_translation_quality_gate.py"
       - ".github/workflows/ci-train-phase2.yml"
 
 permissions:
@@ -98,12 +102,14 @@ jobs:
           python _tools/check_handoff_consistency_v2.py --require-verified \
             2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
 
-      - name: Validate train and next packet
+      - name: Validate train, quality, and next packet
         shell: bash
         run: |
           set -o pipefail
           python _tools/check_ci_train_manifest_v2.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
+          python _tools/check_translation_quality_gate.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/translation_quality_gate.txt
           python _tools/check_next_task_packet.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/next_task_packet.txt
 
@@ -117,6 +123,7 @@ jobs:
           python _tools/test_check_ci_train_manifest.py
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_check_ci_train_state_v2.py
+          python _tools/test_check_translation_quality_gate.py
 
       - name: Upload phase2 diagnostics
         if: always()
