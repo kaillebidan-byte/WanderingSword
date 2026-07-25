@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": ["5572_9", "5581_5"],
+  "source_artifact": {
+    "workflow": "Relation audit extraction",
+    "run_id": 30149789606,
+    "artifact_id": 8617244568,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+    "head_sha": "a568f731dcf419c766dc6a3845461aed1f83d46a"
+  },
+  "scene_context": {
+    "before": ["5572_6"],
+    "current": ["5572_9", "5581_5"],
+    "after": ["5581_7", "5581_8"],
+    "timeline": "叔父の衣冠塚を建てた後、一行が遼城を出て黎城へ向かう。出発時、宇文逸は上の空の莫問を案じ、莫問は東へ進み葬龍谷を抜ける道順を示す。黎城到着後、瑶姫は峋谷関の件が片づいたとして義父へ復命するため離脱を告げ、一行が道中の助力へ礼を返す。",
+    "grouping_note": "5572_9単独では3行と短く、直後の5581_5が遼城出発から黎城到着までの移動結果と同行者の離脱を閉じるため、移動境界として一続きに準備する。合計14行で標準下限15行を1行下回るが、後続5581_7/5581_8は分岐別の復命導線へ機能が変わるため含めない。",
+    "branch_note": "対象二family自体にduplicate_locationsはない。後続5581_7と5581_8は復命相手が異なる分岐として別扱いにする。"
+  },
+  "rows": [
+    {"key":"5572_9_Dlgs_Index0_Text","speaker":"莫問","zh":"……嗯？","ja":"……ん？"},
+    {"key":"5572_9_Dlgs_Index1_Text","speaker":"宇文逸","zh":"你没事吧，你好像有些神不守舍，还在想刚才那个带面具的怪人吗？","ja":"師兄、大丈夫ですか？　少し上の空ですが……まだ、さっきの仮面の怪人のことを？"},
+    {"key":"5572_9_Dlgs_Index3_Text","speaker":"莫問","zh":"没事，我们走吧……出了辽城一路<Y>往东</>，途经葬龙谷后，便能抵达黎城了。","ja":"何でもない。行こう……遼城を出て<Y>東へ</>進み、葬龍谷を抜ければ黎城に着く。"},
+    {"key":"5581_5_Dlgs_Index0_Text","speaker":"宇文逸","zh":"瑶姬，怎么了？","ja":"瑶姫、どうした？"},
+    {"key":"5581_5_Dlgs_Index1_Text","speaker":"瑶姫","zh":"如今峋谷关的事情已经解决，你们也顺利到了黎城，我也是时候回去向义父复命了～","ja":"峋谷関の件も片づいたし、あなたたちも無事に黎城へ着いた。そろそろ私も義父へ復命に戻る頃ね～"},
+    {"key":"5581_5_Dlgs_Index2_Text","speaker":"宇文逸","zh":"啊！你现在就要走吗，这么急？","ja":"えっ、もう行くのか？　そんなに急いで？"},
+    {"key":"5581_5_Dlgs_Index3_Text","speaker":"瑶姫","zh":"呵呵，别担心，以后见面的机会还多着呢……","ja":"ふふ、心配しないで。これから先も、会う機会はいくらでもあるわ……"},
+    {"key":"5581_5_Dlgs_Index4_Text","speaker":"瑶姫","zh":"只要你们不介意我出手太狠就好～","ja":"私のやり方が少し手荒でも、みんなが気にしなければね～"},
+    {"key":"5581_5_Dlgs_Index5_Text","speaker":"欧陽雪","zh":"怎么会……","ja":"そのようなことは……"},
+    {"key":"5581_5_Dlgs_Index6_Text","speaker":"欧陽雪","zh":"在峋谷关的时候要不是有瑶姬姑娘帮忙，我们此行定然不会如此顺利。","ja":"峋谷関では、瑶姫姑娘が力を貸してくださらなければ、この旅もこれほど順調には進まなかったでしょう。"},
+    {"key":"5581_5_Dlgs_Index7_Text","speaker":"莫問","zh":"……没错，这一路你确实帮了不少忙。","ja":"……ああ。この道中、確かに大いに助けられた。"},
+    {"key":"5581_5_Dlgs_Index8_Text","speaker":"瑶姫","zh":"呵呵，没想到我还能得到莫问道长的认同，这可真是难得～","ja":"ふふ、莫問道長に認めていただけるなんて。珍しいこともあるものね～"},
+    {"key":"5581_5_Dlgs_Index9_Text","speaker":"瑶姫","zh":"好了，我确实该走了……","ja":"さて、そろそろ本当に行かなくては……"},
+    {"key":"5581_5_Dlgs_Index10_Text","speaker":"瑶姫","zh":"你们也不用太想我，说不定很快就会再见了哦～","ja":"あまり私を恋しがらないでね。案外、すぐにまた会えるかもしれないわよ～"}
+  ],
+  "ownership_inventory": {
+    "existing_owner": {
+      "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json",
+      "keys": [
+        "5572_9_Dlgs_Index1_Text",
+        "5572_9_Dlgs_Index3_Text",
+        "5581_5_Dlgs_Index0_Text",
+        "5581_5_Dlgs_Index1_Text",
+        "5581_5_Dlgs_Index2_Text",
+        "5581_5_Dlgs_Index3_Text",
+        "5581_5_Dlgs_Index4_Text",
+        "5581_5_Dlgs_Index5_Text",
+        "5581_5_Dlgs_Index6_Text",
+        "5581_5_Dlgs_Index7_Text",
+        "5581_5_Dlgs_Index8_Text",
+        "5581_5_Dlgs_Index9_Text",
+        "5581_5_Dlgs_Index10_Text"
+      ]
+    },
+    "unowned": ["5572_9_Dlgs_Index0_Text"],
+    "decision_deferred_to": "private_encoding_after_quality_audit"
+  },
+  "candidate_questions": [
+    "莫問の短い反応と上の空を、後続の正体・内面へ先取りせず扱えているか",
+    "宇文逸の師兄への案じ方が敬語文へ整いすぎず、問いの連続を保っているか",
+    "莫問の道順提示が地図説明へ平坦化せず、場面を切り上げる声になっているか",
+    "瑶姫の離脱告知、暴力への軽口、別れのからかいが地モードを保っているか",
+    "欧陽雪の否定と感謝が他人行儀な儀礼文へ寄りすぎていないか",
+    "莫問の助力評価と瑶姫の反応が、相互の距離を勝手に親密化していないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [],
+    "fact_doubts": [
+      "莫問が上の空である理由を仮面の怪人への既知関係・正体認識へ確定しない",
+      "遼城から黎城までの所要時間や途中の出来事を補わない",
+      "瑶姫が義父へ復命する内容・命令・期限を補わない",
+      "今後また会えるという瑶姫の言葉を客観的な再会保証へ変えない",
+      "太想我を恋愛感情の確定へ強めない",
+      "莫問の認同を和解・信頼関係の大幅な進展へ膨らませない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "owner_change",
+    "formal_bundle_completion",
+    "throughput_metrics_as_quality_evidence"
+  ]
+}
