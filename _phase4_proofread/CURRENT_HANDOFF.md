@@ -1,6 +1,6 @@
 # 現在の申し送り
 
-> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、現在の品質判断は`AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md`。
+> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、現在の品質入力は`CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json`。
 
 ## 現在地
 
@@ -8,60 +8,68 @@
 - active draft PR: #118
 - active branch: `agent/yuwen-mowen-train-06`
 - operation mode: `private_translation_work`
-- private stage: `private_encoding`
+- private stage: `private_quality_audit`
 - checkpoint: 第76束 / 人物ペア1171 / 全1529 / 未適用0件
-- last reviewed: 第77束
+- last reviewed: 第78束
 - release checkpoint: `yuwen-mowen-train-05-r2` / verified
 - build: `verified_not_deployed`
 - game verification: `not_started`
 
-## 第77束 `5540_4`
+## 列車へ収録済み
 
-四段階のうちencodingまで完了し、`reviewed_pending_ci`として列車へ収録済み。
+### 第77束 `5540_4`
 
 - review: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md`
 - owner: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json`
+- status: `reviewed_pending_ci`
 
-locres、pak、audit status、verified checkpointは更新していない。
+### 第78束 `5551_2`
 
-## 段階往復の制度修正
-
-release条件未達の蓄積列車で次束へ進めるよう、`private_encoding -> private_preparation`を条件付きで追加した。
-
-- manifestが`accumulating`
-- 直前のencodingが完成済み
-- 次束ではpreparationから順に再開
-
-checker・回帰test・再開文書を更新し、第77束から第78束候補への往復で実走済み。
-
-## 第78束候補 `5551_2`
-
-preparationとquality auditを完了した。
+preparation、quality audit、private encodingを完了した。
 
 - preparation: `_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md`
-- candidate: `_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json`
 - audit: `_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md`
+- review: `_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md`
+- owner: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`
+- status: `reviewed_pending_ci`
+
+監査済みの次の四候補だけを既存ownerへ収録した。
+
+- `5551_2_Dlgs_Index1_Text`: 叔父を主語とする構造と再会への高揚を回復
+- `5551_2_Dlgs_Index2_Text`: 欧陽雪の不自然な過剰敬語を修正
+- `5551_2_Dlgs_Index4_Text`: 育ての親を父と思う告白を実際の発話へ戻す
+- `5551_2_Dlgs_Index10_Text`: `很好认`を家が見つけやすい意味へ具体化
+
+保持七行、新規owner、cross-registerには触れていない。locres、pak、audit status、verified checkpointも更新していない。
+
+## 段階往復
+
+release条件未達の蓄積列車で次束へ進めるよう、`private_encoding -> private_preparation`を条件付きで追加済み。
+
+第78束encoding後もこの遷移を使い、第79束候補`5572_6`のpreparationまで実走した。
+
+## 第79束候補 `5572_6`
+
+preparationを完了し、quality auditがactive。
+
+- preparation: `_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md`
+- candidate: `_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5572_6_2026-07-25.json`
+- audit record: `_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5572_6_2026-07-25.md`
 - existing owner: `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json`
 
-### 監査で確定した修正候補
+全12キーに既存ownerがある。
 
-- `5551_2_Dlgs_Index1_Text`: `叔父さん、私を見たら`の主語・呼びかけ曖昧さと説明調
-- `5551_2_Dlgs_Index2_Text`: 欧陽雪の不自然な過剰敬語`仲がおよろしい`
-- `5551_2_Dlgs_Index4_Text`: 育ての親を父と思う告白が`思っている。`で説明文へ平坦化
-- `5551_2_Dlgs_Index10_Text`: `很好认`を曖昧な`すぐ分かる`とした箇所
+監査軸:
 
-### 疑ったうえで保持
-
-- 冒頭の話題切上げと入城の促し
-- 両親を幼くして失った説明
-- 莫問の`父親、か……`
-- `如此诚心以待之人`と`我们都很幸运`を特定人物へ固定しない言い方
-- 宇文逸の短い同意、叔父自慢、会えば分かるという結び
-
-追加文脈とALLUSION_REVIEW候補はない。全11キーは既存owner内にあり、新規ownerは不要。
+- 欧陽雪の二人への負傷確認
+- 瑶姫の軽い伸ばしと事件直後の緊張
+- `借刀杀人`の推測とALLUSION_REVIEW要否
+- 怪人の正体・所属・功力を話者の見立て以上に確定していないか
+- 莫問の江湖経験と次行動の提示
+- 宇文逸の衣冠塚と黎城行きの決断
 
 ## 次作業
 
-`private_encoding`として、監査済み四候補だけを既存ownerへ反映し、第78束のレビュー記録を作る。
+`5572_6`をprivate quality auditし、fix候補、疑った保持、追加文脈、FACT_DOUBT、ALLUSION_REVIEWだけを監査記録へ確定する。
 
-新しい訳文判断、保持行の変更、新規owner、locres、pak、audit statusには触れない。疑義が出た場合は`private_quality_audit`へ戻す。public化はまだ不要。
+quality audit中は修正JSON、owner、正式な束、manifest件数、release残量を変更しない。public化もまだ不要。
