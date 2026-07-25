@@ -1,34 +1,31 @@
 {
   "schema_version": 4,
-  "status": "ready",
-  "task_id": "yuwen-mowen-scenes5572_9-5581_5-private-encoding",
+  "status": "ready_for_public_ci",
+  "task_id": "yuwen-mowen-train-06-public-ci",
   "based_on_checkpoint": {"batch":76,"pair_applied_keys":1171,"project_applied_keys":1529,"produced_by_pr":117,"release_id":"yuwen-mowen-train-05-r2","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json"},
   "current_pair": "宇文逸↔莫問",
-  "scene_groups": ["5572_9","5581_5"],
-  "source": {"target":"CG表","namespace":"QuestDlgs","families":["5572_9_Dlgs","5581_5_Dlgs"],"artifact_workflow":"Relation audit extraction","artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","artifact_run":30149789606,"artifact_id":8617244568,"artifact_digest":"sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827","artifact_head":"a568f731dcf419c766dc6a3845461aed1f83d46a","candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.json","preparation_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","freshness_rule":"quality auditで確定した五候補だけをprivate encodingで収録し、新しい訳文判断は追加しない。"},
-  "scene_flow": [
-    {"scene":"5572_9","function":"遼城出発時、宇文逸が上の空の莫問を案じ、莫問が事情を語らず黎城への道順を示して移動を促す場面","speaker_order":["莫問","宇文逸","莫問"],"focus_keys":["5572_9_Dlgs_Index0_Text","5572_9_Dlgs_Index1_Text","5572_9_Dlgs_Index3_Text"],"voice_questions":["監査済みの宇文逸一候補だけが収録されているか","未所有の莫問Index0を保持のためowner新設していないか","莫問の道順保持と東への色タグを壊していないか"]},
-    {"scene":"5581_5","function":"黎城到着後、瑶姫が義父への復命のため離脱を告げ、一行が道中の助力へ礼を返し、瑶姫が再会を匂わせて別れる場面","speaker_order":["宇文逸","瑶姫","宇文逸","瑶姫","瑶姫","欧陽雪","欧陽雪","莫問","瑶姫","瑶姫","瑶姫"],"focus_keys":["5581_5_Dlgs_Index0_Text","5581_5_Dlgs_Index1_Text","5581_5_Dlgs_Index2_Text","5581_5_Dlgs_Index3_Text","5581_5_Dlgs_Index4_Text","5581_5_Dlgs_Index5_Text","5581_5_Dlgs_Index6_Text","5581_5_Dlgs_Index7_Text","5581_5_Dlgs_Index8_Text","5581_5_Dlgs_Index9_Text","5581_5_Dlgs_Index10_Text"],"voice_questions":["監査済みの瑶姫三候補と欧陽雪一候補だけが収録されているか","保持七行を件数合わせで変更していないか","瑶姫の一人称・伸ばしとFACT_DOUBTを壊していないか"]}
+  "train": {"id":"yuwen-mowen-train-06","branch":"agent/yuwen-mowen-train-06","draft_pr":118,"manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","private_stage":"ready_for_public_ci"},
+  "bundles": [
+    {"batch":77,"scene_groups":["5540_4"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md"},
+    {"batch":78,"scene_groups":["5551_2"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md"},
+    {"batch":79,"scene_groups":["5572_6"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md"},
+    {"batch":80,"scene_groups":["5572_9","5581_5"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md"}
   ],
-  "batch_planning": {"reviewed_rows":14,"target_rows":{"min":15,"max":30},"adjacent_candidates_checked":["5572_6","5572_9","5581_5","5581_7","5581_8"],"grouping_decision":"5572_9単独では3行と短い。直後の5581_5が遼城出発から黎城到着までの移動結果と瑶姫の離脱を閉じるため、移動境界として一続きに読む。","exception":{"reason_code":"semantic_bridge_below_minimum","detail":"合計14行で標準下限を1行下回る。後続5581_7と5581_8は復命相手が異なる分岐導線へ機能が変わるため、件数合わせで含めない。正式な束確定はencoding完了時に行う。"}},
-  "audit_decision": {
-    "fix_candidates": [
-      {"key":"5572_9_Dlgs_Index1_Text","speaker":"宇文逸","candidate":"師兄、大丈夫ですか？　少し上の空みたいですけど……まだ、さっきの仮面の怪人のことを考えてるんですか？"},
-      {"key":"5581_5_Dlgs_Index1_Text","speaker":"瑶姫","candidate":"峋谷関の件も片づいたし、あなたたちも無事に黎城へ着いた。そろそろわたしも、義父のもとへ戻って復命する頃ね～"},
-      {"key":"5581_5_Dlgs_Index4_Text","speaker":"瑶姫","candidate":"わたしのやり方が手荒すぎても、みんなが気にしなければね～"},
-      {"key":"5581_5_Dlgs_Index5_Text","speaker":"欧陽雪","candidate":"そんなこと……"},
-      {"key":"5581_5_Dlgs_Index10_Text","speaker":"瑶姫","candidate":"あまり寂しがらないでね。案外、すぐにまた会えるかもしれないわよ～"}
-    ],
-    "challenged_keep_keys": ["5572_9_Dlgs_Index0_Text","5572_9_Dlgs_Index3_Text","5581_5_Dlgs_Index0_Text","5581_5_Dlgs_Index2_Text","5581_5_Dlgs_Index3_Text","5581_5_Dlgs_Index6_Text","5581_5_Dlgs_Index7_Text","5581_5_Dlgs_Index8_Text","5581_5_Dlgs_Index9_Text"],
-    "needs_context": [],
-    "allusion_review_candidates": []
+  "release_candidate": {
+    "trigger": "bundle_count_or_reviewed_rows",
+    "thresholds": {"bundle_count":4,"reviewed_rows":40,"fix_keys":20},
+    "totals": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16,"new_pair_keys":0},
+    "quality_gate": {"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"low_yield_detected":false,"release_decision":"quality_passed"},
+    "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"]
   },
-  "allusion_and_fact_gates": {"allusion_review_candidates":[],"fact_doubts":["莫問が上の空である理由を仮面の怪人との既知関係・正体認識・過去の記憶へ確定しない","遼城から黎城までの所要時間・道中の出来事・葬龍谷での行動を補わない","瑶姫が義父へ復命する内容・命令・期限を補わない","瑶姫の再会示唆を客観的な再会保証へ変えない","太想我を宇文逸または一行の恋愛感情へ固定しない","莫問の助力評価を和解・信頼・関係段階の大幅な進展へ膨らませない"]},
-  "ownership_boundary": {"pair_batch":"五つのfix候補はすべて既存owner内にある。既存ownerを再改訂し、新規ownerは作らない。未所有Index0は保持のため未所有のままにする。","cross_register":"人物ペア外の問題は監査で確定していないため新規cross-registerを作らない。","machine_ownership":{"existing":[{"path":"_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json","keys":["5572_9_Dlgs_Index1_Text","5572_9_Dlgs_Index3_Text","5581_5_Dlgs_Index0_Text","5581_5_Dlgs_Index1_Text","5581_5_Dlgs_Index2_Text","5581_5_Dlgs_Index3_Text","5581_5_Dlgs_Index4_Text","5581_5_Dlgs_Index5_Text","5581_5_Dlgs_Index6_Text","5581_5_Dlgs_Index7_Text","5581_5_Dlgs_Index8_Text","5581_5_Dlgs_Index9_Text","5581_5_Dlgs_Index10_Text"]}],"unowned":["5572_9_Dlgs_Index0_Text"]}},
-  "private_stage_plan": {"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","current_stage":"private_encoding","completed_stages_in_current_cycle":["private_preparation","private_quality_audit"],"previous_cycle":{"formal_batch":79,"status":"private_encoding_complete"},"sequence":["private_preparation","private_quality_audit","private_encoding","ready_for_public_ci"],"audit_record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENES5572_9_5581_5_2026-07-25.md","encoding_rule":"監査記録の五候補だけを既存fix fileと第80束レビュー記録へ収録する。新しい疑義はprivate_quality_auditへ戻す。"},
-  "do_not_do": ["encoding中に新しい訳文判断を追加しない","保持九行を件数合わせで修正へ変えない","未所有の保持行へownerを新設しない","新規cross-registerを作らない","locres・pak・audit statusをrelease前に更新しない","話者接頭辞・色タグ・伸ばし・制御文字を壊さない"],
-  "skill_review": {"default":"no_change","rule":"一般化可能な新知見または既存規則への反例だけを改修する","separate_layers":"翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける"},
-  "expected_outputs": ["監査で確定した五候補を既存ownerへ反映する","第80束レビュー記録へfix・keep・FACT_DOUBT・ALLUSION_REVIEWを収録する","未所有保持行を未所有のまま維持する","encoding完了時にだけ正式な束と輸送件数を確定する"],
-  "cold_start_first_report": {"current":"宇文逸↔莫問・checkpoint第76束・last reviewed第79束・人物ペア1171・全1529。","open_pr":"draft PR #118で第79束encoding完了。第80束候補5572_9 + 5581_5のquality audit完了、private encodingがactive。","start":"監査済み五候補だけを既存ownerと第80束レビュー記録へ収録する。","drift":"encodingでは訳文判断を再開せず、未所有の保持行へownerを新設しない。"},
-  "ci_train": {"phase":"phase1_pilot","train_id":"yuwen-mowen-train-06","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","planned_batch":80,"bundle_status_on_completion":"reviewed_pending_ci","do_not_apply_until_release":true,"finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"policy":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md","current":"private_encoding","previous":"private_quality_audit","previous_cycle_encoding":79}}
+  "public_window": {
+    "request_phrase": "公開CI窓を開いてください。",
+    "confirm_phrase": "公開した",
+    "visibility_source": "github_repository_metadata",
+    "actions": ["mark draft PR #118 ready for review","run Relation audit extraction","run Cross register QA","run Apply curated localization fixes","finalize release evidence and checkpoint in the same PR","run CI train phase2 gate","confirm unresolved review threads are zero","request private return","squash merge PR #118 after private metadata confirmation"],
+    "exit_conditions": ["relation_audit_success","cross_register_success","apply_curated_fixes_success","zero_pending_fixes","release_evidence_verified","phase2_gate_success","zero_unresolved_review_threads","repository_private_confirmed","translation_pr_squash_merged"]
+  },
+  "do_not_do": ["public中に新しい翻訳判断を行わない","次の小束を追加しない","人物声・FACT_DOUBT・ALLUSION_REVIEWを変更しない","原因不明のcommit試行を反復しない","post-merge状態PRを作らない"],
+  "readiness_evidence": {"manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","quality_policy":"_phase4_proofread/TRANSLATION_QUALITY_GATE.md","private_stage_state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","current_work":"_phase4_proofread/CURRENT_WORK.json","review_batch80":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md"},
+  "cold_start_first_report": {"current":"宇文逸↔莫問・checkpoint第76束・last reviewed第80束・人物ペア1171・全1529。","open_pr":"draft PR #118に第77〜80束を収録し、train-06はready_for_public_ci。","start":"repository metadataでpublicを確認後、PR #118をready化してRelation / Cross / Apply / phase2 gateを進める。","drift":"public中に翻訳判断や次小束追加を行わない。"}
 }
