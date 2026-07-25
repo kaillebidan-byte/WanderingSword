@@ -11,6 +11,8 @@ on:
       - main
     paths:
       - "_phase4_proofread/fixes_*.json"
+      - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
+      - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
       - "_tools/apply_fixes_json.py"
       - "_tools/validate_fixes_json.py"
       - "_tools/extract_relation_context.py"
@@ -20,11 +22,13 @@ on:
       - "_tools/check_release_evidence.py"
       - "_tools/check_next_task_packet.py"
       - "_tools/check_batch_planning.py"
+      - "_tools/check_translation_quality_gate.py"
       - "_tools/test_check_operation_mode.py"
       - "_tools/test_check_handoff_consistency_v2.py"
       - "_tools/test_check_release_evidence.py"
       - "_tools/test_check_next_task_packet_ownership.py"
       - "_tools/test_check_batch_planning.py"
+      - "_tools/test_check_translation_quality_gate.py"
       - "_tools/test_apply_fixes_json.py"
       - "_tools/test_extract_relation_context.py"
       - ".github/workflows/relation-audit.yml"
@@ -77,6 +81,8 @@ jobs:
             2>&1 | tee _ws_tmp/relation_audit/next_task_packet_check.txt
           python _tools/check_batch_planning.py \
             2>&1 | tee _ws_tmp/relation_audit/batch_planning_check.txt
+          python _tools/check_translation_quality_gate.py \
+            2>&1 | tee _ws_tmp/relation_audit/translation_quality_gate.txt
 
       - name: Unit tests
         run: |
@@ -85,6 +91,7 @@ jobs:
           python _tools/test_check_release_evidence.py
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_check_batch_planning.py
+          python _tools/test_check_translation_quality_gate.py
           python _tools/test_apply_fixes_json.py
           python _tools/test_extract_relation_context.py
 
