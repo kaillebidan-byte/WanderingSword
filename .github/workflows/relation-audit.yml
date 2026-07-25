@@ -3,20 +3,20 @@ name: Relation audit extraction
 on:
   pull_request:
     types:
-      - opened
-      - reopened
-      - ready_for_review
       - labeled
     branches:
       - main
     paths:
       - "_phase4_proofread/fixes_*.json"
+      - "_phase4_proofread/CANDIDATE_*.json"
       - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
       - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
       - "_tools/apply_fixes_json.py"
       - "_tools/validate_fixes_json.py"
       - "_tools/extract_relation_context.py"
       - "_tools/report_next_task_ownership.py"
+      - "_tools/check_candidate_ownership.py"
+      - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_operation_mode.py"
       - "_tools/check_handoff_consistency_v2.py"
       - "_tools/check_release_evidence.py"
@@ -32,20 +32,20 @@ on:
       - "_tools/test_apply_fixes_json.py"
       - "_tools/test_extract_relation_context.py"
       - ".github/workflows/relation-audit.yml"
-  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: relation-audit-${{ github.event.pull_request.number || github.ref }}
+  group: relation-audit-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   extract:
     if: >-
       github.actor != 'github-actions[bot]' &&
-      (github.event.action != 'labeled' || github.event.label.name == 'ci-heavy-rerun')
+      github.event.repository.visibility == 'public' &&
+      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -65,7 +65,7 @@ jobs:
             --out _ws_tmp/relation_audit/next_task_ownership.json \
             2>&1 | tee _ws_tmp/relation_audit/next_task_ownership.txt
 
-      - name: Check operation mode and handoff consistency
+      - name: Check operation mode, candidate ownership, and handoff consistency
         shell: bash
         run: |
           mkdir -p _ws_tmp/relation_audit
@@ -73,6 +73,8 @@ jobs:
           python _tools/check_operation_mode.py \
             --repository-visibility "${{ github.event.repository.visibility }}" \
             2>&1 | tee _ws_tmp/relation_audit/operation_mode.txt
+          python _tools/check_candidate_ownership.py --require-current-wave \
+            2>&1 | tee _ws_tmp/relation_audit/candidate_ownership.txt
           python _tools/check_handoff_consistency_v2.py \
             2>&1 | tee _ws_tmp/relation_audit/handoff_consistency.txt
           python _tools/check_release_evidence.py \
@@ -86,6 +88,7 @@ jobs:
 
       - name: Unit tests
         run: |
+          python _tools/test_check_candidate_ownership.py
           python _tools/test_check_operation_mode.py
           python _tools/test_check_handoff_consistency_v2.py
           python _tools/test_check_release_evidence.py
@@ -105,7 +108,7 @@ jobs:
             exit 1
           fi
           printf '%s\n' "${files[@]}" > _ws_relation_fix_files.txt
-          printf 'Found %s relation fix batches\n' "${#files[@]}"
+          printf 'Found %s curated fix batches\n' "${#files[@]}"
 
       - name: Validate curated relation fixes
         shell: bash
