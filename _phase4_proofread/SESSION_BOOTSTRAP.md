@@ -1,6 +1,7 @@
 # 新チャット再開プロトコル
 
 現在値は`CURRENT_WORK.json`、CI列車は`CI_TRAIN_MANIFEST.json`、次小束は`NEXT_TASK_PACKET.json`、確定releaseは`RELEASE_EVIDENCE_*.json`を正本とする。
+private作業の段階契約は`PRIVATE_TRANSLATION_STAGES.json`、現在段階は`PRIVATE_STAGE_STATE.json`を正本とする。
 公開制度は`PUBLIC_CI_WINDOW.md`、小束蓄積は`CI_TRAIN_PHASE1.md`、単一PR最終化は`CI_TRAIN_PHASE2.md`。
 turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 
@@ -32,22 +33,37 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 2. GitHub metadataで実visibilityを確定する。
 3. main、未統合PR、GitHub Actionsを確認し、active / superseded / abandoned / unrelatedへ分類する。
 4. PRは開いているだけで現行作業と決めない。CURRENT_WORK、manifest、release evidence、next packetを照合する。
-5. phase2制度改修branchまたはactive列車branchがあれば、mainの古い次場面より優先する。
-6. review、未解決thread、bot書き戻し後の`action_required`を確認する。
-7. visibility、operation mode、manifest statusから作業を裁定する。
+5. `PRIVATE_STAGE_STATE.json`を読み、private作業で許可された操作を確定する。
+6. phase2制度改修branchまたはactive列車branchがあれば、mainの古い次場面より優先する。
+7. review、未解決thread、bot書き戻し後の`action_required`を確認する。
+8. visibility、operation mode、private stage、manifest statusから作業を裁定する。
 
-## 裁定
+## private四段階の裁定
+
+- `private_preparation`:
+  文脈・重複・所有・candidate packetだけを準備する。fix / keep判断、修正JSON、owner新設、正式な束番号は禁止。
+- `private_quality_audit`:
+  読むことと校正判断だけを行う。ownerは参照できるが、修正JSON・pair key・cross-register key・manifest件数は書かない。件数やrelease閾値を判断材料として表示しない。
+- `private_encoding`:
+  監査記録で確定済みの判断だけをJSON・所有・レビュー・束へ収録する。新しい疑義が出た場合はその場で決めず`private_quality_audit`へ戻す。
+- `ready_for_public_ci`:
+  翻訳判断と収録を凍結し、public化依頼とCI輸送だけを行う。
+
+通常遷移は`private_preparation -> private_quality_audit -> private_encoding -> ready_for_public_ci`。
+機械検査は`python _tools/check_private_translation_stage.py`で行う。
+
+## visibilityとoperation modeの裁定
 
 - private_translation_work + private:
-  制度改修中なら制度改修を先に進める。accumulating列車なら次小束を監査する。
+  private stageが許可する作業だけを行う。制度改修中でも翻訳判断と制度操作を混ぜない。
 - private_translation_work + public:
   return_private_required。翻訳を始めない。
 - ready_for_public_ci + private:
-  完成HEADと集計を示してpublic化を依頼する。
+  完成HEAD、品質ゲート、段階履歴、集計を示してpublic化を依頼する。
 - ready_for_public_ci + public:
   public_ci_window。CI、release evidence、単一PR最終化、統合だけを行う。翻訳判断を変えないCI制度修正は`PUBLIC_CI_WINDOW.md`の行政修正条件に従う。
 - public_ci_blocked:
-  publicならprivate復帰を依頼し、privateなら深い修正を行う。
+  publicならprivate復帰を依頼し、privateなら`private_quality_audit`へ戻して深い修正を行う。
 
 ## 正本の読順
 
@@ -55,17 +71,21 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 2. AGENTS.md
 3. VISIBILITY_PREFLIGHT_CONTRACT.json
 4. SESSION_BOOTSTRAP.md
-5. PUBLIC_CI_WINDOW.md
-6. CI_TRAIN_PHASE1.md
-7. CI_TRAIN_PHASE2.md
-8. CURRENT_WORK.json
-9. CI_TRAIN_MANIFEST.json
-10. CURRENT_HANDOFF.md
-11. NEXT_TASK_PACKET.json
-12. checkpointが指すrelease evidence
-13. COLD_START_ACCEPTANCE.md
-14. audit_status.json
-15. RUNBOOK、skill、人物資料、一次資料
+5. PRIVATE_TRANSLATION_STAGES.json
+6. PRIVATE_TRANSLATION_STAGES.md
+7. PRIVATE_STAGE_STATE.json
+8. TRANSLATION_QUALITY_GATE.md
+9. PUBLIC_CI_WINDOW.md
+10. CI_TRAIN_PHASE1.md
+11. CI_TRAIN_PHASE2.md
+12. CURRENT_WORK.json
+13. CI_TRAIN_MANIFEST.json
+14. CURRENT_HANDOFF.md
+15. NEXT_TASK_PACKET.json
+16. checkpointが指すrelease evidence
+17. COLD_START_ACCEPTANCE.md
+18. audit_status.json
+19. RUNBOOK、skill、人物資料、一次資料
 
 ## verified checkpointとrelease evidence
 
@@ -82,6 +102,7 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 - 最終状態文書ではphase2 gateだけを起動する。
 - 同じPR内でrelease evidenceとverified checkpointを確定する。
 - squash後のpost-merge状態PRは作らない。
+- public中は`PRIVATE_STAGE_STATE.stage=ready_for_public_ci`を要求し、品質判断を再開しない。
 
 ## 再開互換
 
@@ -90,6 +111,7 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 - action_requiredはbot起因runを開始しない既知の挙動なら失敗ではない。
 - 新チャットはstatus報告だけで止まらず、privateで作業可能なら同じ応答内で実作業へ進む。
 - ただしvisibility preflight前には、status報告も実作業開始宣言も行わない。
+- train-05は四段階導入前の記録を遡及固定した移行列車であり、次列車から段階遷移を順次実測する。
 
 ## 禁止事項
 
@@ -101,3 +123,7 @@ turn入口の最優先契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`とする。
 - public中に新しい小束を追加する
 - release evidenceのrun IDを実確認せず書く
 - post-merge状態PRを第二段階で復活させる
+- quality audit中に修正JSON・owner・束番号を作る
+- encoding中に新しい翻訳判断を追加する
+- preparation / quality audit中にmetrics snapshotを表示する
+- private段階を飛び越えてready_for_public_ciへ進む
