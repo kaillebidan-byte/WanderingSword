@@ -7,6 +7,14 @@ public化はリポジトリ全体、履歴、branches、Actionsログ、artifact
 
 visibilityを変更できるのはユーザーだけである。エージェントは実metadataを確認して依頼・確認する。
 
+## turn入口のvisibility preflight
+
+- 新規チャット、再開指示、作業継続指示では、利用者向け進捗報告より先にrepository metadataを取得する。
+- metadata結果前に「作業を再開する」「第N束へ進む」などの開始宣言をしない。
+- 利用者のvisibility申告は正本ではなく、metadata確認を促す入力として扱う。
+- 最初の利用者向け報告は、metadata結果と有効operation modeを確定した後に出す。
+- 詳細と機械契約は`VISIBILITY_PREFLIGHT_CONTRACT.json`および`SESSION_BOOTSTRAP.md`を正本とする。
+
 ## 制度
 
 - 小束蓄積の基礎は`CI_TRAIN_PHASE1.md`
@@ -31,7 +39,7 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 
 ## private蓄積
 
-1. metadataでprivateを確認する。
+1. visibility preflightでprivateを確認する。
 2. 未統合PRとGitHub Actionsを確認し、PRは開いているだけで現行作業と決めない。
 3. active列車branch、manifest、NEXT_TASK_PACKETを照合する。
 4. 小束を意味境界で監査し、修正JSON、レビュー、所有、疑義を完成する。
@@ -49,7 +57,7 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 終了条件: 三本成功、release evidence成功、未適用0件、未解決thread 0件、翻訳PR一つのsquash統合
 ```
 
-ユーザーの申告だけで進めずmetadataでpublicを確認する。
+ユーザーの申告だけで進めずmetadataでpublicを確認する。確認前に公開済みとして開始報告をしない。
 
 ## public中に行うこと
 
@@ -60,6 +68,17 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 - 未解決thread確認
 - 同じ翻訳PRのsquash統合
 - private復帰依頼
+
+## public中の行政修正
+
+public_ci_window中に、CI窓の入口、状態検査、workflow、release evidence検証などの制度不備が見つかった場合は、次の全条件を満たす行政修正だけを同じactive branchで行える。
+
+1. 原文・訳文・修正JSONの値を変更しない。
+2. 人物声、意味判断、所有境界、FACT_DOUBT、ALLUSION_REVIEWを変更しない。
+3. 制度文書、機械契約、検査コード、検査テスト、状態同期に限定する。
+4. 修正理由をtracking Issueへ記録する。
+5. workflowまたはgateへ影響する場合は、修正後のHEADで必要なCIを改めて通す。
+6. 行政修正が翻訳再判断へ広がる場合は`public_ci_blocked`としてprivateへ戻す。
 
 ## public中に行わないこと
 
@@ -79,11 +98,12 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 5. release evidenceがGitHub Actions実体と一致
 6. checkpoint verified
 7. phase2 gate成功
-8. 未解決review thread 0件
-9. 翻訳PR一つをsquash統合
-10. mainに次列車のprivate作業状態と次束packetが含まれる
-11. post-merge状態PR 0件
-12. 実visibilityをprivateへ戻す
+8. visibility preflight契約とその機械テスト成功
+9. 未解決review thread 0件
+10. 翻訳PR一つをsquash統合
+11. mainに次列車のprivate作業状態と次束packetが含まれる
+12. post-merge状態PR 0件
+13. 実visibilityをprivateへ戻す
 
 ## 深い失敗
 
@@ -104,8 +124,11 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 | public_ci_blocked | public | any | private復帰を依頼 |
 | public_ci_blocked | private | any | 深い修正をprivateで行う |
 
+この表を使う前にvisibility preflightを完了する。
+
 ## 禁止事項
 
+- visibility preflight前の利用者向け計画・開始宣言・途中報告
 - 小束一つごとのpublic化
 - release条件未達で理由なしの公開
 - 列車内小束を巨大修正JSONへ潰す
