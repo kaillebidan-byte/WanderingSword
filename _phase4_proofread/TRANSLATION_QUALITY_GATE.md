@@ -6,6 +6,22 @@
 
 束数、通読行数、修正キー数はCI輸送と作業上限を決めるための指標であり、成果そのものではない。指標を満たすために束を細分化したり、重複分岐を別行として水増ししたり、疑わしい訳をkeepへ寄せてはならない。
 
+## private段階分離
+
+品質判断は`PRIVATE_TRANSLATION_STAGES.md`の四段階に従う。
+
+1. `private_preparation`: 文脈・重複・所有を準備し、翻訳判断をしない。
+2. `private_quality_audit`: 読むこととfix / keep判断だけを行い、修正JSON・所有・束を作らない。
+3. `private_encoding`: 確定済み判断だけをJSON・所有・レビューへ収録し、新しい翻訳判断をしない。
+4. `ready_for_public_ci`: 判断と収録を凍結し、CI輸送だけを行う。
+
+校正中は束数、残り行数、release閾値を判断材料として表示しない。
+pair keyとcross-register keyは品質判断の後に作り、束番号はencodingで最後に確定する。
+encoding中に新しい疑義が出た場合は、その場で決めず`private_quality_audit`へ戻す。
+
+機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在段階は`PRIVATE_STAGE_STATE.json`、
+検査は`check_private_translation_stage.py`を品質checkerから連鎖実行する。
+
 ## 集計
 
 - `reviewed_keys`: 実際に確認したlocresキー数。重複分岐を含む。
@@ -26,6 +42,8 @@ release候補時点で`unique_fix_rows / unique_reviewed_rows < 15%`なら低収
 4. 二巡目後の`unique_fix_rows`と`fix_keys`をmanifestへ反映する。
 5. 品質記録とmanifestの整合をcheckerで検査する。
 
+低収穫の二巡目は`private_quality_audit`で完了させる。`private_encoding`へ持ち込んで判断しない。
+
 ## release条件
 
 public CIへ出すには、輸送候補条件に加えて`quality_gate.release_decision = quality_passed`が必要。
@@ -37,6 +55,8 @@ public CIへ出すには、輸送候補条件に加えて`quality_gate.release_d
 - 初回keep unique rowsを全件再監査した件数
 - 二巡目で見つけたunique findingsとkey findings
 - repository内に存在する品質記録
+- `PRIVATE_STAGE_STATE.stage = ready_for_public_ci`
+- 四段階の履歴と証拠が機械契約を通過すること
 
 ## 禁止
 
@@ -45,6 +65,9 @@ public CIへ出すには、輸送候補条件に加えて`quality_gate.release_d
 - 表記上の些細な候補だけを拾い、意味・役割・人物声の粗さを見ない。
 - 低修正率を「既訳が良かった」と説明するだけで二巡目を省く。
 - 行数や束数の達成を進捗の主成果として報告する。
+- quality audit中に修正JSON・所有・束番号を作る。
+- encoding中に新しい翻訳判断を追加する。
+- public CI中に品質判断を再開する。
 
 ## 報告の優先順位
 
