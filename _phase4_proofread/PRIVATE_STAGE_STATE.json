@@ -2,14 +2,14 @@
   "schema_version": 1,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-06",
-  "stage": "private_quality_audit",
+  "stage": "private_encoding",
   "mode": "live_four_stage_validation",
   "permissions": {
-    "translation_judgment_allowed": true,
-    "fix_writes_allowed": false,
-    "encoding_writes_allowed": false,
-    "throughput_metrics_visible": false,
-    "metrics_frozen": true
+    "translation_judgment_allowed": false,
+    "fix_writes_allowed": true,
+    "encoding_writes_allowed": true,
+    "throughput_metrics_visible": true,
+    "metrics_frozen": false
   },
   "history": [
     {
@@ -25,14 +25,33 @@
     },
     {
       "stage": "private_quality_audit",
-      "status": "active",
+      "status": "complete",
+      "completed_at": "2026-07-25",
       "evidence": {
         "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
         "fix_candidates": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
         "challenged_keeps": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md"
       }
+    },
+    {
+      "stage": "private_encoding",
+      "status": "active",
+      "evidence": {
+        "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
+        "fix_files": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json",
+        "review_records": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
+        "ownership_records": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json"
+      }
     }
   ],
+  "metrics_snapshot": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0
+  },
   "audit_separation": {
     "pair_keys_follow_judgment": true,
     "bundle_number_assigned_in_encoding": true,
@@ -44,5 +63,5 @@
     "ready_quality_finding": "invalidate_release_and_return_to_private_quality_audit",
     "public_quality_finding": "request_private_and_return_to_private_quality_audit"
   },
-  "next_validation": "complete the 5540_4 quality audit without fix JSON, owner creation, bundle completion, or throughput metrics"
+  "next_validation": "encode only the four fixed audit candidates into the existing owner and review record; any new translation doubt returns to private_quality_audit"
 }
