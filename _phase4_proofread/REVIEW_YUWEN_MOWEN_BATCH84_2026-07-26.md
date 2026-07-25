@@ -15,9 +15,9 @@
 
 ## 収録した修正
 
-人物ペアownerへ5キーを収録した。
+人物ペアownerで5キーを収録した。うち1キーは既存owner更新、4キーは新規ownerである。
 
-- `5585_4_Dlgs_Index0_Text`: 宇文逸の言いさしを回復
+- `5585_4_Dlgs_Index0_Text`: 宇文逸の言いさしを回復。既存owner `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json` を更新
 - `5585_4_Dlgs_Index4_Text`: 密偵報告と各派の決定を区別
 - `5585_4_Dlgs_Index5_Text`: 未確認の戦況を推測へ戻し、色タグを保持
 - `5586_5_Dlgs_Index2_Text`: 時機と場所の含みを回復
@@ -36,10 +36,11 @@
 
 ## 所有
 
-- `_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch10.json`: 5キー
-- `_phase4_proofread/fixes_cross_register_hongfei_ouyang_20260726.json`: 7キー
+- `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json`: 既存owner更新1キー
+- `_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch10.json`: 新規人物ペア4キー
+- `_phase4_proofread/fixes_cross_register_hongfei_ouyang_20260726.json`: 横断7キー
 
-人物ペア外の洪飛・欧陽雪行を宇文逸↔莫問ownerへ混在させていない。
+人物ペア外の洪飛・欧陽雪行を宇文逸↔莫問ownerへ混在させていない。公開CIのpreviewで判明した`5585_4_Dlgs_Index0_Text`の重複ownerは、監査値を既存ownerへ移し新規ownerから削除して解消した。訳文判断は変更していない。
 
 ## FACT_DOUBT
 
