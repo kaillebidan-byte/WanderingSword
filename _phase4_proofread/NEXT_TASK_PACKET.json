@@ -1,31 +1,146 @@
 {
   "schema_version": 4,
-  "status": "ready_for_public_ci",
-  "task_id": "yuwen-mowen-train-06-public-ci",
-  "based_on_checkpoint": {"batch":76,"pair_applied_keys":1171,"project_applied_keys":1529,"produced_by_pr":117,"release_id":"yuwen-mowen-train-05-r2","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json"},
+  "status": "ready",
+  "task_id": "yuwen-mowen-train-06-public-ci-and-next-private-candidate",
+  "based_on_checkpoint": {
+    "batch": 76,
+    "pair_applied_keys": 1171,
+    "project_applied_keys": 1529,
+    "produced_by_pr": 117,
+    "release_id": "yuwen-mowen-train-05-r2",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json"
+  },
   "current_pair": "宇文逸↔莫問",
-  "train": {"id":"yuwen-mowen-train-06","branch":"agent/yuwen-mowen-train-06","draft_pr":118,"manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","private_stage":"ready_for_public_ci"},
-  "bundles": [
-    {"batch":77,"scene_groups":["5540_4"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md"},
-    {"batch":78,"scene_groups":["5551_2"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH78_2026-07-25.md"},
-    {"batch":79,"scene_groups":["5572_6"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH79_2026-07-25.md"},
-    {"batch":80,"scene_groups":["5572_9","5581_5"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md"}
+  "scene_groups": ["5581_7", "5581_8"],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "families": ["5581_7_Dlgs", "5581_8_Dlgs"],
+    "artifact_workflow": "Relation audit extraction",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30149789606,
+    "artifact_id": 8617244568,
+    "artifact_digest": "sha256:48ac3451477c3d865bad8b8e04e4c2526a81ad26df2f40a4517f3bccdfbd9827",
+    "artifact_head": "a568f731dcf419c766dc6a3845461aed1f83d46a",
+    "freshness_rule": "train-06のpublic CIと統合を完了しrepositoryをprivateへ戻した後に、原文・現訳・前後・分岐を改めて準備する。public中は翻訳判断しない。"
+  },
+  "scene_flow": [
+    {
+      "scene": "5581_7",
+      "function": "黎城到着後の分岐で、莫問が宇文逸を連れて法場の清霄師伯へ復命に向かう短い移動導線。",
+      "speaker_order": ["莫問", "宇文逸"],
+      "focus_keys": ["5581_7_Dlgs_Index0_Text", "5581_7_Dlgs_Index1_Text"],
+      "voice_questions": [
+        "莫問の兄弟子としての簡潔な促しと復命先を保てているか",
+        "法場を場面外の処刑描写へ膨らませていないか",
+        "宇文逸の短い同意を儀礼文へ整えすぎていないか"
+      ]
+    },
+    {
+      "scene": "5581_8",
+      "function": "別分岐で、莫問が宇文逸を連れて法場の師父へ復命に向かう短い移動導線。",
+      "speaker_order": ["莫問", "宇文逸"],
+      "focus_keys": ["5581_8_Dlgs_Index0_Text", "5581_8_Dlgs_Index1_Text"],
+      "voice_questions": [
+        "5581_7との鏡写しを確認しつつ復命相手の差を壊していないか",
+        "二つの分岐を同時発生した出来事として結合していないか",
+        "莫問と宇文逸の同門registerが自然か"
+      ]
+    }
+  ],
+  "allusion_and_fact_gates": {
+    "allusion_review_candidates": [],
+    "fact_doubts": [
+      "5581_7と5581_8を同一時系列で同時に起きた行動へ結合しない",
+      "法場の具体的な用途、状態、そこで起きた出来事をこの二場面だけから補わない",
+      "復命する内容、清霄師伯または師父の反応、後続命令を先取りしない"
+    ]
+  },
+  "ownership_boundary": {
+    "pair_batch": "4キーはいずれも既存の宇文逸↔莫問owner内にある。private復帰後のquality auditでfixと確定した場合だけ既存ownerを再収録する。",
+    "cross_register": "人物ペア外の問題がprivate quality auditで確定した場合だけ分離する。public CI中は所有を変更しない。",
+    "machine_ownership": {
+      "existing": [
+        {
+          "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json",
+          "keys": [
+            "5581_7_Dlgs_Index0_Text",
+            "5581_7_Dlgs_Index1_Text",
+            "5581_8_Dlgs_Index0_Text",
+            "5581_8_Dlgs_Index1_Text"
+          ]
+        }
+      ],
+      "unowned": []
+    }
+  },
+  "skill_review": {
+    "default": "no_change",
+    "rule": "一般化可能な新知見または既存規則への反例だけをskillへ昇格する。",
+    "separate_layers": "翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける。"
+  },
+  "expected_outputs": [
+    "public CIではtrain-06のRelation・Cross・Apply・phase2 gateと単一PR最終化だけを完了する",
+    "private復帰後に5581_7と5581_8のpreparationを新規に行い、分岐・前後・所有を固定する",
+    "quality auditへ進むまでfix・keep判断、owner変更、正式な第81束を作らない"
   ],
   "release_candidate": {
+    "train_id": "yuwen-mowen-train-06",
+    "pr": 118,
     "trigger": "bundle_count_or_reviewed_rows",
-    "thresholds": {"bundle_count":4,"reviewed_rows":40,"fix_keys":20},
-    "totals": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16,"new_pair_keys":0},
-    "quality_gate": {"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"low_yield_detected":false,"release_decision":"quality_passed"},
-    "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"]
+    "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
+    "totals": {"bundle_count": 4, "reviewed_rows": 50, "reviewed_keys": 50, "unique_reviewed_rows": 50, "fix_keys": 16, "unique_fix_rows": 16, "new_pair_keys": 0},
+    "quality_gate": {"schema_version": 1, "primary_objective": "repair_substantive_translation_defects", "throughput_metrics_role": "transport_only", "low_yield_threshold_percent": 15, "low_yield_detected": false, "release_decision": "quality_passed"},
+    "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json", "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"]
   },
   "public_window": {
     "request_phrase": "公開CI窓を開いてください。",
     "confirm_phrase": "公開した",
     "visibility_source": "github_repository_metadata",
-    "actions": ["mark draft PR #118 ready for review","run Relation audit extraction","run Cross register QA","run Apply curated localization fixes","finalize release evidence and checkpoint in the same PR","run CI train phase2 gate","confirm unresolved review threads are zero","request private return","squash merge PR #118 after private metadata confirmation"],
-    "exit_conditions": ["relation_audit_success","cross_register_success","apply_curated_fixes_success","zero_pending_fixes","release_evidence_verified","phase2_gate_success","zero_unresolved_review_threads","repository_private_confirmed","translation_pr_squash_merged"]
+    "actions": [
+      "run Relation audit extraction",
+      "run Cross register QA",
+      "run Apply curated localization fixes",
+      "finalize release evidence and checkpoint in the same PR",
+      "run CI train phase2 gate",
+      "confirm unresolved review threads are zero",
+      "request private return",
+      "squash merge PR #118 after private metadata confirmation"
+    ],
+    "exit_conditions": [
+      "relation_audit_success",
+      "cross_register_success",
+      "apply_curated_fixes_success",
+      "zero_pending_fixes",
+      "release_evidence_verified",
+      "phase2_gate_success",
+      "zero_unresolved_review_threads",
+      "repository_private_confirmed",
+      "translation_pr_squash_merged"
+    ]
   },
-  "do_not_do": ["public中に新しい翻訳判断を行わない","次の小束を追加しない","人物声・FACT_DOUBT・ALLUSION_REVIEWを変更しない","原因不明のcommit試行を反復しない","post-merge状態PRを作らない"],
-  "readiness_evidence": {"manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","quality_policy":"_phase4_proofread/TRANSLATION_QUALITY_GATE.md","private_stage_state":"_phase4_proofread/PRIVATE_STAGE_STATE.json","current_work":"_phase4_proofread/CURRENT_WORK.json","review_batch80":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH80_2026-07-26.md"},
-  "cold_start_first_report": {"current":"宇文逸↔莫問・checkpoint第76束・last reviewed第80束・人物ペア1171・全1529。","open_pr":"draft PR #118に第77〜80束を収録し、train-06はready_for_public_ci。","start":"repository metadataでpublicを確認後、PR #118をready化してRelation / Cross / Apply / phase2 gateを進める。","drift":"public中に翻訳判断や次小束追加を行わない。"}
+  "do_not_do": [
+    "public中に新しい翻訳判断を行わない",
+    "次の小束を追加・監査済み扱いにしない",
+    "人物声・FACT_DOUBT・ALLUSION_REVIEWを変更しない",
+    "post-merge状態PRを作らない"
+  ],
+  "cold_start_first_report": {
+    "current": "宇文逸↔莫問・checkpoint第76束・last reviewed第80束・人物ペア1171・全1529。",
+    "open_pr": "PR #118をready化し、train-06の公開CIを実行中。第77〜80束は収録済み。",
+    "start": "train-06の公開CIと単一PR最終化を完了し、private復帰後に5581_7と5581_8を準備する。",
+    "drift": "次候補は機械packetへ予約しただけで、public中にpreparation・quality audit・encodingを行わない。"
+  },
+  "ci_train": {
+    "phase": "phase1_pilot",
+    "train_id": "yuwen-mowen-train-06",
+    "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "planned_batch": 81,
+    "bundle_status_on_completion": "reviewed_pending_ci",
+    "do_not_apply_until_release": true,
+    "finalization_phase": "phase2",
+    "post_merge_state_pr_required": false,
+    "single_pr_finalization": true
+  }
 }
