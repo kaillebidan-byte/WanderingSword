@@ -10,7 +10,7 @@
   "stage": "translation_reaudited",
   "status": "in_progress",
   "last_completed_batch": 76,
-  "last_reviewed_batch": 76,
+  "last_reviewed_batch": 77,
   "pair_applied_keys": 1171,
   "project_applied_keys": 1529,
   "build_status": "verified_not_deployed",
@@ -73,14 +73,27 @@
       "merge_sha": "6f1b92f979ce53cef0a25e4058828b53492bbe7d"
     },
     "private_stage": {
-      "stage": "private_encoding",
+      "stage": "private_quality_audit",
       "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json",
-      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md",
-      "audit_status": "complete"
+      "completed_bundle": 77,
+      "completed_review": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH77_2026-07-25.md",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5551_2_2026-07-25.json",
+      "audit_record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5551_2_2026-07-25.md",
+      "preparation_status": "complete"
     },
-    "next": "監査で確定した5540_4の四候補だけを既存ownerとレビュー記録へ収録する"
+    "stage_transition_finding": {
+      "id": "encoding_to_preparation_accumulation_loop",
+      "status": "repaired_and_exercised",
+      "detail": "第77束encoding後、release条件未達のまま第78束private_preparationへ合法的に戻り、private_quality_audit入口まで遷移した。",
+      "evidence": [
+        "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
+        "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
+        "_tools/check_private_translation_stage.py",
+        "_tools/test_check_private_translation_stage.py"
+      ]
+    },
+    "next": "5551_2をprivate_quality_auditし、fix候補・疑った保持・追加文脈の要否だけを監査記録へ残す"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -107,9 +120,9 @@
     "cold_start_acceptance": "_phase4_proofread/COLD_START_ACCEPTANCE.md"
   },
   "immediate_next": {
-    "scene_groups": ["5540_4"],
-    "task": "private_encodingとして監査済み四候補だけを既存fix fileとレビュー記録へ収録する。",
-    "boundary": "新しい訳文判断、保持行の変更、新規owner、locres、pak、audit statusには触れない。疑義が出たらprivate_quality_auditへ戻す。",
+    "scene_groups": ["5551_2"],
+    "task": "private_quality_auditとして候補packetを通読し、翻訳判断だけを監査記録へ確定する。",
+    "boundary": "修正JSON、owner変更、正式な束完了、manifest件数、release残量、locres、pakには触れない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -164,16 +177,16 @@
     "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
     "caps": {"bundle_count": 6, "reviewed_rows": 60},
     "totals": {
-      "bundle_count": 0,
-      "reviewed_rows": 0,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
+      "bundle_count": 1,
+      "reviewed_rows": 13,
+      "reviewed_keys": 13,
+      "unique_reviewed_rows": 13,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
       "new_pair_keys": 0
     },
-    "quality_gate": {"status": "audit_complete_pending_encoding"},
-    "private_stage": {"stage": "private_encoding", "status": "quality_audit_complete"},
+    "quality_gate": {"status": "not_evaluated_until_release"},
+    "private_stage": {"stage": "private_quality_audit", "status": "second_preparation_complete"},
     "tracking_issue": null,
     "draft_pr": 118,
     "finalization_phase": "phase2",
