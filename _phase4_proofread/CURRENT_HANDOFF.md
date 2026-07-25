@@ -8,42 +8,45 @@
 
 - 実visibility: private（GitHub repository metadataで確認）
 - main HEAD: `eee509ccbf323810df28bebf41ec5cc65f0ec6a9`
-- 四段階wave v2制度PR #119: squash統合済み
 - active branch: `agent/yuwen-mowen-train-07`
 - active PR: なし
 - verified checkpoint: 第80束
 - 人物ペア適用済み: 1171
 - プロジェクト全体適用済み: 1529
 - 前release: `yuwen-mowen-train-06-r1`
-- 現在の翻訳段階: `private_preparation`
-- transport: `not_ready`
+- 翻訳段階: `translation_frozen`
+- transport: `ready_for_public_ci`
 
 ## train-07 wave-01
 
-最新Relation artifact run `30169356037` / artifact `8622473127`を使用した。
+Relation artifact run `30169356037` / artifact `8622473127`を使用した。
 
-四つのcandidate packetを翻訳判断なしで準備し、queueを`packet_threshold`でsealした。
+四packet・57行を一括監査し、正式第81〜84束へencodingした。
 
-- `5581_7 + 5581_8`
-- `5583_1`
-- `5583_2`
-- `5585_4 + 5586_3 + 5586_5`
+- 第81束: `5581_7 + 5581_8` / 4行 / 2修正
+- 第82束: `5583_1` / 12行 / 4修正
+- 第83束: `5583_2` / 18行 / 10修正
+- 第84束: `5585_4 + 5586_3 + 5586_5` / 23行 / 12修正
 
-candidate packetとpreparation recordは`PRIVATE_STAGE_STATE.json`にだけ接続した。manifestへ正式束は追加していない。
+合計28修正。新規人物ペアキー5、新規プロジェクトキー21、横断キー7。既存owner更新は7キー。
+
+修正は既存の宇文逸↔莫問owner、清虚owner、新規人物ペアowner、洪飛・欧陽雪の横断ownerへ分離した。
+
+locres、pak、verified checkpoint、audit statusはまだ更新していない。
 
 ## 次作業
 
-sealed queue全体を`private_quality_audit`で連続監査する。
+公開CI窓でdraft PRを作成し、翻訳判断を凍結したままRelation・Cross・Apply・phase2を輸送する。
 
-監査時は件数、release残量、正式束番号、fix JSON、owner書込みを判断へ渡さない。一packetごとにencodingへ移らない。
+公開が確認できるまではPR作成とCI輸送を始めない。
 
 ## 禁止
 
-- quality audit前にfix JSON、review record、正式束番号を作らない。
-- preparationの件数を品質判断へ使わない。
-- public化しない。
+- public中に翻訳判断を再開しない。
+- fix JSON、owner、review record、正式束を追加・変更しない。
 - ゲームフォルダへ配置しない。
+- CI検証前にcheckpointをverifiedへ進めない。
 
 ## 再開時
 
-最初に実visibility、main、未統合PR、GitHub Actionsを確認する。`agent/yuwen-mowen-train-07`のlive状態を確認し、privateならsealed waveのquality auditへ進む。
+実visibility、main、未統合PR、Actionsを確認する。publicなら`agent/yuwen-mowen-train-07`からdraft PRを作成してCI輸送へ進む。privateなら公開CI窓を依頼する。
