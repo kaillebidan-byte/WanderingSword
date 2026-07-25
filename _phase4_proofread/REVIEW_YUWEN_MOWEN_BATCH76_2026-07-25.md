@@ -3,16 +3,26 @@
 - 日付: 2026-07-25
 - train: `yuwen-mowen-train-05`
 - scenes: `5536_3`, `5536_4`
-- 通読: 14行
-- 実質異文: 8行
-- 修正: 0
-- 保持: 14
+- reviewed keys: 14
+- unique rows: 8
+- 修正: 2キー / 1 unique row
+- 保持: 12キー / 7 unique rows
 - 新規人物ペアキー: 0
-- fix files: `[]`
+- 所有: 既存`fixes_relation_yuwen_mowen_20260723_batch8.json`を維持
+- low-yield challenge: `_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN_05_2026-07-25.md`
 
 ## 場面
 
 師父からの手紙を受け、武当へ戻らず黎城へ向かう方針を確認する二分岐。`5536_3`では清霄師伯を待つ指示があり、`5536_4`では黎城へ先行する指示だけがある。ほかの行は共通する。
+
+## 修正
+
+### `5536_3_Dlgs_Index5_Text` / `5536_4_Dlgs_Index5_Text`
+
+- 原文: `既然各派都在，父亲应该也会带人前往。`
+- 初回keep: `各派が集まるなら、父も門人を率いて向かうはずです。`
+- 修正: `各派が集まるなら、父も人を連れて向かうはずです。`
+- 理由: `带人`は同行者の身分を定めない。`門人`は原文にない設定追加であり、初回レビューのFACT_DOUBT「実際に誰を率いるか補わない」と矛盾していた。重複分岐の両キーを同時修正する。
 
 ## 保持判断
 
@@ -26,7 +36,7 @@
 
 - 各門派の集合、準備状況、天龍幇一掃の成否を確定しない。
 - こちら側が時間を稼げたという説明は莫問の推測に留める。
-- 欧陽雪の父が実際に誰を率いるか、到着時期、参加規模を補わない。
+- 欧陽雪の父が実際に誰を連れて行くか、到着時期、参加規模を補わない。
 - 二分岐の清霄師伯待機条件を相互に混入させない。
 
 ## ALLUSION_REVIEW
@@ -36,12 +46,17 @@
 ## duplicate / branch review
 
 - `5536_3`と`5536_4`はIndex1のみ意味差があり、その他6行は同文。
-- 分岐差を統合せず、各familyの文面を個別に保持した。
+- 修正対象Index5は両familyへ鏡写しした。
+- reviewed keys 14を通読量へ二重計上せず、release集計では8 unique rowsとする。
 
 ## source artifact
 
 - workflow: Relation audit extraction
-- run: `30145143325`
-- artifact: `8615729248`
-- digest: `sha256:fff1a96381862320176a51915722f7aee4bf3d85242253c4e504221a0922f27b`
-- HEAD: `abda35f9d742d71e1562c8cdebdf2fdc07643210`
+- run: `30148094728`
+- artifact: `8616690075`
+- digest: `sha256:8f504c4b82a5e61364adef6394d752bd4a77e07ac812736d22c39ce377efaec3`
+- HEAD: `9e767dbd85895fff5b298d605954b0aec91fee22`
+
+## 再監査
+
+初回は0修正・14保持だったが、低収穫時の全保持行再監査で設定追加を1 unique row・2キー検出した。最終判断は2修正キー・12保持キー。
