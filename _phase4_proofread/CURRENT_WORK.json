@@ -63,7 +63,7 @@
   },
   "process_review": {
     "status": "train06_live_stage_test",
-    "live_pr": null,
+    "live_pr": 118,
     "tracking_issue": null,
     "active_branch": "agent/yuwen-mowen-train-06",
     "previous_release": {
@@ -174,7 +174,7 @@
     "quality_gate": {"status": "not_evaluated_before_encoding"},
     "private_stage": {"stage": "private_quality_audit", "status": "preparation_complete"},
     "tracking_issue": null,
-    "draft_pr": null,
+    "draft_pr": 118,
     "finalization_phase": "phase2",
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true,
