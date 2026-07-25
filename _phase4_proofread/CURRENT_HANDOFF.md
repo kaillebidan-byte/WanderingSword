@@ -52,14 +52,16 @@
 - keep-only束は`fix_files=[]`を正規状態として受理するv2 manifest検査へ変更した
 - accumulating時だけCURRENT_WORKとNEXT_TASK_PACKETの場面一致を要求し、release待ちでは次列車packetを分離した
 - `CI train phase2 gate`へpreflight契約と列車状態v2の回帰testを組み込んだ
+- public phase2成功後にprivate Actions成功を再要求していた不備を修正した
+- phase2 workflowはpublic visibilityでのみjobを実行する
+- private復帰後はmetadata、verified checkpoint、未適用0件、thread 0件で閉じる
 - 訳文、修正JSON値、人物声、所有境界は制度修正で変更していない
 
 ## 次に行うこと
 
-1. private状態のoperation modeをphase2 gateで確認する。
-2. 未解決thread 0件を再確認し、PR #113をsquash統合する。
-3. mainの第69束verified checkpointから新しいprivate列車を開始する。
-4. 第70束`5522_1`の7行を原文・現訳・前後・話者・相手・時系列・所有とともに監査する。
-5. 次のrelease条件到達までlocres・pak・audit_statusを更新しない。
+1. 未解決thread 0件を再確認し、PR #113をsquash統合する。
+2. mainの第69束verified checkpointから新しいprivate列車を開始する。
+3. 第70束`5522_1`の7行を原文・現訳・前後・話者・相手・時系列・所有とともに監査する。
+4. 次のrelease条件到達までlocres・pak・audit_statusを更新しない。
 
-第70束以降の翻訳判断はprivateでのみ行う。
+private復帰後のphase2 run `30144095507`はrunner開始前に終了し、step・artifact・logがない。公開中のphase2成功とprivate metadata確認が揃っているためrelease失敗とは扱わない。
