@@ -1,1 +1,84 @@
-{"schema_version":5,"status":"ready","task_id":"yuwen-mowen-wave-v2-institutional-merge-then-next-wave","based_on_checkpoint":{"batch":80,"pair_applied_keys":1171,"project_applied_keys":1529,"produced_by_pr":118,"release_id":"yuwen-mowen-train-06-r1","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json"},"current_pair":"宇文逸↔莫問","scene_groups":["5581_7","5581_8"],"reservation":{"status":"reserved_only","wave_id":null,"packet_id":null,"preparation_started":false,"quality_audit_started":false,"encoding_started":false,"formal_batch":null},"source":{"target":"CG表","namespace":"QuestDlgs","families":["5581_7_Dlgs","5581_8_Dlgs"],"artifact_workflow":"Relation audit extraction","artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","artifact_run":30166311919,"artifact_id":null,"artifact_digest":null,"artifact_head":"2b994888eae0929af76ddb886efe2c911362fcdf","freshness_rule":"四段階制度wave v2のPRを統合した後、最新Relation artifactを取得して新しいopen waveで原文・現訳・前後・分岐・既存ownerだけを準備する。制度PR中は翻訳判断しない。"},"scene_flow":[{"scene":"5581_7","function":"黎城到着後の分岐で、莫問が宇文逸を連れて法場の清霄師伯へ復命に向かう短い移動導線。","speaker_order":["莫問","宇文逸"],"focus_keys":["5581_7_Dlgs_Index0_Text","5581_7_Dlgs_Index1_Text"],"voice_questions":["莫問の兄弟子としての簡潔な促しと復命先を保てているか","法場を場面外の処刑描写へ膨らませていないか","宇文逸の短い同意を儀礼文へ整えすぎていないか"]},{"scene":"5581_8","function":"別分岐で、莫問が宇文逸を連れて法場の師父へ復命に向かう短い移動導線。","speaker_order":["莫問","宇文逸"],"focus_keys":["5581_8_Dlgs_Index0_Text","5581_8_Dlgs_Index1_Text"],"voice_questions":["5581_7との鏡写しを確認しつつ復命相手の差を壊していないか","二つの分岐を同時発生した出来事として結合していないか","莫問と宇文逸の同門registerが自然か"]}],"batch_planning":{"reviewed_rows":4,"target_rows":{"min":15,"max":30},"adjacent_candidates_checked":["5581_5","5581_7","5581_8","5583_1"],"grouping_decision":"5581_7と5581_8は復命相手だけが異なる分岐鏡写しとして一つのcandidate packet候補にする。5583_1との結合可否は新waveのpreparationで判断する。","exception":{"reason_code":"isolated_branch_boundary","detail":"これは予約でありprepared packetでも正式束でもない。新waveは通常4 packetまたは40 unique rows相当まで準備してからsealする。"}},"allusion_and_fact_gates":{"allusion_review_candidates":[],"fact_doubts":["5581_7と5581_8を同一時系列で同時に起きた行動へ結合しない","法場の具体的な用途、状態、そこで起きた出来事をこの二場面だけから補わない","復命する内容、清霄師伯または師父の反応、後続命令を先取りしない"]},"ownership_boundary":{"pair_batch":"4キーはいずれも既存の宇文逸↔莫問owner内にある。新waveのquality auditでfixと確定した場合だけencodingで既存ownerを再収録する。","cross_register":"人物ペア外の問題がquality auditで確定した場合だけencodingで分離する。preparationと制度PRでは所有を変更しない。","machine_ownership":{"existing":[{"path":"_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json","keys":["5581_7_Dlgs_Index0_Text","5581_7_Dlgs_Index1_Text","5581_8_Dlgs_Index0_Text","5581_8_Dlgs_Index1_Text"]}],"unowned":[]}},"skill_review":{"default":"no_change","rule":"一般化可能な新知見または既存規則への反例だけをskillへ昇格する。","separate_layers":"翻訳一般則はskill、人物固有の声は人物資料、CI・段階事故はworkflowと再開制度へ分ける。"},"expected_outputs":["制度改修PRを統合するまで第81束候補のpreparation・quality audit・encodingを開始しない","統合後はPRIVATE_STAGE_STATEで新しいopen waveを作り、複数candidate packetを準備する","通常seal条件未達の一packet供給はpreparation_underfilledで失敗させる","quality auditへ件数・release残量・formal batchを渡さない"],"release_candidate":{"train_id":"yuwen-mowen-train-06","release_id":"yuwen-mowen-train-06-r1","pr":118,"status":"merged","merge_sha":"56c8eecfc4eb1a44a23708d25d9566d68cea016c","phase2_run":30166513929,"unresolved_review_threads":0,"totals":{"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16,"new_pair_keys":0},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json","fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"]},"institutional_change":{"branch":"agent/four-stage-wave-v2","pr":119,"status":"draft_pr_open_private","scope":"four-stage wave v2 only","pr_url":"https://github.com/kaillebidan-byte/WanderingSword/pull/119"},"do_not_do":["制度PR中に新しい翻訳判断を行わない","5581_7・5581_8をpreparedまたはaudited扱いにしない","訳文、fix JSON、人物owner、FACT_DOUBT、ALLUSION_REVIEWを変更しない","第81束の正式番号を付けない"],"cold_start_first_report":{"current":"宇文逸↔莫問・verified checkpoint第80束・人物ペア1171・全1529。PR #118はsquash統合済み。","open_pr":"四段階制度を一packet loopからwave v2へ移す制度改修PRを優先する。","start":"repository metadataでprivateを確認し、制度PRとActionsを確認する。制度PR統合前は翻訳を開始しない。","drift":"5581_7・5581_8は予約だけで、preparation・quality audit・encoding・正式第81束は未開始。"},"ci_train":{"phase":"phase1_wave","train_id":"yuwen-mowen-train-06","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","planned_batch":81,"review_status_on_encoding":"complete","apply_status_on_encoding":"pending","do_not_apply_until_release":true,"finalization_phase":"phase2","phase2_run":30166513929,"post_merge_state_pr_required":false,"single_pr_finalization":true}}
+{
+  "schema_version": 6,
+  "status": "ready",
+  "task_id": "yuwen-mowen-train-07-wave-01-quality-audit",
+  "based_on_checkpoint": {
+    "batch": 80,
+    "pair_applied_keys": 1171,
+    "project_applied_keys": 1529,
+    "produced_by_pr": 118,
+    "release_id": "yuwen-mowen-train-06-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_06.json"
+  },
+  "current_pair": "宇文逸↔莫問",
+  "stage": "private_quality_audit",
+  "wave": {
+    "wave_id": "yuwen-mowen-train-07-wave-01",
+    "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+    "queue_status": "sealed"
+  },
+  "scene_groups": [
+    "5581_7",
+    "5581_8",
+    "5583_1",
+    "5583_2",
+    "5585_4",
+    "5586_3",
+    "5586_5"
+  ],
+  "source": {
+    "workflow": "Relation audit extraction",
+    "run_id": 30169356037,
+    "artifact_id": 8622473127,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:497d03bf8bb1eeb1723b4064025486e626ca59fa26ea2bd4b2ecf2be9e32ad19",
+    "head_sha": "6f0648976b548164a30fb3b65bc0e70c310f293b"
+  },
+  "candidate_packets": [
+    {
+      "packet_id": "yuwen-mowen-5581-7-5581-8",
+      "scene_groups": ["5581_7", "5581_8"],
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.md"
+    },
+    {
+      "packet_id": "yuwen-mowen-5583-1",
+      "scene_groups": ["5583_1"],
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5583_1_2026-07-26.md"
+    },
+    {
+      "packet_id": "yuwen-mowen-5583-2",
+      "scene_groups": ["5583_2"],
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5583_2_2026-07-26.md"
+    },
+    {
+      "packet_id": "yuwen-mowen-5585-4-5586-3-5586-5",
+      "scene_groups": ["5585_4", "5586_3", "5586_5"],
+      "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json",
+      "preparation_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.md"
+    }
+  ],
+  "audit_contract": {
+    "required_labels": ["fix_candidate", "challenged_keep", "needs_context", "FACT_DOUBT", "ALLUSION_REVIEW"],
+    "decision_basis": ["原文", "現訳", "前後", "話者", "相手", "時系列", "分岐", "人物声", "設定追加", "欠落", "日本語の自然さ"],
+    "forbidden_inputs": ["metrics_snapshot", "release_remaining", "release_threshold", "thresholds", "caps", "totals", "reviewed_rows", "unique_reviewed_rows", "fix_keys", "bundle_count"],
+    "forbidden_outputs": ["fix_json", "owner_write", "review_record", "formal_batch", "manifest_bundle"],
+    "packet_transition": ["prepared", "audited", "needs_repreparation"],
+    "encoding_transition": "全packetの監査完了後だけprivate_encodingへ進む"
+  },
+  "do_not_do": [
+    "一packet完了ごとにencodingへ移らない",
+    "fix JSON、owner、review record、正式束番号、manifest件数を書かない",
+    "preparation_summaryやrelease残量を監査判断へ持ち込まない",
+    "public化しない"
+  ],
+  "cold_start_first_report": {
+    "current": "宇文逸↔莫問・verified checkpoint第80束・人物ペア1171・全1529。train-07 wave-01はpreparation済み。",
+    "open_pr": "active PRなし。active branchはagent/yuwen-mowen-train-07。",
+    "start": "repository metadataでprivateを確認し、sealed queue全体のquality auditへ進む。",
+    "drift": "正式第81束以降、fix JSON、owner、review recordはまだ作っていない。"
+  }
+}
