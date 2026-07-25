@@ -1,74 +1,66 @@
 # 現在の申し送り
 
-> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、品質制度は`TRANSLATION_QUALITY_GATE.md`、確定releaseはcheckpointが指すevidence、次束は`NEXT_TASK_PACKET.json`。
-
-## 新しいチャットで送る一文
-
-```text
-現状把握して作業の続きを
-```
+> 機械正本は`CURRENT_WORK.json`、列車は`CI_TRAIN_MANIFEST.json`、private段階は`PRIVATE_STAGE_STATE.json`、候補入力は`CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json`。
 
 ## 現在地
 
-- 実visibility: public（GitHub metadataで確認済み）
-- open PR: #117
-- active Issue: #116
-- active branch: `agent/yuwen-mowen-train-05`
-- operation mode: `ready_for_public_ci`
-- private stage: `ready_for_public_ci`
-- release: `yuwen-mowen-train-05-r2` / verified
+- 実visibility: private（GitHub metadataで確認）
+- active draft PR: #118
+- active branch: `agent/yuwen-mowen-train-06`
+- operation mode: `private_translation_work`
+- private stage: `private_quality_audit`
+- preparation: complete
 - checkpoint: 第76束 / 人物ペア1171 / 全1529 / 未適用0件
-- reviewed: 53 keys / 47 unique rows
-- 修正: 7 keys / 6 unique rows
+- release checkpoint: `yuwen-mowen-train-05-r2` / verified
 - build: `verified_not_deployed`
 - game verification: `not_started`
 
-## r2で直した内容
+## 四段階実走の状態
 
-初回3修正に加え、低収穫時の全keep再監査で次の4キーを追加した。
+### 1. private preparation — 完了
 
-- `5535_2_Dlgs_Index2_Text`: 黄宗政本人の助力を「私の力」と明示
-- `5535_2_Dlgs_Index4_Text`: 見送る黄宗政の「失礼する」を「さらばだ」へ修正
-- `5536_3_Dlgs_Index5_Text`
-- `5536_4_Dlgs_Index5_Text`: 原文`带人`にない「門人」の設定追加を除去
+対象`5540_4`について、次だけを固定した。
 
-`5535_2_Dlgs_Index4_Text`は旧ownerになかったため、新規人物ペア1キー。人物ペア累計1171・全体1529となった。
+- Relation artifactの原文・現訳・話者順
+- 直前`5536_3` / `5536_4`と後続`5551_2` / `5572_6` / `5572_9`
+- 重複familyの有無
+- 既存ownerと未所有キー
+- FACT_DOUBT候補とquality auditの確認軸
 
-## 品質・private段階制度
+証拠:
 
-- 束数・行数・修正数は品質成果ではなくCI輸送指標
-- reviewed keysとunique rowsを分離
-- 初回修正率15%未満なら初回keep全unique rowsを第二巡で疑い直す
-- private作業を`preparation -> quality audit -> encoding -> ready for public CI`へ分離
-- preparationでは判断・fix・owner・正式束を作らない
-- quality auditでは読むことと校正判断だけを行い、件数を判断材料にしない
-- encodingでは確定済み判断だけを収録し、新しい疑義はquality auditへ戻す
-- publicでは翻訳判断を再開しない
+- `_phase4_proofread/PREPARATION_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md`
+- `_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5540_4_2026-07-25.json`
 
-train-05は既存証拠から四段階を遡及固定した移行列車。次列車では第77束を`private_preparation`から順に実測する。
+この段階ではfix / keep判断、修正JSON、owner新設、正式な束完了、件数集計、locres、pakを扱っていない。
 
-## 新しい成功証跡
+### 2. private quality audit — active
 
-- CI HEAD: `a568f731dcf419c766dc6a3845461aed1f83d46a`
-- Relation: `30149789606` success
-- Cross: `30149789605` success
-- Apply: `30149789594` success
-- asset HEAD: `1b84e1586fa13802525904cfbe192ebd3f4972bc`
-- Apply QA: 適用前4件、適用後0件、適用済み1529件
-- quality checker: success
-- private-stage checker / regression: success
-- audit status: 第76束・人物ペア1171・全1529
-- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_05.json`
+次は`_phase4_proofread/AUDIT_YUWEN_MOWEN_SCENE5540_4_2026-07-25.md`へ、次の順で翻訳判断だけを記録する。
 
-旧`yuwen-mowen-train-05-r1`と旧run群は履歴として残るが、merge根拠には使わない。
+1. fix candidatesと理由
+2. 疑ったが保持した箇所
+3. 追加文脈が必要な箇所
+4. FACT_DOUBTとALLUSION_REVIEWの分離
 
-## 次に行うこと
+この段階では修正JSON、owner、正式な束、manifest件数、release残量を触らない。
 
-1. 最終状態HEADのpublic phase2 gateを成功させる。
-2. 未解決review thread 0件を確認する。
-3. repositoryをprivateへ戻す。
-4. private metadata closeout後、PR #117をsquash統合する。
-5. 新しいprivate列車を`private_preparation`で開始する。
-6. 第77束`5540_4`は文脈・重複・所有の準備から始め、同じ回では翻訳判断しない。
+### 3. private encoding — 未開始
 
-public中は第77束を読まず、fix・owner・束を追加しない。
+quality auditで確定した判断だけを収録する。新しい疑義が出た場合はquality auditへ戻す。
+
+### 4. ready for public CI — 未開始
+
+翻訳判断と収録を凍結した後にだけ移る。
+
+## 現在の対象場面
+
+`5540_4`: 瑶姫が合流し、宇文逸が黎城へ向かう前に遼城へ戻る意向を示す。莫問と欧陽雪が同行を申し出る。瑶姫は遼城の状況を言いさして伏せる。
+
+quality auditでは、瑶姫の軽さと含み、宇文逸の叔父への推測、莫問の保護責任、欧陽雪の同行意思、発話の遮られ方を原文・現訳・前後から判断する。
+
+## drift
+
+PR #117はすでにsquash統合済み。旧申し送りの「#117統合待ち」は履歴であり、現行作業ではない。
+
+次の作業はPR #118のbranch上でquality auditを進めること。public化はまだ不要。
