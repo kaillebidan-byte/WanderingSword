@@ -12,9 +12,12 @@ on:
       - "_phase4_proofread/CURRENT_WORK.json"
       - "_phase4_proofread/CURRENT_HANDOFF.md"
       - "_phase4_proofread/NEXT_TASK_PACKET.json"
+      - "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json"
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
       - "_phase4_proofread/PUBLIC_CI_WINDOW.md"
       - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
+      - "_tools/check_visibility_preflight_contract.py"
+      - "_tools/test_check_visibility_preflight_contract.py"
       - "_tools/check_release_evidence.py"
       - "_tools/check_release_evidence_github.py"
       - "_tools/test_check_release_evidence.py"
@@ -67,6 +70,13 @@ jobs:
             --repository-visibility "${{ github.event.repository.visibility }}" \
             2>&1 | tee _ws_tmp/ci_train_phase2/operation_mode.txt
 
+      - name: Validate visibility preflight contract
+        shell: bash
+        run: |
+          set -o pipefail
+          python _tools/check_visibility_preflight_contract.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/visibility_preflight.txt
+
       - name: Validate release evidence
         shell: bash
         run: |
@@ -94,6 +104,7 @@ jobs:
 
       - name: Regression tests
         run: |
+          python _tools/test_check_visibility_preflight_contract.py
           python _tools/test_check_operation_mode.py
           python _tools/test_check_release_evidence.py
           python _tools/test_check_release_evidence_github.py
