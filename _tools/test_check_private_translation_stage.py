@@ -1,19 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""private翻訳四段階とCI輸送statusの分離を回帰検証する。"""
+"""private翻訳wave v2の段階・輸送分離を回帰検証する。"""
 from __future__ import annotations
 
+import copy
 import importlib.util
-import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-STAGES = (
-    "private_preparation",
-    "private_quality_audit",
-    "private_encoding",
-    "ready_for_public_ci",
-)
 
 
 def load_checker():
@@ -27,26 +21,25 @@ def load_checker():
 
 
 def contract() -> dict:
-    required = {
-        "private_preparation": ["source_artifact", "scene_context", "ownership_inventory", "candidate_packet"],
-        "private_quality_audit": ["audit_record", "fix_candidates", "challenged_keeps"],
-        "private_encoding": ["audit_record", "fix_files", "review_records", "ownership_records"],
-        "ready_for_public_ci": ["quality_gate", "manifest", "next_task_packet"],
-    }
     permissions = {
         "private_preparation": ("private_translation_work", False, False, False, False, True),
         "private_quality_audit": ("private_translation_work", True, False, False, False, True),
         "private_encoding": ("private_translation_work", False, True, True, True, False),
-        "ready_for_public_ci": ("ready_for_public_ci", False, False, False, True, False),
+        "translation_frozen": ("translation_frozen", False, False, False, True, False),
     }
     allowed = {
         "private_preparation": ["private_quality_audit"],
         "private_quality_audit": ["private_encoding"],
-        "private_encoding": ["private_preparation", "private_quality_audit", "ready_for_public_ci"],
-        "ready_for_public_ci": ["private_quality_audit"],
+        "private_encoding": ["private_quality_audit", "translation_frozen"],
+        "translation_frozen": ["private_quality_audit"],
     }
     stages = []
-    for stage in STAGES:
+    for stage in (
+        "private_preparation",
+        "private_quality_audit",
+        "private_encoding",
+        "translation_frozen",
+    ):
         op, judgment, fix, encoding, visible, frozen = permissions[stage]
         stages.append({
             "id": stage,
@@ -56,38 +49,44 @@ def contract() -> dict:
             "encoding_writes_allowed": encoding,
             "throughput_metrics_visible": visible,
             "metrics_frozen": frozen,
-            "required_evidence": required[stage],
             "allowed_next": allowed[stage],
         })
-    return {"schema_version": 1, "transition_order": list(STAGES), "stages": stages}
-
-
-def evidence(stage: str) -> dict:
-    path = "_phase4_proofread/EVIDENCE.md"
     return {
-        "private_preparation": {
-            "source_artifact": "github-actions:1",
-            "scene_context": path,
-            "ownership_inventory": path,
-            "candidate_packet": path,
+        "schema_version": 2,
+        "transition_order": [
+            "private_preparation",
+            "private_quality_audit",
+            "private_encoding",
+            "translation_frozen",
+        ],
+        "transport": {
+            "statuses": [
+                "not_ready",
+                "ready_for_public_ci",
+                "in_public_ci",
+                "verified",
+                "awaiting_private_merge",
+                "merged",
+            ]
         },
-        "private_quality_audit": {
-            "audit_record": path,
-            "fix_candidates": path,
-            "challenged_keeps": path,
+        "wave_policy": {
+            "normal_seal": {"packet_count": 4, "unique_reviewed_rows": 40},
+            "caps": {"packet_count": 6, "unique_reviewed_rows": 60},
+            "seal_reasons": [
+                "packet_threshold",
+                "unique_reviewed_rows_threshold",
+                "scope_exhausted",
+            ],
+            "replenishment_reasons": [
+                "packet_invalidated",
+                "duplicate_normalization_reduced_scope",
+                "needs_context_unresolved",
+                "prepared_source_became_stale",
+                "scope_boundary_corrected",
+            ],
         },
-        "private_encoding": {
-            "audit_record": path,
-            "fix_files": path,
-            "review_records": path,
-            "ownership_records": path,
-        },
-        "ready_for_public_ci": {
-            "quality_gate": path,
-            "manifest": path,
-            "next_task_packet": path,
-        },
-    }[stage]
+        "stages": stages,
+    }
 
 
 def permissions(stage: str) -> dict:
@@ -113,7 +112,7 @@ def permissions(stage: str) -> dict:
             "throughput_metrics_visible": True,
             "metrics_frozen": False,
         },
-        "ready_for_public_ci": {
+        "translation_frozen": {
             "translation_judgment_allowed": False,
             "fix_writes_allowed": False,
             "encoding_writes_allowed": False,
@@ -123,98 +122,211 @@ def permissions(stage: str) -> dict:
     }[stage]
 
 
-def sample(stage: str, transport_status: str | None = None):
-    history = [
-        {"stage": item, "status": "active" if item == stage else "complete", "evidence": evidence(item)}
-        for item in STAGES[: STAGES.index(stage) + 1]
-    ]
-    totals = {
-        "bundle_count": 3,
-        "reviewed_rows": 47,
-        "reviewed_keys": 53,
-        "unique_reviewed_rows": 47,
-        "fix_keys": 7,
-        "unique_fix_rows": 6,
+def packet(index: int, status: str) -> dict:
+    value = {
+        "packet_id": f"packet-{index}",
+        "scene_groups": [f"scene-{index}"],
+        "status": status,
+        "preparation_record": {
+            "candidate_packet": f"_phase4_proofread/CANDIDATE_{index}.json",
+            "context_record": f"_phase4_proofread/PREPARATION_{index}.md",
+        },
+        "audit_record": None,
+        "review_record": None,
+        "formal_batch": None,
     }
+    if status in {"audited", "encoded", "needs_reaudit"}:
+        value["audit_record"] = {
+            "record": f"_phase4_proofread/AUDIT_{index}.md",
+            "fix_candidates": [],
+            "challenged_keeps": [],
+            "needs_context": [],
+            "fact_doubts": [],
+            "allusion_reviews": [],
+        }
+    if status == "encoded":
+        value["review_record"] = {"record": f"_phase4_proofread/REVIEW_{index}.md"}
+        value["formal_batch"] = 80 + index
+    return value
+
+
+def stage_history(stage: str) -> list[dict]:
+    order = [
+        "private_preparation",
+        "private_quality_audit",
+        "private_encoding",
+        "translation_frozen",
+    ]
+    return [
+        {"stage": item, "status": "active" if item == stage else "complete"}
+        for item in order[: order.index(stage) + 1]
+    ]
+
+
+def transport_history(status: str) -> list[dict]:
+    order = [
+        "not_ready",
+        "ready_for_public_ci",
+        "in_public_ci",
+        "verified",
+        "awaiting_private_merge",
+        "merged",
+    ]
+    result = []
+    for item in order[: order.index(status) + 1]:
+        entry = {"status": item}
+        if item != "not_ready":
+            entry["translation_stage"] = "translation_frozen"
+        result.append(entry)
+    return result
+
+
+def sample(stage: str, *, count: int = 4, transport_status: str | None = None):
+    status_by_stage = {
+        "private_preparation": "prepared",
+        "private_quality_audit": "audited",
+        "private_encoding": "audited",
+        "translation_frozen": "encoded",
+    }
+    packet_status = status_by_stage[stage]
+    wave = {
+        "wave_id": "test-wave",
+        "queue_status": "sealed",
+        "seal_reason": "packet_threshold",
+        "packets": [packet(index + 1, packet_status) for index in range(count)],
+    }
+    if stage == "private_preparation":
+        wave["preparation_summary"] = {
+            "packet_count": count,
+            "unique_reviewed_rows": count * 10,
+        }
+    status = transport_status or ("not_ready" if stage != "translation_frozen" else "ready_for_public_ci")
     state = {
-        "schema_version": 1,
+        "schema_version": 2,
         "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
         "train_id": "test-train",
         "stage": stage,
+        "wave": wave,
+        "transport": {"status": status, "history": transport_history(status)},
         "permissions": permissions(stage),
-        "history": history,
-        "audit_separation": {
-            "pair_keys_follow_judgment": True,
-            "bundle_number_assigned_in_encoding": True,
-            "audit_metrics_suppressed": True,
-            "public_reopens_judgment": False,
-        },
+        "history": stage_history(stage),
+        "replenishment_reason": None,
     }
-    if permissions(stage)["throughput_metrics_visible"]:
-        state["metrics_snapshot"] = totals.copy()
-    status = transport_status or ("ready_for_public_ci" if stage == "ready_for_public_ci" else "accumulating")
-    manifest = {"train_id": "test-train", "status": status, "totals": totals}
+    operation = "translation_frozen" if stage == "translation_frozen" else "private_translation_work"
+    manifest = {
+        "train_id": "test-train",
+        "status": "verified" if stage == "translation_frozen" else "accumulating",
+        "bundles": [],
+    }
+    if stage == "translation_frozen":
+        manifest["bundles"] = [
+            {
+                "batch": item["formal_batch"],
+                "review_status": "complete",
+                "apply_status": "verified",
+            }
+            for item in wave["packets"]
+        ]
     current = {
-        "operation_mode": {
-            "declared_state": "ready_for_public_ci" if stage == "ready_for_public_ci" else "private_translation_work"
+        "operation_mode": {"declared_state": operation},
+        "ci_train": {
+            "status": manifest["status"],
+            "transport_status": status,
         },
-        "ci_train": {"status": status},
     }
     return state, current, manifest
 
 
-def accumulation_loop_sample():
-    state, current, manifest = sample("private_preparation")
-    state["history"] = [
-        {"stage": "private_preparation", "status": "complete", "evidence": evidence("private_preparation")},
-        {"stage": "private_quality_audit", "status": "complete", "evidence": evidence("private_quality_audit")},
-        {"stage": "private_encoding", "status": "complete", "evidence": evidence("private_encoding")},
-        {"stage": "private_preparation", "status": "active", "evidence": evidence("private_preparation")},
-    ]
-    return state, current, manifest
+def errors(checker, state, current, manifest):
+    return checker.validate(contract(), state, current, manifest)
 
 
 def main() -> None:
     checker = load_checker()
-    with tempfile.TemporaryDirectory() as tmp:
-        old_root = checker.ROOT
-        checker.ROOT = Path(tmp)
-        path = checker.ROOT / "_phase4_proofread" / "EVIDENCE.md"
-        path.parent.mkdir(parents=True)
-        path.write_text("test", encoding="utf-8")
 
-        for stage in STAGES:
-            state, current, manifest = sample(stage)
-            assert checker.validate(contract(), state, current, manifest) == []
+    # 1. 一packet・閾値未満で通常sealしたら失敗
+    state, current, manifest = sample("private_preparation", count=1)
+    assert any("preparation_underfilled" in error for error in errors(checker, state, current, manifest))
 
-        for status in ("ready_for_public_ci", "in_public_ci", "verified"):
-            state, current, manifest = sample("ready_for_public_ci", status)
-            assert checker.validate(contract(), state, current, manifest) == [], status
+    # 2. 複数packetを準備してsealしたら成功
+    state, current, manifest = sample("private_preparation")
+    assert errors(checker, state, current, manifest) == []
 
-        state, current, manifest = accumulation_loop_sample()
-        assert checker.validate(contract(), state, current, manifest) == []
+    # 3. queue未sealedでquality auditへ進んだら失敗
+    state, current, manifest = sample("private_quality_audit")
+    state["wave"]["queue_status"] = "open"
+    state["wave"]["seal_reason"] = None
+    assert any("quality audit requires sealed queue" in error for error in errors(checker, state, current, manifest))
 
-        state, current, manifest = sample("ready_for_public_ci", "accumulating")
-        errors = checker.validate(contract(), state, current, manifest)
-        assert any("ready_for_public_ci, in_public_ci, or verified" in error for error in errors)
+    # 4. 未監査packetを残してencodingへ進んだら失敗
+    state, current, manifest = sample("private_encoding")
+    state["wave"]["packets"][0] = packet(1, "prepared")
+    assert any("unaudited packet blocks encoding" in error for error in errors(checker, state, current, manifest))
 
-        state, current, manifest = sample("ready_for_public_ci")
-        state["history"] = [state["history"][0], state["history"][-1]]
-        state["history"][0]["status"] = "complete"
-        errors = checker.validate(contract(), state, current, manifest)
-        assert any("illegal transition" in error for error in errors)
+    # 5. 監査済みpacketの一部を未encodingで凍結したら失敗
+    state, current, manifest = sample("translation_frozen")
+    state["wave"]["packets"][0] = packet(1, "audited")
+    assert any("must be encoded before translation freeze" in error for error in errors(checker, state, current, manifest))
 
-        state, current, manifest = sample("private_quality_audit")
-        state["metrics_snapshot"] = manifest["totals"].copy()
-        errors = checker.validate(contract(), state, current, manifest)
-        assert any("must not expose metrics_snapshot" in error for error in errors)
+    # 6. preparation・quality audit中に正式束番号が付いたら失敗
+    for stage in ("private_preparation", "private_quality_audit"):
+        state, current, manifest = sample(stage)
+        state["wave"]["packets"][0]["formal_batch"] = 81
+        assert any("formal_batch forbidden" in error for error in errors(checker, state, current, manifest))
 
-        state, current, manifest = sample("private_encoding")
-        state["permissions"]["translation_judgment_allowed"] = True
-        errors = checker.validate(contract(), state, current, manifest)
-        assert any("translation_judgment_allowed" in error for error in errors)
+    # 7. quality audit中にmetrics snapshotやrelease残量を露出したら失敗
+    state, current, manifest = sample("private_quality_audit")
+    state["wave"]["metrics_snapshot"] = {"bundle_count": 4}
+    state["wave"]["release_remaining"] = 0
+    assert any("exposes transport metrics" in error for error in errors(checker, state, current, manifest))
 
-        checker.ROOT = old_root
+    # 8. encoding中にtranslation judgmentを許可したら失敗
+    state, current, manifest = sample("private_encoding")
+    state["permissions"]["translation_judgment_allowed"] = True
+    assert any("translation_judgment_allowed" in error for error in errors(checker, state, current, manifest))
+
+    # 9. encoding -> preparationにreplenishment理由がなければ失敗
+    state, current, manifest = sample("private_preparation")
+    state["history"] = [
+        {"stage": "private_preparation", "status": "complete"},
+        {"stage": "private_quality_audit", "status": "complete"},
+        {"stage": "private_encoding", "status": "complete"},
+        {"stage": "private_preparation", "status": "active"},
+    ]
+    assert any("requires replenishment reason" in error for error in errors(checker, state, current, manifest))
+
+    # 10. 理由付き例外replenishmentは成功
+    state["history"][-1]["replenishment_reason"] = "packet_invalidated"
+    state["replenishment_reason"] = "packet_invalidated"
+    assert errors(checker, state, current, manifest) == []
+
+    # 11. 翻訳凍結段階とCI輸送statusが独立して遷移できる
+    for status in (
+        "not_ready",
+        "ready_for_public_ci",
+        "in_public_ci",
+        "verified",
+        "awaiting_private_merge",
+        "merged",
+    ):
+        state, current, manifest = sample("translation_frozen", transport_status=status)
+        assert errors(checker, state, current, manifest) == [], status
+
+    # 12. ready -> public -> verified -> awaiting merge -> mergedを凍結のまま通せる
+    state, current, manifest = sample("translation_frozen", transport_status="merged")
+    assert [entry["status"] for entry in state["transport"]["history"]] == [
+        "not_ready",
+        "ready_for_public_ci",
+        "in_public_ci",
+        "verified",
+        "awaiting_private_merge",
+        "merged",
+    ]
+    assert all(
+        entry.get("translation_stage") == "translation_frozen"
+        for entry in state["transport"]["history"][1:]
+    )
+    assert errors(checker, state, current, manifest) == []
 
     print("test_check_private_translation_stage: OK")
 
