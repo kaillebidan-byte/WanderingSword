@@ -27,9 +27,12 @@ on:
       - "_tools/check_operation_mode.py"
       - "_tools/test_check_operation_mode.py"
       - "_tools/check_ci_train_manifest.py"
+      - "_tools/check_ci_train_manifest_v2.py"
       - "_tools/test_check_ci_train_manifest.py"
       - "_tools/check_next_task_packet.py"
+      - "_tools/check_next_task_packet_v2.py"
       - "_tools/test_check_next_task_packet_ownership.py"
+      - "_tools/test_check_ci_train_state_v2.py"
       - ".github/workflows/ci-train-phase2.yml"
 
 permissions:
@@ -97,7 +100,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python _tools/check_ci_train_manifest.py \
+          python _tools/check_ci_train_manifest_v2.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
           python _tools/check_next_task_packet.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/next_task_packet.txt
@@ -111,6 +114,7 @@ jobs:
           python _tools/test_check_handoff_consistency_v2.py
           python _tools/test_check_ci_train_manifest.py
           python _tools/test_check_next_task_packet_ownership.py
+          python _tools/test_check_ci_train_state_v2.py
 
       - name: Upload phase2 diagnostics
         if: always()
