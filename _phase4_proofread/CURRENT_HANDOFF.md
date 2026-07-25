@@ -16,13 +16,13 @@
 - active branch: `agent/yuwen-mowen-train-03`
 - operation mode: `ready_for_public_ci`
 - effective mode: `public_ci_window`
-- active train: `yuwen-mowen-train-03` / in_public_ci
+- active train: `yuwen-mowen-train-03` / verified
 - train totals: 4束 / 32行 / 4修正 / 新規人物ペア2キー
-- reviewed: 第69束まで
-- checkpoint: 第69束 / 人物ペア1169 / 全1525 / pending_audit_sync
+- reviewed / completed: 第69束まで
+- checkpoint: 第69束 / 人物ペア1169 / 全1525 / verified
 - release evidence: `yuwen-mowen-train-03-r1`
 - CI HEAD: `1bf29e39de33d22c52291123f64474935adb8eca`
-- applied assets HEAD: `12de4b6c7c882e7837e1af96109e992882d7716e`
+- verified asset HEAD: `ac583241e0bea5acc7c2730a380b61e133a75837`
 - 未適用fix: 0
 - build: verified_not_deployed
 - game verification: not_started
@@ -36,9 +36,10 @@
 - Relation run `30140191768` 成功
 - Cross run `30140191816` 成功
 - Apply run `30140191802` 成功
+- audit index sync Apply run `30140505551` 成功
 - locres反映、pak再生成、LFS、register lint、関係抽出、回帰検査成功
-- audit_statusは全1525キー、人物ペア1169キーへ更新済み
-- 適用記録とrelease evidenceを同じPRへ追加済み
+- audit_statusは第69束・全1525キー・人物ペア1169キーへ同期済み
+- 適用記録、release evidence、verified checkpointを同じPR内で確定済み
 
 ## 制度不備の修正
 
@@ -54,11 +55,10 @@
 
 ## 次に行うこと
 
-1. 適用記録をaudit_status.record_indexへ同期する。
-2. audit_statusの人物ペア完了束を第69束へ進める。
-3. 同じPR内でcheckpointとmanifestをverifiedへ確定する。
-4. 実visibilityをprivateへ戻した状態でfinal phase2 gateを成功させる。
-5. 未解決thread 0件を確認し、PR #113をsquash統合する。
-6. private確認後、第70束`5522_1`を次列車で開始する。
+1. public状態でphase2 gateを成功させる。
+2. 実visibilityをprivateへ戻す。
+3. 同じPRでoperation modeを`private_translation_work`へ確定し、最終private phase2 gateを通す。
+4. 未解決thread 0件を確認し、PR #113をsquash統合する。
+5. private確認後、第70束`5522_1`を次列車で開始する。
 
-public中は第70束の翻訳判断を始めない。制度修正が翻訳再判断へ広がる場合はprivateへ戻す。
+public中は第70束の翻訳判断を始めない。
