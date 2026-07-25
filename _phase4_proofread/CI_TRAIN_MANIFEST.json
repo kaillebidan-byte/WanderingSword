@@ -15,7 +15,7 @@
   "thresholds": {"bundle_count":4,"reviewed_rows":40,"fix_keys":20},
   "caps": {"bundle_count":6,"reviewed_rows":60},
   "allowed_early_release_reasons": ["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],
-  "release_trigger": "bundle_count_or_reviewed_rows",
+  "release_trigger": null,
   "totals": {"bundle_count":4,"reviewed_rows":50,"reviewed_keys":50,"unique_reviewed_rows":50,"fix_keys":16,"unique_fix_rows":16,"new_pair_keys":0,"keep_only_bundles":0},
   "bundles": [
     {
