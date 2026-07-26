@@ -28,6 +28,10 @@ on:
       - "_tools/check_candidate_ownership.py"
       - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_private_release_preflight.py"
+      - "_tools/check_release_transport_state.py"
+      - "_tools/test_check_release_transport_state.py"
+      - "_tools/write_applied_record.py"
+      - "_tools/test_write_applied_record.py"
       - "_tools/test_release_ci_triggers.py"
       - "_tools/check_visibility_preflight_contract.py"
       - "_tools/test_check_visibility_preflight_contract.py"
@@ -46,10 +50,18 @@ on:
       - "_tools/test_check_ci_train_manifest.py"
       - "_tools/check_next_task_packet.py"
       - "_tools/check_next_task_packet_v2.py"
+      - "_tools/check_next_task_packet_v3.py"
+      - "_tools/test_check_next_task_packet_minimal.py"
       - "_tools/test_check_next_task_packet_ownership.py"
+      - "_tools/check_batch_planning.py"
+      - "_tools/test_check_batch_planning.py"
       - "_tools/test_check_ci_train_state_v2.py"
       - "_tools/check_translation_quality_gate.py"
       - "_tools/test_check_translation_quality_gate.py"
+      - ".github/workflows/release-train-orchestrator.yml"
+      - ".github/workflows/relation-audit.yml"
+      - ".github/workflows/cross-register-qa.yml"
+      - ".github/workflows/apply-curated-fixes.yml"
       - ".github/workflows/ci-train-phase2.yml"
 
 permissions:
@@ -72,9 +84,10 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
       PYTHONIOENCODING: utf-8
     steps:
-      - name: Checkout
+      - name: Checkout frozen finalization HEAD
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -116,7 +129,7 @@ jobs:
           python _tools/check_handoff_consistency_v2.py --require-verified \
             2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
 
-      - name: Validate train, wave, candidate owners, quality, and next packet
+      - name: Validate train, wave, candidate owners, quality, and minimal reservation
         shell: bash
         run: |
           set -o pipefail
@@ -130,10 +143,15 @@ jobs:
             2>&1 | tee _ws_tmp/ci_train_phase2/translation_quality_gate.txt
           python _tools/check_next_task_packet.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/next_task_packet.txt
+          python _tools/check_batch_planning.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/batch_planning.txt
 
       - name: Regression tests
         run: |
           python _tools/test_check_candidate_ownership.py
+          python _tools/test_check_next_task_packet_minimal.py
+          python _tools/test_check_release_transport_state.py
+          python _tools/test_write_applied_record.py
           python _tools/test_release_ci_triggers.py
           python _tools/test_check_visibility_preflight_contract.py
           python _tools/test_check_operation_mode.py
@@ -143,6 +161,7 @@ jobs:
           python _tools/test_check_handoff_consistency_v2.py
           python _tools/test_check_ci_train_manifest.py
           python _tools/test_check_next_task_packet_ownership.py
+          python _tools/test_check_batch_planning.py
           python _tools/test_check_ci_train_state_v2.py
           python _tools/test_check_translation_quality_gate.py
 

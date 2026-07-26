@@ -1,49 +1,20 @@
 name: Apply curated localization fixes
 
 on:
-  pull_request:
-    types:
-      - labeled
-    branches:
-      - main
-    paths:
-      - "_phase4_proofread/fixes_*.json"
-      - "_phase4_proofread/CANDIDATE_*.json"
-      - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
-      - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
-      - "_tools/apply_fixes_json.py"
-      - "_tools/validate_fixes_json.py"
-      - "_tools/test_apply_fixes_json.py"
-      - "_tools/test_apply_fixes_shared_indices.py"
-      - "_tools/update_audit_status.py"
-      - "_tools/test_update_audit_status.py"
-      - "_tools/check_candidate_ownership.py"
-      - "_tools/test_check_candidate_ownership.py"
-      - "_tools/check_handoff_consistency_v2.py"
-      - "_tools/check_release_evidence.py"
-      - "_tools/check_next_task_packet.py"
-      - "_tools/check_translation_quality_gate.py"
-      - "_tools/report_next_task_ownership.py"
-      - "_tools/test_check_handoff_consistency_v2.py"
-      - "_tools/test_check_release_evidence.py"
-      - "_tools/test_check_next_task_packet_ownership.py"
-      - "_tools/test_check_translation_quality_gate.py"
-      - ".github/workflows/apply-curated-fixes.yml"
+  workflow_call:
+    inputs:
+      target_sha:
+        required: true
+        type: string
+      head_ref:
+        required: true
+        type: string
 
 permissions:
   contents: write
 
-concurrency:
-  group: apply-curated-fixes-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 jobs:
   apply-and-build:
-    if: >-
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.actor != 'github-actions[bot]' &&
-      github.event.repository.visibility == 'public' &&
-      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: windows-latest
     defaults:
       run:
@@ -53,30 +24,44 @@ jobs:
       PYTHONIOENCODING: utf-8
 
     steps:
-      - name: Checkout PR branch with LFS assets
+      - name: Checkout staged release branch with LFS assets
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ inputs.head_ref }}
           lfs: true
           fetch-depth: 0
           show-progress: false
+
+      - name: Verify branch still matches staged QA HEAD
+        shell: bash
+        run: |
+          actual="$(git rev-parse HEAD)"
+          expected="${{ inputs.target_sha }}"
+          test "$actual" = "$expected" || {
+            echo "PR head changed after release QA: expected=$expected actual=$actual" >&2
+            exit 1
+          }
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Validate translation quality gate and candidate ownership
+      - name: Validate pre-Apply transport, quality, and candidate ownership
         shell: bash
         run: |
           mkdir -p _ws_tmp/apply_fixes
           set -o pipefail
+          python _tools/check_release_transport_state.py \
+            2>&1 | tee _ws_tmp/apply_fixes/release_transport_state.txt
           python _tools/check_translation_quality_gate.py \
             2>&1 | tee _ws_tmp/apply_fixes/translation_quality_gate.txt
           python _tools/check_candidate_ownership.py --require-current-wave \
             2>&1 | tee _ws_tmp/apply_fixes/candidate_ownership.txt
+          python _tools/test_check_release_transport_state.py
           python _tools/test_check_translation_quality_gate.py
           python _tools/test_check_candidate_ownership.py
+          python _tools/test_check_next_task_packet_minimal.py
 
       - name: Collect all curated fix batches
         shell: bash
@@ -91,7 +76,7 @@ jobs:
           printf '%s\n' "${files[@]}" > _ws_all_fix_files.txt
           printf 'Found %s curated fix batches\n' "${#files[@]}"
 
-      - name: Report next-task ownership
+      - name: Report next-task reservation
         run: python _tools/report_next_task_ownership.py --out _ws_tmp/apply_fixes/next_task_ownership.json
 
       - name: Validate pending and applied fixes
@@ -136,18 +121,30 @@ jobs:
           python _tools/validate_fixes_json.py --allow-applied "${files[@]}" \
             2>&1 | tee _ws_tmp/apply_fixes/fixes_validation_after.txt
 
-      - name: Run regression tests and scans
+      - name: Generate applied record from manifest and measured owners
+        id: applied_record
+        shell: bash
+        run: |
+          python _tools/write_applied_record.py \
+            2>&1 | tee _ws_tmp/apply_fixes/applied_record.txt
+          if [[ -z "$(git status --porcelain -- _phase4_proofread/APPLIED_FIXES_*.md)" ]]; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run apply-specific regression tests and scans
         shell: bash
         run: |
           python _tools/test_check_candidate_ownership.py
-          python _tools/test_check_handoff_consistency_v2.py
-          python _tools/test_check_release_evidence.py
-          python _tools/test_check_next_task_packet_ownership.py
+          python _tools/test_check_next_task_packet_minimal.py
+          python _tools/test_check_release_transport_state.py
+          python _tools/test_write_applied_record.py
           python _tools/test_check_translation_quality_gate.py
+          python _tools/check_release_transport_state.py
           python _tools/check_candidate_ownership.py --require-current-wave
-          python _tools/check_handoff_consistency_v2.py
-          python _tools/check_release_evidence.py
           python _tools/check_next_task_packet.py --allow-pending
+          python _tools/check_batch_planning.py
           python _tools/check_translation_quality_gate.py
           python _tools/test_apply_fixes_json.py
           python _tools/test_apply_fixes_shared_indices.py
@@ -164,7 +161,7 @@ jobs:
           ls -lh _work/aaWanderingSword_JP_P.pak
           git lfs ls-files | grep -F '_work/aaWanderingSword_JP_P.pak'
 
-      - name: Refresh audit status counts
+      - name: Refresh audit status after applied record exists
         id: audit_status
         shell: bash
         run: |
@@ -175,44 +172,38 @@ jobs:
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Check checkpoint after audit refresh
-        if: >-
-          steps.pending.outputs.changed == 'false' &&
-          steps.audit_status.outputs.changed == 'false'
-        shell: bash
-        run: |
-          python _tools/check_handoff_consistency_v2.py
-          python _tools/check_release_evidence.py
-          python _tools/check_next_task_packet.py --allow-pending
-          python _tools/check_translation_quality_gate.py
-
-      - name: Explain deferred checkpoint check
+      - name: Explain deferred release-state finalization
         if: >-
           steps.pending.outputs.changed == 'true' ||
+          steps.applied_record.outputs.changed == 'true' ||
           steps.audit_status.outputs.changed == 'true'
         shell: bash
         run: |
-          echo 'Pending translation fixes or audit-status changes were produced in this run.'
-          echo 'The same PR will receive generated assets, then a finalize-release label will run phase2.'
-          echo 'Relation/Cross/Apply will not restart for generated asset or final state commits.'
+          echo 'Applied assets, applied record, or audit status changed.'
+          echo 'Release evidence, CURRENT_WORK, handoff, and verified checkpoint are finalized after this bot commit.'
+          echo 'Relation/Cross do not rerun for the generated commit; finalize-release performs strict state validation.'
 
-      - name: Commit applied assets and audit status
+      - name: Commit applied assets, applied record, and audit status
         if: >-
           steps.pending.outputs.changed == 'true' ||
+          steps.applied_record.outputs.changed == 'true' ||
           steps.audit_status.outputs.changed == 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _work/jp/Wandering_Sword/Content/Localization _work/aaWanderingSword_JP_P.pak _phase4_proofread/audit_status.json
+          git add _work/jp/Wandering_Sword/Content/Localization \
+            _work/aaWanderingSword_JP_P.pak \
+            _phase4_proofread/APPLIED_FIXES_*.md \
+            _phase4_proofread/audit_status.json
           git status --short
           git diff --cached --stat
           git diff --cached --quiet && { echo 'No generated changes to commit'; exit 1; }
-          git commit -m "Apply curated localization fixes and refresh audit status"
+          git commit -m "Apply curated localization fixes and generate applied record"
           if [[ "${{ steps.pending.outputs.changed }}" == "true" ]]; then
             git lfs push origin HEAD
           fi
-          git push origin HEAD:${{ github.head_ref }}
+          git push origin HEAD:${{ inputs.head_ref }}
 
       - name: Upload QA reports
         if: always()

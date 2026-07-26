@@ -1,46 +1,62 @@
 # 現在の申し送り
 
 > 再開指示: `現状把握して作業の続きを`
+>
+> 実visibility、GitHub PR metadata、Actionsを文書中の固定値より優先する。
 
 ## 現在地
 
-- 実visibility: public（GitHub repository metadataで確認）
-- main HEAD: `9a4d7c12521355dcd7a590cff801695862f73c8b`
-- active branch: `agent/yuwen-mowen-train-08`
-- active PR: #122
+- 実visibility: private
+- main HEAD: `cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`
+- PR #122: squash統合済み
+- active制度branch: `agent/post-train08-release-orchestration`
+- active制度PR: draft PR #123
 - verified checkpoint: 第88束
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1541
 - release: `yuwen-mowen-train-08-r1`
 - private stage: `translation_frozen`
-- transport: `verified`
 
-## train-08 wave-01
+## train-08
 
-四packet・45行を監査し、18修正を収録した。16件は既存owner更新、2件は莫棄・斬無刑の横断owner新設。第86束はkeep-only。
+第85〜88束、45行、18修正をPR #122で統合した。
 
-- 第85束: `5603_1`
-- 第86束: `5610_2 + 5611_8`
-- 第87束: `5637_1`
-- 第88束: `5646_1`
-
-Relation / Cross / Applyは同一CI HEAD `3afe756f94a79f4a752dfb07522c3ab47216a82a`で成功した。
-
+- merge SHA: `cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`
 - Relation: `30188531193`
 - Cross: `30188531212`
 - Apply: `30188531216`
 - asset HEAD: `adeaea8298897b8f8cc851e99b3c18b230c14bfc`
 - 未適用: 0件
-- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_08.json`
+- 未解決review thread: 0件
+
+release evidenceは`squash_merged`へ同期済み。
+
+## 制度PR #123
+
+校正後の行政往復を減らす改修を行っている。
+
+- NEXT_TASK_PACKETをschema v6 minimal reservationへ縮小
+- focus key、人物声、FACT_DOUBT、owner、batch planningをprivate preparationへ移動
+- `release-ci`を`Release train orchestrator`一runの入口へ変更
+- preflight成功後にRelation / Cross再利用workflowを固定HEADで実行
+- Relation / Cross両方成功後だけApply再利用workflowを起動
+- Apply前は軽量輸送状態だけを検査し、厳密なrelease evidenceはphase2へ分離
+- ApplyがAPPLIED_FIXESを自動生成してからaudit statusを更新
+- 次回release evidenceはschema v2のorchestrator一runを使用
+- `finalize-release`は状態最終化だけを検査
+
+## 次候補
+
+`5649_1`はreserved_only。scene予約とRelation artifact指紋だけを保持し、preparation・quality audit・encodingは未開始。
 
 ## 次の作業
 
-PR #122へ`finalize-release`を付与し、phase2 gateとreview thread 0件を確認する。成功後はprivate復帰を依頼し、metadataでprivateを確認して同じPRをsquash統合する。
-
-次wave候補`5649_1`はreserved_only。三キーは既存batch11 ownerに収録済み。train-08統合前にpreparationを始めない。
+PR #123の静的整合と差分境界を確認する。private検査で問題がなければ、workflow変更の実検証に必要な時点だけ公開CI窓を依頼する。
 
 ## 禁止
 
-- public中に新しい訳文判断、fix追加、owner変更、正式束追加を行わない。
-- `5649_1`をprepared扱いにしない。
+- 制度PR #123の統合前に翻訳作業を再開しない。
+- `5649_1`のpreparationを開始しない。
+- 訳文、fix値、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを制度PRで変更しない。
+- Relation / Cross成功前にApplyを開始しない。
 - ゲームフォルダへ配置しない。

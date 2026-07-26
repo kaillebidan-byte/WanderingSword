@@ -23,23 +23,28 @@
 3. active branchとopen PRをCURRENT_WORK・manifest・GitHub実体から復元する。
 4. verified checkpointをCURRENT_WORK.checkpointとrelease evidenceから復元する。
 5. active trainの状態・集計・review済み束をCI_TRAIN_MANIFESTから復元する。
-6. NEXT_TASK_PACKETから次に許可された作業と所有境界を復元する。
-7. activeな制度PRがある場合、予約済み次候補の翻訳作業より優先する。
-8. visibility、declared state、manifest statusの組合せから裁定する。
-9. private_translation_work + privateなら、状態報告だけで止まらず同じ応答内で許可されたprivate作業へ進む。
-10. ready_for_public_ci + publicなら、新規翻訳をせずpublic CI・単一PR最終化へ進む。
-11. private_translation_work + publicなら、翻訳を開始せずprivate復帰を依頼する。
-12. ready_for_public_ci + privateなら、private release preflightを成功させてからpublic化を依頼する。
-13. verified checkpointと未適用小束を混同しない。
-14. `fix_keys=0`のkeep-only束は`fix_files=[]`を正規状態として扱い、架空の修正JSONを要求しない。
-15. accumulating中だけCURRENT_WORK.immediate_nextとNEXT_TASK_PACKET.scene_groupsの一致を要求する。
-16. ready/in_public_ci/verifiedではCURRENT_WORKはrelease作業、NEXT_TASK_PACKETはrelease後の次束を指し得るため、両者を混同しない。
-17. 小束ではlocresとpakを更新せず、release時だけ適用する。
-18. 新規candidateは全`fixes_*.json`実測のownership snapshotを持つ。
-19. encoding後にowner snapshotを再生成する。
-20. 重い三本は`release-ci`、再走は`ci-heavy-rerun`、phase2は`finalize-release`で明示起動する。
-21. PR作成、ready化、通常commit、bot書き戻しでは重い三本を自動起動しない。
-22. post-merge状態専用PRを作らない。
+6. NEXT_TASK_PACKETから次に許可された作業を復元する。
+7. schema v6 minimal reservationではowner・人物声・batch planningが未記載であることを正常と判定する。
+8. activeな制度PRがある場合、予約済み次候補の翻訳作業より優先する。
+9. visibility、declared state、manifest statusの組合せから裁定する。
+10. private_translation_work + privateなら、状態報告だけで止まらず同じ応答内で許可されたprivate作業へ進む。
+11. ready_for_public_ci + publicなら、新規翻訳をせずpublic CI・単一PR最終化へ進む。
+12. private_translation_work + publicなら、翻訳を開始せずprivate復帰を依頼する。
+13. ready_for_public_ci + privateなら、private release preflightを成功させてからpublic化を依頼する。
+14. verified checkpointと未適用小束を混同しない。
+15. `fix_keys=0`のkeep-only束は`fix_files=[]`を正規状態として扱い、架空の修正JSONを要求しない。
+16. accumulating中だけCURRENT_WORK.immediate_nextとNEXT_TASK_PACKET.scene_groupsの一致を要求する。
+17. ready/in_public_ci/verifiedではCURRENT_WORKはrelease作業、NEXT_TASK_PACKETはrelease後の次束を指し得るため、両者を混同しない。
+18. 小束ではlocresとpakを更新せず、release時だけ適用する。
+19. 新規candidateは全`fixes_*.json`実測のownership snapshotを持つ。
+20. encoding後にowner snapshotを再生成する。
+21. `release-ci`または`ci-heavy-rerun`は`Release train orchestrator`一runだけを起動する。
+22. orchestrator内でpreflight→Relation/Cross→Applyの依存順が保証される。
+23. Apply前は軽量輸送検査だけを行い、release evidence・verified checkpointの厳密一致はphase2へ分離する。
+24. 次回release evidenceはschema v2でorchestrator runと内部job成功を記録する。既存schema v1は維持する。
+25. phase2は`finalize-release`で明示起動する。
+26. PR作成、ready化、通常commit、bot書き戻しではorchestratorを自動起動しない。
+27. post-merge状態専用PRを作らない。
 
 ## 動的期待値
 
@@ -49,7 +54,7 @@
 - declared state、checkpoint、active train、active branch: `CURRENT_WORK.json`
 - 列車集計、review済み束、release readiness: `CI_TRAIN_MANIFEST.json`
 - private wave、owner snapshot policy: `PRIVATE_STAGE_STATE.json`
-- 次作業と所有境界: `NEXT_TASK_PACKET.json`
+- 次作業と予約状態: `NEXT_TASK_PACKET.json`
 - active PR / Actions: GitHub実体
 - 確定release: checkpointが指す`RELEASE_EVIDENCE_*.json`
 
@@ -70,11 +75,16 @@ python _tools/check_visibility_preflight_contract.py
 python _tools/check_operation_mode.py --repository-visibility <private|public>
 python _tools/check_candidate_ownership.py --require-current-wave
 python _tools/check_private_translation_stage.py
+python _tools/check_release_transport_state.py
 python _tools/check_release_evidence.py --verify-git-lineage
 python _tools/check_handoff_consistency_v2.py --require-verified
 python _tools/check_ci_train_manifest_v2.py
 python _tools/check_next_task_packet.py
+python _tools/check_batch_planning.py
 python _tools/test_check_candidate_ownership.py
+python _tools/test_check_next_task_packet_minimal.py
+python _tools/test_check_release_transport_state.py
+python _tools/test_write_applied_record.py
 python _tools/test_release_ci_triggers.py
 python _tools/test_check_visibility_preflight_contract.py
 python _tools/test_check_operation_mode.py
@@ -83,6 +93,7 @@ python _tools/test_check_release_evidence_github.py
 python _tools/test_check_handoff_consistency_v2.py
 python _tools/test_check_ci_train_manifest.py
 python _tools/test_check_next_task_packet_ownership.py
+python _tools/test_check_batch_planning.py
 python _tools/test_check_ci_train_state_v2.py
 ```
 

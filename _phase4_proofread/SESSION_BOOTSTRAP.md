@@ -25,7 +25,8 @@
 5. `action_required`がbot起因の既知状態か、実際の失敗かを区別する。
 6. checkpointが指すrelease evidenceを確認する。
 7. activeな制度改修branchがある場合は、予約済み次候補の翻訳作業より優先する。
-8. owner snapshot制度が有効なら、candidateを作る前に`PRIVATE_STAGE_STATE.ownership_policy`を読む。
+8. schema v6 minimal reservationなら、focus key・人物声・owner・batch planningが未記載であることを正常状態として扱う。
+9. private preparation開始時にだけ、最新Relation artifactからcandidate detailとowner snapshotを生成する。
 
 ## wave v2の裁定
 
@@ -43,6 +44,32 @@
 輸送:
 
 `not_ready -> ready_for_public_ci -> in_public_ci -> verified -> awaiting_private_merge -> merged`
+
+## minimal next reservation
+
+schema v6の`NEXT_TASK_PACKET.json`はrelease輸送用の予約だけを持つ。
+
+保持するもの:
+
+- verified checkpoint
+- current pair
+- reserved scene groups
+- Relation artifact digest / HEAD / freshness rule
+- release candidate
+- planned batch
+- public中の禁止事項
+
+private preparationまで保持しないもの:
+
+- focus key
+- scene flow detail
+- voice questions
+- FACT_DOUBT / ALLUSION_REVIEW
+- owner snapshot
+- batch planning
+- skill review
+
+これらは予約時点の行政情報ではなく、校正準備の成果物である。
 
 ## owner snapshot
 
@@ -70,13 +97,17 @@ python _tools/check_private_release_preflight.py --with-tests
 
 ## public CIの明示起動
 
-重い三本はPR作成、ready化、通常commitでは起動しない。
+PR作成、ready化、通常commitでは重いCIを起動しない。
 
-- `release-ci`: Relation / Cross / Applyの通常起動
-- `ci-heavy-rerun`: 局所修正後の明示再走
+- `release-ci`: `Release train orchestrator`の通常入口
+- `ci-heavy-rerun`: 同じorchestrator全工程の再走
 - `finalize-release`: 最終状態commit後のphase2専用
 
-bot書き戻しでは重い三本を再起動しない。`finalize-release`ではRelation / Cross / Applyを起動しない。
+orchestratorは一つのpull_request run内で完全preflightを行い、Relation / Cross再利用workflowを同じHEADで実行し、両方成功後だけApply再利用workflowを開始する。ApplyはAPPLIED_FIXESとaudit statusを同じbot commitへ収録する。
+
+bot書き戻しではorchestratorを再起動しない。`finalize-release`ではRelation / Cross / Applyを再実行しない。
+
+次回release evidenceはschema v2を使い、orchestrator run一つとその内部job成功を検証する。既存schema v1 releaseはそのまま保持する。
 
 ## 正本の読順
 
@@ -102,12 +133,13 @@ bot書き戻しでは重い三本を再起動しない。`finalize-release`で�
 
 ## 現在のcold-start固定点
 
-- 制度PR #121はsquash統合済み。merge SHAは`9a4d7c12521355dcd7a590cff801695862f73c8b`。
-- verified checkpointは第84束、人物ペアowner1165、全体1539。
-- train-08は第85〜88束をencoding済みで、private stageは`translation_frozen`。
-- train-08 totalsは4束・45行・18修正。第86束はkeep-only。
-- 輸送は`ready_for_public_ci`。draft PR作成後、public化して`release-ci`を明示起動する。
-- 次wave候補`5649_1`はreserved_only。train-08統合前にpreparationを開始しない。
+- PR #122はsquash統合済み。merge SHAは`cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`。
+- verified checkpointは第88束、人物ペアowner1165、全体1541。
+- train-08 releaseは`yuwen-mowen-train-08-r1`、翻訳段階は`translation_frozen`、輸送は`merged`。
+- 制度branch`agent/post-train08-release-orchestration`とdraft PR #123がactive。
+- PR #123はminimal reservation、一run直列release CI、適用記録自動生成、release evidence schema v2を導入する。
+- 次wave候補`5649_1`はschema v6のreserved_only。preparation・quality audit・encodingは未開始。
+- 制度改修の統合を翻訳再開より優先する。
 
 ## 禁止事項
 
@@ -115,10 +147,12 @@ bot書き戻しでは重い三本を再起動しない。`finalize-release`で�
 - 一packetだけを準備して通常sealすること
 - 特定owner一つだけを参照した未所有判定
 - owner snapshotなしの新規candidate
+- minimal reservationへprivate preparation detailを戻すこと
 - quality audit中のmetrics、release残量、正式束番号、fix JSON、owner書込み
 - encoding中の新しい翻訳判断
 - candidate packetをmanifestへ入れること
 - public CIから翻訳判断を再開すること
+- Relation / Cross成功前にApplyを開始すること
 - 制度改修PRへ訳文、fix JSON、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを混ぜること
 - PR作成・ready化・通常commitによる重いCI自動起動の復活
 - post-merge状態PRを復活させること

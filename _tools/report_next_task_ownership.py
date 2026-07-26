@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""NEXT_TASK_PACKETのfocus keyごとの実所有をQA artifactへ出力する。"""
+"""NEXT_TASK_PACKETの実所有またはminimal reservation概要をQA artifactへ出力する。"""
 
 from __future__ import annotations
 
@@ -18,6 +18,23 @@ def main() -> int:
     args = parser.parse_args()
 
     packet = checker.load(checker.PACKET_PATH)
+    if packet.get("schema_version") == 6:
+        report = {
+            "schema_version": 2,
+            "mode": "minimal_reservation",
+            "task_id": packet.get("task_id"),
+            "current_pair": packet.get("current_pair"),
+            "scene_groups": packet.get("scene_groups"),
+            "artifact_digest": packet.get("source", {}).get("artifact_digest"),
+            "focus_key_count": None,
+            "rows": [],
+            "note": "focus keys and ownership are generated during private preparation, not public release transport",
+        }
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"next-task minimal reservation report: {args.out}")
+        return 0
+
     source = packet.get("source", {})
     flow = packet.get("scene_flow", [])
     ownership = packet.get("ownership_boundary", {})
@@ -64,6 +81,8 @@ def main() -> int:
             rows.append(row)
 
     report = {
+        "schema_version": 1,
+        "mode": "detailed_packet",
         "task_id": packet.get("task_id"),
         "current_pair": packet.get("current_pair"),
         "scene_groups": packet.get("scene_groups"),

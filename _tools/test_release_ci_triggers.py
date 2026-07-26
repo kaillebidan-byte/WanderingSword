@@ -12,25 +12,50 @@ def read(name: str) -> str:
     return (WORKFLOWS / name).read_text(encoding="utf-8")
 
 
-def assert_heavy(name: str) -> None:
+def assert_label_only(name: str) -> str:
     text = read(name)
     assert "types:\n      - labeled" in text, name
     for forbidden in ("      - opened\n", "      - reopened\n", "      - ready_for_review\n", "      - synchronize\n"):
         assert forbidden not in text, f"{name}: unexpected automatic trigger {forbidden.strip()}"
-    assert "github.event.label.name == 'release-ci'" in text, name
-    assert "github.event.label.name == 'ci-heavy-rerun'" in text, name
     assert "github.event.repository.visibility == 'public'" in text, name
+    return text
+
+
+def assert_reusable(name: str) -> str:
+    text = read(name)
+    assert "workflow_call:" in text, name
+    assert "pull_request:" not in text, name
+    return text
 
 
 def main() -> None:
-    for name in ("relation-audit.yml", "cross-register-qa.yml", "apply-curated-fixes.yml"):
-        assert_heavy(name)
-    phase2 = read("ci-train-phase2.yml")
-    assert "types:\n      - labeled" in phase2
+    orchestrator = assert_label_only("release-train-orchestrator.yml")
+    assert "github.event.label.name == 'release-ci'" in orchestrator
+    assert "github.event.label.name == 'ci-heavy-rerun'" in orchestrator
+    assert "check_private_release_preflight.py" in orchestrator
+    assert "uses: ./.github/workflows/relation-audit.yml" in orchestrator
+    assert "uses: ./.github/workflows/cross-register-qa.yml" in orchestrator
+    assert "uses: ./.github/workflows/apply-curated-fixes.yml" in orchestrator
+    assert "needs: preflight" in orchestrator
+    assert "      - relation\n      - cross" in orchestrator
+
+    relation = assert_reusable("relation-audit.yml")
+    cross = assert_reusable("cross-register-qa.yml")
+    apply = assert_reusable("apply-curated-fixes.yml")
+    assert "check_release_transport_state.py" in relation
+    assert "check_release_evidence.py" not in relation
+    assert "check_handoff_consistency_v2.py" not in relation
+    assert "target_sha:" in relation and "target_sha:" in cross
+    assert "target_sha:" in apply and "head_ref:" in apply
+    assert "check_release_transport_state.py" in apply
+    assert "write_applied_record.py" in apply
+    assert "git status --porcelain" in apply
+
+    phase2 = assert_label_only("ci-train-phase2.yml")
     assert "github.event.label.name == 'finalize-release'" in phase2
-    assert "      - synchronize\n" not in phase2
-    assert "      - opened\n" not in phase2
-    print("OK: release CI triggers are explicit and two-stage")
+    assert "check_release_evidence.py" in phase2
+    assert "check_handoff_consistency_v2.py --require-verified" in phase2
+    print("OK: one orchestrator run enforces preflight -> Relation/Cross -> Apply -> phase2")
 
 
 if __name__ == "__main__":
