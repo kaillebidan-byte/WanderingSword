@@ -66,6 +66,14 @@ def main() -> None:
     weakened["batch_planning"]["target_rows"] = {"min": 5, "max": 30}
     assert any("target_rows must be fixed" in error for error in module.validate(weakened))
 
+    minimal = {
+        "schema_version": 6,
+        "reservation": {"status": "reserved_only"},
+        "scene_groups": ["demo"],
+    }
+    assert module.validate(minimal) == []
+    assert module.is_minimal_reservation(minimal)
+
     print("test_check_batch_planning: OK")
 
 
