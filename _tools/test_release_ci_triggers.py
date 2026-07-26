@@ -74,8 +74,8 @@ def main() -> None:
 
     preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
     assert "check_state_json_integrity.py" in preflight
-    assert '["check_candidate_ownership.py", "--write"]' in preflight
-    assert '"--require-current-wave" if args.repository_visibility == "private" else "--release-live"' in preflight
+    assert '["check_candidate_ownership.py", "--release-live"]' in preflight
+    assert 'check_candidate_ownership.py", "--write' not in preflight
     assert "check_autonomous_cycle.py" in preflight
     assert "test_check_state_json_integrity.py" in preflight
     assert "test_check_autonomous_cycle.py" in preflight
