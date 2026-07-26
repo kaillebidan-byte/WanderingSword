@@ -31,7 +31,13 @@ def sample() -> tuple[dict, dict, dict, dict]:
             "transport_status": "in_public_ci",
         },
     }
-    manifest = {"phase": "phase1_wave", "train_id": "train", "branch": "agent/train", "status": "in_public_ci"}
+    manifest = {
+        "phase": "phase1_wave",
+        "train_id": "train",
+        "branch": "agent/train",
+        "status": "in_public_ci",
+        "transport": {"status": "in_public_ci"},
+    }
     stage = {"stage": "translation_frozen", "transport": {"status": "in_public_ci"}}
     packet = {"current_pair": "宇文逸↔莫問", "scene_groups": ["next"]}
     return current, manifest, stage, packet
@@ -48,6 +54,10 @@ def main() -> None:
     bad = copy.deepcopy(current)
     bad["ci_train"]["transport_status"] = "verified"
     assert any("transport_status mismatch" in error for error in checker.validate(bad, manifest, stage, packet))
+
+    bad_manifest = copy.deepcopy(manifest)
+    bad_manifest["transport"]["status"] = "verified"
+    assert any("manifest.transport.status mismatch" in error for error in checker.validate(current, bad_manifest, stage, packet))
 
     bad_mode = copy.deepcopy(current)
     bad_mode["operation_mode"]["declared_state"] = "private_translation_work"
