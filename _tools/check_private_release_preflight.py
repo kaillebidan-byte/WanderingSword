@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""公開前後に翻訳内容へ触れず、状態・owner・wave・manifestを一括検査する。"""
+"""公開前後に翻訳内容へ触れず、Apply前の輸送準備を一括検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -18,11 +18,12 @@ BASE_CHECKS = [
     ["check_next_task_packet.py", "--allow-pending"],
     ["check_batch_planning.py"],
     ["check_translation_quality_gate.py"],
-    ["check_handoff_consistency_v2.py"],
+    ["check_release_transport_state.py"],
 ]
 TESTS = [
     ["test_check_candidate_ownership.py"],
     ["test_check_next_task_packet_minimal.py"],
+    ["test_check_release_transport_state.py"],
     ["test_orchestrate_release_ci.py"],
     ["test_write_applied_record.py"],
     ["test_release_ci_triggers.py"],
@@ -55,7 +56,7 @@ def main() -> int:
     if failures:
         print("\nFAILED release preflight: " + ", ".join(failures))
         return 1
-    print(f"\nOK: release preflight passed for {args.repository_visibility}; staged CI may be requested")
+    print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
 
 
