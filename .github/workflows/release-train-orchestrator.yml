@@ -112,6 +112,7 @@ jobs:
     permissions:
       contents: read
       issues: write
+      pull-requests: write
     steps:
       - name: Remove active release rerun labels
         uses: actions/github-script@v7
