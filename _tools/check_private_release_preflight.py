@@ -15,6 +15,7 @@ BASE_CHECKS = [
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
     ["check_candidate_ownership.py", "--require-current-wave"],
+    ["check_fix_owner_delta.py"],
     ["check_ci_train_manifest_v2.py"],
     ["check_next_task_packet.py", "--allow-pending"],
     ["check_batch_planning.py"],

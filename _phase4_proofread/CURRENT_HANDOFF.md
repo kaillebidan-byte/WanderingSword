@@ -6,52 +6,30 @@
 
 ## 現在地
 
-- 実visibility: private（GitHub repository metadataで確認）
-- main HEAD: `a00a39104b35c61440e7a4734aa04fc355b91e06`
-- PR #124: squash統合済み
-- active制度branch: `agent/autonomous-private-cycle-contract`
-- active制度PR: draft PR #125
-- verified checkpoint: 第92束
-- 人物ペア適用済みowner: 1165
-- プロジェクト全体適用済み: 1541
-- release: `yuwen-mowen-train-09-r1`
+- 実visibility: public（公開CI窓）
+- PR #126: open / draft / mergeable
+- train: `yuwen-mowen-train-10`
+- verified checkpoint: 第96束
+- 人物ペア適用済みowner: 1166
+- プロジェクト全体適用済み: 1542
+- release: `yuwen-mowen-train-10-r1`
 - private stage: `translation_frozen`
-- train-09 transport: `merged`
-- cycle control: `target_reached / merged`
+- transport: `awaiting_private_merge`
+- cycle control: `target_reached / awaiting_private_merge`
 
-## train-09 wave-01
+## 公開CI結果
 
-四packet・57行を監査し、14修正を既存ownerへ収録した。新規owner・cross-register追加はない。
+Release train orchestrator run `30199134621`でpreflight、Relation、Cross、Applyを成功させた。未適用差分は0件。CI HEADは`091b4c7c2d213cd7b675f7a57ae3f4d640694d5e`、asset HEADは`716ee84369beb1401a2936c39f5fde6f4877d9ea`。
 
-- 第89束: `5649_1 + 5651_1`
-- 第90束: `5653_2`
-- 第91束: `5654_1 + 5654_4`
-- 第92束: `5654_6 + 5654_7`
-
-Release train orchestrator run `30194351243`とphase2 gateは成功済み。PR #124のmerge SHAは`a00a39104b35c61440e7a4734aa04fc355b91e06`。
-
-## 制度PR #125
-
-手動のprivate/public/private反復を、将来schedulerへ渡せる決定的なcycleへ固定している。
-
-- private正常完了: `ready_for_public_ci`
-- public正常完了: `awaiting_private_merge`
-- private復帰後完了: `merged`
-- preparation / quality audit / encodingは内部checkpointであり正常な会話終了地点ではない
-- 例外停止は許可理由とexact next actionを必須とする
-- `PRIVATE_STAGE_STATE.cycle_control`をcold startとschedulerの機械入口にする
-- `check_autonomous_cycle.py`をprivate preflightとphase2へ追加
+owner整理では、基準から欠落していた`5654_12`の履歴2キーを訳値変更なしで復元した。owner delta preflightにより、基準1541件を全保持し、新規1件を加えた累計1542件を確認した。
 
 ## 次の作業
 
-PR #125の静的整合、checker回帰、差分境界を確認する。private検査で問題がなければ、workflow変更の実検証に必要な時点だけ公開CI窓を依頼する。
-
-次wave候補`5654_8`はreserved_only。PR #125統合前にpreparationを始めない。
+`finalize-release`によるphase2成功と未解決review thread 0件を確認する。完了後はユーザーへprivate復帰を依頼し、private確認後にPR #126をsquash統合する。`5784_9`のpreparationは統合後の次cycleまで開始しない。
 
 ## 禁止
 
-- 制度PR #125へ訳文、fix値、人物owner、FACT_DOUBT、ALLUSION_REVIEWを混ぜない。
-- 内部stageを正常な会話終了地点に戻さない。
-- paused状態を理由やexact next actionなしで記録しない。
-- `5654_8`をprepared扱いにしない。
+- public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- private確認前にPR #126をmergeしない。
+- PR #126統合前に`5784_9`のpreparationを始めない。
 - ゲームフォルダへ配置しない。

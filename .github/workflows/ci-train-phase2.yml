@@ -28,6 +28,7 @@ on:
       - "_phase4_proofread/CANDIDATE_*.json"
       - "_tools/check_candidate_ownership.py"
       - "_tools/test_check_candidate_ownership.py"
+      - "_tools/check_fix_owner_delta.py"
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_autonomous_cycle.py"
       - "_tools/test_check_autonomous_cycle.py"
@@ -132,7 +133,7 @@ jobs:
           python _tools/check_handoff_consistency_v2.py --require-verified \
             2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
 
-      - name: Validate train, wave, cycle, candidate owners, quality, and minimal reservation
+      - name: Validate train, wave, cycle, owners, quality, and minimal reservation
         shell: bash
         run: |
           set -o pipefail
@@ -144,6 +145,8 @@ jobs:
             2>&1 | tee _ws_tmp/ci_train_phase2/autonomous_cycle.txt
           python _tools/check_candidate_ownership.py --require-current-wave \
             2>&1 | tee _ws_tmp/ci_train_phase2/candidate_ownership.txt
+          python _tools/check_fix_owner_delta.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/fix_owner_delta.txt
           python _tools/check_translation_quality_gate.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/translation_quality_gate.txt
           python _tools/check_next_task_packet.py \
@@ -170,6 +173,7 @@ jobs:
           python _tools/test_check_batch_planning.py
           python _tools/test_check_ci_train_state_v2.py
           python _tools/test_check_translation_quality_gate.py
+          python _tools/check_fix_owner_delta.py
 
       - name: Upload phase2 diagnostics
         if: always()
