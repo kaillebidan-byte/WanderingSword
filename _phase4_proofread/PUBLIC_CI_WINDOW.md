@@ -85,7 +85,11 @@ preparation、quality audit、encoding、translation_frozen/not_readyは内部ch
 
 Relation、Cross、Apply、state finalization、phase2の間で追加の「作業の続きを」を要求しない。
 
-`ci-heavy-rerun`も同じorchestrator全工程を再走する。Relation / Cross / Applyを個別ラベルや別eventで直接起動しない。
+`release-ci`または`ci-heavy-rerun`が付いた状態で、人間がpreflight修復commitをpushした場合、同じorchestratorを新HEADへ自動再実行する。手動でラベルを付け直す必要はない。Applyのbot commitは`github-actions[bot]`除外により再帰起動しない。
+
+`finalize-release`が付いた状態で、人間がrelease evidenceやhandoffを修復してpushした場合、phase2を新HEADへ自動再実行する。これにより旧HEADのphase2成功を流用しない。
+
+`ci-heavy-rerun`は手動で全工程を明示的に再走したい場合の予備入口として残す。Relation / Cross / Applyを個別ラベルや別eventで直接起動しない。
 
 ## workflow責務
 
@@ -173,7 +177,7 @@ schedulerは同じキーへのvisibility変更、`release-ci`付与、`finalize-
 - FACT_DOUBT、ALLUSION_REVIEW、人物声の再検討
 - 正式束追加
 - 次候補予約へのprivate preparation情報の復活
-- PR作成や通常commitをトリガーにした重いCIの反復
+- ラベルのない通常pushをトリガーにした重いCI起動
 - post-merge状態専用PR
 
 ## public中の局所修正
@@ -202,6 +206,7 @@ schedulerは同じキーへのvisibility変更、`release-ci`付与、`finalize-
 - phase2成功前のawaiting_private_merge
 - private確認前のmerge
 - merge前の次wave開始
-- `opened`、`ready_for_review`、`synchronize`による重いCI自動起動
+- activeなrelease/finalizeラベルを持たない`synchronize`による重いCI自動起動
+- bot commitによる重いCIの再帰起動
 - release evidenceなしの統合
 - publicのまま放置
