@@ -14,8 +14,12 @@ def contract() -> dict:
             "private_completion_target": "ready_for_public_ci",
             "public_completion_target": "awaiting_private_merge",
             "post_public_completion_target": "merged",
+            "current_manual_mode": "private_public_private",
             "visibility_change_is_external": True,
             "scheduler_consumes_cycle_control": True,
+            "future_scheduled_mode": "always_public_full_pipeline",
+            "future_scheduler_changes_visibility": False,
+            "future_scheduler_runs_all_stages": True,
             "allowed_pause_reasons": sorted(checker.PAUSE_REASONS),
             "paused_state_requires_exact_next_action": True,
             "normal_cycle_requires_no_extra_user_continue_message": True,
@@ -76,6 +80,14 @@ def main() -> None:
     # Translation freeze alone is not enough; private preflight must reach ready_for_public_ci.
     value = state("translation_frozen", "not_ready", "target_reached", "translation_frozen")
     assert any("private preflight" in error for error in checker.validate(c, value))
+
+    # Future scheduled mode is always public and never changes repository visibility.
+    future = copy.deepcopy(c)
+    future["execution_policy"]["future_scheduler_changes_visibility"] = True
+    assert any(
+        "future_scheduler_changes_visibility" in error
+        for error in checker.validate(future, state("translation_frozen", "merged", "target_reached", "merged"))
+    )
 
     print("test_check_autonomous_cycle: OK")
 
