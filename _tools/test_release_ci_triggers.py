@@ -75,6 +75,7 @@ def main() -> None:
     preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
     assert "check_state_json_integrity.py" in preflight
     assert '["check_candidate_ownership.py", "--write"]' in preflight
+    assert '"--require-current-wave" if args.repository_visibility == "private" else "--release-live"' in preflight
     assert "check_autonomous_cycle.py" in preflight
     assert "test_check_state_json_integrity.py" in preflight
     assert "test_check_autonomous_cycle.py" in preflight
@@ -88,6 +89,8 @@ def main() -> None:
     assert "target_sha:" in relation and "target_sha:" in cross
     assert "target_sha:" in apply and "head_ref:" in apply
     assert "check_release_transport_state.py" in apply
+    assert "check_candidate_ownership.py --release-live" in apply
+    assert "check_candidate_ownership.py --require-current-wave" not in apply
     assert "write_applied_record.py" in apply
     assert "git status --porcelain" in apply
     assert_deterministic_heads(orchestrator, apply)
@@ -99,8 +102,9 @@ def main() -> None:
     assert "check_state_json_integrity.py" in finalization
     assert "check_release_evidence.py" in finalization
     assert "check_handoff_consistency_v2.py" in finalization
+    assert '("check_candidate_ownership.py", "--release-live")' in finalization
     assert "check_autonomous_cycle.py" in finalization
-    print("OK: repair reruns are bounded and finalization inputs are deterministic")
+    print("OK: repair reruns are bounded, release owners are live, and finalization inputs are deterministic")
 
 
 if __name__ == "__main__":
