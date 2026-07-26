@@ -159,6 +159,8 @@ def _snapshot_partition(snapshot: dict[str, Any]) -> tuple[list[str], list[str]]
     if not isinstance(duplicates, list):
         errors.append("candidate.ownership_snapshot.duplicates must be a list")
     else:
+        if duplicates:
+            errors.append("candidate.ownership_snapshot records multiple owners at preparation time")
         for index, item in enumerate(duplicates):
             key = item.get("key") if isinstance(item, dict) else None
             owner_paths = item.get("owners") if isinstance(item, dict) else None
