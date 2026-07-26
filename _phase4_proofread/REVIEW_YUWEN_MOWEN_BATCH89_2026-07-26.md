@@ -2,13 +2,13 @@
 
 - 日付: 2026-07-26
 - train: `yuwen-mowen-train-09`
-- private stage: `private_encoding`
+- private stage: `translation_frozen`
 - 場面: `5649_1` / `5651_1`
 - preparation: `_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN09_WAVE01_2026-07-26.md`
 - quality audit: `_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN09_WAVE01_2026-07-26.md`
 - source artifact: Relation audit extraction run `30192269159`
 - review status: `complete`
-- apply status: `pending`
+- apply status: `verified`
 
 ## 収録した修正
 
