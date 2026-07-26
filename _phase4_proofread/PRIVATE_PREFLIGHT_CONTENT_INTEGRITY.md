@@ -19,7 +19,6 @@ PRがdraftではなく、次のいずれかが起きた時に現在のPR HEADを
 - PRをopenまたはreopenした
 - draftを解除した
 - ready状態のPR HEADが更新された
-- Actions画面から手動実行した
 
 `CI_TRAIN_MANIFEST.status`、`PRIVATE_STAGE_STATE.stage / transport`、`CURRENT_WORK.operation_mode`が`ready_for_public_ci`相当へ揃った時だけ、既存の完全preflightと回帰を実行する。まだ準備・監査・収録の途中なら重い検査をskipする。
 
