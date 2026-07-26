@@ -10,6 +10,21 @@
 python _tools/check_private_release_preflight.py --with-tests
 ```
 
+## 自動実行入口
+
+`.github/workflows/private-release-preflight.yml`はrepositoryがprivateの間だけ動く。
+
+PRがdraftではなく、次のいずれかが起きた時に現在のPR HEADをcheckoutする。
+
+- PRをopenまたはreopenした
+- draftを解除した
+- ready状態のPR HEADが更新された
+- Actions画面から手動実行した
+
+`CI_TRAIN_MANIFEST.status`、`PRIVATE_STAGE_STATE.stage / transport`、`CURRENT_WORK.operation_mode`が`ready_for_public_ci`相当へ揃った時だけ、既存の完全preflightと回帰を実行する。まだ準備・監査・収録の途中なら重い検査をskipする。
+
+このworkflowはread-onlyであり、Relation、Cross、Apply、資産生成、branchへの書き戻しを行わない。draft解除はprivate preflightの起動信号であって、public化許可ではない。public化依頼は最新HEADのprivate preflight成功後にだけ行う。
+
 ## 必須条件
 
 1. 全`fixes_*.json`で一つのfull keyを所有するファイルは一つだけである。
@@ -24,13 +39,14 @@ python _tools/check_private_release_preflight.py --with-tests
 
 ownerファイル間の移動は、full keyと訳値が不変で、重複も欠落も生じない場合だけ許可する。ファイル名や配置の変更を新規ownerとして数えない。
 
-## 公開前に失敗した場合
+## private preflightに失敗した場合
 
 - repositoryはprivateのまま維持する。
 - `PRIVATE_STAGE_STATE.cycle_control.status`を`paused`とする。
 - `stop_reason=checker_failure`と機械実行可能な`exact_next_action`を残す。
-- 翻訳判断を再開せず、owner・manifest・構造だけを修復する。
-- checker成功前にPRをready化せず、公開CI窓を依頼しない。
+- 翻訳判断を再開せず、owner・manifest・candidate snapshot・構造だけを修復する。
+- 修復commitをpushすると、ready状態のPRではprivate preflightが同じbranchの新HEADへ自動再実行される。
+- 最新HEADでcheckerが成功するまで公開CI窓を依頼しない。
 
 ## public中の扱い
 
