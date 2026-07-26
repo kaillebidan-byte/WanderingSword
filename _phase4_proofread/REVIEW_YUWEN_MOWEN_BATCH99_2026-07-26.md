@@ -14,4 +14,4 @@
 
 寝坊の謝罪で師兄への宛先を戻し、蒼鷹発見後の莫問の制止を直訳臭のない状況判断へ直した。
 
-2キーを`_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch13.json`へ収録し、残る14行は保持した。設定疑義と場面境界は監査記録のまま維持している。
+2キーを既存owner `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch13.json`へ更新収録し、残る14行は保持した。設定疑義と場面境界は監査記録のまま維持している。
