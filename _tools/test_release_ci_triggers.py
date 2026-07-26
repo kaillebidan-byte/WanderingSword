@@ -34,6 +34,17 @@ def assert_reusable(name: str) -> str:
     return text
 
 
+def assert_release_label_cleanup(orchestrator: str) -> None:
+    complete = orchestrator.split("\n  complete:\n", 1)[1]
+    assert "needs: apply" in complete
+    assert "issues: write" in complete
+    assert "uses: actions/github-script@v7" in complete
+    assert "github.rest.issues.removeLabel" in complete
+    assert "['release-ci', 'ci-heavy-rerun']" in complete
+    assert "error.status !== 404" in complete
+    assert "release-label-cleanup" in complete
+
+
 def main() -> None:
     orchestrator = assert_labeled_repair_rerun(
         "release-train-orchestrator.yml",
@@ -45,6 +56,7 @@ def main() -> None:
     assert "uses: ./.github/workflows/apply-curated-fixes.yml" in orchestrator
     assert "needs: preflight" in orchestrator
     assert "      - relation\n      - cross" in orchestrator
+    assert_release_label_cleanup(orchestrator)
 
     preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
     assert "check_autonomous_cycle.py" in preflight
@@ -67,7 +79,7 @@ def main() -> None:
     assert "check_handoff_consistency_v2.py --require-verified" in phase2
     assert "check_autonomous_cycle.py" in phase2
     assert "test_check_autonomous_cycle.py" in phase2
-    print("OK: labeled public CI reruns on human repair pushes; bot and unlabeled pushes stay inert")
+    print("OK: failed labeled runs rerun on repair pushes; successful orchestrator labels stop before finalization")
 
 
 if __name__ == "__main__":

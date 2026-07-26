@@ -18,6 +18,8 @@
 
 `private_preparation`、`private_quality_audit`、`private_encoding`で、追加の「作業の続きを」を要求しない。
 
+private中はGitHub Actionsを使わない。checkerは作業環境で実行し、GitHub-hosted runnerが必要な輸送検査だけをpublic CI窓へ送る。
+
 ### public作業
 
 public確認後、正常なら次まで連続して進む。
@@ -76,9 +78,11 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 
 - repositoryはpublicのまま維持する。
 - 現在privateで行う`private_preparation`、`private_quality_audit`、`private_encoding`も、段階境界と禁止事項を維持したままscheduled workerが実行する。
+- `private_*`は認知段階の識別子であり、repository visibilityやprivate Actions利用を意味しない。
 - 同じ実行でtranslation freeze、preflight、orchestrator、Apply、phase2、review thread確認、squash mergeまで進める。
 - schedulerはvisibilityを変更せず、時刻起動、排他制御、冪等性、失敗時停止、再開だけを担当する。
 - publicであることを翻訳判断の自由化とは解釈しない。各段階の権限と認知分離は現在の契約をそのまま使う。
+- private Actions、private runner、月間private Actions利用枠の回復を前提条件へ入れない。
 
 将来のschedulerはPR番号、PR HEAD、train ID、stage、transport statusを冪等キーとして保持し、同じ段階、ラベル、Apply、mergeを重複実行しない。
 
@@ -92,9 +96,10 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 
 - 内部段階を正常な会話終了地点として扱うこと
 - `paused`なのに理由や次操作を残さないこと
-- public中に翻訳判断を再開すること
+- 現在のmanual public CI窓で翻訳判断を再開すること
 - phase2成功前に`awaiting_private_merge`へ進めること
 - 現在の手動cycleでprivate確認前にmergeすること
 - merge完了前に次waveを始めること
 - 将来schedulerがrepository visibilityを切り替える前提を置くこと
+- 将来schedulerがprivate Actions利用枠の回復を待つ前提を置くこと
 - 常時public化だけを理由に段階分離・owner検査・quality gateを省略すること
