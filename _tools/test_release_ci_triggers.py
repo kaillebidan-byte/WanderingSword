@@ -28,7 +28,31 @@ def assert_reusable(name: str) -> str:
     return text
 
 
+def assert_private_preflight() -> str:
+    text = read("private-release-preflight.yml")
+    for trigger in ("      - opened\n", "      - reopened\n", "      - ready_for_review\n", "      - synchronize\n"):
+        assert trigger in text, f"private preflight lacks {trigger.strip()} trigger"
+    assert "workflow_dispatch:" in text
+    assert "github.event.repository.visibility == 'private'" in text
+    assert "github.event.pull_request.draft == false" in text
+    assert "ready_for_public_ci" in text
+    assert "check_private_release_preflight.py" in text
+    assert "--repository-visibility private" in text
+    assert "--with-tests" in text
+    assert "contents: write" not in text
+    for forbidden in (
+        "uses: ./.github/workflows/relation-audit.yml",
+        "uses: ./.github/workflows/cross-register-qa.yml",
+        "uses: ./.github/workflows/apply-curated-fixes.yml",
+    ):
+        assert forbidden not in text, f"private preflight must stay lightweight: {forbidden}"
+    return text
+
+
 def main() -> None:
+    private_preflight = assert_private_preflight()
+    assert "private-release-preflight-${{ github.event.pull_request.number" in private_preflight
+
     orchestrator = assert_label_only("release-train-orchestrator.yml")
     assert "github.event.label.name == 'release-ci'" in orchestrator
     assert "github.event.label.name == 'ci-heavy-rerun'" in orchestrator
@@ -61,7 +85,7 @@ def main() -> None:
     assert "check_handoff_consistency_v2.py --require-verified" in phase2
     assert "check_autonomous_cycle.py" in phase2
     assert "test_check_autonomous_cycle.py" in phase2
-    print("OK: one orchestrator run enforces preflight -> Relation/Cross -> Apply -> phase2 with deterministic cycle completion")
+    print("OK: private preflight runs before public transport; public CI remains label-only and ordered")
 
 
 if __name__ == "__main__":
