@@ -129,8 +129,13 @@ def main() -> int:
     parser.add_argument("--fixes-dir", type=Path, default=P4)
     parser.add_argument("--date", dest="date_text")
     args = parser.parse_args()
+    manifest = load(args.manifest)
+    current = load(args.current)
     date_text = args.date_text or datetime.now(timezone(timedelta(hours=9))).date().isoformat()
-    path, content = render(load(args.manifest), load(args.current), date_text=date_text, fixes_dir=args.fixes_dir)
+    path, content = render(manifest, current, date_text=date_text, fixes_dir=args.fixes_dir)
+    if manifest.get("status") == "verified" and path.exists():
+        print(f"applied record preserved for verified release: {path.relative_to(ROOT)}")
+        return 0
     before = path.read_text(encoding="utf-8") if path.exists() else None
     path.write_text(content, encoding="utf-8")
     print(f"applied record {'unchanged' if before == content else 'updated'}: {path.relative_to(ROOT)}")
