@@ -32,7 +32,7 @@ def assert_private_preflight() -> str:
     text = read("private-release-preflight.yml")
     for trigger in ("      - opened\n", "      - reopened\n", "      - ready_for_review\n", "      - synchronize\n"):
         assert trigger in text, f"private preflight lacks {trigger.strip()} trigger"
-    assert "github.event.repository.private == true" in text
+    assert "github.event.repository.visibility == 'private'" in text
     assert "github.event.pull_request.draft == false" in text
     assert "ready_for_public_ci" in text
     assert "check_private_release_preflight.py" in text
