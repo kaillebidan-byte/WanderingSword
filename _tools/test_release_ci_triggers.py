@@ -39,6 +39,10 @@ def main() -> None:
     assert "needs: preflight" in orchestrator
     assert "      - relation\n      - cross" in orchestrator
 
+    preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
+    assert "check_autonomous_cycle.py" in preflight
+    assert "test_check_autonomous_cycle.py" in preflight
+
     relation = assert_reusable("relation-audit.yml")
     cross = assert_reusable("cross-register-qa.yml")
     apply = assert_reusable("apply-curated-fixes.yml")
@@ -55,7 +59,9 @@ def main() -> None:
     assert "github.event.label.name == 'finalize-release'" in phase2
     assert "check_release_evidence.py" in phase2
     assert "check_handoff_consistency_v2.py --require-verified" in phase2
-    print("OK: one orchestrator run enforces preflight -> Relation/Cross -> Apply -> phase2")
+    assert "check_autonomous_cycle.py" in phase2
+    assert "test_check_autonomous_cycle.py" in phase2
+    print("OK: one orchestrator run enforces preflight -> Relation/Cross -> Apply -> phase2 with deterministic cycle completion")
 
 
 if __name__ == "__main__":
