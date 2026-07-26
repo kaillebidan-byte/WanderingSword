@@ -9,29 +9,18 @@ on:
       - synchronize
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      ref:
-        description: Branch, tag, or commit to inspect; defaults to the selected ref
-        required: false
-        type: string
 
 permissions:
   contents: read
   pull-requests: read
 
 concurrency:
-  group: private-release-preflight-${{ github.event.pull_request.number || inputs.ref || github.ref }}
+  group: private-release-preflight-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   validate-private-release:
-    if: >-
-      github.event.repository.visibility == 'private' &&
-      (
-        github.event_name == 'workflow_dispatch' ||
-        github.event.pull_request.draft == false
-      )
+    if: github.event.repository.private == true && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     env:
       PYTHONIOENCODING: utf-8
@@ -39,7 +28,7 @@ jobs:
       - name: Checkout candidate HEAD
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha || inputs.ref || github.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Python
