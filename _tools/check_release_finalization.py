@@ -18,7 +18,7 @@ CHECKS = (
     ("check_ci_train_manifest_v2.py",),
     ("check_private_translation_stage.py",),
     ("check_autonomous_cycle.py",),
-    ("check_candidate_ownership.py", "--require-current-wave"),
+    ("check_candidate_ownership.py", "--release-live"),
     ("check_fix_owner_delta.py",),
     ("check_translation_quality_gate.py",),
     ("check_next_task_packet.py",),
@@ -66,7 +66,7 @@ def main() -> int:
     failures: list[str] = []
     for command in CHECKS + (TESTS if args.with_tests else ()):
         if run(command) != 0:
-            failures.append(command[0])
+            failures.append(" ".join(command))
     if failures:
         print("\nFAILED release finalization: " + ", ".join(failures))
         return 1
@@ -74,6 +74,7 @@ def main() -> int:
         print("FAILED: git diff --check")
         return 1
     print("\nOK: local phase2-equivalent finalization checks passed")
+    print("Live owner measurement is authoritative during release; stored preparation snapshot drift is diagnostic only.")
     print("The GitHub phase2 run still verifies repository visibility, workflow evidence, and PR attachment.")
     return 0
 
