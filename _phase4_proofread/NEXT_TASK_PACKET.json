@@ -1,1 +1,53 @@
-{"schema_version":6,"status":"ready","task_id":"post-train11-minimal-wave-reservation","based_on_checkpoint":{"batch":100,"pair_applied_keys":1166,"project_applied_keys":1542,"produced_by_pr":128,"release_id":"yuwen-mowen-train-11-r1","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_11.json"},"current_pair":"宇文逸↔莫問","scene_groups":["5805_3"],"reservation":{"status":"reserved_only","wave_id":null,"packet_id":null,"preparation_started":false,"quality_audit_started":false,"encoding_started":false,"formal_batch":null},"source":{"artifact_workflow":"Release train orchestrator","artifact_name":"curated-fixes-qa-21","artifact_file":"relation_audit/yuwen_mowen.json","artifact_run":30213262353,"artifact_id":8635079552,"artifact_digest":"sha256:3ee23cff26556950fa23b68a69c1f334b85d90b696395a8051834c6c062b0760","artifact_head":"84f877624827b782342a054b85b76806a3bd4926","freshness_rule":"train-11のsquash統合後、private preparation開始時に最新Relation artifactで5805_3と後続候補を再確認し、focus key・人物声・owner snapshot・batch planningはcandidate側で新規生成する。"},"release_candidate":{"train_id":"yuwen-mowen-train-11","release_id":"yuwen-mowen-train-11-r1","pr":128,"status":"verified","merge_sha":null},"do_not_do":["minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない","PR #128統合前に5805_3のprivate preparationを開始しない","public中に翻訳判断、fix追加、owner変更、正式束追加を行わない","ゲームフォルダへ配置しない"],"ci_train":{"phase":"phase1_wave","train_id":"yuwen-mowen-train-11","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","planned_batch":101,"post_merge_state_pr_required":false,"single_pr_finalization":true}}
+{
+  "schema_version": 6,
+  "status": "ready",
+  "task": "post-train12-minimal-wave-reservation",
+  "current_pair": "宇文逸↔莫問",
+  "based_on_checkpoint": {
+    "batch": 100,
+    "pair_applied_keys": 1166,
+    "project_applied_keys": 1542,
+    "produced_by_pr": 128,
+    "release_id": "yuwen-mowen-train-11-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_11.json"
+  },
+  "scene_groups": [
+    "5825_1"
+  ],
+  "reservation": {
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "formal_batch": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false
+  },
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "curated-fixes-qa-21",
+    "artifact_file": "relation_audit/yuwen_mowen.json",
+    "artifact_digest": "sha256:3ee23cff26556950fa23b68a69c1f334b85d90b696395a8051834c6c062b0760",
+    "artifact_head": "84f877624827b782342a054b85b76806a3bd4926",
+    "freshness_rule": "train-12 squash merge後、最新のrelease artifactとheadを再確認してからprivate preparationを始める。"
+  },
+  "release_candidate": {
+    "train_id": "yuwen-mowen-train-12",
+    "release_id": "yuwen-mowen-train-12-r1",
+    "status": "ready_for_public_ci",
+    "pr": 131,
+    "merge_sha": null
+  },
+  "do_not_do": [
+    "public中に翻訳判断を追加しない",
+    "train-12統合前に5825_1のpreparationを始めない",
+    "privateのままrelease-ciを起動しない",
+    "ゲームフォルダへ配置しない"
+  ],
+  "ci_train": {
+    "phase": "phase1_wave",
+    "train_id": "yuwen-mowen-train-12",
+    "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "planned_batch": 105
+  }
+}

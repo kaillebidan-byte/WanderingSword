@@ -15,6 +15,7 @@
 - 人物ペア適用済みowner: 1166
 - プロジェクト全体適用済み: 1542
 - private stage: `translation_frozen`
+- train-12 PR: `#131`（draft）
 - train-12 transport: `ready_for_public_ci`
 - cycle control: `target_reached / ready_for_public_ci`
 
@@ -24,7 +25,7 @@
 
 ## 次の作業
 
-ready branchからPRを開き、PR番号を状態文書とminimal reservationへ反映する。その後、ユーザーへ公開CI窓を開くよう依頼する。
+PR #131を開き、状態文書とminimal reservationへ反映済み。次はユーザーへ公開CI窓を開くよう依頼する。
 
 ## 禁止
 
