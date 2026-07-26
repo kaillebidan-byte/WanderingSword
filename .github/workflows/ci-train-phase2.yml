@@ -13,6 +13,7 @@ on:
       - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
       - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json"
       - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md"
+      - "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md"
       - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
       - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
       - "_phase4_proofread/CI_TRAIN_PHASE1.md"
@@ -28,6 +29,8 @@ on:
       - "_tools/check_candidate_ownership.py"
       - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_private_release_preflight.py"
+      - "_tools/check_autonomous_cycle.py"
+      - "_tools/test_check_autonomous_cycle.py"
       - "_tools/check_release_transport_state.py"
       - "_tools/test_check_release_transport_state.py"
       - "_tools/write_applied_record.py"
@@ -129,7 +132,7 @@ jobs:
           python _tools/check_handoff_consistency_v2.py --require-verified \
             2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
 
-      - name: Validate train, wave, candidate owners, quality, and minimal reservation
+      - name: Validate train, wave, cycle, candidate owners, quality, and minimal reservation
         shell: bash
         run: |
           set -o pipefail
@@ -137,6 +140,8 @@ jobs:
             2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
           python _tools/check_private_translation_stage.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/private_translation_wave.txt
+          python _tools/check_autonomous_cycle.py \
+            2>&1 | tee _ws_tmp/ci_train_phase2/autonomous_cycle.txt
           python _tools/check_candidate_ownership.py --require-current-wave \
             2>&1 | tee _ws_tmp/ci_train_phase2/candidate_ownership.txt
           python _tools/check_translation_quality_gate.py \
@@ -151,6 +156,7 @@ jobs:
           python _tools/test_check_candidate_ownership.py
           python _tools/test_check_next_task_packet_minimal.py
           python _tools/test_check_release_transport_state.py
+          python _tools/test_check_autonomous_cycle.py
           python _tools/test_write_applied_record.py
           python _tools/test_release_ci_triggers.py
           python _tools/test_check_visibility_preflight_contract.py
