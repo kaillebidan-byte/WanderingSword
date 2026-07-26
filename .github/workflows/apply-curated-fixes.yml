@@ -66,7 +66,7 @@ jobs:
             2>&1 | tee _ws_tmp/apply_fixes/release_transport_state.txt
           python _tools/check_translation_quality_gate.py \
             2>&1 | tee _ws_tmp/apply_fixes/translation_quality_gate.txt
-          python _tools/check_candidate_ownership.py --require-current-wave \
+          python _tools/check_candidate_ownership.py --release-live \
             2>&1 | tee _ws_tmp/apply_fixes/candidate_ownership.txt
           python _tools/test_check_release_transport_state.py
           python _tools/test_check_translation_quality_gate.py
@@ -152,7 +152,7 @@ jobs:
           python _tools/test_write_applied_record.py
           python _tools/test_check_translation_quality_gate.py
           python _tools/check_release_transport_state.py
-          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_candidate_ownership.py --release-live
           python _tools/check_next_task_packet.py --allow-pending
           python _tools/check_batch_planning.py
           python _tools/check_translation_quality_gate.py
