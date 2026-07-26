@@ -63,91 +63,124 @@ release PRへ含めるNEXT_TASK_PACKETはschema v6とする。次だけを保持
 
 focus key、voice question、FACT_DOUBT、ALLUSION_REVIEW、owner、batch planningはprivate preparation開始時にcandidateへ生成する。予約だけの段階でこれらを要求しない。
 
-## staged release CI
+## release-ci入口
 
-利用者またはエージェントが付ける通常入口:
+通常起動:
 
 ```text
 release-ci
 ```
 
-局所修正後の全工程再走:
+局所的な制度修正後の全工程再走:
 
 ```text
 ci-heavy-rerun
 ```
 
-どちらも`Release train orchestrator`だけを起動する。Relation / Cross / Applyを直接起動しない。
+どちらも`Release train orchestrator`一つだけを起動する。Relation / Cross / Applyは再利用workflowであり、個別eventや内部ラベルを持たない。
 
-orchestratorが内部で使う段階ラベル:
+## 一run内の順序
 
 ```text
-release-qa
-release-apply
+preflight
+  ├─ relation
+  └─ cross
+       ↓ 両方成功
+      apply
+       ↓
+    complete
 ```
-
-- `release-qa`: Relation / Cross専用
-- `release-apply`: Apply専用
-- 通常は人手で付けない
-- orchestratorが開始前に古い内部ラベルを除去し、終了時にも除去する
-
-## public CIの順序
 
 1. repository metadataでpublicを確認する。
 2. release PRをreadyにする。
 3. `release-ci`を付ける。
 4. orchestratorがPR HEADを固定し、完全preflightを実行する。
-5. preflight成功後に`release-qa`を付ける。
-6. Relation / Crossを固定HEADで実行する。
-7. 両方成功後、PR HEADが固定値から動いていないことを確認する。
-8. `release-apply`を付け、Applyだけを実行する。
-9. Applyがlocres、pak、APPLIED_FIXES、audit statusを一度に書き戻す。
-10. release evidence、CURRENT_WORK、manifest、private stage、handoffを最終化する。
-11. `finalize-release`を付ける。
-12. phase2 gateと未解決review thread 0件を確認する。
-13. private復帰を依頼し、同じPRをsquash統合する。
+5. preflight成功後、Relation / Cross再利用workflowを同じHEADで並列実行する。
+6. 両方成功後だけApply再利用workflowを開始する。
+7. Apply開始時にPR branchが固定HEADから動いていないことを確認する。
+8. Applyがlocres、pak、APPLIED_FIXES、audit statusを一度に書き戻す。
+9. release evidence、CURRENT_WORK、manifest、private stage、handoffを最終化する。
+10. `finalize-release`を付ける。
+11. phase2 gateと未解決review thread 0件を確認する。
+12. private復帰を依頼し、同じPRをsquash統合する。
 
-`finalize-release`はphase2専用であり、QAやApplyを起動しない。
+`finalize-release`はphase2専用であり、orchestratorを再起動しない。
+
+## Apply前preflight
+
+Apply前には次を検査する。
+
+- operation mode
+- current wave owner
+- fix JSONとquality gate
+- manifest readiness
+- minimal reservation
+- batch planningのprivate延期契約
+- restart契約と輸送状態
+- workflow構造回帰
+
+release evidence、audit status、verified checkpointの最終一致は要求しない。これらはApply後のphase2責務である。
 
 ## Applyの責務
 
 ApplyはQA成功後だけ開始する。
 
-1. PR branchが`release-apply`イベントのHEADと一致することを確認する。
+1. PR branchがorchestratorの固定HEADと一致することを確認する。
 2. 未適用fixを適用し、locresとpakを一度だけ再構築する。
 3. 未適用0件を確認する。
 4. manifestと実owner件数から`APPLIED_FIXES_*.md`を自動生成する。
 5. 適用記録が存在する状態で`update_audit_status.py`を実行する。
 6. 資産、適用記録、audit statusを一つのbot commitにする。
 
-Apply中はrelease evidence、CURRENT_WORK、verified checkpointの完成を要求しない。これらはbot commit後のfinalizationで確定する。
+既にverified済みのreleaseで既存適用記録がある場合は上書きしない。
+
+## release evidence
+
+既存releaseのschema v1はRelation / Cross / Apply三runを保持する。
+
+次回以降はschema v2を使用する。
+
+```json
+{
+  "schema_version": 2,
+  "orchestrator": {
+    "id": 123456,
+    "workflow": "Release train orchestrator",
+    "head_sha": "<ci_head>",
+    "event": "pull_request",
+    "conclusion": "success"
+  }
+}
+```
+
+GitHub checkerはorchestrator runの中に、成功したRelation、Cross、Apply jobが存在することを検証する。checkpoint identityは`pr_release_v2`を使う。
 
 ## phase2 gate
 
 phase2は`finalize-release`ラベル時だけ実行し、次を検査する。
 
 - operation modeと実visibility
-- release evidenceとGitHub Actions実run
+- release evidenceとGitHub Actions実run/job
 - squash前branch lineageまたは過去releaseのsquash lineage
 - verified checkpoint、audit status、自動生成済み適用記録
 - manifest、wave、quality gate
 - candidate owner snapshot
 - minimal NEXT_TASK_PACKET
 - batch planningのprivate延期契約
-- staged orchestratorとtrigger回帰
+- orchestrator job順序とtrigger回帰
 - 冷間再開文書
 
 locresやpakの再生成は行わない。
 
 ## 失敗時
 
-- preflight失敗ではQAとApplyを開始しない。
+- preflight失敗ではRelation / Cross / Applyを開始しない。
 - RelationまたはCross失敗ではApplyを開始しない。
 - QA後にPR HEADが動いた場合はApplyを開始せず失敗する。
 - owner snapshot不一致、状態schema欠落はprivateへ戻して直す。
 - public中に許すのは翻訳判断を変えない局所的な輸送修正だけ。
 - 訳文、人物声、FACT_DOUBT、ALLUSION_REVIEW、owner方針の再判断が必要なら`public_ci_blocked`としてprivateへ戻す。
-- run IDを書き換えて通さず、実run、HEAD、PR lineageを確認する。
+- run IDを書き換えて通さず、実run、job、HEAD、PR lineageを確認する。
 
 ## 受入条件
 
@@ -157,6 +190,7 @@ locresやpakの再生成は行わない。
 - Relation / Cross成功後にApply成功
 - Apply後の未適用0件、pak・LFS・lint・回帰成功
 - APPLIED_FIXESとaudit statusが同じbot commitで同期
+- schema v2 orchestrator evidenceまたは既存schema v1 evidenceが検証済み
 - `finalize-release`によるphase2成功
 - 未解決thread 0件
 - repository metadataでprivate復帰確認
