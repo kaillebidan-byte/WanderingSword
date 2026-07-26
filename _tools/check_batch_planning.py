@@ -30,8 +30,12 @@ def load_packet(path: Path = PACKET_PATH) -> dict[str, Any]:
     except json.JSONDecodeError as exc:
         raise SystemExit(f"ERROR: invalid JSON {path.relative_to(ROOT)}: {exc}") from exc
     if not isinstance(value, dict):
-        raise SystemExit("ERROR: NEXT_TASK_PACKET top level must be an object")
+        raise SystemExit("ERROR: NEXT_TASK_PACKET top level must be object")
     return value
+
+
+def is_minimal_reservation(packet: dict[str, Any]) -> bool:
+    return packet.get("schema_version") == 6 and packet.get("reservation", {}).get("status") == "reserved_only"
 
 
 def focus_keys(packet: dict[str, Any]) -> list[str]:
@@ -49,6 +53,9 @@ def focus_keys(packet: dict[str, Any]) -> list[str]:
 
 
 def validate(packet: dict[str, Any]) -> list[str]:
+    if is_minimal_reservation(packet):
+        return []
+
     errors: list[str] = []
     planning = packet.get("batch_planning")
     if not isinstance(planning, dict):
@@ -109,18 +116,21 @@ def validate(packet: dict[str, Any]) -> list[str]:
 def main() -> int:
     packet = load_packet()
     errors = validate(packet)
-    planning = packet.get("batch_planning", {})
     print("=== Batch planning ===")
-    print(f"reviewed rows: {planning.get('reviewed_rows')}")
-    print(f"target rows: {TARGET_MIN}-{TARGET_MAX}")
-    print(f"scene groups: {', '.join(map(str, packet.get('scene_groups', [])))}")
-    print(f"grouping: {planning.get('grouping_decision')}")
+    if is_minimal_reservation(packet):
+        print("minimal reservation: detailed batching is deferred to private preparation")
+    else:
+        planning = packet.get("batch_planning", {})
+        print(f"reviewed rows: {planning.get('reviewed_rows')}")
+        print(f"target rows: {TARGET_MIN}-{TARGET_MAX}")
+        print(f"scene groups: {', '.join(map(str, packet.get('scene_groups', [])))}")
+        print(f"grouping: {planning.get('grouping_decision')}")
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: review-row target and batching rationale are valid")
+    print("OK: reservation or detailed batching rationale is valid")
     return 0
 
 
