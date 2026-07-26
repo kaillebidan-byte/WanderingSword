@@ -13,6 +13,7 @@ TOOLS = ROOT / "_tools"
 
 BASE_CHECKS = [
     ["check_private_translation_stage.py"],
+    ["check_autonomous_cycle.py"],
     ["check_candidate_ownership.py", "--require-current-wave"],
     ["check_ci_train_manifest_v2.py"],
     ["check_next_task_packet.py", "--allow-pending"],
@@ -24,6 +25,7 @@ TESTS = [
     ["test_check_candidate_ownership.py"],
     ["test_check_next_task_packet_minimal.py"],
     ["test_check_release_transport_state.py"],
+    ["test_check_autonomous_cycle.py"],
     ["test_write_applied_record.py"],
     ["test_release_ci_triggers.py"],
     ["test_check_operation_mode.py"],
