@@ -30,8 +30,6 @@ on:
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_release_transport_state.py"
       - "_tools/test_check_release_transport_state.py"
-      - "_tools/orchestrate_release_ci.py"
-      - "_tools/test_orchestrate_release_ci.py"
       - "_tools/write_applied_record.py"
       - "_tools/test_write_applied_record.py"
       - "_tools/test_release_ci_triggers.py"
@@ -61,6 +59,9 @@ on:
       - "_tools/check_translation_quality_gate.py"
       - "_tools/test_check_translation_quality_gate.py"
       - ".github/workflows/release-train-orchestrator.yml"
+      - ".github/workflows/relation-audit.yml"
+      - ".github/workflows/cross-register-qa.yml"
+      - ".github/workflows/apply-curated-fixes.yml"
       - ".github/workflows/ci-train-phase2.yml"
 
 permissions:
@@ -150,7 +151,6 @@ jobs:
           python _tools/test_check_candidate_ownership.py
           python _tools/test_check_next_task_packet_minimal.py
           python _tools/test_check_release_transport_state.py
-          python _tools/test_orchestrate_release_ci.py
           python _tools/test_write_applied_record.py
           python _tools/test_release_ci_triggers.py
           python _tools/test_check_visibility_preflight_contract.py
