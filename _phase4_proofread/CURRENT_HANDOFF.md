@@ -6,37 +6,30 @@
 
 ## 現在地
 
-- 実visibility: private（GitHub repository metadataで確認）
-- main HEAD: `2aef4a1b05e758b14bbcebd8247df218c91df4f3`
-- PR #124: squash統合済み
-- 制度PR #125: squash統合済み
-- verified checkpoint: 第92束
-- 人物ペア適用済みowner: 1165
-- プロジェクト全体適用済み: 1541
+- 実visibility: public（公開CI窓）
+- PR #126: open / draft / mergeable
+- train: `yuwen-mowen-train-10`
+- verified checkpoint: 第96束
+- 人物ペア適用済みowner: 1166
+- プロジェクト全体適用済み: 1542
+- release: `yuwen-mowen-train-10-r1`
 - private stage: `translation_frozen`
-- train-10 transport: `ready_for_public_ci`
-- cycle control: `target_reached / ready_for_public_ci`
+- transport: `awaiting_private_merge`
+- cycle control: `target_reached / awaiting_private_merge`
 
-## train-10 wave-01
+## 公開CI結果
 
-四packet・57行を監査し、15修正を収録した。既存owner更新8キー、新規owner43キー。Apply前なのでcheckpoint累計は第92束・1165 / 1541を維持する。
+Release train orchestrator run `30199134621`でpreflight、Relation、Cross、Applyを成功させた。未適用差分は0件。CI HEADは`091b4c7c2d213cd7b675f7a57ae3f4d640694d5e`、asset HEADは`716ee84369beb1401a2936c39f5fde6f4877d9ea`。
 
-- 第93束: `5654_8` — 14行 / 8修正
-- 第94束: `5756_2 + 5756_5` — 9行 / 3修正
-- 第95束: `5781_1 + 5781_10 + 5784_4` — 20行 / 1修正
-- 第96束: `5784_8` — 14行 / 3修正
-
-主な修正は、未訳の`道貌岸然`、偽秘笈を巡る動機の主客、`円覚`が`内懐`へ化けた固有名回帰、莫問の伏せた調査、程鈺の憧れと急な誘導である。
+owner整理では、基準から欠落していた`5654_12`の履歴2キーを訳値変更なしで復元した。owner delta preflightにより、基準1541件を全保持し、新規1件を加えた累計1542件を確認した。
 
 ## 次の作業
 
-公開CI窓でtrain-10 PRへ`release-ci`を付与し、Release train orchestrator、botの状態確定、`finalize-release`、phase2、未解決review thread 0まで同じcycleで進める。
-
-次wave候補`5784_9`はschema v6のreserved_only。train-10統合前にpreparationを始めない。
+`finalize-release`によるphase2成功と未解決review thread 0件を確認する。完了後はユーザーへprivate復帰を依頼し、private確認後にPR #126をsquash統合する。`5784_9`のpreparationは統合後の次cycleまで開始しない。
 
 ## 禁止
 
-- public中に新しい翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- phase2成功前に`awaiting_private_merge`へ進めない。
-- private確認前にmergeしない。
+- public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- private確認前にPR #126をmergeしない。
+- PR #126統合前に`5784_9`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
