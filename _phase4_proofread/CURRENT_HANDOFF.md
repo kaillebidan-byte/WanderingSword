@@ -6,26 +6,28 @@
 
 ## 現在地
 
-- 実visibility: private
-- PR #133: open / draft（private preflightと参照同期後にready化）
+- 実visibility: public
+- PR #133: open / ready / phase2待ち
 - train: `yuwen-mowen-train-13`
-- verified checkpoint: 第104束
-- last reviewed batch: 第108束
-- 人物ペア適用済みowner: 1169
-- プロジェクト全体適用済み: 1545
+- verified checkpoint: 第108束
+- 人物ペア適用済みowner: 1170
+- プロジェクト全体適用済み: 1546
+- release: `yuwen-mowen-train-13-r1`
+- CI HEAD: `d82aa496cb3af8844b8cd8d5f0d72cda616a44d5`
+- asset HEAD: `0bcf0807493c78f97c84324ecfc722aadf9528b7`
 - private stage: `translation_frozen`
-- train-13 transport: `ready_for_public_ci`
-- cycle control: `target_reached / ready_for_public_ci`
+- train-13 transport: `awaiting_private_merge`
+- cycle control: `target_reached / awaiting_private_merge`
 
 ## train-13
 
 `5825_1`から`5928_2`まで四packet・58行を連続監査し、9行を修正、49行を意図的保持とした。既存owner更新8、新規owner1、keep-only束1。程鈺の母から宇文逸への手紙で母の所属と宛先を戻し、烏長老殺害への断罪、包閔の死の脅し、`罄竹難書`の逐語訳、清虚から任務を受ける宇文逸の返答を修正した。
 
-街の噂、程鈺の母の予感、程鈺が去った理由、悪人谷の親分の目的、莫問の天山での過去、瑶姫の説明は場面内の知識以上に確定していない。
+最初の公開preflightは、第106束の清虚発話が別人物ペアownerに属することを検出した。翻訳判断とfix値を変えず、candidate snapshotと集計だけを実測へ同期した。orchestrator run `30223353373`では完全preflight、Relation、Cross、Apply、deterministic finalization inputs、release label cleanupが成功し、9件の反映、pak再生成、未適用0件、適用記録、audit status更新を完了した。
 
 ## 次の作業
 
-private preflightを一命令で完了し、PR #133をreadyへ移す。ユーザーがpublic化した後、`release-ci`でorchestratorを起動し、Apply、state finalization、phase2、review thread 0件まで同一PRで進める。
+PR #133の最新HEADへ`finalize-release`を付け、phase2でrelease evidence、Git lineage、checkpoint、handoff、owner、minimal reservation、回帰を検証する。phase2成功と未解決review thread 0件を確認後、ユーザーへprivate復帰を依頼する。
 
 ## 禁止
 
