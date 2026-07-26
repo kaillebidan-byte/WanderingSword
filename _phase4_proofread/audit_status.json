@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 1539,
+      "applied_keys": 1541,
       "targets": [
         "CG表",
         "Npc",
