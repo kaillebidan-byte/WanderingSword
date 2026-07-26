@@ -11,12 +11,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "_tools"
 
-BASE_CHECKS_BEFORE_OWNERSHIP = [
+BASE_CHECKS = [
     ["check_state_json_integrity.py"],
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
-]
-BASE_CHECKS_AFTER_OWNERSHIP = [
+    ["check_candidate_ownership.py", "--release-live"],
     ["check_fix_owner_delta.py"],
     ["check_ci_train_manifest_v2.py"],
     ["check_next_task_packet.py", "--allow-pending"],
@@ -46,11 +45,6 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--with-tests", action="store_true")
     parser.add_argument("--repository-visibility", choices=("private", "public"), default="private")
-    parser.add_argument(
-        "--no-refresh-derived",
-        action="store_true",
-        help="private時のcandidate ownership snapshot自動更新を無効化する",
-    )
     return parser.parse_args()
 
 
@@ -67,20 +61,9 @@ def run(command: list[str]) -> int:
 def main() -> int:
     args = parse_args()
     failures: list[str] = []
-
-    if args.repository_visibility == "private" and not args.no_refresh_derived:
-        if run(["check_candidate_ownership.py", "--write"]) != 0:
-            failures.append("check_candidate_ownership.py --write")
-
-    ownership_check = [
-        "check_candidate_ownership.py",
-        "--require-current-wave" if args.repository_visibility == "private" else "--release-live",
-    ]
     checks = [
         ["check_operation_mode.py", "--repository-visibility", args.repository_visibility],
-        *BASE_CHECKS_BEFORE_OWNERSHIP,
-        ownership_check,
-        *BASE_CHECKS_AFTER_OWNERSHIP,
+        *BASE_CHECKS,
     ]
     for command in checks + (TESTS if args.with_tests else []):
         if run(command) != 0:
@@ -93,21 +76,8 @@ def main() -> int:
         print("\nFAILED release preflight: " + ", ".join(failures))
         return 1
 
-    if args.repository_visibility == "private":
-        changed = subprocess.run(
-            ["git", "status", "--short"],
-            cwd=ROOT,
-            check=False,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-        )
-        print("\n=== Frozen release files to commit together ===")
-        print(changed.stdout.rstrip() or "(clean)")
-        print("Do not edit release files after this check and before the public CI window.")
-    else:
-        print("\nRelease preflight used live owner measurement; stored snapshot drift alone is non-blocking.")
-
+    print("\nRelease preflight used live owner measurement.")
+    print("Stored candidate ownership snapshots remain immutable pre-quality-audit records.")
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
 
