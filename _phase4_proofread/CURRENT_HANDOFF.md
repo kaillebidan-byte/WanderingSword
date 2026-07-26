@@ -6,57 +6,41 @@
 
 ## 現在地
 
-- 実visibility: private
-- main HEAD: `cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`
-- PR #122: squash統合済み
-- active制度branch: `agent/post-train08-release-orchestration`
-- active制度PR: draft PR #123
-- verified checkpoint: 第88束
+- 実visibility: public（GitHub repository metadataで確認）
+- main HEAD: `5c30d1a27c577bd04dec5de87c879c60df0550a6`
+- active branch: `agent/yuwen-mowen-train-09`
+- active PR: #124（ready）
+- verified checkpoint: 第92束
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1541
-- release: `yuwen-mowen-train-08-r1`
+- release: `yuwen-mowen-train-09-r1`
 - private stage: `translation_frozen`
+- transport: `verified`
 
-## train-08
+## train-09 wave-01
 
-第85〜88束、45行、18修正をPR #122で統合した。
+四packet・57行を監査し、14修正を既存ownerへ収録した。新規owner・cross-register追加はない。
 
-- merge SHA: `cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`
-- Relation: `30188531193`
-- Cross: `30188531212`
-- Apply: `30188531216`
-- asset HEAD: `adeaea8298897b8f8cc851e99b3c18b230c14bfc`
+- 第89束: `5649_1 + 5651_1`
+- 第90束: `5653_2`
+- 第91束: `5654_1 + 5654_4`
+- 第92束: `5654_6 + 5654_7`
+
+Release train orchestrator run `30194351243`はCI HEAD `f817f4b2ba1705be2f1c657e70b1df3b2c5a858d`で成功した。preflight後にRelation / Crossを成功させ、両方の成功後だけApplyを実行した。
+
+- asset HEAD: `241fc215e853fb062b6e190966c7c335dac3890e`
 - 未適用: 0件
-- 未解決review thread: 0件
-
-release evidenceは`squash_merged`へ同期済み。
-
-## 制度PR #123
-
-校正後の行政往復を減らす改修を行っている。
-
-- NEXT_TASK_PACKETをschema v6 minimal reservationへ縮小
-- focus key、人物声、FACT_DOUBT、owner、batch planningをprivate preparationへ移動
-- `release-ci`を`Release train orchestrator`一runの入口へ変更
-- preflight成功後にRelation / Cross再利用workflowを固定HEADで実行
-- Relation / Cross両方成功後だけApply再利用workflowを起動
-- Apply前は軽量輸送状態だけを検査し、厳密なrelease evidenceはphase2へ分離
-- ApplyがAPPLIED_FIXESを自動生成してからaudit statusを更新
-- 次回release evidenceはschema v2のorchestrator一runを使用
-- `finalize-release`は状態最終化だけを検査
-
-## 次候補
-
-`5649_1`はreserved_only。scene予約とRelation artifact指紋だけを保持し、preparation・quality audit・encodingは未開始。
+- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_09.json`
+- applied record: `_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH92_2026-07-26.md`
 
 ## 次の作業
 
-PR #123の静的整合と差分境界を確認する。private検査で問題がなければ、workflow変更の実検証に必要な時点だけ公開CI窓を依頼する。
+PR #124へ`finalize-release`を付与し、phase2 gateとreview thread 0件を確認する。成功後はprivate復帰を依頼し、metadataでprivateを確認して同じPRをsquash統合する。
+
+次wave候補`5654_8`はreserved_only。train-09統合前にpreparationを始めない。
 
 ## 禁止
 
-- 制度PR #123の統合前に翻訳作業を再開しない。
-- `5649_1`のpreparationを開始しない。
-- 訳文、fix値、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを制度PRで変更しない。
-- Relation / Cross成功前にApplyを開始しない。
+- public中に新しい訳文判断、fix追加、owner変更、正式束追加を行わない。
+- `5654_8`をprepared扱いにしない。
 - ゲームフォルダへ配置しない。
