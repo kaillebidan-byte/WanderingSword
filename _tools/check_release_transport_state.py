@@ -11,6 +11,8 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
 TRIGGER = "現状把握して作業の続きを"
+SAFE_STATUSES = {"ready_for_public_ci", "in_public_ci", "verified"}
+SAFE_TRANSPORT = {"ready_for_public_ci", "in_public_ci", "verified", "awaiting_private_merge", "merged"}
 
 
 def load(name: str) -> dict[str, Any]:
@@ -34,10 +36,15 @@ def validate(current: dict[str, Any], manifest: dict[str, Any], stage: dict[str,
     for key in ("phase", "train_id", "branch", "status"):
         if train.get(key) != manifest.get(key):
             errors.append(f"ci_train.{key} mismatch")
+    if manifest.get("status") not in SAFE_STATUSES:
+        errors.append("manifest.status is not release-safe")
 
     transport = stage.get("transport", {}).get("status")
-    if transport not in {"ready_for_public_ci", "in_public_ci", "verified", "awaiting_private_merge", "merged"}:
-        errors.append("transport is not release-safe")
+    manifest_transport = manifest.get("transport", {}).get("status")
+    if transport not in SAFE_TRANSPORT:
+        errors.append("private stage transport is not release-safe")
+    if manifest_transport != transport:
+        errors.append("manifest.transport.status mismatch")
     if train.get("transport_status") != transport:
         errors.append("ci_train.transport_status mismatch")
 
