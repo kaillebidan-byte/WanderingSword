@@ -16,30 +16,25 @@ on:
       - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
       - "_tools/check_*.py"
       - "_tools/test_*.py"
-      - "_tools/orchestrate_release_ci.py"
       - ".github/workflows/release-train-orchestrator.yml"
       - ".github/workflows/relation-audit.yml"
       - ".github/workflows/cross-register-qa.yml"
       - ".github/workflows/apply-curated-fixes.yml"
-
-permissions:
-  contents: read
-  actions: write
-  pull-requests: read
 
 concurrency:
   group: release-train-orchestrator-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
-  orchestrate:
+  preflight:
     if: >-
       github.actor != 'github-actions[bot]' &&
       github.event.repository.visibility == 'public' &&
       (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     env:
-      GITHUB_TOKEN: ${{ github.token }}
       PYTHONIOENCODING: utf-8
     steps:
       - name: Checkout frozen release HEAD
@@ -63,19 +58,49 @@ jobs:
             --with-tests \
             2>&1 | tee _ws_tmp/release_orchestrator/preflight.txt
 
-      - name: Dispatch Relation and Cross before Apply
-        shell: bash
-        run: |
-          python _tools/orchestrate_release_ci.py \
-            --repository "${{ github.repository }}" \
-            --pr "${{ github.event.pull_request.number }}" \
-            --target-sha "${{ github.event.pull_request.head.sha }}" \
-            --out _ws_tmp/release_orchestrator/report.json
-
-      - name: Upload orchestration diagnostics
+      - name: Upload preflight diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: release-train-orchestrator-diagnostics
+          name: release-train-preflight-diagnostics
           path: _ws_tmp/release_orchestrator/
           if-no-files-found: error
+
+  relation:
+    needs: preflight
+    permissions:
+      contents: read
+    uses: ./.github/workflows/relation-audit.yml
+    with:
+      target_sha: ${{ github.event.pull_request.head.sha }}
+
+  cross:
+    needs: preflight
+    permissions:
+      contents: read
+    uses: ./.github/workflows/cross-register-qa.yml
+    with:
+      target_sha: ${{ github.event.pull_request.head.sha }}
+
+  apply:
+    needs:
+      - relation
+      - cross
+    permissions:
+      contents: write
+    uses: ./.github/workflows/apply-curated-fixes.yml
+    with:
+      target_sha: ${{ github.event.pull_request.head.sha }}
+      head_ref: ${{ github.event.pull_request.head.ref }}
+
+  complete:
+    needs: apply
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Record staged release success
+        run: |
+          echo "orchestrator_run=${{ github.run_id }}"
+          echo "release_head=${{ github.event.pull_request.head.sha }}"
+          echo "order=preflight -> relation+cross -> apply"
