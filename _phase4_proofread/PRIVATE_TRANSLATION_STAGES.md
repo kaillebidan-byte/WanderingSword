@@ -132,6 +132,10 @@ public化を依頼する前に次を実行する。
 python _tools/check_private_release_preflight.py --with-tests
 ```
 
+`.github/workflows/private-release-preflight.yml`は、private repository上のready PRが`ready_for_public_ci`へ揃った時に同じ完全preflightを自動実行する。作業途中のpushでは状態判定だけを行い、重い検査をskipする。修復commitをpushした場合は新HEADへ自動再実行される。
+
+local実行または自動workflowの最新HEAD成功を確認してからpublic化を依頼する。draft解除や`ready_for_public_ci`への状態更新だけでは公開許可にならない。
+
 `translation_frozen/not_ready`は正常完了地点ではない。preflight、状態同期、PR readyまで進め、`ready_for_public_ci`で初めてprivate作業の完了とする。
 
 public中は翻訳判断、fix追加、owner変更、正式束追加を再開しない。public側はphase2成功とreview thread 0件を確認し、`awaiting_private_merge`まで連続して進める。
