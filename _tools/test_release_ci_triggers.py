@@ -12,25 +12,35 @@ def read(name: str) -> str:
     return (WORKFLOWS / name).read_text(encoding="utf-8")
 
 
-def assert_heavy(name: str) -> None:
+def assert_label_only(name: str) -> str:
     text = read(name)
     assert "types:\n      - labeled" in text, name
     for forbidden in ("      - opened\n", "      - reopened\n", "      - ready_for_review\n", "      - synchronize\n"):
         assert forbidden not in text, f"{name}: unexpected automatic trigger {forbidden.strip()}"
-    assert "github.event.label.name == 'release-ci'" in text, name
-    assert "github.event.label.name == 'ci-heavy-rerun'" in text, name
     assert "github.event.repository.visibility == 'public'" in text, name
+    return text
 
 
 def main() -> None:
-    for name in ("relation-audit.yml", "cross-register-qa.yml", "apply-curated-fixes.yml"):
-        assert_heavy(name)
-    phase2 = read("ci-train-phase2.yml")
-    assert "types:\n      - labeled" in phase2
+    orchestrator = assert_label_only("release-train-orchestrator.yml")
+    assert "github.event.label.name == 'release-ci'" in orchestrator
+    assert "github.event.label.name == 'ci-heavy-rerun'" in orchestrator
+    assert "check_private_release_preflight.py" in orchestrator
+    assert "orchestrate_release_ci.py" in orchestrator
+
+    relation = assert_label_only("relation-audit.yml")
+    cross = assert_label_only("cross-register-qa.yml")
+    apply = assert_label_only("apply-curated-fixes.yml")
+    for name, text in (("relation", relation), ("cross", cross)):
+        assert "github.event.label.name == 'release-qa'" in text, name
+        assert "github.event.label.name == 'release-ci'" not in text, name
+    assert "github.event.label.name == 'release-apply'" in apply
+    assert "github.event.label.name == 'release-ci'" not in apply
+    assert "write_applied_record.py" in apply
+
+    phase2 = assert_label_only("ci-train-phase2.yml")
     assert "github.event.label.name == 'finalize-release'" in phase2
-    assert "      - synchronize\n" not in phase2
-    assert "      - opened\n" not in phase2
-    print("OK: release CI triggers are explicit and two-stage")
+    print("OK: release CI is explicit, staged, and Apply cannot start before QA")
 
 
 if __name__ == "__main__":
