@@ -33,6 +33,6 @@
 
 ## owner snapshot
 
-encoding後、全candidateの`schema_version: 2` `ownership_snapshot`を全fix owner実測へ同期した。58行中54行は既存ownerに属し、4行は意図的保持のためunownedのまま残した。9修正は既存owner更新8、新規owner1として収録し、複数ownerはない。
+encoding後、全candidateの`schema_version: 2` `ownership_snapshot`を全fix owner実測へ同期した。58行中55行は既存ownerに属し、3行は意図的保持のためunownedのまま残した。9修正は既存owner更新8、新規owner1として収録し、複数ownerはない。
 
 queueは四packet・58行でsealした。preparationではfix / keep判断、修正JSON、正式束番号を作らず、sealed queue全体をquality auditへ渡した。
