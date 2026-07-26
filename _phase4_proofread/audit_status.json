@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 1539,
+      "applied_keys": 1541,
       "targets": [
         "CG表",
         "Npc",
@@ -106,6 +106,7 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH7_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH80_2026-07-26.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH84_2026-07-26.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH88_2026-07-26.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH8_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH9_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_QINGXIAO_BATCH1_2026-07-23.md",
@@ -296,8 +297,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch84_complete_next_scenes_pending",
-      "build_verified": "batch84_complete",
+      "translation_reaudited": "batch88_complete_next_scenes_pending",
+      "build_verified": "batch88_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
