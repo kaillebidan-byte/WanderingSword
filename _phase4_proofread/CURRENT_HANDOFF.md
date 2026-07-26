@@ -6,32 +6,33 @@
 
 - 実visibility: private
 - main HEAD: `9a4d7c12521355dcd7a590cff801695862f73c8b`
-- 制度PR #121: squash統合済み
 - active branch: `agent/yuwen-mowen-train-08`
 - verified checkpoint: 第84束
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1539
-- private stage: `private_encoding`
-- transport: `not_ready`
+- train-08正式束: 第85〜88束
+- private stage: `translation_frozen`
+- transport: `ready_for_public_ci`
 
 ## train-08 wave-01
 
-四packetを最新Relation artifact run `30172834036`から準備し、sealed queue全体のquality auditを完了した。
+四packet・45行のquality auditとprivate encodingを完了した。18修正を収録し、うち16件は既存owner更新、2件は莫棄・斬無刑の横断owner新設。第86束はkeep-only。
 
-- `5603_1`
-- `5610_2 + 5611_8`
-- `5637_1`
-- `5646_1`
+- 第85束: `5603_1`
+- 第86束: `5610_2 + 5611_8`
+- 第87束: `5637_1`
+- 第88束: `5646_1`
 
-quality auditの正本は`AUDIT_YUWEN_MOWEN_TRAIN08_WAVE01_2026-07-26.md`。現在はprivate encodingの入口で、fix JSON、review record、正式束、manifest収録はまだ行っていない。
+候補owner snapshotはencoding後の実状態へ更新済み。翻訳判断は凍結した。
 
 ## 次の作業
 
-quality auditで固定した候補だけを収録する。既存ownerは`fixes_relation_yuwen_mowen_20260723_batch10.json`、未所有fixは新規ownerへ追加する。保持キーへownerを作らない。収録後にcandidate snapshotを再生成し、translation_frozenへ移す。
+private release preflightを確認し、draft PRを作成する。その後、利用者へ公開CI窓を依頼し、公開後は`release-ci`ラベルでRelation / Cross / Applyを明示起動する。
+
+次wave候補`5649_1`はreserved_only。train-08統合前にpreparationを始めない。
 
 ## 禁止
 
-- encoding中に新しい訳文判断を追加しない。
-- challenged keepを修正へ昇格しない。
-- public化やPR作成へ先走らない。
+- public中に新しい訳文判断、fix追加、owner変更、正式束追加を行わない。
+- `5649_1`をprepared扱いにしない。
 - ゲームフォルダへ配置しない。
