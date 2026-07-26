@@ -38,11 +38,25 @@ def assert_release_label_cleanup(orchestrator: str) -> None:
     complete = orchestrator.split("\n  complete:\n", 1)[1]
     assert "needs: apply" in complete
     assert "issues: write" in complete
+    assert "pull-requests: write" in complete
     assert "uses: actions/github-script@v7" in complete
     assert "github.rest.issues.removeLabel" in complete
     assert "['release-ci', 'ci-heavy-rerun']" in complete
     assert "error.status !== 404" in complete
     assert "release-label-cleanup" in complete
+
+
+def assert_deterministic_heads(orchestrator: str, apply: str) -> None:
+    assert "asset_head:" in apply
+    assert "apply_changed:" in apply
+    assert "jobs.apply-and-build.outputs.asset_head" in apply
+    assert "steps.release_result.outputs.asset_head" in apply
+    assert "id: release_result" in apply
+    assert 'asset_head="$(git rev-parse HEAD)"' in apply
+    assert "needs.apply.outputs.asset_head" in orchestrator
+    assert "needs.apply.outputs.apply_changed" in orchestrator
+    assert "finalization-inputs.json" in orchestrator
+    assert "release-finalization-inputs-" in orchestrator
 
 
 def main() -> None:
@@ -59,7 +73,10 @@ def main() -> None:
     assert_release_label_cleanup(orchestrator)
 
     preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
+    assert "check_state_json_integrity.py" in preflight
+    assert '["check_candidate_ownership.py", "--write"]' in preflight
     assert "check_autonomous_cycle.py" in preflight
+    assert "test_check_state_json_integrity.py" in preflight
     assert "test_check_autonomous_cycle.py" in preflight
 
     relation = assert_reusable("relation-audit.yml")
@@ -73,13 +90,17 @@ def main() -> None:
     assert "check_release_transport_state.py" in apply
     assert "write_applied_record.py" in apply
     assert "git status --porcelain" in apply
+    assert_deterministic_heads(orchestrator, apply)
 
     phase2 = assert_labeled_repair_rerun("ci-train-phase2.yml", ("finalize-release",))
-    assert "check_release_evidence.py" in phase2
-    assert "check_handoff_consistency_v2.py --require-verified" in phase2
-    assert "check_autonomous_cycle.py" in phase2
-    assert "test_check_autonomous_cycle.py" in phase2
-    print("OK: failed labeled runs rerun on repair pushes; successful orchestrator labels stop before finalization")
+    assert "check_release_finalization.py --with-tests" in phase2
+    assert "check_release_evidence_github.py" in phase2
+    finalization = (ROOT / "_tools" / "check_release_finalization.py").read_text(encoding="utf-8")
+    assert "check_state_json_integrity.py" in finalization
+    assert "check_release_evidence.py" in finalization
+    assert "check_handoff_consistency_v2.py" in finalization
+    assert "check_autonomous_cycle.py" in finalization
+    print("OK: repair reruns are bounded and finalization inputs are deterministic")
 
 
 if __name__ == "__main__":
