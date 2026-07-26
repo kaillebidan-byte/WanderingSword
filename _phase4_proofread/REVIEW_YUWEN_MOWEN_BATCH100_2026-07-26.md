@@ -14,4 +14,4 @@
 
 宇文逸の怒りを自然な発話へ戻し、蒼鷹の中傷を事実化せず、莫問の警告へ原文にない回避動作を足さない形へ直した。
 
-3キーを`_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch13.json`へ収録し、残る12行は保持した。設定疑義と場面境界は監査記録のまま維持している。
+3キーを既存owner `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch13.json`へ更新収録し、残る12行は保持した。設定疑義と場面境界は監査記録のまま維持している。
