@@ -34,13 +34,21 @@ def main() -> None:
     for name, text in (("relation", relation), ("cross", cross)):
         assert "github.event.label.name == 'release-qa'" in text, name
         assert "github.event.label.name == 'release-ci'" not in text, name
+    assert "check_release_transport_state.py" in relation
+    assert "check_release_evidence.py" not in relation
+    assert "check_handoff_consistency_v2.py" not in relation
+
     assert "github.event.label.name == 'release-apply'" in apply
     assert "github.event.label.name == 'release-ci'" not in apply
+    assert "check_release_transport_state.py" in apply
     assert "write_applied_record.py" in apply
+    assert "git status --porcelain" in apply
 
     phase2 = assert_label_only("ci-train-phase2.yml")
     assert "github.event.label.name == 'finalize-release'" in phase2
-    print("OK: release CI is explicit, staged, and Apply cannot start before QA")
+    assert "check_release_evidence.py" in phase2
+    assert "check_handoff_consistency_v2.py --require-verified" in phase2
+    print("OK: pre-Apply checks are light; strict release evidence is phase2-only")
 
 
 if __name__ == "__main__":
