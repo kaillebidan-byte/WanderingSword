@@ -55,6 +55,28 @@ def test_release_live_rejects_corrupt_partition() -> None:
         assert any("row partition" in item for item in result)
 
 
+def test_stored_preparation_conflict_remains_invalid() -> None:
+    with tempfile.TemporaryDirectory() as temp:
+        root = Path(temp)
+        p4 = root / "_phase4_proofread"
+        key = checker.full_key("CG表", "QuestDlgs", "A")
+        first = p4 / "fixes_relation_a.json"
+        second = p4 / "fixes_relation_b.json"
+        write_json(first, {key: "訳A"})
+        write_json(second, {key: "訳A"})
+        candidate = {"schema_version": 2, "rows": [{"key": "A"}]}
+        snapshot, errors = checker.compute_snapshot(candidate, p4=p4)
+        assert not errors
+        assert snapshot["duplicates"]
+        candidate["ownership_snapshot"] = snapshot
+
+        second.unlink()
+        live, result, drift = checker.validate_candidate_live(candidate, p4=p4)
+        assert live["duplicates"] == []
+        assert drift is True
+        assert any("preparation time" in item for item in result)
+
+
 def test_duplicate_owner_fails() -> None:
     with tempfile.TemporaryDirectory() as temp:
         root = Path(temp)
@@ -75,6 +97,7 @@ def test_duplicate_owner_fails() -> None:
 def main() -> None:
     test_snapshot_and_staleness()
     test_release_live_rejects_corrupt_partition()
+    test_stored_preparation_conflict_remains_invalid()
     test_duplicate_owner_fails()
     print("OK: candidate ownership tests")
 
