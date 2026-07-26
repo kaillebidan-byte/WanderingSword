@@ -11,11 +11,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "_tools"
 
-BASE_CHECKS = [
+BASE_CHECKS_BEFORE_OWNERSHIP = [
     ["check_state_json_integrity.py"],
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
-    ["check_candidate_ownership.py", "--require-current-wave"],
+]
+BASE_CHECKS_AFTER_OWNERSHIP = [
     ["check_fix_owner_delta.py"],
     ["check_ci_train_manifest_v2.py"],
     ["check_next_task_packet.py", "--allow-pending"],
@@ -55,7 +56,7 @@ def parse_args() -> argparse.Namespace:
 
 def run(command: list[str]) -> int:
     path = TOOLS / command[0]
-    print(f"\n=== {command[0]} ===")
+    print(f"\n=== {' '.join(command)} ===")
     return subprocess.run(
         [sys.executable, str(path), *command[1:]],
         cwd=ROOT,
@@ -71,10 +72,19 @@ def main() -> int:
         if run(["check_candidate_ownership.py", "--write"]) != 0:
             failures.append("check_candidate_ownership.py --write")
 
-    checks = [["check_operation_mode.py", "--repository-visibility", args.repository_visibility], *BASE_CHECKS]
+    ownership_check = [
+        "check_candidate_ownership.py",
+        "--require-current-wave" if args.repository_visibility == "private" else "--release-live",
+    ]
+    checks = [
+        ["check_operation_mode.py", "--repository-visibility", args.repository_visibility],
+        *BASE_CHECKS_BEFORE_OWNERSHIP,
+        ownership_check,
+        *BASE_CHECKS_AFTER_OWNERSHIP,
+    ]
     for command in checks + (TESTS if args.with_tests else []):
         if run(command) != 0:
-            failures.append(command[0])
+            failures.append(" ".join(command))
 
     if subprocess.run(["git", "diff", "--check"], cwd=ROOT, check=False).returncode != 0:
         failures.append("git diff --check")
@@ -95,6 +105,8 @@ def main() -> int:
         print("\n=== Frozen release files to commit together ===")
         print(changed.stdout.rstrip() or "(clean)")
         print("Do not edit release files after this check and before the public CI window.")
+    else:
+        print("\nRelease preflight used live owner measurement; stored snapshot drift alone is non-blocking.")
 
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
