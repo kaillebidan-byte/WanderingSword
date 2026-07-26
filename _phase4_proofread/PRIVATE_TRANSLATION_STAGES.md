@@ -2,116 +2,138 @@
 
 ## 目的
 
-翻訳判断と制度操作を分離するだけでなく、準備・品質監査・収録の認知モードを一列車の中でまとまった区間として維持する。
+準備・品質監査・収録・翻訳凍結を別の認知モードとして維持する。複数packetを先に準備し、sealed queue全体を監査し、その後にまとめて収録する。
 
-schema v1では、一packetだけを`private_preparation`から渡し、`private_quality_audit -> private_encoding -> private_preparation`を一束ごとに繰り返した。これは停止を避けたが、認知モードを再び混在させた。wave v2では、複数packetを先に準備し、sealed queue全体を監査し、その後にまとめて収録する。
+機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在状態は`PRIVATE_STAGE_STATE.json`、段階検査は`check_private_translation_stage.py`、owner検査は`check_candidate_ownership.py`を正本とする。
 
-機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在状態は`PRIVATE_STAGE_STATE.json`、検査は`python _tools/check_private_translation_stage.py`を正本とする。
-
-## 1. `private_preparation`
+## 1. private_preparation
 
 一列車分のcandidate packetを先に作る。
 
 許可:
 
 - 原文、現訳、前後、話者、相手、時系列、分岐を固定する。
-- 重複familyと既存ownerを参照する。
-- candidate packetとpreparation recordを`PRIVATE_STAGE_STATE.wave.packets`へ追加する。
-- queueのpacket数とunique reviewed rows相当を輸送設計として集計する。
+- 重複familyを確認する。
+- candidate packetとpreparation recordをwaveへ追加する。
+- packet数とunique reviewed rows相当を輸送設計として集計する。
 
 禁止:
 
-- fix / keep判断を行う。
-- fix JSON、review record、owner新設、正式束番号を作る。
-- candidate packetを`CI_TRAIN_MANIFEST.json`へ入れる。
+- fix / keep判断
+- 修正JSON、review record、正式束番号
+- owner新設・移管
+- candidateをmanifestへ入れること
 
-通常sealは次のいずれかを満たす。
+### owner snapshot
+
+candidate作成直後に次を実行する。
+
+```bash
+python _tools/check_candidate_ownership.py --write <candidate paths>
+```
+
+このsnapshotは`fixes_*.json`全件を走査する。人物ペアowner一つだけを参照して未所有判定してはならない。
+
+snapshotには次を持つ。
+
+- ownerごとの既存キー
+- 未所有キー
+- 複数owner衝突
+- 対象行数
+- target / namespace
+
+複数ownerが存在するcandidateはsealできない。
+
+通常seal条件:
 
 - 4 packet以上
 - 40 unique reviewed rows相当以上
-- 意味境界上、追加候補が存在しない`scope_exhausted`
+- 追加候補が存在しない`scope_exhausted`
 
-上限は6 packet / 60 rowsとする。`scope_exhausted`は具体的なattestationを必須とする。一packetを作っただけで通常sealすることは`preparation_underfilled`として失敗する。
+上限は6 packet / 60 rows。underfilledな一packet sealは失敗する。
 
-## 2. `private_quality_audit`
+## 2. private_quality_audit
 
-sealed queueの全packetを続けて監査する。
+sealed queue全体を続けて監査する。
 
-packetごとに、少なくとも次を記録する。
+記録:
 
-- `fix_candidate`
-- `challenged_keep`
-- `needs_context`
-- `FACT_DOUBT`
-- `ALLUSION_REVIEW`
-
-許可:
-
-- 原文の意味、強弱、発話役割、人物声、設定追加、欠落、不自然さを判断する。
-- 既存ownerと重複情報を参照する。
-- packetを`audited`または`needs_repreparation`へ更新する。
-
-禁止:
-
-- 一packet完了ごとにencodingへ移る。
-- fix JSON、owner、review record、正式束番号、manifest件数を書く。
-- `metrics_snapshot`、release残量、閾値、処理件数を監査判断へ渡す。
-
-queueがsealedでない場合、quality auditへ進めない。
-
-## 3. `private_encoding`
-
-全packetの監査完了後、確定済み判断だけをまとめて収録する。
+- fix_candidate
+- challenged_keep
+- needs_context
+- FACT_DOUBT
+- ALLUSION_REVIEW
 
 許可:
 
-- fix JSONへ確定済み修正を収録する。
-- owner、重複family、review record、FACT_DOUBT、ALLUSION_REVIEWを制度化する。
-- 正式束番号を割り当てる。
-- encoding済み正式束だけをmanifestへ追加する。
-- `review_status`と`apply_status`を別々に記録する。
+- 原文の意味、強弱、発話役割、人物声、設定追加、欠落、不自然さの判断
+- snapshot済みowner情報の参照
 
 禁止:
 
-- 新しい翻訳判断を行う。
-- 未監査packetを残したまま収録を開始する。
-- 一部packetを未収録のまま翻訳凍結へ進む。
+- 一packetごとのencoding移動
+- fix JSON、owner、正式束番号、manifest件数
+- release残量、処理件数、閾値を監査判断へ渡すこと
 
-新しい疑義が出たpacketだけを`needs_reaudit`へし、`private_quality_audit`へ戻す。他packetの監査を無効化しない。
+## 3. private_encoding
 
-## 4. `translation_frozen`
+全packetの監査完了後、確定判断だけを収録する。
 
-全packetのencoding完了後、翻訳判断と収録を凍結する。これはCI輸送状態ではない。
+許可:
 
-翻訳段階を`translation_frozen`に保ったまま、輸送軸だけを次の順に進める。
+- fix JSONへの収録
+- owner更新、新設、横断owner移管
+- review recordと正式束番号
+- encoding済み正式束のmanifest追加
+- review_status / apply_statusの分離
+
+禁止:
+
+- 新しい翻訳判断
+- 未監査packetの収録
+- 一部未収録での凍結
+
+encoding後、fix ownerの実状態が変わるため、全candidateへ再度`--write`を実行する。その後、次を必須とする。
+
+```bash
+python _tools/check_candidate_ownership.py --require-current-wave
+```
+
+preparation時snapshotのまま凍結してはならない。
+
+## 4. translation_frozen
+
+全packetのencoding完了後、翻訳判断と収録を凍結する。輸送軸だけを次の順に進める。
 
 `not_ready -> ready_for_public_ci -> in_public_ci -> verified -> awaiting_private_merge -> merged`
 
-public CI中も翻訳判断、fix追加、owner変更、正式束追加を再開しない。品質上の疑義が出た場合はprivateへ戻し、対象packetを`needs_reaudit`としてquality auditへ戻す。
+public化を依頼する前に次を実行する。
+
+```bash
+python _tools/check_private_release_preflight.py --with-tests
+```
+
+public中は翻訳判断、fix追加、owner変更、正式束追加を再開しない。
 
 ## replenishment例外
 
-`private_encoding -> private_preparation`は通常遷移ではない。次の理由コードを伴うreplenishmentだけを許す。
+`private_encoding -> private_preparation`は通常遷移ではない。次の理由コードを必須とする。
 
-- `packet_invalidated`
-- `duplicate_normalization_reduced_scope`
-- `needs_context_unresolved`
-- `prepared_source_became_stale`
-- `scope_boundary_corrected`
+- packet_invalidated
+- duplicate_normalization_reduced_scope
+- needs_context_unresolved
+- prepared_source_became_stale
+- scope_boundary_corrected
 
-第一段階が十分なpacketを準備しなかっただけの場合は例外にしない。checkerは`preparation_underfilled`として失敗させる。
+単に準備packetが足りない場合は例外ではなく`preparation_underfilled`である。
 
 ## manifest境界
 
-candidate packetは`PRIVATE_STAGE_STATE.json`だけで管理する。
+candidate packetは`PRIVATE_STAGE_STATE.json`だけに置く。manifestにはencoding済み正式束と輸送集計だけを置く。
 
-`CI_TRAIN_MANIFEST.json`にはencoding済みの正式束、review/apply状態、輸送集計だけを置く。旧`reviewed_pending_ci`へ複数意味を押し込まず、次へ分ける。
+- review_status: complete
+- apply_status: pending | verified
 
-- `review_status: complete`
-- `apply_status: pending | verified`
+## legacy candidate
 
-## 現行状態の移行
-
-train-06第77〜80束の既存記録は改変せず、schema v1の四往復を一つの移行waveへ統合して表現する。PR #118はsquash統合済みであり、輸送状態は`merged`、翻訳段階は`translation_frozen`とする。
-
-`5581_7 + 5581_8`は次waveの予約だけであり、preparation・quality audit・encoding・正式束番号は未開始とする。
+snapshot制度導入前のcandidateは、`PRIVATE_STAGE_STATE.ownership_policy.legacy_candidate_paths`へ正確なpathを列挙する。legacy指定を新規candidateへ流用してはならない。

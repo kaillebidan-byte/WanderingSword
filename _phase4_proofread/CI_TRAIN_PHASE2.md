@@ -2,143 +2,127 @@
 
 ## 目的
 
-第一段階で確立した「意味境界ごとの小束」と「複数小束をまとめるCI列車」は維持する。
-第二段階では公開CI窓の事務処理だけを減らし、次を実現する。
+意味境界ごとの小束とmulti-packet waveを維持しつつ、公開CI窓の事務処理を最小化する。
 
-- botの生成資産書き戻しでRelation / Cross / Applyを再起動しない
-- 最終状態文書の更新で重い三本を再起動しない
-- squash後のcommit SHA付け替えを廃止し、post-merge状態PRを作らない
-- 翻訳PR一つの中で、生成資産、監査件数、release evidence、次束packet、verified checkpointを確定する
+- 翻訳判断はprivateで完了する。
+- publicではRelation / Cross / Applyとphase2だけを輸送する。
+- PR作成、ready化、通常commitでは重いCIを起動しない。
+- bot書き戻し後の状態commitでも重いCIを再起動しない。
+- release evidence、verified checkpoint、次候補予約を同じPR内で確定する。
+- private復帰後は同じPRをsquash統合し、post-merge状態専用PRを作らない。
 
-## 第一段階から維持するもの
+## privateで完了させるもの
 
-- 小束は場面・分岐・人物関係・同じ崩れ方で閉じる
-- 修正JSON、レビュー、所有、FACT_DOUBT、ALLUSION_REVIEWは小束ごとに分離する
-- 通常releaseは4束、40行、20修正キーのOR
-- 上限は6束または60行
-- privateで翻訳判断を完了し、publicではCI・局所修正・統合だけを行う
-- 深い翻訳再判断が必要ならprivateへ戻す
+1. waveの全candidate packetを準備する。
+2. 各candidateへ全`fixes_*.json`実測の`ownership_snapshot`を付ける。
+3. sealed queue全体をquality auditする。
+4. 確定判断だけをencodingする。
+5. encoding後にowner snapshotを再生成する。
+6. manifest、quality gate、NEXT_TASK_PACKET、handoffを同期する。
+7. 翻訳段階を`translation_frozen`、輸送を`ready_for_public_ci`へ進める。
+8. 次を成功させる。
 
-蓄積manifestは第一段階schemaと互換に保つ。第二段階は最終化契約を差し替える。
+```bash
+python _tools/check_private_release_preflight.py --with-tests
+```
 
-## 重いCIの起動境界
+このpreflightが失敗している間はpublic化を依頼しない。
 
-GitHubの`pull_request.paths`は最新commitではなくPR全体差分で評価される。そのためpath指定だけでは、同じPRの状態commitによる再起動を防げない。
+## candidate owner契約
 
-Relation / Cross / Applyの自動起動eventは次に限定する。
+candidate作成時とencoding後に次を実行する。
 
-- PRをpublic中に新規作成した`opened`
-- private draft PRをpublic中にready化した`ready_for_review`
-- 閉じたrelease PRを再開した`reopened`
-- 局所修正後、`ci-heavy-rerun`ラベルを付けた`labeled`
+```bash
+python _tools/check_candidate_ownership.py --write \
+  _phase4_proofread/CANDIDATE_....json
+```
 
-通常の`synchronize`では重い三本を起動しない。修正後に再検証が必要な場合は、同じPRへ`ci-heavy-rerun`ラベルを明示的に付ける。再度使う場合は一度ラベルを外してから付け直す。
+snapshotは`_phase4_proofread/fixes_*.json`全件を走査して生成する。特定の人物ペアownerだけを見て「未所有」と判断してはならない。
 
-各workflowのpath条件は、上記eventの中でさらに対象を限定する。
+次を失敗とする。
 
-- `fixes_*.json`が含まれる
-- 翻訳資産の適用・検査コードが含まれる
-- 当該workflow自身が含まれる
+- snapshotと実ownerが一致しない
+- 一つのキーに複数ownerがある
+- 新規candidateにsnapshotがない
+- encodingでownerを更新した後もpreparation時snapshotのまま
 
-次の変更だけでは起動しない。
+train-07以前のschema v1 candidateは`PRIVATE_STAGE_STATE.ownership_policy.legacy_candidate_paths`で明示し、履歴を改変しない。
 
-- botによるlocres、pak、`audit_status.json`書き戻し
-- `CURRENT_WORK`、`CURRENT_HANDOFF`、`NEXT_TASK_PACKET`、適用記録、release evidenceの最終化
-- post-merge参照同期
+## 重いCIの明示起動
 
-bot actorは重い三本のjob条件でも除外する。
+GitHubの`pull_request.paths`はPR全体差分で評価されるため、path条件だけでは中間状態への再起動を防げない。Relation / Cross / Applyは`pull_request:labeled`だけを入口とする。
 
-## release evidence
+通常入口:
 
-verified checkpointの正本はsquash SHAではなく、`RELEASE_EVIDENCE_*.json`とする。
-証跡には次を含める。
+```text
+release-ci
+```
 
-- release id、train id、PR番号
-- Relation / Cross / Applyの成功run ID、workflow名、検証対象HEAD
-- 生成資産を含むHEAD
-- 完了束、人物ペア件数、全体件数、未適用0件
-- 適用記録
-- branch内祖先関係、または移行済みreleaseのsquash merge SHA
+局所的な行政・owner修正後の再走:
 
-`check_release_evidence.py`は構造、件数、run名、run結論、HEAD、git lineageを検査する。
-`check_release_evidence_github.py`はGitHub Actionsの実runを取得し、activeな`branch_ancestor` releaseではrunのPR添付を必須とする。過去の`squash_merged` releaseでGitHubが空の`pull_requests`配列を返す場合は、対象PRのmerged状態とmerge SHAを必須の代替証跡とする。
+```text
+ci-heavy-rerun
+```
 
-## 単一PRの順序
+どちらもrepositoryがpublicで、actorがbotでない場合だけjobを実行する。PR作成、reopen、ready化、`synchronize`では重い三本を起動しない。
 
-1. privateで複数小束を完成し、manifestをrelease可能にする。
-2. public確認後、同じbranchから翻訳PRを一つだけ使う。
-3. PR作成またはready化でRelation / Cross / Applyを同じCI HEADに対して実行する。
-4. 局所修正後に再検証が必要なら`ci-heavy-rerun`ラベルを使う。
-5. Applyがlocres、pak、audit statusを同じbranchへ一度だけ書き戻す。
-6. bot書き戻しでは重い三本を再起動しない。
-7. 人間作成の最終状態commitで、適用記録、release evidence、CURRENT_WORK、manifest、next packet、handoffを確定する。
-8. public中に`CI train phase2 gate`を実行し、三本の成功runと現在HEADの状態整合を検証する。
-9. 未解決thread 0件を確認する。
-10. private復帰を依頼し、repository metadataでprivateを確認する。
-11. private復帰後はCIを再要求せず、operation modeとhandoffをprivate状態へ同期する。
-12. 同じ翻訳PRをsquash統合する。
-13. mainにはすでにprivate作業状態と次束packetが含まれるため、post-merge状態PRは作らない。
+同じラベルを再利用する場合は、一度外してから付け直す。
 
-## checkpoint
+## public CIの順序
 
-`CURRENT_WORK.schema_version >= 7`では、checkpointに`translation_head`と`verified_head`を置かない。
-代わりに次を持つ。
+1. repository metadataでpublicを確認する。
+2. release PRを作成する。draftのままでよい。
+3. `release-ci`ラベルを付ける。
+4. Relation / Cross / Applyを同じCI HEADで成功させる。
+5. Applyがlocres、pak、audit statusを書き戻す。
+6. `release-ci`を外す。
+7. 適用記録、release evidence、CURRENT_WORK、manifest、handoff、next packetを最終化する。
+8. `finalize-release`ラベルを付ける。
+9. `CI train phase2 gate`を成功させる。
+10. 未解決review thread 0件を確認する。
+11. private復帰を依頼する。
+12. metadataでprivateを確認後、同じPRをsquash統合する。
 
-- `produced_by_pr`
-- `release_identity.kind = pr_release_v1`
-- `release_identity.release_id`
-- `release_identity.evidence`
-- `release_identity.pr`
-- `release_identity.validated_head`
-
-`translation_base_commit`と`state_base_commit`は列車開始時のmain祖先を指し、squash後に付け替えない。
+`finalize-release`はphase2専用である。このラベルではRelation / Cross / Applyを実行しない。
 
 ## phase2 gate
 
-軽量gateはpublic CI窓の中で次を検査する。
+phase2は`finalize-release`ラベル時だけ実行し、次を検査する。
 
 - operation modeと実visibility
-- release evidenceのGitHub Actions実体
-- release HEADと資産HEADのlineage
+- release evidenceとGitHub Actions実run
+- squash前branch lineageまたは過去releaseのsquash lineage
 - verified checkpoint、audit status、適用記録
-- manifest、次束番号、所有
+- manifest、wave、quality gate
+- candidate owner snapshot
+- NEXT_TASK_PACKET
 - 冷間再開文書
-- phase2回帰テスト
+- 回帰テスト
 
-このgateは状態文書とphase2 checkerに反応するが、locresやpakを再生成しない。
-`ci-train-phase2.yml`のjobはrepository visibilityがpublicのときだけ実行する。private復帰後の状態commitではrunner成功を要求しない。
+locresやpakの再生成は行わない。
 
-## private復帰確認
+## bot書き戻し
 
-public phase2 gate成功後のprivate復帰は、次で確認する。
+Applyは未適用fixが0件でも`update_audit_status.py`を実行する。適用記録からaudit status差分が生じた場合は、その状態差分だけをbot commitする。
 
-- GitHub repository metadataがprivate
-- `CURRENT_WORK.operation_mode.declared_state`が`private_translation_work`
-- checkpointがverified
-- 未適用fixが0
-- 未解決threadが0
-- 次束packetがverified checkpointを基準にしている
-
-private Actionsのrunner開始可否は終了条件に含めない。runner開始前失敗、stepなし、artifactなし、logなしのrunをrelease失敗として扱わない。
+bot commit、資産commit、最終状態commitでは重い三本を自動起動しない。phase2も`finalize-release`を付けるまで起動しない。
 
 ## 失敗時
 
-- 三本の失敗が局所的な制度・構造修正ならpublic中に直し、`ci-heavy-rerun`ラベルで再検証する。
-- 原因小束または翻訳判断を直す必要がある場合はprivateへ戻して再releaseする。
-- bot書き戻し後の`action_required`だけを失敗とみなさない。
-- release evidenceが不完全なら統合しない。
-- public phase2 gateが過去runを確認できない場合、run IDを書き換えて通すのではなく実run、HEAD、PR lineageを再確認する。
-- private復帰後のrunner未開始を理由にpublicへ戻さない。
-- 深い翻訳判断をpublicで反復しない。
+- owner snapshot不一致、重複owner、状態schema欠落はprivateへ戻して直す。
+- public中に許すのは翻訳判断を変えない局所的な行政修正だけ。
+- 訳文、人物声、FACT_DOUBT、ALLUSION_REVIEW、owner方針の再判断が必要なら`public_ci_blocked`としてprivateへ戻す。
+- run IDを書き換えて通さず、実run、HEAD、PR lineageを確認する。
+- private復帰後のrunner未開始をrelease失敗としない。
 
-## 第二段階の受入条件
+## 受入条件
 
 - 翻訳PR一つ
-- post-merge状態PR 0件
-- Applyの資産書き戻し後、Relation / Cross / Applyの追加起動0回
-- 最終状態commit後、重い三本の追加起動0回
-- public phase2 gate成功
-- 未適用0件、pak・LFS・回帰成功
+- candidate owner snapshotが全fix owner実測と一致
+- Relation / Cross / Applyが`release-ci`または明示的なrerunで成功
+- Apply後の未適用0件、pak・LFS・lint・回帰成功
+- `finalize-release`によるphase2成功
 - 未解決thread 0件
 - repository metadataでprivate復帰確認
-- squash後のmainからrelease evidenceと次束を復元可能
+- squash統合
+- post-merge状態専用PR 0件

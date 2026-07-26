@@ -3,10 +3,7 @@ name: CI train phase2 gate
 on:
   pull_request:
     types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
+      - labeled
     branches:
       - main
     paths:
@@ -27,6 +24,11 @@ on:
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
       - "_phase4_proofread/PUBLIC_CI_WINDOW.md"
       - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
+      - "_phase4_proofread/CANDIDATE_*.json"
+      - "_tools/check_candidate_ownership.py"
+      - "_tools/test_check_candidate_ownership.py"
+      - "_tools/check_private_release_preflight.py"
+      - "_tools/test_release_ci_triggers.py"
       - "_tools/check_visibility_preflight_contract.py"
       - "_tools/test_check_visibility_preflight_contract.py"
       - "_tools/check_release_evidence.py"
@@ -63,7 +65,8 @@ jobs:
   validate-release:
     if: >-
       github.actor != 'github-actions[bot]' &&
-      github.event.repository.visibility == 'public'
+      github.event.repository.visibility == 'public' &&
+      github.event.label.name == 'finalize-release'
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ github.token }}
@@ -113,7 +116,7 @@ jobs:
           python _tools/check_handoff_consistency_v2.py --require-verified \
             2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
 
-      - name: Validate train, wave, quality, and next packet
+      - name: Validate train, wave, candidate owners, quality, and next packet
         shell: bash
         run: |
           set -o pipefail
@@ -121,6 +124,8 @@ jobs:
             2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
           python _tools/check_private_translation_stage.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/private_translation_wave.txt
+          python _tools/check_candidate_ownership.py --require-current-wave \
+            2>&1 | tee _ws_tmp/ci_train_phase2/candidate_ownership.txt
           python _tools/check_translation_quality_gate.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/translation_quality_gate.txt
           python _tools/check_next_task_packet.py \
@@ -128,6 +133,8 @@ jobs:
 
       - name: Regression tests
         run: |
+          python _tools/test_check_candidate_ownership.py
+          python _tools/test_release_ci_triggers.py
           python _tools/test_check_visibility_preflight_contract.py
           python _tools/test_check_operation_mode.py
           python _tools/test_check_private_translation_stage.py

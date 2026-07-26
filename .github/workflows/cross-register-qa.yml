@@ -3,34 +3,34 @@ name: Cross register QA
 on:
   pull_request:
     types:
-      - opened
-      - reopened
-      - ready_for_review
       - labeled
     branches:
       - main
     paths:
       - "_phase4_proofread/fixes_*.json"
+      - "_phase4_proofread/CANDIDATE_*.json"
       - "_tools/apply_fixes_json.py"
       - "_tools/validate_fixes_json.py"
       - "_tools/lint_register.py"
+      - "_tools/check_candidate_ownership.py"
+      - "_tools/test_check_candidate_ownership.py"
       - "_tools/test_apply_fixes_json.py"
       - "_tools/test_lint_register.py"
       - ".github/workflows/cross-register-qa.yml"
-  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: cross-register-${{ github.event.pull_request.number || github.ref }}
+  group: cross-register-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   lint:
     if: >-
       github.actor != 'github-actions[bot]' &&
-      (github.event.action != 'labeled' || github.event.label.name == 'ci-heavy-rerun')
+      github.event.repository.visibility == 'public' &&
+      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -41,8 +41,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Unit tests
+      - name: Unit tests and candidate ownership
         run: |
+          python _tools/test_check_candidate_ownership.py
+          python _tools/check_candidate_ownership.py --require-current-wave
           python _tools/test_apply_fixes_json.py
           python _tools/test_lint_register.py
 
