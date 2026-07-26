@@ -11,6 +11,10 @@ on:
       - "_phase4_proofread/CANDIDATE_*.json"
       - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
       - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
       - "_tools/apply_fixes_json.py"
       - "_tools/validate_fixes_json.py"
       - "_tools/extract_relation_context.py"
@@ -18,15 +22,14 @@ on:
       - "_tools/check_candidate_ownership.py"
       - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_operation_mode.py"
-      - "_tools/check_handoff_consistency_v2.py"
-      - "_tools/check_release_evidence.py"
+      - "_tools/check_release_transport_state.py"
       - "_tools/check_next_task_packet.py"
       - "_tools/check_batch_planning.py"
       - "_tools/check_translation_quality_gate.py"
       - "_tools/test_check_operation_mode.py"
-      - "_tools/test_check_handoff_consistency_v2.py"
-      - "_tools/test_check_release_evidence.py"
+      - "_tools/test_check_release_transport_state.py"
       - "_tools/test_check_next_task_packet_ownership.py"
+      - "_tools/test_check_next_task_packet_minimal.py"
       - "_tools/test_check_batch_planning.py"
       - "_tools/test_check_translation_quality_gate.py"
       - "_tools/test_apply_fixes_json.py"
@@ -58,14 +61,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Report next-task ownership
+      - name: Report next-task reservation
         run: |
           mkdir -p _ws_tmp/relation_audit
           python _tools/report_next_task_ownership.py \
             --out _ws_tmp/relation_audit/next_task_ownership.json \
             2>&1 | tee _ws_tmp/relation_audit/next_task_ownership.txt
 
-      - name: Check operation mode, candidate ownership, and handoff consistency
+      - name: Check pre-Apply transport, owners, and quality
         shell: bash
         run: |
           mkdir -p _ws_tmp/relation_audit
@@ -73,12 +76,10 @@ jobs:
           python _tools/check_operation_mode.py \
             --repository-visibility "${{ github.event.repository.visibility }}" \
             2>&1 | tee _ws_tmp/relation_audit/operation_mode.txt
+          python _tools/check_release_transport_state.py \
+            2>&1 | tee _ws_tmp/relation_audit/release_transport_state.txt
           python _tools/check_candidate_ownership.py --require-current-wave \
             2>&1 | tee _ws_tmp/relation_audit/candidate_ownership.txt
-          python _tools/check_handoff_consistency_v2.py \
-            2>&1 | tee _ws_tmp/relation_audit/handoff_consistency.txt
-          python _tools/check_release_evidence.py \
-            2>&1 | tee _ws_tmp/relation_audit/release_evidence.txt
           python _tools/check_next_task_packet.py --allow-pending \
             2>&1 | tee _ws_tmp/relation_audit/next_task_packet_check.txt
           python _tools/check_batch_planning.py \
@@ -90,9 +91,8 @@ jobs:
         run: |
           python _tools/test_check_candidate_ownership.py
           python _tools/test_check_next_task_packet_minimal.py
+          python _tools/test_check_release_transport_state.py
           python _tools/test_check_operation_mode.py
-          python _tools/test_check_handoff_consistency_v2.py
-          python _tools/test_check_release_evidence.py
           python _tools/test_check_next_task_packet_ownership.py
           python _tools/test_check_batch_planning.py
           python _tools/test_check_translation_quality_gate.py
