@@ -63,8 +63,12 @@ def validate(contract: dict[str, Any], state: dict[str, Any]) -> list[str]:
         "private_completion_target": "ready_for_public_ci",
         "public_completion_target": "awaiting_private_merge",
         "post_public_completion_target": "merged",
+        "current_manual_mode": "private_public_private",
         "visibility_change_is_external": True,
         "scheduler_consumes_cycle_control": True,
+        "future_scheduled_mode": "always_public_full_pipeline",
+        "future_scheduler_changes_visibility": False,
+        "future_scheduler_runs_all_stages": True,
         "normal_cycle_requires_no_extra_user_continue_message": True,
     }
     for key, expected in expected_policy.items():
