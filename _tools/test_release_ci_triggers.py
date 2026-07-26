@@ -41,6 +41,7 @@ def assert_release_label_cleanup(orchestrator: str) -> None:
     assert "uses: actions/github-script@v7" in complete
     assert "github.rest.issues.removeLabel" in complete
     assert "['release-ci', 'ci-heavy-rerun']" in complete
+    assert "error.status !== 404" in complete
     assert "release-label-cleanup" in complete
 
 
