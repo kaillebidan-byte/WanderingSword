@@ -22,6 +22,12 @@ EXPECTED_WORKFLOWS = {
     "cross": "Cross register QA",
     "apply": "Apply curated localization fixes",
 }
+ORCHESTRATOR_WORKFLOW = "Release train orchestrator"
+ORCHESTRATOR_JOB_TOKENS = {
+    "relation": ("relation", "extract"),
+    "cross": ("cross", "lint"),
+    "apply": ("apply", "apply-and-build"),
+}
 VALID_LINEAGE_MODES = {"branch_ancestor", "squash_merged"}
 
 
@@ -58,6 +64,43 @@ def evidence_path_from_current(current: dict[str, Any]) -> Path:
     return ROOT / path
 
 
+def _validate_transport_evidence(evidence: dict[str, Any], ci_head: Any, schema: int, errors: list[str]) -> None:
+    if schema == 1:
+        runs = evidence.get("runs")
+        if not isinstance(runs, dict):
+            errors.append("runs must be an object")
+            runs = {}
+        for key, workflow in EXPECTED_WORKFLOWS.items():
+            item = runs.get(key)
+            if not isinstance(item, dict):
+                errors.append(f"runs.{key} must be an object")
+                continue
+            if not _positive_int(item.get("id")):
+                errors.append(f"runs.{key}.id must be a positive integer")
+            if item.get("workflow") != workflow:
+                errors.append(f"runs.{key}.workflow must be {workflow!r}")
+            if item.get("head_sha") != ci_head:
+                errors.append(f"runs.{key}.head_sha must equal ci_head")
+            if item.get("conclusion") != "success":
+                errors.append(f"runs.{key}.conclusion must be success")
+        return
+
+    orchestrator = evidence.get("orchestrator")
+    if not isinstance(orchestrator, dict):
+        errors.append("orchestrator must be an object for schema v2")
+        return
+    if not _positive_int(orchestrator.get("id")):
+        errors.append("orchestrator.id must be a positive integer")
+    if orchestrator.get("workflow") != ORCHESTRATOR_WORKFLOW:
+        errors.append(f"orchestrator.workflow must be {ORCHESTRATOR_WORKFLOW!r}")
+    if orchestrator.get("head_sha") != ci_head:
+        errors.append("orchestrator.head_sha must equal ci_head")
+    if orchestrator.get("conclusion") != "success":
+        errors.append("orchestrator.conclusion must be success")
+    if orchestrator.get("event") != "pull_request":
+        errors.append("orchestrator.event must be pull_request")
+
+
 def validate_evidence(evidence: dict[str, Any], current: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     checkpoint = current.get("checkpoint")
@@ -67,12 +110,15 @@ def validate_evidence(evidence: dict[str, Any], current: dict[str, Any]) -> list
     if not isinstance(identity, dict):
         return ["checkpoint.release_identity must be an object"]
 
-    if evidence.get("schema_version") != 1:
-        errors.append("release evidence schema_version must be 1")
+    schema = evidence.get("schema_version")
+    if schema not in {1, 2}:
+        errors.append("release evidence schema_version must be 1 or 2")
+        schema = 1
     if evidence.get("status") != "verified":
         errors.append("release evidence status must be verified")
-    if identity.get("kind") != "pr_release_v1":
-        errors.append("checkpoint.release_identity.kind must be pr_release_v1")
+    expected_kind = f"pr_release_v{schema}"
+    if identity.get("kind") != expected_kind:
+        errors.append(f"checkpoint.release_identity.kind must be {expected_kind}")
 
     release_id = evidence.get("release_id")
     if not _nonempty(release_id):
@@ -116,23 +162,7 @@ def validate_evidence(evidence: dict[str, Any], current: dict[str, Any]) -> list
     if counts.get("pending_fixes") != 0:
         errors.append("counts.pending_fixes must be 0")
 
-    runs = evidence.get("runs")
-    if not isinstance(runs, dict):
-        errors.append("runs must be an object")
-        runs = {}
-    for key, workflow in EXPECTED_WORKFLOWS.items():
-        item = runs.get(key)
-        if not isinstance(item, dict):
-            errors.append(f"runs.{key} must be an object")
-            continue
-        if not _positive_int(item.get("id")):
-            errors.append(f"runs.{key}.id must be a positive integer")
-        if item.get("workflow") != workflow:
-            errors.append(f"runs.{key}.workflow must be {workflow!r}")
-        if item.get("head_sha") != ci_head:
-            errors.append(f"runs.{key}.head_sha must equal ci_head")
-        if item.get("conclusion") != "success":
-            errors.append(f"runs.{key}.conclusion must be success")
+    _validate_transport_evidence(evidence, ci_head, schema, errors)
 
     lineage = evidence.get("lineage")
     if not isinstance(lineage, dict):
@@ -152,7 +182,6 @@ def validate_evidence(evidence: dict[str, Any], current: dict[str, Any]) -> list
         errors.append("evidence applied_record does not match checkpoint")
     if not isinstance(applied_record, str) or not (ROOT / applied_record).is_file():
         errors.append(f"checkpoint applied_record does not exist: {applied_record!r}")
-
     return errors
 
 
@@ -212,40 +241,72 @@ def _api_json(url: str, token: str) -> dict[str, Any]:
     return value
 
 
+def _run_pr_numbers(run: dict[str, Any]) -> set[int]:
+    prs = run.get("pull_requests", [])
+    return {
+        item.get("number") for item in prs
+        if isinstance(item, dict) and _positive_int(item.get("number"))
+    } if isinstance(prs, list) else set()
+
+
+def _verify_run(run: dict[str, Any], run_id: int, expected_name: str, ci_head: Any, pr: Any, lineage_mode: Any, errors: list[str]) -> None:
+    if run.get("name") != expected_name:
+        errors.append(f"GitHub run {run_id} name mismatch: {run.get('name')!r}")
+    if run.get("conclusion") != "success":
+        errors.append(f"GitHub run {run_id} is not successful")
+    if run.get("head_sha") != ci_head:
+        errors.append(f"GitHub run {run_id} head_sha mismatch")
+    if run.get("event") != "pull_request":
+        errors.append(f"GitHub run {run_id} event must be pull_request")
+    if lineage_mode != "squash_merged" and pr not in _run_pr_numbers(run):
+        errors.append(f"GitHub run {run_id} is not attached to PR #{pr}")
+
+
 def verify_github(evidence: dict[str, Any], repository: str, token: str) -> list[str]:
     errors: list[str] = []
     pr = evidence.get("pr")
     ci_head = evidence.get("ci_head")
-    runs = evidence.get("runs", {})
-    for key, expected_name in EXPECTED_WORKFLOWS.items():
-        item = runs.get(key, {}) if isinstance(runs, dict) else {}
-        run_id = item.get("id") if isinstance(item, dict) else None
-        if not _positive_int(run_id):
-            continue
-        try:
-            run = _api_json(
-                f"https://api.github.com/repos/{repository}/actions/runs/{run_id}", token
-            )
-        except RuntimeError as exc:
-            errors.append(str(exc))
-            continue
-        if run.get("name") != expected_name:
-            errors.append(f"GitHub run {run_id} name mismatch: {run.get('name')!r}")
-        if run.get("conclusion") != "success":
-            errors.append(f"GitHub run {run_id} is not successful")
-        if run.get("head_sha") != ci_head:
-            errors.append(f"GitHub run {run_id} head_sha mismatch")
-        if run.get("event") != "pull_request":
-            errors.append(f"GitHub run {run_id} event must be pull_request")
-        prs = run.get("pull_requests", [])
-        numbers = {
-            item.get("number") for item in prs if isinstance(item, dict) and _positive_int(item.get("number"))
-        } if isinstance(prs, list) else set()
-        if pr not in numbers:
-            errors.append(f"GitHub run {run_id} is not attached to PR #{pr}")
-
     lineage = evidence.get("lineage", {})
-    if isinstance(lineage, dict) and lineage.get("mode") == "squash_merged" and _positive_int(pr):
+    lineage_mode = lineage.get("mode") if isinstance(lineage, dict) else None
+    schema = evidence.get("schema_version")
+
+    if schema == 2:
+        item = evidence.get("orchestrator", {})
+        run_id = item.get("id") if isinstance(item, dict) else None
+        if _positive_int(run_id):
+            try:
+                run = _api_json(f"https://api.github.com/repos/{repository}/actions/runs/{run_id}", token)
+                jobs_payload = _api_json(f"https://api.github.com/repos/{repository}/actions/runs/{run_id}/jobs?per_page=100", token)
+            except RuntimeError as exc:
+                errors.append(str(exc))
+            else:
+                _verify_run(run, run_id, ORCHESTRATOR_WORKFLOW, ci_head, pr, lineage_mode, errors)
+                jobs = jobs_payload.get("jobs", []) if isinstance(jobs_payload, dict) else []
+                for role, tokens in ORCHESTRATOR_JOB_TOKENS.items():
+                    matched = [
+                        job for job in jobs
+                        if isinstance(job, dict)
+                        and all(token in str(job.get("name", "")).lower() for token in tokens)
+                    ] if isinstance(jobs, list) else []
+                    if not matched:
+                        errors.append(f"orchestrator run {run_id} lacks {role} job")
+                    elif not any(job.get("conclusion") == "success" for job in matched):
+                        errors.append(f"orchestrator run {run_id} {role} job is not successful")
+    else:
+        runs = evidence.get("runs", {})
+        for key, expected_name in EXPECTED_WORKFLOWS.items():
+            item = runs.get(key, {}) if isinstance(runs, dict) else {}
+            run_id = item.get("id") if isinstance(item, dict) else None
+            if not _positive_int(run_id):
+                continue
+            try:
+                run = _api_json(f"https://api.github.com/repos/{repository}/actions/runs/{run_id}", token)
+            except RuntimeError as exc:
+                errors.append(str(exc))
+                continue
+            _verify_run(run, run_id, expected_name, ci_head, pr, lineage_mode, errors)
+
+    if lineage_mode == "squash_merged" and _positive_int(pr):
         try:
             pull = _api_json(f"https://api.github.com/repos/{repository}/pulls/{pr}", token)
         except RuntimeError as exc:
@@ -288,6 +349,7 @@ def main() -> int:
     print(f"release: {evidence.get('release_id')}")
     print(f"train: {evidence.get('train_id')}")
     print(f"PR: {evidence.get('pr')}")
+    print(f"schema: {evidence.get('schema_version')}")
     print(f"lineage: {evidence.get('lineage', {}).get('mode')}")
     print(f"evidence: {evidence_path.relative_to(ROOT)}")
     for error in errors:
