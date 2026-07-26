@@ -6,16 +6,18 @@
 
 ## 現在地
 
-- 実visibility: public（GitHub repository metadataで確認）
-- main HEAD: `5c30d1a27c577bd04dec5de87c879c60df0550a6`
-- active branch: `agent/yuwen-mowen-train-09`
-- active PR: #124（ready）
+- 実visibility: private（GitHub repository metadataで確認）
+- main HEAD: `a00a39104b35c61440e7a4734aa04fc355b91e06`
+- PR #124: squash統合済み
+- active制度branch: `agent/autonomous-private-cycle-contract`
+- active制度PR: draft PR #125
 - verified checkpoint: 第92束
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1541
 - release: `yuwen-mowen-train-09-r1`
 - private stage: `translation_frozen`
-- transport: `verified`
+- train-09 transport: `merged`
+- cycle control: `target_reached / merged`
 
 ## train-09 wave-01
 
@@ -26,21 +28,30 @@
 - 第91束: `5654_1 + 5654_4`
 - 第92束: `5654_6 + 5654_7`
 
-Release train orchestrator run `30194351243`はCI HEAD `f817f4b2ba1705be2f1c657e70b1df3b2c5a858d`で成功した。preflight後にRelation / Crossを成功させ、両方の成功後だけApplyを実行した。
+Release train orchestrator run `30194351243`とphase2 gateは成功済み。PR #124のmerge SHAは`a00a39104b35c61440e7a4734aa04fc355b91e06`。
 
-- asset HEAD: `241fc215e853fb062b6e190966c7c335dac3890e`
-- 未適用: 0件
-- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_09.json`
-- applied record: `_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH92_2026-07-26.md`
+## 制度PR #125
+
+手動のprivate/public/private反復を、将来schedulerへ渡せる決定的なcycleへ固定している。
+
+- private正常完了: `ready_for_public_ci`
+- public正常完了: `awaiting_private_merge`
+- private復帰後完了: `merged`
+- preparation / quality audit / encodingは内部checkpointであり正常な会話終了地点ではない
+- 例外停止は許可理由とexact next actionを必須とする
+- `PRIVATE_STAGE_STATE.cycle_control`をcold startとschedulerの機械入口にする
+- `check_autonomous_cycle.py`をprivate preflightとphase2へ追加
 
 ## 次の作業
 
-PR #124へ`finalize-release`を付与し、phase2 gateとreview thread 0件を確認する。成功後はprivate復帰を依頼し、metadataでprivateを確認して同じPRをsquash統合する。
+PR #125の静的整合、checker回帰、差分境界を確認する。private検査で問題がなければ、workflow変更の実検証に必要な時点だけ公開CI窓を依頼する。
 
-次wave候補`5654_8`はreserved_only。train-09統合前にpreparationを始めない。
+次wave候補`5654_8`はreserved_only。PR #125統合前にpreparationを始めない。
 
 ## 禁止
 
-- public中に新しい訳文判断、fix追加、owner変更、正式束追加を行わない。
+- 制度PR #125へ訳文、fix値、人物owner、FACT_DOUBT、ALLUSION_REVIEWを混ぜない。
+- 内部stageを正常な会話終了地点に戻さない。
+- paused状態を理由やexact next actionなしで記録しない。
 - `5654_8`をprepared扱いにしない。
 - ゲームフォルダへ配置しない。

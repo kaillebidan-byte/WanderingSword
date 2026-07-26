@@ -4,7 +4,26 @@
 
 準備・品質監査・収録・翻訳凍結を別の認知モードとして維持する。複数packetを先に準備し、sealed queue全体を監査し、その後にまとめて収録する。
 
-機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在状態は`PRIVATE_STAGE_STATE.json`、段階検査は`check_private_translation_stage.py`、owner検査は`check_candidate_ownership.py`を正本とする。
+機械契約は`PRIVATE_TRANSLATION_STAGES.json`、現在状態は`PRIVATE_STAGE_STATE.json`、段階検査は`check_private_translation_stage.py`、自律完走検査は`check_autonomous_cycle.py`、owner検査は`check_candidate_ownership.py`を正本とする。
+
+## 応答の完走目標
+
+四段階は認知モードを分ける内部checkpointであり、正常な会話終了地点ではない。
+
+privateで「作業の続きを」と指示された場合、正常なら一つの応答内で次まで進む。
+
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> private preflight -> PR ready -> ready_for_public_ci`
+
+`private_preparation`、`private_quality_audit`、`private_encoding`で、利用者へ追加の継続指示を要求しない。
+
+途中停止は次の理由だけを許し、`PRIVATE_STAGE_STATE.cycle_control`へ理由とexact next actionを残す。
+
+- `user_decision_required`
+- `checker_failure`
+- `external_dependency_unavailable`
+- `turn_capacity_checkpoint`
+
+詳細は`AUTONOMOUS_VISIBILITY_CYCLE.md`を正本とする。
 
 ## 1. private_preparation
 
@@ -113,7 +132,11 @@ public化を依頼する前に次を実行する。
 python _tools/check_private_release_preflight.py --with-tests
 ```
 
-public中は翻訳判断、fix追加、owner変更、正式束追加を再開しない。
+`translation_frozen/not_ready`は正常完了地点ではない。preflight、状態同期、PR readyまで進め、`ready_for_public_ci`で初めてprivate作業の完了とする。
+
+public中は翻訳判断、fix追加、owner変更、正式束追加を再開しない。public側はphase2成功とreview thread 0件を確認し、`awaiting_private_merge`まで連続して進める。
+
+private復帰後は同じ検証済みHEADをsquash統合して`merged`へ進める。統合前に次waveを開始しない。
 
 ## replenishment例外
 
