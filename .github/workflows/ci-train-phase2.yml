@@ -28,6 +28,8 @@ on:
       - "_tools/check_candidate_ownership.py"
       - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_private_release_preflight.py"
+      - "_tools/check_release_transport_state.py"
+      - "_tools/test_check_release_transport_state.py"
       - "_tools/orchestrate_release_ci.py"
       - "_tools/test_orchestrate_release_ci.py"
       - "_tools/write_applied_record.py"
@@ -147,6 +149,7 @@ jobs:
         run: |
           python _tools/test_check_candidate_ownership.py
           python _tools/test_check_next_task_packet_minimal.py
+          python _tools/test_check_release_transport_state.py
           python _tools/test_orchestrate_release_ci.py
           python _tools/test_write_applied_record.py
           python _tools/test_release_ci_triggers.py
