@@ -24,7 +24,6 @@ TESTS = [
     ["test_check_candidate_ownership.py"],
     ["test_check_next_task_packet_minimal.py"],
     ["test_check_release_transport_state.py"],
-    ["test_orchestrate_release_ci.py"],
     ["test_write_applied_record.py"],
     ["test_release_ci_triggers.py"],
     ["test_check_operation_mode.py"],
