@@ -37,10 +37,12 @@ release evidenceは`squash_merged`へ同期済み。
 
 - NEXT_TASK_PACKETをschema v6 minimal reservationへ縮小
 - focus key、人物声、FACT_DOUBT、owner、batch planningをprivate preparationへ移動
-- `release-ci`を単一orchestrator入口へ変更
-- 完全preflight後にRelation / Crossを固定HEADで実行
-- QA二本成功後だけApplyを起動
+- `release-ci`を`Release train orchestrator`一runの入口へ変更
+- preflight成功後にRelation / Cross再利用workflowを固定HEADで実行
+- Relation / Cross両方成功後だけApply再利用workflowを起動
+- Apply前は軽量輸送状態だけを検査し、厳密なrelease evidenceはphase2へ分離
 - ApplyがAPPLIED_FIXESを自動生成してからaudit statusを更新
+- 次回release evidenceはschema v2のorchestrator一runを使用
 - `finalize-release`は状態最終化だけを検査
 
 ## 次候補
@@ -56,5 +58,5 @@ PR #123の静的整合と差分境界を確認する。private検査で問題が
 - 制度PR #123の統合前に翻訳作業を再開しない。
 - `5649_1`のpreparationを開始しない。
 - 訳文、fix値、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを制度PRで変更しない。
-- Relation / Cross / Applyを手動で同時起動しない。
+- Relation / Cross成功前にApplyを開始しない。
 - ゲームフォルダへ配置しない。
