@@ -7,34 +7,32 @@
 ## 現在地
 
 - 実visibility: public
-- PR #128: squash統合済み
-- PR #128 merge SHA: `bd158307ec6e61b1e2339b28d847b62ebac0f525`
-- 制度PR #129 / #130: 統合済み
-- PR #131: open / ready / phase2検証待ち
-- train: `yuwen-mowen-train-12`
-- verified checkpoint: 第104束
-- 人物ペア適用済みowner: 1169
-- プロジェクト全体適用済み: 1545
-- release: `yuwen-mowen-train-12-r1`
-- CI HEAD: `07e3e088aac097e57b42658fda7f5176284de98c`
-- asset HEAD: `bd1f8f67f727f583596c88a0673e25e82cb6bb63`
+- PR #133: open / ready / phase2成功
+- train: `yuwen-mowen-train-13`
+- verified checkpoint: 第108束
+- 人物ペア適用済みowner: 1170
+- プロジェクト全体適用済み: 1546
+- release: `yuwen-mowen-train-13-r1`
+- CI HEAD: `d82aa496cb3af8844b8cd8d5f0d72cda616a44d5`
+- asset HEAD: `0bcf0807493c78f97c84324ecfc722aadf9528b7`
 - private stage: `translation_frozen`
-- train-12 transport: `awaiting_private_merge`
+- train-13 transport: `awaiting_private_merge`
 - cycle control: `target_reached / awaiting_private_merge`
+- unresolved review threads: 0
 
-## train-12
+## train-13
 
-`5805_3`から`5821_1`まで四packet・58行を連続監査し、12行を修正、46行を意図的保持とした。既存owner更新9、新規owner3。程鈺の弟子入り前の敬度、父から拒絶されたという推測の事実化、追跡場面の原文外説明、莫問の短い同意の古風化を修正した。
+`5825_1`から`5928_2`まで四packet・58行を連続監査し、9行を修正、49行を意図的保持とした。既存owner更新8、新規owner1、keep-only束1。程鈺の母から宇文逸への手紙で母の所属と宛先を戻し、烏長老殺害への断罪、包閔の死の脅し、`罄竹難書`の逐語訳、清虚から任務を受ける宇文逸の返答を修正した。
 
-初回公開preflightはcandidate owner snapshot差と前train由来の1キー差分を検出した。翻訳判断は変えず、snapshotと既存owner値だけを実測へ戻した。orchestrator run `30219687084`では完全preflight、Relation、Cross、Apply、release label cleanupがすべて成功し、12件の反映、pak再生成、適用記録、audit status更新を完了した。
+最初の公開preflightは、第106束の清虚発話が別人物ペアownerに属することを検出した。翻訳判断とfix値を変えず、candidate snapshotと集計だけを実測へ同期した。orchestrator run `30223353373`では完全preflight、Relation、Cross、Apply、deterministic finalization inputs、release label cleanupが成功し、9件の反映、pak再生成、未適用0件、適用記録、audit status更新を完了した。phase2 run `30223576829`はlocal finalization、GitHub workflow evidence、PR attachmentを検証して成功した。
 
 ## 次の作業
 
-PR #131の最新HEADへ`finalize-release`を付け、phase2でrelease evidence、Git lineage、checkpoint、handoff、owner、minimal reservation、回帰を検証する。phase2成功と未解決review thread 0件を確認後、ユーザーへprivate復帰を依頼する。
+repositoryをprivateへ戻した後、PR #133の最新検証済みHEADをsquash統合する。統合完了前に次waveを始めない。
 
 ## 禁止
 
 - public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- private確認前にPR #131をmergeしない。
-- PR #131統合前に`5825_1`のpreparationを始めない。
+- private確認前にPR #133をmergeしない。
+- PR #133統合前に`5928_6`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
