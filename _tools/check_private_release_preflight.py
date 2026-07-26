@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "_tools"
 
 BASE_CHECKS = [
+    ["check_state_json_integrity.py"],
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
     ["check_candidate_ownership.py", "--require-current-wave"],
@@ -23,6 +24,7 @@ BASE_CHECKS = [
     ["check_release_transport_state.py"],
 ]
 TESTS = [
+    ["test_check_state_json_integrity.py"],
     ["test_check_candidate_ownership.py"],
     ["test_check_fix_owner_delta.py"],
     ["test_check_next_task_packet_minimal.py"],
@@ -43,22 +45,57 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--with-tests", action="store_true")
     parser.add_argument("--repository-visibility", choices=("private", "public"), default="private")
+    parser.add_argument(
+        "--no-refresh-derived",
+        action="store_true",
+        help="private時のcandidate ownership snapshot自動更新を無効化する",
+    )
     return parser.parse_args()
+
+
+def run(command: list[str]) -> int:
+    path = TOOLS / command[0]
+    print(f"\n=== {command[0]} ===")
+    return subprocess.run(
+        [sys.executable, str(path), *command[1:]],
+        cwd=ROOT,
+        check=False,
+    ).returncode
 
 
 def main() -> int:
     args = parse_args()
-    checks = [["check_operation_mode.py", "--repository-visibility", args.repository_visibility], *BASE_CHECKS]
     failures: list[str] = []
+
+    if args.repository_visibility == "private" and not args.no_refresh_derived:
+        if run(["check_candidate_ownership.py", "--write"]) != 0:
+            failures.append("check_candidate_ownership.py --write")
+
+    checks = [["check_operation_mode.py", "--repository-visibility", args.repository_visibility], *BASE_CHECKS]
     for command in checks + (TESTS if args.with_tests else []):
-        path = TOOLS / command[0]
-        print(f"\n=== {command[0]} ===")
-        result = subprocess.run([sys.executable, str(path), *command[1:]], cwd=ROOT, check=False)
-        if result.returncode != 0:
+        if run(command) != 0:
             failures.append(command[0])
+
+    if subprocess.run(["git", "diff", "--check"], cwd=ROOT, check=False).returncode != 0:
+        failures.append("git diff --check")
+
     if failures:
         print("\nFAILED release preflight: " + ", ".join(failures))
         return 1
+
+    if args.repository_visibility == "private":
+        changed = subprocess.run(
+            ["git", "status", "--short"],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        print("\n=== Frozen release files to commit together ===")
+        print(changed.stdout.rstrip() or "(clean)")
+        print("Do not edit release files after this check and before the public CI window.")
+
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
 

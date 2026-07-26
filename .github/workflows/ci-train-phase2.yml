@@ -31,6 +31,9 @@ on:
       - "_tools/test_check_candidate_ownership.py"
       - "_tools/check_fix_owner_delta.py"
       - "_tools/check_private_release_preflight.py"
+      - "_tools/check_state_json_integrity.py"
+      - "_tools/test_check_state_json_integrity.py"
+      - "_tools/check_release_finalization.py"
       - "_tools/check_autonomous_cycle.py"
       - "_tools/test_check_autonomous_cycle.py"
       - "_tools/check_release_transport_state.py"
@@ -112,78 +115,29 @@ jobs:
       - name: Prepare diagnostics
         run: mkdir -p _ws_tmp/ci_train_phase2
 
-      - name: Validate operation mode
+      - name: Validate operation and visibility contracts
         shell: bash
         run: |
           set -o pipefail
           python _tools/check_operation_mode.py \
             --repository-visibility "${{ github.event.repository.visibility }}" \
             2>&1 | tee _ws_tmp/ci_train_phase2/operation_mode.txt
-
-      - name: Validate visibility preflight contract
-        shell: bash
-        run: |
-          set -o pipefail
           python _tools/check_visibility_preflight_contract.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/visibility_preflight.txt
 
-      - name: Validate release evidence
+      - name: Run local phase2-equivalent finalization checks
         shell: bash
         run: |
           set -o pipefail
-          python _tools/check_release_evidence.py --verify-git-lineage \
-            2>&1 | tee _ws_tmp/ci_train_phase2/release_evidence.txt
+          python _tools/check_release_finalization.py --with-tests \
+            2>&1 | tee _ws_tmp/ci_train_phase2/finalization.txt
+
+      - name: Verify GitHub workflow and PR evidence
+        shell: bash
+        run: |
+          set -o pipefail
           python _tools/check_release_evidence_github.py \
             2>&1 | tee _ws_tmp/ci_train_phase2/release_evidence_github.txt
-
-      - name: Validate handoff consistency
-        shell: bash
-        run: |
-          set -o pipefail
-          python _tools/check_handoff_consistency_v2.py --require-verified \
-            2>&1 | tee _ws_tmp/ci_train_phase2/handoff_consistency.txt
-
-      - name: Validate train, wave, cycle, owners, quality, and minimal reservation
-        shell: bash
-        run: |
-          set -o pipefail
-          python _tools/check_ci_train_manifest_v2.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/manifest.txt
-          python _tools/check_private_translation_stage.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/private_translation_wave.txt
-          python _tools/check_autonomous_cycle.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/autonomous_cycle.txt
-          python _tools/check_candidate_ownership.py --require-current-wave \
-            2>&1 | tee _ws_tmp/ci_train_phase2/candidate_ownership.txt
-          python _tools/check_fix_owner_delta.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/fix_owner_delta.txt
-          python _tools/check_translation_quality_gate.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/translation_quality_gate.txt
-          python _tools/check_next_task_packet.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/next_task_packet.txt
-          python _tools/check_batch_planning.py \
-            2>&1 | tee _ws_tmp/ci_train_phase2/batch_planning.txt
-
-      - name: Regression tests
-        run: |
-          python _tools/test_check_candidate_ownership.py
-          python _tools/test_check_next_task_packet_minimal.py
-          python _tools/test_check_release_transport_state.py
-          python _tools/test_check_autonomous_cycle.py
-          python _tools/test_write_applied_record.py
-          python _tools/test_release_ci_triggers.py
-          python _tools/test_check_visibility_preflight_contract.py
-          python _tools/test_check_operation_mode.py
-          python _tools/test_check_private_translation_stage.py
-          python _tools/test_check_release_evidence.py
-          python _tools/test_check_release_evidence_github.py
-          python _tools/test_check_handoff_consistency_v2.py
-          python _tools/test_check_ci_train_manifest.py
-          python _tools/test_check_next_task_packet_ownership.py
-          python _tools/test_check_batch_planning.py
-          python _tools/test_check_ci_train_state_v2.py
-          python _tools/test_check_translation_quality_gate.py
-          python _tools/check_fix_owner_delta.py
 
       - name: Upload phase2 diagnostics
         if: always()

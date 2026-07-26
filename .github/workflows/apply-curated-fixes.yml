@@ -9,6 +9,13 @@ on:
       head_ref:
         required: true
         type: string
+    outputs:
+      asset_head:
+        description: Final branch HEAD after optional generated commit
+        value: ${{ jobs.apply-and-build.outputs.asset_head }}
+      apply_changed:
+        description: Whether Apply produced a generated commit
+        value: ${{ jobs.apply-and-build.outputs.apply_changed }}
 
 permissions:
   contents: write
@@ -16,6 +23,9 @@ permissions:
 jobs:
   apply-and-build:
     runs-on: windows-latest
+    outputs:
+      asset_head: ${{ steps.release_result.outputs.asset_head }}
+      apply_changed: ${{ steps.release_result.outputs.apply_changed }}
     defaults:
       run:
         shell: bash
@@ -204,6 +214,23 @@ jobs:
             git lfs push origin HEAD
           fi
           git push origin HEAD:${{ inputs.head_ref }}
+
+      - name: Record deterministic finalization inputs
+        id: release_result
+        shell: bash
+        run: |
+          asset_head="$(git rev-parse HEAD)"
+          changed=false
+          if [[ "${{ steps.pending.outputs.changed }}" == "true" ||
+                "${{ steps.applied_record.outputs.changed }}" == "true" ||
+                "${{ steps.audit_status.outputs.changed }}" == "true" ]]; then
+            changed=true
+          fi
+          echo "asset_head=$asset_head" >> "$GITHUB_OUTPUT"
+          echo "apply_changed=$changed" >> "$GITHUB_OUTPUT"
+          printf 'ci_head=%s\nasset_head=%s\napply_changed=%s\n' \
+            "${{ inputs.target_sha }}" "$asset_head" "$changed" \
+            | tee _ws_tmp/apply_fixes/release_heads.txt
 
       - name: Upload QA reports
         if: always()
