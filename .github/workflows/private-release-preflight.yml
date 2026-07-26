@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   validate-private-release:
-    if: github.event.repository.private == true && github.event.pull_request.draft == false
+    if: github.event.repository.visibility == 'private' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     env:
       PYTHONIOENCODING: utf-8
