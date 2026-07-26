@@ -43,14 +43,14 @@ concurrency:
 jobs:
   extract:
     if: >-
-      github.actor != 'github-actions[bot]' &&
       github.event.repository.visibility == 'public' &&
-      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
+      github.event.label.name == 'release-qa'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout frozen QA HEAD
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -89,6 +89,7 @@ jobs:
       - name: Unit tests
         run: |
           python _tools/test_check_candidate_ownership.py
+          python _tools/test_check_next_task_packet_minimal.py
           python _tools/test_check_operation_mode.py
           python _tools/test_check_handoff_consistency_v2.py
           python _tools/test_check_release_evidence.py
