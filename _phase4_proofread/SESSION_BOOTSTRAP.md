@@ -102,13 +102,12 @@ bot書き戻しでは重い三本を再起動しない。`finalize-release`で�
 
 ## 現在のcold-start固定点
 
-- PR #120はsquash統合済み。
-- merge SHAは`ad6dfe2996a20d2bc6184be17ae1330fea7b6977`。
+- 制度PR #121はsquash統合済み。merge SHAは`9a4d7c12521355dcd7a590cff801695862f73c8b`。
 - verified checkpointは第84束、人物ペアowner1165、全体1539。
-- train-07 releaseは`yuwen-mowen-train-07-r1`、輸送は`merged`。
-- 制度PR #121がactiveで、candidate owner preflightと明示CI起動を導入中。
-- 第85束候補`5603_1`はreserved_onlyで、preparation・quality audit・encodingは未開始。
-- 制度PR #121の統合を翻訳再開より優先する。
+- train-08は第85〜88束をencoding済みで、private stageは`translation_frozen`。
+- train-08 totalsは4束・45行・18修正。第86束はkeep-only。
+- 輸送は`ready_for_public_ci`。draft PR作成後、public化して`release-ci`を明示起動する。
+- 次wave候補`5649_1`はreserved_only。train-08統合前にpreparationを開始しない。
 
 ## 禁止事項
 
