@@ -100,14 +100,14 @@ python _tools/check_private_release_preflight.py --with-tests
 PR作成、ready化、通常commitでは重いCIを起動しない。
 
 - `release-ci`: `Release train orchestrator`の通常入口
-- `ci-heavy-rerun`: orchestratorによる全工程再走
-- `release-qa`: orchestrator内部のRelation / Cross段階
-- `release-apply`: orchestrator内部のApply段階
+- `ci-heavy-rerun`: 同じorchestrator全工程の再走
 - `finalize-release`: 最終状態commit後のphase2専用
 
-orchestratorは完全preflight後にRelation / Crossを固定HEADで実行し、両方成功後だけApplyを開始する。ApplyはAPPLIED_FIXESとaudit statusを同じbot commitへ収録する。
+orchestratorは一つのpull_request run内で完全preflightを行い、Relation / Cross再利用workflowを同じHEADで実行し、両方成功後だけApply再利用workflowを開始する。ApplyはAPPLIED_FIXESとaudit statusを同じbot commitへ収録する。
 
-bot書き戻しではQAやApplyを再起動しない。`finalize-release`ではRelation / Cross / Applyを起動しない。
+bot書き戻しではorchestratorを再起動しない。`finalize-release`ではRelation / Cross / Applyを再実行しない。
+
+次回release evidenceはschema v2を使い、orchestrator run一つとその内部job成功を検証する。既存schema v1 releaseはそのまま保持する。
 
 ## 正本の読順
 
@@ -135,8 +135,9 @@ bot書き戻しではQAやApplyを再起動しない。`finalize-release`ではR
 
 - PR #122はsquash統合済み。merge SHAは`cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`。
 - verified checkpointは第88束、人物ペアowner1165、全体1541。
-- train-08 releaseは`yuwen-mowen-train-08-r1`、翻訳段階は`translation_frozen`。
-- 制度branch`agent/post-train08-release-orchestration`がactiveで、minimal reservation、直列release CI、適用記録自動生成を実装中。
+- train-08 releaseは`yuwen-mowen-train-08-r1`、翻訳段階は`translation_frozen`、輸送は`merged`。
+- 制度branch`agent/post-train08-release-orchestration`とdraft PR #123がactive。
+- PR #123はminimal reservation、一run直列release CI、適用記録自動生成、release evidence schema v2を導入する。
 - 次wave候補`5649_1`はschema v6のreserved_only。preparation・quality audit・encodingは未開始。
 - 制度改修の統合を翻訳再開より優先する。
 
@@ -151,7 +152,7 @@ bot書き戻しではQAやApplyを再起動しない。`finalize-release`ではR
 - encoding中の新しい翻訳判断
 - candidate packetをmanifestへ入れること
 - public CIから翻訳判断を再開すること
-- Relation / Cross / Applyを同時起動すること
+- Relation / Cross成功前にApplyを開始すること
 - 制度改修PRへ訳文、fix JSON、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを混ぜること
 - PR作成・ready化・通常commitによる重いCI自動起動の復活
 - post-merge状態PRを復活させること
