@@ -24,8 +24,7 @@ on:
 
 permissions:
   contents: read
-  actions: read
-  issues: write
+  actions: write
   pull-requests: read
 
 concurrency:
@@ -64,7 +63,7 @@ jobs:
             --with-tests \
             2>&1 | tee _ws_tmp/release_orchestrator/preflight.txt
 
-      - name: Run Relation and Cross before Apply
+      - name: Dispatch Relation and Cross before Apply
         shell: bash
         run: |
           python _tools/orchestrate_release_ci.py \
