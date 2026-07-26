@@ -32,7 +32,7 @@
     "latest_build": {
       "status": "verified_not_deployed",
       "pak": "_work/aaWanderingSword_JP_P.pak",
-      "applied_keys": 1542,
+      "applied_keys": 1545,
       "targets": [
         "CG表",
         "Npc",
@@ -42,6 +42,7 @@
       "record_index": [
         "_phase4_proofread/APPLIED_FIXES_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH100_2026-07-27.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH104_2026-07-27.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH10_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH11_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH12_2026-07-23.md",
@@ -300,8 +301,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch100_complete_next_scenes_pending",
-      "build_verified": "batch100_complete",
+      "translation_reaudited": "batch104_complete_next_scenes_pending",
+      "build_verified": "batch104_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
@@ -313,7 +314,7 @@
         "mowen_rows": 546,
         "yuwen_rows": 640
       },
-      "applied_keys": 1166,
+      "applied_keys": 1169,
       "provisional_findings": [
         "入門直後から品剣大会期まで宇文師弟・師弟には一次資料の根拠がある",
         "呼称の敬意と弟弟子への全面敬体は別であり、兄弟子の地声は自然な常体",
