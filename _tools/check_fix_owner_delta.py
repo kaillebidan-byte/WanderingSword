@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""release基準と現HEADのfix owner集合・値・監査範囲・構造を比較する。"""
+"""release基準と現HEADのfix owner集合・訳値・監査範囲・構造を比較する。"""
 from __future__ import annotations
 
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -20,7 +21,8 @@ FIELD_SEPARATOR = "\x1f"
 DEFAULT_TARGET = "CG表"
 DEFAULT_NAMESPACE = "QuestDlgs"
 sys.path.insert(0, str(ROOT / "_tools"))
-from validate_fixes_json import validate_files  # noqa: E402
+import locres  # noqa: E402
+from validate_fixes_json import locres_path, validate_files  # noqa: E402
 
 
 def load_object(path: Path) -> dict[str, Any]:
@@ -71,6 +73,17 @@ def git_text(ref: str, path: str) -> str:
     return completed.stdout
 
 
+def git_bytes(ref: str, path: str) -> bytes:
+    completed = subprocess.run(
+        ["git", "show", f"{ref}:{path}"], cwd=ROOT, check=False,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    if completed.returncode != 0:
+        message = completed.stderr.decode("utf-8", "replace").strip()
+        raise SystemExit(f"ERROR: git show failed for {ref}:{path}: {message}")
+    return completed.stdout
+
+
 def base_owner_objects(ref: str) -> list[tuple[str, dict[str, Any]]]:
     completed = subprocess.run(
         ["git", "ls-tree", "-r", "--name-only", ref, "_phase4_proofread"],
@@ -89,6 +102,39 @@ def base_owner_objects(ref: str) -> list[tuple[str, dict[str, Any]]]:
             raise SystemExit(f"ERROR: base owner file top level must be object: {path}")
         result.append((path, value))
     return result
+
+
+def base_translation_values(ref: str, keys: set[str]) -> tuple[dict[str, str], list[str]]:
+    """前回releaseのlocresから、owner keyごとの実際の基準訳値を読む。"""
+    errors: list[str] = []
+    targets = sorted({key.split(FIELD_SEPARATOR, 1)[0] for key in keys})
+    target_values: dict[str, dict[str, str]] = {}
+    with tempfile.TemporaryDirectory(prefix="ws-owner-base-") as temp_dir:
+        for index, target in enumerate(targets):
+            try:
+                current_path = Path(locres_path(target))
+                relative = current_path.relative_to(ROOT).as_posix()
+                data = git_bytes(ref, relative)
+                temp_path = Path(temp_dir) / f"{index}.locres"
+                temp_path.write_bytes(data)
+                _, values, *_ = locres.parse(str(temp_path))
+                target_values[target] = values
+            except (FileNotFoundError, OSError, AssertionError, ValueError) as exc:
+                errors.append(f"cannot load release-base locres for {target}: {exc}")
+
+    result: dict[str, str] = {}
+    for full_key in sorted(keys):
+        parts = full_key.split(FIELD_SEPARATOR, 2)
+        if len(parts) != 3:
+            errors.append(f"invalid full key while reading base locres: {full_key!r}")
+            continue
+        target, namespace, key = parts
+        value = target_values.get(target, {}).get(namespace + FIELD_SEPARATOR + key)
+        if value is None:
+            errors.append(f"release-base locres lacks key: {full_key!r}")
+            continue
+        result[full_key] = value
+    return result, errors
 
 
 def current_candidate_keys() -> tuple[set[str], list[str]]:
@@ -120,7 +166,8 @@ def current_candidate_keys() -> tuple[set[str], list[str]]:
 
 
 def validate_integrity(
-    base_values: dict[str, str],
+    base_owner_values: dict[str, str],
+    base_translation: dict[str, str],
     current_values: dict[str, str],
     current_owners: dict[str, list[str]],
     candidate_keys: set[str],
@@ -133,23 +180,27 @@ def validate_integrity(
     duplicates = {key: paths for key, paths in current_owners.items() if len(paths) != 1}
     if duplicates:
         errors.append(f"duplicate fix owners ({len(duplicates)}): {duplicates!r}")
-    removed = sorted(set(base_values) - set(current_values))
-    added = sorted(set(current_values) - set(base_values))
-    changed = sorted(
+    removed = sorted(set(base_owner_values) - set(current_values))
+    added = sorted(set(current_values) - set(base_owner_values))
+    changed_translation = sorted(
         key for key, value in current_values.items()
-        if key not in base_values or base_values[key] != value
+        if key in base_translation and base_translation[key] != value
     )
-    outside = sorted(set(changed) - candidate_keys)
+    outside = sorted(set(changed_translation) - candidate_keys)
     if removed:
         errors.append(f"owner keys removed from release base ({len(removed)}): {removed!r}")
     if len(added) != expected_new:
         errors.append(f"new owner key count mismatch: observed={len(added)} expected={expected_new}; added={added!r}")
     if len(current_values) != expected_total:
         errors.append(f"current unique owner total mismatch: observed={len(current_values)} expected={expected_total}")
-    if len(changed) != expected_changed:
-        errors.append(f"changed fix value count mismatch: observed={len(changed)} expected={expected_changed}; changed={changed!r}")
+    if len(changed_translation) != expected_changed:
+        errors.append(
+            "translation fix count mismatch against release-base locres: "
+            f"observed={len(changed_translation)} expected={expected_changed}; "
+            f"changed={changed_translation!r}"
+        )
     if outside:
-        errors.append(f"fix values changed outside current audited candidate rows ({len(outside)}): {outside!r}")
+        errors.append(f"translation values changed outside current audited candidate rows ({len(outside)}): {outside!r}")
     return errors
 
 
@@ -161,15 +212,16 @@ def main() -> int:
         print("ERROR: CURRENT_WORK.translation_base_commit is missing")
         return 1
 
-    base_values, _, base_errors = owner_map_from_objects(base_owner_objects(base_ref))
+    base_owner_values, _, base_errors = owner_map_from_objects(base_owner_objects(base_ref))
     current_objects = current_owner_objects()
     current_values, current_owners, current_errors = owner_map_from_objects(current_objects)
+    base_translation, translation_errors = base_translation_values(base_ref, set(current_values))
     candidate_keys, candidate_errors = current_candidate_keys()
     totals = manifest.get("totals", {})
     expected_new = totals.get("new_project_keys")
     expected_changed = totals.get("fix_keys")
     base_total = manifest.get("base_checkpoint", {}).get("project_applied_keys")
-    errors = [*base_errors, *current_errors, *candidate_errors]
+    errors = [*base_errors, *current_errors, *translation_errors, *candidate_errors]
     for label, value in (("new_project_keys", expected_new), ("fix_keys", expected_changed), ("base project_applied_keys", base_total)):
         if not isinstance(value, int) or value < 0:
             errors.append(f"manifest {label} must be a non-negative integer")
@@ -178,11 +230,11 @@ def main() -> int:
     if not isinstance(expected_changed, int) or expected_changed < 0:
         expected_changed = 0
     if not isinstance(base_total, int) or base_total < 0:
-        base_total = len(base_values)
-    if len(base_values) != base_total:
-        errors.append(f"release base owner total mismatch: measured={len(base_values)} checkpoint={base_total}")
+        base_total = len(base_owner_values)
+    if len(base_owner_values) != base_total:
+        errors.append(f"release base owner total mismatch: measured={len(base_owner_values)} checkpoint={base_total}")
     errors.extend(validate_integrity(
-        base_values, current_values, current_owners, candidate_keys,
+        base_owner_values, base_translation, current_values, current_owners, candidate_keys,
         expected_new=expected_new,
         expected_total=base_total + expected_new,
         expected_changed=expected_changed,
@@ -194,8 +246,9 @@ def main() -> int:
 
     print("=== Private fix integrity ===")
     print(f"base ref: {base_ref}")
-    print(f"base unique owners: {len(base_values)}")
+    print(f"base unique owners: {len(base_owner_values)}")
     print(f"current unique owners: {len(current_values)}")
+    print(f"release-base translation keys: {len(base_translation)}")
     print(f"audited candidate keys: {len(candidate_keys)}")
     print(f"fix structure: checked={checked} pending={pending} applied={applied}")
     for error in errors:
@@ -203,7 +256,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: owner history, audited scope, and control-token structure are intact")
+    print("OK: owner history, audited translation scope, and control-token structure are intact")
     return 0
 
 
