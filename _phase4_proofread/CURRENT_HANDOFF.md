@@ -6,34 +6,30 @@
 
 ## 現在地
 
-- 実visibility: public（制度PR検証窓）
-- PR #126: squash統合済み
-- PR #126 merge SHA: `91ec1eb8796f8bb32dc3fc6d1493a0f9b59e34f2`
-- PR #127: open / ready / 制度改修検証中
-- train: `yuwen-mowen-train-10`
+- 実visibility: private
+- PR #127: squash統合済み
+- PR #127 merge SHA: `94f86f4f04ff08d6a4b2c3cd5952ef9864d89e93`
+- PR #128: open / draft / private wave完成
+- train: `yuwen-mowen-train-11`
 - verified checkpoint: 第96束
+- private review: 第97〜100束
 - 人物ペア適用済みowner: 1166
 - プロジェクト全体適用済み: 1542
-- release: `yuwen-mowen-train-10-r1`
 - private stage: `translation_frozen`
-- train-10 transport: `merged`
-- cycle control: `target_reached / merged`
+- train-11 transport: `ready_for_public_ci`
+- cycle control: `target_reached / ready_for_public_ci`
 
-## 制度PR #127
+## train-11
 
-train-10で公開CI中に見つかったowner重複、履歴owner欠落、未監査行混入、制御タグ欠落を、公開依頼前のprivate preflightで拒否する。
-
-修正件数はownerファイル間の値差ではなく、前回verified releaseのlocresと現owner値を比較して測る。owner移管・保持行の新規owner化は翻訳修正数へ混ぜない。
-
-Release train orchestrator run `30201330395`では、完全preflight、Relation、Cross、Applyが成功した。Apply時点の未適用差分は0件で、資産commitは発生していない。
+`5784_9`から`5803_2`まで四packet・58行を連続監査し、10行を修正対象、48行を意図的保持とした。既存owner更新は3キー、新規ownerは7キー。典故候補`四海之内皆兄弟`は定着句として像を保った。
 
 ## 次の作業
 
-PR #127の最新HEADで、train-10のsquash lineage、merged transport、owner完全性ゲートをphase2で再検証する。phase2成功と未解決review thread 0件を確認後、ユーザーへprivate復帰を依頼し、private確認後にPR #127を同じHEADでsquash統合する。
+ユーザーへ公開CI窓を依頼する。公開後、PR #128で`release-ci`を起動し、orchestrator、state finalization、phase2、review thread 0件確認まで進めて`awaiting_private_merge`にする。
 
 ## 禁止
 
 - public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- private確認前にPR #127をmergeしない。
-- PR #127統合前に`5784_9`のpreparationを始めない。
+- private確認前にPR #128をmergeしない。
+- PR #128統合前に`5805_3`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
