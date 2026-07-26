@@ -28,13 +28,14 @@ concurrency:
 jobs:
   lint:
     if: >-
-      github.actor != 'github-actions[bot]' &&
       github.event.repository.visibility == 'public' &&
-      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
+      github.event.label.name == 'release-qa'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout frozen QA HEAD
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
