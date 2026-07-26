@@ -24,6 +24,7 @@ BASE_CHECKS = [
 ]
 TESTS = [
     ["test_check_candidate_ownership.py"],
+    ["test_check_fix_owner_delta.py"],
     ["test_check_next_task_packet_minimal.py"],
     ["test_check_release_transport_state.py"],
     ["test_check_autonomous_cycle.py"],
