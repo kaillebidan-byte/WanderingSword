@@ -24,7 +24,7 @@ visibility変更はGitHub Actions workflowの責務外である。現在のmanua
 ## privateで公開前に完了すること
 
 1. wave preparation、quality audit、encodingを完了する。
-2. candidate作成時とencoding後に全owner snapshotを生成する。
+2. candidate作成時に全owner snapshotを生成し、quality auditへ渡した時点の監査記録として固定する。
 3. manifest、quality gate、private stage、handoffを同期する。
 4. 次waveはschema v6のminimal reservationだけを置く。
 5. 翻訳を`translation_frozen`へ進める。
@@ -34,11 +34,11 @@ visibility変更はGitHub Actions workflowの責務外である。現在のmanua
 python _tools/check_private_release_preflight.py --with-tests
 ```
 
-preflightはoperation mode、wave、cycle control、candidate owner、manifest、minimal reservation、batch planning契約、quality gate、Apply前輸送状態、workflow構造回帰を一括検査する。失敗中は公開CI窓を開かない。
+preflightはoperation mode、wave、cycle control、保存snapshot構造、現在のlive owner、manifest、minimal reservation、batch planning契約、quality gate、Apply前輸送状態、workflow構造回帰を一括検査する。複数owner、candidate外変更、owner・修正集計不一致がある間は公開CI窓を開かない。
 
 preparation、quality audit、encoding、translation_frozen/not_readyは内部checkpointであり、正常な会話終了地点ではない。PR readyと`ready_for_public_ci`まで連続して進める。
 
-private中はGitHub Actionsを前提にしない。上記preflightは作業環境で実行し、GitHub-hosted runnerが必要な輸送検査だけをpublic CI窓へ送る。
+private中はGitHub Actionsを前提にしない。上記preflightを実行できる作業環境では同じlive owner検査を行い、GitHub-hosted runnerが必要な輸送検査だけをpublic CI窓へ送る。保存snapshotとlive ownerの差だけを理由にsnapshotを書き換えない。
 
 ## minimal reservation
 
@@ -73,7 +73,7 @@ private中はGitHub Actionsを前提にしない。上記preflightは作業環�
 1. repository metadataでpublicを確認する。
 2. release PRと固定HEADを確認する。
 3. `release-ci`ラベルを付ける。
-4. `Release train orchestrator`が固定HEADで完全preflightを行う。
+4. `Release train orchestrator`が固定HEADでlive ownerを含む完全preflightを行う。
 5. preflight成功後、同じrun内で再利用workflowのRelation / Crossを並列実行する。
 6. Relation / Cross両方が成功した場合だけApplyを開始する。
 7. Applyは開始時にPR branchが固定release HEADから動いていないことを確認する。
@@ -88,7 +88,9 @@ private中はGitHub Actionsを前提にしない。上記preflightは作業環�
 
 Relation、Cross、Apply、state finalization、phase2の間で追加の「作業の続きを」を要求しない。
 
-`release-ci`または`ci-heavy-rerun`が付いた状態でorchestratorが失敗した場合、ラベルは残る。人間がpreflight修復commitをpushすると、同じorchestratorを新HEADへ自動再実行する。手動でラベルを付け直す必要はない。
+`release-ci`または`ci-heavy-rerun`が付いた状態でorchestratorが安全検査に失敗した場合、ラベルは残る。人間が必要な輸送修復commitをpushすると、同じorchestratorを新HEADへ自動再実行する。手動でラベルを付け直す必要はない。
+
+保存snapshotとlive ownerの差だけで、安全違反がない場合は診断表示に留める。snapshot修復commitや再走を要求しない。
 
 orchestratorが成功した場合はcomplete jobがrelease系ラベルを自動解除する。その後の通常のfinalization commitは`synchronize`されてもorchestratorを再走しない。
 
@@ -121,7 +123,7 @@ release label cleanup
 Apply前に実行する。
 
 - operation mode
-- current wave owner
+- current waveの保存snapshot構造とlive owner
 - fix JSONとquality gate
 - manifest readiness
 - cycle completion / pause semantics
@@ -129,6 +131,8 @@ Apply前に実行する。
 - batch planningのprivate延期契約
 - Apply前輸送状態
 - workflow構造回帰
+
+保存snapshotはquality audit時点の記録であり、release時の現在owner正本ではない。live ownerの複数所有、fix owner delta、candidate範囲、集計を安全条件とする。
 
 release evidence、audit status、verified checkpointの最終一致は要求しない。
 
@@ -146,6 +150,8 @@ QA成功後だけ実行する。
 - 適用記録生成後に`audit_status.json`を更新する
 - 資産、適用記録、audit statusを一つのbot commitへ収録する
 
+Apply中もlive ownerを再実測する。保存snapshot差だけでは停止しないが、複数ownerや監査範囲違反は停止する。
+
 Apply中はrelease evidenceやverified checkpointの完成を要求しない。これらはbot commit後のfinalizationで確定する。
 
 ### finalize-release
@@ -158,6 +164,7 @@ Apply中はrelease evidenceやverified checkpointの完成を要求しない。�
 - handoff
 - minimal next reservation
 - cycle control
+- live ownerとfix owner delta
 - GitHub run evidence
 
 を厳密に検査する。
@@ -192,6 +199,7 @@ schedulerはPR番号、PR HEAD、train ID、stage、transport statusを冪等キ
 - FACT_DOUBT、ALLUSION_REVIEW、人物声の再検討
 - 正式束追加
 - 次候補予約へのprivate preparation情報の復活
+- 保存snapshotをlive ownerに合わせるだけの修復commit
 - ラベルのない通常pushをトリガーにした重いCI起動
 - post-merge状態専用PR
 
@@ -199,7 +207,7 @@ schedulerはPR番号、PR HEAD、train ID、stage、transport statusを冪等キ
 
 ## public中の局所修正
 
-同じPRで許すのは、原文・訳文・fix値・品質判断を変えない輸送修正だけである。翻訳再判断へ広がる場合は`public_ci_blocked`としてprivateへ戻す。
+同じPRで許すのは、原文・訳文・fix値・品質判断を変えない輸送修正だけである。翻訳再判断へ広がる場合は`public_ci_blocked`としてprivateへ戻す。保存snapshotとlive ownerの差だけは修正対象にせず、live安全検査の結果を正本とする。
 
 ## private復帰後
 
@@ -227,6 +235,8 @@ schedulerはPR番号、PR HEAD、train ID、stage、transport statusを冪等キ
 - phase2成功前のawaiting_private_merge
 - 現在のmanual cycleでprivate確認前にmergeすること
 - merge前の次wave開始
+- 保存snapshotをrelease時の現在owner正本として扱うこと
+- snapshot差だけを理由に公開修復commitを作ること
 - activeなrelease/finalizeラベルを持たない`synchronize`による重いCI自動起動
 - bot commitによる重いCIの再帰起動
 - release evidenceなしの統合
