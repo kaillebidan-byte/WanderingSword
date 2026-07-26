@@ -14,7 +14,7 @@
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1541
 - previous release: `yuwen-mowen-train-08-r1`
-- private stage: `private_quality_audit`
+- private stage: `private_encoding`
 
 ## 制度改修
 
@@ -34,15 +34,15 @@ PR #123はsquash統合済み。NEXT_TASK_PACKETのminimal reservation化と、pr
 - `5654_1 + 5654_4`
 - `5654_6 + 5654_7`
 
-全candidateのowner snapshotは既存`fixes_relation_yuwen_mowen_20260723_batch11.json`を指し、未所有・複数ownerはない。queueはseal済み。翻訳判断、fix / keep、修正JSON、review record、正式束、輸送集計はまだ作っていない。
+全candidateのowner snapshotは既存`fixes_relation_yuwen_mowen_20260723_batch11.json`を指し、未所有・複数ownerはない。queueはseal済み。private quality auditを完了し、監査記録へfix / keep判断を固定した。修正JSON、review record、正式束、輸送集計はまだ作っていない。
 
 ## 次の作業
 
-sealed queue全体のprivate quality auditを行う。人物が相手へ実際に発する声、原文・現訳・前後・時系列を優先し、fix / keep判断と候補訳だけを`AUDIT_YUWEN_MOWEN_TRAIN09_WAVE01_2026-07-26.md`へ固定する。
+`AUDIT_YUWEN_MOWEN_TRAIN09_WAVE01_2026-07-26.md`に固定した判断だけを既存ownerへ反映する。制御タグを既存ownerから保全し、packetごとのreview recordと正式束を作る。
 
 ## 禁止
 
-- quality auditへ輸送件数、release残量、正式束番号を渡さない。
-- quality audit中にfix JSON、owner変更、review record、正式束を作らない。
+- encoding中に監査外の翻訳判断を追加しない。
+- keep行を書き換えず、制御タグをcandidate表示本文から上書きしない。
 - public中に翻訳判断を再開しない。
 - ゲームフォルダへ配置しない。
