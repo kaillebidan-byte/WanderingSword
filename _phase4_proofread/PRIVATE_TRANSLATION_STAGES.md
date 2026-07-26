@@ -61,7 +61,7 @@ snapshotには次を持つ。
 - 対象行数
 - target / namespace
 
-複数ownerが存在するcandidateはsealできない。
+このsnapshotはquality auditへ渡した時点のowner認識を保存する監査記録であり、encoding後に上書きしない。複数ownerが存在するcandidateはsealできない。
 
 通常seal条件:
 
@@ -86,7 +86,7 @@ sealed queue全体を続けて監査する。
 許可:
 
 - 原文の意味、強弱、発話役割、人物声、設定追加、欠落、不自然さの判断
-- snapshot済みowner情報の参照
+- preparation時snapshot済みowner情報の参照
 
 禁止:
 
@@ -111,14 +111,16 @@ sealed queue全体を続けて監査する。
 - 新しい翻訳判断
 - 未監査packetの収録
 - 一部未収録での凍結
+- preparation時snapshotの書き換え
 
-encoding後、fix ownerの実状態が変わるため、全candidateへ再度`--write`を実行する。その後、次を必須とする。
+encoding後はowner実状態が変わり得る。保存snapshotへ合わせるのではなく、次のlive検査で現在owner、複数owner、candidate範囲、fix差分を確認する。
 
 ```bash
-python _tools/check_candidate_ownership.py --require-current-wave
+python _tools/check_candidate_ownership.py --release-live
+python _tools/check_fix_owner_delta.py
 ```
 
-preparation時snapshotのまま凍結してはならない。
+保存snapshotとの差は診断であり、それだけでは失敗にしない。複数owner、監査範囲外変更、owner・修正集計不一致は失敗にする。
 
 ## 4. translation_frozen
 
@@ -131,6 +133,8 @@ public化を依頼する前に次を実行する。
 ```bash
 python _tools/check_private_release_preflight.py --with-tests
 ```
+
+preflight、Apply、finalizationは同じlive owner検査を使う。保存snapshot差だけを理由に公開修復commitを作らない。
 
 `translation_frozen/not_ready`は正常完了地点ではない。preflight、状態同期、PR readyまで進め、`ready_for_public_ci`で初めてprivate作業の完了とする。
 
