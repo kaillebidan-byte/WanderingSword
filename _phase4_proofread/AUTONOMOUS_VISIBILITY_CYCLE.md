@@ -1,12 +1,14 @@
-# 自律visibility cycle契約
+# 自律作業cycle契約
 
 ## 目的
 
-現在の手動public/private反復を、安全性を保ったまま将来のscheduled automationへ移せる形に固定する。
+現在の手動private/public/private反復を、まず安全で決定的な形に固定する。
+
+将来はrepositoryをpublicのまま維持し、現在privateで行っている準備・品質監査・収録と、public CI・統合までをscheduled automationで一続きに実行する。その将来モードでも同じ段階機械と`cycle_control`を再利用する。
 
 翻訳の準備・品質監査・収録・凍結という認知段階は維持する。ただし、段階境界は内部checkpointであり、通常の会話終了地点ではない。
 
-## 一cycleの標準完了地点
+## 現在の手動cycle
 
 ### private作業
 
@@ -30,7 +32,7 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 
 ## cycle_control
 
-`PRIVATE_STAGE_STATE.json.cycle_control`をschedulerとcold startの機械入口とする。
+`PRIVATE_STAGE_STATE.json.cycle_control`をcold start、現在の手動cycle、将来のschedulerの共通機械入口とする。
 
 必須項目:
 
@@ -60,7 +62,7 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 
 ### target_reached
 
-visibility変更またはcycle完了を待つ正常停止。`continuation_required=false`、`stop_reason=null`、`exact_next_action=null`とする。
+現在の手動cycleではvisibility変更またはcycle完了を待つ正常停止。`continuation_required=false`、`stop_reason=null`、`exact_next_action=null`とする。
 
 許可checkpoint:
 
@@ -68,15 +70,23 @@ visibility変更またはcycle完了を待つ正常停止。`continuation_requir
 - `awaiting_private_merge`
 - `merged`
 
-## scheduler向け境界
+## 将来のscheduled mode
 
-visibility変更はリポジトリ内workflowの責務外とする。schedulerはrepository metadataと`cycle_control`を照合してから外部操作を行う。
+将来モードは`always_public_full_pipeline`とする。repository visibilityをschedulerが変更する方式ではない。
 
-- private + `ready_for_public_ci`: public窓を開く候補
-- public + `awaiting_private_merge`: privateへ戻す候補
-- private + `merged`: cycle完了
+- repositoryはpublicのまま維持する。
+- 現在privateで行う`private_preparation`、`private_quality_audit`、`private_encoding`も、段階境界と禁止事項を維持したままscheduled workerが実行する。
+- 同じ実行でtranslation freeze、preflight、orchestrator、Apply、phase2、review thread確認、squash mergeまで進める。
+- schedulerはvisibilityを変更せず、時刻起動、排他制御、冪等性、失敗時停止、再開だけを担当する。
+- publicであることを翻訳判断の自由化とは解釈しない。各段階の権限と認知分離は現在の契約をそのまま使う。
 
-schedulerはPR番号、PR HEAD、train ID、transport statusを冪等キーとして保持し、同じ状態へvisibility変更やラベル付与を重複実行しない。
+将来のschedulerはPR番号、PR HEAD、train ID、stage、transport statusを冪等キーとして保持し、同じ段階、ラベル、Apply、mergeを重複実行しない。
+
+## 現在のscheduler境界
+
+このPRではscheduled workflow、時刻設定、常時public運用を実装しない。現在は手動のvisibility反復を安全に確定することだけを対象とする。
+
+現在のvisibility変更は引き続きユーザーの外部操作であり、各応答の最初にrepository metadataを確認する。
 
 ## 禁止
 
@@ -84,5 +94,7 @@ schedulerはPR番号、PR HEAD、train ID、transport statusを冪等キーと�
 - `paused`なのに理由や次操作を残さないこと
 - public中に翻訳判断を再開すること
 - phase2成功前に`awaiting_private_merge`へ進めること
-- private確認前にmergeすること
+- 現在の手動cycleでprivate確認前にmergeすること
 - merge完了前に次waveを始めること
+- 将来schedulerがrepository visibilityを切り替える前提を置くこと
+- 常時public化だけを理由に段階分離・owner検査・quality gateを省略すること
