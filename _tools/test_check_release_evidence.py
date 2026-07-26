@@ -20,7 +20,7 @@ def load_module():
     return module
 
 
-def sample_current() -> dict:
+def sample_current(kind: str = "pr_release_v1") -> dict:
     return {
         "last_completed_batch": 61,
         "pair_applied_keys": 1166,
@@ -33,7 +33,7 @@ def sample_current() -> dict:
             "applied_record": "_phase4_proofread/APPLIED_FIXES_DEMO.md",
             "produced_by_pr": 106,
             "release_identity": {
-                "kind": "pr_release_v1",
+                "kind": kind,
                 "release_id": "demo-r1",
                 "evidence": "_phase4_proofread/RELEASE_EVIDENCE_DEMO.json",
                 "pr": 106,
@@ -43,9 +43,8 @@ def sample_current() -> dict:
     }
 
 
-def sample_evidence() -> dict:
+def common() -> dict:
     return {
-        "schema_version": 1,
         "status": "verified",
         "release_id": "demo-r1",
         "train_id": "demo-train",
@@ -53,19 +52,37 @@ def sample_evidence() -> dict:
         "ci_head": "a" * 40,
         "asset_head": "b" * 40,
         "applied_record": "_phase4_proofread/APPLIED_FIXES_DEMO.md",
-        "counts": {
-            "batch": 61,
-            "pair_applied_keys": 1166,
-            "project_applied_keys": 1518,
-            "pending_fixes": 0,
-        },
+        "counts": {"batch": 61, "pair_applied_keys": 1166, "project_applied_keys": 1518, "pending_fixes": 0},
+        "lineage": {"mode": "branch_ancestor", "merge_sha": None},
+    }
+
+
+def sample_v1() -> dict:
+    value = common()
+    value.update({
+        "schema_version": 1,
         "runs": {
             "relation": {"id": 1, "workflow": "Relation audit extraction", "head_sha": "a" * 40, "conclusion": "success"},
             "cross": {"id": 2, "workflow": "Cross register QA", "head_sha": "a" * 40, "conclusion": "success"},
             "apply": {"id": 3, "workflow": "Apply curated localization fixes", "head_sha": "a" * 40, "conclusion": "success"},
         },
-        "lineage": {"mode": "branch_ancestor", "merge_sha": None},
-    }
+    })
+    return value
+
+
+def sample_v2() -> dict:
+    value = common()
+    value.update({
+        "schema_version": 2,
+        "orchestrator": {
+            "id": 10,
+            "workflow": "Release train orchestrator",
+            "head_sha": "a" * 40,
+            "event": "pull_request",
+            "conclusion": "success",
+        },
+    })
+    return value
 
 
 def main() -> None:
@@ -74,22 +91,24 @@ def main() -> None:
     record.parent.mkdir(parents=True, exist_ok=True)
     record.write_text("demo\n", encoding="utf-8")
     try:
-        assert module.validate_evidence(sample_evidence(), sample_current()) == []
+        assert module.validate_evidence(sample_v1(), sample_current()) == []
+        assert module.validate_evidence(sample_v2(), sample_current("pr_release_v2")) == []
 
-        bad = copy.deepcopy(sample_evidence())
+        bad = copy.deepcopy(sample_v1())
         bad["counts"]["project_applied_keys"] += 1
-        errors = module.validate_evidence(bad, sample_current())
-        assert any("project_applied_keys mismatch" in error for error in errors)
+        assert any("project_applied_keys mismatch" in error for error in module.validate_evidence(bad, sample_current()))
 
-        bad = copy.deepcopy(sample_evidence())
+        bad = copy.deepcopy(sample_v1())
         bad["runs"]["apply"]["workflow"] = "wrong"
-        errors = module.validate_evidence(bad, sample_current())
-        assert any("runs.apply.workflow" in error for error in errors)
+        assert any("runs.apply.workflow" in error for error in module.validate_evidence(bad, sample_current()))
 
-        bad = copy.deepcopy(sample_evidence())
+        bad = copy.deepcopy(sample_v2())
+        bad["orchestrator"]["workflow"] = "wrong"
+        assert any("orchestrator.workflow" in error for error in module.validate_evidence(bad, sample_current("pr_release_v2")))
+
+        bad = copy.deepcopy(sample_v1())
         bad["lineage"] = {"mode": "squash_merged", "merge_sha": "bad"}
-        errors = module.validate_evidence(bad, sample_current())
-        assert any("merge_sha" in error for error in errors)
+        assert any("merge_sha" in error for error in module.validate_evidence(bad, sample_current()))
     finally:
         record.unlink(missing_ok=True)
 
