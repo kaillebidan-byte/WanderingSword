@@ -9,7 +9,7 @@
 - 実visibility: private
 - PR #127: squash統合済み
 - PR #127 merge SHA: `94f86f4f04ff08d6a4b2c3cd5952ef9864d89e93`
-- PR #128: open / draft / private wave完成
+- PR #128: open / ready / private wave完成
 - train: `yuwen-mowen-train-11`
 - verified checkpoint: 第96束
 - private review: 第97〜100束
