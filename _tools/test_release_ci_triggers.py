@@ -12,12 +12,18 @@ def read(name: str) -> str:
     return (WORKFLOWS / name).read_text(encoding="utf-8")
 
 
-def assert_label_only(name: str) -> str:
+def assert_labeled_repair_rerun(name: str, labels: tuple[str, ...]) -> str:
     text = read(name)
-    assert "types:\n      - labeled" in text, name
-    for forbidden in ("      - opened\n", "      - reopened\n", "      - ready_for_review\n", "      - synchronize\n"):
+    assert "types:\n      - labeled\n      - synchronize" in text, name
+    for forbidden in ("      - opened\n", "      - reopened\n", "      - ready_for_review\n"):
         assert forbidden not in text, f"{name}: unexpected automatic trigger {forbidden.strip()}"
+    assert "github.actor != 'github-actions[bot]'" in text, name
     assert "github.event.repository.visibility == 'public'" in text, name
+    assert "github.event.action == 'labeled'" in text, name
+    assert "github.event.action == 'synchronize'" in text, name
+    for label in labels:
+        assert f"github.event.label.name == '{label}'" in text, f"{name}: missing labeled trigger for {label}"
+        assert f"contains(github.event.pull_request.labels.*.name, '{label}')" in text, f"{name}: missing repair rerun for {label}"
     return text
 
 
@@ -29,9 +35,10 @@ def assert_reusable(name: str) -> str:
 
 
 def main() -> None:
-    orchestrator = assert_label_only("release-train-orchestrator.yml")
-    assert "github.event.label.name == 'release-ci'" in orchestrator
-    assert "github.event.label.name == 'ci-heavy-rerun'" in orchestrator
+    orchestrator = assert_labeled_repair_rerun(
+        "release-train-orchestrator.yml",
+        ("release-ci", "ci-heavy-rerun"),
+    )
     assert "check_private_release_preflight.py" in orchestrator
     assert "uses: ./.github/workflows/relation-audit.yml" in orchestrator
     assert "uses: ./.github/workflows/cross-register-qa.yml" in orchestrator
@@ -55,13 +62,12 @@ def main() -> None:
     assert "write_applied_record.py" in apply
     assert "git status --porcelain" in apply
 
-    phase2 = assert_label_only("ci-train-phase2.yml")
-    assert "github.event.label.name == 'finalize-release'" in phase2
+    phase2 = assert_labeled_repair_rerun("ci-train-phase2.yml", ("finalize-release",))
     assert "check_release_evidence.py" in phase2
     assert "check_handoff_consistency_v2.py --require-verified" in phase2
     assert "check_autonomous_cycle.py" in phase2
     assert "test_check_autonomous_cycle.py" in phase2
-    print("OK: one orchestrator run enforces preflight -> Relation/Cross -> Apply -> phase2 with deterministic cycle completion")
+    print("OK: labeled public CI reruns on human repair pushes; bot and unlabeled pushes stay inert")
 
 
 if __name__ == "__main__":

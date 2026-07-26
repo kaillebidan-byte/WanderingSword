@@ -4,6 +4,7 @@ on:
   pull_request:
     types:
       - labeled
+      - synchronize
     branches:
       - main
     paths:
@@ -30,7 +31,19 @@ jobs:
     if: >-
       github.actor != 'github-actions[bot]' &&
       github.event.repository.visibility == 'public' &&
-      (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
+      (
+        (
+          github.event.action == 'labeled' &&
+          (github.event.label.name == 'release-ci' || github.event.label.name == 'ci-heavy-rerun')
+        ) ||
+        (
+          github.event.action == 'synchronize' &&
+          (
+            contains(github.event.pull_request.labels.*.name, 'release-ci') ||
+            contains(github.event.pull_request.labels.*.name, 'ci-heavy-rerun')
+          )
+        )
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: read

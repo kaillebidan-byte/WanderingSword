@@ -4,6 +4,7 @@ on:
   pull_request:
     types:
       - labeled
+      - synchronize
     branches:
       - main
     paths:
@@ -82,7 +83,16 @@ jobs:
     if: >-
       github.actor != 'github-actions[bot]' &&
       github.event.repository.visibility == 'public' &&
-      github.event.label.name == 'finalize-release'
+      (
+        (
+          github.event.action == 'labeled' &&
+          github.event.label.name == 'finalize-release'
+        ) ||
+        (
+          github.event.action == 'synchronize' &&
+          contains(github.event.pull_request.labels.*.name, 'finalize-release')
+        )
+      )
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ github.token }}
