@@ -49,9 +49,21 @@ def test_duplicate_owner_fails() -> None:
         assert any("multiple fix owners" in item for item in result)
 
 
+def print_current_wave_snapshots() -> None:
+    paths, _ = checker.current_candidate_paths()
+    for path in paths:
+        candidate = checker.load_object(path)
+        expected, errors = checker.compute_snapshot(candidate)
+        assert not errors
+        if candidate.get("ownership_snapshot") != expected:
+            print("DIAGNOSTIC SNAPSHOT: " + path.relative_to(checker.ROOT).as_posix())
+            print(json.dumps(expected, ensure_ascii=False, separators=(",", ":")))
+
+
 def main() -> None:
     test_snapshot_and_staleness()
     test_duplicate_owner_fails()
+    print_current_wave_snapshots()
     print("OK: candidate ownership tests")
 
 
