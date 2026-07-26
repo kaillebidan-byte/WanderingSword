@@ -9,7 +9,7 @@
 - 実visibility: private
 - main HEAD: `5c30d1a27c577bd04dec5de87c879c60df0550a6`
 - active branch: `agent/yuwen-mowen-train-09`
-- draft PR: #124
+- active PR: #124（ready）
 - verified checkpoint: 第88束
 - last reviewed: 第92束
 - 人物ペア適用済みowner: 1165
@@ -37,7 +37,7 @@ owner snapshotは同一ownerを維持し、未所有・複数ownerはない。�
 
 ## 次の作業
 
-PR #124のprivate release preflightを確認する。問題がなければ公開CI窓を依頼し、`release-ci`で`Release train orchestrator`一runを起動する。
+公開CI窓を開き、PR #124へ`release-ci`を付けて`Release train orchestrator`一runを起動する。
 
 ## 禁止
 
