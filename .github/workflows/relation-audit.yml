@@ -1,59 +1,23 @@
 name: Relation audit extraction
 
 on:
-  pull_request:
-    types:
-      - labeled
-    branches:
-      - main
-    paths:
-      - "_phase4_proofread/fixes_*.json"
-      - "_phase4_proofread/CANDIDATE_*.json"
-      - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
-      - "_phase4_proofread/TRANSLATION_QUALITY_GATE.md"
-      - "_phase4_proofread/CURRENT_WORK.json"
-      - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
-      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
-      - "_phase4_proofread/NEXT_TASK_PACKET.json"
-      - "_tools/apply_fixes_json.py"
-      - "_tools/validate_fixes_json.py"
-      - "_tools/extract_relation_context.py"
-      - "_tools/report_next_task_ownership.py"
-      - "_tools/check_candidate_ownership.py"
-      - "_tools/test_check_candidate_ownership.py"
-      - "_tools/check_operation_mode.py"
-      - "_tools/check_release_transport_state.py"
-      - "_tools/check_next_task_packet.py"
-      - "_tools/check_batch_planning.py"
-      - "_tools/check_translation_quality_gate.py"
-      - "_tools/test_check_operation_mode.py"
-      - "_tools/test_check_release_transport_state.py"
-      - "_tools/test_check_next_task_packet_ownership.py"
-      - "_tools/test_check_next_task_packet_minimal.py"
-      - "_tools/test_check_batch_planning.py"
-      - "_tools/test_check_translation_quality_gate.py"
-      - "_tools/test_apply_fixes_json.py"
-      - "_tools/test_extract_relation_context.py"
-      - ".github/workflows/relation-audit.yml"
+  workflow_call:
+    inputs:
+      target_sha:
+        required: true
+        type: string
 
 permissions:
   contents: read
 
-concurrency:
-  group: relation-audit-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 jobs:
   extract:
-    if: >-
-      github.event.repository.visibility == 'public' &&
-      github.event.label.name == 'release-qa'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout frozen QA HEAD
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ inputs.target_sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -74,7 +38,7 @@ jobs:
           mkdir -p _ws_tmp/relation_audit
           set -o pipefail
           python _tools/check_operation_mode.py \
-            --repository-visibility "${{ github.event.repository.visibility }}" \
+            --repository-visibility public \
             2>&1 | tee _ws_tmp/relation_audit/operation_mode.txt
           python _tools/check_release_transport_state.py \
             2>&1 | tee _ws_tmp/relation_audit/release_transport_state.txt
