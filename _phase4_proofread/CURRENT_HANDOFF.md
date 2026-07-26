@@ -7,56 +7,42 @@
 ## 現在地
 
 - 実visibility: private
-- main HEAD: `cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`
-- PR #122: squash統合済み
-- active制度branch: `agent/post-train08-release-orchestration`
-- active制度PR: draft PR #123
+- main HEAD: `5c30d1a27c577bd04dec5de87c879c60df0550a6`
+- open PR: なし
+- active branch: `agent/yuwen-mowen-train-09`
 - verified checkpoint: 第88束
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1541
-- release: `yuwen-mowen-train-08-r1`
-- private stage: `translation_frozen`
+- previous release: `yuwen-mowen-train-08-r1`
+- private stage: `private_quality_audit`
 
-## train-08
+## 制度改修
 
-第85〜88束、45行、18修正をPR #122で統合した。
+PR #123はsquash統合済み。NEXT_TASK_PACKETのminimal reservation化と、preflight→Relation/Cross→Applyを一runで直列化するorchestratorをmainへ導入した。
 
-- merge SHA: `cf18ebcdce9c65ef0fd203eeff174b7cdaba5b33`
-- Relation: `30188531193`
-- Cross: `30188531212`
-- Apply: `30188531216`
-- asset HEAD: `adeaea8298897b8f8cc851e99b3c18b230c14bfc`
-- 未適用: 0件
-- 未解決review thread: 0件
+- merge SHA: `5c30d1a27c577bd04dec5de87c879c60df0550a6`
+- orchestrator実走: success
+- phase2: success
+- repository: private復帰済み
 
-release evidenceは`squash_merged`へ同期済み。
+## train-09 wave-01
 
-## 制度PR #123
+最新Relation artifactを正本に、次の四packetをprivate preparationした。
 
-校正後の行政往復を減らす改修を行っている。
+- `5649_1 + 5651_1`
+- `5653_2`
+- `5654_1 + 5654_4`
+- `5654_6 + 5654_7`
 
-- NEXT_TASK_PACKETをschema v6 minimal reservationへ縮小
-- focus key、人物声、FACT_DOUBT、owner、batch planningをprivate preparationへ移動
-- `release-ci`を`Release train orchestrator`一runの入口へ変更
-- preflight成功後にRelation / Cross再利用workflowを固定HEADで実行
-- Relation / Cross両方成功後だけApply再利用workflowを起動
-- Apply前は軽量輸送状態だけを検査し、厳密なrelease evidenceはphase2へ分離
-- ApplyがAPPLIED_FIXESを自動生成してからaudit statusを更新
-- 次回release evidenceはschema v2のorchestrator一runを使用
-- `finalize-release`は状態最終化だけを検査
-
-## 次候補
-
-`5649_1`はreserved_only。scene予約とRelation artifact指紋だけを保持し、preparation・quality audit・encodingは未開始。
+全candidateのowner snapshotは既存`fixes_relation_yuwen_mowen_20260723_batch11.json`を指し、未所有・複数ownerはない。queueはseal済み。翻訳判断、fix / keep、修正JSON、review record、正式束、輸送集計はまだ作っていない。
 
 ## 次の作業
 
-PR #123の静的整合と差分境界を確認する。private検査で問題がなければ、workflow変更の実検証に必要な時点だけ公開CI窓を依頼する。
+sealed queue全体のprivate quality auditを行う。人物が相手へ実際に発する声、原文・現訳・前後・時系列を優先し、fix / keep判断と候補訳だけを`AUDIT_YUWEN_MOWEN_TRAIN09_WAVE01_2026-07-26.md`へ固定する。
 
 ## 禁止
 
-- 制度PR #123の統合前に翻訳作業を再開しない。
-- `5649_1`のpreparationを開始しない。
-- 訳文、fix値、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを制度PRで変更しない。
-- Relation / Cross成功前にApplyを開始しない。
+- quality auditへ輸送件数、release残量、正式束番号を渡さない。
+- quality audit中にfix JSON、owner変更、review record、正式束を作らない。
+- public中に翻訳判断を再開しない。
 - ゲームフォルダへ配置しない。
