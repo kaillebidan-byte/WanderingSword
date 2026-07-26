@@ -7,6 +7,7 @@
 - 実visibility: private
 - main HEAD: `9a4d7c12521355dcd7a590cff801695862f73c8b`
 - active branch: `agent/yuwen-mowen-train-08`
+- active draft PR: #122
 - verified checkpoint: 第84束
 - 人物ペア適用済みowner: 1165
 - プロジェクト全体適用済み: 1539
@@ -27,7 +28,7 @@
 
 ## 次の作業
 
-private release preflightを確認し、draft PRを作成する。その後、利用者へ公開CI窓を依頼し、公開後は`release-ci`ラベルでRelation / Cross / Applyを明示起動する。
+draft PR #122をpublic CI窓で検証する。repositoryがpublicになったことをmetadataで確認した後、`release-ci`ラベルでRelation / Cross / Applyを明示起動する。
 
 次wave候補`5649_1`はreserved_only。train-08統合前にpreparationを始めない。
 
