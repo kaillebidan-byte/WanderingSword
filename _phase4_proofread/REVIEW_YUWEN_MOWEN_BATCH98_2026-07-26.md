@@ -14,4 +14,4 @@
 
 程家への対外礼を保持し、門外での兄弟子の注意と宇文逸の応答を自然な関係声へ直した。
 
-2キーを`_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch13.json`へ収録し、残る14行は保持した。設定疑義と場面境界は監査記録のまま維持している。
+2キーを既存owner `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch13.json`へ更新収録し、残る14行は保持した。設定疑義と場面境界は監査記録のまま維持している。
