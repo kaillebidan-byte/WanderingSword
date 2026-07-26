@@ -34,6 +34,6 @@
 
 ## owner snapshot
 
-全candidateに`schema_version: 2`の`ownership_snapshot`を付与した。四packet・58行はすべて既存ownerに属していた。quality audit後の10修正は既存owner値の更新として収録し、新規ownerと複数ownerはない。
+全candidateに`schema_version: 2`の`ownership_snapshot`を付与した。58行中57行は既存ownerに属し、`5789_2_Dlgs_Index3_Text`だけは意図的保持のためunownedのまま残した。quality audit後の10修正は既存owner値の更新として収録し、新規ownerと複数ownerはない。
 
 queueは四packetでsealした。preparationではfix / keep判断、修正JSON、正式束番号を作らず、sealed queue全体をquality auditへ渡した。
