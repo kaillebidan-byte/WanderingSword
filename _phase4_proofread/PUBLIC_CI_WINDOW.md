@@ -26,19 +26,7 @@ visibilityを変更できるのはユーザーだけである。エージェン�
 python _tools/check_private_release_preflight.py --with-tests
 ```
 
-preflightは次を一括検査する。
-
-- operation mode
-- wave遷移
-- candidate owner全件実測
-- manifest
-- minimal NEXT_TASK_PACKET
-- detailed packetの場合だけbatch planning
-- quality gate
-- handoffとcheckpoint
-- staged CI trigger回帰
-
-失敗中は公開CI窓を開かない。
+preflightはoperation mode、wave、candidate owner、manifest、minimal reservation、batch planning契約、quality gate、Apply前輸送状態、workflow構造回帰を一括検査する。失敗中は公開CI窓を開かない。
 
 ## minimal reservation
 
@@ -63,7 +51,7 @@ preflightは次を一括検査する。
 対象: <train_id / 束>
 完成HEAD: <SHA>
 集計: <束数 / 通読行 / 修正キー>
-実行: release-ci → orchestrator → finalize-release
+実行: release-ci → Release train orchestrator → finalize-release
 ```
 
 ユーザーの「公開した」だけで進めず、metadataでpublicを確認する。
@@ -73,18 +61,34 @@ preflightは次を一括検査する。
 1. release PRをreadyにする。PR作成・ready化・通常commitでは重いCIを起動しない。
 2. `release-ci`ラベルを付ける。
 3. `Release train orchestrator`が固定HEADで完全preflightを行う。
-4. preflight成功後、orchestratorが内部ラベル`release-qa`を付ける。
-5. Relation / Crossを同じ固定HEADで成功させる。
-6. PR HEADが変わっていないことを確認後、orchestratorが`release-apply`を付ける。
-7. Applyだけを実行し、locres、pak、APPLIED_FIXES、audit statusを一度に書き戻す。
+4. preflight成功後、同じrun内で再利用workflowのRelation / Crossを並列実行する。
+5. Relation / Cross両方が成功した場合だけApplyを開始する。
+6. Applyは開始時にPR branchが固定release HEADから動いていないことを確認する。
+7. Applyがlocres、pak、APPLIED_FIXES、audit statusを一度に書き戻す。
 8. release evidence、CURRENT_WORK、manifest、private stage、handoffを最終化する。
 9. `finalize-release`ラベルを付ける。
 10. phase2 gateと未解決review thread 0件を確認する。
 11. private復帰を依頼する。
 
-`ci-heavy-rerun`もorchestrator入口であり、三本を直接同時起動しない。内部ラベル`release-qa`と`release-apply`を人手で通常使用しない。
+`ci-heavy-rerun`も同じorchestrator全工程を再走する。Relation / Cross / Applyを個別ラベルや別eventで直接起動しない。
 
 ## workflow責務
+
+### Release train orchestrator
+
+一つのpull_request run内で次のjob依存を強制する。
+
+```text
+preflight
+  ├─ relation
+  └─ cross
+       ↓ 両方成功
+      apply
+       ↓
+    complete
+```
+
+再利用workflowはPR branch上の同じcommitから呼び出す。`GITHUB_TOKEN`による別eventの再帰起動へ依存しない。
 
 ### release preflight
 
@@ -95,8 +99,11 @@ Apply前に実行する。
 - fix JSONとquality gate
 - manifest readiness
 - minimal reservation
-- batch planning回帰
-- workflow trigger回帰
+- batch planningのprivate延期契約
+- Apply前輸送状態
+- workflow構造回帰
+
+release evidence、audit status、verified checkpointの最終一致は要求しない。
 
 ### Relation / Cross
 
@@ -110,7 +117,7 @@ QA成功後だけ実行する。
 - locresとpakを再構築する
 - manifestと実owner件数から`APPLIED_FIXES_*.md`を生成する
 - 適用記録生成後に`audit_status.json`を更新する
-- bot commitを一度だけpushする
+- 資産、適用記録、audit statusを一つのbot commitへ収録する
 
 Apply中はrelease evidenceやverified checkpointの完成を要求しない。これらはbot commit後のfinalizationで確定する。
 
@@ -126,6 +133,8 @@ Apply中はrelease evidenceやverified checkpointの完成を要求しない。�
 - GitHub run evidence
 
 を厳密に検査する。
+
+新releaseではrelease evidence schema v2を使い、Relation / Cross / Apply三runではなく`Release train orchestrator`一runと、その中の三job成功を証跡にする。既存schema v1 releaseは改変しない。
 
 ## public中に行わないこと
 
@@ -158,7 +167,7 @@ Apply中はrelease evidenceやverified checkpointの完成を要求しない。�
 - 一packetごとのpublic化
 - preflight失敗中の公開依頼
 - public中の翻訳判断
-- Relation / Cross / Applyの同時起動
+- Relation / Cross成功前のApply
 - `opened`、`ready_for_review`、`synchronize`による重いCI自動起動
 - release evidenceなしの統合
 - publicのまま放置
