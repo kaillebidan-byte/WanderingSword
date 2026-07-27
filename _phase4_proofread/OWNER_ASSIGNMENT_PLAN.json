@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "packets": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6195_3_6198_3_6206_3_2026-07-27.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch23.json",
+      "values": {
+        "6195_3_Dlgs_Index0_Text": "1 - 宇文逸 $@$……うっ！",
+        "6198_3_Dlgs_Index2_Text": "1 - 宇文逸 $@$師兄……私は本当に、師兄と生死を分かつつもりなど、一度もありませんでした……",
+        "6198_3_Dlgs_Index3_Text": "1 - 宇文逸 $@$私にとって、師兄はずっと、武術を教え、江湖を共に駆け巡り、侠義を何より重んじるよう導いてくれた、あの大師兄です！",
+        "6198_3_Dlgs_Index6_Text": "1 - 宇文逸 $@$私がずっと強くなろうとしてきたのは、もう誰一人、私の傍からいなくなるのを見たくないからです……",
+        "6206_3_Dlgs_Index0_Text": "1 - 宇文逸 $@$師兄、どうして……今のを避けなかったんですか……",
+        "6206_3_Dlgs_Index1_Text": "1 - 宇文逸 $@$……そうだ！ここにまだ傷薬があります。早く飲んでください……"
+      },
+      "fix_keys": [
+        "6198_3_Dlgs_Index2_Text",
+        "6198_3_Dlgs_Index3_Text",
+        "6198_3_Dlgs_Index6_Text",
+        "6206_3_Dlgs_Index0_Text",
+        "6206_3_Dlgs_Index1_Text"
+      ]
+    },
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6213_1_6214_4_6229_1_2026-07-27.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch24.json",
+      "values": {
+        "6213_1_Dlgs_Index2_Text": "45311 - 莫問 $@$それとも……",
+        "6213_1_Dlgs_Index3_Text": "45311 - 莫問 $@$まだ、昔のくだらない情に縛られているのか？",
+        "6214_4_Dlgs_Index0_Text": "45311 - 莫問 $@$今日、わたしを殺さなければ……ごほっ、ごほっ……",
+        "6214_4_Dlgs_Index1_Text": "45311 - 莫問 $@$いつか必ず後悔するぞ！",
+        "6214_4_Dlgs_Index2_Text": "1 - 宇文逸 $@$……私は、師兄と生死を分かつつもりなど、一度もありませんでした。",
+        "6214_4_Dlgs_Index3_Text": "1 - 宇文逸 $@$私にとって、師兄はずっと、武術を教え、江湖を共に駆け巡り、侠義を何より重んじるよう導いてくれた、あの大師兄です！",
+        "6229_1_Dlgs_Index1_Text": "45311 - 莫問 $@$……お前は負けた。",
+        "6229_1_Dlgs_Index2_Text": "45311 - 莫問 $@$機会は与えたはずだ……"
+      },
+      "fix_keys": [
+        "6214_4_Dlgs_Index0_Text",
+        "6214_4_Dlgs_Index2_Text",
+        "6214_4_Dlgs_Index3_Text"
+      ]
+    }
+  ]
+}
