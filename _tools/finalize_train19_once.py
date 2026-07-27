@@ -1,0 +1,238 @@
+#!/usr/bin/env python3
+import json
+from pathlib import Path
+
+root = Path(__file__).resolve().parent.parent
+p4 = root / '_phase4_proofread'
+evidence_rel = '_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_19.json'
+applied_rel = '_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH126_2026-07-28.md'
+release_id = 'yuwen-mowen-train-19-r1'
+ci_head = '4467a9aa80759a1b05a28430379d7f98c67aeba6'
+asset_head = '19424e25d41e146e9b16120479b11a84c551b669'
+run_id = 30308741441
+pr = 145
+pair_keys = 1298
+project_keys = 1674
+batch = 126
+
+
+def load(name):
+    return json.loads((p4 / name).read_text(encoding='utf-8'))
+
+
+def write(name, value):
+    (p4 / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+
+evidence = {
+    'schema_version': 2,
+    'status': 'verified',
+    'release_id': release_id,
+    'train_id': 'yuwen-mowen-train-19',
+    'pr': pr,
+    'ci_head': ci_head,
+    'asset_head': asset_head,
+    'applied_record': applied_rel,
+    'counts': {
+        'batch': batch,
+        'pair_applied_keys': pair_keys,
+        'project_applied_keys': project_keys,
+        'pending_fixes': 0,
+    },
+    'orchestrator': {
+        'id': run_id,
+        'workflow': 'Release train orchestrator',
+        'head_sha': ci_head,
+        'event': 'pull_request',
+        'conclusion': 'success',
+    },
+    'lineage': {'mode': 'branch_ancestor', 'merge_sha': None},
+    'notes': [
+        '第122〜126束は46 reviewed keys・46 unique reviewed rows・25修正キーとして確定した',
+        '46行のlive owner実測は既存owner所属22・新規owner24・複数owner0で、既存owner値更新は5件だった',
+        'orchestrator run 30308741441で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた',
+        'Apply bot asset HEAD 19424e25d41e146e9b16120479b11a84c551b669で適用記録とaudit statusを第126束へ同期した',
+        '次候補9261_1はminimal reservationのまま保持し、PR #145統合前にはpreparationを開始しない',
+    ],
+}
+write('RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_19.json', evidence)
+
+applied_path = p4 / 'APPLIED_FIXES_YUWEN_MOWEN_BATCH126_2026-07-28.md'
+applied = applied_path.read_text(encoding='utf-8')
+applied = applied.replace('- release evidence: `None`', f'- release evidence: `{evidence_rel}`')
+applied_path.write_text(applied, encoding='utf-8')
+
+manifest = load('CI_TRAIN_MANIFEST.json')
+manifest['status'] = 'verified'
+manifest['transport'].update({'status': 'awaiting_private_merge', 'translation_stage': 'translation_frozen', 'pr': pr, 'merge_sha': None})
+for bundle in manifest['bundles']:
+    bundle['apply_status'] = 'verified'
+manifest['tracking_mode'] = 'quality_and_private_stage_verified_in_public_pr'
+manifest['release_evidence'] = evidence_rel
+manifest['applied_result'] = {
+    'orchestrator_run': run_id,
+    'asset_head': asset_head,
+    'pair_applied_keys': pair_keys,
+    'project_applied_keys': project_keys,
+    'pending_fixes': 0,
+    'checkpoint_status': 'verified',
+}
+manifest['verified_result'] = {
+    'release_id': release_id,
+    'release_evidence': evidence_rel,
+    'record_index_synced': True,
+    'pair_applied_keys': pair_keys,
+    'project_applied_keys': project_keys,
+    'pending_fixes': 0,
+}
+manifest['private_stage']['transport_status'] = 'awaiting_private_merge'
+manifest['next_release'].update({
+    'candidate_scene': ['9261_1'],
+    'reservation_status': 'reserved_only',
+    'reservation_schema': 6,
+    'formal_batches': [122, 123, 124, 125, 126],
+    'current_private_stage': 'translation_frozen',
+})
+write('CI_TRAIN_MANIFEST.json', manifest)
+
+state = load('PRIVATE_STAGE_STATE.json')
+state['cycle_control'].update({
+    'status': 'target_reached',
+    'continuation_required': False,
+    'stop_reason': None,
+    'exact_next_action': None,
+    'last_safe_checkpoint': 'awaiting_private_merge',
+})
+state['transport']['status'] = 'awaiting_private_merge'
+state['transport']['pr'] = pr
+state['transport']['history'] = [
+    {'status': 'not_ready', 'translation_stage': 'private_encoding'},
+    {'status': 'ready_for_public_ci', 'translation_stage': 'translation_frozen', 'pr': pr},
+    {'status': 'in_public_ci', 'translation_stage': 'translation_frozen', 'pr': pr},
+    {'status': 'verified', 'translation_stage': 'translation_frozen', 'pr': pr, 'release_id': release_id},
+    {'status': 'awaiting_private_merge', 'translation_stage': 'translation_frozen', 'pr': pr, 'release_id': release_id},
+]
+for packet in state['wave']['packets']:
+    packet['review_record']['apply_status'] = 'verified'
+state['verified_result'] = {
+    'release_id': release_id,
+    'evidence': evidence_rel,
+    'ci_head': ci_head,
+    'asset_head': asset_head,
+    'pending_fixes': 0,
+}
+write('PRIVATE_STAGE_STATE.json', state)
+
+current = load('CURRENT_WORK.json')
+current.update({
+    'status': 'verified',
+    'last_completed_batch': batch,
+    'last_reviewed_batch': batch,
+    'pair_applied_keys': pair_keys,
+    'project_applied_keys': project_keys,
+    'build_status': 'verified_not_deployed',
+})
+current['checkpoint'] = {
+    'status': 'verified',
+    'batch': batch,
+    'pair_applied_keys': pair_keys,
+    'project_applied_keys': project_keys,
+    'produced_by_pr': pr,
+    'release_identity': {
+        'kind': 'pr_release_v2',
+        'release_id': release_id,
+        'evidence': evidence_rel,
+        'pr': pr,
+        'validated_head': asset_head,
+    },
+    'applied_record': applied_rel,
+}
+current['immediate_next'] = {
+    'scene_groups': ['9261_1'],
+    'task': 'PR #145のphase2成功と未解決review thread 0件を確認し、private復帰後にsquash統合する。',
+    'boundary': 'public中は翻訳判断、fix追加、owner変更、第127束preparationを開始しない。',
+    'packet': '_phase4_proofread/NEXT_TASK_PACKET.json',
+}
+train = current['ci_train']
+train.update({
+    'status': 'verified',
+    'transport_status': 'awaiting_private_merge',
+    'draft_pr': pr,
+    'applied_result': manifest['applied_result'],
+    'verified_result': manifest['verified_result'],
+    'release_evidence': evidence_rel,
+})
+train['private_stage'].update({
+    'stage': 'translation_frozen',
+    'status': 'verified',
+    'transport_status': 'awaiting_private_merge',
+    'wave_id': 'yuwen-mowen-train-19-wave-01',
+    'cycle_status': 'target_reached',
+    'cycle_checkpoint': 'awaiting_private_merge',
+})
+write('CURRENT_WORK.json', current)
+
+packet = load('NEXT_TASK_PACKET.json')
+packet['based_on_checkpoint'] = {
+    'batch': batch,
+    'pair_applied_keys': pair_keys,
+    'project_applied_keys': project_keys,
+    'produced_by_pr': pr,
+    'release_id': release_id,
+    'release_evidence': evidence_rel,
+}
+packet['source'].update({
+    'artifact_run': run_id,
+    'artifact_id': 8669489591,
+    'artifact_digest': 'sha256:7084bce2d1aca1b5e1778a89ab2b56afd6373fe01454daea309a511c0df381c4',
+    'artifact_head': ci_head,
+    'freshness_rule': 'train-19統合後、次cycleのpreparation開始時に最新Relation artifactで9261_1と近接分岐を再確認する。',
+})
+packet['release_candidate'].update({
+    'train_id': 'yuwen-mowen-train-19',
+    'release_id': release_id,
+    'pr': pr,
+    'status': 'verified',
+    'merge_sha': None,
+})
+packet['ci_train'].update({'train_id': 'yuwen-mowen-train-19', 'planned_batch': 127})
+write('NEXT_TASK_PACKET.json', packet)
+
+handoff = f'''# 現在の申し送り
+
+> 再開指示: `現状把握して作業の続きを`
+>
+> 実visibility、GitHub PR metadata、Actionsを文書中の固定値より優先する。
+
+## 現在地
+
+- 実visibility: public
+- PR #143: squash merged (`70161944bb23dd254eca8b18fa9ca547606e0bc5`)
+- PR #145: open / ready / mergeable
+- train: `yuwen-mowen-train-19`
+- verified checkpoint: 第126束 / pair 1298 / project 1674
+- last reviewed batch: 第126束
+- private stage: `translation_frozen`
+- train-19 transport: `awaiting_private_merge`
+- queue: 5packet / 46行 / 25修正 / 21保持
+
+## train-19
+
+無名撤退後の三分岐と、少林での《風雲訣》をめぐる師兄弟対話を監査した。円覚、李元興、荀杳杳、燕未還、宇文逸、莫問の声と意味を修正し、分岐固有差を保持した。
+
+46行のlive owner実測は既存owner 22、新規owner 24、既存owner値更新5、複数owner0。orchestrator run `30308741441`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`{asset_head}`。
+
+## 次の作業
+
+最新HEADで`finalize-release`によるphase2 gateと未解決review thread 0件を確認する。完了後はrepositoryをprivateへ戻し、検証済みHEADをsquash統合する。
+
+次候補`9261_1`はminimal reservationのまま保持し、train-19統合前にpreparationを開始しない。
+
+## 禁止
+
+- public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- private復帰前にPR #145をmergeしない。
+- train-19統合前に`9261_1`のpreparationを始めない。
+- ゲームフォルダへ配置しない。
+'''
+(p4 / 'CURRENT_HANDOFF.md').write_text(handoff, encoding='utf-8')
