@@ -82,6 +82,33 @@ translation freeze、manifest ready、release preflight成功後に既存の`rel
 
 manualの`normal_completion_target`は`visibility_boundary_or_merged`。always-publicは`merged`。
 
+## 規定二フェイズ終端シグナル
+
+巨大作業は次の二フェイズで進む。
+
+1. `quality_reaudit`: 関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査
+2. `narrative_readthrough`: 章・事件単位の日本語通読と原文対照による章ごとの通読修正
+
+この二フェイズはvisibility cycleより長い作業単位であり、単一waveや単一mergeをフェイズ完了としない。
+
+各フェイズ全体が成功終了した応答、またはエラー終端した応答は`PHASE_COMPLETION_SIGNAL.json`へ従う。
+
+成功時の末尾:
+
+```text
+規定フェイズ結果: success
+規定フェイズ完了
+```
+
+エラー時の末尾:
+
+```text
+規定フェイズ結果: error
+規定フェイズ完了
+```
+
+マーカーは最後の非空行に一度だけ置く。マーカーだけでは成功を意味せず、直前行を自動化の結果判定に使う。
+
 ## 例外停止
 
 許可理由:
@@ -91,14 +118,20 @@ manualの`normal_completion_target`は`visibility_boundary_or_merged`。always-p
 - `external_dependency_unavailable`
 - `turn_capacity_checkpoint`
 
-`paused`は理由とexact next actionを必須とする。always-publicの失敗をprivate復帰へ変換しない。
+`paused`は理由と機械実行可能な`exact_next_action`を必須とする。always-publicでは失敗時もmodeを変えず、private復帰を要求しない。
+
+規定フェイズ自体が継続不能なエラーで終わる応答では、エラー説明後にエラー結果行と完了マーカーを出す。通常の一時停止、visibility境界、単一wave、単一人物ペア、単一章では出さない。
 
 ## 禁止
 
+- mode未選択の新cycle開始
 - active cycle中のmode変更
-- visibilityだけを見て毎応答modeを再選択すること
-- 常時public化を理由に段階分離、owner検査、quality gateを省略すること
-- always-publicで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
-- manifest ready前の重いCI
+- publicであることを理由に段階権限を省略すること
+- manual modeでpublic translationを行うこと
+- always-public modeでprivateへ切り替えて継続すること
+- translation freeze前の重いCI起動
 - phase2成功前のmerge
 - merge前の次wave開始
+- always-publicで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
+- 規定フェイズ完了マーカーを単一waveや単一章の完了に使うこと
+- 規定フェイズ完了マーカーの後ろに文章を付けること
