@@ -30,6 +30,14 @@
     "state_authorities_must_match": true,
     "same_continue_phrase_for_all_modes": true
   },
+  "phase_completion_signal": {
+    "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
+    "required_on_phase_success": true,
+    "required_on_phase_error": true,
+    "last_nonempty_line": "規定フェイズ完了",
+    "result_line_immediately_precedes_marker": true,
+    "routine_wave_visibility_or_merge_checkpoint_does_not_emit": true
+  },
   "verdict": {
     "first_user_visible_update_requires_effective_mode": true,
     "metadata_failure_allows_work_start_claim": false
