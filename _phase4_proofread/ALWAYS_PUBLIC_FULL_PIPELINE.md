@@ -42,11 +42,31 @@ manifest ready、translation freeze、release preflight成功後に既存の`rel
 
 `ready_for_public_ci`と`awaiting_private_merge`は内部checkpointとして記録する。ただし常時public modeでは正常停止地点にしない。追加のvisibility操作を求めず、同じcycleで`merged`まで進む。
 
+## 二フェイズ終端出力
+
+巨大作業の第一フェイズ`quality_reaudit`と、第二フェイズ`narrative_readthrough`（章ごとの通読修正）は、visibility modeと独立して`PHASE_COMPLETION_SIGNAL.json`に従う。
+
+フェイズ成功時は応答末尾を次に固定する。
+
+```text
+規定フェイズ結果: success
+規定フェイズ完了
+```
+
+フェイズがエラー終端した場合も応答末尾を次に固定する。
+
+```text
+規定フェイズ結果: error
+規定フェイズ完了
+```
+
+`規定フェイズ完了`の後ろには何も書かない。単一wave、単一人物ペア、単一章、visibility checkpoint、通常のcycle mergeでは出力しない。
+
 ## 失敗
 
 checker failure、外部依存停止、判断要求、turn容量停止だけを`paused`として許す。
 
-常時public modeの失敗を理由にprivate復帰を要求しない。状態正本へ失敗分類とexact next actionを残し、同じlocked modeで再開する。
+常時public modeの失敗を理由にprivate復帰を要求しない。状態正本へ失敗分類とexact next actionを残し、同じlocked modeで再開する。規定フェイズのエラー終端なら、説明後にエラー結果行と完了マーカーを必ず置く。
 
 ## merge
 
