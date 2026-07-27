@@ -8,7 +8,7 @@
 現状把握して作業の続きを
 ```
 
-`作業の続きを`など同じ意図の表現も再開指示として扱う。モード専用の入力文は設けない。URLや前回作業を聞き直さない。
+`作業の続きを`など同じ意図の表現も再開指示として扱う。モード専用の入力文は設けない。URLや前回作業を聞き直さず、正本とGitHub metadataから復元する。
 
 ## visibility preflight
 
@@ -31,14 +31,16 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 
 1. repository metadataで実visibilityを確認する。
 2. main、未統合PR、GitHub Actionsを確認する。
-3. open PRをactive / superseded / abandoned / unrelatedへ分類する。
+3. open PRをactive / superseded / abandoned / unrelatedへ分類する。開いているだけで現行作業と決めない。
 4. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
 5. `PHASE_COMPLETION_SIGNAL.json`の終端マーカー契約を確認する。
 6. 実際にはmerge済みだが状態正本が統合前なら、先に`merged`へ整合させる。
 7. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
 8. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
 9. activeな制度改修branchがあれば、予約済み翻訳作業より優先する。
-10. 正常なら同じ応答内でmodeの標準完了地点まで進める。
+10. 正常なら同じ応答内で実作業を開始し、modeの標準完了地点まで進める。
+
+botの`action_required`は作業失敗ではない。release evidence、verified checkpoint、未解決review threadを確認して輸送を続ける。squash統合後はpost-merge状態PRを作らず、同じPR内の最終状態を正本とする。
 
 ## 標準完了地点
 
