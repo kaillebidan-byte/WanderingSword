@@ -89,6 +89,18 @@ def main() -> None:
     )
     assert checker.validate(c, legacy, current(explicit=False)) == []
 
+    legacy_active = state(
+        "private_preparation",
+        "not_ready",
+        "running",
+        "private_preparation",
+        explicit=False,
+    )
+    assert any(
+        "requires explicit execution_mode" in error
+        for error in checker.validate(c, legacy_active, current(explicit=False))
+    )
+
     for stage in ("private_preparation", "private_quality_audit", "private_encoding"):
         value = state(stage, "not_ready", "running", stage)
         assert checker.validate(c, value, current()) == []
