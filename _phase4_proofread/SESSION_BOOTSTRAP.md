@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。実行モードは`EXECUTION_MODES.json`を正本とする。
+現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。実行モードは`EXECUTION_MODES.json`、二フェイズ終端出力は`PHASE_COMPLETION_SIGNAL.json`を正本とする。
 
 ## 起動文
 
@@ -33,11 +33,12 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 2. main、未統合PR、GitHub Actionsを確認する。
 3. open PRをactive / superseded / abandoned / unrelatedへ分類する。
 4. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
-5. 実際にはmerge済みだが状態正本が統合前なら、先に`merged`へ整合させる。
-6. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
-7. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
-8. activeな制度改修branchがあれば、予約済み翻訳作業より優先する。
-9. 正常なら同じ応答内でmodeの標準完了地点まで進める。
+5. `PHASE_COMPLETION_SIGNAL.json`の終端マーカー契約を確認する。
+6. 実際にはmerge済みだが状態正本が統合前なら、先に`merged`へ整合させる。
+7. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
+8. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
+9. activeな制度改修branchがあれば、予約済み翻訳作業より優先する。
+10. 正常なら同じ応答内でmodeの標準完了地点まで進める。
 
 ## 標準完了地点
 
@@ -75,6 +76,27 @@ owner assignmentは`OWNER_ASSIGNMENT_PLAN.json`から生成器を使う。公開
 python _tools/check_private_release_preflight.py --with-tests --repository-visibility <private|public>
 ```
 
+## 規定フェイズ終端出力
+
+巨大作業は次の二フェイズとして扱う。
+
+1. `quality_reaudit`: 関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査
+2. `narrative_readthrough`: 章・事件単位の日本語通読と原文対照による章ごとの通読修正
+
+各フェイズ全体が成功終了した応答、またはエラーで終了した応答では、末尾を必ず次の二行にする。
+
+```text
+規定フェイズ結果: success
+規定フェイズ完了
+```
+
+```text
+規定フェイズ結果: error
+規定フェイズ完了
+```
+
+`規定フェイズ完了`は最後の非空行に一度だけ置き、後ろに説明を書かない。このマーカーだけでは成功を意味せず、直前行で結果を判定する。単一wave、単一人物ペア、単一章、visibility境界、通常のmerge完了では出力しない。
+
 ## 例外停止
 
 途中停止は`cycle_control.status=paused`とし、次だけを許す。
@@ -86,7 +108,7 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 
 `paused`には`continuation_required=true`、理由、機械実行可能な`exact_next_action`を残す。
 
-常時public modeでは失敗時もprivate復帰を要求しない。同じlocked modeで再開する。
+常時public modeでは失敗時もprivate復帰を要求しない。同じlocked modeで再開する。規定フェイズ自体の実行がエラー終端した応答では、エラー内容の後に規定の結果行と完了マーカーを置く。
 
 ## 禁止
 
@@ -100,3 +122,4 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 - phase2成功前のmerge
 - merge前の次wave開始
 - 常時public modeで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
+- 規定フェイズ終端マーカーの後ろに文章を付けること
