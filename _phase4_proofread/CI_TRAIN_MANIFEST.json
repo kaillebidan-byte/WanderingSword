@@ -4,9 +4,9 @@
   "train_id": "yuwen-mowen-train-17",
   "branch": "agent/yuwen-mowen-train-17",
   "draft_pr": 142,
-  "status": "ready_for_public_ci",
+  "status": "verified",
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "translation_stage": "translation_frozen",
     "pr": 142,
     "merge_sha": null
@@ -57,11 +57,8 @@
     {
       "batch": 115,
       "review_status": "complete",
-      "apply_status": "pending",
-      "scene_groups": [
-        "9150_3",
-        "9150_4"
-      ],
+      "apply_status": "verified",
+      "scene_groups": ["9150_3", "9150_4"],
       "reviewed_rows": 8,
       "reviewed_keys": 8,
       "unique_rows": 8,
@@ -70,9 +67,7 @@
       "new_pair_keys": 1,
       "new_project_keys": 1,
       "keep_keys": 7,
-      "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch23.json"
-      ],
+      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch23.json"],
       "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH115_2026-07-27.md",
       "ownership_summary": {
         "existing_keys": 7,
@@ -83,9 +78,7 @@
       "existing_owner_updates": 1,
       "allusion_review_candidates": [],
       "allusion_review_resolved": [],
-      "fact_doubts": [
-        "人物の発言を場面外の客観確定へ広げない"
-      ],
+      "fact_doubts": ["人物の発言を場面外の客観確定へ広げない"],
       "source_artifact": {
         "workflow": "Release train orchestrator",
         "run_id": 30253238587,
@@ -99,13 +92,8 @@
     {
       "batch": 116,
       "review_status": "complete",
-      "apply_status": "pending",
-      "scene_groups": [
-        "9154_2",
-        "9209_2",
-        "9210_1",
-        "9223_6"
-      ],
+      "apply_status": "verified",
+      "scene_groups": ["9154_2", "9209_2", "9210_1", "9223_6"],
       "reviewed_rows": 13,
       "reviewed_keys": 13,
       "unique_rows": 13,
@@ -125,9 +113,7 @@
       "existing_owner_updates": 0,
       "allusion_review_candidates": [],
       "allusion_review_resolved": [],
-      "fact_doubts": [
-        "人物の発言を場面外の客観確定へ広げない"
-      ],
+      "fact_doubts": ["人物の発言を場面外の客観確定へ広げない"],
       "source_artifact": {
         "workflow": "Release train orchestrator",
         "run_id": 30253238587,
@@ -141,12 +127,8 @@
     {
       "batch": 117,
       "review_status": "complete",
-      "apply_status": "pending",
-      "scene_groups": [
-        "9228_2",
-        "9229_2",
-        "9230_2"
-      ],
+      "apply_status": "verified",
+      "scene_groups": ["9228_2", "9229_2", "9230_2"],
       "reviewed_rows": 30,
       "reviewed_keys": 30,
       "unique_rows": 30,
@@ -155,9 +137,7 @@
       "new_pair_keys": 30,
       "new_project_keys": 30,
       "keep_keys": 9,
-      "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch27.json"
-      ],
+      "fix_files": ["_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch27.json"],
       "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH117_2026-07-27.md",
       "ownership_summary": {
         "existing_keys": 0,
@@ -166,18 +146,9 @@
         "cross_register_keys": 0
       },
       "existing_owner_updates": 0,
-      "allusion_review_candidates": [
-        "脚底抹油",
-        "头掉也就碗大个疤",
-        "见阎王"
-      ],
-      "allusion_review_resolved": [
-        "慣用句の機能を自然な日本語へ移し、訳注は付けない"
-      ],
-      "fact_doubts": [
-        "人物の告発・評価を場面外の客観事実へ広げない",
-        "分岐別の同行者構成を統合しない"
-      ],
+      "allusion_review_candidates": ["脚底抹油", "头掉也就碗大个疤", "见阎王"],
+      "allusion_review_resolved": ["慣用句の機能を自然な日本語へ移し、訳注は付けない"],
+      "fact_doubts": ["人物の告発・評価を場面外の客観事実へ広げない", "分岐別の同行者構成を統合しない"],
       "source_artifact": {
         "workflow": "Release train orchestrator",
         "run_id": 30253238587,
@@ -201,8 +172,22 @@
     "pr": 141,
     "merge_sha": "2d9f4790a8075b27b0c7981607e81c88b579fef1"
   },
-  "applied_result": null,
-  "verified_result": null,
+  "applied_result": {
+    "orchestrator_run": 30286210220,
+    "asset_head": "15cad30404a23d97ce066d4285620f277678b4dd",
+    "pair_applied_keys": 1221,
+    "project_applied_keys": 1597,
+    "pending_fixes": 0,
+    "checkpoint_status": "verified"
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-17-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_17.json",
+    "record_index_synced": true,
+    "pair_applied_keys": 1221,
+    "project_applied_keys": 1597,
+    "pending_fixes": 0
+  },
   "quality_gate": {
     "schema_version": 1,
     "primary_objective": "repair_substantive_translation_defects",
@@ -222,20 +207,14 @@
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
     "stage": "translation_frozen",
-    "status": "ready_for_public_ci",
-    "transport_status": "ready_for_public_ci"
+    "status": "verified",
+    "transport_status": "awaiting_private_merge"
   },
   "next_release": {
-    "candidate_scene": [
-      "9231_3"
-    ],
+    "candidate_scene": ["9231_3"],
     "reservation_status": "reserved_only",
     "reservation_schema": 6,
-    "formal_batches": [
-      115,
-      116,
-      117
-    ],
+    "formal_batches": [115, 116, 117],
     "current_private_stage": "translation_frozen"
   }
 }
