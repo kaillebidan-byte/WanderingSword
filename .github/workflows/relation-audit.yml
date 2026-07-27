@@ -42,7 +42,7 @@ jobs:
             2>&1 | tee _ws_tmp/relation_audit/operation_mode.txt
           python _tools/check_release_transport_state.py \
             2>&1 | tee _ws_tmp/relation_audit/release_transport_state.txt
-          python _tools/check_candidate_ownership.py --require-current-wave \
+          python _tools/check_candidate_ownership.py --release-live \
             2>&1 | tee _ws_tmp/relation_audit/candidate_ownership.txt
           python _tools/check_next_task_packet.py --allow-pending \
             2>&1 | tee _ws_tmp/relation_audit/next_task_packet_check.txt

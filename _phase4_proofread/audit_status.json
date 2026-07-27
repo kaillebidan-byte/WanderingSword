@@ -45,6 +45,7 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH104_2026-07-27.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH108_2026-07-27.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH10_2026-07-23.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH110_2026-07-27.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH11_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH12_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH13_2026-07-23.md",
@@ -302,8 +303,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch108_complete_next_scenes_pending",
-      "build_verified": "batch108_complete",
+      "translation_reaudited": "batch110_complete_next_scenes_pending",
+      "build_verified": "batch110_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
