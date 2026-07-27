@@ -7,7 +7,7 @@
 ## 現在地
 
 - 実visibility: private
-- PR #141: open / draft
+- PR #141: open / ready / mergeable
 - train: `yuwen-mowen-train-16`
 - verified checkpoint: 第112束
 - last reviewed batch: 第114束
@@ -25,7 +25,7 @@
 
 ## 次の作業
 
-PR #141をreadyへ切り替え、repositoryをpublicにして完全preflight、Relation、Cross、Apply、single-PR finalizationを実行する。公開側の完了目標は`awaiting_private_merge`。
+repositoryをpublicにしてPR #141の完全preflight、Relation、Cross、Apply、single-PR finalizationを実行する。公開側の完了目標は`awaiting_private_merge`。
 
 次waveは`9150_3`だけを最小予約している。PR #141統合前にpreparationを開始しない。
 
