@@ -2,7 +2,7 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:6c6c9c9da737c1fb38e7c8b0bb4806904ab965d4ade6873121f5761af63943c7",
+  "plan_digest": "sha256:50451b389d7e565fa9e683f769a14e6c6032e3f100ed1eb4d46eb44816c17821",
   "candidate_digests": {
     "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9150_3_9150_4_2026-07-27.json": "sha256:2aaf75618ee8e3648b924e487040181f43230bfc50d0a75a2b782b9989673199",
     "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9154_2_9209_2_9210_1_9223_6_2026-07-27.json": "sha256:fdd3ada15a2e38e9cd678cb2647eb06c7d18c70a3b42cb9e4c7443dec42d9a29",
