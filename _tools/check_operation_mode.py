@@ -112,6 +112,14 @@ def resolve_effective_mode(
     return declared_state
 
 
+def validate_effective_visibility(effective: str) -> list[str]:
+    if effective == "return_private_required":
+        return ["repository visibility is incompatible with manual_visibility_cycle"]
+    if effective == "return_public_required":
+        return ["repository visibility is incompatible with always_public_full_pipeline"]
+    return []
+
+
 def validate_operation_mode(
     current: dict[str, Any],
     execution_contract: dict[str, Any] | None = None,
@@ -225,6 +233,8 @@ def validate_operation_mode(
     train_status = train.get("status")
     if train_status not in VALID_TRAIN_STATUSES:
         errors.append(f"ci_train.status must be one of {sorted(VALID_TRAIN_STATUSES)!r}")
+    if not explicit_mode and (declared == "private_translation_work" or train_status == "accumulating"):
+        errors.append("new translation cycle requires explicit execution_mode selection")
     if train_status == "accumulating" and declared != "private_translation_work":
         errors.append("accumulating train requires private_translation_work")
     if train_status in {"ready_for_public_ci", "in_public_ci"} and declared != "translation_frozen":
@@ -252,6 +262,7 @@ def main() -> int:
         if declared in VALID_DECLARED_STATES and execution_mode in VALID_EXECUTION_MODES
         else "invalid"
     )
+    errors.extend(validate_effective_visibility(effective))
     print("=== Operation mode ===")
     print(f"execution mode: {execution_mode}{'' if explicit_mode else ' (legacy inferred)'}")
     print(f"declared state: {declared}")
