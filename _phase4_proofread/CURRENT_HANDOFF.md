@@ -6,33 +6,30 @@
 
 ## 現在地
 
-- 実visibility: public
-- PR #141: squash merged (`2d9f4790a8075b27b0c7981607e81c88b579fef1`)
-- PR #142: open / ready / mergeable
-- train: `yuwen-mowen-train-17`
+- 実visibility: private
+- PR #142: squash merged (`2ba6675dfb0d5810ac929840f178ac27651d5338`)
+- PR #143: open / draft
+- train: `yuwen-mowen-train-18`
 - verified checkpoint: 第117束 / pair 1221 / project 1597
-- last reviewed batch: 第117束
+- last reviewed batch: 第121束
 - private stage: `translation_frozen`
-- train-17 transport: `awaiting_private_merge`
-- queue: 3packet / 51行 / 22修正 / 29保持
+- train-18 transport: `ready_for_public_ci`
+- queue: 4packet / 53行 / 35修正 / 18保持
 
-## train-17
+## train-18
 
-救出拒絶、和解後の協働、悪人谷残党戦三分岐を監査した。第1packetは師兄呼称を1行修正、第2packetは13行すべて保持、第3packetは助詞欠落、包閔の粗野な声、李元興の忠告、決死慣用句、分岐共通文を21行修正した。
+無名との対峙三分岐と、直前の残党処断を連続監査した。無名の`儂／貴様`を分岐間で統一し、逐語的な慣用句、莫問の怒り、李元興の告発、燕未還・荀杳杳の固有行を修正した。
 
-新規ownerは33行、既存owner値更新は1行。owner assignment v2の生成結果と全owner digestを4 shardへ分割して固定した。
-
-orchestrator run `30286210220`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`15cad30404a23d97ce066d4285620f277678b4dd`。
+53行はすべて新規owner。既存owner値更新0、複数owner0。既存4 digest shardは保持し、新規4 ownerを第5 shardへ追加して再封印する。
 
 ## 次の作業
 
-最新HEADで`finalize-release`によるphase2 gateと未解決review thread 0件を確認する。完了後はrepositoryをprivateへ戻し、検証済みHEADをsquash統合する。
+PR #143のprivate release preflightを実行し、成功後にreadyへ切り替えて公開CI窓を依頼する。
 
-次候補`9231_3`はminimal reservationのまま保持し、train-17統合前にpreparationを開始しない。
+次候補`9234_6`はminimal reservationのまま保持し、train-18統合前にpreparationを開始しない。
 
 ## 禁止
 
 - public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- private復帰前にPR #142をmergeしない。
-- train-17統合前に`9231_3`のpreparationを始めない。
+- train-18統合前に`9234_6`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
