@@ -27,7 +27,7 @@ jobs:
       - name: Unit tests and candidate ownership
         run: |
           python _tools/test_check_candidate_ownership.py
-          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_candidate_ownership.py --release-live
           python _tools/test_apply_fixes_json.py
           python _tools/test_lint_register.py
 
