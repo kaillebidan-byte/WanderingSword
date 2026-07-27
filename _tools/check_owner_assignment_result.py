@@ -12,6 +12,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
 CONTRACT_PATH = P4 / "PRIVATE_TRANSLATION_STAGES.json"
+STATE_PATH = P4 / "PRIVATE_STAGE_STATE.json"
 RESULT_PATH = P4 / "OWNER_ASSIGNMENT_RESULT.json"
 FIELD_SEPARATOR = "\x1f"
 
@@ -30,7 +31,12 @@ def digest_file(path: Path) -> str:
 def required() -> bool:
     contract = load_object(CONTRACT_PATH)
     policy = contract.get("wave_policy", {}).get("owner_assignment")
-    return isinstance(policy, dict) and policy.get("result_required_before_translation_frozen") is True
+    if not isinstance(policy, dict) or policy.get("result_required_before_translation_frozen") is not True:
+        return False
+    state = load_object(STATE_PATH)
+    transport = state.get("transport", {})
+    status = transport.get("status") if isinstance(transport, dict) else None
+    return status in {"not_ready", "ready_for_public_ci", "in_public_ci"}
 
 
 def compare_digest_map(label: str, stored: Any, current: dict[str, str]) -> list[str]:
@@ -48,7 +54,7 @@ def compare_digest_map(label: str, stored: Any, current: dict[str, str]) -> list
 def main() -> int:
     try:
         if not required():
-            print("SKIP: owner assignment result is not required by contract")
+            print("SKIP: current transport state does not require owner assignment result")
             return 0
         result = load_object(RESULT_PATH)
     except (OSError, ValueError, json.JSONDecodeError) as exc:
