@@ -8,6 +8,7 @@
 
 - 実visibility: private
 - PR #141: squash merged (`2d9f4790a8075b27b0c7981607e81c88b579fef1`)
+- PR #142: open / draft
 - train: `yuwen-mowen-train-17`
 - verified checkpoint: 第114束 / pair 1188 / project 1564
 - last reviewed batch: 第117束
@@ -23,7 +24,7 @@
 
 ## 次の作業
 
-private release preflightを実行し、成功後にPRをreadyとして公開CI窓を依頼する。次候補`9231_3`はminimal reservationのまま保持し、train-17統合前にpreparationを開始しない。
+PR #142のprivate release preflightを実行し、成功後にreadyへ切り替えて公開CI窓を依頼する。次候補`9231_3`はminimal reservationのまま保持し、train-17統合前にpreparationを開始しない。
 
 ## 禁止
 

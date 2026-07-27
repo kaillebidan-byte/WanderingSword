@@ -9,6 +9,9 @@ import sys
 from pathlib import Path
 from typing import Any
 
+OWNER_DIGEST_SHARD_PREFIX = "OWNER_ASSIGNMENT_OWNER_DIGESTS_"
+OWNER_DIGEST_SHARD_SIZE = 32
+
 import apply_owner_assignment as legacy
 
 ROOT = legacy.ROOT
@@ -138,11 +141,7 @@ def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]
     totals = manifest.get("totals")
     encoding_summary = state.get("wave", {}).get("encoding_summary")
     work_totals = work.get("ci_train", {}).get("totals")
-    for label, value in (
-        ("manifest.totals", totals),
-        ("PRIVATE_STAGE_STATE.wave.encoding_summary", encoding_summary),
-        ("CURRENT_WORK.ci_train.totals", work_totals),
-    ):
+    for label, value in (("manifest.totals", totals),("PRIVATE_STAGE_STATE.wave.encoding_summary", encoding_summary),("CURRENT_WORK.ci_train.totals", work_totals)):
         if not isinstance(value, dict):
             raise ValueError(f"{label} must be object")
         value["existing_owner_updates"] = total_updates
@@ -152,7 +151,29 @@ def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]
     legacy.write_object(work_path, work)
 
     result = legacy.load_object(result_path)
+    result["schema_version"] = 2
     result["generated_by"] = "_tools/apply_owner_assignment_v2.py"
+    result.pop("owner_file_digests", None)
+    owner_digests = {
+        path.relative_to(root).as_posix(): legacy.digest_file(path)
+        for path in sorted(p4.glob("fixes_*.json"))
+    }
+    for stale in p4.glob(f"{OWNER_DIGEST_SHARD_PREFIX}*.json"):
+        stale.unlink()
+    shard_records: list[dict[str, Any]] = []
+    items = sorted(owner_digests.items())
+    for offset in range(0, len(items), OWNER_DIGEST_SHARD_SIZE):
+        shard_index = offset // OWNER_DIGEST_SHARD_SIZE + 1
+        shard_name = f"{OWNER_DIGEST_SHARD_PREFIX}{shard_index:02d}.json"
+        shard_path = p4 / shard_name
+        shard_value = dict(items[offset:offset + OWNER_DIGEST_SHARD_SIZE])
+        legacy.write_object(shard_path, shard_value)
+        shard_records.append({
+            "path": shard_path.relative_to(root).as_posix(),
+            "count": len(shard_value),
+            "digest": legacy.digest_file(shard_path),
+        })
+    result["owner_file_digest_shards"] = shard_records
     counts = result.get("counts")
     if not isinstance(counts, dict):
         raise ValueError("OWNER_ASSIGNMENT_RESULT.counts must be object")
@@ -164,18 +185,9 @@ def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]
         if not isinstance(packet_result, dict):
             raise ValueError("OWNER_ASSIGNMENT_RESULT packet must be object")
         packet_result["existing_owner_updates"] = count
-    result["owner_file_digests"] = {
-        path.relative_to(root).as_posix(): legacy.digest_file(path)
-        for path in sorted(p4.glob("fixes_*.json"))
-    }
-    result["state_file_digests"] = {
-        manifest_path.relative_to(root).as_posix(): legacy.digest_file(manifest_path),
-        state_path.relative_to(root).as_posix(): legacy.digest_file(state_path),
-        work_path.relative_to(root).as_posix(): legacy.digest_file(work_path),
-    }
+    result["state_file_digests"] = {manifest_path.relative_to(root).as_posix(): legacy.digest_file(manifest_path),state_path.relative_to(root).as_posix(): legacy.digest_file(state_path),work_path.relative_to(root).as_posix(): legacy.digest_file(work_path)}
     legacy.write_object(result_path, result)
     return result
-
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)

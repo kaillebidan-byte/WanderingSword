@@ -73,7 +73,7 @@ on:
       - ".github/workflows/ci-train-phase2.yml"
 
 permissions:
-  contents: write
+  contents: read
   actions: read
   pull-requests: read
 
@@ -82,90 +82,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  private-reseal:
-    if: >-
-      github.actor != 'github-actions[bot]' &&
-      github.event.repository.visibility == 'private' &&
-      github.event.action == 'labeled' &&
-      github.event.label.name == 'release-ci' &&
-      github.event.pull_request.number == 142
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout train branch
-        uses: actions/checkout@v4
-        with:
-          ref: agent/yuwen-mowen-train-17
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Record PR number and regenerate owner evidence
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          p4 = Path('_phase4_proofread')
-          pr = 142
-          def load(name):
-              return json.loads((p4 / name).read_text(encoding='utf-8'))
-          def write(name, value):
-              (p4 / name).write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-          manifest = load('CI_TRAIN_MANIFEST.json')
-          manifest['draft_pr'] = pr
-          manifest['transport']['pr'] = pr
-          write('CI_TRAIN_MANIFEST.json', manifest)
-          state = load('PRIVATE_STAGE_STATE.json')
-          state['transport']['pr'] = pr
-          for item in state['transport']['history']:
-              if item.get('status') == 'ready_for_public_ci':
-                  item['pr'] = pr
-          write('PRIVATE_STAGE_STATE.json', state)
-          work = load('CURRENT_WORK.json')
-          work['ci_train']['draft_pr'] = pr
-          write('CURRENT_WORK.json', work)
-          handoff = (p4 / 'CURRENT_HANDOFF.md').read_text(encoding='utf-8')
-          if '- PR #142: open / draft' not in handoff:
-              handoff = handoff.replace(
-                  '- PR #141: squash merged (`2d9f4790a8075b27b0c7981607e81c88b579fef1`)',
-                  '- PR #141: squash merged (`2d9f4790a8075b27b0c7981607e81c88b579fef1`)\n- PR #142: open / draft',
-              )
-          handoff = handoff.replace(
-              'private release preflightを実行し、成功後にPRをreadyとして公開CI窓を依頼する。',
-              'PR #142のprivate release preflightを実行し、成功後にreadyへ切り替えて公開CI窓を依頼する。',
-          )
-          (p4 / 'CURRENT_HANDOFF.md').write_text(handoff, encoding='utf-8')
-          PY
-          python _tools/apply_owner_assignment_v2.py
-
-      - name: Verify owner and private release state
-        run: |
-          python _tools/check_owner_assignment_result.py
-          python _tools/check_candidate_ownership.py --release-live
-          python _tools/check_private_release_preflight.py --with-tests
-
-      - name: Commit verified state and remove temporary workflows
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout origin/main -- .github/workflows/ci-train-phase2.yml
-          git rm -f .github/workflows/train17-owner-reseal.yml
-          git add \
-            .github/workflows/ci-train-phase2.yml \
-            _phase4_proofread/OWNER_ASSIGNMENT_RESULT.json \
-            _phase4_proofread/CI_TRAIN_MANIFEST.json \
-            _phase4_proofread/PRIVATE_STAGE_STATE.json \
-            _phase4_proofread/CURRENT_WORK.json \
-            _phase4_proofread/CURRENT_HANDOFF.md \
-            _phase4_proofread/fixes_*.json
-          git diff --cached --check
-          git commit -m "証跡: train-17をPR #142で再封印"
-          git push origin HEAD:agent/yuwen-mowen-train-17
-
   validate-release:
     if: >-
       github.actor != 'github-actions[bot]' &&
