@@ -8,7 +8,7 @@
 
 - 実visibility: private
 - PR #141: squash merged (`2d9f4790a8075b27b0c7981607e81c88b579fef1`)
-- PR #142: open / draft
+- PR #142: open / ready / mergeable
 - train: `yuwen-mowen-train-17`
 - verified checkpoint: 第114束 / pair 1188 / project 1564
 - last reviewed batch: 第117束
@@ -20,11 +20,13 @@
 
 救出拒絶、和解後の協働、悪人谷残党戦三分岐を監査した。第1packetは師兄呼称を1行修正、第2packetは13行すべて保持、第3packetは助詞欠落、包閔の粗野な声、李元興の忠告、決死慣用句、分岐共通文を21行修正した。
 
-新規ownerは33行、既存owner値更新は1行。owner assignment v2の生成結果と全owner/state digestを`OWNER_ASSIGNMENT_RESULT.json`へ固定する。
+新規ownerは33行、既存owner値更新は1行。owner assignment v2の生成結果と全owner/state digestを4 shardへ分割して固定し、単一巨大JSONの手動転記を廃止した。
 
 ## 次の作業
 
-PR #142のprivate release preflightを実行し、成功後にreadyへ切り替えて公開CI窓を依頼する。次候補`9231_3`はminimal reservationのまま保持し、train-17統合前にpreparationを開始しない。
+repositoryをpublicにしてPR #142の完全preflight、Relation、Cross、Apply、single-PR finalizationを実行する。公開側の完了目標は`awaiting_private_merge`。
+
+次候補`9231_3`はminimal reservationのまま保持し、train-17統合前にpreparationを開始しない。
 
 ## 禁止
 
