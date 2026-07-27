@@ -83,9 +83,43 @@ def planned_existing_updates(root: Path, plan: dict[str, Any]) -> list[int]:
 def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]:
     plan = legacy.load_object(plan_path)
     update_counts = planned_existing_updates(root, plan)
+    packets = plan.get("packets")
+    if not isinstance(packets, list):
+        raise ValueError("plan.packets must be a list")
+
+    p4 = root / "_phase4_proofread"
+    new_paths = {
+        packet.get("new_owner_file")
+        for packet in packets
+        if isinstance(packet, dict) and isinstance(packet.get("new_owner_file"), str)
+    }
+    _, owner_map = legacy.collect_owner_files(p4, new_paths)
+    touched_owner_paths = set(new_paths)
+    for index, packet in enumerate(packets):
+        if not isinstance(packet, dict):
+            raise ValueError(f"plan.packets[{index}] must be object")
+        candidate_rel = packet.get("candidate")
+        values = packet.get("values")
+        if not isinstance(candidate_rel, str) or not isinstance(values, dict):
+            raise ValueError(f"plan.packets[{index}] candidate and values are required")
+        candidate = legacy.load_object(root / candidate_rel)
+        _, target, namespace = legacy.candidate_keys(candidate)
+        new_path = packet.get("new_owner_file")
+        for short in values:
+            owners = owner_map.get(legacy.full_key(target, namespace, short), [])
+            if len(owners) > 1:
+                raise ValueError(f"multiple owners for {short}: {owners}")
+            touched_owner_paths.add(owners[0] if owners else new_path)
+
+    untouched_owner_bytes = {
+        path.relative_to(root).as_posix(): path.read_bytes()
+        for path in sorted(p4.glob("fixes_*.json"))
+        if path.relative_to(root).as_posix() not in touched_owner_paths
+    }
 
     legacy.apply_plan(root, plan_path, result_path)
-    p4 = root / "_phase4_proofread"
+    for rel, data in untouched_owner_bytes.items():
+        (root / rel).write_bytes(data)
     manifest_path = p4 / "CI_TRAIN_MANIFEST.json"
     state_path = p4 / "PRIVATE_STAGE_STATE.json"
     work_path = p4 / "CURRENT_WORK.json"
@@ -130,6 +164,10 @@ def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]
         if not isinstance(packet_result, dict):
             raise ValueError("OWNER_ASSIGNMENT_RESULT packet must be object")
         packet_result["existing_owner_updates"] = count
+    result["owner_file_digests"] = {
+        path.relative_to(root).as_posix(): legacy.digest_file(path)
+        for path in sorted(p4.glob("fixes_*.json"))
+    }
     result["state_file_digests"] = {
         manifest_path.relative_to(root).as_posix(): legacy.digest_file(manifest_path),
         state_path.relative_to(root).as_posix(): legacy.digest_file(state_path),

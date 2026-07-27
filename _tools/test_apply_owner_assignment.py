@@ -89,6 +89,13 @@ class OwnerAssignmentTests(unittest.TestCase):
             old_rel = "_phase4_proofread/fixes_old.json"
             old = {core.full_key("CG表", "QuestDlgs", key): f"old-{key}" for key in ("k1", "k2", "k3")}
             (root / old_rel).write_text(json.dumps(old), encoding="utf-8")
+            untouched_rel = "_phase4_proofread/fixes_untouched.json"
+            untouched = {
+                core.full_key("CG表", "QuestDlgs", "z2"): "old-z2",
+                core.full_key("CG表", "QuestDlgs", "z1"): "old-z1",
+            }
+            untouched_bytes = (json.dumps(untouched, ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8")
+            (root / untouched_rel).write_bytes(untouched_bytes)
             manifest = {"totals": {}, "bundles": [{"reviewed_rows": 4}]}
             state = {
                 "wave": {
@@ -120,6 +127,7 @@ class OwnerAssignmentTests(unittest.TestCase):
             new_owner = json.loads((p4 / "fixes_new.json").read_text(encoding="utf-8"))
             self.assertEqual(updated_old[core.full_key("CG表", "QuestDlgs", "k1")], "new-k1")
             self.assertEqual(new_owner, {core.full_key("CG表", "QuestDlgs", "k4"): "new-k4"})
+            self.assertEqual((root / untouched_rel).read_bytes(), untouched_bytes)
             self.assertEqual(result["counts"], {
                 "existing_owner_updates": 1,
                 "new_project_keys": 1,

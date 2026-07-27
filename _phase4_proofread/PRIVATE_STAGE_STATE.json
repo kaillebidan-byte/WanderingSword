@@ -1,1 +1,177 @@
-{"schema_version":2,"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","train_id":"yuwen-mowen-train-15","stage":"translation_frozen","mode":"wave_v2","cycle_control":{"status":"target_reached","private_completion_target":"ready_for_public_ci","public_completion_target":"awaiting_private_merge","post_public_completion_target":"merged","continuation_required":false,"stop_reason":null,"exact_next_action":null,"last_safe_checkpoint":"awaiting_private_merge"},"ownership_policy":{"schema_version":1,"required_for_new_candidates":true,"snapshot_command":"python _tools/check_candidate_ownership.py --write <candidate paths>","pre_public_check":"python _tools/check_private_release_preflight.py --with-tests","legacy_candidate_paths":["_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json"]},"wave":{"wave_id":"yuwen-mowen-train-15-wave-01","queue_status":"sealed","seal_reason":"unique_reviewed_rows_threshold","seal_attestation":"two semantically indivisible candidate packets and 50 unique rows were prepared from the latest verified relation evidence before quality judgment","packets":[{"packet_id":"yuwen-mowen-6151-2-6151-3","scene_groups":["6151_2","6151_3"],"status":"encoded","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6151_2_6151_3_2026-07-27.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN15_WAVE01_2026-07-27.md"},"audit_record":{"record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN15_WAVE01_2026-07-27.md","status":"complete"},"formal_batch":111,"review_record":{"record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH111_2026-07-27.md","status":"complete","apply_status":"verified"}},{"packet_id":"yuwen-mowen-6155-1-6155-3-6158-5-6171-5","scene_groups":["6155_1","6155_3","6158_5","6171_5"],"status":"encoded","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6155_1_6155_3_6158_5_6171_5_2026-07-27.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN15_WAVE01_2026-07-27.md"},"audit_record":{"record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN15_WAVE01_2026-07-27.md","status":"complete"},"formal_batch":112,"review_record":{"record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH112_2026-07-27.md","status":"complete","apply_status":"verified"}}],"encoding_summary":{"packet_count":2,"reviewed_rows":50,"fix_keys":8,"new_project_keys":12,"existing_owner_updates":7,"keep_only_packets":0}},"transport":{"status":"awaiting_private_merge","history":[{"status":"not_ready","translation_stage":"private_encoding"},{"status":"ready_for_public_ci","translation_stage":"translation_frozen","pr":138},{"status":"in_public_ci","translation_stage":"translation_frozen","pr":138},{"status":"verified","translation_stage":"translation_frozen","pr":138,"release_id":"yuwen-mowen-train-15-r1"},{"status":"awaiting_private_merge","translation_stage":"translation_frozen","pr":138,"release_id":"yuwen-mowen-train-15-r1"}],"pr":138},"permissions":{"translation_judgment_allowed":false,"fix_writes_allowed":false,"encoding_writes_allowed":false,"throughput_metrics_visible":true,"metrics_frozen":false},"history":[{"stage":"private_preparation","status":"complete"},{"stage":"private_quality_audit","status":"complete"},{"stage":"private_encoding","status":"complete"},{"stage":"translation_frozen","status":"active"}],"replenishment_reason":null,"source_artifact":{"workflow":"Release train orchestrator","run_id":30229370541,"artifact_id":8639569669,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:f08e4c6b3e6043027bf08673164e766301cce3bba8d923987161234f9521b5e7","head_sha":"e6e4552b539cd153285e99b8afc5a4eda650f765"},"verified_result":{"release_id":"yuwen-mowen-train-15-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_15.json","ci_head":"c9040b5cda33908deda05e6de8c8cec4ac92ce3e","asset_head":"fdaf4dd89d9a80ab23743324f6624647660539ea","pending_fixes":0},"previous_release":{"train_id":"yuwen-mowen-train-14","release_id":"yuwen-mowen-train-14-r1","pr":135,"merge_sha":"43c726d727fa2a488d43bef93b39d7a158e792e4"},"institutional_baseline":{"pr":139,"merge_sha":"7564af3bd5989c6ca2e0e07c4a6cb2786507dfa9","status":"merged","scope":"owner配分を生成器で確定"}}
+{
+  "schema_version": 2,
+  "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
+  "train_id": "yuwen-mowen-train-16",
+  "stage": "translation_frozen",
+  "mode": "wave_v2",
+  "cycle_control": {
+    "status": "target_reached",
+    "private_completion_target": "ready_for_public_ci",
+    "public_completion_target": "awaiting_private_merge",
+    "post_public_completion_target": "merged",
+    "continuation_required": false,
+    "stop_reason": null,
+    "exact_next_action": null,
+    "last_safe_checkpoint": "awaiting_private_merge"
+  },
+  "ownership_policy": {
+    "schema_version": 1,
+    "required_for_new_candidates": true,
+    "snapshot_command": "python _tools/check_candidate_ownership.py --write <candidate paths>",
+    "pre_public_check": "python _tools/check_private_release_preflight.py --with-tests",
+    "legacy_candidate_paths": [
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json"
+    ]
+  },
+  "wave": {
+    "wave_id": "yuwen-mowen-train-16-wave-01",
+    "queue_status": "sealed",
+    "seal_reason": "unique_reviewed_rows_threshold",
+    "seal_attestation": "two semantically indivisible candidate packets and 40 unique rows were prepared from the latest verified relation evidence before quality judgment",
+    "packets": [
+      {
+        "packet_id": "yuwen-mowen-6195-3-6198-3-6206-3",
+        "scene_groups": [
+          "6195_3",
+          "6198_3",
+          "6206_3"
+        ],
+        "status": "encoded",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6195_3_6198_3_6206_3_2026-07-27.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN16_WAVE01_2026-07-27.md"
+        },
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN16_WAVE01_2026-07-27.md",
+          "status": "complete"
+        },
+        "formal_batch": 113,
+        "review_record": {
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH113_2026-07-27.md",
+          "status": "complete",
+          "apply_status": "verified"
+        }
+      },
+      {
+        "packet_id": "yuwen-mowen-6213-1-6214-4-6229-1",
+        "scene_groups": [
+          "6213_1",
+          "6214_4",
+          "6229_1"
+        ],
+        "status": "encoded",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6213_1_6214_4_6229_1_2026-07-27.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN16_WAVE01_2026-07-27.md"
+        },
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN16_WAVE01_2026-07-27.md",
+          "status": "complete"
+        },
+        "formal_batch": 114,
+        "review_record": {
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH114_2026-07-27.md",
+          "status": "complete",
+          "apply_status": "verified"
+        }
+      }
+    ],
+    "encoding_summary": {
+      "packet_count": 2,
+      "reviewed_rows": 40,
+      "fix_keys": 8,
+      "new_project_keys": 6,
+      "existing_owner_updates": 8,
+      "keep_only_packets": 0
+    }
+  },
+  "transport": {
+    "status": "awaiting_private_merge",
+    "history": [
+      {
+        "status": "not_ready",
+        "translation_stage": "private_encoding"
+      },
+      {
+        "status": "ready_for_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 141
+      },
+      {
+        "status": "in_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 141
+      },
+      {
+        "status": "verified",
+        "translation_stage": "translation_frozen",
+        "pr": 141,
+        "release_id": "yuwen-mowen-train-16-r1"
+      },
+      {
+        "status": "awaiting_private_merge",
+        "translation_stage": "translation_frozen",
+        "pr": 141,
+        "release_id": "yuwen-mowen-train-16-r1"
+      }
+    ],
+    "pr": 141
+  },
+  "permissions": {
+    "translation_judgment_allowed": false,
+    "fix_writes_allowed": false,
+    "encoding_writes_allowed": false,
+    "throughput_metrics_visible": true,
+    "metrics_frozen": false
+  },
+  "history": [
+    {
+      "stage": "private_preparation",
+      "status": "complete"
+    },
+    {
+      "stage": "private_quality_audit",
+      "status": "complete"
+    },
+    {
+      "stage": "private_encoding",
+      "status": "complete"
+    },
+    {
+      "stage": "translation_frozen",
+      "status": "active"
+    }
+  ],
+  "replenishment_reason": null,
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30234441502,
+    "artifact_id": 8641167054,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:e7ceb3a4317c207ce73d7779f064f3f3a1866c51703c1c8c9ade2120c261b1d8",
+    "head_sha": "c9040b5cda33908deda05e6de8c8cec4ac92ce3e"
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-16-r1",
+    "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_16.json",
+    "ci_head": "b0af4fe28b35a8543b6b7a38107b8c5ec55b0962",
+    "asset_head": "2cbbcd988e45fc995a535fb01da95e817cbea89d",
+    "pending_fixes": 0
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-15",
+    "release_id": "yuwen-mowen-train-15-r1",
+    "pr": 138,
+    "merge_sha": "4bbe0e59535811d06798c0df87c89d38335d7bc8"
+  },
+  "institutional_baseline": {
+    "pr": 139,
+    "merge_sha": "7564af3bd5989c6ca2e0e07c4a6cb2786507dfa9",
+    "status": "merged",
+    "scope": "owner配分を生成器で確定"
+  }
+}
