@@ -7,7 +7,7 @@
 ## 現在地
 
 - 実visibility: private
-- PR #138: open / draft（private preflightと参照同期後にready化）
+- PR #138: open / ready / mergeable
 - train: `yuwen-mowen-train-15`
 - verified checkpoint: 第110束
 - last reviewed batch: 第112束
@@ -25,11 +25,11 @@
 
 ## 次の作業
 
-private preflightを一命令で完了し、PR #138をreadyへ移す。ユーザーがpublic化した後、`release-ci`でorchestratorを起動し、Apply、state finalization、phase2、review thread 0件まで同一PRで進める。
+ユーザーがpublic化した後、PR #138で`release-ci`を起動し、Relation、Cross、Apply、state finalization、phase2、review thread 0件まで同一PRで進める。
 
 ## 禁止
 
 - public中に翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- private確認前にPR #138をmergeしない。
+- privateのままPR #138をmergeしない。
 - PR #138統合前に`6195_3`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
