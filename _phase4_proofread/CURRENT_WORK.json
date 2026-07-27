@@ -200,7 +200,7 @@
       "cycle_checkpoint": "ready_for_public_ci"
     },
     "tracking_issue": null,
-    "draft_pr": null,
+    "draft_pr": 145,
     "applied_result": null,
     "verified_result": null,
     "finalization_phase": "phase2",
