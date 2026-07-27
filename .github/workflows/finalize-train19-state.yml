@@ -6,6 +6,7 @@ on:
       - agent/yuwen-mowen-train-19
     paths:
       - ".github/workflows/finalize-train19-state.yml"
+      - "_tools/finalize_train19_trigger.txt"
 
 permissions:
   contents: write
@@ -32,7 +33,7 @@ jobs:
         run: python _tools/finalize_train19_once.py
 
       - name: Remove one-shot files
-        run: rm -f .github/workflows/finalize-train19-state.yml _tools/finalize_train19_once.py
+        run: rm -f .github/workflows/finalize-train19-state.yml _tools/finalize_train19_once.py _tools/finalize_train19_trigger.txt
 
       - name: Verify finalization locally
         run: python _tools/check_release_finalization.py --with-tests
