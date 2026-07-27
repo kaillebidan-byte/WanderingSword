@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-17-r1",
+  "train_id": "yuwen-mowen-train-17",
+  "pr": 142,
+  "ci_head": "90d5cd537afd43d836b7b15bac2e5aef9b0ac08a",
+  "asset_head": "15cad30404a23d97ce066d4285620f277678b4dd",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH117_2026-07-28.md",
+  "counts": {
+    "batch": 117,
+    "pair_applied_keys": 1221,
+    "project_applied_keys": 1597,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30286210220,
+    "workflow": "Release train orchestrator",
+    "head_sha": "90d5cd537afd43d836b7b15bac2e5aef9b0ac08a",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第115〜117束は51 reviewed keys・51 unique reviewed rows・22修正キーとして確定した",
+    "51行のlive owner実測は既存owner所属18・新規owner33・複数owner0で、既存owner値更新は1件だった",
+    "owner assignment v2の全owner digestは4 shardへ分割し、公開preflightで検証した",
+    "orchestrator run 30286210220で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply bot asset HEAD 15cad30404a23d97ce066d4285620f277678b4ddで適用記録とaudit statusを第117束へ同期した",
+    "次候補9231_3はminimal reservationのまま保持し、PR #142統合前にはprivate preparationを開始しない"
+  ]
+}
