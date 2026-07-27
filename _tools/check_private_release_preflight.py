@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""公開前後に翻訳内容へ触れず、Apply前の輸送準備を一括検査する。"""
+"""翻訳内容へ触れず、Apply前の輸送準備とcycle実行モードを一括検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -13,6 +13,7 @@ TOOLS = ROOT / "_tools"
 
 BASE_CHECKS = [
     ["check_state_json_integrity.py"],
+    ["check_phase_completion_signal.py"],
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
     ["check_candidate_ownership.py", "--release-live"],
@@ -26,12 +27,14 @@ BASE_CHECKS = [
 ]
 TESTS = [
     ["test_check_state_json_integrity.py"],
+    ["test_check_phase_completion_signal.py"],
     ["test_check_candidate_ownership.py"],
     ["test_apply_owner_assignment.py"],
     ["test_check_fix_owner_delta.py"],
     ["test_check_next_task_packet_minimal.py"],
     ["test_check_release_transport_state.py"],
     ["test_check_autonomous_cycle.py"],
+    ["test_select_cycle_execution_mode.py"],
     ["test_write_applied_record.py"],
     ["test_release_ci_triggers.py"],
     ["test_check_operation_mode.py"],
@@ -80,6 +83,8 @@ def main() -> int:
 
     print("\nRelease preflight used live owner measurement and sealed owner-assignment evidence.")
     print("Stored candidate ownership snapshots remain immutable pre-quality-audit records.")
+    print("Regulated phase success and error responses share the exact terminal marker contract.")
+    print(f"Cycle execution mode is valid for repository visibility {args.repository_visibility}.")
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
 

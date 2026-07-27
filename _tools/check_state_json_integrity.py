@@ -19,6 +19,8 @@ CORE_PATHS = (
     P4 / "audit_status.json",
     P4 / "VISIBILITY_PREFLIGHT_CONTRACT.json",
     P4 / "PRIVATE_TRANSLATION_STAGES.json",
+    P4 / "EXECUTION_MODES.json",
+    P4 / "PHASE_COMPLETION_SIGNAL.json",
 )
 
 

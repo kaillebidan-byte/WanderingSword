@@ -2,65 +2,65 @@
 
 ## 目的
 
-現在の手動private/public/private反復を、まず安全で決定的な形に固定する。
+手動private/public/private反復と常時public full pipelineを、同じ翻訳段階機械とCI輸送経路で動かす。
 
-将来はrepositoryをpublicのまま維持し、現在privateで行っている準備・品質監査・収録と、public CI・統合までをscheduled automationで一続きに実行する。その将来モードでも同じ段階機械と`cycle_control`を再利用する。
+実行モードの正本は`EXECUTION_MODES.json`とする。利用者の入力はどちらも`作業の続きを`で変えない。
 
-翻訳の準備・品質監査・収録・凍結という認知段階は維持する。ただし、段階境界は内部checkpointであり、通常の会話終了地点ではない。
+## mode選択
 
-## 現在の手動cycle
+新しいcycleを始める直前のrepository metadataだけでmodeを選ぶ。
 
-### private作業
-
-一度の「作業の続きを」で、正常なら次まで連続して進む。
-
-`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> private preflight -> PR ready -> ready_for_public_ci`
-
-`private_preparation`、`private_quality_audit`、`private_encoding`で、追加の「作業の続きを」を要求しない。
-
-private中はGitHub Actionsを使わない。checkerは作業環境で実行し、GitHub-hosted runnerが必要な輸送検査だけをpublic CI窓へ送る。
-
-candidateの`ownership_snapshot`はquality auditへ渡した時点のowner認識を保存する監査記録であり、encoding後に上書きしない。candidate生成時に次を実行して固定する。
+- private: `manual_visibility_cycle`
+- public: `always_public_full_pipeline`
 
 ```bash
-python _tools/check_candidate_ownership.py --write <candidate paths>
+python _tools/select_cycle_execution_mode.py --repository-visibility <private|public> --write
 ```
 
-private完了時は次の一命令を正規入口とする。
+選択結果は`CURRENT_WORK.operation_mode`と`PRIVATE_STAGE_STATE.cycle_control`へ固定する。進行中cycleでは変更しない。前cycleのtransportが`merged`になった後だけ次cycleを選べる。
 
-```bash
-python _tools/check_private_release_preflight.py --with-tests
-```
+既存のmode fieldを持たない進行中cycleはlegacy manual cycleとして完了させる。途中で常時publicへ付け替えない。
 
-release preflightは保存snapshotの行集合・対象・構造を検査したうえで、現在の全`fixes_*.json`からownerをライブ実測する。保存snapshotとの差は診断として表示するが、それだけでは停止しない。複数owner、candidate外の訳変更、owner総数・新規owner数・修正数の不一致は従来どおり停止する。成功後はpublic CI窓を開くまでrelease filesを編集しない。
+## 共通段階
 
-### public作業
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen`
 
-public確認後、正常なら次まで連続して進む。
+`private_*`は認知段階の識別子であり、visibility条件ではない。
 
-`in_public_ci -> orchestrator success -> state finalization -> phase2 success -> review thread 0 -> awaiting_private_merge`
+- preparation: 候補とowner snapshotを準備する。翻訳判断、fix、owner、正式束は禁止
+- quality audit: sealed queue全体を監査する。翻訳判断以外の書込みは禁止
+- encoding: 記録済み判断をowner生成器で収録する。新しい翻訳判断は禁止
+- translation frozen: 翻訳判断を閉じる。以後はCI輸送だけを進める
 
-Relation、Cross、Apply、phase2の間で追加の継続指示を要求しない。
+owner生成、live owner検査、quality gate、manifest ready、digest証跡は両modeで同一とする。
 
-orchestrator、Apply、finalizationは同じlive owner検査を使う。保存snapshotの差を直すための公開修復commitは作らない。
+## manual_visibility_cycle
 
-orchestratorはApplyの結果として`ci_head`、`asset_head`、`apply_changed`を`release-finalization-inputs-<PR>` artifactへ出力する。finalizationはこの値を正本とし、bot commitの有無からHEADを推測しない。
+正常停止地点はvisibility境界またはmerge完了。
 
-release evidence、CURRENT_WORK、manifest、private stage、handoffを更新した後、push前に次を成功させる。
+1. privateで`ready_for_public_ci`
+2. publicで`awaiting_private_merge`
+3. privateでsquash mergeして`merged`
 
-```bash
-python _tools/check_release_finalization.py --with-tests
-```
+public CI窓では翻訳判断、fix追加、owner変更、次wave準備を行わない。publicのままmergeしない。
 
-このローカルphase2相当検査がstrict UTF-8 JSON、release lineage、handoff、live owner、manifest、quality、minimal reservation、回帰を確認する。GitHub上のphase2はこれに加えてworkflow runとPR attachmentを検証する。
+## always_public_full_pipeline
 
-### private復帰後
+repositoryをpublicのまま維持する。
 
-private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確定する。次waveのpreparationは、統合確認後の別cycleとして開始する。
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> phase2 -> review thread 0 -> squash merge -> merged`
+
+`ready_for_public_ci`と`awaiting_private_merge`は内部checkpointとして記録するが、正常停止地点にはしない。visibility変更依頼を出さず、同じcycleで`merged`まで進む。
+
+publicで翻訳段階を実行できるのは、modeがcycle開始時にpublicから選ばれ、二つの状態正本へlockされ、段階権限が一致している場合だけとする。
+
+## CI
+
+通常commit、PR作成、ready化だけでは重いCIを起動しない。
+
+translation freeze、manifest ready、release preflight成功後に既存の`release-ci`を使う。Relation、Cross、Apply、finalization、phase2の経路はmodeで分岐させない。
 
 ## cycle_control
-
-`PRIVATE_STAGE_STATE.json.cycle_control`をcold start、現在の手動cycle、将来のschedulerの共通機械入口とする。
 
 必須項目:
 
@@ -73,13 +73,43 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 - `exact_next_action`
 - `last_safe_checkpoint`
 
-### running
+新cycleでは次も必須。
 
-正常な作業途中。`continuation_required=true`、`stop_reason=null`、`exact_next_action`必須。
+- `execution_mode`
+- `cycle_start_visibility`
+- `mode_locked_for_cycle=true`
+- `normal_completion_target`
 
-### paused
+manualの`normal_completion_target`は`visibility_boundary_or_merged`。always-publicは`merged`。
 
-例外停止。`continuation_required=true`で、許可された`stop_reason`と機械実行可能な`exact_next_action`を必須とする。
+## 規定二フェイズ終端シグナル
+
+巨大作業は次の二フェイズで進む。
+
+1. `quality_reaudit`: 関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査
+2. `narrative_readthrough`: 章・事件単位の日本語通読と原文対照による章ごとの通読修正
+
+この二フェイズはvisibility cycleより長い作業単位であり、単一waveや単一mergeをフェイズ完了としない。
+
+各フェイズ全体が成功終了した応答、またはエラー終端した応答は`PHASE_COMPLETION_SIGNAL.json`へ従う。
+
+成功時の末尾:
+
+```text
+規定フェイズ結果: success
+規定フェイズ完了
+```
+
+エラー時の末尾:
+
+```text
+規定フェイズ結果: error
+規定フェイズ完了
+```
+
+マーカーは最後の非空行に一度だけ置く。マーカーだけでは成功を意味せず、直前行を自動化の結果判定に使う。
+
+## 例外停止
 
 許可理由:
 
@@ -88,65 +118,20 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 - `external_dependency_unavailable`
 - `turn_capacity_checkpoint`
 
-### target_reached
+`paused`は理由と機械実行可能な`exact_next_action`を必須とする。always-publicでは失敗時もmodeを変えず、private復帰を要求しない。
 
-現在の手動cycleではvisibility変更またはcycle完了を待つ正常停止。`continuation_required=false`、`stop_reason=null`、`exact_next_action=null`とする。
-
-許可checkpoint:
-
-- `ready_for_public_ci`
-- `awaiting_private_merge`
-- `merged`
-
-## public-only移行の観測条件
-
-常時public化を自動決定しない。最終判定は、**校正作業を担当する同一チャット内で、現在の手動private/public/private cycleを2回連続完走**した時点で、`always_public_full_pipeline`への移行設計を検討対象にする。
-
-校正チャットではvisibility変更のため、ユーザーが「作業の続きを」「公開した」「非公開にした」などの通常の制御メッセージを送る必要がある。これらは運用上必須の入力であり、介入や失格条件として扱わない。1回目の統合後に同じ校正チャットで「作業の続きを」を受けて2回目を開始することも、連続成功の正規手順である。
-
-ここでいう「介入なし」とは、この制度改修・監査チャットまたは別チャットから、試走中の校正チャットへ修復案、repo変更、判断指示、例外的な再開手順を差し込まないことを指す。校正チャット自身が通常手順としてvisibility確認と作業継続を受けることは含まない。
-
-各cycleは、開始からrelease統合までを同じ校正チャットで進め、次の条件をすべて満たす。
-
-- private preflightが公開前に一度で成功し、live owner検査で複数owner・監査範囲外変更・集計不一致がない
-- 最初のorchestrator runが成功し、修復push、手動再ラベル、workflow権限修正がない
-- `release-finalization-inputs`の値をそのまま使用し、asset HEADまたはlineageの修正がない
-- push前のlocal finalization検査が成功し、最初のphase2 runが成功する
-- 未解決review threadが0で、private復帰後の統合前に状態修正を必要としない
-- 1回目と2回目の間で別チャットから制度修復や判断介入を行わず、同じ校正チャットで通常の制御メッセージだけを用いて連続実行する
-
-保存snapshotとlive ownerの差が診断表示されても、安全検査が成功し、snapshot修復commitを必要としない場合はsmooth cycleを失格にしない。一つでも`paused`、checker failure、修復push、再ラベル、証跡補正、転送破損、lineage修正、live owner安全違反、別チャットからの制度・修復介入、校正チャットの移動が発生した場合は連続数を0へ戻す。通常の「作業の続きを」「公開した」「非公開にした」は連続数へ影響しない。2回到達は移行の検討開始条件であり、visibility変更を自動実行する条件ではない。
-
-## 将来のscheduled mode
-
-将来モードは`always_public_full_pipeline`とする。repository visibilityをschedulerが変更する方式ではない。
-
-- repositoryはpublicのまま維持する。
-- 現在privateで行う`private_preparation`、`private_quality_audit`、`private_encoding`も、段階境界と禁止事項を維持したままscheduled workerが実行する。
-- `private_*`は認知段階の識別子であり、repository visibilityやprivate Actions利用を意味しない。
-- 同じ実行でtranslation freeze、preflight、orchestrator、Apply、phase2、review thread確認、squash mergeまで進める。
-- schedulerはvisibilityを変更せず、時刻起動、排他制御、冪等性、失敗時停止、再開だけを担当する。
-- publicであることを翻訳判断の自由化とは解釈しない。各段階の権限と認知分離は現在の契約をそのまま使う。
-- private Actions、private runner、月間private Actions利用枠の回復を前提条件へ入れない。
-
-将来のschedulerはPR番号、PR HEAD、train ID、stage、transport statusを冪等キーとして保持し、同じ段階、ラベル、Apply、mergeを重複実行しない。
-
-## 現在のscheduler境界
-
-このPRではscheduled workflow、時刻設定、常時public運用を実装しない。現在は手動のvisibility反復を安全に確定することだけを対象とする。
-
-現在のvisibility変更は引き続きユーザーの外部操作であり、各応答の最初にrepository metadataを確認する。
+規定フェイズ自体が継続不能なエラーで終わる応答では、エラー説明後にエラー結果行と完了マーカーを出す。通常の一時停止、visibility境界、単一wave、単一人物ペア、単一章では出さない。
 
 ## 禁止
 
-- 内部段階を正常な会話終了地点として扱うこと
-- `paused`なのに理由や次操作を残さないこと
-- 現在のmanual public CI窓で翻訳判断を再開すること
-- phase2成功前に`awaiting_private_merge`へ進めること
-- 現在の手動cycleでprivate確認前にmergeすること
-- merge完了前に次waveを始めること
-- 保存snapshotをrelease時の現在owner正本として扱うこと
-- snapshot差だけを理由に公開修復commitを作ること
-- 将来schedulerがrepository visibilityを切り替える前提を置くこと
-- 将来schedulerがprivate Actions利用枠の回復を待つ前提を置くこと
-- 常時public化だけを理由に段階分離・owner検査・quality gateを省略すること
+- mode未選択の新cycle開始
+- active cycle中のmode変更
+- publicであることを理由に段階権限を省略すること
+- manual modeでpublic translationを行うこと
+- always-public modeでprivateへ切り替えて継続すること
+- translation freeze前の重いCI起動
+- phase2成功前のmerge
+- merge前の次wave開始
+- always-publicで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
+- 規定フェイズ完了マーカーを単一waveや単一章の完了に使うこと
+- 規定フェイズ完了マーカーの後ろに文章を付けること

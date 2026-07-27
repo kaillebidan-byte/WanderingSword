@@ -1,13 +1,14 @@
 {
-  "schema_version": 1,
-  "gate_id": "github-visibility-preflight-v1",
+  "schema_version": 2,
+  "gate_id": "github-visibility-preflight-v2-cycle-mode",
   "source_of_truth": "github_repository_metadata",
   "applies_to": [
     "new_chat_resume",
     "continue_work",
     "visibility_change_report",
     "public_ci_entry",
-    "private_translation_entry"
+    "private_translation_entry",
+    "cycle_mode_selection"
   ],
   "ordering": {
     "repository_metadata_is_first_external_check": true,
@@ -19,21 +20,41 @@
     "authority": "hint_only",
     "requires_metadata_confirmation": true
   },
+  "cycle_mode": {
+    "contract": "_phase4_proofread/EXECUTION_MODES.json",
+    "selection_time": "new_cycle_start_only",
+    "selection_source": "repository_visibility_at_cycle_start",
+    "private_selects": "manual_visibility_cycle",
+    "public_selects": "always_public_full_pipeline",
+    "active_cycle_mode_change_forbidden": true,
+    "state_authorities_must_match": true,
+    "same_continue_phrase_for_all_modes": true
+  },
+  "phase_completion_signal": {
+    "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
+    "required_on_phase_success": true,
+    "required_on_phase_error": true,
+    "last_nonempty_line": "規定フェイズ完了",
+    "result_line_immediately_precedes_marker": true,
+    "routine_wave_visibility_or_merge_checkpoint_does_not_emit": true
+  },
   "verdict": {
     "first_user_visible_update_requires_effective_mode": true,
     "metadata_failure_allows_work_start_claim": false
   },
   "public_administrative_repair": {
-    "allowed_only_in_public_ci_window": true,
-    "translation_text_changes_forbidden": true,
-    "fix_value_changes_forbidden": true,
-    "persona_or_ownership_changes_forbidden": true,
+    "manual_mode_allowed_only_in_public_ci_window": true,
+    "always_public_mode_preserves_locked_stage_permissions": true,
+    "translation_text_changes_outside_quality_and_encoding_stages_forbidden": true,
+    "fix_value_changes_after_translation_frozen_forbidden": true,
+    "persona_or_ownership_changes_after_translation_frozen_forbidden": true,
     "tracking_issue_record_required": true,
     "affected_gates_must_rerun": true
   },
   "documents": {
     "bootstrap": "_phase4_proofread/SESSION_BOOTSTRAP.md",
-    "public_window": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
+    "manual_public_window": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
+    "always_public_pipeline": "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md",
     "cold_start_acceptance": "_phase4_proofread/COLD_START_ACCEPTANCE.md"
   }
 }

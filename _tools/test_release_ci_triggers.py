@@ -59,6 +59,25 @@ def assert_deterministic_heads(orchestrator: str, apply: str) -> None:
     assert "release-finalization-inputs-" in orchestrator
 
 
+def assert_institution_contract_workflow() -> None:
+    text = read("institution-contract-tests.yml")
+    assert "name: Institution contract tests" in text
+    assert "pull_request:" in text
+    assert "      - opened" in text
+    assert "      - synchronize" in text
+    assert "      - reopened" in text
+    assert "release-ci" not in text
+    assert "ci-heavy-rerun" not in text
+    assert "finalize-release" not in text
+    assert "test_check_operation_mode.py" in text
+    assert "test_check_autonomous_cycle.py" in text
+    assert "test_select_cycle_execution_mode.py" in text
+    assert "check_phase_completion_signal.py" in text
+    assert "test_check_phase_completion_signal.py" in text
+    assert "check_state_json_integrity.py" in text
+    assert "test_release_ci_triggers.py" in text
+
+
 def main() -> None:
     orchestrator = assert_labeled_repair_rerun(
         "release-train-orchestrator.yml",
@@ -74,10 +93,12 @@ def main() -> None:
 
     preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
     assert "check_state_json_integrity.py" in preflight
+    assert "check_phase_completion_signal.py" in preflight
     assert '["check_candidate_ownership.py", "--release-live"]' in preflight
     assert 'check_candidate_ownership.py", "--write' not in preflight
     assert "check_autonomous_cycle.py" in preflight
     assert "test_check_state_json_integrity.py" in preflight
+    assert "test_check_phase_completion_signal.py" in preflight
     assert "test_check_autonomous_cycle.py" in preflight
 
     relation = assert_reusable("relation-audit.yml")
@@ -108,7 +129,9 @@ def main() -> None:
     assert "check_handoff_consistency_v2.py" in finalization
     assert '("check_candidate_ownership.py", "--release-live")' in finalization
     assert "check_autonomous_cycle.py" in finalization
-    print("OK: repair reruns are bounded, all release owner gates are live, and finalization inputs are deterministic")
+
+    assert_institution_contract_workflow()
+    print("OK: release reruns stay bounded, institution tests are lightweight, and finalization inputs are deterministic")
 
 
 if __name__ == "__main__":

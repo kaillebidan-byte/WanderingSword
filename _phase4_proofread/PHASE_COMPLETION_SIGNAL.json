@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "contract_id": "regulated-phase-completion-signal-v1",
+  "marker": "規定フェイズ完了",
+  "status_prefix": "規定フェイズ結果: ",
+  "allowed_results": [
+    "success",
+    "error"
+  ],
+  "pipeline": {
+    "phase_order": [
+      "quality_reaudit",
+      "narrative_readthrough"
+    ],
+    "phases": {
+      "quality_reaudit": {
+        "position": 1,
+        "description": "関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査"
+      },
+      "narrative_readthrough": {
+        "position": 2,
+        "description": "章・事件単位の日本語通読と原文対照による章ごとの通読修正"
+      }
+    }
+  },
+  "emission": {
+    "required_on_phase_success": true,
+    "required_on_phase_error": true,
+    "exactly_once": true,
+    "marker_must_be_last_nonempty_line": true,
+    "trailing_content_forbidden": true,
+    "status_line_immediately_precedes_marker": true,
+    "marker_is_not_success_signal": true,
+    "routine_wave_completion_does_not_emit": true,
+    "visibility_checkpoint_does_not_emit": true,
+    "single_pair_or_single_chapter_completion_does_not_emit": true
+  },
+  "automation": {
+    "terminal_detection": "last_nonempty_line_exact_match",
+    "result_detection": "immediately_preceding_status_line",
+    "success_line": "規定フェイズ結果: success",
+    "error_line": "規定フェイズ結果: error",
+    "user_input_required": false
+  }
+}

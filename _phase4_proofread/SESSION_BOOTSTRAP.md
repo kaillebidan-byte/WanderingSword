@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、private waveとcycle完走状態は`PRIVATE_STAGE_STATE.json`を正本とする。
+現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。実行モードは`EXECUTION_MODES.json`、二フェイズ終端出力は`PHASE_COMPLETION_SIGNAL.json`を正本とする。
 
 ## 起動文
 
@@ -8,194 +8,118 @@
 現状把握して作業の続きを
 ```
 
-同じ意図の表現も再開モードとして扱う。URLや前回作業を聞き直さず、privateで許可された作業があれば同じ応答内で実作業を標準完了地点まで進める。
+`作業の続きを`など同じ意図の表現も再開指示として扱う。モード専用の入力文は設けない。URLや前回作業を聞き直さない。
 
 ## visibility preflight
 
-新規チャット・再開指示・作業継続指示では、最初の外部確認をGitHub repository metadata取得にする。結果が返るまで利用者向けの計画、開始宣言、途中報告を出さない。
+新規チャット、再開、作業継続では、最初の外部確認をGitHub repository metadata取得にする。利用者の申告はhintであり、metadataを実visibilityの正本とする。
 
-利用者の申告ではなくmetadataを実visibilityの正本とする。取得失敗時は、作業開始を主張せず停止する。
+進行中cycleがある場合は、記録済み`execution_mode`を使う。現在visibilityだけを見て途中でmodeを切り替えない。
+
+前cycleのtransportが`merged`で、新しいcycleを開始する場合だけ、開始時visibilityからmodeを選ぶ。
+
+```bash
+python _tools/select_cycle_execution_mode.py --repository-visibility <private|public> --write
+```
+
+- private開始: `manual_visibility_cycle`
+- public開始: `always_public_full_pipeline`
+
+選択後は`CURRENT_WORK.operation_mode`と`PRIVATE_STAGE_STATE.cycle_control`のmode、開始visibility、lockが一致しなければ作業を開始しない。
 
 ## 起動順
 
 1. repository metadataで実visibilityを確認する。
 2. main、未統合PR、GitHub Actionsを確認する。
-3. PRは開いているだけで現行作業と決めない。active / superseded / abandoned / unrelatedへ分類する。
+3. open PRをactive / superseded / abandoned / unrelatedへ分類する。
 4. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
-5. `PRIVATE_STAGE_STATE.cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
-6. `action_required`がbot起因の既知状態か、実際の失敗かを区別する。
-7. checkpointが指すrelease evidenceを確認する。
-8. activeな制度改修branchがある場合は、予約済み次候補の翻訳作業より優先する。
-9. schema v6 minimal reservationなら、focus key・人物声・owner・batch planningが未記載であることを正常状態として扱う。
-10. private preparation開始時にだけ、最新Relation artifactからcandidate detailとowner snapshotを生成する。
+5. `PHASE_COMPLETION_SIGNAL.json`の終端マーカー契約を確認する。
+6. 実際にはmerge済みだが状態正本が統合前なら、先に`merged`へ整合させる。
+7. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
+8. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
+9. activeな制度改修branchがあれば、予約済み翻訳作業より優先する。
+10. 正常なら同じ応答内でmodeの標準完了地点まで進める。
 
-## 一cycleの標準完了地点
+## 標準完了地点
 
-詳細は`AUTONOMOUS_VISIBILITY_CYCLE.md`を正本とする。
+### manual_visibility_cycle
 
-### private
+privateでは次まで進む。
 
-正常なら一つの応答内で次まで進む。
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> ready_for_public_ci`
 
-`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> private preflight -> PR ready -> ready_for_public_ci`
+public確認後は次まで進む。
 
-各private stageは内部checkpointであり、利用者へ追加の「作業の続きを」を要求する理由にしない。
+`in_public_ci -> orchestrator -> state finalization -> phase2 -> review thread 0 -> awaiting_private_merge`
 
-### public
+private復帰後、検証済みHEADをsquash mergeして`merged`へ進める。
 
-正常なら一つの応答内で次まで進む。
+### always_public_full_pipeline
 
-`in_public_ci -> orchestrator success -> state finalization -> phase2 success -> review thread 0 -> awaiting_private_merge`
+repositoryをpublicのまま維持し、次を一cycleで進める。
 
-### private復帰後
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> phase2 -> review thread 0 -> squash merge -> merged`
 
-privateをmetadataで確認し、同じ検証済みHEADをsquash統合して`merged`へ進める。統合前に次waveを始めない。
+`ready_for_public_ci`と`awaiting_private_merge`は内部checkpointであり、利用者へvisibility変更や追加の継続指示を求める正常停止地点ではない。
+
+## 段階権限
+
+- preparationでは翻訳判断、fix、owner、正式束を書かない
+- quality auditでは翻訳判断だけを行う
+- encodingでは記録済み判断だけを収録する
+- translation freeze後は翻訳判断、fix追加、owner変更、次wave準備を行わない
+- publicであることを理由に権限を広げない
+
+owner assignmentは`OWNER_ASSIGNMENT_PLAN.json`から生成器を使う。公開前または常時publicのCI開始前に次を実行する。
+
+```bash
+python _tools/check_private_release_preflight.py --with-tests --repository-visibility <private|public>
+```
+
+## 規定フェイズ終端出力
+
+巨大作業は次の二フェイズとして扱う。
+
+1. `quality_reaudit`: 関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査
+2. `narrative_readthrough`: 章・事件単位の日本語通読と原文対照による章ごとの通読修正
+
+各フェイズ全体が成功終了した応答、またはエラーで終了した応答では、末尾を必ず次の二行にする。
+
+```text
+規定フェイズ結果: success
+規定フェイズ完了
+```
+
+```text
+規定フェイズ結果: error
+規定フェイズ完了
+```
+
+`規定フェイズ完了`は最後の非空行に一度だけ置き、後ろに説明を書かない。このマーカーだけでは成功を意味せず、直前行で結果を判定する。単一wave、単一人物ペア、単一章、visibility境界、通常のmerge完了では出力しない。
 
 ## 例外停止
 
-途中停止は`cycle_control.status=paused`として、次の理由だけを許す。
+途中停止は`cycle_control.status=paused`とし、次だけを許す。
 
 - `user_decision_required`
 - `checker_failure`
 - `external_dependency_unavailable`
 - `turn_capacity_checkpoint`
 
-`paused`は`continuation_required=true`、許可理由、機械実行可能な`exact_next_action`を必須とする。
+`paused`には`continuation_required=true`、理由、機械実行可能な`exact_next_action`を残す。
 
-正常停止は`target_reached`とし、`ready_for_public_ci`、`awaiting_private_merge`、`merged`だけを許す。
+常時public modeでは失敗時もprivate復帰を要求しない。同じlocked modeで再開する。規定フェイズ自体の実行がエラー終端した応答では、エラー内容の後に規定の結果行と完了マーカーを置く。
 
-## wave v2の裁定
+## 禁止
 
-- `private_preparation`: 複数candidate packetを先に準備し、全`fixes_*.json`実測のowner snapshotを付けてqueueをsealする。fix / keep、fix JSON、owner新設、正式束番号は禁止。
-- `private_quality_audit`: sealed queue全体を連続監査する。件数、release残量、metricsを見せない。一packetごとにencodingへ移らない。
-- `private_encoding`: 全監査済みpacketをまとめて収録する。新しい翻訳判断は禁止。owner更新後にcandidate snapshotを再生成する。
-- `translation_frozen`: 全packet収録後の翻訳判断凍結。CI輸送statusとは独立する。
-
-通常順:
-
-`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen`
-
-`private_encoding -> private_preparation`は理由コード付きreplenishmentだけを許す。準備不足は`preparation_underfilled`として失敗する。
-
-輸送:
-
-`not_ready -> ready_for_public_ci -> in_public_ci -> verified -> awaiting_private_merge -> merged`
-
-## minimal next reservation
-
-schema v6の`NEXT_TASK_PACKET.json`はrelease輸送用の予約だけを持つ。
-
-保持するもの:
-
-- verified checkpoint
-- current pair
-- reserved scene groups
-- Relation artifact digest / HEAD / freshness rule
-- release candidate
-- planned batch
-- public中の禁止事項
-
-private preparationまで保持しないもの:
-
-- focus key
-- scene flow detail
-- voice questions
-- FACT_DOUBT / ALLUSION_REVIEW
-- owner snapshot
-- batch planning
-- skill review
-
-これらは予約時点の行政情報ではなく、校正準備の成果物である。
-
-## owner snapshot
-
-新規candidate作成時とencoding後に次を使う。
-
-```bash
-python _tools/check_candidate_ownership.py --write <candidate paths>
-```
-
-人物ペアowner一つだけを見て未所有と判断しない。全`fixes_*.json`を機械走査し、複数owner、stale snapshot、未記録ownerをprivateで失敗させる。
-
-public化依頼前:
-
-```bash
-python _tools/check_private_release_preflight.py --with-tests
-```
-
-## visibilityとoperation mode
-
-- private + private_translation_work: 現在stageから`ready_for_public_ci`まで連続実行する。
-- public + private_translation_work: `return_private_required`。翻訳を開始しない。
-- private + translation_frozen + ready_for_public_ci: public化依頼の正常停止。
-- public + translation_frozen: public CI窓。`awaiting_private_merge`まで進め、翻訳判断を再開しない。
-- private + awaiting_private_merge: 検証済みPRをsquash統合し`merged`へ進める。
-- public_ci_blocked: publicならprivate復帰を依頼し、privateで対象packetをquality auditへ戻す。
-
-## public CIの明示起動
-
-PR作成、ready化、通常commitでは重いCIを起動しない。
-
-- `release-ci`: `Release train orchestrator`の通常入口
-- `ci-heavy-rerun`: 同じorchestrator全工程の再走
-- `finalize-release`: 最終状態commit後のphase2専用
-
-orchestratorは一つのpull_request run内で完全preflightを行い、Relation / Cross再利用workflowを同じHEADで実行し、両方成功後だけApply再利用workflowを開始する。ApplyはAPPLIED_FIXESとaudit statusを同じbot commitへ収録する。
-
-bot書き戻しではorchestratorを再起動しない。`finalize-release`ではRelation / Cross / Applyを再実行しない。
-
-release evidence schema v2はorchestrator run一つとその内部job成功を検証する。既存schema v1 releaseはそのまま保持する。
-
-## 正本の読順
-
-1. README.md
-2. AGENTS.md
-3. VISIBILITY_PREFLIGHT_CONTRACT.json
-4. SESSION_BOOTSTRAP.md
-5. AUTONOMOUS_VISIBILITY_CYCLE.md
-6. PRIVATE_TRANSLATION_STAGES.json
-7. PRIVATE_TRANSLATION_STAGES.md
-8. PRIVATE_STAGE_STATE.json
-9. TRANSLATION_QUALITY_GATE.md
-10. PUBLIC_CI_WINDOW.md
-11. CI_TRAIN_PHASE1.md
-12. CI_TRAIN_PHASE2.md
-13. CURRENT_WORK.json
-14. CI_TRAIN_MANIFEST.json
-15. CURRENT_HANDOFF.md
-16. NEXT_TASK_PACKET.json
-17. checkpointが指すrelease evidence
-18. COLD_START_ACCEPTANCE.md
-19. audit_status.json
-20. RUNBOOK、skill、人物資料、一次資料
-
-## 現在のcold-start固定点
-
-- PR #124はsquash統合済み。merge SHAは`a00a39104b35c61440e7a4734aa04fc355b91e06`。
-- verified checkpointは第92束、人物ペアowner1165、全体1541。
-- train-09 releaseは`yuwen-mowen-train-09-r1`、翻訳段階は`translation_frozen`、輸送は`merged`。
-- 制度branch`agent/autonomous-private-cycle-contract`とdraft PR #125がactive。
-- PR #125はcycle完走目標、例外停止、scheduler向け機械状態を固定する。
-- 次wave候補`5654_8`はschema v6のreserved_only。preparation・quality audit・encodingは未開始。
-- 制度改修の統合を翻訳再開より優先する。
-
-## 禁止事項
-
-- visibility preflight前の利用者向け発言
-- 内部stageを正常な会話終了地点にすること
-- pausedなのに理由やexact next actionを残さないこと
-- 一packetだけを準備して通常sealすること
-- 特定owner一つだけを参照した未所有判定
-- owner snapshotなしの新規candidate
-- minimal reservationへprivate preparation detailを戻すこと
-- quality audit中のmetrics、release残量、正式束番号、fix JSON、owner書込み
+- visibility確認前の作業開始
+- active cycle中のmode変更
+- internal stageを正常な会話終了地点にすること
+- quality audit中のfix、owner、正式束書込み
 - encoding中の新しい翻訳判断
-- candidate packetをmanifestへ入れること
-- public CIから翻訳判断を再開すること
-- Relation / Cross成功前にApplyを開始すること
-- phase2成功前にawaiting_private_mergeへ進めること
-- private確認前にmergeすること
-- merge前に次waveを開始すること
-- 制度改修PRへ訳文、fix JSON、人物owner内容、FACT_DOUBT、ALLUSION_REVIEWを混ぜること
-- PR作成・ready化・通常commitによる重いCI自動起動の復活
-- post-merge状態PRを復活させること
+- translation freeze後の翻訳再開
+- manifest ready前の重いCI起動
+- phase2成功前のmerge
+- merge前の次wave開始
+- 常時public modeで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
+- 規定フェイズ終端マーカーの後ろに文章を付けること

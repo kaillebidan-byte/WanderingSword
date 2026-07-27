@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "contract_id": "cycle-execution-modes-v1",
+  "mode_selection_source": "repository_visibility_at_cycle_start",
+  "supported_modes": [
+    "manual_visibility_cycle",
+    "always_public_full_pipeline"
+  ],
+  "selection": {
+    "private": "manual_visibility_cycle",
+    "public": "always_public_full_pipeline"
+  },
+  "lock": {
+    "scope": "cycle",
+    "state_authorities": [
+      "CURRENT_WORK.operation_mode",
+      "PRIVATE_STAGE_STATE.cycle_control"
+    ],
+    "may_change_only_when_previous_transport_is": "merged"
+  },
+  "input_policy": {
+    "continue_phrase": "作業の続きを",
+    "mode_specific_phrase_required": false
+  },
+  "shared_pipeline": {
+    "stages": [
+      "private_preparation",
+      "private_quality_audit",
+      "private_encoding",
+      "translation_frozen",
+      "release_preflight",
+      "orchestrator",
+      "state_finalization",
+      "phase2",
+      "review_thread_check",
+      "squash_merge"
+    ],
+    "private_stage_names_are_cognitive_not_visibility": true,
+    "manifest_ready_required_before_ci": true,
+    "stage_permissions_remain_authoritative": true
+  },
+  "modes": {
+    "manual_visibility_cycle": {
+      "cycle_start_visibility": "private",
+      "visibility_change_actor": "user",
+      "visibility_changes_required": true,
+      "public_translation_forbidden": true,
+      "deep_failure_returns_private": true,
+      "normal_stop_targets": [
+        "ready_for_public_ci",
+        "awaiting_private_merge",
+        "merged"
+      ],
+      "merge_visibility": "private"
+    },
+    "always_public_full_pipeline": {
+      "cycle_start_visibility": "public",
+      "visibility_change_actor": "none",
+      "visibility_changes_required": false,
+      "visibility_change_requests_forbidden": true,
+      "public_translation_allowed_only_in": [
+        "private_preparation",
+        "private_quality_audit",
+        "private_encoding"
+      ],
+      "deep_failure_returns_private": false,
+      "normal_stop_targets": [
+        "merged"
+      ],
+      "merge_visibility": "public"
+    }
+  }
+}
