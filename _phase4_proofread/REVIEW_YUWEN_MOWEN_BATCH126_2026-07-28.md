@@ -7,7 +7,8 @@
 - reviewed rows: 2
 - fix keys: 0
 - keep keys: 2
-- new pair/project owners: 2
+- new pair/project owners: 0
+- existing owner rows: 2
 - existing owner value updates: 0
 - audit: `_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md`
 
