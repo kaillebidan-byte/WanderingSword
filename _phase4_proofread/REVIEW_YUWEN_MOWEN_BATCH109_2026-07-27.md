@@ -10,7 +10,7 @@
 
 ## 収録した修正
 
-莫問の「本来、わたしのものであるはずのもの」という重複を解き、短い自己正当化へ戻した。新規owner `_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch17.json`へ1キーを収録した。
+莫問の「本来、わたしのものであるはずのもの」という重複を解き、短い自己正当化へ戻した。既存owner `_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json` の1キーを更新した。
 
 ## 保持判断
 
