@@ -1,0 +1,87 @@
+name: Train17 prepare private wave
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-17
+    paths:
+      - ".github/workflows/train17-prepare-wave.yml"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  prepare:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout train branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/yuwen-mowen-train-17
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download latest verified relation artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _ws_tmp/relation
+          gh api repos/${{ github.repository }}/actions/artifacts/8647833757/zip > _ws_tmp/relation.zip
+          unzip -q _ws_tmp/relation.zip -d _ws_tmp/relation
+          test -f _ws_tmp/relation/yuwen_mowen.json
+
+      - name: Generate sealed preparation queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64, gzip
+          from pathlib import Path
+          data = '''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'''
+          Path('/tmp/prepare_train17.py').write_bytes(gzip.decompress(base64.b64decode(data)))
+          PY
+          python /tmp/prepare_train17.py
+
+      - name: Snapshot all current fix owners
+        run: |
+          python _tools/check_candidate_ownership.py --write \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9150_3_9150_4_2026-07-27.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9154_2_9209_2_9210_1_9223_6_2026-07-27.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9228_2_9229_2_9230_2_2026-07-27.json
+
+      - name: Validate private preparation state
+        run: |
+          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_state_json_integrity.py
+
+      - name: Commit prepared wave and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9150_3_9150_4_2026-07-27.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9154_2_9209_2_9210_1_9223_6_2026-07-27.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9228_2_9229_2_9230_2_2026-07-27.json \
+            _phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN17_WAVE01_2026-07-27.md \
+            _phase4_proofread/PRIVATE_STAGE_STATE.json \
+            _phase4_proofread/CI_TRAIN_MANIFEST.json \
+            _phase4_proofread/CURRENT_WORK.json \
+            _phase4_proofread/NEXT_TASK_PACKET.json \
+            _phase4_proofread/CURRENT_HANDOFF.md
+          git rm .github/workflows/train17-prepare-wave.yml
+          git diff --cached --check
+          git commit -m "準備: train-17 wave-01を51行で封印"
+          git push origin HEAD:agent/yuwen-mowen-train-17
