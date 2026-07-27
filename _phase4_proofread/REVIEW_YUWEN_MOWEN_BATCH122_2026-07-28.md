@@ -7,8 +7,9 @@
 - reviewed rows: 8
 - fix keys: 5
 - keep keys: 3
-- new pair/project owners: 8
-- existing owner value updates: 0
+- new pair/project owners: 4
+- existing owner rows: 4
+- existing owner value updates: 1
 - audit: `_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md`
 
 品質判断はsealed queue全体の監査記録に従う。公開CIまではlocres・pakへ適用しない。
