@@ -64,8 +64,8 @@ def main() -> int:
     errors: list[str] = []
     if result.get("schema_version") != 1:
         errors.append("OWNER_ASSIGNMENT_RESULT.schema_version must be 1")
-    if result.get("generated_by") != "_tools/apply_owner_assignment.py":
-        errors.append("OWNER_ASSIGNMENT_RESULT.generated_by is invalid")
+    if result.get("generated_by") != "_tools/apply_owner_assignment_v2.py":
+        errors.append("OWNER_ASSIGNMENT_RESULT.generated_by must be apply_owner_assignment_v2.py")
 
     plan_rel = result.get("plan")
     if not isinstance(plan_rel, str) or not plan_rel:
