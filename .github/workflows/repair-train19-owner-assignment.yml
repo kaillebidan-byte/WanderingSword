@@ -1,0 +1,46 @@
+name: Repair train-19 owner assignment
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-19
+    paths:
+      - "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json"
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate owner assignment
+        run: python _tools/apply_owner_assignment_v2.py
+
+      - name: Remove one-shot workflow
+        run: rm -f .github/workflows/repair-train19-owner-assignment.yml
+
+      - name: Verify repaired public preflight
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python _tools/check_private_release_preflight.py --with-tests --repository-visibility public
+
+      - name: Commit generated repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "制度: train-19 owner配分を生成器で修復"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
