@@ -3,12 +3,12 @@
   "status": "ready",
   "task_id": "post-train19-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 121,
-    "pair_applied_keys": 1274,
-    "project_applied_keys": 1650,
-    "produced_by_pr": 143,
-    "release_id": "yuwen-mowen-train-18-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_18.json"
+    "batch": 126,
+    "pair_applied_keys": 1298,
+    "project_applied_keys": 1674,
+    "produced_by_pr": 145,
+    "release_id": "yuwen-mowen-train-19-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_19.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
@@ -27,17 +27,17 @@
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30291227741,
-    "artifact_id": 8662856448,
-    "artifact_digest": "sha256:36d2a78465fa1c0f47860552f5d8433d722f349b1a10750d14cef8652052224e",
-    "artifact_head": "53bf6c9f9d1cbb4ec0c8576d42b8c222af580539",
-    "freshness_rule": "train-19統合後、private preparation開始時に最新Relation artifactで9261_1と近接分岐を再確認する。"
+    "artifact_run": 30308741441,
+    "artifact_id": 8669489591,
+    "artifact_digest": "sha256:7084bce2d1aca1b5e1778a89ab2b56afd6373fe01454daea309a511c0df381c4",
+    "artifact_head": "4467a9aa80759a1b05a28430379d7f98c67aeba6",
+    "freshness_rule": "train-19統合後、次cycleのpreparation開始時に最新Relation artifactで9261_1と近接分岐を再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-19",
     "release_id": "yuwen-mowen-train-19-r1",
     "pr": 145,
-    "status": "ready_for_public_ci",
+    "status": "verified",
     "merge_sha": null
   },
   "do_not_do": [

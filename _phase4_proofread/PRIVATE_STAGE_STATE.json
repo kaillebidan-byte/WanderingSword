@@ -12,7 +12,7 @@
     "continuation_required": false,
     "stop_reason": null,
     "exact_next_action": null,
-    "last_safe_checkpoint": "ready_for_public_ci",
+    "last_safe_checkpoint": "awaiting_private_merge",
     "execution_mode": "manual_visibility_cycle",
     "cycle_start_visibility": "private",
     "mode_locked_for_cycle": true,
@@ -54,7 +54,7 @@
         "review_record": {
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH122_2026-07-28.md",
           "status": "complete",
-          "apply_status": "pending"
+          "apply_status": "verified"
         }
       },
       {
@@ -75,7 +75,7 @@
         "review_record": {
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH123_2026-07-28.md",
           "status": "complete",
-          "apply_status": "pending"
+          "apply_status": "verified"
         }
       },
       {
@@ -96,7 +96,7 @@
         "review_record": {
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH124_2026-07-28.md",
           "status": "complete",
-          "apply_status": "pending"
+          "apply_status": "verified"
         }
       },
       {
@@ -117,7 +117,7 @@
         "review_record": {
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH125_2026-07-28.md",
           "status": "complete",
-          "apply_status": "pending"
+          "apply_status": "verified"
         }
       },
       {
@@ -138,7 +138,7 @@
         "review_record": {
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH126_2026-07-28.md",
           "status": "complete",
-          "apply_status": "pending"
+          "apply_status": "verified"
         }
       }
     ],
@@ -152,7 +152,7 @@
     }
   },
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "history": [
       {
         "status": "not_ready",
@@ -160,7 +160,25 @@
       },
       {
         "status": "ready_for_public_ci",
-        "translation_stage": "translation_frozen"
+        "translation_stage": "translation_frozen",
+        "pr": 145
+      },
+      {
+        "status": "in_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 145
+      },
+      {
+        "status": "verified",
+        "translation_stage": "translation_frozen",
+        "pr": 145,
+        "release_id": "yuwen-mowen-train-19-r1"
+      },
+      {
+        "status": "awaiting_private_merge",
+        "translation_stage": "translation_frozen",
+        "pr": 145,
+        "release_id": "yuwen-mowen-train-19-r1"
       }
     ],
     "pr": 145
@@ -200,7 +218,13 @@
     "digest": "sha256:36d2a78465fa1c0f47860552f5d8433d722f349b1a10750d14cef8652052224e",
     "head_sha": "53bf6c9f9d1cbb4ec0c8576d42b8c222af580539"
   },
-  "verified_result": null,
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-19-r1",
+    "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_19.json",
+    "ci_head": "4467a9aa80759a1b05a28430379d7f98c67aeba6",
+    "asset_head": "19424e25d41e146e9b16120479b11a84c551b669",
+    "pending_fixes": 0
+  },
   "previous_release": {
     "train_id": "yuwen-mowen-train-18",
     "release_id": "yuwen-mowen-train-18-r1",

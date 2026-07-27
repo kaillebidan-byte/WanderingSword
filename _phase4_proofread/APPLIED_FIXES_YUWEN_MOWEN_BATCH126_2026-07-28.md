@@ -4,7 +4,7 @@
 - PR: #145
 - CI列車: `yuwen-mowen-train-19`
 - release: `yuwen-mowen-train-19-r1`
-- release evidence: `None`
+- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_19.json`
 - 場面: `9234_6` / `9236_6` / `9238_6` / `9245_1` / `9245_3`
 - reviewed keys: 46
 - unique reviewed rows: 46
