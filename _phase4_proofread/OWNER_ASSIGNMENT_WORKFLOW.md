@@ -1,0 +1,78 @@
+# owner assignment生成手順
+
+## 目的
+
+`fixes_*.json`の保存先を作業者が目視で選ばない。private encodingでは翻訳判断を構造化planへ記録し、既存owner更新、新規owner作成、manifest・private state・CURRENT_WORK集計、生成証跡を一命令で確定する。
+
+## 正規入口
+
+1. sealed waveのcandidate順と同じ順で`_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json`を作る。
+2. 次を一度実行する。
+
+```bash
+python _tools/apply_owner_assignment_v2.py
+```
+
+3. 生成された`_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json`を含めてcommitする。
+4. public化前に通常の完全preflightを実行する。
+
+```bash
+python _tools/check_private_release_preflight.py --with-tests
+```
+
+## plan schema
+
+```json
+{
+  "schema_version": 1,
+  "packets": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_....json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_....json",
+      "values": {
+        "short_key": "speaker-id - 話者 $@$最終訳"
+      },
+      "fix_keys": ["short_key"]
+    }
+  ]
+}
+```
+
+- `candidate`は`PRIVATE_STAGE_STATE.wave.packets`と同じ順・同じpathでなければならない。
+- `values`は、実際に変更する既存owner値と、新規ownerとして収録する値だけを持つ。
+- 既存owner keyを`values`へ入れる場合、そのkeyは必ず`fix_keys`にも入れる。保持値の無意味な上書きは拒否される。
+- `fix_keys`は実際に基準訳から変更するkeyで、必ず`values`の部分集合とする。
+- `new_owner_file`は未所有keyだけへ使用される。既存owner keyはツールが元のownerファイルへ戻す。
+- 同じkeyに複数ownerがある場合、生成前に停止する。
+
+## 集計の意味
+
+- `ownership_summary.existing_keys`: candidate行のうち既存ownerに所属する行数。
+- `new_project_keys`: 今回初めてownerへ収録した行数。
+- `existing_owner_updates`: 既存ownerの訳値を実際に変更した件数。既存owner所属行数とは別である。
+- `fix_keys`: 基準訳から変更した総件数。既存owner更新と新規owner上の修正を含む。
+
+## 自動更新範囲
+
+生成器は次を同じ実行で更新する。
+
+- 全`fixes_*.json`の既存owner値
+- packetごとの新規ownerファイル
+- `CI_TRAIN_MANIFEST.json`のowner・fix集計と`fix_files`
+- `PRIVATE_STAGE_STATE.json.wave.encoding_summary`
+- `CURRENT_WORK.json.ci_train.totals`
+- `OWNER_ASSIGNMENT_RESULT.json`のcandidate、plan、全owner、三状態正本のdigest
+
+## 禁止
+
+- candidate snapshotだけを見て新規ownerファイルを手書きすること
+- 既存owner keyを別名の`fixes_*.json`へ複製すること
+- ownerファイル更新後にmanifest件数を手で転記すること
+- `OWNER_ASSIGNMENT_RESULT.json`生成後にowner、candidate、manifest、private state、CURRENT_WORKを個別編集すること
+- `ownership_summary.existing_keys`を`existing_owner_updates`へ転記すること
+
+変更が必要ならplanを直して生成器を再実行する。preflightはdigest差、複数owner、集計ミラー差を拒否する。
+
+## train-15回帰
+
+`6151_2`から`6171_5`までの50行について、既存owner所属38・新規owner12・既存owner値更新7を回帰テストへ固定している。日付違いの新規batchへ50行すべてを重複収録する旧挙動はテスト失敗になる。
