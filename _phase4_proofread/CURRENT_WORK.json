@@ -3,19 +3,19 @@
   "updated_at": "2026-07-28",
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
-  "translation_base_commit": "2ba6675dfb0d5810ac929840f178ac27651d5338",
-  "state_base_commit": "2ba6675dfb0d5810ac929840f178ac27651d5338",
+  "translation_base_commit": "70161944bb23dd254eca8b18fa9ca547606e0bc5",
+  "state_base_commit": "70161944bb23dd254eca8b18fa9ca547606e0bc5",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
-  "status": "verified",
+  "status": "in_progress",
   "last_completed_batch": 121,
   "last_reviewed_batch": 121,
   "pair_applied_keys": 1274,
   "project_applied_keys": 1650,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
-  "last_merged_translation_pr": 142,
+  "last_merged_translation_pr": 143,
   "checkpoint": {
     "status": "verified",
     "batch": 121,
@@ -32,7 +32,7 @@
     }
   },
   "operation_mode": {
-    "declared_state": "translation_frozen",
+    "declared_state": "private_translation_work",
     "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
@@ -65,7 +65,14 @@
       "zero_unresolved_review_threads",
       "translation_pr_squash_merged"
     ],
-    "open_pr_only_after_ready": true
+    "open_pr_only_after_ready": true,
+    "execution_mode": "manual_visibility_cycle",
+    "cycle_start_visibility": "private",
+    "mode_locked_for_cycle": true,
+    "visibility_change_required": true,
+    "visibility_change_requests_forbidden": false,
+    "stage_permissions_are_authoritative": true,
+    "normal_cycle_completion_target": "visibility_boundary_or_merged"
   },
   "pr_continuity": {
     "open_prs_require_triage": true,
@@ -107,16 +114,22 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "9234_6"
+      "9234_6",
+      "9236_6",
+      "9238_6",
+      "9245_1",
+      "9245_3"
     ],
-    "task": "PR #143のphase2成功と未解決review thread 0件を確認し、private復帰後にsquash統合する。",
-    "boundary": "public中は翻訳判断、fix追加、owner変更、第122束preparationを開始しない。",
+    "task": "train-19 wave-01のsealed queue 46行をprivate_quality_auditで通読し、fix / keep判断を監査記録へ固定する。",
+    "boundary": "quality auditでは翻訳判断だけを行い、fix JSON、owner、正式束、manifest totalsを書かない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
     "README.md",
     "AGENTS.md",
     "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json",
+    "_phase4_proofread/EXECUTION_MODES.json",
+    "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
     "_phase4_proofread/SESSION_BOOTSTRAP.md",
     "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
@@ -140,11 +153,11 @@
     "quality_policy": "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
     "private_stage_policy": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "train_id": "yuwen-mowen-train-18",
-    "branch": "agent/yuwen-mowen-train-18",
-    "status": "verified",
-    "transport_status": "awaiting_private_merge",
-    "base_checkpoint_batch": 117,
+    "train_id": "yuwen-mowen-train-19",
+    "branch": "agent/yuwen-mowen-train-19",
+    "status": "private_quality_audit",
+    "transport_status": "not_ready",
+    "base_checkpoint_batch": 121,
     "thresholds": {
       "bundle_count": 4,
       "reviewed_rows": 40,
@@ -155,14 +168,14 @@
       "reviewed_rows": 60
     },
     "totals": {
-      "bundle_count": 4,
-      "reviewed_rows": 53,
-      "reviewed_keys": 53,
-      "unique_reviewed_rows": 53,
-      "fix_keys": 35,
-      "unique_fix_rows": 35,
-      "new_pair_keys": 53,
-      "new_project_keys": 53,
+      "bundle_count": 0,
+      "reviewed_rows": 0,
+      "reviewed_keys": 0,
+      "unique_reviewed_rows": 0,
+      "fix_keys": 0,
+      "unique_fix_rows": 0,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
       "cross_register_keys": 0,
       "existing_owner_updates": 0,
       "keep_only_bundles": 0
@@ -172,51 +185,37 @@
       "primary_objective": "repair_substantive_translation_defects",
       "throughput_metrics_role": "transport_only",
       "low_yield_threshold_percent": 15,
-      "reviewed_keys": 53,
-      "unique_reviewed_rows": 53,
-      "fix_keys": 35,
-      "unique_fix_rows": 35,
+      "reviewed_keys": 0,
+      "unique_reviewed_rows": 0,
+      "fix_keys": 0,
+      "unique_fix_rows": 0,
       "keep_only_bundles": 0,
-      "pre_challenge_unique_fix_rows": 35,
+      "pre_challenge_unique_fix_rows": 0,
       "low_yield_detected": false,
-      "release_decision": "quality_passed",
+      "release_decision": "not_evaluated",
       "challenge_pass": null
     },
     "private_stage": {
-      "stage": "translation_frozen",
-      "status": "verified",
-      "transport_status": "awaiting_private_merge",
-      "wave_id": "yuwen-mowen-train-18-wave-01",
-      "cycle_status": "target_reached",
-      "cycle_checkpoint": "awaiting_private_merge"
+      "stage": "private_quality_audit",
+      "status": "active",
+      "transport_status": "not_ready",
+      "wave_id": "yuwen-mowen-train-19-wave-01",
+      "cycle_status": "running",
+      "cycle_checkpoint": "private_preparation"
     },
     "tracking_issue": null,
-    "draft_pr": 143,
-    "applied_result": {
-      "orchestrator_run": 30291227741,
-      "asset_head": "4dfef2b60fdc74ce9758baf6c08761d24e2e1311",
-      "pair_applied_keys": 1274,
-      "project_applied_keys": 1650,
-      "pending_fixes": 0,
-      "checkpoint_status": "verified"
-    },
-    "verified_result": {
-      "release_id": "yuwen-mowen-train-18-r1",
-      "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_18.json",
-      "record_index_synced": true,
-      "pair_applied_keys": 1274,
-      "project_applied_keys": 1650,
-      "pending_fixes": 0
-    },
+    "draft_pr": null,
+    "applied_result": null,
+    "verified_result": null,
     "finalization_phase": "phase2",
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true,
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_18.json",
+    "release_evidence": null,
     "previous_release": {
-      "train_id": "yuwen-mowen-train-17",
-      "release_id": "yuwen-mowen-train-17-r1",
-      "pr": 142,
-      "merge_sha": "2ba6675dfb0d5810ac929840f178ac27651d5338"
+      "train_id": "yuwen-mowen-train-18",
+      "release_id": "yuwen-mowen-train-18-r1",
+      "pr": 143,
+      "merge_sha": "70161944bb23dd254eca8b18fa9ca547606e0bc5"
     }
   }
 }
