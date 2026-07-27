@@ -16,6 +16,7 @@ BASE_CHECKS = [
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
     ["check_candidate_ownership.py", "--release-live"],
+    ["check_owner_assignment_result.py"],
     ["check_fix_owner_delta.py"],
     ["check_ci_train_manifest_v2.py"],
     ["check_next_task_packet.py", "--allow-pending"],
@@ -26,6 +27,7 @@ BASE_CHECKS = [
 TESTS = [
     ["test_check_state_json_integrity.py"],
     ["test_check_candidate_ownership.py"],
+    ["test_apply_owner_assignment.py"],
     ["test_check_fix_owner_delta.py"],
     ["test_check_next_task_packet_minimal.py"],
     ["test_check_release_transport_state.py"],
@@ -76,7 +78,7 @@ def main() -> int:
         print("\nFAILED release preflight: " + ", ".join(failures))
         return 1
 
-    print("\nRelease preflight used live owner measurement.")
+    print("\nRelease preflight used live owner measurement and sealed owner-assignment evidence.")
     print("Stored candidate ownership snapshots remain immutable pre-quality-audit records.")
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
