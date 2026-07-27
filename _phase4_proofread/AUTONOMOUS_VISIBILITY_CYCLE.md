@@ -100,20 +100,22 @@ private確認後、検証済みHEADをsquash統合し、輸送を`merged`へ確�
 
 ## public-only移行の観測条件
 
-常時public化を自動決定しない。最終判定は、**同一チャット内で最初の開始指示を受けた後、追加のユーザー指示・再開指示・修復依頼・判断介入を受けず、2回の翻訳release cycleを連続完走**した時点で、`always_public_full_pipeline`への移行設計を検討対象にする。
+常時public化を自動決定しない。最終判定は、**校正作業を担当する同一チャット内で、現在の手動private/public/private cycleを2回連続完走**した時点で、`always_public_full_pipeline`への移行設計を検討対象にする。
 
-現行の手動private/public/private cycleは制度部品の予備検証には使うが、visibility変更とその確認をユーザーへ要求するため、この最終判定の2回には数えない。判定対象はrepository visibilityを途中変更しないalways-public試走またはscheduled executionとする。
+校正チャットではvisibility変更のため、ユーザーが「作業の続きを」「公開した」「非公開にした」などの通常の制御メッセージを送る必要がある。これらは運用上必須の入力であり、介入や失格条件として扱わない。1回目の統合後に同じ校正チャットで「作業の続きを」を受けて2回目を開始することも、連続成功の正規手順である。
 
-各cycleは、開始から次のrelease統合までを同じチャットで連続実行し、次の条件をすべて満たす。
+ここでいう「介入なし」とは、この制度改修・監査チャットまたは別チャットから、試走中の校正チャットへ修復案、repo変更、判断指示、例外的な再開手順を差し込まないことを指す。校正チャット自身が通常手順としてvisibility確認と作業継続を受けることは含まない。
 
-- private相当preflightが一度で成功し、live owner検査で複数owner・監査範囲外変更・集計不一致がない
-- 最初のorchestrator runが成功し、人間または会話による修復push、手動再ラベル、workflow権限修正がない
+各cycleは、開始からrelease統合までを同じ校正チャットで進め、次の条件をすべて満たす。
+
+- private preflightが公開前に一度で成功し、live owner検査で複数owner・監査範囲外変更・集計不一致がない
+- 最初のorchestrator runが成功し、修復push、手動再ラベル、workflow権限修正がない
 - `release-finalization-inputs`の値をそのまま使用し、asset HEADまたはlineageの修正がない
 - push前のlocal finalization検査が成功し、最初のphase2 runが成功する
-- 未解決review threadが0で、統合前に状態修正を必要としない
-- 1回目の統合後、追加のユーザーメッセージや「作業の続きを」を挟まず、同じチャット内で2回目を開始して統合まで完走する
+- 未解決review threadが0で、private復帰後の統合前に状態修正を必要としない
+- 1回目と2回目の間で別チャットから制度修復や判断介入を行わず、同じ校正チャットで通常の制御メッセージだけを用いて連続実行する
 
-保存snapshotとlive ownerの差が診断表示されても、安全検査が成功し、人間のsnapshot修復commitを必要としない場合はsmooth cycleを失格にしない。一つでも`paused`、checker failure、修復push、再ラベル、証跡補正、転送破損、lineage修正、live owner安全違反、ユーザー介入、新しいチャットへの移動が発生した場合は連続数を0へ戻す。2回到達は移行の検討開始条件であり、visibility変更を自動実行する条件ではない。
+保存snapshotとlive ownerの差が診断表示されても、安全検査が成功し、snapshot修復commitを必要としない場合はsmooth cycleを失格にしない。一つでも`paused`、checker failure、修復push、再ラベル、証跡補正、転送破損、lineage修正、live owner安全違反、別チャットからの制度・修復介入、校正チャットの移動が発生した場合は連続数を0へ戻す。通常の「作業の続きを」「公開した」「非公開にした」は連続数へ影響しない。2回到達は移行の検討開始条件であり、visibility変更を自動実行する条件ではない。
 
 ## 将来のscheduled mode
 
