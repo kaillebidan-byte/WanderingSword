@@ -130,9 +130,17 @@ def main() -> None:
     assert module.resolve_effective_mode(
         "private_translation_work", "private", "always_public_full_pipeline"
     ) == "return_public_required"
+    assert module.validate_effective_visibility("return_private_required")
+    assert module.validate_effective_visibility("return_public_required")
+    assert module.validate_effective_visibility("public_ci_window") == []
 
     assert module.validate_operation_mode(sample_current(), c) == []
     assert module.validate_operation_mode(sample_current(explicit=False), c) == []
+    legacy_active = sample_current("accumulating", "private_translation_work", explicit=False)
+    assert any(
+        "requires explicit execution_mode" in error
+        for error in module.validate_operation_mode(legacy_active, c)
+    )
     assert module.validate_operation_mode(sample_current(phase="phase1"), c) == []
     assert module.validate_operation_mode(
         sample_current(execution_mode="always_public_full_pipeline"), c
