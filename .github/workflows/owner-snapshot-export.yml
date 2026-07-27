@@ -1,0 +1,31 @@
+name: Owner snapshot export
+
+on:
+  push:
+    branches:
+      - agent/owner-snapshot-export
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package owner assignment inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _ws_tmp/owner_snapshot/_phase4_proofread _ws_tmp/owner_snapshot/_tools
+          cp _phase4_proofread/fixes_*.json _ws_tmp/owner_snapshot/_phase4_proofread/
+          cp _phase4_proofread/CI_TRAIN_MANIFEST.json _ws_tmp/owner_snapshot/_phase4_proofread/
+          cp _phase4_proofread/PRIVATE_STAGE_STATE.json _ws_tmp/owner_snapshot/_phase4_proofread/
+          cp _phase4_proofread/CURRENT_WORK.json _ws_tmp/owner_snapshot/_phase4_proofread/
+          cp _tools/apply_owner_assignment.py _ws_tmp/owner_snapshot/_tools/
+          cp _tools/apply_owner_assignment_v2.py _ws_tmp/owner_snapshot/_tools/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: owner-assignment-inputs
+          path: _ws_tmp/owner_snapshot
+          if-no-files-found: error
