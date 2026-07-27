@@ -1,1 +1,57 @@
-{"schema_version":6,"status":"ready","task_id":"post-train16-minimal-wave-reservation","based_on_checkpoint":{"batch":112,"pair_applied_keys":1182,"project_applied_keys":1558,"produced_by_pr":138,"release_id":"yuwen-mowen-train-15-r1","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_15.json"},"current_pair":"宇文逸↔莫問","scene_groups":["9150_3"],"reservation":{"status":"reserved_only","wave_id":null,"packet_id":null,"preparation_started":false,"quality_audit_started":false,"encoding_started":false,"formal_batch":null},"source":{"artifact_workflow":"Release train orchestrator","artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","artifact_run":30234441502,"artifact_id":8641167054,"artifact_digest":"sha256:e7ceb3a4317c207ce73d7779f064f3f3a1866c51703c1c8c9ade2120c261b1d8","artifact_head":"c9040b5cda33908deda05e6de8c8cec4ac92ce3e","freshness_rule":"train-16のsquash統合後、private preparation開始時に最新Relation artifactで9150_3と後続候補を再確認し、focus key・人物声・owner snapshot・batch planningはcandidate側で新規生成する。"},"release_candidate":{"train_id":"yuwen-mowen-train-16","release_id":"yuwen-mowen-train-16-r1","pr":141,"status":"ready_for_public_ci","merge_sha":null},"do_not_do":["minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない","PR #141統合前に9150_3のprivate preparationを開始しない","public中に翻訳判断、fix追加、owner変更、正式束追加を行わない","ゲームフォルダへ配置しない"],"ci_train":{"phase":"phase1_wave","train_id":"yuwen-mowen-train-16","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","planned_batch":115,"post_merge_state_pr_required":false,"single_pr_finalization":true}}
+{
+  "schema_version": 6,
+  "status": "ready",
+  "task_id": "post-train16-minimal-wave-reservation",
+  "based_on_checkpoint": {
+    "batch": 114,
+    "pair_applied_keys": 1188,
+    "project_applied_keys": 1564,
+    "produced_by_pr": 141,
+    "release_id": "yuwen-mowen-train-16-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_16.json"
+  },
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "9150_3"
+  ],
+  "reservation": {
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
+  },
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30253238587,
+    "artifact_id": 8647833757,
+    "artifact_digest": "sha256:0f228745eb0760b77de95bf9a27cd7be43ae78e1d6ff7d6effe6249bf0a7676a",
+    "artifact_head": "b0af4fe28b35a8543b6b7a38107b8c5ec55b0962",
+    "freshness_rule": "train-16のsquash統合後、private preparation開始時に最新Relation artifactで9150_3と後続候補を再確認し、focus key・人物声・owner snapshot・batch planningはcandidate側で新規生成する。"
+  },
+  "release_candidate": {
+    "train_id": "yuwen-mowen-train-16",
+    "release_id": "yuwen-mowen-train-16-r1",
+    "pr": 141,
+    "status": "verified",
+    "merge_sha": null
+  },
+  "do_not_do": [
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "PR #141統合前に9150_3のprivate preparationを開始しない",
+    "public中に翻訳判断、fix追加、owner変更、正式束追加を行わない",
+    "ゲームフォルダへ配置しない"
+  ],
+  "ci_train": {
+    "phase": "phase1_wave",
+    "train_id": "yuwen-mowen-train-16",
+    "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "planned_batch": 115,
+    "post_merge_state_pr_required": false,
+    "single_pr_finalization": true
+  }
+}

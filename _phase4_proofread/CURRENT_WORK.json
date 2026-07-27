@@ -8,27 +8,27 @@
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
-  "status": "in_progress",
-  "last_completed_batch": 112,
+  "status": "verified",
+  "last_completed_batch": 114,
   "last_reviewed_batch": 114,
-  "pair_applied_keys": 1182,
-  "project_applied_keys": 1558,
+  "pair_applied_keys": 1188,
+  "project_applied_keys": 1564,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 138,
   "checkpoint": {
     "status": "verified",
-    "batch": 112,
-    "pair_applied_keys": 1182,
-    "project_applied_keys": 1558,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH112_2026-07-27.md",
-    "produced_by_pr": 138,
+    "batch": 114,
+    "pair_applied_keys": 1188,
+    "project_applied_keys": 1564,
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH114_2026-07-27.md",
+    "produced_by_pr": 141,
     "release_identity": {
       "kind": "pr_release_v2",
-      "release_id": "yuwen-mowen-train-15-r1",
-      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_15.json",
-      "pr": 138,
-      "validated_head": "fdaf4dd89d9a80ab23743324f6624647660539ea"
+      "release_id": "yuwen-mowen-train-16-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_16.json",
+      "pr": 141,
+      "validated_head": "2cbbcd988e45fc995a535fb01da95e817cbea89d"
     }
   },
   "operation_mode": {
@@ -109,7 +109,7 @@
     "scene_groups": [
       "9150_3"
     ],
-    "task": "train-16の公開CI窓で完全preflight、Relation、Cross、Apply、single-PR finalizationを実行し、awaiting_private_mergeまで進める。",
+    "task": "PR #141のphase2成功と未解決review thread 0件を確認し、private復帰後にsquash統合する。",
     "boundary": "public中は翻訳判断、fix追加、owner変更、第115束preparationを開始しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
@@ -142,8 +142,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-16",
     "branch": "agent/yuwen-mowen-train-16",
-    "status": "ready_for_public_ci",
-    "transport_status": "ready_for_public_ci",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
     "base_checkpoint_batch": 112,
     "thresholds": {
       "bundle_count": 4,
@@ -184,16 +184,30 @@
     },
     "private_stage": {
       "stage": "translation_frozen",
-      "status": "ready_for_public_ci",
-      "transport_status": "ready_for_public_ci",
+      "status": "verified",
+      "transport_status": "awaiting_private_merge",
       "wave_id": "yuwen-mowen-train-16-wave-01",
       "cycle_status": "target_reached",
-      "cycle_checkpoint": "ready_for_public_ci"
+      "cycle_checkpoint": "awaiting_private_merge"
     },
     "tracking_issue": null,
     "draft_pr": 141,
-    "applied_result": null,
-    "verified_result": null,
+    "applied_result": {
+      "orchestrator_run": 30253238587,
+      "asset_head": "2cbbcd988e45fc995a535fb01da95e817cbea89d",
+      "pair_applied_keys": 1188,
+      "project_applied_keys": 1564,
+      "pending_fixes": 0,
+      "checkpoint_status": "verified"
+    },
+    "verified_result": {
+      "release_id": "yuwen-mowen-train-16-r1",
+      "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_16.json",
+      "record_index_synced": true,
+      "pair_applied_keys": 1188,
+      "project_applied_keys": 1564,
+      "pending_fixes": 0
+    },
     "finalization_phase": "phase2",
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true,

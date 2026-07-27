@@ -4,9 +4,9 @@
   "train_id": "yuwen-mowen-train-16",
   "branch": "agent/yuwen-mowen-train-16",
   "draft_pr": 141,
-  "status": "ready_for_public_ci",
+  "status": "verified",
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "translation_stage": "translation_frozen",
     "pr": 141,
     "merge_sha": null
@@ -57,7 +57,7 @@
     {
       "batch": 113,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "6195_3",
         "6198_3",
@@ -101,7 +101,7 @@
     {
       "batch": 114,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "6213_1",
         "6214_4",
@@ -156,8 +156,22 @@
     "pr": 138,
     "merge_sha": "4bbe0e59535811d06798c0df87c89d38335d7bc8"
   },
-  "applied_result": null,
-  "verified_result": null,
+  "applied_result": {
+    "orchestrator_run": 30253238587,
+    "asset_head": "2cbbcd988e45fc995a535fb01da95e817cbea89d",
+    "pair_applied_keys": 1188,
+    "project_applied_keys": 1564,
+    "pending_fixes": 0,
+    "checkpoint_status": "verified"
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-16-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_16.json",
+    "record_index_synced": true,
+    "pair_applied_keys": 1188,
+    "project_applied_keys": 1564,
+    "pending_fixes": 0
+  },
   "quality_gate": {
     "schema_version": 1,
     "primary_objective": "repair_substantive_translation_defects",
@@ -177,8 +191,8 @@
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
     "stage": "translation_frozen",
-    "status": "ready_for_public_ci",
-    "transport_status": "ready_for_public_ci"
+    "status": "verified",
+    "transport_status": "awaiting_private_merge"
   },
   "next_release": {
     "candidate_scene": [
