@@ -8,9 +8,9 @@
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudited",
-  "status": "in_progress",
+  "status": "ready_for_public_ci",
   "last_completed_batch": 121,
-  "last_reviewed_batch": 121,
+  "last_reviewed_batch": 126,
   "pair_applied_keys": 1274,
   "project_applied_keys": 1650,
   "build_status": "verified_not_deployed",
@@ -21,7 +21,6 @@
     "batch": 121,
     "pair_applied_keys": 1274,
     "project_applied_keys": 1650,
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH121_2026-07-28.md",
     "produced_by_pr": 143,
     "release_identity": {
       "kind": "pr_release_v2",
@@ -29,10 +28,11 @@
       "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_18.json",
       "pr": 143,
       "validated_head": "4dfef2b60fdc74ce9758baf6c08761d24e2e1311"
-    }
+    },
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH121_2026-07-28.md"
   },
   "operation_mode": {
-    "declared_state": "private_translation_work",
+    "declared_state": "translation_frozen",
     "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
@@ -114,14 +114,10 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "9234_6",
-      "9236_6",
-      "9238_6",
-      "9245_1",
-      "9245_3"
+      "9261_1"
     ],
-    "task": "train-19 wave-01のsealed queue 46行をprivate_quality_auditで通読し、fix / keep判断を監査記録へ固定する。",
-    "boundary": "quality auditでは翻訳判断だけを行い、fix JSON、owner、正式束、manifest totalsを書かない。",
+    "task": "train-19の公開CI窓を開き、release orchestratorからphase2・review thread 0件まで輸送する。",
+    "boundary": "public中は翻訳判断、fix追加、owner変更、第127束preparationを開始しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -155,8 +151,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-19",
     "branch": "agent/yuwen-mowen-train-19",
-    "status": "private_quality_audit",
-    "transport_status": "not_ready",
+    "status": "ready_for_public_ci",
+    "transport_status": "ready_for_public_ci",
     "base_checkpoint_batch": 121,
     "thresholds": {
       "bundle_count": 4,
@@ -168,40 +164,40 @@
       "reviewed_rows": 60
     },
     "totals": {
-      "bundle_count": 0,
-      "reviewed_rows": 0,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
-      "new_pair_keys": 0,
-      "new_project_keys": 0,
+      "bundle_count": 5,
+      "reviewed_rows": 46,
+      "reviewed_keys": 46,
+      "unique_reviewed_rows": 46,
+      "fix_keys": 25,
+      "unique_fix_rows": 25,
+      "new_pair_keys": 46,
+      "new_project_keys": 46,
       "cross_register_keys": 0,
       "existing_owner_updates": 0,
-      "keep_only_bundles": 0
+      "keep_only_bundles": 1
     },
     "quality_gate": {
       "schema_version": 1,
       "primary_objective": "repair_substantive_translation_defects",
       "throughput_metrics_role": "transport_only",
       "low_yield_threshold_percent": 15,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
-      "keep_only_bundles": 0,
-      "pre_challenge_unique_fix_rows": 0,
+      "reviewed_keys": 46,
+      "unique_reviewed_rows": 46,
+      "fix_keys": 25,
+      "unique_fix_rows": 25,
+      "keep_only_bundles": 1,
+      "pre_challenge_unique_fix_rows": 25,
       "low_yield_detected": false,
-      "release_decision": "not_evaluated",
+      "release_decision": "quality_passed",
       "challenge_pass": null
     },
     "private_stage": {
-      "stage": "private_quality_audit",
-      "status": "active",
-      "transport_status": "not_ready",
+      "stage": "translation_frozen",
+      "status": "verified",
+      "transport_status": "ready_for_public_ci",
       "wave_id": "yuwen-mowen-train-19-wave-01",
-      "cycle_status": "running",
-      "cycle_checkpoint": "private_preparation"
+      "cycle_status": "target_reached",
+      "cycle_checkpoint": "ready_for_public_ci"
     },
     "tracking_issue": null,
     "draft_pr": null,
