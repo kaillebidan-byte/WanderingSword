@@ -118,6 +118,14 @@ def validate(
         errors.append("cycle_control.execution_mode invalid")
         execution_mode = "manual_visibility_cycle"
 
+    stage = state.get("stage")
+    transport = state.get("transport", {}).get("status")
+    if not explicit_mode and (
+        stage in {"private_preparation", "private_quality_audit", "private_encoding"}
+        or transport == "not_ready"
+    ):
+        errors.append("new translation cycle requires explicit execution_mode selection")
+
     if explicit_mode:
         expected_visibility = MODE_START_VISIBILITY[execution_mode]
         if control.get("cycle_start_visibility") != expected_visibility:
@@ -196,8 +204,6 @@ def validate(
         if explicit_mode and execution_mode == "always_public_full_pipeline" and checkpoint != "merged":
             errors.append("always_public_full_pipeline can reach a normal target only at merged")
 
-    stage = state.get("stage")
-    transport = state.get("transport", {}).get("status")
     if stage in {"private_preparation", "private_quality_audit", "private_encoding"} and status == "target_reached":
         errors.append("intermediate private stage cannot be a conversational completion target")
     if stage == "translation_frozen" and transport == "not_ready" and status == "target_reached":
