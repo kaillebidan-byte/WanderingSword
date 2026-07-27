@@ -2,7 +2,7 @@
   "schema_version": 2,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-19",
-  "stage": "private_quality_audit",
+  "stage": "private_encoding",
   "mode": "wave_v2",
   "cycle_control": {
     "status": "running",
@@ -10,9 +10,9 @@
     "public_completion_target": "awaiting_private_merge",
     "post_public_completion_target": "merged",
     "continuation_required": true,
-    "stop_reason": "turn_capacity_checkpoint",
-    "exact_next_action": "sealed queue 5packet・46行をprivate_quality_auditで監査し、fix / keep判断だけをAUDIT記録へ固定する。",
-    "last_safe_checkpoint": "private_preparation",
+    "stop_reason": null,
+    "exact_next_action": "AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01に固定した25修正・21保持だけをowner生成器で収録し、第122〜126束のreview記録とmanifestを作る。",
+    "last_safe_checkpoint": "private_quality_audit",
     "execution_mode": "manual_visibility_cycle",
     "cycle_start_visibility": "private",
     "mode_locked_for_cycle": true,
@@ -39,61 +39,76 @@
       {
         "packet_id": "yuwen-mowen-9234-6",
         "scene_groups": ["9234_6"],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE9234_6_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
         "packet_id": "yuwen-mowen-9236-6",
         "scene_groups": ["9236_6"],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE9236_6_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
         "packet_id": "yuwen-mowen-9238-6",
         "scene_groups": ["9238_6"],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE9238_6_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
         "packet_id": "yuwen-mowen-9245-1",
         "scene_groups": ["9245_1"],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE9245_1_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
         "packet_id": "yuwen-mowen-9245-3",
         "scene_groups": ["9245_3"],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE9245_3_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN19_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       }
     ],
@@ -112,20 +127,25 @@
       {
         "status": "not_ready",
         "translation_stage": "private_quality_audit"
+      },
+      {
+        "status": "not_ready",
+        "translation_stage": "private_encoding"
       }
     ],
     "pr": null
   },
   "permissions": {
-    "translation_judgment_allowed": true,
-    "fix_writes_allowed": false,
-    "encoding_writes_allowed": false,
-    "throughput_metrics_visible": false,
+    "translation_judgment_allowed": false,
+    "fix_writes_allowed": true,
+    "encoding_writes_allowed": true,
+    "throughput_metrics_visible": true,
     "metrics_frozen": false
   },
   "history": [
     {"stage": "private_preparation", "status": "complete"},
-    {"stage": "private_quality_audit", "status": "active"}
+    {"stage": "private_quality_audit", "status": "complete"},
+    {"stage": "private_encoding", "status": "active"}
   ],
   "replenishment_reason": "sealed after three branch-aligned packets plus the immediately following Shaolin brother-disciple exchange reached 46 rows",
   "source_artifact": {
