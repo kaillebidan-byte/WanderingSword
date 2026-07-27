@@ -13,6 +13,7 @@ TOOLS = ROOT / "_tools"
 
 BASE_CHECKS = [
     ["check_state_json_integrity.py"],
+    ["check_phase_completion_signal.py"],
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
     ["check_candidate_ownership.py", "--release-live"],
@@ -26,6 +27,7 @@ BASE_CHECKS = [
 ]
 TESTS = [
     ["test_check_state_json_integrity.py"],
+    ["test_check_phase_completion_signal.py"],
     ["test_check_candidate_ownership.py"],
     ["test_apply_owner_assignment.py"],
     ["test_check_fix_owner_delta.py"],
@@ -81,6 +83,7 @@ def main() -> int:
 
     print("\nRelease preflight used live owner measurement and sealed owner-assignment evidence.")
     print("Stored candidate ownership snapshots remain immutable pre-quality-audit records.")
+    print("Regulated phase success and error responses share the exact terminal marker contract.")
     print(f"Cycle execution mode is valid for repository visibility {args.repository_visibility}.")
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
