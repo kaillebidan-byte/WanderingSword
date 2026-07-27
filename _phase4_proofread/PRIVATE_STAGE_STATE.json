@@ -146,8 +146,8 @@
       "packet_count": 5,
       "reviewed_rows": 46,
       "fix_keys": 25,
-      "new_project_keys": 46,
-      "existing_owner_updates": 0,
+      "new_project_keys": 24,
+      "existing_owner_updates": 5,
       "keep_only_packets": 1
     }
   },

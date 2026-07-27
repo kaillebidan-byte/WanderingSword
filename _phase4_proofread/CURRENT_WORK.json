@@ -170,10 +170,10 @@
       "unique_reviewed_rows": 46,
       "fix_keys": 25,
       "unique_fix_rows": 25,
-      "new_pair_keys": 46,
-      "new_project_keys": 46,
+      "new_pair_keys": 24,
+      "new_project_keys": 24,
       "cross_register_keys": 0,
-      "existing_owner_updates": 0,
+      "existing_owner_updates": 5,
       "keep_only_bundles": 1
     },
     "quality_gate": {
