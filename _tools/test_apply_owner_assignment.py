@@ -117,7 +117,10 @@ class OwnerAssignmentTests(unittest.TestCase):
             manifest_after = json.loads((p4 / "CI_TRAIN_MANIFEST.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest_after["totals"]["existing_owner_updates"], 3)
             self.assertEqual(manifest_after["totals"]["new_project_keys"], 1)
-            self.assertEqual(manifest_after["bundles"][0]["fix_files"], [old_rel, "_phase4_proofread/fixes_new.json"])
+            self.assertEqual(
+                manifest_after["bundles"][0]["fix_files"],
+                sorted([old_rel, "_phase4_proofread/fixes_new.json"]),
+            )
 
 
 if __name__ == "__main__":
