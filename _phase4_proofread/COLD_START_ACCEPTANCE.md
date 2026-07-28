@@ -10,11 +10,12 @@
 
 ## 最初の無言ゲート
 
-1. 最初の外部確認としてGitHub repository metadataを取得する。
-2. metadata結果前に、利用者向けの計画、開始宣言、途中報告を出さない。
-3. 利用者のvisibility申告を実状態の正本として扱わない。
-4. metadata取得後、実visibilityと有効operation modeを確定してから最初の報告または作業へ進む。
-5. metadata取得失敗時は、作業開始を主張しない。
+1. `PROJECT_SCOPE_LOCK.json`で対象repositoryを固定する。
+2. 最初の外部確認としてWanderingSwordのGitHub repository metadataを取得する。
+3. metadata結果前に、利用者向けの計画、開始宣言、途中報告を出さない。
+4. 利用者のvisibility申告を実状態の正本として扱わない。
+5. metadata取得後、実visibilityと有効operation modeを確定してから最初の報告または作業へ進む。
+6. metadata取得失敗時は、作業開始を主張しない。
 
 ## 合格条件
 
@@ -29,7 +30,7 @@
 9. visibility、declared state、manifest status、`PRIVATE_STAGE_STATE.cycle_control`の組合せから裁定する。
 10. private_translation_work + privateなら、状態報告だけで止まらず同じ応答内で許可されたprivate作業へ進む。
 11. privateの正常実行は、preparation・quality audit・encodingの段階境界で止まらず、private preflight成功、PR ready、`ready_for_public_ci`まで進む。
-12. public + translation_frozenなら、新規翻訳をせずorchestrator、状態最終化、phase2、review thread 0件、`awaiting_private_merge`まで進む。
+12. public + translation_frozenなら、新規翻訳をせずorchestrator、状態最終化、release phase2、review thread 0件、`awaiting_private_merge`まで進む。
 13. private復帰後は検証済みHEADをsquash統合して`merged`へ進め、統合前に次waveを開始しない。
 14. private_translation_work + publicなら、翻訳を開始せずprivate復帰を依頼する。
 15. `cycle_control.status=paused`は許可理由とexact next actionを必須とする。
@@ -44,11 +45,16 @@
 24. encoding後にowner snapshotを再生成する。
 25. `release-ci`または`ci-heavy-rerun`は`Release train orchestrator`一runだけを起動する。
 26. orchestrator内でpreflight→Relation/Cross→Applyの依存順が保証される。
-27. Apply前は軽量輸送検査だけを行い、release evidence・verified checkpointの厳密一致はphase2へ分離する。
+27. Apply前は軽量輸送検査だけを行い、release evidence・verified checkpointの厳密一致はrelease phase2へ分離する。
 28. release evidence schema v2でorchestrator runと内部job成功を記録する。既存schema v1は維持する。
-29. phase2は`finalize-release`で明示起動する。
+29. release phase2は`finalize-release`で明示起動する。
 30. PR作成、ready化、通常commit、bot書き戻しではorchestratorを自動起動しない。
 31. post-merge状態専用PRを作らない。
+32. `signal_authorization=null`の間、終端契約のmarker値を通常応答へ含めない。
+33. 最終応答は`check_phase_completion_signal.py --response-file`を通してから送信する。
+34. 自動化は固定marker単独やresultとの二行だけで停止しない。
+35. 自動化は`regulated_phase_terminal_consumer.js`の`accepted === true`だけをterminalとして扱う。
+36. live `REGULATED_PHASE_STATE.json`を取得できない場合はterminal非受理とする。
 
 ## 動的期待値
 
@@ -62,6 +68,9 @@
 - 次作業と予約状態: `NEXT_TASK_PACKET.json`
 - active PR / Actions: GitHub実体
 - 確定release: checkpointが指す`RELEASE_EVIDENCE_*.json`
+- 終端契約: `PHASE_COMPLETION_SIGNAL.json`
+- 終端動的状態: `REGULATED_PHASE_STATE.json`
+- 最終応答gate: `FINAL_RESPONSE_GATE.md`
 
 この文書の固定値が現在地を上書きしてはならない。
 
@@ -71,6 +80,12 @@ private公開前:
 
 ```bash
 python _tools/check_private_release_preflight.py --with-tests
+```
+
+最終応答送信前:
+
+```bash
+python _tools/check_phase_completion_signal.py --response-file <draft-response.txt>
 ```
 
 個別検査:
@@ -87,10 +102,13 @@ python _tools/check_handoff_consistency_v2.py --require-verified
 python _tools/check_ci_train_manifest_v2.py
 python _tools/check_next_task_packet.py
 python _tools/check_batch_planning.py
+python _tools/check_phase_completion_signal.py
 python _tools/test_check_candidate_ownership.py
 python _tools/test_check_next_task_packet_minimal.py
 python _tools/test_check_release_transport_state.py
 python _tools/test_check_autonomous_cycle.py
+python _tools/test_check_phase_completion_signal.py
+node _tools/test_regulated_phase_terminal_consumer.js
 python _tools/test_write_applied_record.py
 python _tools/test_release_ci_triggers.py
 python _tools/test_check_visibility_preflight_contract.py

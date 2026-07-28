@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、実行モードは`EXECUTION_MODES.json`、二フェイズ終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的な終端許可は`REGULATED_PHASE_STATE.json`を正本とする。
+現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、実行モードは`EXECUTION_MODES.json`、二フェイズ終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的な終端許可は`REGULATED_PHASE_STATE.json`、最終応答の送信前・consumer側ゲートは`FINAL_RESPONSE_GATE.md`を正本とする。
 
 ## 起動文
 
@@ -55,7 +55,7 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 3. WanderingSwordのmain、未統合PR、GitHub Actionsだけを確認する。
 4. open PRをactive / superseded / abandoned / unrelatedへ分類する。開いているだけで現行作業と決めない。
 5. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
-6. `PHASE_COMPLETION_SIGNAL.json`と`REGULATED_PHASE_STATE.json`を照合する。
+6. `PHASE_COMPLETION_SIGNAL.json`、`REGULATED_PHASE_STATE.json`、`FINAL_RESPONSE_GATE.md`を照合する。
 7. 実際にはmerge済みだが状態正本が統合前なら、`reconcile_merged_cycle.py`で先に`merged`へ整合させる。
 8. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
 9. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
@@ -109,7 +109,7 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 1. `quality_reaudit`: 関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査
 2. `narrative_readthrough`: 章・事件単位の日本語通読と原文対照による章ごとの通読修正
 
-`規定フェイズ完了`を出せるのは、`REGULATED_PHASE_STATE.json.signal_authorization`に次が揃った場合だけである。
+終端予約語は、`REGULATED_PHASE_STATE.json.signal_authorization`に次が揃った場合だけ使用できる。
 
 - `authorized=true`
 - `scope=regulated_phase_terminal`
@@ -117,23 +117,19 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 - `result=success|error`
 - successならactive phase statusが`complete`
 - errorならactive phase statusが`terminal_error`
-- terminal event IDと根拠ファイルが記録済み
+- live event IDと根拠ファイルが記録済み
 
-各フェイズ全体が成功終了した応答では、末尾を次の二行にする。
+`signal_authorization=null`の間は、契約の`marker`値を応答本文、引用、説明、例示、コードブロックへ出してはならない。
 
-```text
-規定フェイズ結果: success
-規定フェイズ完了
-```
-
-フェイズ全体が継続不能なterminal errorとして終了し、上記authorizationが発行された応答では、末尾を次の二行にする。
+認可済みterminal responseの最終三行は、契約値を使って次の構造にする。固定文字列をこの文書へ複製しない。
 
 ```text
-規定フェイズ結果: error
-規定フェイズ完了
+<authorization_prefix><signal_authorization.event_id>
+<status_prefix><signal_authorization.result>
+<marker>
 ```
 
-次では絶対に出力しない。
+次では絶対にauthorizationを発行せず、終端予約語も出力しない。
 
 - 単一wave、単一train、単一PR、squash mergeの完了
 - `CI_TRAIN_PHASE2`または`finalization_phase=phase2`の成功・失敗
@@ -141,13 +137,17 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 - 単一人物ペア、単一章、visibility境界
 - `paused`、checker failure、外部依存停止、turn容量停止など再開可能な例外
 
-`規定フェイズ完了`は最後の非空行に一度だけ置き、後ろに説明を書かない。authorizationがnullのときは、見た目が正しい二行でも出力禁止である。
+## 最終応答の送信前ゲート
 
-検査:
+通常報告を含む最終文面をUTF-8ファイルへ保存し、送信前に次を通す。
 
 ```bash
-python _tools/check_phase_completion_signal.py
+python _tools/check_phase_completion_signal.py --response-file <draft-response.txt>
 ```
+
+予約語を含まない通常応答は通る。予約語を含む場合はlive event ID、result、active phase statusが一致しなければ送信不可となる。
+
+自動化側は最後の一行や固定文検索だけで停止してはならない。`_tools/regulated_phase_terminal_consumer.js`へ応答本文とlive `REGULATED_PHASE_STATE.json`を渡し、`accepted === true`の場合だけ停止する。live stateを取得できない場合はterminalとして扱わない。
 
 ## 例外停止
 
@@ -158,7 +158,7 @@ python _tools/check_phase_completion_signal.py
 - `external_dependency_unavailable`
 - `turn_capacity_checkpoint`
 
-`paused`には`continuation_required=true`、理由、機械実行可能な`exact_next_action`を残す。通常のpausedは規定フェイズのterminal errorではなく、完了マーカーを出さない。
+`paused`には`continuation_required=true`、理由、機械実行可能な`exact_next_action`を残す。通常のpausedは規定フェイズのterminal errorではなく、終端予約語を出さない。
 
 常時public modeでは失敗時もprivate復帰を要求しない。同じlocked modeで再開する。
 
@@ -177,5 +177,7 @@ python _tools/check_phase_completion_signal.py
 - merge前の次wave開始
 - merge後状態確定を次チャットへ先送りすること
 - 常時public modeで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
-- authorizationなしで規定フェイズ終端マーカーを出すこと
-- 規定フェイズ終端マーカーの後ろに文章を付けること
+- authorizationなしで終端予約語を出すこと
+- 終端予約語の後ろに文章を付けること
+- 固定marker単独、またはresultとの二行だけで自動化を停止すること
+- live stateを取得できないのにterminal扱いすること

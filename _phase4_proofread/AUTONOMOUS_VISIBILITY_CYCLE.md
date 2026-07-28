@@ -40,7 +40,7 @@ owner生成、live owner検査、quality gate、manifest ready、digest証跡は
 
 1. privateで`ready_for_public_ci`
 2. publicで`awaiting_private_merge`
-3. privateでsquash mergeして`merged`
+3. privateでsquash mergeし、merge後reconcilerで`merged`
 
 public CI窓では翻訳判断、fix追加、owner変更、次wave準備を行わない。publicのままmergeしない。
 
@@ -48,7 +48,7 @@ public CI窓では翻訳判断、fix追加、owner変更、次wave準備を行�
 
 repositoryをpublicのまま維持する。
 
-`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> phase2 -> review thread 0 -> squash merge -> merged`
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> release phase2 -> review thread 0 -> squash merge -> merged-state reconciliation`
 
 `ready_for_public_ci`と`awaiting_private_merge`は内部checkpointとして記録するが、正常停止地点にはしない。visibility変更依頼を出さず、同じcycleで`merged`まで進む。
 
@@ -58,7 +58,7 @@ publicで翻訳段階を実行できるのは、modeがcycle開始時にpublic�
 
 通常commit、PR作成、ready化だけでは重いCIを起動しない。
 
-translation freeze、manifest ready、release preflight成功後に既存の`release-ci`を使う。Relation、Cross、Apply、finalization、phase2の経路はmodeで分岐させない。
+translation freeze、manifest ready、release preflight成功後に既存の`release-ci`を使う。Relation、Cross、Apply、finalization、release phase2の経路はmodeで分岐させない。
 
 ## cycle_control
 
@@ -91,23 +91,29 @@ manualの`normal_completion_target`は`visibility_boundary_or_merged`。always-p
 
 この二フェイズはvisibility cycleより長い作業単位であり、単一waveや単一mergeをフェイズ完了としない。
 
-各フェイズ全体が成功終了した応答、またはエラー終端した応答は`PHASE_COMPLETION_SIGNAL.json`へ従う。
+終端は次の三正本へ従う。
 
-成功時の末尾:
+- `PHASE_COMPLETION_SIGNAL.json`
+- `REGULATED_PHASE_STATE.json`
+- `FINAL_RESPONSE_GATE.md`
+
+`signal_authorization=null`の間、契約のmarker値は応答本文、引用、説明、例示へ出力禁止とする。
+
+認可済みterminal responseの最終三行は、固定文字列を複製せず、契約値から次の構造で生成する。
 
 ```text
-規定フェイズ結果: success
-規定フェイズ完了
+<authorization_prefix><signal_authorization.event_id>
+<status_prefix><signal_authorization.result>
+<marker>
 ```
 
-エラー時の末尾:
+通常応答も含め、送信前に次を通す。
 
-```text
-規定フェイズ結果: error
-規定フェイズ完了
+```bash
+python _tools/check_phase_completion_signal.py --response-file <draft-response.txt>
 ```
 
-マーカーは最後の非空行に一度だけ置く。マーカーだけでは成功を意味せず、直前行を自動化の結果判定に使う。
+自動化consumerは固定marker単独で停止せず、`regulated_phase_terminal_consumer.js`がlive state照合後に返す`accepted === true`だけをterminalとして扱う。live stateを取得できなければ非受理とする。
 
 ## 例外停止
 
@@ -120,7 +126,7 @@ manualの`normal_completion_target`は`visibility_boundary_or_merged`。always-p
 
 `paused`は理由と機械実行可能な`exact_next_action`を必須とする。always-publicでは失敗時もmodeを変えず、private復帰を要求しない。
 
-規定フェイズ自体が継続不能なエラーで終わる応答では、エラー説明後にエラー結果行と完了マーカーを出す。通常の一時停止、visibility境界、単一wave、単一人物ペア、単一章では出さない。
+規定フェイズ自体が継続不能なterminal errorで終わり、live authorizationが発行された場合だけterminal responseを生成する。通常の一時停止、visibility境界、単一wave、単一人物ペア、単一章では終端予約語を出さない。
 
 ## 禁止
 
@@ -130,8 +136,10 @@ manualの`normal_completion_target`は`visibility_boundary_or_merged`。always-p
 - manual modeでpublic translationを行うこと
 - always-public modeでprivateへ切り替えて継続すること
 - translation freeze前の重いCI起動
-- phase2成功前のmerge
+- release phase2成功前のmerge
 - merge前の次wave開始
 - always-publicで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
-- 規定フェイズ完了マーカーを単一waveや単一章の完了に使うこと
-- 規定フェイズ完了マーカーの後ろに文章を付けること
+- 終端予約語を単一waveや単一章の完了に使うこと
+- authorizationなしで終端予約語を出すこと
+- 固定markerだけ、またはresultとの二行だけで自動化を停止すること
+- live stateを取得できないのにterminal扱いすること

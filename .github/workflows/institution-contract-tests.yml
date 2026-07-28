@@ -14,23 +14,29 @@ on:
       - "_phase4_proofread/EXECUTION_MODES.json"
       - "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json"
       - "_phase4_proofread/REGULATED_PHASE_STATE.json"
+      - "_phase4_proofread/FINAL_RESPONSE_GATE.md"
       - "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md"
       - "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md"
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
+      - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
       - "_phase4_proofread/PLAN_章別通読監査.md"
       - "AGENTS.md"
       - "_tools/check_state_json_integrity.py"
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_project_scope_lock.py"
+      - "_tools/check_visibility_preflight_contract.py"
       - "_tools/check_operation_mode.py"
       - "_tools/check_autonomous_cycle.py"
       - "_tools/check_phase_completion_signal.py"
+      - "_tools/regulated_phase_terminal_consumer.js"
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/select_cycle_execution_mode.py"
       - "_tools/test_check_project_scope_lock.py"
+      - "_tools/test_check_visibility_preflight_contract.py"
       - "_tools/test_check_operation_mode.py"
       - "_tools/test_check_autonomous_cycle.py"
       - "_tools/test_check_phase_completion_signal.py"
+      - "_tools/test_regulated_phase_terminal_consumer.js"
       - "_tools/test_reconcile_merged_cycle.py"
       - "_tools/test_select_cycle_execution_mode.py"
       - "_tools/test_release_ci_triggers.py"
@@ -59,10 +65,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run project scope regressions
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run project scope and visibility regressions
         run: |
           python _tools/check_project_scope_lock.py --repository kaillebidan-byte/WanderingSword
           python _tools/test_check_project_scope_lock.py
+          python _tools/check_visibility_preflight_contract.py
+          python _tools/test_check_visibility_preflight_contract.py
 
       - name: Run execution mode regressions
         run: |
@@ -74,6 +87,7 @@ jobs:
         run: |
           python _tools/check_phase_completion_signal.py
           python _tools/test_check_phase_completion_signal.py
+          node _tools/test_regulated_phase_terminal_consumer.js
 
       - name: Run post-merge reconciliation regression
         run: python _tools/test_reconcile_merged_cycle.py

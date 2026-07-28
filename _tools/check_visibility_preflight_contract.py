@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""turn入口のGitHub preflight v3 scope・mode・phase・merge契約を検査する。"""
+"""turn入口と最終応答のGitHub preflight v4 scope・mode・phase consumer・merge契約を検査する。"""
 from __future__ import annotations
 
 import json
@@ -13,6 +13,7 @@ CONTRACT_PATH = ROOT / "_phase4_proofread" / "VISIBILITY_PREFLIGHT_CONTRACT.json
 
 EXPECTED_DOCS = {
     "bootstrap": "_phase4_proofread/SESSION_BOOTSTRAP.md",
+    "final_response_gate": "_phase4_proofread/FINAL_RESPONSE_GATE.md",
     "manual_public_window": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
     "always_public_pipeline": "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md",
     "cold_start_acceptance": "_phase4_proofread/COLD_START_ACCEPTANCE.md",
@@ -24,6 +25,8 @@ REQUIRED_APPLIES_TO = {
     "public_ci_entry",
     "private_translation_entry",
     "cycle_mode_selection",
+    "final_response_send",
+    "automation_terminal_detection",
     "merged_cycle_reconciliation",
 }
 EXPECTED_PROJECT_SCOPE = {
@@ -46,11 +49,19 @@ EXPECTED_CYCLE = {
 EXPECTED_SIGNAL = {
     "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
     "runtime_state": "_phase4_proofread/REGULATED_PHASE_STATE.json",
+    "agent_gate": "_phase4_proofread/FINAL_RESPONSE_GATE.md",
+    "python_validator": "_tools/check_phase_completion_signal.py",
+    "javascript_consumer": "_tools/regulated_phase_terminal_consumer.js",
     "dynamic_authorization_required": True,
+    "authorization_event_id_line_required": True,
     "required_on_phase_success": True,
     "required_on_phase_error": True,
     "last_nonempty_line": "規定フェイズ完了",
     "result_line_immediately_precedes_marker": True,
+    "authorization_line_immediately_precedes_result": True,
+    "marker_only_is_terminal": False,
+    "live_state_match_required": True,
+    "live_state_unavailable_behavior": "reject_terminal",
     "release_phase2_is_not_regulated_phase": True,
     "train_or_merge_completion_does_not_emit": True,
     "routine_pause_does_not_emit": True,
@@ -97,16 +108,16 @@ def _validate_exact_object(
 def validate_contract(contract: dict[str, Any], root: Path = ROOT) -> list[str]:
     errors: list[str] = []
 
-    if contract.get("schema_version") != 3:
-        errors.append("schema_version must be 3")
-    if contract.get("gate_id") != "github-preflight-v3-scope-mode-phase-merge":
-        errors.append("gate_id must be github-preflight-v3-scope-mode-phase-merge")
+    if contract.get("schema_version") != 4:
+        errors.append("schema_version must be 4")
+    if contract.get("gate_id") != "github-preflight-v4-scope-mode-phase-consumer-merge":
+        errors.append("gate_id must be github-preflight-v4-scope-mode-phase-consumer-merge")
     if contract.get("source_of_truth") != "github_repository_metadata":
         errors.append("source_of_truth must be github_repository_metadata")
 
     applies_to = contract.get("applies_to")
     if not isinstance(applies_to, list) or set(applies_to) != REQUIRED_APPLIES_TO:
-        errors.append("applies_to must contain the complete v3 entry-point set")
+        errors.append("applies_to must contain the complete v4 entry-point set")
 
     _validate_exact_object(
         contract.get("project_scope"), EXPECTED_PROJECT_SCOPE, "project_scope", errors
@@ -123,6 +134,8 @@ def validate_contract(contract: dict[str, Any], root: Path = ROOT) -> list[str]:
             errors.append("project scope lock must be the first internal check")
         if ordering.get("repository_metadata_is_first_external_check") is not True:
             errors.append("repository metadata must be the first external check")
+        if ordering.get("final_response_gate_precedes_send") is not True:
+            errors.append("final response gate must precede send")
         for key in (
             "user_visible_update_before_verdict",
             "work_start_claim_before_verdict",
@@ -153,11 +166,14 @@ def validate_contract(contract: dict[str, Any], root: Path = ROOT) -> list[str]:
     for relative in (
         EXPECTED_SIGNAL["contract"],
         EXPECTED_SIGNAL["runtime_state"],
+        EXPECTED_SIGNAL["agent_gate"],
+        EXPECTED_SIGNAL["python_validator"],
+        EXPECTED_SIGNAL["javascript_consumer"],
         EXPECTED_MERGED_CYCLE["tool"],
         EXPECTED_MERGED_CYCLE["workflow"],
     ):
         if not (root / relative).is_file():
-            errors.append(f"missing v3 contract dependency: {relative}")
+            errors.append(f"missing v4 contract dependency: {relative}")
 
     verdict = contract.get("verdict")
     if not isinstance(verdict, dict):
@@ -167,6 +183,8 @@ def validate_contract(contract: dict[str, Any], root: Path = ROOT) -> list[str]:
             errors.append("first user-visible update must require effective mode")
         if verdict.get("metadata_failure_allows_work_start_claim") is not False:
             errors.append("metadata failure must not allow a work-start claim")
+        if verdict.get("terminal_acceptance_requires_consumer_accept") is not True:
+            errors.append("terminal acceptance must require consumer accepted=true")
 
     repair = contract.get("public_administrative_repair")
     if not isinstance(repair, dict):
@@ -205,7 +223,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: visibility preflight v3 scope, mode, phase, and merge contract is structurally valid")
+    print("OK: visibility preflight v4 scope, mode, phase consumer, and merge contract is valid")
     return 0
 
 
