@@ -35,11 +35,13 @@ def validate(flow:dict[str,Any],request:dict[str,Any],texts:dict[str,str])->list
  markers={
   'request':['name: Translation factory executor','factory_request_executor.py','fixed_cycle_initializer.py','git rm'],
   'encoding':['name: Translation factory encoding','factory_encoding_executor.py','fixed_encoding_pipeline.py','ready_for_public_ci'],
-  'finalization':['name: Translation factory finalization','fixed_release_finalizer.py','finalization-inputs.json','check_release_evidence.py','awaiting_private_merge','git rm'],
+  'finalization':['name: Translation factory finalization','fixed_release_finalizer.py','finalization-inputs.json','check_release_evidence.py','git rm'],
  }
  for key,items in markers.items():
   for marker in items:
    if marker not in texts[key]: e.append(f'{key} workflow lacks marker: {marker}')
+ finalization_combined=texts['finalization']+'\n'+texts['finalizer_code']
+ if 'awaiting_private_merge' not in finalization_combined:e.append('finalization path lacks resulting transport marker')
  combined=texts['encoding']+'\n'+texts['encoding_code']
  for marker in ('apply_owner_assignment_v2','check_batch_planning.py'):
   if marker not in combined:e.append(f'encoding path lacks marker: {marker}')
@@ -52,7 +54,7 @@ def main()->int:
   flow=load(FLOW); request=load(REQUEST)
   for p in RESOURCES.values():
    if not (ROOT/p).is_file():raise ValueError(f'missing factory resource: {p}')
-  texts={'request':(ROOT/RESOURCES['request_workflow']).read_text(encoding='utf-8'),'encoding':(ROOT/RESOURCES['encoding_workflow']).read_text(encoding='utf-8'),'finalization':(ROOT/RESOURCES['finalization_workflow']).read_text(encoding='utf-8'),'encoding_code':(ROOT/RESOURCES['encoding']).read_text(encoding='utf-8')}
+  texts={'request':(ROOT/RESOURCES['request_workflow']).read_text(encoding='utf-8'),'encoding':(ROOT/RESOURCES['encoding_workflow']).read_text(encoding='utf-8'),'finalization':(ROOT/RESOURCES['finalization_workflow']).read_text(encoding='utf-8'),'encoding_code':(ROOT/RESOURCES['encoding']).read_text(encoding='utf-8'),'finalizer_code':(ROOT/RESOURCES['finalizer']).read_text(encoding='utf-8')}
  except (OSError,ValueError,json.JSONDecodeError) as exc: print(f'ERROR: {exc}'); return 1
  errors=validate(flow,request,texts); print('=== Translation factory adapters ===')
  for x in errors:print(f'ERROR: {x}')
