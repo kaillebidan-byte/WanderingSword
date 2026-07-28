@@ -81,7 +81,7 @@ jobs:
 
       - name: Encode recorded audit decisions
         run: |
-          python _tools/fixed_encoding_pipeline.py \
+          python _tools/factory_encoding_executor.py \
             --audit "${{ steps.inputs.outputs.audit }}" \
             --pr-number "${{ github.event.pull_request.number }}" \
             --new-owner-file "${{ steps.inputs.outputs.owner }}" \

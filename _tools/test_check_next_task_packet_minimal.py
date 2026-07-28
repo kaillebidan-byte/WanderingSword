@@ -84,6 +84,42 @@ def main() -> None:
         broken = copy.deepcopy(active_packet)
         broken["reservation"]["formal_batch"] = 89
         assert any("formal_batch" in error for error in checker.validate_minimal_reservation(active_work, active_manifest, broken))
+
+        encoded_work = copy.deepcopy(active_work)
+        encoded_manifest = copy.deepcopy(active_manifest)
+        encoded_packet = copy.deepcopy(active_packet)
+        encoded_work["operation_mode"]["declared_state"] = "translation_frozen"
+        encoded_work["ci_train"].update({
+            "status": "ready_for_public_ci",
+            "transport_status": "ready_for_public_ci",
+            "private_stage": {"stage": "translation_frozen"},
+        })
+        encoded_manifest.update({
+            "status": "ready_for_public_ci",
+            "transport": {"status": "ready_for_public_ci"},
+            "totals": {"bundle_count": 1, "reviewed_rows": 62, "fix_keys": 3, "new_pair_keys": 0},
+            "bundles": [{"batch": 89}],
+        })
+        encoded_packet["reservation"] = {
+            "status": "encoded",
+            "wave_id": "wave-09",
+            "packet_id": "packet-01",
+            "preparation_started": True,
+            "quality_audit_started": True,
+            "encoding_started": True,
+            "formal_batch": 89,
+        }
+        encoded_packet["batch_planning"] = {
+            "mode": "semantic_wave",
+            "reviewed_rows": 62,
+            "target_rows": {"min": 40, "max": 60},
+            "hard_max": 80,
+            "adjacent_candidates_checked": ["5649_1", "5650_1"],
+            "grouping_decision": "complete semantic unit",
+            "exception": {"reason_code": "complete_semantic_unit", "detail": "complete semantic unit"},
+        }
+        encoded_packet["ci_train"]["planned_batch"] = 89
+        assert checker.validate_minimal_reservation(encoded_work, encoded_manifest, encoded_packet) == []
     finally:
         checker.legacy.validate_manifest = original
     print("OK: minimal and active reservations are stage-aligned")

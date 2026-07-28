@@ -16,6 +16,7 @@ EXPECTED = {
     "request_executor": "_tools/factory_request_executor.py",
     "request_workflow": ".github/workflows/translation-factory-execute.yml",
     "encoding": "_tools/fixed_encoding_pipeline.py",
+    "encoding_executor": "_tools/factory_encoding_executor.py",
     "encoding_workflow": ".github/workflows/translation-factory-encode.yml",
 }
 DOCS = {"factory": P4 / "FACTORY_FLOW.md"}
@@ -83,6 +84,7 @@ def validate(flow: dict[str, Any], request: dict[str, Any], request_workflow: st
     encoding_markers = (
         "name: Translation factory encoding",
         'paths:\n      - "_phase4_proofread/AUDIT_DECISIONS_*.json"',
+        "factory_encoding_executor.py",
         "fixed_encoding_pipeline.py",
         "apply_owner_assignment_v2",
         "check_batch_planning.py",

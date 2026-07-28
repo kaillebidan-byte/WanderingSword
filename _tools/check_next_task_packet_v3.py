@@ -43,7 +43,29 @@ def _validate_reservation(reservation: dict[str, Any], work: dict[str, Any], err
             errors.append("quality_audit_active reservation requires CURRENT_WORK private_quality_audit")
         return
 
-    errors.append("reservation.status must be reserved_only or quality_audit_active")
+    if status == "encoded":
+        for key in ("wave_id", "packet_id"):
+            if not _nonempty(reservation.get(key)):
+                errors.append(f"reservation.{key} is required after encoding")
+        formal = reservation.get("formal_batch")
+        valid_formal = (
+            isinstance(formal, int) and not isinstance(formal, bool) and formal > 0
+        ) or (
+            isinstance(formal, list) and bool(formal)
+            and all(isinstance(item, int) and not isinstance(item, bool) and item > 0 for item in formal)
+            and len(formal) == len(set(formal))
+        )
+        if not valid_formal:
+            errors.append("reservation.formal_batch must identify encoded formal batches")
+        for key in ("preparation_started", "quality_audit_started", "encoding_started"):
+            if reservation.get(key) is not True:
+                errors.append(f"reservation.{key} must be true after encoding")
+        private_stage = work.get("ci_train", {}).get("private_stage", {})
+        if private_stage.get("stage") != "translation_frozen":
+            errors.append("encoded reservation requires CURRENT_WORK translation_frozen")
+        return
+
+    errors.append("reservation.status must be reserved_only, quality_audit_active, or encoded")
 
 
 def validate_minimal_reservation(
@@ -110,6 +132,7 @@ def validate_minimal_reservation(
         if not _nonempty(source.get(key)):
             errors.append(f"source.{key} is required")
 
+    reservation_status = reservation.get("status") if isinstance(reservation, dict) else None
     forbidden_detail = (
         "scene_flow",
         "batch_planning",
@@ -119,9 +142,12 @@ def validate_minimal_reservation(
         "expected_outputs",
         "cold_start_first_report",
     )
-    for key in forbidden_detail:
-        if key in packet:
-            errors.append(f"minimal reservation must not contain private preparation detail: {key}")
+    if reservation_status != "encoded":
+        for key in forbidden_detail:
+            if key in packet:
+                errors.append(f"minimal reservation must not contain private preparation detail: {key}")
+    elif not isinstance(packet.get("batch_planning"), dict):
+        errors.append("encoded reservation requires batch_planning evidence")
 
     release = packet.get("release_candidate")
     if not isinstance(release, dict):
@@ -151,7 +177,10 @@ def validate_minimal_reservation(
         errors.append("ci_train.manifest path is invalid")
     base_batch = manifest.get("base_checkpoint", {}).get("batch")
     bundles = manifest.get("bundles")
-    expected_batch = base_batch + len(bundles) + 1 if isinstance(base_batch, int) and isinstance(bundles, list) else None
+    if isinstance(base_batch, int) and isinstance(bundles, list):
+        expected_batch = base_batch + len(bundles) if reservation_status == "encoded" else base_batch + len(bundles) + 1
+    else:
+        expected_batch = None
     if train.get("planned_batch") != expected_batch:
         errors.append(f"ci_train.planned_batch mismatch: packet={train.get('planned_batch')!r}, expected={expected_batch!r}")
 
