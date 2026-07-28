@@ -14,6 +14,7 @@ TOOLS = ROOT / "_tools"
 BASE_CHECKS = [
     ["check_state_json_integrity.py"],
     ["check_operational_docs_consistency.py"],
+    ["check_operational_docs_consistency.py"],
     ["check_project_scope_lock.py"],
     ["check_visibility_preflight_contract.py"],
     ["check_phase_completion_signal.py"],
@@ -30,6 +31,7 @@ BASE_CHECKS = [
 ]
 TESTS = [
     ["test_check_state_json_integrity.py"],
+    ["test_check_operational_docs_consistency.py"],
     ["test_check_operational_docs_consistency.py"],
     ["test_check_project_scope_lock.py"],
     ["test_check_visibility_preflight_contract.py"],

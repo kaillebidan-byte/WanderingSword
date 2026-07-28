@@ -21,6 +21,8 @@ STATE_NAME = "PRIVATE_STAGE_STATE.json"
 MANIFEST_NAME = "CI_TRAIN_MANIFEST.json"
 PACKET_NAME = "NEXT_TASK_PACKET.json"
 HANDOFF_NAME = "CURRENT_HANDOFF.md"
+PACKET_NAME = "NEXT_TASK_PACKET.json"
+HANDOFF_NAME = "CURRENT_HANDOFF.md"
 VALID_PREMERGE_STATUSES = {"awaiting_private_merge", "merged"}
 
 
@@ -29,6 +31,10 @@ def load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"top level must be object: {path}")
     return value
+
+
+def write_text(path: Path, text: str) -> None:
+    path.write_text(text.rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
 def write_text(path: Path, text: str) -> None:
@@ -285,6 +291,8 @@ def main() -> int:
         "current": p4 / CURRENT_NAME,
         "state": p4 / STATE_NAME,
         "manifest": p4 / MANIFEST_NAME,
+        "packet": p4 / PACKET_NAME,
+        "handoff": p4 / HANDOFF_NAME,
         "packet": p4 / PACKET_NAME,
         "handoff": p4 / HANDOFF_NAME,
     }
