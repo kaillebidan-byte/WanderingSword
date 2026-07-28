@@ -1,1 +1,155 @@
-{"schema_version":2,"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","train_id":"yuwen-mowen-train-26","stage":"private_preparation","mode":"wave_v2","cycle_control":{"status":"running","private_completion_target":"ready_for_public_ci","public_completion_target":"awaiting_private_merge","post_public_completion_target":"merged","continuation_required":true,"stop_reason":null,"exact_next_action":"sealed queue全体をprivate_quality_auditとして監査する。","last_safe_checkpoint":"private_preparation","execution_mode":"always_public_full_pipeline","cycle_start_visibility":"public","mode_locked_for_cycle":true,"normal_completion_target":"merged"},"ownership_policy":{"schema_version":1,"required_for_new_candidates":true,"snapshot_command":"python _tools/check_candidate_ownership.py --write <candidate paths>","pre_public_check":"python _tools/check_private_release_preflight.py --with-tests --repository-visibility public","legacy_candidate_paths":["_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json"]},"wave":{"wave_id":"yuwen-mowen-train-26-wave-01","queue_status":"sealed","seal_reason":"packet_threshold","seal_attestation":"four narrative-separated packets covering 40 unique source-backed rows from the Pingkang return report through Mo Wen's return after the Li residence confrontation","packets":[{"packet_id":"yuwen-mowen-train26-packet-01","scene_groups":["5274_1"],"status":"prepared","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"}},{"packet_id":"yuwen-mowen-train26-packet-02","scene_groups":["5278_1"],"status":"prepared","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"}},{"packet_id":"yuwen-mowen-train26-packet-03","scene_groups":["5291_1","5292_3"],"status":"prepared","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"}},{"packet_id":"yuwen-mowen-train26-packet-04","scene_groups":["5293_6","5293_7"],"status":"prepared","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"}}],"preparation_summary":{"packet_count":4,"unique_reviewed_rows":40}},"transport":{"status":"not_ready","history":[{"status":"not_ready","translation_stage":"private_preparation"}]},"permissions":{"translation_judgment_allowed":false,"fix_writes_allowed":false,"encoding_writes_allowed":false,"throughput_metrics_visible":false,"metrics_frozen":true},"history":[{"stage":"private_preparation","status":"active"}],"replenishment_reason":null,"source_artifact":{"workflow":"Release train orchestrator","run_id":30348500770,"artifact_id":8683907226,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38","head_sha":"a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"},"previous_release":{"train_id":"yuwen-mowen-train-25","release_id":"yuwen-mowen-train-25-r1","pr":154,"merge_sha":"b1403a4213434ccdd215b5c2b9d530f40f19b8de"},"institutional_baseline":{"pr":152,"merge_sha":"0df5ecb699b29a587f121baef8e68259606e1267","status":"merged","scope":"live consumer認証付き終端契約"}}
+{
+  "schema_version": 2,
+  "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
+  "train_id": "yuwen-mowen-train-26",
+  "stage": "private_quality_audit",
+  "mode": "wave_v2",
+  "cycle_control": {
+    "status": "running",
+    "private_completion_target": "ready_for_public_ci",
+    "public_completion_target": "awaiting_private_merge",
+    "post_public_completion_target": "merged",
+    "continuation_required": true,
+    "stop_reason": null,
+    "exact_next_action": "監査済み四packetをprivate_encodingへ送り、owner assignmentを行う。",
+    "last_safe_checkpoint": "private_quality_audit",
+    "execution_mode": "always_public_full_pipeline",
+    "cycle_start_visibility": "public",
+    "mode_locked_for_cycle": true,
+    "normal_completion_target": "merged"
+  },
+  "ownership_policy": {
+    "schema_version": 1,
+    "required_for_new_candidates": true,
+    "snapshot_command": "python _tools/check_candidate_ownership.py --write <candidate paths>",
+    "pre_public_check": "python _tools/check_private_release_preflight.py --with-tests --repository-visibility public",
+    "legacy_candidate_paths": [
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json"
+    ]
+  },
+  "wave": {
+    "wave_id": "yuwen-mowen-train-26-wave-01",
+    "queue_status": "sealed",
+    "seal_reason": "packet_threshold",
+    "seal_attestation": "four narrative-separated packets covering 40 unique source-backed rows from the Pingkang return report through Mo Wen's return after the Li residence confrontation",
+    "packets": [
+      {
+        "packet_id": "yuwen-mowen-train26-packet-01",
+        "scene_groups": [
+          "5274_1"
+        ],
+        "status": "audited",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
+        },
+        "audit_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
+          "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        }
+      },
+      {
+        "packet_id": "yuwen-mowen-train26-packet-02",
+        "scene_groups": [
+          "5278_1"
+        ],
+        "status": "audited",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
+        },
+        "audit_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
+          "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        }
+      },
+      {
+        "packet_id": "yuwen-mowen-train26-packet-03",
+        "scene_groups": [
+          "5291_1",
+          "5292_3"
+        ],
+        "status": "audited",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
+        },
+        "audit_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
+          "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        }
+      },
+      {
+        "packet_id": "yuwen-mowen-train26-packet-04",
+        "scene_groups": [
+          "5293_6",
+          "5293_7"
+        ],
+        "status": "audited",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
+        },
+        "audit_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
+          "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        }
+      }
+    ]
+  },
+  "transport": {
+    "status": "not_ready",
+    "history": [
+      {
+        "status": "not_ready",
+        "translation_stage": "private_preparation"
+      }
+    ]
+  },
+  "permissions": {
+    "translation_judgment_allowed": true,
+    "fix_writes_allowed": false,
+    "encoding_writes_allowed": false,
+    "throughput_metrics_visible": false,
+    "metrics_frozen": true
+  },
+  "history": [
+    {
+      "stage": "private_preparation",
+      "status": "complete"
+    },
+    {
+      "stage": "private_quality_audit",
+      "status": "active"
+    }
+  ],
+  "replenishment_reason": null,
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30348500770,
+    "artifact_id": 8683907226,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38",
+    "head_sha": "a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-25",
+    "release_id": "yuwen-mowen-train-25-r1",
+    "pr": 154,
+    "merge_sha": "b1403a4213434ccdd215b5c2b9d530f40f19b8de"
+  },
+  "institutional_baseline": {
+    "pr": 152,
+    "merge_sha": "0df5ecb699b29a587f121baef8e68259606e1267",
+    "status": "merged",
+    "scope": "live consumer認証付き終端契約"
+  }
+}

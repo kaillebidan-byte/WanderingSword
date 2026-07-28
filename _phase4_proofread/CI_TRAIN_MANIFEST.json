@@ -1,1 +1,87 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-26","branch":"agent/yuwen-mowen-train-26","draft_pr":null,"status":"accumulating","transport":{"status":"not_ready","translation_stage":"private_preparation"},"base_checkpoint":{"batch":153,"pair_applied_keys":1351,"project_applied_keys":1727,"produced_by_pr":154,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-25-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_25.json","pr":154,"validated_head":"06232160051837e1e0320d1aedf7a66e763eeec0"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":0,"reviewed_rows":0,"reviewed_keys":0,"unique_reviewed_rows":0,"fix_keys":0,"unique_fix_rows":0,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":0,"keep_only_bundles":0},"bundles":[],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase1","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"private_preparation","status":"complete","transport_status":"not_ready","wave_id":"yuwen-mowen-train-26-wave-01"},"next_release":{"candidate_scene":["5274_1","5278_1","5291_1","5292_3","5293_6","5293_7"],"reservation_status":"preparation_sealed","reservation_schema":6,"formal_batches":[],"current_private_stage":"private_preparation"},"previous_release":{"train_id":"yuwen-mowen-train-25","release_id":"yuwen-mowen-train-25-r1","pr":154,"merge_sha":"b1403a4213434ccdd215b5c2b9d530f40f19b8de"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-26",
+  "branch": "agent/yuwen-mowen-train-26",
+  "draft_pr": 162,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": 162
+  },
+  "base_checkpoint": {
+    "batch": 153,
+    "pair_applied_keys": 1351,
+    "project_applied_keys": 1727,
+    "produced_by_pr": 154,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-25-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_25.json",
+      "pr": 154,
+      "validated_head": "06232160051837e1e0320d1aedf7a66e763eeec0"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase1",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "complete",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-26-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5274_1",
+      "5278_1",
+      "5291_1",
+      "5292_3",
+      "5293_6",
+      "5293_7"
+    ],
+    "reservation_status": "quality_audited",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-25",
+    "release_id": "yuwen-mowen-train-25-r1",
+    "pr": 154,
+    "merge_sha": "b1403a4213434ccdd215b5c2b9d530f40f19b8de"
+  }
+}

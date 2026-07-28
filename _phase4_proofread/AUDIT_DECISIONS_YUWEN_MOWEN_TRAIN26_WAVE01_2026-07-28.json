@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-26",
+  "wave_id": "yuwen-mowen-train-26-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30348500770,
+    "artifact_id": 8683907226,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38",
+    "head_sha": "a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train26-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json",
+      "scene_groups": [
+        "5274_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5274_1_Dlgs_Index4_Text",
+          "before": "5002 - 莫問 $@$待て。平康城の悪党と言ったな？　今日、丐幇幇主の左江龍殿がお見えになった。どうやらその件らしく、今は師父や清霄師伯と殿内で話し合っておられる……",
+          "after": "5002 - 莫問 $@$少し待ってくれ。平康城の悪党と言ったな？　今日、丐幇幇主の左江龍殿がお見えになった。どうやらその件らしく、今は師父や清霄師伯と殿内で話し合っておられる……",
+          "reason": "原文「等等」は制止ではなく会話をいったん止める呼びかけ。弟弟子への穏やかな兄弟子口調として「少し待ってくれ」とする。"
+        }
+      ],
+      "keeps": [
+        "5274_1_Dlgs_Index0_Text",
+        "5274_1_Dlgs_Index1_Text",
+        "5274_1_Dlgs_Index2_Text",
+        "5274_1_Dlgs_Index3_Text",
+        "5274_1_Dlgs_Index5_Text",
+        "5274_1_Dlgs_Index6_Text"
+      ],
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "宇文逸は平康城で危険に遭ったが、悪党の正体や事件の全貌はこの場面では確定していない",
+        "丐幇幇主の来訪目的は莫問の推測を含み、宇文逸の報告前に同一事件と断定しない"
+      ]
+    },
+    {
+      "packet_id": "yuwen-mowen-train26-packet-02",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json",
+      "scene_groups": [
+        "5278_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5278_1_Dlgs_Index8_Text",
+          "before": "5002 - 莫問 $@$師弟、そう慌てるな。それほどの豪商なら、平康城にも知っている者は少なくないはずだ。",
+          "after": "5002 - 莫問 $@$師弟、そう慌てるな。それほどの豪商なら、平康城には知っている者も少なくないはずだ。",
+          "reason": "原文「平康城内」は比較を示さない。現訳の「にも」は他地域との比較を補うため、「平康城には／者も」として城内の見込みに戻す。"
+        }
+      ],
+      "keeps": [
+        "5278_1_Dlgs_Index0_Text",
+        "5278_1_Dlgs_Index2_Text",
+        "5278_1_Dlgs_Index3_Text",
+        "5278_1_Dlgs_Index4_Text",
+        "5278_1_Dlgs_Index5_Text",
+        "5278_1_Dlgs_Index6_Text",
+        "5278_1_Dlgs_Index7_Text",
+        "5278_1_Dlgs_Index9_Text",
+        "5278_1_Dlgs_Index10_Text",
+        "5278_1_Dlgs_Index11_Text",
+        "5278_1_Dlgs_Index12_Text",
+        "5278_1_Dlgs_Index13_Text",
+        "5278_1_Dlgs_Index14_Text"
+      ],
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "李員外の屋敷の場所はこの場面では未確認",
+        "李員外の悪事について得られる手掛かりは可能性であり、聞き込み前に事実を補わない"
+      ]
+    },
+    {
+      "packet_id": "yuwen-mowen-train26-packet-03",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json",
+      "scene_groups": [
+        "5291_1",
+        "5292_3"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5292_3_Dlgs_Index1_Text",
+          "before": "5002 - 莫問 $@$（小声で）心配するな。わたしは近道を使って、すぐ助けに向かう。二人はここで李天宝を足止めしてくれ。",
+          "after": "5002 - 莫問 $@$（小声で）心配するな。わたしは近道を通って、すぐ助けに向かう。二人はここで李天宝を足止めしてくれ。",
+          "reason": "原文「抄近道」は近道を通ること。日本語の移動表現として「近道を通って」に直し、救出分担の意味は変えない。"
+        }
+      ],
+      "keeps": [
+        "5291_1_Dlgs_Index0_Text",
+        "5291_1_Dlgs_Index1_Text",
+        "5291_1_Dlgs_Index2_Text",
+        "5291_1_Dlgs_Index3_Text",
+        "5291_1_Dlgs_Index4_Text",
+        "5291_1_Dlgs_Index5_Text",
+        "5291_1_Dlgs_Index6_Text",
+        "5291_1_Dlgs_Index7_Text",
+        "5291_1_Dlgs_Index8_Text",
+        "5292_3_Dlgs_Index0_Text",
+        "5292_3_Dlgs_Index2_Text"
+      ],
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "十八人の側室が全員さらわれたという宇文逸の発言は推測",
+        "柴房の泣き声の主が捕らわれた娘かどうかは、この時点では未確認"
+      ]
+    },
+    {
+      "packet_id": "yuwen-mowen-train26-packet-04",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json",
+      "scene_groups": [
+        "5293_6",
+        "5293_7"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5293_6_Dlgs_Index3_Text",
+          "before": "5002 - 莫問 $@$師弟、ためらうな……",
+          "after": "5002 - 莫問 $@$師弟、何も気にする必要はない……",
+          "reason": "原文「无需顾虑什么」は行動を促す「ためらうな」ではなく、官憲の圧力を懸念しなくてよいという意味。"
+        }
+      ],
+      "keeps": [
+        "5293_6_Dlgs_Index0_Text",
+        "5293_6_Dlgs_Index1_Text",
+        "5293_6_Dlgs_Index2_Text",
+        "5293_6_Dlgs_Index4_Text",
+        "5293_7_Dlgs_Index0_Text",
+        "5293_7_Dlgs_Index1_Text"
+      ],
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "絶無心の脅しは官憲全体の確定した処分ではなく、本人が示す圧力",
+        "莫問の発言は公道を守る原則であり、官憲一般への無差別な敵対へ広げない"
+      ]
+    }
+  ]
+}
