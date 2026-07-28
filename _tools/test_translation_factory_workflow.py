@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PLAN = ROOT / ".github" / "workflows" / "translation-factory-plan.yml"
 EXECUTE = ROOT / ".github" / "workflows" / "translation-factory-execute.yml"
+FINALIZE = ROOT / ".github" / "workflows" / "translation-factory-finalize.yml"
 
 
 def main() -> None:
@@ -36,6 +37,15 @@ def main() -> None:
     assert 'git push origin "HEAD:${branch_name}"' in execute
     for forbidden in ("oneoff", "alternate trigger", "workflow_dispatch:"):
         assert forbidden not in execute
+
+    finalize = FINALIZE.read_text(encoding="utf-8")
+    assert "name: Translation factory finalization" in finalize
+    assert 'git rm "${{ steps.request.outputs.request }}"' in finalize
+    assert "git add _phase4_proofread" in finalize
+    assert "git add _phase4_proofread _factory_requests" not in finalize
+    assert "fixed_release_finalizer.py" in finalize
+    assert "check_release_evidence.py --verify-git-lineage" in finalize
+
     print("test_translation_factory_workflow: OK")
 
 

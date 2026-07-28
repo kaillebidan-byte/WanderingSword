@@ -104,7 +104,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _phase4_proofread _factory_requests
+          git add _phase4_proofread
           git diff --cached --check
           git commit -m "状態: release evidenceとphase2 checkpointを確定 [factory-finalize]"
           git push origin "HEAD:${GITHUB_HEAD_REF}"
