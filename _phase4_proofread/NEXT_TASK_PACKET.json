@@ -1,7 +1,7 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "post-train22-minimal-wave-reservation",
+  "task_id": "post-train23-minimal-wave-reservation",
   "based_on_checkpoint": {
     "batch": 140,
     "pair_applied_keys": 1328,
@@ -12,7 +12,7 @@
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "24341_2"
+    "11996_1"
   ],
   "reservation": {
     "status": "reserved_only",
@@ -31,26 +31,26 @@
     "artifact_id": 8675157859,
     "artifact_digest": "sha256:8ae397036142e949fd6b67dbc270c3aa42b9c2cfef5c095dc39f3863f6fe1bc4",
     "artifact_head": "89ab462fc6c9ec030353ea9d50c06fd4995c8e54",
-    "freshness_rule": "train-22統合後、次cycleのpreparation開始時に最新Relation artifactで24341_2と近接場面を再確認する。"
+    "freshness_rule": "train-23統合後、次cycleのpreparation開始時に最新Relation artifactで11996_1と近接場面を再確認する。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-22",
-    "release_id": "yuwen-mowen-train-22-r1",
-    "pr": 150,
-    "status": "verified",
+    "train_id": "yuwen-mowen-train-23",
+    "release_id": "yuwen-mowen-train-23-r1",
+    "pr": 151,
+    "status": "ready_for_public_ci",
     "merge_sha": null
   },
   "do_not_do": [
     "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
-    "train-22統合前に24341_2のprivate preparationを開始しない",
+    "train-23統合前に11996_1のprivate preparationを開始しない",
     "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
-    "train_id": "yuwen-mowen-train-22",
+    "train_id": "yuwen-mowen-train-23",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 141,
+    "planned_batch": 146,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
   }
