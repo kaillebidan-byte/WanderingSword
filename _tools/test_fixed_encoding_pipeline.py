@@ -41,7 +41,7 @@ def main() -> None:
     result = module.validate_decision(decision, candidate)
     assert result["fix_map"] == {"Demo_Index0_Text": "after"}
     assert result["keeps"] == ["Demo_Index1_Text"]
-    assert module.audit_identity(Path("AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN27_WAVE01_2026-07-29.json")) == (27, 1, "2026-07-29")
+    assert module.identity(Path("AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN27_WAVE01_2026-07-29.json")) == (27, 1, "2026-07-29")
     broken = dict(decision)
     broken["keeps"] = []
     try:
