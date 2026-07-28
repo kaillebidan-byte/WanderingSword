@@ -1,0 +1,77 @@
+name: One-off Yuwen-Mowen train-26 preparation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/oneoff-train26-preparation.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  prepare:
+    if: ${{ !contains(github.event.head_commit.message, '[train26-bootstrap-cleanup]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/yuwen-mowen-train-26
+          fetch-depth: 0
+      - name: Lock cycle execution mode
+        run: |
+          python _tools/select_cycle_execution_mode.py --visibility public --branch agent/yuwen-mowen-train-26 --cycle-id yuwen-mowen-train-26
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _phase4_proofread/CURRENT_WORK.json _phase4_proofread/PRIVATE_STAGE_STATE.json
+          git commit -m "状態: train-26を常時public modeで開始 [train26-mode-lock]"
+          git push
+      - name: Download latest relation evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/train26-evidence
+          mkdir -p /tmp/train26-evidence
+          gh run download 30348500770 --repo "${{ github.repository }}" --name relation-audit-evidence --dir /tmp/train26-evidence
+          test -f /tmp/train26-evidence/yuwen_mowen.json
+      - name: Build source-backed preparation packets
+        env:
+          PREP_SCRIPT_B64: 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
+        run: |
+          python - <<'PY'
+          import base64, gzip, os
+          from pathlib import Path
+          Path("/tmp/train26_prepare.py").write_bytes(gzip.decompress(base64.b64decode(os.environ["PREP_SCRIPT_B64"])))
+          PY
+          python /tmp/train26_prepare.py
+      - name: Write live owner snapshots
+        run: |
+          python _tools/check_candidate_ownership.py --write             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json
+      - name: Validate preparation state
+        run: |
+          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_private_translation_stage.py
+          python _tools/check_autonomous_cycle.py
+          python _tools/check_ci_train_manifest.py
+      - name: Commit sealed preparation and remove one-off workflow
+        run: |
+          git rm .github/workflows/oneoff-train26-preparation.yml
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "準備: train-26 wave-01を40行でseal [train26-prepared]"
+          git push
+      - name: Remove bootstrap workflow from main
+        run: |
+          git fetch origin main
+          rm -rf /tmp/train26-main-clean
+          git worktree add /tmp/train26-main-clean origin/main
+          cd /tmp/train26-main-clean
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/oneoff-train26-preparation.yml
+          git commit -m "制度: train-26一時workflowを削除 [train26-bootstrap-cleanup]"
+          git push origin HEAD:main
+
+# bootstrap via main
