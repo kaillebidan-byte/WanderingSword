@@ -1,0 +1,63 @@
+name: Finalize train22 private stage
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-22
+    paths:
+      - .github/workflows/finalize-train22-private.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run complete private preflight
+        id: preflight
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          python _tools/check_private_release_preflight.py --with-tests --repository-visibility public \
+            > _ws_tmp_train22_preflight.log 2>&1
+          rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          cat _ws_tmp_train22_preflight.log
+          exit 0
+      - name: Commit success cleanup or failure diagnostic
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [[ "${{ steps.preflight.outputs.rc }}" == "0" ]]; then
+            rm -f \
+              .github/workflows/start-train22-cycle.yml \
+              .github/workflows/prepare-train22-wave.yml \
+              .github/workflows/audit-train22-wave.yml \
+              .github/workflows/encode-train22-wave.yml \
+              .github/workflows/recover-encode-train22.yml \
+              .github/workflows/repair-train22-transport.yml \
+              .github/workflows/finalize-train22-private.yml \
+              _phase4_proofread/TRAIN22_ENCODING_BUILD_DIAGNOSTIC.txt \
+              _phase4_proofread/TRAIN22_OWNER_GENERATION_DIAGNOSTIC.txt \
+              _phase4_proofread/TRAIN22_PREFLIGHT_DIAGNOSTIC.txt
+            git add -A
+            git commit -m '翻訳: train-22完全preflightを通して輸送HEADを確定'
+          else
+            cp _ws_tmp_train22_preflight.log _phase4_proofread/TRAIN22_PREFLIGHT_DIAGNOSTIC.txt
+            git add _phase4_proofread/TRAIN22_PREFLIGHT_DIAGNOSTIC.txt
+            git commit -m '診断: train-22 private preflight失敗を記録'
+          fi
+          git push origin HEAD:${{ github.ref_name }}
