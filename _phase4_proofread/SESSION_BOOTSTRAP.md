@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、実行モードは`EXECUTION_MODES.json`、二フェイズ終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的な終端許可は`REGULATED_PHASE_STATE.json`、最終応答の送信前・consumer側ゲートは`FINAL_RESPONSE_GATE.md`を正本とする。
+現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、実行モードは`EXECUTION_MODES.json`、二フェイズ終端契約は`PHASE_COMPLETION_SIGNAL.json`、勝的な終端許可は`REGULATED_PHASE_STATE.json`、最終応答の送信前・consumer側ゲートは`FINAL_RESPONSE_GATE.md`を正本とする。
 
 ## 起動文
 
@@ -48,6 +48,25 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 
 選択後は`CURRENT_WORK.operation_mode`と`PRIVATE_STAGE_STATE.cycle_control`のmode、開始visibility、lockが一致しなければ作業を開始しない。
 
+## 翻訳工場controller
+
+visibilityと四状態正本を取得した後、進行判断は次の唯一の入口へ渡す。
+
+```bash
+python _tools/translation_factory_controller.py --repository-visibility <private|public>
+```
+
+controllerは一つのwork orderだけを返す。作業者は返されたaction以外へ進まず、別API、別workflow、別trigger、同一失敗引数の再試行を考案しない。
+
+人間判断として許されるstationは次の二つだけ。
+
+- `semantic_bundle_boundary`: 意味単位の束境界と40〜80行の閉じ方
+- `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故の監査
+
+branch、PR、workflow、artifact、owner、状態正本、encoding、locres、pak、CI、phase2、merge、reconcileは機械工程である。
+
+未知の失敗は`factory_unknown_state`等の固定エラーで安全停止する。web検索、一時workflow生成、trigger変更で迂回しない。安全停止は作業の勝手な終了ではなく、失敗stepと再開地点を保持した搬送停止である。
+
 ## 起動順
 
 1. `PROJECT_SCOPE_LOCK.json`で対象をWanderingSwordへ固定する。
@@ -57,14 +76,14 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 5. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
 6. `PHASE_COMPLETION_SIGNAL.json`、`REGULATED_PHASE_STATE.json`、`FINAL_RESPONSE_GATE.md`を照合する。
 7. 実際にはmerge済みだが状態正本が統合前なら、`reconcile_merged_cycle.py`で先に`merged`へ整合させる。
-8. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
-9. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
-10. WanderingSword内にactiveな制度改修branchがあれば、予約済み翻訳作業より優先する。
-11. 正常なら同じ応答内で実作業を開始し、modeの標準完了地点まで進める。
+8. `translation_factory_controller.py`で一つのwork orderを生成する。
+9. work orderが新cycle初期化を指定した場合だけ、開始visibilityからmodeを二状態正本へ固定する。
+10. work orderが指定したmachine stationまたは二つのhuman stationだけを実行する。
+11. 正常なら同じ応答内でmodeの標準完了地点まで進める。
 
-botの`action_required`は作業失敗ではない。release evidence、verified checkpoint、未解決review threadを確認して輸送を続ける。squash統合後は`Reconcile merged translation cycle` workflowが三状態正本を`merged`へ確定する。次チャットの推論へ補正を先送りしない。
+botの`action_required`は作業失敗ではない。release evidence、verified checkpoint、未解決review threadを確認して輸送を続ける。squash統合後は`Reconcile merged translation cycle` workflowが五状態正本を`merged`へ確定する。次チャットの推論へ補正を先送りしない。
 
-post-merge状態PRを通常工程として作らず、squash統合後はmerge後reconcilerで三状態正本を`merged`へ確定する。
+post-merge状態PRを通常工程として作らず、squash統合後はmerge後reconcilerで五状態正本を`merged`へ確定する。
 
 ## 実作業文書の整合
 
@@ -175,6 +194,9 @@ python _tools/check_phase_completion_signal.py --response-file <draft-response.t
 - scope lock確認前にGitHub検索・read・writeを行うこと
 - WanderingSword以外を`作業の続きを`の対象にすること
 - visibility確認前の翻訳作業開始
+- controllerを通さず次工程を推測すること
+- controllerが返していないAPI、workflow、triggerを考案すること
+- 同じ失敗引数を再試行すること
 - active cycle中のmode変更
 - internal stageを正常な会話終了地点にすること
 - quality audit中のfix、owner、正式束書込み

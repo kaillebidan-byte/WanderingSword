@@ -19,6 +19,8 @@ TEXT_PATHS = {
     "runbook": P4 / "RUNBOOK_人物ペア再監査.md",
     "public_window": P4 / "PUBLIC_CI_WINDOW.md",
     "readme": ROOT / "README.md",
+    "session": P4 / "SESSION_BOOTSTRAP.md",
+    "factory": P4 / "FACTORY_FLOW.md",
     "private_stages": P4 / "PRIVATE_TRANSLATION_STAGES.md",
 }
 
@@ -76,12 +78,20 @@ def validate_snapshot(
         "phase2": "mode-neutral release",
         "runbook": "post-merge状態専用PRは作らない",
         "public_window": "manual_visibility_cycle専用",
-        "readme": "check_operational_docs_consistency.py",
+        "readme": "translation_factory_controller.py",
+        "session": "translation_factory_controller.py",
+        "factory": "semantic_bundle_boundary",
         "private_stages": "encoding後に上書きしない",
     }
     for label, needle in required_text.items():
         if needle not in texts.get(label, ""):
             errors.append(f"{label} lacks current contract marker: {needle}")
+
+    for label in ("readme", "session", "factory"):
+        text = texts.get(label, "")
+        for station in ("semantic_bundle_boundary", "translation_quality_audit"):
+            if station not in text:
+                errors.append(f"{label} lacks human station marker: {station}")
 
     forbidden = {
         "phase2": ("encoding後にowner snapshotを再生成する", "repository metadataでprivate復帰確認"),
@@ -112,7 +122,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: state, handoff, reservation and mode-specific documents are current")
+    print("OK: state, handoff, reservation, factory flow and mode-specific documents are current")
     return 0
 
 

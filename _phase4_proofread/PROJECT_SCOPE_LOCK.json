@@ -4,6 +4,7 @@
   "canonical_repository": "kaillebidan-byte/WanderingSword",
   "canonical_url": "https://github.com/kaillebidan-byte/WanderingSword",
   "github_api_write_policy": "_phase4_proofread/GITHUB_API_WRITE_POLICY.json",
+  "factory_flow_contract": "_phase4_proofread/FACTORY_FLOW_CONTRACT.json",
   "applies_to": [
     "new_chat_resume",
     "continue_work",
