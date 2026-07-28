@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-22",
   "branch": "agent/yuwen-mowen-train-22",
-  "draft_pr": null,
+  "draft_pr": 150,
   "status": "ready_for_public_ci",
   "transport": {
     "status": "ready_for_public_ci",
     "translation_stage": "translation_frozen",
-    "pr": null,
+    "pr": 150,
     "merge_sha": null
   },
   "base_checkpoint": {

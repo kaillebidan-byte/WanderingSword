@@ -36,7 +36,7 @@
   "release_candidate": {
     "train_id": "yuwen-mowen-train-22",
     "release_id": "yuwen-mowen-train-22-r1",
-    "pr": null,
+    "pr": 150,
     "status": "ready_for_public_ci",
     "merge_sha": null
   },

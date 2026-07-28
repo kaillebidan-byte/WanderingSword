@@ -11,9 +11,9 @@
     "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json": "sha256:6b92db97a95cb369cec726a11eb2f3d6754029a53d262100d5f6c5f5d17039fd"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:b7caf22295d67c5b47dcddf124436e8a642dfb6796c45dccaf7831412b81c72b",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:bd3df5af68179496f8cb650e2de86e0a87fb9822eed5bb6d96ba89ce177597af",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:1fa8576cf9b4b27f45e53755adaec5587e52f72c4616ec71d4d8885dce1a52ab"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:73c81a504225d04a47f22d08b4c8daaaf191577438953191fb9eaaffb45afab9",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:cc7c8240ea7b563686a4ab441f9106d688ba2ca1a1e74d6e3561db6883ac302b",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:9442739fdc86d42e8e6cf5ec991cce60db80e7edcb2d5284047f6c820be139cf"
   },
   "counts": {
     "existing_owner_updates": 0,

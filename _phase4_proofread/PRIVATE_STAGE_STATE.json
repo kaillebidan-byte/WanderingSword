@@ -167,20 +167,12 @@
         "translation_stage": "private_preparation"
       },
       {
-        "status": "not_ready",
-        "translation_stage": "private_quality_audit"
-      },
-      {
-        "status": "not_ready",
-        "translation_stage": "private_encoding"
-      },
-      {
         "status": "ready_for_public_ci",
         "translation_stage": "translation_frozen",
-        "pr": null
+        "pr": 150
       }
     ],
-    "pr": null,
+    "pr": 150,
     "merge_sha": null
   },
   "permissions": {
