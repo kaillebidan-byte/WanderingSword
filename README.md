@@ -4,17 +4,24 @@
 
 ## 新しいチャットで再開する
 
-同じChatGPTプロジェクトではrepository URLを既知として扱う。利用者は通常、`現状把握して作業の続きを`だけ送ればよい。現状報告だけで終わらず、GitHub実体と正本を照合して有効modeの正常完了地点まで作業を続ける。
+同じChatGPTプロジェクトではrepository URLを既知として扱う。利用者は通常、`現状把握して作業の続きを`だけ送ればよい。現状報告だけで終わらず、GitHub実体と正本を照合し、工場controllerが指定した工程を続行する。
 
 ## 唯一の進行入口
 
-repository metadataでvisibilityを取得した後、作業者は次だけを実行してwork orderを得る。
+repository metadataでvisibilityを取得した後、次でwork orderを得る。
 
 ```bash
 python _tools/translation_factory_controller.py --repository-visibility <private|public>
 ```
 
-work orderが返した一つのaction以外へ進んではならない。別API探索、一時workflow作成、trigger変更、同じ失敗引数の再試行は禁止する。人間判断は`semantic_bundle_boundary`と`translation_quality_audit`の二stationだけであり、それ以外は機械搬送工程とする。
+work orderが返した一つのaction以外へ進んではならない。machine actionは`FACTORY_FLOW_CONTRACT.json`に登録された恒久adapterだけで実行し、adapterがなければ`factory_adapter_missing`で停止する。別API探索、一時workflow作成、trigger変更、同じ失敗引数の再試行は禁止する。
+
+新cycle初期化は、意味境界を記録した`_factory_requests/*.json`を決定論的な次train branchへ一件だけ置き、恒久workflow `.github/workflows/translation-factory-execute.yml`へ渡す。workflowは固定artifactを取得し、mode lock、candidate、owner snapshot、四状態正本を同じcommitへ生成する。作業者が状態正本を直接編集しない。
+
+人間判断は次の二stationだけ。
+
+- `semantic_bundle_boundary`: 意味単位の束境界と40〜80行の閉じ方
+- `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故の監査
 
 ## 再開時の順序
 
@@ -23,7 +30,8 @@ work orderが返した一つのaction以外へ進んではならない。別API�
 3. `CURRENT_WORK.json`、`PRIVATE_STAGE_STATE.json`、`CI_TRAIN_MANIFEST.json`
 4. `NEXT_TASK_PACKET.json`、`CURRENT_HANDOFF.md`
 5. `translation_factory_controller.py`が生成したwork order
-6. work orderが指定したstationに必要な一次資料、人物資料、skillだけを読む
+6. work orderが指定した恒久adapterまたは二つのhuman station
+7. stationに必要な一次資料、人物資料、skillだけを読む
 
 人間向け文書の固定値よりGitHub metadataと機械状態正本を優先する。manual mode用とalways-public用の文書は、active `execution_mode`に合う方だけを実行契約として使う。
 
@@ -37,11 +45,13 @@ work orderが返した一つのaction以外へ進んではならない。別API�
 - 実行mode: `_phase4_proofread/EXECUTION_MODES.json`
 - 段階権限: `_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json`
 - 工場フロー: `_phase4_proofread/FACTORY_FLOW_CONTRACT.json`
+- 工場request: `_phase4_proofread/FACTORY_REQUEST_CONTRACT.json`
 
 ## 整合検査
 
 ```bash
 python _tools/translation_factory_controller.py --repository-visibility <private|public> --validate-contract-only
+python _tools/check_factory_adapters.py
 python _tools/check_operational_docs_consistency.py
 python _tools/check_handoff_consistency_v2.py --require-verified
 python _tools/check_private_release_preflight.py --with-tests --repository-visibility <private|public>

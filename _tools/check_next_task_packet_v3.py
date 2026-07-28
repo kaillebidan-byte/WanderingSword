@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""NEXT_TASK_PACKET schema v6のminimal reservationと旧schemaを検査する。"""
+"""NEXT_TASK_PACKET schema v6のminimal reservationとfactory active reservationを検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -13,6 +13,37 @@ from check_next_task_packet_v2 import *  # noqa: F401,F403
 
 def _nonempty(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
+
+
+def _validate_reservation(reservation: dict[str, Any], work: dict[str, Any], errors: list[str]) -> None:
+    status = reservation.get("status")
+    if status == "reserved_only":
+        for key in ("wave_id", "packet_id", "formal_batch"):
+            if reservation.get(key) is not None:
+                errors.append(f"reservation.{key} must be null before preparation")
+        for key in ("preparation_started", "quality_audit_started", "encoding_started"):
+            if reservation.get(key) is not False:
+                errors.append(f"reservation.{key} must be false")
+        return
+
+    if status == "quality_audit_active":
+        for key in ("wave_id", "packet_id"):
+            if not _nonempty(reservation.get(key)):
+                errors.append(f"reservation.{key} is required during quality audit")
+        if reservation.get("formal_batch") is not None:
+            errors.append("reservation.formal_batch must stay null before encoding")
+        if reservation.get("preparation_started") is not True:
+            errors.append("reservation.preparation_started must be true during quality audit")
+        if reservation.get("quality_audit_started") is not True:
+            errors.append("reservation.quality_audit_started must be true during quality audit")
+        if reservation.get("encoding_started") is not False:
+            errors.append("reservation.encoding_started must be false during quality audit")
+        private_stage = work.get("ci_train", {}).get("private_stage", {})
+        if private_stage.get("stage") != "private_quality_audit":
+            errors.append("quality_audit_active reservation requires CURRENT_WORK private_quality_audit")
+        return
+
+    errors.append("reservation.status must be reserved_only or quality_audit_active")
 
 
 def validate_minimal_reservation(
@@ -62,14 +93,7 @@ def validate_minimal_reservation(
     if not isinstance(reservation, dict):
         errors.append("reservation must be an object")
     else:
-        if reservation.get("status") != "reserved_only":
-            errors.append("reservation.status must be reserved_only")
-        for key in ("wave_id", "packet_id", "formal_batch"):
-            if reservation.get(key) is not None:
-                errors.append(f"reservation.{key} must be null before preparation")
-        for key in ("preparation_started", "quality_audit_started", "encoding_started"):
-            if reservation.get(key) is not False:
-                errors.append(f"reservation.{key} must be false")
+        _validate_reservation(reservation, work, errors)
 
     source = packet.get("source")
     if not isinstance(source, dict):
@@ -150,16 +174,17 @@ def main() -> int:
     work = legacy.load(legacy.WORK_PATH)
     manifest = legacy.load(legacy.MANIFEST_PATH)
     errors = validate_minimal_reservation(work, manifest, packet, allow_pending=args.allow_pending)
-    print("=== Minimal next-wave reservation ===")
+    print("=== Minimal / active next-wave reservation ===")
     print(f"pair: {packet.get('current_pair')}")
     print(f"checkpoint batch: {packet.get('based_on_checkpoint', {}).get('batch')}")
     print(f"reserved scenes: {', '.join(map(str, packet.get('scene_groups', [])))}")
+    print(f"reservation status: {packet.get('reservation', {}).get('status')}")
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: minimal reservation is transport-safe; preparation detail remains private")
+    print("OK: reservation is transport-safe and stage-aligned")
     return 0
 
 
