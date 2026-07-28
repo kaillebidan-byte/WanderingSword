@@ -4,11 +4,11 @@
   "task_id": "post-train24-minimal-wave-reservation",
   "based_on_checkpoint": {
     "batch": 149,
-    "pair_applied_keys": 1344,
-    "project_applied_keys": 1720,
-    "produced_by_pr": null,
-    "release_id": "yuwen-mowen-train-24-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_24.json"
+    "pair_applied_keys": 1332,
+    "project_applied_keys": 1708,
+    "produced_by_pr": 151,
+    "release_id": "yuwen-mowen-train-23-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_23.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
@@ -36,8 +36,8 @@
   "release_candidate": {
     "train_id": "yuwen-mowen-train-24",
     "release_id": "yuwen-mowen-train-24-r1",
-    "pr": null,
-    "status": "pending",
+    "pr": 153,
+    "status": "ready_for_public_ci",
     "merge_sha": null
   },
   "do_not_do": [
