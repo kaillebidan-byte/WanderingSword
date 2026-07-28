@@ -26,6 +26,20 @@ machine actionは`FACTORY_FLOW_CONTRACT.json`の`adapter`または固定executor
 
 一時workflow、別trigger、手動状態編集は使わない。
 
+## 恒久encoding搬送
+
+quality audit完了後は、監査決定を手作業でowner・正式束へ転記しない。
+
+1. `AUDIT_DECISIONS_*.json`がcandidate全行をKEEP/FIXへ完全分割し、status=`complete`になる。
+2. 恒久workflow `translation-factory-encode.yml`が同一trainの監査記録を一件に解決する。
+3. `fixed_encoding_pipeline.py`がcandidateの現訳、FIX前後、KEEP集合、scene順序を再検証する。
+4. 40〜60行を標準semantic wave、意味単位完結時のみ61〜80行を`complete_semantic_unit` extensionとして正式束へ収録する。
+5. `apply_owner_assignment_v2.py`を固定生成器として呼び、既存owner更新、新規owner、owner digest、manifest集計を生成する。
+6. review、owner plan/result、正式束、四状態正本を同じbot commitへ収録し、`translation_frozen`・`ready_for_public_ci`へ遷移する。
+7. 以後は`release-ci` labelから既存`Release train orchestrator`だけを起動する。
+
+encoding中に翻訳判断を再開したり、Contents APIで状態正本を一つずつ変更したり、一時apply workflowを作ったりしてはならない。
+
 ## 人間判断station
 
 ### semantic_bundle_boundary

@@ -1,0 +1,127 @@
+name: Translation factory encoding
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/AUDIT_DECISIONS_*.json"
+      - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: translation-factory-encoding-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  encode:
+    if: ${{ github.actor != 'github-actions[bot]' && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout audited train HEAD
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve current audit and deterministic outputs
+        id: inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          p4 = Path('_phase4_proofread')
+          current = json.loads((p4 / 'CURRENT_WORK.json').read_text(encoding='utf-8'))
+          train_id = current.get('ci_train', {}).get('train_id')
+          if not isinstance(train_id, str):
+              raise SystemExit('CURRENT_WORK train_id is missing')
+          audits = []
+          for path in sorted(p4.glob('AUDIT_DECISIONS_*.json')):
+              value = json.loads(path.read_text(encoding='utf-8'))
+              if value.get('train_id') == train_id and value.get('status') == 'complete':
+                  audits.append(path)
+          if len(audits) != 1:
+              raise SystemExit(f'expected one complete audit for {train_id}, found {len(audits)}')
+          audit = audits[0]
+          match = re.search(r'_TRAIN(\d+)_WAVE(\d+)_(\d{4})-(\d{2})-(\d{2})\.json$', audit.name)
+          if not match:
+              raise SystemExit(f'invalid audit filename: {audit.name}')
+          train_no, wave_no, year, month, day = match.groups()
+          challenge = p4 / f'QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN{train_no}_WAVE{int(wave_no):02d}_{year}-{month}-{day}.md'
+          if not challenge.is_file():
+              raise SystemExit(f'missing low-yield challenge record: {challenge}')
+          max_batch = 0
+          for path in p4.glob('fixes_relation_yuwen_mowen_*_batch*.json'):
+              m = re.search(r'_batch(\d+)\.json$', path.name)
+              if m:
+                  max_batch = max(max_batch, int(m.group(1)))
+          owner = p4 / f'fixes_relation_yuwen_mowen_{year}{month}{day}_batch{max_batch + 1}.json'
+          print(f'audit={audit.as_posix()}')
+          print(f'challenge={challenge.as_posix()}')
+          print(f'owner={owner.as_posix()}')
+          PY
+
+      - name: Encode recorded audit decisions
+        run: |
+          python _tools/fixed_encoding_pipeline.py \
+            --audit "${{ steps.inputs.outputs.audit }}" \
+            --pr-number "${{ github.event.pull_request.number }}" \
+            --new-owner-file "${{ steps.inputs.outputs.owner }}" \
+            --challenge-record "${{ steps.inputs.outputs.challenge }}" \
+            --write \
+            --output /tmp/factory-encoding-result.json
+
+      - name: Validate frozen release state
+        run: |
+          python _tools/check_state_json_integrity.py
+          python _tools/check_project_scope_lock.py --repository "${GITHUB_REPOSITORY}"
+          python _tools/check_operation_mode.py --repository-visibility public
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py --require-ready
+          python _tools/check_batch_planning.py
+          python _tools/check_translation_quality_gate.py
+          python _tools/check_owner_assignment_result.py
+          python _tools/translation_factory_controller.py --repository-visibility public --output /tmp/next-work-order.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          order = json.loads(Path('/tmp/next-work-order.json').read_text(encoding='utf-8'))
+          if order.get('action') not in {'run_release_preflight', 'run_release_train'}:
+              raise SystemExit(f"unexpected post-encoding action: {order.get('action')!r}")
+          PY
+          git diff --check
+
+      - name: Run encoding regressions
+        run: |
+          python _tools/test_fixed_encoding_pipeline.py
+          python _tools/test_check_batch_planning.py
+          python _tools/test_translation_factory_controller.py
+
+      - name: Commit frozen release state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "翻訳: 記録済み監査を正式束へ収録 [factory-encoding]"
+          git push origin "HEAD:${GITHUB_HEAD_REF}"
