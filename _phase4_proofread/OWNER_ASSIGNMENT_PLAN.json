@@ -2,43 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch64.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5296_7_5302_4_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch72.json",
       "values": {
-        "5274_1_Dlgs_Index4_Text": "5002 - 莫問 $@$少し待ってくれ。平康城の悪党と言ったな？　今日、丐幇幇主の左江龍殿がお見えになった。どうやらその件らしく、今は師父や清霄師伯と殿内で話し合っておられる……"
+        "5297_2_Dlgs_Index15_Text": "5002 - 莫問 $@$うむ。まだ、そこまで悪い状況ではないかもしれない……",
+        "5300_1_Dlgs_Index4_Text": "5002 - 莫問 $@$よし。今日は一日、皆も疲れただろう。早めに戻って休もう。",
+        "5302_4_Dlgs_Index2_Text": "5002 - 莫問 $@$わたしは幼い頃、武当山の麓に捨てられた。肉親には一度も会ったことがない。"
       },
       "fix_keys": [
-        "5274_1_Dlgs_Index4_Text"
-      ]
-    },
-    {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch65.json",
-      "values": {
-        "5278_1_Dlgs_Index8_Text": "5002 - 莫問 $@$師弟、そう慌てるな。それほどの豪商なら、平康城には知っている者も少なくないはずだ。"
-      },
-      "fix_keys": [
-        "5278_1_Dlgs_Index8_Text"
-      ]
-    },
-    {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch66.json",
-      "values": {
-        "5292_3_Dlgs_Index1_Text": "5002 - 莫問 $@$（小声で）心配するな。わたしは近道を通って、すぐ助けに向かう。二人はここで李天宝を足止めしてくれ。"
-      },
-      "fix_keys": [
-        "5292_3_Dlgs_Index1_Text"
-      ]
-    },
-    {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch67.json",
-      "values": {
-        "5293_6_Dlgs_Index3_Text": "5002 - 莫問 $@$師弟、何も気にする必要はない……"
-      },
-      "fix_keys": [
-        "5293_6_Dlgs_Index3_Text"
+        "5297_2_Dlgs_Index15_Text",
+        "5300_1_Dlgs_Index4_Text",
+        "5302_4_Dlgs_Index2_Text"
       ]
     }
   ]
