@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""実作業の状態正本、人間向け文書、mode別手順の陳腐化を検査する。"""
+"""実作業の状態正本、人間向け文書、mode別手順、制度再開キューの陳腐化を検査する。"""
 from __future__ import annotations
 
 import json
@@ -22,6 +22,7 @@ TEXT_PATHS = {
     "session": P4 / "SESSION_BOOTSTRAP.md",
     "factory": P4 / "FACTORY_FLOW.md",
     "private_stages": P4 / "PRIVATE_TRANSLATION_STAGES.md",
+    "always_public": P4 / "ALWAYS_PUBLIC_FULL_PIPELINE.md",
 }
 
 
@@ -32,11 +33,56 @@ def load(path: Path) -> dict[str, Any]:
     return value
 
 
+def pending_task(queue: dict[str, Any]) -> dict[str, Any] | None:
+    for task in queue.get("tasks", []):
+        if isinstance(task, dict) and task.get("status") == "pending":
+            return task
+    return None
+
+
+def validate_institution_queue(queue: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    if queue.get("schema_version") != 1 or queue.get("contract_id") != "resume-work-queue-v1":
+        errors.append("institution work queue identity mismatch")
+    if queue.get("standard_trigger") != "現状把握して作業の続きを":
+        errors.append("institution work queue trigger mismatch")
+    if queue.get("required_visibility") != "public":
+        errors.append("institution work queue visibility must be public")
+    if queue.get("mode_scope") != ["always_public_full_pipeline"]:
+        errors.append("institution work queue mode scope mismatch")
+    if queue.get("translation_policy") != "blocked_while_institution_tasks_pending":
+        errors.append("institution work queue translation policy mismatch")
+    order = queue.get("task_order")
+    tasks = queue.get("tasks")
+    if not isinstance(order, list) or not isinstance(tasks, list):
+        return errors + ["institution work queue task order/tasks invalid"]
+    ids = [task.get("task_id") for task in tasks if isinstance(task, dict)]
+    if ids != order or len(ids) != len(tasks):
+        errors.append("institution work queue task order mismatch")
+    pending_seen = False
+    for task in tasks:
+        if not isinstance(task, dict):
+            continue
+        status = task.get("status")
+        if status == "pending":
+            pending_seen = True
+        elif status == "completed":
+            if pending_seen:
+                errors.append("institution work queue completed task appears after pending")
+            completion = task.get("completion")
+            if not isinstance(completion, dict) or not isinstance(completion.get("pr"), int) or not completion.get("merge_sha"):
+                errors.append(f"institution completed task lacks merge evidence: {task.get('task_id')}")
+        else:
+            errors.append(f"institution task status invalid: {task.get('task_id')}")
+    return errors
+
+
 def validate_snapshot(
     current: dict[str, Any],
     state: dict[str, Any],
     manifest: dict[str, Any],
     packet: dict[str, Any],
+    queue: dict[str, Any],
     texts: dict[str, str],
 ) -> list[str]:
     errors: list[str] = []
@@ -65,6 +111,7 @@ def validate_snapshot(
             if isinstance(item, str) and "統合前" in item:
                 errors.append("NEXT_TASK_PACKET retains a pre-merge prohibition after merge")
 
+    errors.extend(validate_institution_queue(queue))
     mode = current.get("operation_mode", {}).get("execution_mode")
     if mode == "always_public_full_pipeline":
         cold = texts.get("cold", "")
@@ -72,20 +119,34 @@ def validate_snapshot(
             errors.append("cold-start contract does not allow locked always-public translation stages")
         if "private_translation_work + publicなら、翻訳を開始せずprivate復帰を依頼する" in cold:
             errors.append("cold-start contract retains legacy public=>private rule")
+        active = pending_task(queue)
+        if active is not None:
+            handoff = texts.get("handoff", "")
+            if active.get("task_id") not in handoff:
+                errors.append("CURRENT_HANDOFF lacks current institution task")
+            if "翻訳cycleを開始しない" not in handoff:
+                errors.append("CURRENT_HANDOFF lacks institution-before-translation prohibition")
 
     required_text = {
         "phase1": "manual public CI窓",
         "phase2": "mode-neutral release",
         "runbook": "post-merge状態専用PRは作らない",
         "public_window": "manual_visibility_cycle専用",
-        "readme": "translation_factory_controller.py",
-        "session": "translation_factory_controller.py",
+        "readme": "resume_work_controller.py",
+        "session": "resume_work_controller.py",
         "factory": "semantic_bundle_boundary",
         "private_stages": "encoding後に上書きしない",
+        "always_public": "INSTITUTION_WORK_QUEUE.json",
     }
     for label, needle in required_text.items():
         if needle not in texts.get(label, ""):
             errors.append(f"{label} lacks current contract marker: {needle}")
+
+    for label in ("readme", "session"):
+        text = texts.get(label, "")
+        for needle in ("INSTITUTION_WORK_QUEUE.json", "translation_factory_controller.py"):
+            if needle not in text:
+                errors.append(f"{label} lacks resume delegation marker: {needle}")
 
     for label in ("readme", "session", "factory"):
         text = texts.get(label, "")
@@ -111,18 +172,19 @@ def main() -> int:
         state = load(P4 / "PRIVATE_STAGE_STATE.json")
         manifest = load(P4 / "CI_TRAIN_MANIFEST.json")
         packet = load(P4 / "NEXT_TASK_PACKET.json")
+        queue = load(P4 / "INSTITUTION_WORK_QUEUE.json")
         texts = {name: path.read_text(encoding="utf-8") for name, path in TEXT_PATHS.items()}
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    errors = validate_snapshot(current, state, manifest, packet, texts)
+    errors = validate_snapshot(current, state, manifest, packet, queue, texts)
     print("=== Operational contract consistency ===")
     for error in errors:
         print(f"ERROR: {error}")
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: state, handoff, reservation, factory flow and mode-specific documents are current")
+    print("OK: state, handoff, institution queue, reservation, factory flow and mode-specific documents are current")
     return 0
 
 

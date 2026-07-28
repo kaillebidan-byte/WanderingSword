@@ -12,6 +12,7 @@ on:
       - "README.md"
       - "AGENTS.md"
       - "_phase4_proofread/PROJECT_SCOPE_LOCK.json"
+      - "_phase4_proofread/INSTITUTION_WORK_QUEUE.json"
       - "_phase4_proofread/GITHUB_API_WRITE_POLICY.json"
       - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
       - "_phase4_proofread/FACTORY_FLOW.md"
@@ -37,6 +38,7 @@ on:
       - "_phase4_proofread/PLAN_章別通読監査.md"
       - "_tools/check_state_json_integrity.py"
       - "_tools/fixed_encoding_pipeline.py"
+      - "_tools/resume_work_controller.py"
       - "_tools/check_operational_docs_consistency.py"
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_private_translation_stage.py"
@@ -51,6 +53,7 @@ on:
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/select_cycle_execution_mode.py"
       - "_tools/translation_factory_controller.py"
+      - "_tools/test_resume_work_controller.py"
       - "_tools/test_translation_factory_controller.py"
       - "_tools/test_translation_factory_workflow.py"
       - "_tools/test_check_operational_docs_consistency.py"
@@ -107,8 +110,11 @@ jobs:
           python _tools/check_visibility_preflight_contract.py
           python _tools/test_check_visibility_preflight_contract.py
 
-      - name: Run factory flow regressions
+      - name: Run resume and factory flow regressions
         run: |
+          python _tools/resume_work_controller.py --repository-visibility public --validate-contract-only
+          python _tools/resume_work_controller.py --repository-visibility public
+          python _tools/test_resume_work_controller.py
           python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
           python _tools/translation_factory_controller.py --repository-visibility public
           python _tools/test_translation_factory_controller.py

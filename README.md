@@ -4,21 +4,25 @@
 
 ## 新しいチャットで再開する
 
-同じChatGPTプロジェクトではrepository URLを既知として扱う。利用者は通常、`現状把握して作業の続きを`だけ送ればよい。現状報告だけで終わらず、GitHub実体と正本を照合し、工場controllerが指定した工程を続行する。
+同じChatGPTプロジェクトではrepository URLを既知として扱う。利用者は通常、`現状把握して作業の続きを`だけ送ればよい。現状報告だけで終わらず、GitHub実体と正本を照合し、再開controllerが指定した工程を続行する。
 
-## 唯一の進行入口
+## 唯一の再開入口
 
 repository metadataでvisibilityを取得した後、次でwork orderを得る。
 
 ```bash
-python _tools/translation_factory_controller.py --repository-visibility <private|public>
+python _tools/resume_work_controller.py --repository-visibility <private|public>
 ```
 
-work orderが返した一つのaction以外へ進んではならない。machine actionは`FACTORY_FLOW_CONTRACT.json`に登録された恒久adapterだけで実行し、adapterがなければ`factory_adapter_missing`で停止する。別API探索、一時workflow作成、trigger変更、同じ失敗引数の再試行は禁止する。
+`resume_work_controller.py`は`INSTITUTION_WORK_QUEUE.json`を先に読む。`always_public_full_pipeline`で未完の制度タスクがあれば`institution_repair`を返し、そのタスクがsquash mergeされmain上で再検証されるまで翻訳cycleを開始しない。キューが空の場合だけ`translation_factory_controller.py`へ委譲する。
+
+制度タスクは実装PR自身で現在タスクを`completed`へ更新し、PR番号とmerge SHAを記録する。mainへ統合される前は同じタスクが再開され、統合後はtask order上の次の`pending`へ進む。別の起動文や貼付け引継ぎは不要とする。
+
+翻訳work orderが返した一つのaction以外へ進んではならない。machine actionは`FACTORY_FLOW_CONTRACT.json`に登録された恒久adapterだけで実行し、adapterがなければ`factory_adapter_missing`で停止する。別API探索、一時workflow作成、trigger変更、同じ失敗引数の再試行は禁止する。
 
 新cycle初期化は、意味境界を記録した`_factory_requests/*.json`を決定論的な次train branchへ一件だけ置き、恒久workflow `.github/workflows/translation-factory-execute.yml`へ渡す。workflowは固定artifactを取得し、mode lock、candidate、owner snapshot、四状態正本を同じcommitへ生成する。作業者が状態正本を直接編集しない。
 
-人間判断は次の二stationだけ。
+翻訳における人間判断は次の二stationだけ。
 
 - `semantic_bundle_boundary`: 意味単位の束境界と40〜80行の閉じ方
 - `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故の監査
@@ -27,16 +31,18 @@ work orderが返した一つのaction以外へ進んではならない。machine
 
 1. `PROJECT_SCOPE_LOCK.json`
 2. GitHub repository metadata、main、open PR、Actions
-3. `CURRENT_WORK.json`、`PRIVATE_STAGE_STATE.json`、`CI_TRAIN_MANIFEST.json`
-4. `NEXT_TASK_PACKET.json`、`CURRENT_HANDOFF.md`
-5. `translation_factory_controller.py`が生成したwork order
-6. work orderが指定した恒久adapterまたは二つのhuman station
-7. stationに必要な一次資料、人物資料、skillだけを読む
+3. `INSTITUTION_WORK_QUEUE.json`
+4. `CURRENT_WORK.json`、`PRIVATE_STAGE_STATE.json`、`CI_TRAIN_MANIFEST.json`
+5. `NEXT_TASK_PACKET.json`、`CURRENT_HANDOFF.md`
+6. `resume_work_controller.py`が生成したwork order
+7. `institution_repair`、または委譲された恒久adapter・二つのhuman station
+8. 指定作業に必要な対象workflow、checker、tests、一次資料だけを読む
 
-人間向け文書の固定値よりGitHub metadataと機械状態正本を優先する。manual mode用とalways-public用の文書は、active `execution_mode`に合う方だけを実行契約として使う。
+人間向け文書の固定値よりGitHub metadataと機械状態正本を優先する。制度キューがpendingなら翻訳状態正本の`immediate_next`より制度work orderを優先する。manual mode用とalways-public用の文書は、active `execution_mode`に合う方だけを実行契約として使う。
 
 ## 主要正本
 
+- 再開経路・制度優先順位: `_phase4_proofread/INSTITUTION_WORK_QUEUE.json`
 - 現在地・checkpoint・mode: `_phase4_proofread/CURRENT_WORK.json`
 - wave・cycle: `_phase4_proofread/PRIVATE_STAGE_STATE.json`
 - 正式束・transport: `_phase4_proofread/CI_TRAIN_MANIFEST.json`
@@ -50,6 +56,7 @@ work orderが返した一つのaction以外へ進んではならない。machine
 ## 整合検査
 
 ```bash
+python _tools/resume_work_controller.py --repository-visibility <private|public> --validate-contract-only
 python _tools/translation_factory_controller.py --repository-visibility <private|public> --validate-contract-only
 python _tools/check_factory_adapters.py
 python _tools/check_operational_docs_consistency.py
@@ -57,7 +64,7 @@ python _tools/check_handoff_consistency_v2.py --require-verified
 python _tools/check_private_release_preflight.py --with-tests --repository-visibility <private|public>
 ```
 
-merge後reconcilerは三状態正本だけでなく、NEXT_TASK_PACKETとCURRENT_HANDOFFも同じmerge SHAへ同期する。post-merge状態専用PRは作らない。
+merge後reconcilerは三状態正本だけでなく、NEXT_TASK_PACKETとCURRENT_HANDOFFも同じmerge SHAへ同期する。post-merge状態専用PRは作らない。制度キューは制度PRだけが更新し、翻訳reconcilerは変更しない。
 
 ## 資料優先順位
 

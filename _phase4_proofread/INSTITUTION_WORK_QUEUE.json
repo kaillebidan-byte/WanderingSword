@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "contract_id": "resume-work-queue-v1",
+  "standard_trigger": "現状把握して作業の続きを",
+  "required_visibility": "public",
+  "mode_scope": [
+    "always_public_full_pipeline"
+  ],
+  "translation_policy": "blocked_while_institution_tasks_pending",
+  "selection_policy": "first_pending_in_task_order",
+  "task_order": [
+    "quality_decision_control_invariants",
+    "workflow_duplicate_run_serialization",
+    "stale_release_label_guard"
+  ],
+  "tasks": [
+    {
+      "task_id": "quality_decision_control_invariants",
+      "title": "quality判断取込で制御領域を早期拒否",
+      "status": "completed",
+      "priority": 1,
+      "branch": "agent/encoding-control-invariants",
+      "summary": "quality auditのFIX後文が話者ID領域と制御トークン列を保持することをencoding前に検査する。",
+      "completion": {
+        "pr": 176,
+        "merge_sha": "c35813ab9fafd1473d61c082286a7d7b84d1e220"
+      }
+    },
+    {
+      "task_id": "workflow_duplicate_run_serialization",
+      "title": "重複workflow起動とnon-fast-forwardを無害化",
+      "status": "pending",
+      "priority": 2,
+      "branch": "agent/workflow-duplicate-run-serialization",
+      "summary": "同一PR・station・requestの重複runを既存concurrencyで直列化または取消し、push競合を同一生成物なら成功NOOP、異なる生成物なら明示停止にする。",
+      "audit_scope": [
+        ".github/workflows/translation-factory-plan.yml",
+        ".github/workflows/translation-factory-execute.yml",
+        "_tools/factory_request_executor.py",
+        "_tools/fixed_cycle_initializer.py",
+        "_tools/test_translation_factory_workflow.py",
+        "既存のconcurrency・HEAD再取得・NOOP実装"
+      ],
+      "completion_conditions": [
+        "重複runとnon-fast-forwardの原因をコード上で特定する",
+        "既存GitHub Actions concurrencyを優先して同一PR・station・requestを直列化または旧run取消しする",
+        "push前にbranch HEADを再取得し、同一生成物が反映済みなら成功NOOPにする",
+        "異なる生成物の競合だけを明示的に停止する",
+        "正常系、同一生成物重複、異なる生成物競合の回帰を追加する",
+        "Institution contract testsまたはFactory adapter contract testsへ接続する"
+      ],
+      "forbidden": [
+        "独自ロック機構の新造",
+        "翻訳本文、owner値、locres、pak、次候補preparationの変更",
+        "一時workflowまたは別triggerの作成"
+      ]
+    },
+    {
+      "task_id": "stale_release_label_guard",
+      "title": "staleなreleaseラベルrunを安全にNOOP化",
+      "status": "pending",
+      "priority": 3,
+      "branch": "agent/stale-release-label-guard",
+      "summary": "station後退やbranch更新時に残ったrelease-ciラベルが古いHEAD・stateでorchestratorを起動しないようにする。",
+      "audit_scope": [
+        ".github/workflows/release-train-orchestrator.yml",
+        "release-ciラベルを扱うworkflowとstage transition",
+        "release preflightとHEAD freshness checker",
+        "既存concurrencyとlabel解除処理"
+      ],
+      "completion_conditions": [
+        "stale runの発火条件をコード上で特定する",
+        "station遷移時の実行ラベル解除またはbranch更新だけでは再発火しない構造を実装する",
+        "開始時にchecked-out HEAD、現在PR HEAD、translation_frozen、ready_for_public_ci、release input lineageを照合する",
+        "古いrunは失敗ではなく明示的skipまたはNOOPにする",
+        "最新HEAD正常系とstale HEAD・stale state異常系の回帰を追加する",
+        "concurrencyで旧run取消しが可能なら既存方式を流用する"
+      ],
+      "forbidden": [
+        "翻訳本文、owner値、locres、pak、次候補preparationの変更",
+        "release preflight防御層の削除",
+        "一時workflowまたは別triggerの作成"
+      ]
+    }
+  ],
+  "completion_contract": {
+    "task_is_completed_only_in_implementing_pr": true,
+    "requires_root_cause": true,
+    "requires_permanent_fix": true,
+    "requires_normal_and_failure_regressions": true,
+    "requires_institution_ci": true,
+    "requires_live_checker_success": true,
+    "requires_zero_unresolved_review_threads": true,
+    "requires_squash_merge": true,
+    "requires_main_revalidation": true,
+    "requires_open_pr_triage": true
+  }
+}

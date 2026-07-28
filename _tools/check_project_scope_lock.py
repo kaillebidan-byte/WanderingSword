@@ -16,6 +16,8 @@ CONTRACT_PATH = P4 / "PROJECT_SCOPE_LOCK.json"
 CURRENT_PATH = P4 / "CURRENT_WORK.json"
 CANONICAL_REPOSITORY = "kaillebidan-byte/WanderingSword"
 CANONICAL_URL = "https://github.com/kaillebidan-byte/WanderingSword"
+RESUME_CONTROLLER = "_tools/resume_work_controller.py"
+INSTITUTION_QUEUE = "_phase4_proofread/INSTITUTION_WORK_QUEUE.json"
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -35,6 +37,10 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
         errors.append("PROJECT_SCOPE_LOCK.canonical_repository mismatch")
     if contract.get("canonical_url") != CANONICAL_URL:
         errors.append("PROJECT_SCOPE_LOCK.canonical_url mismatch")
+    if contract.get("resume_controller") != RESUME_CONTROLLER:
+        errors.append("PROJECT_SCOPE_LOCK.resume_controller mismatch")
+    if contract.get("institution_work_queue") != INSTITUTION_QUEUE:
+        errors.append("PROJECT_SCOPE_LOCK.institution_work_queue mismatch")
     for key in ("allowed_repository_reads", "allowed_repository_writes"):
         if contract.get(key) != [CANONICAL_REPOSITORY]:
             errors.append(f"PROJECT_SCOPE_LOCK.{key} must contain only the canonical repository")

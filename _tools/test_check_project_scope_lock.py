@@ -13,6 +13,8 @@ def contract() -> dict:
         "contract_id": "wandering-sword-project-scope-lock-v1",
         "canonical_repository": checker.CANONICAL_REPOSITORY,
         "canonical_url": checker.CANONICAL_URL,
+        "resume_controller": checker.RESUME_CONTROLLER,
+        "institution_work_queue": checker.INSTITUTION_QUEUE,
         "allowed_repository_reads": [checker.CANONICAL_REPOSITORY],
         "allowed_repository_writes": [checker.CANONICAL_REPOSITORY],
         "cross_repository_discovery_forbidden": True,
@@ -52,6 +54,14 @@ def main() -> None:
     bad = copy.deepcopy(contract())
     bad["allowed_repository_writes"].append("kaillebidan-byte/chatgpt-userscripts")
     assert any("allowed_repository_writes" in error for error in checker.validate_contract(bad))
+
+    bad = copy.deepcopy(contract())
+    bad["resume_controller"] = "_tools/translation_factory_controller.py"
+    assert any("resume_controller" in error for error in checker.validate_contract(bad))
+
+    bad = copy.deepcopy(contract())
+    bad["institution_work_queue"] = "_phase4_proofread/NEXT_TASK_PACKET.json"
+    assert any("institution_work_queue" in error for error in checker.validate_contract(bad))
 
     bad_current = current()
     bad_current["repository"] = "kaillebidan-byte/chatgpt-userscripts"

@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、実行modeは`EXECUTION_MODES.json`、終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的認可は`REGULATED_PHASE_STATE.json`を正本とする。
+再開経路と制度作業優先順位は`INSTITUTION_WORK_QUEUE.json`、現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、実行modeは`EXECUTION_MODES.json`、終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的認可は`REGULATED_PHASE_STATE.json`を正本とする。
 
 ## 起動文
 
@@ -8,7 +8,7 @@
 現状把握して作業の続きを
 ```
 
-`作業の続きを`など同じ意図の表現も再開指示として扱う。URLや前回作業を聞き直さず、規定URL、機械状態正本、GitHub metadataから復元する。状況報告だけで終了せず、工場controllerが指定する正常完了地点まで同じ応答内で実作業を進める。
+`作業の続きを`など同じ意図の表現も再開指示として扱う。URLや前回作業を聞き直さず、規定URL、制度キュー、機械状態正本、GitHub metadataから復元する。状況報告だけで終了せず、再開controllerが指定する正常完了地点まで同じ応答内で実作業を進める。
 
 ## 冷間再開の事実確認
 
@@ -16,7 +16,7 @@
 2. main、未統合PR、GitHub Actionsを取得する。
 3. 未統合PRはactive / superseded / abandoned / unrelatedへ分類する。開いているだけで現行作業と決めない。
 4. botの`action_required`は検査失敗と決めつけず、該当job、release evidence、verified checkpoint、review threadを確認する。
-5. squash merge後はmerge後reconcilerを実行し、post-merge状態PRは作らない。
+5. squash merge後は、制度PRなら制度キューのcompletionとmain実装を再確認する。翻訳PRならmerge後reconcilerを実行し、post-merge状態PRは作らない。
 
 ## repository lock
 
@@ -26,22 +26,26 @@
 python _tools/check_project_scope_lock.py --repository kaillebidan-byte/WanderingSword
 ```
 
-## 唯一の進行入口
+## 唯一の再開入口
 
-repository metadataと四状態正本を取得した後、次でwork orderを得る。
+repository metadata、制度キュー、四状態正本を取得した後、次でwork orderを得る。
 
 ```bash
-python _tools/translation_factory_controller.py --repository-visibility <private|public>
+python _tools/resume_work_controller.py --repository-visibility <private|public>
 ```
 
-controllerは一つのactionだけを返す。作業者はそのaction以外へ進まず、別API、別workflow、別trigger、同一失敗引数の再試行を考案しない。
+`always_public_full_pipeline`で`INSTITUTION_WORK_QUEUE.json`にpending taskがある場合、controllerは`institution_repair`を返す。翻訳cycle、次候補preparation、owner、locres、pakには進まない。現在タスクを実装・回帰・CI・squash merge・main再検証まで終え、同じ制度PRでtaskを`completed`へ更新する。
 
-人間判断stationは次の二つだけ。
+pending taskがない場合だけ、controllerは`translation_factory_controller.py`へ委譲する。委譲後は一つのaction以外へ進まず、別API、別workflow、別trigger、同一失敗引数の再試行を考案しない。
+
+制度キューのtask orderは引継ぎ文より優先する。新規チャットで別の制度用起動文、長文貼付け、手作業の次タスク選択を要求しない。
+
+翻訳における人間判断stationは次の二つだけ。
 
 - `semantic_bundle_boundary`: 意味単位の束境界と40〜80行の閉じ方
 - `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故の監査
 
-branch、PR、workflow、artifact、owner、状態正本、encoding、locres、pak、CI、phase2、merge、reconcileは機械工程である。
+branch、PR、workflow、artifact、owner、状態正本、encoding、locres、pak、CI、phase2、merge、reconcileは機械工程である。制度改修はqueue taskのaudit scopeとcompletion contractに従う。
 
 ## 恒久factory adapter
 
@@ -74,11 +78,12 @@ branch、PR、workflow、artifact、owner、状態正本、encoding、locres、p
 ## 整合検査
 
 ```bash
+python _tools/resume_work_controller.py --repository-visibility <private|public> --validate-contract-only
 python _tools/check_factory_adapters.py
 python _tools/check_operational_docs_consistency.py
 ```
 
-handoff、next reservation、mode別文書、release evidence、恒久adapter接続が機械正本と一致しなければ次工程へ進まない。
+handoff、制度キュー、next reservation、mode別文書、release evidence、恒久adapter接続が機械正本と一致しなければ次工程へ進まない。
 
 ## 規定フェイズ終端
 
