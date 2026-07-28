@@ -1,0 +1,72 @@
+name: Repair train22 transport
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-22
+    paths:
+      - .github/workflows/repair-train22-transport.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Normalize ready transport
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p4 = Path('_phase4_proofread')
+          state_path = p4 / 'PRIVATE_STAGE_STATE.json'
+          manifest_path = p4 / 'CI_TRAIN_MANIFEST.json'
+          work_path = p4 / 'CURRENT_WORK.json'
+          packet_path = p4 / 'NEXT_TASK_PACKET.json'
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          work = json.loads(work_path.read_text(encoding='utf-8'))
+          packet = json.loads(packet_path.read_text(encoding='utf-8'))
+          pr = 150
+          state['transport'] = {
+              'status': 'ready_for_public_ci',
+              'history': [
+                  {'status': 'not_ready', 'translation_stage': 'private_preparation'},
+                  {'status': 'ready_for_public_ci', 'translation_stage': 'translation_frozen', 'pr': pr},
+              ],
+              'pr': pr,
+              'merge_sha': None,
+          }
+          manifest['draft_pr'] = pr
+          manifest['transport']['pr'] = pr
+          work['ci_train']['draft_pr'] = pr
+          packet['release_candidate']['pr'] = pr
+          for path, value in ((state_path, state), (manifest_path, manifest), (work_path, work), (packet_path, packet)):
+              path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          python _tools/apply_owner_assignment_v2.py
+          python _tools/check_owner_assignment_result.py
+          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py --require-ready
+          python _tools/check_translation_quality_gate.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_batch_planning.py
+      - name: Commit repaired ready state
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _phase4_proofread
+          git commit -m '制度: train-22輸送履歴と予定PRを正規化'
+          git push origin HEAD:${{ github.ref_name }}
