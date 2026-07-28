@@ -1,0 +1,74 @@
+name: Repair finalization train21
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-21
+    paths:
+      - .github/workflows/repair-finalization-train21.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Synchronize institutional evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p4 = Path('_phase4_proofread')
+          bootstrap = p4 / 'SESSION_BOOTSTRAP.md'
+          text = bootstrap.read_text(encoding='utf-8')
+          sentence = 'post-merge状態PRを通常工程として作らず、squash統合後はmerge後reconcilerで三状態正本を`merged`へ確定する。'
+          if 'post-merge状態PR' not in text:
+              anchor = 'squash統合後は`Reconcile merged translation cycle` workflowが三状態正本を`merged`へ確定する。次チャットの推論へ補正を先送りしない。'
+              if anchor not in text:
+                  raise SystemExit('SESSION_BOOTSTRAP anchor not found')
+              text = text.replace(anchor, anchor + '\n\n' + sentence, 1)
+              bootstrap.write_text(text, encoding='utf-8')
+
+          for rel, path_keys in [
+              ('CI_TRAIN_MANIFEST.json', ()),
+              ('CURRENT_WORK.json', ('ci_train',)),
+          ]:
+              path = p4 / rel
+              value = json.loads(path.read_text(encoding='utf-8'))
+              target = value
+              for key in path_keys:
+                  target = target[key]
+              target['tracking_issue'] = 149
+              path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          for name in ('FINALIZATION_DIAGNOSTICS_TRAIN21.txt', 'FINALIZATION_DIAGNOSTICS_TRAIN21.exitcode'):
+              path = p4 / name
+              if path.exists():
+                  path.unlink()
+          PY
+          python _tools/check_visibility_preflight_contract.py
+          python _tools/test_check_visibility_preflight_contract.py
+          python _tools/check_release_finalization.py --with-tests
+      - name: Commit verified institutional repair
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A _phase4_proofread _tools/check_visibility_preflight_contract.py
+          if git diff --cached --quiet; then
+            echo 'No repair changes'
+            exit 0
+          fi
+          git commit -m '制度: visibility v3とmerge後再開契約を同期'
+          git push origin HEAD:${{ github.ref_name }}
