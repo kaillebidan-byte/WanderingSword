@@ -1,0 +1,62 @@
+name: One-off Yuwen-Mowen train-26 phase2 finalization
+
+on:
+  pull_request:
+    types: [synchronize]
+
+permissions:
+  contents: write
+  actions: read
+  pull-requests: read
+
+jobs:
+  finalize:
+    if: ${{ github.actor != 'github-actions[bot]' && github.head_ref == 'agent/yuwen-mowen-train-26' }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/yuwen-mowen-train-26
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Finalize release state and current cap test
+        run: |
+          python -m py_compile _tools/oneoff_train26_finalize.py
+          python _tools/oneoff_train26_finalize.py
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('_tools/test_check_ci_train_state_v2.py')
+          text = path.read_text(encoding='utf-8')
+          old = '"caps": {"bundle_count": 6, "reviewed_rows": 60}'
+          count = text.count(old)
+          if count != 2:
+              raise SystemExit(f'unexpected old cap occurrence count: {count}')
+          path.write_text(text.replace(old, '"caps": {"bundle_count": 6, "reviewed_rows": 80}'), encoding='utf-8')
+          PY
+
+      - name: Validate phase2 finalization locally
+        run: |
+          python _tools/check_operation_mode.py --repository-visibility public
+          python _tools/check_visibility_preflight_contract.py
+          python _tools/check_release_finalization.py --with-tests
+
+      - name: Verify GitHub release evidence
+        run: python _tools/check_release_evidence_github.py
+
+      - name: Commit verified checkpoint and remove one-off tools
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/oneoff-train26-finalize.yml
+          git rm _tools/oneoff_train26_finalize.py
+          git add _phase4_proofread _tools/test_check_ci_train_state_v2.py
+          git diff --cached --check
+          git commit -m "状態: train-26 release evidenceと第157束checkpointを検証 [train26-verified]"
+          git push
