@@ -13,7 +13,7 @@
 
 ## wave準備
 
-preparationでは複数packetを先に準備する。通常sealは4 packet以上または40 unique reviewed rows相当以上。追加候補が意味境界上存在しない場合だけ`scope_exhausted`を使う。上限は6 packet / 60 rows。
+preparationでは複数packetを先に準備する。通常sealは4 packet以上または40 unique reviewed rows相当以上。追加候補が意味境界上存在しない場合だけ`scope_exhausted`を使う。40〜60 rowsを標準範囲とし、60 rows付近で意味単位が完結していない場合は、その意味単位を切らずに最大6 packet / 80 rowsまで延長できる。80 rowsを埋めることを目的にしてはならない。
 
 一packetしか準備しなかったことをreplenishment理由にしてはならない。checkerは`preparation_underfilled`として失敗させる。
 
@@ -40,7 +40,7 @@ candidate packetはmanifestへ入れない。
 - 通読40 unique rows
 - 修正20キー
 
-蓄積上限は完成正式束6、通読60 unique rowsとする。workflow変更、schema変更、security/visibility、緊急build確認は許可された早期release理由として別に記録する。
+標準範囲は通読40〜60 unique rowsとする。意味単位を完結させる場合に限り、完成正式束6を維持したまま通読80 unique rowsまで延長でき、80 rowsを強制上限とする。workflow変更、schema変更、security/visibility、緊急build確認は許可された早期release理由として別に記録する。
 
 全packetのencoding完了後に翻訳段階を`translation_frozen`へする。CI輸送は別軸で次へ進める。
 

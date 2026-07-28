@@ -16,7 +16,7 @@ MANIFEST_PATH = P4 / "CI_TRAIN_MANIFEST.json"
 
 VALID_STATUSES = {"accumulating", "ready_for_public_ci", "in_public_ci", "verified", "aborted"}
 PILOT_THRESHOLDS = {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20}
-PILOT_CAPS = {"bundle_count": 6, "reviewed_rows": 60}
+PILOT_CAPS = {"bundle_count": 6, "reviewed_rows": 80}
 ALLOWED_EARLY_RELEASE = {"workflow_change", "schema_change", "security_or_visibility", "urgent_build_verification"}
 
 

@@ -41,7 +41,7 @@ def current(status="accumulating", declared="private_translation_work", transpor
             "transport_status": transport,
             "base_checkpoint_batch": 60,
             "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
-            "caps": {"bundle_count": 6, "reviewed_rows": 60},
+            "caps": {"bundle_count": 6, "reviewed_rows": 80},
         },
     }
 
@@ -64,7 +64,7 @@ def base_manifest(status="accumulating", transport="not_ready"):
             "verified_head": "a" * 40,
         },
         "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
-        "caps": {"bundle_count": 6, "reviewed_rows": 60},
+        "caps": {"bundle_count": 6, "reviewed_rows": 80},
         "allowed_early_release_reasons": [
             "workflow_change",
             "schema_change",
@@ -148,8 +148,17 @@ def main() -> None:
     early["release_trigger"] = {"reason": "schema_change", "detail": "verify wave schema"}
     assert module.validate_manifest(early, current("ready_for_public_ci", "translation_frozen", "ready_for_public_ci"), require_ready=True) == []
 
+    at_cap = base_manifest("ready_for_public_ci", "ready_for_public_ci")
+    at_cap["bundles"] = [bundle(61 + i, f"scene-cap-{i}", rows=16, fixes=1) for i in range(5)]
+    recalc(at_cap)
+    assert module.validate_manifest(
+        at_cap,
+        current("ready_for_public_ci", "translation_frozen", "ready_for_public_ci"),
+        require_ready=True,
+    ) == []
+
     over = base_manifest("ready_for_public_ci", "ready_for_public_ci")
-    over["bundles"] = [bundle(61 + i, f"scene-{i}", rows=11, fixes=1) for i in range(6)]
+    over["bundles"] = [bundle(61 + i, f"scene-{i}", rows=14, fixes=1) for i in range(6)]
     recalc(over)
     assert any("reviewed_rows exceeds" in error for error in module.validate_manifest(over, current("ready_for_public_ci", "translation_frozen", "ready_for_public_ci")))
 

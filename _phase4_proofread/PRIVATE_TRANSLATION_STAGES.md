@@ -69,7 +69,7 @@ snapshotには次を持つ。
 - 40 unique reviewed rows相当以上
 - 追加候補が存在しない`scope_exhausted`
 
-上限は6 packet / 60 rows。underfilledな一packet sealは失敗する。
+40〜60 rowsを標準範囲とする。60 rows付近で意味単位が完結していない場合は、その意味単位を切らずに6 packet / 80 rowsまで延長できる。80 rowsを埋めることを目的にしてはならない。underfilledな一packet sealは失敗する。
 
 ## 2. private_quality_audit
 
