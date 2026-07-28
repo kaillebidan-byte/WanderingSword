@@ -47,8 +47,26 @@ jobs:
       - name: Validate live private-stage state
         run: python _tools/check_private_translation_stage.py
 
-      - name: Validate live manifest state
-        run: python _tools/check_ci_train_manifest_phase2_compat.py
+      - name: Capture live manifest validation
+        id: manifest
+        continue-on-error: true
+        shell: bash
+        run: python _tools/check_ci_train_manifest_phase2_compat.py > manifest-diagnostic.txt 2>&1
+
+      - name: Upload manifest diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: semantic-wave-manifest-diagnostic
+          path: manifest-diagnostic.txt
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Stop on manifest validation failure
+        if: steps.manifest.outcome == 'failure'
+        run: |
+          cat manifest-diagnostic.txt
+          exit 1
 
       - name: Validate JSON and patch format
         run: |
