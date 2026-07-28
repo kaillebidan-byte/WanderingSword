@@ -19,11 +19,13 @@ on:
       - "_tools/fixed_cycle_initializer.py"
       - "_tools/factory_request_executor.py"
       - "_tools/fixed_encoding_pipeline.py"
+      - "_tools/factory_encoding_executor.py"
       - "_tools/check_factory_adapters.py"
       - "_tools/check_next_task_packet_v3.py"
       - "_tools/check_batch_planning.py"
       - "_tools/test_fixed_cycle_initializer.py"
       - "_tools/test_fixed_encoding_pipeline.py"
+      - "_tools/test_factory_encoding_executor.py"
       - "_tools/test_check_next_task_packet_minimal.py"
       - "_tools/test_check_batch_planning.py"
       - "_tools/test_translation_factory_controller.py"
@@ -62,6 +64,8 @@ jobs:
         run: python _tools/test_fixed_cycle_initializer.py
       - name: Test encoding pipeline
         run: python _tools/test_fixed_encoding_pipeline.py
+      - name: Test encoding executor
+        run: python _tools/test_factory_encoding_executor.py
       - name: Test minimal next packet
         run: python _tools/test_check_next_task_packet_minimal.py
       - name: Test semantic batch planning
