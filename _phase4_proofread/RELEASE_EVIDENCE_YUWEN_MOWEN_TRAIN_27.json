@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-27-r1",
+  "train_id": "yuwen-mowen-train-27",
+  "pr": 166,
+  "ci_head": "4efff71dc9915e3f05f105530aa2f80d099ecea3",
+  "asset_head": "ae5759fa797bc69045e364f2bf18b98250128e91",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH158_2026-07-29.md",
+  "counts": {
+    "batch": 158,
+    "pair_applied_keys": 1351,
+    "project_applied_keys": 1727,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30391224493,
+    "workflow": "Release train orchestrator",
+    "head_sha": "4efff71dc9915e3f05f105530aa2f80d099ecea3",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第158束は62 reviewed rows・3修正・59保持として確定した",
+    "意味単位完結のため標準60行を2行延長し、hard cap 80以内で収録した",
+    "live owner実測は新規owner0・既存owner更新3・複数owner0だった",
+    "orchestrator run 30391224493で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply asset HEAD ae5759fa797bc69045e364f2bf18b98250128e91をrelease系譜の祖先として保持する",
+    "次候補5331_2はminimal reservationのまま保持し、PR #166統合前にはpreparationを開始しない"
+  ]
+}
