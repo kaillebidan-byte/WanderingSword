@@ -1,0 +1,151 @@
+name: Translation factory executor
+
+on:
+  push:
+    branches:
+      - "agent/yuwen-mowen-train-*"
+    paths:
+      - "_factory_requests/*.json"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: translation-factory-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout factory request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve one factory request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t requests < <(find _factory_requests -maxdepth 1 -type f -name '*.json' -print | sort)
+          if [[ "${#requests[@]}" -ne 1 ]]; then
+            echo "expected exactly one factory request, found ${#requests[@]}" >&2
+            exit 1
+          fi
+          request="${requests[0]}"
+          python - "$request" >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          path = Path(sys.argv[1])
+          value = json.loads(path.read_text(encoding="utf-8"))
+          source = value.get("source", {})
+          required = {
+              "request": path.as_posix(),
+              "run_id": source.get("artifact_run"),
+              "artifact_name": source.get("artifact_name"),
+              "artifact_file": source.get("artifact_file"),
+          }
+          if not isinstance(required["run_id"], int) or required["run_id"] <= 0:
+              raise SystemExit("request source.artifact_run must be a positive integer")
+          for key in ("artifact_name", "artifact_file"):
+              if not isinstance(required[key], str) or not required[key]:
+                  raise SystemExit(f"request source.{key} is required")
+          for key, item in required.items():
+              print(f"{key}={item}")
+          PY
+
+      - name: Resolve repository visibility
+        id: visibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          visibility="$(gh api "repos/${GITHUB_REPOSITORY}" --jq .visibility)"
+          case "$visibility" in
+            private|public) ;;
+            *) echo "unsupported visibility: $visibility" >&2; exit 1 ;;
+          esac
+          echo "value=$visibility" >> "$GITHUB_OUTPUT"
+
+      - name: Download reserved Relation artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/translation-factory-artifact
+          mkdir -p /tmp/translation-factory-artifact
+          gh run download "${{ steps.request.outputs.run_id }}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --name "${{ steps.request.outputs.artifact_name }}" \
+            --dir /tmp/translation-factory-artifact
+          test -f "/tmp/translation-factory-artifact/${{ steps.request.outputs.artifact_file }}"
+
+      - name: Execute fixed factory adapter
+        shell: bash
+        run: |
+          set -euo pipefail
+          python _tools/factory_request_executor.py \
+            --request "${{ steps.request.outputs.request }}" \
+            --artifact-json "/tmp/translation-factory-artifact/${{ steps.request.outputs.artifact_file }}" \
+            --repository-visibility "${{ steps.visibility.outputs.value }}" \
+            --base-commit "${GITHUB_SHA}" \
+            --branch-name "${GITHUB_REF_NAME}" \
+            --write \
+            --output /tmp/translation-factory-result.json
+
+      - name: Validate transported quality-audit station
+        shell: bash
+        run: |
+          set -euo pipefail
+          python _tools/check_state_json_integrity.py
+          python _tools/check_project_scope_lock.py --repository "${GITHUB_REPOSITORY}"
+          python _tools/check_operation_mode.py --repository-visibility "${{ steps.visibility.outputs.value }}"
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_autonomous_cycle.py
+          python _tools/check_operational_docs_consistency.py
+          python _tools/translation_factory_controller.py \
+            --repository-visibility "${{ steps.visibility.outputs.value }}" \
+            --output /tmp/translation-factory-next-work-order.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          order = json.loads(Path('/tmp/translation-factory-next-work-order.json').read_text(encoding='utf-8'))
+          if order.get('action') != 'translation_quality_audit':
+              raise SystemExit(f"unexpected next factory action: {order.get('action')!r}")
+          if order.get('station_type') != 'human':
+              raise SystemExit('quality audit must be the human station')
+          PY
+          git diff --check
+
+      - name: Run factory adapter regressions
+        run: |
+          python _tools/test_fixed_cycle_initializer.py
+          python _tools/test_check_next_task_packet_minimal.py
+          python _tools/test_translation_factory_controller.py
+          python _tools/test_translation_factory_workflow.py
+
+      - name: Commit generated station state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm "${{ steps.request.outputs.request }}"
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "状態: 次cycleを意味境界確定済みquality auditへ搬送 [factory-initialize]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

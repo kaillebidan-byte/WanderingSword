@@ -29,5 +29,6 @@
     "stop_before_external_read_or_write": true,
     "stop_reason": "project_scope_violation",
     "repository_mutation_forbidden": true
-  }
+  },
+  "factory_request_contract": "_phase4_proofread/FACTORY_REQUEST_CONTRACT.json"
 }

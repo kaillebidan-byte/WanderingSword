@@ -3,6 +3,8 @@
   "contract_id": "translation-factory-flow-v1",
   "controller": "_tools/translation_factory_controller.py",
   "entrypoint": "python _tools/translation_factory_controller.py --repository-visibility <private|public>",
+  "request_contract": "_phase4_proofread/FACTORY_REQUEST_CONTRACT.json",
+  "execution_workflow": ".github/workflows/translation-factory-execute.yml",
   "purpose": "翻訳者へ意味判断だけを残し、GitHub・状態遷移・輸送判断を決定論的な作業指示へ固定する。",
   "human_judgment_stations": [
     {
@@ -11,6 +13,7 @@
         "どこまでを一つの意味単位として同じpacketまたはwaveへ含めるか",
         "40〜60行で閉じるか、意味単位完結のため80行まで延長するか"
       ],
+      "record_adapter": "_tools/fixed_cycle_initializer.py",
       "forbidden_operations": [
         "branch設計",
         "workflow設計",
@@ -62,7 +65,10 @@
     "initialize_next_cycle_from_reservation": {
       "station_type": "machine",
       "executor": "fixed_cycle_initializer",
-      "next_expected_station": "semantic_bundle_boundary"
+      "adapter": "_tools/fixed_cycle_initializer.py",
+      "request_operation": "initialize_with_semantic_boundary",
+      "next_expected_station": "semantic_bundle_boundary",
+      "persisted_result_after_boundary_input": "translation_quality_audit"
     },
     "semantic_bundle_boundary": {
       "station_type": "human",

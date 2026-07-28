@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "request_glob": "_factory_requests/*.json",
+  "execution_workflow": ".github/workflows/translation-factory-execute.yml",
+  "executor": "_tools/factory_request_executor.py",
+  "allowed_operations": {
+    "initialize_with_semantic_boundary": {
+      "expected_controller_action": "initialize_next_cycle_from_reservation",
+      "adapter": "_tools/fixed_cycle_initializer.py",
+      "human_input_station": "semantic_bundle_boundary",
+      "resulting_station": "translation_quality_audit",
+      "branch_rule": "agent/yuwen-mowen-train-<previous train number + 1>",
+      "required_source": [
+        "artifact_workflow",
+        "artifact_run",
+        "artifact_id",
+        "artifact_name",
+        "artifact_file",
+        "artifact_digest",
+        "artifact_head"
+      ],
+      "required_boundary": [
+        "scene_groups",
+        "unique_reviewed_rows",
+        "semantic_extension",
+        "timeline",
+        "branch_note",
+        "seal_attestation",
+        "candidate_questions",
+        "allusion_candidates",
+        "fact_doubts"
+      ],
+      "write_set": [
+        "_phase4_proofread/CURRENT_WORK.json",
+        "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+        "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+        "_phase4_proofread/NEXT_TASK_PACKET.json",
+        "_phase4_proofread/CURRENT_HANDOFF.md",
+        "_phase4_proofread/CANDIDATE_*.json",
+        "_phase4_proofread/PREPARATION_*.md"
+      ],
+      "translation_content_writes_forbidden": true,
+      "owner_writes_forbidden": true,
+      "formal_batch_writes_forbidden": true
+    }
+  },
+  "execution_rules": {
+    "exactly_one_request_per_push": true,
+    "controller_action_must_match": true,
+    "controller_executor_must_match": true,
+    "request_source_must_equal_next_task_reservation": true,
+    "request_branch_must_equal_derived_branch": true,
+    "artifact_is_downloaded_by_fixed_run_id_and_name": true,
+    "request_is_deleted_in_generated_commit": true,
+    "bot_push_does_not_reexecute": true,
+    "unknown_operation_stops_without_fallback": true
+  }
+}
