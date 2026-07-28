@@ -13,6 +13,11 @@ on:
       - "_phase4_proofread/GITHUB_API_WRITE_POLICY.json"
       - "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json"
       - "_phase4_proofread/EXECUTION_MODES.json"
+      - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json"
+      - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md"
+      - "_phase4_proofread/CI_TRAIN_PHASE1.md"
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/CURRENT_WORK.json"
       - "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json"
       - "_phase4_proofread/REGULATED_PHASE_STATE.json"
       - "_phase4_proofread/FINAL_RESPONSE_GATE.md"
@@ -24,6 +29,8 @@ on:
       - "AGENTS.md"
       - "_tools/check_state_json_integrity.py"
       - "_tools/check_private_release_preflight.py"
+      - "_tools/check_private_translation_stage.py"
+      - "_tools/check_ci_train_manifest.py"
       - "_tools/check_project_scope_lock.py"
       - "_tools/check_pr_commit_budget.py"
       - "_tools/check_visibility_preflight_contract.py"
@@ -38,6 +45,8 @@ on:
       - "_tools/test_pr_commit_budget_workflow.py"
       - "_tools/test_check_visibility_preflight_contract.py"
       - "_tools/test_check_operation_mode.py"
+      - "_tools/test_check_private_translation_stage.py"
+      - "_tools/test_check_ci_train_manifest.py"
       - "_tools/test_check_autonomous_cycle.py"
       - "_tools/test_check_phase_completion_signal.py"
       - "_tools/test_regulated_phase_terminal_consumer.js"
@@ -87,6 +96,13 @@ jobs:
           python _tools/check_pr_commit_budget.py --validate-policy-only
           python _tools/test_check_pr_commit_budget.py
           python _tools/test_pr_commit_budget_workflow.py
+
+      - name: Run semantic wave-size regressions
+        run: |
+          python _tools/test_check_private_translation_stage.py
+          python _tools/test_check_ci_train_manifest.py
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py
 
       - name: Run execution mode regressions
         run: |
