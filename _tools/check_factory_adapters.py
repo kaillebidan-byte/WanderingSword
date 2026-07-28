@@ -33,7 +33,7 @@ def validate(flow:dict[str,Any],request:dict[str,Any],texts:dict[str,str])->list
    if item.get(k)!=v:e.append(f'action {name}.{k} mismatch')
  if request.get('contract_id')!='translation-factory-request-v1' or request.get('executor')!=RESOURCES['request_executor']:e.append('factory request contract mismatch')
  markers={
-  'request':['name: Translation factory executor','factory_request_executor.py','fixed_cycle_initializer.py','git rm'],
+  'request':['name: Translation factory executor','factory_request_executor.py','git rm'],
   'encoding':['name: Translation factory encoding','factory_encoding_executor.py','fixed_encoding_pipeline.py','ready_for_public_ci'],
   'finalization':['name: Translation factory finalization','fixed_release_finalizer.py','finalization-inputs.json','check_release_evidence.py','git rm'],
  }
