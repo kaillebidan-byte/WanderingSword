@@ -8,33 +8,29 @@
 
 - 実visibility: public
 - PR #146: squash merged (`fda4734c01bee3bc891ca6d1db2888d8b1a53539`)
-- verified checkpoint: 第131束 / pair 1306 / project 1682
-- active branch: `agent/yuwen-mowen-train-21`
+- PR #148: open / ready / mergeable
 - train: `yuwen-mowen-train-21`
+- verified checkpoint: 第135束 / pair 1306 / project 1682
+- last reviewed batch: 第135束
 - private stage: `translation_frozen`
-- transport: `ready_for_public_ci`
-- planned PR: #148
-- wave: 4 packet / 58 unique rows
-- quality audit: complete / fix 1 / keep 57
-- low-yield challenge: complete / additional fix 0
+- train-21 transport: `awaiting_private_merge`
+- queue: 4packet / 58行 / 1修正 / 57保持
 
-## train-21で完了した作業
+## train-21
 
-予約候補`5803_AttachDlgs_Index0`は、現行sourceに存在しない疑似座標として無効化した。代わりに、莫問不在期、伏龍子との同行確認、血縁開示後の疑義、天山行きの責任を扱う実在場面を四packetへまとめた。
+莫問不在期、伏龍子との同行確認、血縁開示後の疑義、天山行きの責任を二巡監査した。疑似座標`5803_AttachDlgs_Index0`は除外し、実在場面だけを対象にした。修正は`22029_5_Dlgs_Index5_Text`の格関係一件で、推測と確定事実の境界を保った。
 
-sealed queue全体を二巡監査した。宇文逸↔莫問の所有範囲で直すべき行は`22029_5_Dlgs_Index5_Text`だけだった。`天山の件が関わっている`を、`天山の件と関わりがあるに違いありません`へ直した。ほかの不自然さは現訳保持、または清霄・瑶姫・欧陽雪など別人物ペアの所有へ残した。
-
-第132〜135束を収録した。owner assignment v2を正規実行し、既存owner更新1、新規owner0、複数owner0を証跡へ固定した。三つのkeep-only束では空ownerファイルだけを生成し、fixとして数えていない。
+58行のlive owner実測は既存owner 24、新規owner 0、未所有保持34、既存owner値更新1、複数owner0。低収穫challengeで57保持行を再監査し、追加修正0件を確認した。orchestrator run `30321697780`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`4996ab7e5c737581db3795fd2d97702b3a5611a5`。
 
 ## 次の作業
 
-PR #148を開き、`release-ci`でcomplete preflight、Relation、Cross、Apply、state finalization、release phase2を進める。未解決review thread 0件と検証済みHEADを確認してsquash統合し、merge後reconcilerで三状態正本を`merged`へ確定する。
+最新HEADで`finalize-release`によるphase2 gateと未解決review thread 0件を確認し、検証済みHEADをsquash統合する。always-public cycleなのでvisibility変更は要求しない。
 
 次候補`32025_1`はminimal reservationのまま保持し、train-21統合前にpreparationを開始しない。
 
 ## 禁止
 
 - translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- phase2成功前にPRをmergeしない。
+- phase2成功前にPR #148をmergeしない。
 - train-21統合前に`32025_1`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
