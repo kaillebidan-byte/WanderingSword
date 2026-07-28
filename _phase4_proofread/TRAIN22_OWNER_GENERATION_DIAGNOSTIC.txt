@@ -1,0 +1,55 @@
+OK: owner assignment generated; existing_updates=0 new=22 fixes=22
+UPDATED: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json
+UPDATED: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json
+UPDATED: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json
+UPDATED: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json
+UPDATED: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json
+candidate ownership: checked=5, legacy_skipped=0, live_drifted=0, errors=0
+OK: owner assignment generated; existing_updates=0 new=22 fixes=22
+OK: owner assignment plan, owner files, candidate inputs, and state counts are sealed
+OK: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json
+OK: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json
+OK: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json
+OK: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json
+OK: _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json
+candidate ownership: checked=5, legacy_skipped=0, live_drifted=0, errors=0
+=== Private translation wave ===
+train: yuwen-mowen-train-22
+stage: translation_frozen
+wave: yuwen-mowen-train-22-wave-01
+queue: sealed
+transport: ready_for_public_ci
+translation judgment: False
+ERROR: illegal transport transition: not_ready -> not_ready
+ERROR: illegal transport transition: not_ready -> not_ready
+FAILED: 2 error(s)
+=== CI train phase2-compatible wave manifest ===
+train: yuwen-mowen-train-22
+branch: agent/yuwen-mowen-train-22
+status: ready_for_public_ci
+transport: ready_for_public_ci
+totals: 5 bundle(s), 58 row(s), 22 fix key(s)
+release ready: True
+release reasons: bundle_count, reviewed_rows, fix_keys
+OK: wave manifest is structurally valid, including keep-only formal bundles
+=== Translation quality gate ===
+train: yuwen-mowen-train-22
+objective: repair_substantive_translation_defects
+unique rows: 58
+reviewed keys: 58
+unique fixes: 22
+fix keys: 22
+low yield: False
+private stage: translation_frozen
+ERROR: private stage: illegal transport transition: not_ready -> not_ready
+ERROR: private stage: illegal transport transition: not_ready -> not_ready
+FAILED: 2 error(s)
+=== Minimal next-wave reservation ===
+pair: 宇文逸↔莫問
+checkpoint batch: 135
+reserved scenes: 24341_2
+ERROR: release_candidate.pr must be a positive integer
+FAILED: 1 error(s)
+=== Batch planning ===
+minimal reservation: detailed batching is deferred to private preparation
+OK: reservation or detailed batching rationale is valid
