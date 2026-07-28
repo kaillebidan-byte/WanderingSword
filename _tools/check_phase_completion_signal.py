@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""二フェイズ作業の終端シグナル契約、動的許可状態、出力形を検査する。"""
+"""二フェイズ終端シグナルをlive stateと照合し、通常応答も送信前検査する。"""
 from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -15,11 +16,14 @@ CONTRACT_PATH = P4 / "PHASE_COMPLETION_SIGNAL.json"
 STATE_PATH = P4 / "REGULATED_PHASE_STATE.json"
 AUDIT_STATUS_PATH = P4 / "audit_status.json"
 MARKER = "規定フェイズ完了"
+AUTH_PREFIX = "規定フェイズ認可: "
 STATUS_PREFIX = "規定フェイズ結果: "
 ALLOWED_RESULTS = {"success", "error"}
 EXPECTED_PHASE_ORDER = ["quality_reaudit", "narrative_readthrough"]
 EXPECTED_STATE_PATH = "_phase4_proofread/REGULATED_PHASE_STATE.json"
 EXPECTED_SCOPE = "regulated_phase_terminal"
+EXPECTED_CONSUMER = "_tools/regulated_phase_terminal_consumer.js"
+EVENT_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{7,127}$")
 AUDIT_STATUS_NORMALIZATION = {
     "quality_reaudit": {
         "in_progress": "in_progress",
@@ -45,12 +49,14 @@ def load_object(path: Path) -> dict[str, Any]:
 
 def validate_contract(contract: dict[str, Any]) -> list[str]:
     errors: list[str] = []
-    if contract.get("schema_version") != 2:
-        errors.append("schema_version must be 2")
-    if contract.get("contract_id") != "regulated-phase-completion-signal-v2-authorized":
+    if contract.get("schema_version") != 3:
+        errors.append("schema_version must be 3")
+    if contract.get("contract_id") != "regulated-phase-completion-signal-v3-consumer-gated":
         errors.append("contract_id mismatch")
     if contract.get("marker") != MARKER:
         errors.append(f"marker must be {MARKER!r}")
+    if contract.get("authorization_prefix") != AUTH_PREFIX:
+        errors.append(f"authorization_prefix must be {AUTH_PREFIX!r}")
     if contract.get("status_prefix") != STATUS_PREFIX:
         errors.append(f"status_prefix must be {STATUS_PREFIX!r}")
     if set(contract.get("allowed_results", [])) != ALLOWED_RESULTS:
@@ -59,11 +65,9 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
         errors.append("state_file mismatch")
 
     pipeline = contract.get("pipeline")
-    if not isinstance(pipeline, dict):
-        errors.append("pipeline must be an object")
+    if not isinstance(pipeline, dict) or pipeline.get("phase_order") != EXPECTED_PHASE_ORDER:
+        errors.append("pipeline.phase_order mismatch")
     else:
-        if pipeline.get("phase_order") != EXPECTED_PHASE_ORDER:
-            errors.append("pipeline.phase_order mismatch")
         phases = pipeline.get("phases")
         if not isinstance(phases, dict):
             errors.append("pipeline.phases must be an object")
@@ -75,8 +79,7 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
                     continue
                 if phase.get("position") != position:
                     errors.append(f"pipeline.phases.{phase_id}.position mismatch")
-                description = phase.get("description")
-                if not isinstance(description, str) or not description.strip():
+                if not isinstance(phase.get("description"), str) or not phase["description"].strip():
                     errors.append(f"pipeline.phases.{phase_id}.description must be non-empty")
 
     emission = contract.get("emission")
@@ -87,13 +90,18 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
         "marker_must_be_last_nonempty_line",
         "trailing_content_forbidden",
         "status_line_immediately_precedes_marker",
+        "authorization_line_immediately_precedes_status",
         "marker_is_not_success_signal",
+        "marker_only_must_be_rejected_by_consumers",
+        "unauthorized_marker_must_not_stop_automation",
+        "reserved_marker_forbidden_without_authorization",
         "routine_wave_completion_does_not_emit",
         "visibility_checkpoint_does_not_emit",
         "single_pair_or_single_chapter_completion_does_not_emit",
         "release_phase2_completion_does_not_emit",
         "train_merge_does_not_emit",
         "dynamic_authorization_required",
+        "live_state_match_required",
     }
     if not isinstance(emission, dict):
         errors.append("emission must be an object")
@@ -103,33 +111,40 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
                 errors.append(f"emission.{key} must be true")
 
     eligibility = contract.get("eligibility")
+    expected_eligibility = {
+        "authorization_scope": EXPECTED_SCOPE,
+        "success_phase_status": "complete",
+        "error_phase_status": "terminal_error",
+        "authorization_event_id_required": True,
+        "routine_pause_is_error": False,
+        "ci_phase2_is_regulated_phase": False,
+        "transport_merge_is_regulated_phase": False,
+    }
     if not isinstance(eligibility, dict):
         errors.append("eligibility must be an object")
     else:
-        expected = {
-            "authorization_scope": EXPECTED_SCOPE,
-            "success_phase_status": "complete",
-            "error_phase_status": "terminal_error",
-            "routine_pause_is_error": False,
-            "ci_phase2_is_regulated_phase": False,
-            "transport_merge_is_regulated_phase": False,
-        }
-        for key, value in expected.items():
+        for key, value in expected_eligibility.items():
             if eligibility.get(key) != value:
                 errors.append(f"eligibility.{key} mismatch")
 
     automation = contract.get("automation")
+    expected_automation = {
+        "terminal_detection": "validated_three_line_suffix_against_live_state",
+        "authorization_detection": "third_nonempty_line_from_end_matches_live_event_id",
+        "result_detection": "second_nonempty_line_from_end_matches_live_result",
+        "marker_detection": "last_nonempty_line_exact_match",
+        "marker_only_is_terminal": False,
+        "live_state_validation_required": True,
+        "consumer_reference": EXPECTED_CONSUMER,
+        "python_validator": "_tools/check_phase_completion_signal.py",
+        "success_line": f"{STATUS_PREFIX}success",
+        "error_line": f"{STATUS_PREFIX}error",
+        "user_input_required": False,
+    }
     if not isinstance(automation, dict):
         errors.append("automation must be an object")
     else:
-        expected = {
-            "terminal_detection": "last_nonempty_line_exact_match",
-            "result_detection": "immediately_preceding_status_line",
-            "success_line": f"{STATUS_PREFIX}success",
-            "error_line": f"{STATUS_PREFIX}error",
-            "user_input_required": False,
-        }
-        for key, value in expected.items():
+        for key, value in expected_automation.items():
             if automation.get(key) != value:
                 errors.append(f"automation.{key} mismatch")
     return errors
@@ -144,8 +159,8 @@ def normalized_audit_status(audit_status: dict[str, Any], phase_id: str) -> str 
 
 def validate_runtime_state(state: dict[str, Any], audit_status: dict[str, Any]) -> list[str]:
     errors: list[str] = []
-    if state.get("schema_version") != 1:
-        errors.append("REGULATED_PHASE_STATE.schema_version must be 1")
+    if state.get("schema_version") != 2:
+        errors.append("REGULATED_PHASE_STATE.schema_version must be 2")
     if state.get("contract") != "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json":
         errors.append("REGULATED_PHASE_STATE.contract mismatch")
     if state.get("phase_order") != EXPECTED_PHASE_ORDER:
@@ -173,6 +188,24 @@ def validate_runtime_state(state: dict[str, Any], audit_status: dict[str, Any]) 
                 errors.append(
                     f"regulated phase state mismatch for {phase_id}: state={status!r} audit={audit_value!r}"
                 )
+
+    gate = state.get("consumer_gate")
+    expected_gate = {
+        "marker_only_accepted": False,
+        "live_state_match_required": True,
+        "authorization_line_prefix": AUTH_PREFIX,
+        "authorization_value_source": "signal_authorization.event_id",
+        "result_value_source": "signal_authorization.result",
+        "response_suffix_lines": 3,
+        "python_validator": "_tools/check_phase_completion_signal.py",
+        "javascript_validator": EXPECTED_CONSUMER,
+    }
+    if not isinstance(gate, dict):
+        errors.append("REGULATED_PHASE_STATE.consumer_gate must be an object")
+    else:
+        for key, value in expected_gate.items():
+            if gate.get(key) != value:
+                errors.append(f"consumer_gate.{key} mismatch")
 
     if state.get("routine_pause_is_terminal_error") is not False:
         errors.append("routine_pause_is_terminal_error must be false")
@@ -205,8 +238,8 @@ def validate_runtime_state(state: dict[str, Any], audit_status: dict[str, Any]) 
             if result not in ALLOWED_RESULTS:
                 errors.append("signal_authorization.result invalid")
             event_id = authorization.get("event_id")
-            if not isinstance(event_id, str) or not event_id.strip():
-                errors.append("signal_authorization.event_id must be non-empty")
+            if not isinstance(event_id, str) or EVENT_ID_RE.fullmatch(event_id) is None:
+                errors.append("signal_authorization.event_id format invalid")
             evidence = authorization.get("evidence")
             if not isinstance(evidence, list) or not evidence or any(
                 not isinstance(item, str) or not item.strip() for item in evidence
@@ -217,9 +250,7 @@ def validate_runtime_state(state: dict[str, Any], audit_status: dict[str, Any]) 
                 status = phase.get("status") if isinstance(phase, dict) else None
                 expected_status = "complete" if result == "success" else "terminal_error"
                 if status != expected_status:
-                    errors.append(
-                        f"authorized {result} requires active phase status {expected_status!r}"
-                    )
+                    errors.append(f"authorized {result} requires active phase status {expected_status!r}")
     return errors
 
 
@@ -238,6 +269,9 @@ def validate_signal_authorization(state: dict[str, Any], result: str) -> list[st
         errors.append("regulated phase terminal authorization phase mismatch")
     if authorization.get("result") != result:
         errors.append("regulated phase terminal authorization result mismatch")
+    event_id = authorization.get("event_id")
+    if not isinstance(event_id, str) or EVENT_ID_RE.fullmatch(event_id) is None:
+        errors.append("regulated phase terminal event ID is invalid")
     phases = state.get("phases")
     phase = phases.get(state.get("active_phase")) if isinstance(phases, dict) else None
     status = phase.get("status") if isinstance(phase, dict) else None
@@ -247,19 +281,53 @@ def validate_signal_authorization(state: dict[str, Any], result: str) -> list[st
     return errors
 
 
+def nonempty_lines(text: str) -> list[str]:
+    return [line.rstrip() for line in text.splitlines() if line.strip()]
+
+
 def validate_terminal_response(text: str, result: str, state: dict[str, Any]) -> list[str]:
     errors = validate_signal_authorization(state, result)
-    lines = [line.rstrip() for line in text.splitlines()]
-    nonempty = [line for line in lines if line.strip()]
-    if not nonempty:
+    lines = nonempty_lines(text)
+    if not lines:
         return [*errors, "terminal response is empty"]
-    if nonempty.count(MARKER) != 1:
+    if lines.count(MARKER) != 1:
         errors.append("terminal response must contain marker exactly once")
-    if nonempty[-1] != MARKER:
+    if lines[-1] != MARKER:
         errors.append("marker must be the last non-empty line")
     expected_status = f"{STATUS_PREFIX}{result}"
-    if len(nonempty) < 2 or nonempty[-2] != expected_status:
+    if len(lines) < 2 or lines[-2] != expected_status:
         errors.append(f"marker must be immediately preceded by {expected_status!r}")
+    authorization = state.get("signal_authorization")
+    event_id = authorization.get("event_id") if isinstance(authorization, dict) else None
+    expected_authorization = f"{AUTH_PREFIX}{event_id}" if isinstance(event_id, str) else None
+    if expected_authorization is None or len(lines) < 3 or lines[-3] != expected_authorization:
+        errors.append("status line must be immediately preceded by the live authorization event ID")
+    return errors
+
+
+def infer_result(lines: list[str]) -> str | None:
+    if len(lines) < 2 or not lines[-2].startswith(STATUS_PREFIX):
+        return None
+    value = lines[-2][len(STATUS_PREFIX):]
+    return value if value in ALLOWED_RESULTS else None
+
+
+def validate_response(text: str, state: dict[str, Any], asserted_result: str | None = None) -> list[str]:
+    """送信前ゲート。予約markerが無い通常応答は通し、含む場合だけlive認可を必須化する。"""
+    lines = nonempty_lines(text)
+    if MARKER not in lines:
+        if asserted_result is not None:
+            return ["asserted terminal result but reserved marker is absent"]
+        return []
+    inferred = infer_result(lines)
+    if inferred is None:
+        return [
+            "reserved marker is present but a valid result line is not immediately before it",
+            *validate_signal_authorization(state, asserted_result or "invalid"),
+        ]
+    errors = validate_terminal_response(text, inferred, state)
+    if asserted_result is not None and inferred != asserted_result:
+        errors.append("asserted terminal result does not match response result line")
     return errors
 
 
@@ -267,6 +335,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--response-file", type=Path)
     parser.add_argument("--result", choices=sorted(ALLOWED_RESULTS))
+    parser.add_argument("--json", action="store_true")
     return parser.parse_args()
 
 
@@ -279,30 +348,35 @@ def main() -> int:
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    errors = [
-        *validate_contract(contract),
-        *validate_runtime_state(state, audit_status),
-    ]
+    errors = [*validate_contract(contract), *validate_runtime_state(state, audit_status)]
+    terminal_candidate = False
     if args.response_file is not None:
-        if args.result is None:
-            errors.append("--result is required with --response-file")
+        try:
+            text = args.response_file.read_text(encoding="utf-8")
+        except OSError as exc:
+            errors.append(f"cannot read response file: {exc}")
         else:
-            try:
-                text = args.response_file.read_text(encoding="utf-8")
-            except OSError as exc:
-                errors.append(f"cannot read response file: {exc}")
-            else:
-                errors.extend(validate_terminal_response(text, args.result, state))
-    print("=== Regulated phase completion signal ===")
-    print(f"active phase: {state.get('active_phase')}")
-    print(f"signal authorized: {isinstance(state.get('signal_authorization'), dict)}")
-    for error in errors:
-        print(f"ERROR: {error}")
-    if errors:
-        print(f"FAILED: {len(errors)} error(s)")
-        return 1
-    print("OK: regulated phase marker requires an authorized terminal phase state")
-    return 0
+            terminal_candidate = MARKER in nonempty_lines(text)
+            errors.extend(validate_response(text, state, args.result))
+    accepted = not errors
+    if args.json:
+        print(json.dumps({
+            "accepted": accepted,
+            "terminal_candidate": terminal_candidate,
+            "active_phase": state.get("active_phase"),
+            "signal_authorized": isinstance(state.get("signal_authorization"), dict),
+            "errors": errors,
+        }, ensure_ascii=False))
+    else:
+        print("=== Regulated phase completion signal ===")
+        print(f"active phase: {state.get('active_phase')}")
+        print(f"signal authorized: {isinstance(state.get('signal_authorization'), dict)}")
+        print(f"terminal candidate: {terminal_candidate}")
+        for error in errors:
+            print(f"ERROR: {error}")
+        if accepted:
+            print("OK: response is safe to send; terminal marker requires live three-line authorization")
+    return 0 if accepted else 1
 
 
 if __name__ == "__main__":
