@@ -411,6 +411,7 @@ def set_frozen_stage() -> None:
             "pr": 162,
         },
         "release_trigger": None,
+        "finalization_phase": "phase2",
         "totals": dict(TOTALS),
         "bundles": bundles,
         "quality_gate": {
@@ -465,8 +466,11 @@ def set_frozen_stage() -> None:
         "status": "ready_for_public_ci",
         "transport_status": "ready_for_public_ci",
         "draft_pr": 162,
+        "policy": "_phase4_proofread/CI_TRAIN_PHASE2.md",
+        "post_merge_state_pr_required": False,
+        "single_pr_finalization": True,
         "totals": dict(TOTALS),
-        "finalization_phase": "phase1",
+        "finalization_phase": "phase2",
     })
     current_train["private_stage"] = {
         "stage": "translation_frozen",
