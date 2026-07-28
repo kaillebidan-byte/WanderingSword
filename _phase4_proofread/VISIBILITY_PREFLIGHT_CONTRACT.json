@@ -1,6 +1,6 @@
 {
-  "schema_version": 2,
-  "gate_id": "github-visibility-preflight-v2-cycle-mode",
+  "schema_version": 3,
+  "gate_id": "github-preflight-v3-scope-mode-phase-merge",
   "source_of_truth": "github_repository_metadata",
   "applies_to": [
     "new_chat_resume",
@@ -8,9 +8,18 @@
     "visibility_change_report",
     "public_ci_entry",
     "private_translation_entry",
-    "cycle_mode_selection"
+    "cycle_mode_selection",
+    "merged_cycle_reconciliation"
   ],
+  "project_scope": {
+    "contract": "_phase4_proofread/PROJECT_SCOPE_LOCK.json",
+    "canonical_repository": "kaillebidan-byte/WanderingSword",
+    "scope_check_precedes_repository_metadata": true,
+    "cross_repository_discovery_forbidden": true,
+    "scope_violation_stops_before_external_read_or_write": true
+  },
   "ordering": {
+    "project_scope_lock_is_first_internal_check": true,
     "repository_metadata_is_first_external_check": true,
     "user_visible_update_before_verdict": "forbidden",
     "work_start_claim_before_verdict": "forbidden",
@@ -32,11 +41,26 @@
   },
   "phase_completion_signal": {
     "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
+    "runtime_state": "_phase4_proofread/REGULATED_PHASE_STATE.json",
+    "dynamic_authorization_required": true,
     "required_on_phase_success": true,
     "required_on_phase_error": true,
     "last_nonempty_line": "規定フェイズ完了",
     "result_line_immediately_precedes_marker": true,
-    "routine_wave_visibility_or_merge_checkpoint_does_not_emit": true
+    "release_phase2_is_not_regulated_phase": true,
+    "train_or_merge_completion_does_not_emit": true,
+    "routine_pause_does_not_emit": true
+  },
+  "merged_cycle": {
+    "tool": "_tools/reconcile_merged_cycle.py",
+    "workflow": ".github/workflows/reconcile-merged-cycle.yml",
+    "state_authorities": [
+      "_phase4_proofread/CURRENT_WORK.json",
+      "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+      "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+    ],
+    "next_chat_repair_is_not_normal_completion": true,
+    "idempotent": true
   },
   "verdict": {
     "first_user_visible_update_requires_effective_mode": true,
