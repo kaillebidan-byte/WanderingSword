@@ -18,11 +18,13 @@ on:
       - "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md"
       - "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md"
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
+      - "_phase4_proofread/COLD_START_ACCEPTANCE.md"
       - "_phase4_proofread/PLAN_章別通読監査.md"
       - "AGENTS.md"
       - "_tools/check_state_json_integrity.py"
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_project_scope_lock.py"
+      - "_tools/check_visibility_preflight_contract.py"
       - "_tools/check_operation_mode.py"
       - "_tools/check_autonomous_cycle.py"
       - "_tools/check_phase_completion_signal.py"
@@ -30,6 +32,7 @@ on:
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/select_cycle_execution_mode.py"
       - "_tools/test_check_project_scope_lock.py"
+      - "_tools/test_check_visibility_preflight_contract.py"
       - "_tools/test_check_operation_mode.py"
       - "_tools/test_check_autonomous_cycle.py"
       - "_tools/test_check_phase_completion_signal.py"
@@ -67,10 +70,12 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Run project scope regressions
+      - name: Run project scope and visibility regressions
         run: |
           python _tools/check_project_scope_lock.py --repository kaillebidan-byte/WanderingSword
           python _tools/test_check_project_scope_lock.py
+          python _tools/check_visibility_preflight_contract.py
+          python _tools/test_check_visibility_preflight_contract.py
 
       - name: Run execution mode regressions
         run: |
