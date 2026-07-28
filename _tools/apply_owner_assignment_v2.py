@@ -141,10 +141,19 @@ def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]
     totals = manifest.get("totals")
     encoding_summary = state.get("wave", {}).get("encoding_summary")
     work_totals = work.get("ci_train", {}).get("totals")
-    for label, value in (("manifest.totals", totals),("PRIVATE_STAGE_STATE.wave.encoding_summary", encoding_summary),("CURRENT_WORK.ci_train.totals", work_totals)):
+    for label, value in (
+        ("manifest.totals", totals),
+        ("PRIVATE_STAGE_STATE.wave.encoding_summary", encoding_summary),
+        ("CURRENT_WORK.ci_train.totals", work_totals),
+    ):
         if not isinstance(value, dict):
             raise ValueError(f"{label} must be object")
-        value["existing_owner_updates"] = total_updates
+    totals["existing_owner_updates"] = total_updates
+    work_totals["existing_owner_updates"] = total_updates
+    for key, value in totals.items():
+        if work_totals.get(key) != value:
+            raise ValueError(f"owner summary mismatch between manifest and CURRENT_WORK: {key}")
+    encoding_summary.update(totals)
 
     legacy.write_object(manifest_path, manifest)
     legacy.write_object(state_path, state)
@@ -185,9 +194,14 @@ def apply_plan(root: Path, plan_path: Path, result_path: Path) -> dict[str, Any]
         if not isinstance(packet_result, dict):
             raise ValueError("OWNER_ASSIGNMENT_RESULT packet must be object")
         packet_result["existing_owner_updates"] = count
-    result["state_file_digests"] = {manifest_path.relative_to(root).as_posix(): legacy.digest_file(manifest_path),state_path.relative_to(root).as_posix(): legacy.digest_file(state_path),work_path.relative_to(root).as_posix(): legacy.digest_file(work_path)}
+    result["state_file_digests"] = {
+        manifest_path.relative_to(root).as_posix(): legacy.digest_file(manifest_path),
+        state_path.relative_to(root).as_posix(): legacy.digest_file(state_path),
+        work_path.relative_to(root).as_posix(): legacy.digest_file(work_path),
+    }
     legacy.write_object(result_path, result)
     return result
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)

@@ -24,6 +24,19 @@ CORE_PATHS = (
     P4 / "PHASE_COMPLETION_SIGNAL.json",
     P4 / "REGULATED_PHASE_STATE.json",
 )
+OWNER_SUMMARY_KEYS = (
+    "bundle_count",
+    "reviewed_rows",
+    "reviewed_keys",
+    "unique_reviewed_rows",
+    "fix_keys",
+    "unique_fix_rows",
+    "new_pair_keys",
+    "new_project_keys",
+    "cross_register_keys",
+    "existing_owner_updates",
+    "keep_only_bundles",
+)
 
 
 def read_object(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
@@ -73,6 +86,36 @@ def referenced_paths(current: dict[str, Any] | None, state: dict[str, Any] | Non
     return paths
 
 
+def owner_summary_errors(
+    current: dict[str, Any] | None,
+    state: dict[str, Any] | None,
+    manifest: dict[str, Any] | None,
+) -> list[str]:
+    if not isinstance(current, dict) or not isinstance(state, dict) or not isinstance(manifest, dict):
+        return []
+    summary = state.get("wave", {}).get("encoding_summary")
+    if summary is None:
+        return []
+    if not isinstance(summary, dict):
+        return ["PRIVATE_STAGE_STATE.wave.encoding_summary must be an object"]
+    manifest_totals = manifest.get("totals")
+    current_totals = current.get("ci_train", {}).get("totals")
+    errors: list[str] = []
+    if not isinstance(manifest_totals, dict):
+        errors.append("CI_TRAIN_MANIFEST.totals must be an object")
+    if not isinstance(current_totals, dict):
+        errors.append("CURRENT_WORK.ci_train.totals must be an object")
+    if errors:
+        return errors
+    for key in OWNER_SUMMARY_KEYS:
+        expected = manifest_totals.get(key)
+        if current_totals.get(key) != expected:
+            errors.append(f"owner summary mismatch for {key}: manifest={expected!r} CURRENT_WORK={current_totals.get(key)!r}")
+        if summary.get(key) != expected:
+            errors.append(f"owner summary mismatch for {key}: manifest={expected!r} PRIVATE_STAGE_STATE={summary.get(key)!r}")
+    return errors
+
+
 def validate(paths: list[Path]) -> list[str]:
     errors: list[str] = []
     seen: set[Path] = set()
@@ -92,6 +135,8 @@ def validate(paths: list[Path]) -> list[str]:
 
     current = cache.get(P4 / "CURRENT_WORK.json")
     state = cache.get(P4 / "PRIVATE_STAGE_STATE.json")
+    manifest = cache.get(P4 / "CI_TRAIN_MANIFEST.json")
+    errors.extend(owner_summary_errors(current, state, manifest))
     for path in referenced_paths(current, state):
         resolved = path.resolve()
         if resolved in seen:
@@ -124,7 +169,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: strict UTF-8 JSON and referenced release files are readable")
+    print("OK: strict UTF-8 JSON, references, and owner summaries are consistent")
     return 0
 
 
