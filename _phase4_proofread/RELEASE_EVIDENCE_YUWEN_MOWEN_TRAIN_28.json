@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-28-r1",
+  "train_id": "yuwen-mowen-train-28",
+  "pr": 174,
+  "ci_head": "ad7c3f40df8fcbf8023ff68bc016ee8d5fcee934",
+  "asset_head": "efb5e98aa4be9777091e277d7995569a1e870ba5",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH159_2026-07-29.md",
+  "counts": {
+    "batch": 159,
+    "pair_applied_keys": 1358,
+    "project_applied_keys": 1734,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30399952996,
+    "workflow": "Release train orchestrator",
+    "head_sha": "ad7c3f40df8fcbf8023ff68bc016ee8d5fcee934",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第159束は62 reviewed rows・14修正・48保持として確定した",
+    "門内大比の通知から品剣大会への編成と出発判断までを意味単位として標準60行を2行延長した",
+    "敗北分岐と優勝分岐を相互排他的に監査し、同一時系列へ統合していない",
+    "live owner実測は新規owner7・既存owner更新7・複数owner0だった",
+    "orchestrator run 30399952996で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply asset HEAD efb5e98aa4be9777091e277d7995569a1e870ba5をrelease系譜の祖先として保持する",
+    "次候補5352_1はminimal reservationのまま保持し、PR #174統合前にはpreparationを開始しない"
+  ]
+}
