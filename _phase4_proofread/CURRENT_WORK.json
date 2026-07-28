@@ -32,7 +32,7 @@
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH135_2026-07-28.md"
   },
   "operation_mode": {
-    "declared_state": "private_preparation",
+    "declared_state": "private_quality_audit",
     "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
@@ -113,10 +113,22 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "32025_1"
+      "32025_1",
+      "32007_1",
+      "32004_1",
+      "32001_2",
+      "32001_5",
+      "30821_1",
+      "24221_2",
+      "24221_3",
+      "24221_5",
+      "24221_6",
+      "24223_3",
+      "24230_1",
+      "24232_3"
     ],
-    "task": "最新Relation artifactで32025_1と近接場面を確認し、train-22 waveのcandidate packetを準備する。",
-    "boundary": "private_preparationでは翻訳判断、fix、owner、正式束を書かない。",
+    "task": "sealed 5packet・58行を二巡監査し、fix候補とintentional keepを記録する。",
+    "boundary": "quality auditでは翻訳判断だけを行い、fix JSON、owner、正式束へ書き込まない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -152,7 +164,7 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-22",
     "branch": "agent/yuwen-mowen-train-22",
-    "status": "private_preparation",
+    "status": "private_quality_audit",
     "transport_status": "not_ready",
     "base_checkpoint_batch": 135,
     "thresholds": {
@@ -193,12 +205,12 @@
       "challenge_pass": null
     },
     "private_stage": {
-      "stage": "private_preparation",
+      "stage": "private_quality_audit",
       "status": "active",
       "transport_status": "not_ready",
       "wave_id": "yuwen-mowen-train-22-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "private_preparation"
+      "cycle_checkpoint": "private_quality_audit"
     },
     "tracking_issue": null,
     "draft_pr": null,

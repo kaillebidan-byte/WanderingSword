@@ -2,7 +2,7 @@
   "schema_version": 2,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-22",
-  "stage": "private_preparation",
+  "stage": "private_quality_audit",
   "mode": "wave_v2",
   "cycle_control": {
     "status": "running",
@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "最新Relation artifactから32025_1と近接場面を抽出し、candidate packetとpreparation recordを作成する",
-    "last_safe_checkpoint": "private_preparation",
+    "exact_next_action": "sealed 5packet・58行を二巡監査し、fix候補とintentional keepをAUDIT記録へ固定する",
+    "last_safe_checkpoint": "private_quality_audit",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -32,10 +32,89 @@
   },
   "wave": {
     "wave_id": "yuwen-mowen-train-22-wave-01",
-    "queue_status": "preparing",
-    "seal_reason": null,
-    "seal_attestation": null,
-    "packets": [],
+    "queue_status": "sealed",
+    "seal_reason": "packet_threshold",
+    "seal_attestation": "five narrative-separated packets covering 58 unique rows; 24341_2 and later groups remain outside this wave",
+    "packets": [
+      {
+        "packet_id": "yuwen-mowen-train22-packet-01",
+        "scene_groups": [
+          "32025_1"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
+        },
+        "formal_batch": null,
+        "audit_record": null,
+        "review_record": null
+      },
+      {
+        "packet_id": "yuwen-mowen-train22-packet-02",
+        "scene_groups": [
+          "32007_1",
+          "32004_1"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
+        },
+        "formal_batch": null,
+        "audit_record": null,
+        "review_record": null
+      },
+      {
+        "packet_id": "yuwen-mowen-train22-packet-03",
+        "scene_groups": [
+          "32001_2",
+          "32001_5",
+          "30821_1"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
+        },
+        "formal_batch": null,
+        "audit_record": null,
+        "review_record": null
+      },
+      {
+        "packet_id": "yuwen-mowen-train22-packet-04",
+        "scene_groups": [
+          "24221_2",
+          "24221_3",
+          "24221_5",
+          "24221_6"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
+        },
+        "formal_batch": null,
+        "audit_record": null,
+        "review_record": null
+      },
+      {
+        "packet_id": "yuwen-mowen-train22-packet-05",
+        "scene_groups": [
+          "24223_3",
+          "24230_1",
+          "24232_3"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
+        },
+        "formal_batch": null,
+        "audit_record": null,
+        "review_record": null
+      }
+    ],
     "encoding_summary": null
   },
   "transport": {
@@ -50,7 +129,7 @@
     "merge_sha": null
   },
   "permissions": {
-    "translation_judgment_allowed": false,
+    "translation_judgment_allowed": true,
     "fix_writes_allowed": false,
     "encoding_writes_allowed": false,
     "throughput_metrics_visible": true,
@@ -59,10 +138,14 @@
   "history": [
     {
       "stage": "private_preparation",
+      "status": "complete"
+    },
+    {
+      "stage": "private_quality_audit",
       "status": "active"
     }
   ],
-  "replenishment_reason": "post_merge_minimal_reservation_expansion",
+  "replenishment_reason": null,
   "source_artifact": {
     "workflow": "Release train orchestrator",
     "run_id": 30321697780,

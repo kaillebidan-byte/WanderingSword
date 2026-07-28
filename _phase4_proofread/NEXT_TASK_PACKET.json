@@ -12,14 +12,26 @@
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "32025_1"
+    "32025_1",
+    "32007_1",
+    "32004_1",
+    "32001_2",
+    "32001_5",
+    "30821_1",
+    "24221_2",
+    "24221_3",
+    "24221_5",
+    "24221_6",
+    "24223_3",
+    "24230_1",
+    "24232_3"
   ],
   "reservation": {
-    "status": "preparing",
+    "status": "quality_audit_active",
     "wave_id": "yuwen-mowen-train-22-wave-01",
-    "packet_id": "yuwen-mowen-32025-1",
+    "packet_id": null,
     "preparation_started": true,
-    "quality_audit_started": false,
+    "quality_audit_started": true,
     "encoding_started": false,
     "formal_batch": null
   },
@@ -31,7 +43,7 @@
     "artifact_id": 8674239509,
     "artifact_digest": "sha256:bf7f79e65dbcbacbc33f17ee2d3020ad3313371df064bc55dc16b5592a3bf5c0",
     "artifact_head": "39155e6dc236e7253a264e0870ccd9f343f0608e",
-    "freshness_rule": "train-21統合後、次cycleのpreparation開始時に最新Relation artifactで32025_1と近接場面を再確認する。"
+    "freshness_rule": "train-22 wave-01はartifact 8674239509の実在行から準備済み。quality audit中に別artifactへ差し替えない。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-22",

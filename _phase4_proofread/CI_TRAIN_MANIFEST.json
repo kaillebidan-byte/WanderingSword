@@ -4,10 +4,10 @@
   "train_id": "yuwen-mowen-train-22",
   "branch": "agent/yuwen-mowen-train-22",
   "draft_pr": null,
-  "status": "private_preparation",
+  "status": "private_quality_audit",
   "transport": {
     "status": "not_ready",
-    "translation_stage": "private_preparation",
+    "translation_stage": "private_quality_audit",
     "pr": null,
     "merge_sha": null
   },
@@ -55,7 +55,7 @@
   },
   "bundles": [],
   "tracking_issue": null,
-  "tracking_mode": "private_preparation",
+  "tracking_mode": "private_quality_audit",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
@@ -84,17 +84,29 @@
   "private_stage": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-    "stage": "private_preparation",
+    "stage": "private_quality_audit",
     "status": "active",
     "transport_status": "not_ready"
   },
   "next_release": {
     "candidate_scene": [
-      "32025_1"
+      "32025_1",
+      "32007_1",
+      "32004_1",
+      "32001_2",
+      "32001_5",
+      "30821_1",
+      "24221_2",
+      "24221_3",
+      "24221_5",
+      "24221_6",
+      "24223_3",
+      "24230_1",
+      "24232_3"
     ],
-    "reservation_status": "preparing",
+    "reservation_status": "quality_audit_active",
     "reservation_schema": 6,
     "formal_batches": [],
-    "current_private_stage": "private_preparation"
+    "current_private_stage": "private_quality_audit"
   }
 }
