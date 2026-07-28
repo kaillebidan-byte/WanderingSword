@@ -6,7 +6,6 @@
 
 ## 現在地
 
-- main: 制度PR #176統合後
 - translation PR #174: merged
 - train: `yuwen-mowen-train-28`
 - verified checkpoint: 第159束 / pair 1358 / project 1734
@@ -24,7 +23,7 @@
 
 ## 次の作業
 
-`resume_work_controller.py --repository-visibility public`のwork orderに従い、`workflow_duplicate_run_serialization`を原因特定、恒久修正、正常・競合回帰、制度CI、squash merge、main再検証まで進める。同じPRで現在taskをcompletedへ更新する。
+`resume_work_controller.py --repository-visibility public`のwork orderに従い、`workflow_duplicate_run_serialization`を原因特定、恒久修正、正常・競合回帰、制度CI、squash merge、main再検証まで進める。PR作成後、同じPRで現在taskを`completed`へ更新しPR番号を記録する。merge SHAは統合後にGitHub metadataで検証する。
 
 ## 禁止
 

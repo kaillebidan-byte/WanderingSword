@@ -16,7 +16,7 @@
 2. main、未統合PR、GitHub Actionsを取得する。
 3. 未統合PRはactive / superseded / abandoned / unrelatedへ分類する。開いているだけで現行作業と決めない。
 4. botの`action_required`は検査失敗と決めつけず、該当job、release evidence、verified checkpoint、review threadを確認する。
-5. squash merge後は、制度PRなら制度キューのcompletionとmain実装を再確認する。翻訳PRならmerge後reconcilerを実行し、post-merge状態PRは作らない。
+5. squash merge後は、制度PRなら制度キューのcompletion、GitHub metadataのmerge SHA、main実装を再確認する。翻訳PRならmerge後reconcilerを実行し、post-merge状態PRは作らない。
 
 ## repository lock
 
@@ -34,7 +34,7 @@ repository metadata、制度キュー、四状態正本を取得した後、次�
 python _tools/resume_work_controller.py --repository-visibility <private|public>
 ```
 
-`always_public_full_pipeline`で`INSTITUTION_WORK_QUEUE.json`にpending taskがある場合、controllerは`institution_repair`を返す。翻訳cycle、次候補preparation、owner、locres、pakには進まない。現在タスクを実装・回帰・CI・squash merge・main再検証まで終え、同じ制度PRでtaskを`completed`へ更新する。
+`always_public_full_pipeline`で`INSTITUTION_WORK_QUEUE.json`にpending taskがある場合、controllerは`institution_repair`を返す。翻訳cycle、次候補preparation、owner、locres、pakには進まない。PR作成後、同じ制度PRでtaskを`completed`へ更新しPR番号を記録する。squash merge SHAは統合前に確定しないため事前記録を要求せず、統合後にGitHub metadataで検証する。実装・回帰・CI・squash merge・main再検証まで終える。
 
 pending taskがない場合だけ、controllerは`translation_factory_controller.py`へ委譲する。委譲後は一つのaction以外へ進まず、別API、別workflow、別trigger、同一失敗引数の再試行を考案しない。
 

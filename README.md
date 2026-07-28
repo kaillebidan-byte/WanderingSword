@@ -16,7 +16,7 @@ python _tools/resume_work_controller.py --repository-visibility <private|public>
 
 `resume_work_controller.py`は`INSTITUTION_WORK_QUEUE.json`を先に読む。`always_public_full_pipeline`で未完の制度タスクがあれば`institution_repair`を返し、そのタスクがsquash mergeされmain上で再検証されるまで翻訳cycleを開始しない。キューが空の場合だけ`translation_factory_controller.py`へ委譲する。
 
-制度タスクは実装PR自身で現在タスクを`completed`へ更新し、PR番号とmerge SHAを記録する。mainへ統合される前は同じタスクが再開され、統合後はtask order上の次の`pending`へ進む。別の起動文や貼付け引継ぎは不要とする。
+制度タスクはPR作成後、同じ実装PR内で現在タスクを`completed`へ更新し、PR番号を記録する。squash merge SHAは事前には確定できないため必須記録にせず、統合後にGitHub metadataから取得してmain実装とともに検証する。mainへ統合される前は同じタスクが再開され、統合後はtask order上の次の`pending`へ進む。別の起動文や貼付け引継ぎは不要とする。
 
 翻訳work orderが返した一つのaction以外へ進んではならない。machine actionは`FACTORY_FLOW_CONTRACT.json`に登録された恒久adapterだけで実行し、adapterがなければ`factory_adapter_missing`で停止する。別API探索、一時workflow作成、trigger変更、同じ失敗引数の再試行は禁止する。
 

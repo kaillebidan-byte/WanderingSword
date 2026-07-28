@@ -36,7 +36,7 @@ def completed_queue() -> dict:
         task.pop("audit_scope", None)
         task.pop("completion_conditions", None)
         task.pop("forbidden", None)
-        task["completion"] = {"pr": 200 + index, "merge_sha": f"{index:040x}"}
+        task["completion"] = {"pr": 200 + index}
     return queue
 
 
@@ -48,6 +48,8 @@ def main() -> None:
     assert order["task_id"] == "workflow_duplicate_run_serialization"
     assert order["translation_cycle_allowed"] is False
     assert order["completion_update"]["apply_in_same_implementing_pr"] is True
+    assert order["completion_update"]["record_pr_number_in_implementing_pr"] is True
+    assert order["completion_update"]["verify_merge_sha_from_github_after_merge"] is True
 
     delegated = resume.build_resume_work_order(
         completed_queue(), FACTORY, current, state, manifest, packet, "public"
@@ -74,12 +76,20 @@ def main() -> None:
     bad["tasks"][0]["completion_conditions"] = ["demo"]
     bad["tasks"][0]["forbidden"] = ["demo"]
     bad["tasks"][1]["status"] = "completed"
-    bad["tasks"][1]["completion"] = {"pr": 2, "merge_sha": "b" * 40}
+    bad["tasks"][1]["completion"] = {"pr": 2}
     assert any("completed task appears after pending" in error for error in resume.validate_queue(bad))
+
+    valid_without_merge_sha = copy.deepcopy(QUEUE)
+    valid_without_merge_sha["tasks"][0]["completion"] = {"pr": 176}
+    assert resume.validate_queue(valid_without_merge_sha) == []
 
     bad = copy.deepcopy(QUEUE)
     bad["tasks"][0]["completion"]["merge_sha"] = "short"
     assert any("merge_sha" in error for error in resume.validate_queue(bad))
+
+    bad = copy.deepcopy(QUEUE)
+    bad["tasks"][0]["completion"] = {"merge_sha": "b" * 40}
+    assert any("completion.pr" in error for error in resume.validate_queue(bad))
 
     print("test_resume_work_controller: OK")
 
