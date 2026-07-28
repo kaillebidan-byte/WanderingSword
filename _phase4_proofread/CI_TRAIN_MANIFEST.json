@@ -1,1 +1,287 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-23","branch":"agent/yuwen-mowen-train-23","draft_pr":151,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":151,"merge_sha":"36c325bb6cb27a45cdb9cbfe99112ea39176433f"},"base_checkpoint":{"batch":140,"pair_applied_keys":1328,"project_applied_keys":1704,"produced_by_pr":150,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-22-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_22.json","pr":150,"validated_head":"7591f6eec62fc22da46661c494378341d3dd36a1"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":60},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":5,"reviewed_rows":56,"reviewed_keys":56,"unique_reviewed_rows":56,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":4,"new_project_keys":4,"cross_register_keys":0,"existing_owner_updates":4,"keep_only_bundles":2},"bundles":[{"batch":141,"review_status":"complete","apply_status":"verified","scene_groups":["24341_2"],"reviewed_rows":3,"reviewed_keys":3,"unique_rows":3,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":3,"new_project_keys":3,"keep_keys":0,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch51.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH141_2026-07-28.md","ownership_summary":{"existing_keys":0,"unowned_kept":0,"new_keys":3,"cross_register_keys":0},"existing_owner_updates":0,"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["莫問はこの場面で天山に残る意向を翻す","同行の具体的目的はこの抜粋だけから補わない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30324536238,"artifact_id":8675157859,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:8ae397036142e949fd6b67dbc270c3aa42b9c2cfef5c095dc39f3863f6fe1bc4","head_sha":"89ab462fc6c9ec030353ea9d50c06fd4995c8e54"}},{"batch":142,"review_status":"complete","apply_status":"verified","scene_groups":["5227_4","5341_2","5341_4"],"reviewed_rows":12,"reviewed_keys":12,"unique_rows":12,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":1,"new_project_keys":1,"keep_keys":11,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch52.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH142_2026-07-28.md","ownership_summary":{"existing_keys":0,"unowned_kept":11,"new_keys":1,"cross_register_keys":0},"existing_owner_updates":0,"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["莫問は宇文逸の入門直後の稽古で手加減を求める","元鳴への制止は掌門・師叔・師伯の前での分寸を求めるもの"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30324536238,"artifact_id":8675157859,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:8ae397036142e949fd6b67dbc270c3aa42b9c2cfef5c095dc39f3863f6fe1bc4","head_sha":"89ab462fc6c9ec030353ea9d50c06fd4995c8e54"}},{"batch":143,"review_status":"complete","apply_status":"verified","scene_groups":["6003_4","6003_6"],"reviewed_rows":18,"reviewed_keys":18,"unique_rows":18,"fix_keys":0,"unique_fix_rows":0,"new_pair_keys":0,"new_project_keys":0,"keep_keys":18,"fix_files":[],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH143_2026-07-28.md","ownership_summary":{"existing_keys":18,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"existing_owner_updates":0,"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["宇文逸は莫問が師父を刺傷したと訴える","莫棄は莫問の告発を信じ、清虚は昏睡中だと説明する"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30324536238,"artifact_id":8675157859,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:8ae397036142e949fd6b67dbc270c3aa42b9c2cfef5c095dc39f3863f6fe1bc4","head_sha":"89ab462fc6c9ec030353ea9d50c06fd4995c8e54"}},{"batch":144,"review_status":"complete","apply_status":"verified","scene_groups":["6008_2"],"reviewed_rows":18,"reviewed_keys":18,"unique_rows":18,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"keep_keys":14,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH144_2026-07-28.md","ownership_summary":{"existing_keys":18,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"existing_owner_updates":4,"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["宇文逸は莫問の変化の理由を理解できていない","清虚を救える方法があるかはこの時点で未確定"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30324536238,"artifact_id":8675157859,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:8ae397036142e949fd6b67dbc270c3aa42b9c2cfef5c095dc39f3863f6fe1bc4","head_sha":"89ab462fc6c9ec030353ea9d50c06fd4995c8e54"}},{"batch":145,"review_status":"complete","apply_status":"verified","scene_groups":["6057_12"],"reviewed_rows":5,"reviewed_keys":5,"unique_rows":5,"fix_keys":0,"unique_fix_rows":0,"new_pair_keys":0,"new_project_keys":0,"keep_keys":5,"fix_files":[],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH145_2026-07-28.md","ownership_summary":{"existing_keys":2,"unowned_kept":3,"new_keys":0,"cross_register_keys":0},"existing_owner_updates":0,"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["莫問は宇文逸の来訪を望ましくないと告げる","その理由はこの抜粋だけでは明言されない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30324536238,"artifact_id":8675157859,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:8ae397036142e949fd6b67dbc270c3aa42b9c2cfef5c095dc39f3863f6fe1bc4","head_sha":"89ab462fc6c9ec030353ea9d50c06fd4995c8e54"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_23.json","previous_release":{"train_id":"yuwen-mowen-train-22","release_id":"yuwen-mowen-train-22-r1","pr":150,"merge_sha":"743c881fcb586a8c26ee1242ce5998c10a414021"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":56,"unique_reviewed_rows":56,"fix_keys":8,"unique_fix_rows":8,"keep_only_bundles":2,"pre_challenge_unique_fix_rows":8,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":48,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN23_WAVE01_2026-07-28.md"}},"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-23-wave-01"},"next_release":{"candidate_scene":["11996_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[141,142,143,144,145],"current_private_stage":"translation_frozen"},"applied_result":{"orchestrator_run":30327015549,"asset_head":"6a166ceadcbe003189186f6ebe9752f8791d096f","pair_applied_keys":1332,"project_applied_keys":1708,"pending_fixes":0,"checkpoint_status":"verified"},"verified_result":{"release_id":"yuwen-mowen-train-23-r1","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_23.json","record_index_synced":true,"pair_applied_keys":1332,"project_applied_keys":1708,"pending_fixes":0},"merge_result":{"pr":151,"merge_sha":"36c325bb6cb27a45cdb9cbfe99112ea39176433f"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-24",
+  "branch": "agent/yuwen-mowen-train-24",
+  "draft_pr": 153,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 153,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 145,
+    "pair_applied_keys": 1332,
+    "project_applied_keys": 1708,
+    "produced_by_pr": 151,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-23-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_23.json",
+      "pr": 151,
+      "validated_head": "6a166ceadcbe003189186f6ebe9752f8791d096f"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 60
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 4,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 20,
+    "unique_fix_rows": 20,
+    "new_pair_keys": 12,
+    "new_project_keys": 12,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 8,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 146,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5227_3",
+        "5227_5"
+      ],
+      "reviewed_rows": 21,
+      "reviewed_keys": 21,
+      "unique_rows": 21,
+      "fix_keys": 6,
+      "unique_fix_rows": 6,
+      "new_pair_keys": 4,
+      "new_project_keys": 4,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 2,
+      "keep_keys": 15,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch56.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH146_2026-07-28.md",
+      "ownership_summary": {
+        "existing_keys": 11,
+        "unowned_kept": 6,
+        "new_keys": 4,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "玄火教の善悪は莫棄の断定と莫問の判断保留を区別する",
+        "道妙師叔が拳法と刀法の入門を教える記述は一次資料どおり保持する"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30327015549,
+        "artifact_id": 8676032201,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:b3e714fba8891fe180d6ec02322e6ad5f14ef977d44d84c85bd5f8a336951232",
+        "head_sha": "bc7731a062918c566195992fb03e7d558cb6b4b8"
+      }
+    },
+    {
+      "batch": 147,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5229_1",
+        "5229_2",
+        "5229_3"
+      ],
+      "reviewed_rows": 11,
+      "reviewed_keys": 11,
+      "unique_rows": 11,
+      "fix_keys": 7,
+      "unique_fix_rows": 7,
+      "new_pair_keys": 5,
+      "new_project_keys": 5,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 2,
+      "keep_keys": 4,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch57.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH147_2026-07-28.md",
+      "ownership_summary": {
+        "existing_keys": 4,
+        "unowned_kept": 2,
+        "new_keys": 5,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "剣は莫問が正式入門時に師父から授かったもの",
+        "莫問が宇文逸の面倒を見る理由は師父から託されたことまで"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30327015549,
+        "artifact_id": 8676032201,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:b3e714fba8891fe180d6ec02322e6ad5f14ef977d44d84c85bd5f8a336951232",
+        "head_sha": "bc7731a062918c566195992fb03e7d558cb6b4b8"
+      }
+    },
+    {
+      "batch": 148,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5215_1",
+        "5215_2",
+        "5217_2",
+        "5220_1"
+      ],
+      "reviewed_rows": 15,
+      "reviewed_keys": 15,
+      "unique_rows": 15,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
+      "new_pair_keys": 1,
+      "new_project_keys": 1,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 11,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch58.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH148_2026-07-28.md",
+      "ownership_summary": {
+        "existing_keys": 10,
+        "unowned_kept": 4,
+        "new_keys": 1,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "各殿と師叔の役目は一次資料の説明順を保持する",
+        "身分銘牌と武当の道服は既存用語を維持する"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30327015549,
+        "artifact_id": 8676032201,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:b3e714fba8891fe180d6ec02322e6ad5f14ef977d44d84c85bd5f8a336951232",
+        "head_sha": "bc7731a062918c566195992fb03e7d558cb6b4b8"
+      }
+    },
+    {
+      "batch": 149,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5230_6"
+      ],
+      "reviewed_rows": 7,
+      "reviewed_keys": 7,
+      "unique_rows": 7,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 2,
+      "new_project_keys": 2,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 1,
+      "keep_keys": 4,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch59.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH149_2026-07-28.md",
+      "ownership_summary": {
+        "existing_keys": 3,
+        "unowned_kept": 2,
+        "new_keys": 2,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        "莫離は清霄師伯の独子で長年病床にある",
+        "病状や不在理由はこの場面以上に補わない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30327015549,
+        "artifact_id": 8676032201,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:b3e714fba8891fe180d6ec02322e6ad5f14ef977d44d84c85bd5f8a336951232",
+        "head_sha": "bc7731a062918c566195992fb03e7d558cb6b4b8"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_24.json",
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-23",
+    "release_id": "yuwen-mowen-train-23-r1",
+    "pr": 151,
+    "merge_sha": "36c325bb6cb27a45cdb9cbfe99112ea39176433f"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 20,
+    "unique_fix_rows": 20,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 20,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed",
+    "challenge_pass": null
+  },
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-24-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5234_1"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      146,
+      147,
+      148,
+      149
+    ],
+    "current_private_stage": "translation_frozen"
+  }
+}
