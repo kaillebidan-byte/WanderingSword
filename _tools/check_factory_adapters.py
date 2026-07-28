@@ -98,7 +98,6 @@ def validate(
         "encoding": (
             "name: Translation factory encoding",
             "factory_encoding_executor.py",
-            "ready_for_public_ci",
         ),
         "finalization": (
             "name: Translation factory finalization",
@@ -128,6 +127,7 @@ def validate(
         "fixed_encoding_pipeline",
         "apply_owner_assignment_v2",
         "check_batch_planning.py",
+        "ready_for_public_ci",
     ):
         if marker not in encoding_path:
             errors.append(f"encoding path lacks marker: {marker}")
