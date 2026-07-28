@@ -1,7 +1,8 @@
 {
-  "schema_version": 2,
-  "contract_id": "regulated-phase-completion-signal-v2-authorized",
+  "schema_version": 3,
+  "contract_id": "regulated-phase-completion-signal-v3-consumer-gated",
   "marker": "規定フェイズ完了",
+  "authorization_prefix": "規定フェイズ認可: ",
   "status_prefix": "規定フェイズ結果: ",
   "allowed_results": [
     "success",
@@ -31,25 +32,37 @@
     "marker_must_be_last_nonempty_line": true,
     "trailing_content_forbidden": true,
     "status_line_immediately_precedes_marker": true,
+    "authorization_line_immediately_precedes_status": true,
     "marker_is_not_success_signal": true,
+    "marker_only_must_be_rejected_by_consumers": true,
+    "unauthorized_marker_must_not_stop_automation": true,
+    "reserved_marker_forbidden_without_authorization": true,
     "routine_wave_completion_does_not_emit": true,
     "visibility_checkpoint_does_not_emit": true,
     "single_pair_or_single_chapter_completion_does_not_emit": true,
     "release_phase2_completion_does_not_emit": true,
     "train_merge_does_not_emit": true,
-    "dynamic_authorization_required": true
+    "dynamic_authorization_required": true,
+    "live_state_match_required": true
   },
   "eligibility": {
     "authorization_scope": "regulated_phase_terminal",
     "success_phase_status": "complete",
     "error_phase_status": "terminal_error",
+    "authorization_event_id_required": true,
     "routine_pause_is_error": false,
     "ci_phase2_is_regulated_phase": false,
     "transport_merge_is_regulated_phase": false
   },
   "automation": {
-    "terminal_detection": "last_nonempty_line_exact_match",
-    "result_detection": "immediately_preceding_status_line",
+    "terminal_detection": "validated_three_line_suffix_against_live_state",
+    "authorization_detection": "third_nonempty_line_from_end_matches_live_event_id",
+    "result_detection": "second_nonempty_line_from_end_matches_live_result",
+    "marker_detection": "last_nonempty_line_exact_match",
+    "marker_only_is_terminal": false,
+    "live_state_validation_required": true,
+    "consumer_reference": "_tools/regulated_phase_terminal_consumer.js",
+    "python_validator": "_tools/check_phase_completion_signal.py",
     "success_line": "規定フェイズ結果: success",
     "error_line": "規定フェイズ結果: error",
     "user_input_required": false
