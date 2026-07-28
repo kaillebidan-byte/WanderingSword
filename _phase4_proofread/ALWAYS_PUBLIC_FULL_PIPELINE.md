@@ -54,23 +54,23 @@ merge後は`.github/workflows/reconcile-merged-cycle.yml`が次を同じmerge SH
 
 ## 二フェイズ終端出力
 
-巨大作業の第一フェイズ`quality_reaudit`と、第二フェイズ`narrative_readthrough`（章ごとの通読修正）は、visibility modeと独立して`PHASE_COMPLETION_SIGNAL.json`と`REGULATED_PHASE_STATE.json`に従う。
+巨大作業の第一フェイズ`quality_reaudit`と、第二フェイズ`narrative_readthrough`（章ごとの通読修正）は、visibility modeと独立して次へ従う。
 
-マーカーを出せるのは、active phaseが`complete`または`terminal_error`になり、`signal_authorization.scope=regulated_phase_terminal`が発行された場合だけである。
+- `_phase4_proofread/PHASE_COMPLETION_SIGNAL.json`
+- `_phase4_proofread/REGULATED_PHASE_STATE.json`
+- `_phase4_proofread/FINAL_RESPONSE_GATE.md`
 
-フェイズ成功時は応答末尾を次に固定する。
+終端予約語を使用できるのは、active phaseが`complete`または`terminal_error`になり、live `signal_authorization.scope=regulated_phase_terminal`が発行された場合だけである。
 
-```text
-規定フェイズ結果: success
-規定フェイズ完了
-```
-
-フェイズ全体がterminal errorで終了した場合も応答末尾を次に固定する。
+認可済みterminal responseは、契約値による次の三行suffixを使う。
 
 ```text
-規定フェイズ結果: error
-規定フェイズ完了
+<authorization_prefix><signal_authorization.event_id>
+<status_prefix><signal_authorization.result>
+<marker>
 ```
+
+`signal_authorization=null`の間は、契約のmarker値を報告、説明、引用、例示へ出力しない。
 
 次は規定フェイズ終端ではない。
 
@@ -80,13 +80,19 @@ merge後は`.github/workflows/reconcile-merged-cycle.yml`が次を同じmerge SH
 - 単一人物ペア、単一章
 - 再開可能なchecker failure、外部依存停止、turn容量停止
 
-`規定フェイズ完了`の後ろには何も書かない。authorizationがnullなら、文面だけ正しくても出力しない。
+通常応答を含む最終文面は、送信前に次へ通す。
+
+```bash
+python _tools/check_phase_completion_signal.py --response-file <draft-response.txt>
+```
+
+自動化側は固定marker単独で停止せず、`_tools/regulated_phase_terminal_consumer.js`の返す`accepted === true`だけをterminalとして扱う。live stateを取得できなければ非受理とする。
 
 ## 失敗
 
 checker failure、外部依存停止、判断要求、turn容量停止だけを`paused`として許す。
 
-常時public modeの失敗を理由にprivate復帰を要求しない。状態正本へ失敗分類とexact next actionを残し、同じlocked modeで再開する。通常の`paused`では規定フェイズ完了マーカーを出さない。
+常時public modeの失敗を理由にprivate復帰を要求しない。状態正本へ失敗分類とexact next actionを残し、同じlocked modeで再開する。通常の`paused`では終端予約語を出さない。
 
 ## merge
 
