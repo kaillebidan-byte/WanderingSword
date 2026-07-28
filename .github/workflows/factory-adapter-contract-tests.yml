@@ -18,14 +18,19 @@ on:
       - "_tools/translation_factory_controller.py"
       - "_tools/fixed_cycle_initializer.py"
       - "_tools/factory_request_executor.py"
+      - "_tools/fixed_encoding_pipeline.py"
       - "_tools/check_factory_adapters.py"
       - "_tools/check_next_task_packet_v3.py"
+      - "_tools/check_batch_planning.py"
       - "_tools/test_fixed_cycle_initializer.py"
+      - "_tools/test_fixed_encoding_pipeline.py"
       - "_tools/test_check_next_task_packet_minimal.py"
+      - "_tools/test_check_batch_planning.py"
       - "_tools/test_translation_factory_controller.py"
       - "_tools/test_translation_factory_workflow.py"
       - ".github/workflows/translation-factory-plan.yml"
       - ".github/workflows/translation-factory-execute.yml"
+      - ".github/workflows/translation-factory-encode.yml"
       - ".github/workflows/factory-adapter-contract-tests.yml"
 
 concurrency:
@@ -49,13 +54,23 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate factory contract
+        run: python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
       - name: Validate permanent adapter wiring
+        run: python _tools/check_factory_adapters.py
+      - name: Test cycle initializer
+        run: python _tools/test_fixed_cycle_initializer.py
+      - name: Test encoding pipeline
+        run: python _tools/test_fixed_encoding_pipeline.py
+      - name: Test minimal next packet
+        run: python _tools/test_check_next_task_packet_minimal.py
+      - name: Test semantic batch planning
+        run: python _tools/test_check_batch_planning.py
+      - name: Test factory controller
+        run: python _tools/test_translation_factory_controller.py
+      - name: Test factory workflows
+        run: python _tools/test_translation_factory_workflow.py
+      - name: Validate state JSON and diff
         run: |
-          python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
-          python _tools/check_factory_adapters.py
-          python _tools/test_fixed_cycle_initializer.py
-          python _tools/test_check_next_task_packet_minimal.py
-          python _tools/test_translation_factory_controller.py
-          python _tools/test_translation_factory_workflow.py
           python _tools/check_state_json_integrity.py
           git diff --check
