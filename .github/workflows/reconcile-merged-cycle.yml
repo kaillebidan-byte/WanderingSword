@@ -12,6 +12,9 @@ on:
     paths:
       - ".github/workflows/reconcile-merged-cycle.yml"
       - "_tools/reconcile_merged_cycle.py"
+      - "_tools/test_reconcile_merged_cycle.py"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+      - "_phase4_proofread/CURRENT_HANDOFF.md"
   workflow_dispatch:
 
 concurrency:
@@ -67,7 +70,9 @@ jobs:
           if git diff --quiet -- \
             _phase4_proofread/CURRENT_WORK.json \
             _phase4_proofread/PRIVATE_STAGE_STATE.json \
-            _phase4_proofread/CI_TRAIN_MANIFEST.json; then
+            _phase4_proofread/CI_TRAIN_MANIFEST.json \
+            _phase4_proofread/NEXT_TASK_PACKET.json \
+            _phase4_proofread/CURRENT_HANDOFF.md; then
             echo "No merged state reconciliation required."
             exit 0
           fi
@@ -76,7 +81,9 @@ jobs:
           git add \
             _phase4_proofread/CURRENT_WORK.json \
             _phase4_proofread/PRIVATE_STAGE_STATE.json \
-            _phase4_proofread/CI_TRAIN_MANIFEST.json
+            _phase4_proofread/CI_TRAIN_MANIFEST.json \
+            _phase4_proofread/NEXT_TASK_PACKET.json \
+            _phase4_proofread/CURRENT_HANDOFF.md
           git commit -m "制度: merge済み翻訳cycleの状態を確定"
           git pull --rebase origin main
           git push origin HEAD:main
