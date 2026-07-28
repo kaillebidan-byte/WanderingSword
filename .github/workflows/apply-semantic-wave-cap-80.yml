@@ -44,10 +44,14 @@ jobs:
       - name: Run manifest regression
         run: python _tools/test_check_ci_train_manifest.py
 
-      - name: Validate live wave state
+      - name: Validate live private-stage state
+        run: python _tools/check_private_translation_stage.py
+
+      - name: Validate live manifest state
+        run: python _tools/check_ci_train_manifest_phase2_compat.py
+
+      - name: Validate JSON and patch format
         run: |
-          python _tools/check_private_translation_stage.py
-          python _tools/check_ci_train_manifest_phase2_compat.py
           python _tools/check_state_json_integrity.py
           git diff --check
 
