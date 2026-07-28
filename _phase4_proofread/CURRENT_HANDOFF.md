@@ -15,13 +15,11 @@
 
 ## 次の作業
 
-GitHub repository metadataでcycle開始時visibilityを確認し、`EXECUTION_MODES.json`に従って新cycleのmodeを選ぶ。`CURRENT_WORK.operation_mode`と`PRIVATE_STAGE_STATE.cycle_control`へ同じmodeをlockした後、予約候補からwave preparationを開始する。
-
-public開始なら`always_public_full_pipeline`として、段階権限を守りながら同じcycleでmergeまで進める。private開始なら`manual_visibility_cycle`としてvisibility境界を使う。
+cycle開始時visibilityからmodeを選び、CURRENT_WORKとPRIVATE_STAGE_STATEへlockした後、予約候補のpreparationを開始する。
 
 ## 禁止
 
-- merged済みPRのphase2、review thread、squash mergeを再実行しない。
+- merged済みPRのphase2やmergeを再実行しない。
 - mode lock前に翻訳準備、判断、owner書込みを開始しない。
-- minimal reservationへprivate preparationの詳細を先書きしない。
+- minimal reservationへprivate preparation詳細を先書きしない。
 - ゲームフォルダへ配置しない。
