@@ -66,10 +66,38 @@ jobs:
         run: python _tools/check_ci_train_manifest.py --require-ready
       - name: Check translation quality gate
         run: python _tools/check_translation_quality_gate.py
-      - name: Check next task packet
+      - name: Check next task packet v3
         run: python _tools/check_next_task_packet_v3.py
       - name: Check autonomous cycle
         run: python _tools/check_autonomous_cycle.py
+
+      - name: Check project scope lock external
+        run: python _tools/check_project_scope_lock.py --repository kaillebidan-byte/WanderingSword
+      - name: Check operation mode public
+        run: python _tools/check_operation_mode.py --repository-visibility public
+      - name: Check state JSON integrity
+        run: python _tools/check_state_json_integrity.py
+      - name: Check operational docs consistency
+        run: python _tools/check_operational_docs_consistency.py
+      - name: Check project scope lock
+        run: python _tools/check_project_scope_lock.py
+      - name: Check visibility preflight contract
+        run: python _tools/check_visibility_preflight_contract.py
+      - name: Check phase completion signal
+        run: python _tools/check_phase_completion_signal.py
+      - name: Check release-live candidate ownership
+        run: python _tools/check_candidate_ownership.py --release-live
+      - name: Check fix owner delta
+        run: python _tools/check_fix_owner_delta.py
+      - name: Check train manifest v2
+        run: python _tools/check_ci_train_manifest_v2.py
+      - name: Check legacy next task packet
+        run: python _tools/check_next_task_packet.py --allow-pending
+      - name: Check batch planning
+        run: python _tools/check_batch_planning.py
+      - name: Check release transport state
+        run: python _tools/check_release_transport_state.py
+
       - name: Run public preflight with tests
         run: python _tools/check_private_release_preflight.py --repository-visibility public --with-tests
 
