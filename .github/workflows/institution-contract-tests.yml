@@ -13,6 +13,8 @@ on:
       - "AGENTS.md"
       - "_phase4_proofread/PROJECT_SCOPE_LOCK.json"
       - "_phase4_proofread/GITHUB_API_WRITE_POLICY.json"
+      - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
+      - "_phase4_proofread/FACTORY_FLOW.md"
       - "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json"
       - "_phase4_proofread/EXECUTION_MODES.json"
       - "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json"
@@ -47,6 +49,9 @@ on:
       - "_tools/regulated_phase_terminal_consumer.js"
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/select_cycle_execution_mode.py"
+      - "_tools/translation_factory_controller.py"
+      - "_tools/test_translation_factory_controller.py"
+      - "_tools/test_translation_factory_workflow.py"
       - "_tools/test_check_operational_docs_consistency.py"
       - "_tools/test_check_project_scope_lock.py"
       - "_tools/test_check_pr_commit_budget.py"
@@ -64,6 +69,7 @@ on:
       - ".github/workflows/institution-contract-tests.yml"
       - ".github/workflows/pr-commit-budget.yml"
       - ".github/workflows/reconcile-merged-cycle.yml"
+      - ".github/workflows/translation-factory-plan.yml"
 
 concurrency:
   group: institution-contract-tests-${{ github.event.pull_request.number }}
@@ -98,6 +104,13 @@ jobs:
           python _tools/test_check_project_scope_lock.py
           python _tools/check_visibility_preflight_contract.py
           python _tools/test_check_visibility_preflight_contract.py
+
+      - name: Run factory flow regressions
+        run: |
+          python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
+          python _tools/translation_factory_controller.py --repository-visibility public
+          python _tools/test_translation_factory_controller.py
+          python _tools/test_translation_factory_workflow.py
 
       - name: Run operational document consistency
         run: |

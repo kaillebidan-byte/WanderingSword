@@ -14,7 +14,6 @@ TOOLS = ROOT / "_tools"
 BASE_CHECKS = [
     ["check_state_json_integrity.py"],
     ["check_operational_docs_consistency.py"],
-    ["check_operational_docs_consistency.py"],
     ["check_project_scope_lock.py"],
     ["check_visibility_preflight_contract.py"],
     ["check_phase_completion_signal.py"],
@@ -32,7 +31,8 @@ BASE_CHECKS = [
 TESTS = [
     ["test_check_state_json_integrity.py"],
     ["test_check_operational_docs_consistency.py"],
-    ["test_check_operational_docs_consistency.py"],
+    ["test_translation_factory_controller.py"],
+    ["test_translation_factory_workflow.py"],
     ["test_check_project_scope_lock.py"],
     ["test_check_visibility_preflight_contract.py"],
     ["test_check_phase_completion_signal.py"],
@@ -78,6 +78,17 @@ def main() -> int:
     checks = [
         ["check_project_scope_lock.py", "--repository", "kaillebidan-byte/WanderingSword"],
         ["check_operation_mode.py", "--repository-visibility", args.repository_visibility],
+        [
+            "translation_factory_controller.py",
+            "--repository-visibility",
+            args.repository_visibility,
+            "--validate-contract-only",
+        ],
+        [
+            "translation_factory_controller.py",
+            "--repository-visibility",
+            args.repository_visibility,
+        ],
         *BASE_CHECKS,
     ]
     for command in checks + (TESTS if args.with_tests else []):
@@ -94,6 +105,7 @@ def main() -> int:
     print("\nRelease preflight used live owner measurement and sealed owner-assignment evidence.")
     print("Stored candidate ownership snapshots remain immutable pre-quality-audit records.")
     print("External repository scope is locked to kaillebidan-byte/WanderingSword.")
+    print("Factory controller resolved exactly one transport action.")
     print("Final response terminal acceptance requires live event ID and consumer validation.")
     print(f"Cycle execution mode is valid for repository visibility {args.repository_visibility}.")
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")

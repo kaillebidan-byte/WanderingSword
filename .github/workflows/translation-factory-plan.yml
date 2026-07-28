@@ -1,0 +1,68 @@
+name: Translation factory work order
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
+      - "_phase4_proofread/FACTORY_FLOW.md"
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+      - "_tools/translation_factory_controller.py"
+      - "_tools/test_translation_factory_controller.py"
+      - ".github/workflows/translation-factory-plan.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+
+permissions:
+  contents: read
+
+jobs:
+  work-order:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Resolve repository visibility
+        id: visibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          visibility="$(gh api "repos/${GITHUB_REPOSITORY}" --jq .visibility)"
+          case "$visibility" in
+            private|public) ;;
+            *) echo "unsupported visibility: $visibility" >&2; exit 1 ;;
+          esac
+          echo "value=$visibility" >> "$GITHUB_OUTPUT"
+      - name: Validate factory contract
+        run: python _tools/translation_factory_controller.py --repository-visibility "${{ steps.visibility.outputs.value }}" --validate-contract-only
+      - name: Generate deterministic work order
+        run: python _tools/translation_factory_controller.py --repository-visibility "${{ steps.visibility.outputs.value }}" --output translation-factory-work-order.json
+      - name: Run controller regression
+        run: python _tools/test_translation_factory_controller.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: translation-factory-work-order
+          path: translation-factory-work-order.json
+          if-no-files-found: error

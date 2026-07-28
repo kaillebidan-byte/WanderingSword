@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-import copy
-
 from check_operational_docs_consistency import validate_snapshot
 
 SHA = "a" * 40
@@ -20,6 +18,7 @@ def fixtures():
         "release_candidate": {"status": "merged", "merge_sha": SHA},
         "do_not_do": ["mode lock前に開始しない"],
     }
+    factory_markers = "translation_factory_controller.py semantic_bundle_boundary translation_quality_audit"
     texts = {
         "handoff": "PR #12: merged\ntransport: `merged`\ncycle: `target_reached / merged`\n",
         "cold": "public + `private_translation_work` + `always_public_full_pipeline`",
@@ -27,7 +26,9 @@ def fixtures():
         "phase2": "mode-neutral release",
         "runbook": "post-merge状態専用PRは作らない",
         "public_window": "manual_visibility_cycle専用",
-        "readme": "check_operational_docs_consistency.py",
+        "readme": factory_markers,
+        "session": factory_markers,
+        "factory": factory_markers,
         "private_stages": "encoding後に上書きしない",
     }
     return current, state, manifest, packet, texts
@@ -52,6 +53,10 @@ def main() -> None:
     current, state, manifest, packet, texts = fixtures()
     texts["runbook"] += "\npost-merge状態PRを作成する"
     assert any("legacy instruction" in error for error in validate_snapshot(current, state, manifest, packet, texts))
+
+    current, state, manifest, packet, texts = fixtures()
+    texts["session"] = "translation_factory_controller.py semantic_bundle_boundary"
+    assert any("translation_quality_audit" in error for error in validate_snapshot(current, state, manifest, packet, texts))
 
     print("test_check_operational_docs_consistency: OK")
 
