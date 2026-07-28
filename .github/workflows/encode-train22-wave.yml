@@ -1,0 +1,377 @@
+name: Encode train22 wave
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-22
+    paths:
+      - .github/workflows/encode-train22-wave.yml
+
+permissions:
+  contents: write
+
+jobs:
+  encode:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build plan, formal bundles, and frozen state
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p4 = Path('_phase4_proofread')
+          decisions = json.loads((p4 / 'AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.json').read_text(encoding='utf-8'))
+          fixes = decisions['fixes']
+          packet_defs = [
+              {
+                  'batch': 136,
+                  'candidate': '_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json',
+                  'owner': '_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch46.json',
+                  'scenes': ['32025_1'],
+                  'prefixes': ('32025_1_',),
+                  'review': '_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH136_2026-07-28.md',
+              },
+              {
+                  'batch': 137,
+                  'candidate': '_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json',
+                  'owner': '_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch47.json',
+                  'scenes': ['32007_1', '32004_1'],
+                  'prefixes': ('32007_1_', '32004_1_'),
+                  'review': '_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH137_2026-07-28.md',
+              },
+              {
+                  'batch': 138,
+                  'candidate': '_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json',
+                  'owner': '_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch48.json',
+                  'scenes': ['32001_2', '32001_5', '30821_1'],
+                  'prefixes': ('32001_2_', '32001_5_', '30821_1_'),
+                  'review': '_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH138_2026-07-28.md',
+              },
+              {
+                  'batch': 139,
+                  'candidate': '_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json',
+                  'owner': '_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch49.json',
+                  'scenes': ['24221_2', '24221_3', '24221_5', '24221_6'],
+                  'prefixes': ('24221_2_', '24221_3_', '24221_5_', '24221_6_'),
+                  'review': '_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH139_2026-07-28.md',
+              },
+              {
+                  'batch': 140,
+                  'candidate': '_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json',
+                  'owner': '_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch50.json',
+                  'scenes': ['24223_3', '24230_1', '24232_3'],
+                  'prefixes': ('24223_3_', '24230_1_', '24232_3_'),
+                  'review': '_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH140_2026-07-28.md',
+              },
+          ]
+
+          plan_packets = []
+          bundles = []
+          packet_stats = []
+          for item in packet_defs:
+              candidate = json.loads((Path(item['candidate'])).read_text(encoding='utf-8'))
+              keys = [row['key'] for row in candidate['rows']]
+              values = {key: value for key, value in fixes.items() if key.startswith(item['prefixes'])}
+              fix_keys = [key for key in keys if key in values]
+              if set(values) != set(fix_keys):
+                  raise SystemExit(f'packet values do not align with candidate: {item["batch"]}')
+              snapshot = candidate['ownership_snapshot']
+              existing_count = sum(len(entry['keys']) for entry in snapshot['existing'])
+              unowned_count = len(snapshot['unowned'])
+              if existing_count + unowned_count != len(keys):
+                  raise SystemExit(f'ownership snapshot count mismatch: {item["batch"]}')
+              existing_fix = sum(1 for key in fix_keys if any(key in entry['keys'] for entry in snapshot['existing']))
+              new_keys = len(fix_keys) - existing_fix
+              unowned_kept = unowned_count - new_keys
+              fix_files = [] if not fix_keys else ([item['owner']] if new_keys else [])
+              plan_packets.append({
+                  'candidate': item['candidate'],
+                  'new_owner_file': item['owner'],
+                  'values': values,
+                  'fix_keys': fix_keys,
+              })
+              bundle = {
+                  'batch': item['batch'],
+                  'review_status': 'complete',
+                  'apply_status': 'pending',
+                  'scene_groups': item['scenes'],
+                  'reviewed_rows': len(keys),
+                  'reviewed_keys': len(keys),
+                  'unique_rows': len(keys),
+                  'fix_keys': len(fix_keys),
+                  'unique_fix_rows': len(fix_keys),
+                  'new_pair_keys': new_keys,
+                  'new_project_keys': new_keys,
+                  'keep_keys': len(keys) - len(fix_keys),
+                  'fix_files': fix_files,
+                  'review_record': item['review'],
+                  'ownership_summary': {
+                      'existing_keys': existing_count,
+                      'unowned_kept': unowned_kept,
+                      'new_keys': new_keys,
+                      'cross_register_keys': 0,
+                  },
+                  'existing_owner_updates': existing_fix,
+                  'allusion_review_candidates': [],
+                  'allusion_review_resolved': [],
+                  'fact_doubts': candidate['unresolved_gates']['fact_doubts'],
+                  'source_artifact': candidate['source_artifact'],
+              }
+              bundles.append(bundle)
+              packet_stats.append((item, candidate, keys, fix_keys, bundle))
+
+          if sum(len(p['fix_keys']) for p in plan_packets) != 22:
+              raise SystemExit('owner assignment plan must contain exactly 22 audited fixes')
+          (p4 / 'OWNER_ASSIGNMENT_PLAN.json').write_text(
+              json.dumps({'schema_version': 1, 'packets': plan_packets}, ensure_ascii=False, separators=(',', ':')) + '\n',
+              encoding='utf-8',
+          )
+
+          audit_path = '_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md'
+          for item, candidate, keys, fix_keys, bundle in packet_stats:
+              lines = [
+                  f'# 宇文逸↔莫問 第{item["batch"]}束 review',
+                  '',
+                  '- status: `complete`',
+                  '- apply_status: `pending`',
+                  f'- scenes: `{ "` / `".join(item["scenes"]) }`',
+                  f'- reviewed rows: {len(keys)}',
+                  f'- fix keys: {len(fix_keys)}',
+                  f'- keep keys: {len(keys) - len(fix_keys)}',
+                  f'- audit: `{audit_path}`',
+                  f'- candidate: `{item["candidate"]}`',
+                  '',
+                  '## fix keys',
+                  '',
+              ]
+              if fix_keys:
+                  lines.extend(f'- `{key}`' for key in fix_keys)
+              else:
+                  lines.append('- なし（keep-only bundle）')
+              lines.extend([
+                  '',
+                  '## ownership',
+                  '',
+                  f'- existing candidate keys: {bundle["ownership_summary"]["existing_keys"]}',
+                  f'- new owner keys: {bundle["ownership_summary"]["new_keys"]}',
+                  f'- unowned keeps: {bundle["ownership_summary"]["unowned_kept"]}',
+                  f'- existing owner updates: {bundle["existing_owner_updates"]}',
+                  '- duplicate owners: 0',
+                  '',
+                  '## boundaries',
+                  '',
+              ])
+              lines.extend(f'- {doubt}' for doubt in candidate['unresolved_gates']['fact_doubts'])
+              Path(item['review']).write_text('\n'.join(lines) + '\n', encoding='utf-8')
+
+          current_path = p4 / 'CURRENT_WORK.json'
+          state_path = p4 / 'PRIVATE_STAGE_STATE.json'
+          manifest_path = p4 / 'CI_TRAIN_MANIFEST.json'
+          current = json.loads(current_path.read_text(encoding='utf-8'))
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+
+          totals = {
+              'bundle_count': 5,
+              'reviewed_rows': 58,
+              'reviewed_keys': 58,
+              'unique_reviewed_rows': 58,
+              'fix_keys': 22,
+              'unique_fix_rows': 22,
+              'new_pair_keys': 22,
+              'new_project_keys': 22,
+              'cross_register_keys': 0,
+              'existing_owner_updates': 0,
+              'keep_only_bundles': 1,
+          }
+
+          current['last_reviewed_batch'] = 140
+          current['operation_mode']['declared_state'] = 'translation_frozen'
+          current['immediate_next'] = {
+              'scene_groups': ['24341_2'],
+              'task': 'private release preflightを成功させ、readyになった同一HEADでPRを開いてrelease-ciを起動する。',
+              'boundary': 'translation freeze後は翻訳判断、fix追加、owner変更、正式束追加を行わない。',
+              'packet': '_phase4_proofread/NEXT_TASK_PACKET.json',
+          }
+          current['ci_train']['status'] = 'ready_for_public_ci'
+          current['ci_train']['transport_status'] = 'ready_for_public_ci'
+          current['ci_train']['totals'] = totals
+          current['ci_train']['private_stage'].update({
+              'stage': 'translation_frozen',
+              'status': 'ready_for_public_ci',
+              'transport_status': 'ready_for_public_ci',
+              'wave_id': 'yuwen-mowen-train-22-wave-01',
+              'cycle_status': 'running',
+              'cycle_checkpoint': 'ready_for_public_ci',
+          })
+
+          state['stage'] = 'translation_frozen'
+          state['cycle_control'].update({
+              'status': 'running',
+              'continuation_required': True,
+              'stop_reason': None,
+              'exact_next_action': 'private release preflightを成功させ、PRを開いてrelease-ciからsquash mergeまで同一cycleで進める',
+              'last_safe_checkpoint': 'ready_for_public_ci',
+          })
+          for packet, item in zip(state['wave']['packets'], packet_defs):
+              packet['status'] = 'encoded'
+              packet['formal_batch'] = item['batch']
+              packet['review_record'] = {
+                  'record': item['review'],
+                  'status': 'complete',
+                  'apply_status': 'pending',
+              }
+          state['wave']['encoding_summary'] = {
+              'packet_count': 5,
+              'reviewed_rows': 58,
+              'fix_keys': 22,
+              'new_project_keys': 22,
+              'existing_owner_updates': 0,
+              'keep_only_packets': 1,
+          }
+          state['transport'] = {
+              'status': 'ready_for_public_ci',
+              'history': [
+                  {'status': 'not_ready', 'translation_stage': 'private_preparation'},
+                  {'status': 'not_ready', 'translation_stage': 'private_quality_audit'},
+                  {'status': 'not_ready', 'translation_stage': 'private_encoding'},
+                  {'status': 'ready_for_public_ci', 'translation_stage': 'translation_frozen', 'pr': None},
+              ],
+              'pr': None,
+              'merge_sha': None,
+          }
+          state['permissions'].update({
+              'translation_judgment_allowed': False,
+              'fix_writes_allowed': False,
+              'encoding_writes_allowed': False,
+          })
+          state['history'] = [
+              {'stage': 'private_preparation', 'status': 'complete'},
+              {'stage': 'private_quality_audit', 'status': 'complete'},
+              {'stage': 'private_encoding', 'status': 'complete'},
+              {'stage': 'translation_frozen', 'status': 'active'},
+          ]
+
+          manifest['status'] = 'ready_for_public_ci'
+          manifest['transport'] = {
+              'status': 'ready_for_public_ci',
+              'translation_stage': 'translation_frozen',
+              'pr': None,
+              'merge_sha': None,
+          }
+          manifest['totals'] = totals
+          manifest['bundles'] = bundles
+          manifest['tracking_mode'] = 'quality_and_private_stage_ready_for_public_ci'
+          manifest['private_stage'].update({
+              'stage': 'translation_frozen',
+              'status': 'ready_for_public_ci',
+              'transport_status': 'ready_for_public_ci',
+          })
+          manifest['next_release'] = {
+              'candidate_scene': ['24341_2'],
+              'reservation_status': 'reserved_only',
+              'reservation_schema': 6,
+              'formal_batches': [136, 137, 138, 139, 140],
+              'current_private_stage': 'translation_frozen',
+          }
+
+          next_task = {
+              'schema_version': 6,
+              'status': 'ready',
+              'task_id': 'post-train22-minimal-wave-reservation',
+              'based_on_checkpoint': {
+                  'batch': 135,
+                  'pair_applied_keys': 1306,
+                  'project_applied_keys': 1682,
+                  'produced_by_pr': 148,
+                  'release_id': 'yuwen-mowen-train-21-r1',
+                  'release_evidence': '_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_21.json',
+              },
+              'current_pair': '宇文逸↔莫問',
+              'scene_groups': ['24341_2'],
+              'reservation': {
+                  'status': 'reserved_only',
+                  'wave_id': None,
+                  'packet_id': None,
+                  'preparation_started': False,
+                  'quality_audit_started': False,
+                  'encoding_started': False,
+                  'formal_batch': None,
+              },
+              'source': {
+                  'artifact_workflow': 'Release train orchestrator',
+                  'artifact_name': 'relation-audit-evidence',
+                  'artifact_file': 'yuwen_mowen.json',
+                  'artifact_run': 30321697780,
+                  'artifact_id': 8674239509,
+                  'artifact_digest': 'sha256:bf7f79e65dbcbacbc33f17ee2d3020ad3313371df064bc55dc16b5592a3bf5c0',
+                  'artifact_head': '39155e6dc236e7253a264e0870ccd9f343f0608e',
+                  'freshness_rule': 'train-22統合後、次cycleのpreparation開始時に最新Relation artifactで24341_2と近接場面を再確認する。',
+              },
+              'release_candidate': {
+                  'train_id': 'yuwen-mowen-train-22',
+                  'release_id': 'yuwen-mowen-train-22-r1',
+                  'pr': None,
+                  'status': 'ready_for_public_ci',
+                  'merge_sha': None,
+              },
+              'do_not_do': [
+                  'minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない',
+                  'train-22統合前に24341_2のprivate preparationを開始しない',
+                  'translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない',
+                  'ゲームフォルダへ配置しない',
+              ],
+              'ci_train': {
+                  'phase': 'phase1_wave',
+                  'train_id': 'yuwen-mowen-train-22',
+                  'manifest': '_phase4_proofread/CI_TRAIN_MANIFEST.json',
+                  'planned_batch': 141,
+                  'post_merge_state_pr_required': False,
+                  'single_pr_finalization': True,
+              },
+          }
+          (p4 / 'NEXT_TASK_PACKET.json').write_text(json.dumps(next_task, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          current_path.write_text(json.dumps(current, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          (p4 / 'CURRENT_HANDOFF.md').write_text('''# 現在の申し送り\n\n> 再開指示: `現状把握して作業の続きを`\n\n## 現在地\n\n- 実visibility: public\n- execution mode: `always_public_full_pipeline`\n- verified checkpoint: 第135束 / pair 1306 / project 1682\n- train: `yuwen-mowen-train-22`\n- branch: `agent/yuwen-mowen-train-22`\n- private stage: `translation_frozen`\n- transport: `ready_for_public_ci`\n- queue: 5packet / 58行 / 22修正 / 36保持\n- formal batches: 第136〜140束\n\n## train-22\n\n師兄呼称、莫問の常体、`不必`・`欠一命`、決戦分岐の同文不一致を修正した。owner assignment v2で新規owner22、既存owner更新0、複数owner0として収録する。\n\n## 次の作業\n\nprivate release preflightを成功させ、同一HEADでPRを開いて`release-ci`からphase2、review thread 0、squash merge、merged-state reconciliationまで進める。\n\n次候補`24341_2`はminimal reservationのまま保持し、train-22統合前にpreparationを開始しない。\n\n## 禁止\n\n- translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。\n- preflight成功前にPRを開かない。\n- train-22統合前に`24341_2`のpreparationを始めない。\n- ゲームフォルダへ配置しない。\n''', encoding='utf-8')
+          PY
+      - name: Generate owner assignment and refresh snapshots
+        run: |
+          python _tools/apply_owner_assignment_v2.py
+          candidates=(
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json
+          )
+          python _tools/check_candidate_ownership.py --write "${candidates[@]}"
+          python _tools/apply_owner_assignment_v2.py
+          python _tools/check_owner_assignment_result.py
+          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py --require-ready
+          python _tools/check_translation_quality_gate.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_batch_planning.py
+      - name: Commit frozen train22 release head
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _phase4_proofread
+          git commit -m '翻訳: train-22第136〜140束を収録して凍結'
+          git push origin HEAD:${{ github.ref_name }}
