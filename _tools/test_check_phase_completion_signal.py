@@ -59,8 +59,10 @@ def contract() -> dict:
             "marker_detection": "last_nonempty_line_exact_match",
             "marker_only_is_terminal": False,
             "live_state_validation_required": True,
+            "live_state_unavailable_behavior": "reject_terminal",
             "consumer_reference": checker.EXPECTED_CONSUMER,
             "python_validator": "_tools/check_phase_completion_signal.py",
+            "agent_gate": checker.EXPECTED_AGENT_GATE,
             "success_line": "規定フェイズ結果: success",
             "error_line": "規定フェイズ結果: error",
             "user_input_required": False,
@@ -91,12 +93,14 @@ def state(quality="in_progress", narrative="queued", authorization=None) -> dict
         "consumer_gate": {
             "marker_only_accepted": False,
             "live_state_match_required": True,
+            "live_state_unavailable_behavior": "reject_terminal",
             "authorization_line_prefix": checker.AUTH_PREFIX,
             "authorization_value_source": "signal_authorization.event_id",
             "result_value_source": "signal_authorization.result",
             "response_suffix_lines": 3,
             "python_validator": "_tools/check_phase_completion_signal.py",
             "javascript_validator": checker.EXPECTED_CONSUMER,
+            "agent_gate": checker.EXPECTED_AGENT_GATE,
         },
         "last_terminal_event": None,
         "routine_pause_is_terminal_error": False,
@@ -175,6 +179,10 @@ def main() -> None:
     missing_consumer_rule["emission"]["marker_only_must_be_rejected_by_consumers"] = False
     assert any("marker_only" in error for error in checker.validate_contract(missing_consumer_rule))
 
+    missing_unavailable_rule = copy.deepcopy(contract())
+    missing_unavailable_rule["automation"]["live_state_unavailable_behavior"] = "accept_marker"
+    assert any("live_state_unavailable_behavior" in error for error in checker.validate_contract(missing_unavailable_rule))
+
     mismatched_state = state()
     mismatched_state["phases"]["quality_reaudit"]["status"] = "complete"
     assert any("state mismatch" in error for error in checker.validate_runtime_state(mismatched_state, audit()))
@@ -182,6 +190,10 @@ def main() -> None:
     permissive_gate = state()
     permissive_gate["consumer_gate"]["marker_only_accepted"] = True
     assert any("marker_only_accepted" in error for error in checker.validate_runtime_state(permissive_gate, audit()))
+
+    unavailable_accept = state()
+    unavailable_accept["consumer_gate"]["live_state_unavailable_behavior"] = "accept_marker"
+    assert any("live_state_unavailable_behavior" in error for error in checker.validate_runtime_state(unavailable_accept, audit()))
 
     print("test_check_phase_completion_signal: OK")
 
