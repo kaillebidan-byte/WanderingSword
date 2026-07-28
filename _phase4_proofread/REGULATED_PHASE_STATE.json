@@ -20,12 +20,14 @@
   "consumer_gate": {
     "marker_only_accepted": false,
     "live_state_match_required": true,
+    "live_state_unavailable_behavior": "reject_terminal",
     "authorization_line_prefix": "規定フェイズ認可: ",
     "authorization_value_source": "signal_authorization.event_id",
     "result_value_source": "signal_authorization.result",
     "response_suffix_lines": 3,
     "python_validator": "_tools/check_phase_completion_signal.py",
-    "javascript_validator": "_tools/regulated_phase_terminal_consumer.js"
+    "javascript_validator": "_tools/regulated_phase_terminal_consumer.js",
+    "agent_gate": "_phase4_proofread/FINAL_RESPONSE_GATE.md"
   },
   "last_terminal_event": null,
   "routine_pause_is_terminal_error": false,
