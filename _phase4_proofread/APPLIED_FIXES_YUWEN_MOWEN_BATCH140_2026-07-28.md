@@ -4,7 +4,7 @@
 - PR: #150
 - CI列車: `yuwen-mowen-train-22`
 - release: `yuwen-mowen-train-22-r1`
-- release evidence: `None`
+- release evidence: `_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_22.json`
 - 場面: `32025_1` / `32007_1` / `32004_1` / `32001_2` / `32001_5` / `30821_1` / `24221_2` / `24221_3` / `24221_5` / `24221_6` / `24223_3` / `24230_1` / `24232_3`
 - reviewed keys: 58
 - unique reviewed rows: 58
