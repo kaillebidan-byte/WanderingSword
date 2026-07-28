@@ -25,12 +25,14 @@ on:
       - "_tools/check_operation_mode.py"
       - "_tools/check_autonomous_cycle.py"
       - "_tools/check_phase_completion_signal.py"
+      - "_tools/regulated_phase_terminal_consumer.js"
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/select_cycle_execution_mode.py"
       - "_tools/test_check_project_scope_lock.py"
       - "_tools/test_check_operation_mode.py"
       - "_tools/test_check_autonomous_cycle.py"
       - "_tools/test_check_phase_completion_signal.py"
+      - "_tools/test_regulated_phase_terminal_consumer.js"
       - "_tools/test_reconcile_merged_cycle.py"
       - "_tools/test_select_cycle_execution_mode.py"
       - "_tools/test_release_ci_triggers.py"
@@ -59,6 +61,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Run project scope regressions
         run: |
           python _tools/check_project_scope_lock.py --repository kaillebidan-byte/WanderingSword
@@ -74,6 +81,7 @@ jobs:
         run: |
           python _tools/check_phase_completion_signal.py
           python _tools/test_check_phase_completion_signal.py
+          node _tools/test_regulated_phase_terminal_consumer.js
 
       - name: Run post-merge reconciliation regression
         run: python _tools/test_reconcile_merged_cycle.py
