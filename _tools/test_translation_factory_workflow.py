@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PLAN = ROOT / ".github" / "workflows" / "translation-factory-plan.yml"
 EXECUTE = ROOT / ".github" / "workflows" / "translation-factory-execute.yml"
+ENCODE = ROOT / ".github" / "workflows" / "translation-factory-encode.yml"
 FINALIZE = ROOT / ".github" / "workflows" / "translation-factory-finalize.yml"
 
 
@@ -27,6 +28,8 @@ def main() -> None:
     assert "pull_request:" in execute
     assert "github.event.pull_request.head.repo.full_name == github.repository" in execute
     assert '      - "_factory_requests/*.json"' in execute
+    assert '      - "!_factory_requests/finalize-release-*.json"' in execute
+    assert "! -name 'finalize-release-*.json'" in execute
     assert "permissions:\n  contents: write\n  actions: read" in execute
     assert "github.actor != 'github-actions[bot]'" in execute
     assert "gh run download" in execute
@@ -37,6 +40,11 @@ def main() -> None:
     assert 'git push origin "HEAD:${branch_name}"' in execute
     for forbidden in ("oneoff", "alternate trigger", "workflow_dispatch:"):
         assert forbidden not in execute
+
+    encode = ENCODE.read_text(encoding="utf-8")
+    assert "name: Translation factory encoding" in encode
+    assert "NOOP: recorded audit is already encoded and transport-complete" in encode
+    assert "git status --porcelain -- _phase4_proofread" in encode
 
     finalize = FINALIZE.read_text(encoding="utf-8")
     assert "name: Translation factory finalization" in finalize

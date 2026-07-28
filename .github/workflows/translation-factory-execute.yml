@@ -6,6 +6,7 @@ on:
       - "agent/yuwen-mowen-train-*"
     paths:
       - "_factory_requests/*.json"
+      - "!_factory_requests/finalize-release-*.json"
   pull_request:
     types:
       - opened
@@ -15,6 +16,7 @@ on:
       - main
     paths:
       - "_factory_requests/*.json"
+      - "!_factory_requests/finalize-release-*.json"
 
 permissions:
   contents: write
@@ -48,9 +50,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mapfile -t requests < <(find _factory_requests -maxdepth 1 -type f -name '*.json' -print | sort)
+          mapfile -t requests < <(find _factory_requests -maxdepth 1 -type f -name '*.json' ! -name 'finalize-release-*.json' -print | sort)
           if [[ "${#requests[@]}" -ne 1 ]]; then
-            echo "expected exactly one factory request, found ${#requests[@]}" >&2
+            echo "expected exactly one initialization request, found ${#requests[@]}" >&2
             exit 1
           fi
           request="${requests[0]}"
