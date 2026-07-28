@@ -23,6 +23,7 @@ EXPECTED_PHASE_ORDER = ["quality_reaudit", "narrative_readthrough"]
 EXPECTED_STATE_PATH = "_phase4_proofread/REGULATED_PHASE_STATE.json"
 EXPECTED_SCOPE = "regulated_phase_terminal"
 EXPECTED_CONSUMER = "_tools/regulated_phase_terminal_consumer.js"
+EXPECTED_AGENT_GATE = "_phase4_proofread/FINAL_RESPONSE_GATE.md"
 EVENT_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{7,127}$")
 AUDIT_STATUS_NORMALIZATION = {
     "quality_reaudit": {
@@ -135,8 +136,10 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
         "marker_detection": "last_nonempty_line_exact_match",
         "marker_only_is_terminal": False,
         "live_state_validation_required": True,
+        "live_state_unavailable_behavior": "reject_terminal",
         "consumer_reference": EXPECTED_CONSUMER,
         "python_validator": "_tools/check_phase_completion_signal.py",
+        "agent_gate": EXPECTED_AGENT_GATE,
         "success_line": f"{STATUS_PREFIX}success",
         "error_line": f"{STATUS_PREFIX}error",
         "user_input_required": False,
@@ -147,6 +150,10 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
         for key, value in expected_automation.items():
             if automation.get(key) != value:
                 errors.append(f"automation.{key} mismatch")
+    if not (ROOT / EXPECTED_AGENT_GATE).is_file():
+        errors.append("agent final response gate document is missing")
+    if not (ROOT / EXPECTED_CONSUMER).is_file():
+        errors.append("browser terminal consumer is missing")
     return errors
 
 
@@ -193,12 +200,14 @@ def validate_runtime_state(state: dict[str, Any], audit_status: dict[str, Any]) 
     expected_gate = {
         "marker_only_accepted": False,
         "live_state_match_required": True,
+        "live_state_unavailable_behavior": "reject_terminal",
         "authorization_line_prefix": AUTH_PREFIX,
         "authorization_value_source": "signal_authorization.event_id",
         "result_value_source": "signal_authorization.result",
         "response_suffix_lines": 3,
         "python_validator": "_tools/check_phase_completion_signal.py",
         "javascript_validator": EXPECTED_CONSUMER,
+        "agent_gate": EXPECTED_AGENT_GATE,
     }
     if not isinstance(gate, dict):
         errors.append("REGULATED_PHASE_STATE.consumer_gate must be an object")
