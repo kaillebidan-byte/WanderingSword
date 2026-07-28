@@ -3,12 +3,13 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-24",
   "branch": "agent/yuwen-mowen-train-24",
-  "draft_pr": null,
-  "status": "ready_for_public_ci",
+  "draft_pr": 153,
+  "status": "verified",
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "translation_stage": "translation_frozen",
-    "pr": null
+    "pr": 153,
+    "merge_sha": null
   },
   "base_checkpoint": {
     "batch": 145,
@@ -56,7 +57,7 @@
     {
       "batch": 146,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "5227_3",
         "5227_5"
@@ -101,7 +102,7 @@
     {
       "batch": 147,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "5229_1",
         "5229_2",
@@ -147,7 +148,7 @@
     {
       "batch": 148,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "5215_1",
         "5215_2",
@@ -194,7 +195,7 @@
     {
       "batch": 149,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "5230_6"
       ],
@@ -241,6 +242,13 @@
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_24.json",
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-23",
+    "release_id": "yuwen-mowen-train-23-r1",
+    "pr": 151,
+    "merge_sha": "36c325bb6cb27a45cdb9cbfe99112ea39176433f"
+  },
   "quality_gate": {
     "schema_version": 1,
     "primary_objective": "repair_substantive_translation_defects",
@@ -258,8 +266,8 @@
   },
   "private_stage": {
     "stage": "translation_frozen",
-    "status": "ready_for_public_ci",
-    "transport_status": "ready_for_public_ci",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
     "wave_id": "yuwen-mowen-train-24-wave-01"
   },
   "next_release": {
@@ -275,11 +283,5 @@
       149
     ],
     "current_private_stage": "translation_frozen"
-  },
-  "previous_release": {
-    "train_id": "yuwen-mowen-train-23",
-    "release_id": "yuwen-mowen-train-23-r1",
-    "pr": 151,
-    "merge_sha": "36c325bb6cb27a45cdb9cbfe99112ea39176433f"
   }
 }
