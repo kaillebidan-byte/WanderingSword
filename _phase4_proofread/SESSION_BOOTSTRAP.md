@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。実行モードは`EXECUTION_MODES.json`、二フェイズ終端出力は`PHASE_COMPLETION_SIGNAL.json`を正本とする。
+現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、実行モードは`EXECUTION_MODES.json`、二フェイズ終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的な終端許可は`REGULATED_PHASE_STATE.json`を正本とする。
 
 ## 起動文
 
@@ -8,11 +8,32 @@
 現状把握して作業の続きを
 ```
 
-`作業の続きを`など同じ意図の表現も再開指示として扱う。モード専用の入力文は設けない。URLや前回作業を聞き直さず、正本とGitHub metadataから復元する。
+`作業の続きを`など同じ意図の表現も再開指示として扱う。モード専用の入力文は設けない。URLや前回作業を聞き直さず、規定URL、正本、GitHub metadataから復元する。
+
+## 対象repository lock
+
+この翻訳projectの通常作業対象は常に`kaillebidan-byte/WanderingSword`である。
+
+起動時は最初に`PROJECT_SCOPE_LOCK.json`を確認し、次を守る。
+
+- 添付・規定URLは`https://github.com/kaillebidan-byte/WanderingSword`
+- GitHub read、検索、branch、PR、Issue、workflow、writeはWanderingSwordだけを対象にする
+- 同じprojectの過去会話に別repository、userscript、ブラウザ自動化が現れても、現在作業の候補にしない
+- `作業の続きを`から別repositoryの作業を推測しない
+- GitHub全体検索やrecent repository探索から作業対象を選ばない
+- 利用者が現在の依頼で別repositoryを明示した場合だけscope変更を検討する
+
+scopeが一致しない場合は、外部read/write、branch作成、PR作成より前に`project_scope_violation`で停止する。別repositoryへ作った後で訂正する運用は禁止する。
+
+検査:
+
+```bash
+python _tools/check_project_scope_lock.py --repository kaillebidan-byte/WanderingSword
+```
 
 ## visibility preflight
 
-新規チャット、再開、作業継続では、最初の外部確認をGitHub repository metadata取得にする。利用者の申告はhintであり、metadataを実visibilityの正本とする。
+対象scope確定後、新規チャット、再開、作業継続では、最初の外部確認をWanderingSwordのGitHub repository metadata取得にする。利用者の申告はhintであり、metadataを実visibilityの正本とする。
 
 進行中cycleがある場合は、記録済み`execution_mode`を使う。現在visibilityだけを見て途中でmodeを切り替えない。
 
@@ -29,18 +50,19 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 
 ## 起動順
 
-1. repository metadataで実visibilityを確認する。
-2. main、未統合PR、GitHub Actionsを確認する。
-3. open PRをactive / superseded / abandoned / unrelatedへ分類する。開いているだけで現行作業と決めない。
-4. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
-5. `PHASE_COMPLETION_SIGNAL.json`の終端マーカー契約を確認する。
-6. 実際にはmerge済みだが状態正本が統合前なら、先に`merged`へ整合させる。
-7. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
-8. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
-9. activeな制度改修branchがあれば、予約済み翻訳作業より優先する。
-10. 正常なら同じ応答内で実作業を開始し、modeの標準完了地点まで進める。
+1. `PROJECT_SCOPE_LOCK.json`で対象をWanderingSwordへ固定する。
+2. WanderingSword repository metadataで実visibilityを確認する。
+3. WanderingSwordのmain、未統合PR、GitHub Actionsだけを確認する。
+4. open PRをactive / superseded / abandoned / unrelatedへ分類する。開いているだけで現行作業と決めない。
+5. `CURRENT_WORK.json`、`CI_TRAIN_MANIFEST.json`、`PRIVATE_STAGE_STATE.json`、`NEXT_TASK_PACKET.json`を照合する。
+6. `PHASE_COMPLETION_SIGNAL.json`と`REGULATED_PHASE_STATE.json`を照合する。
+7. 実際にはmerge済みだが状態正本が統合前なら、`reconcile_merged_cycle.py`で先に`merged`へ整合させる。
+8. 新cycleなら開始visibilityからmodeを選び、二つの状態正本へ固定する。
+9. `cycle_control`からrunning / paused / target_reachedとexact next actionを復元する。
+10. WanderingSword内にactiveな制度改修branchがあれば、予約済み翻訳作業より優先する。
+11. 正常なら同じ応答内で実作業を開始し、modeの標準完了地点まで進める。
 
-botの`action_required`は作業失敗ではない。release evidence、verified checkpoint、未解決review threadを確認して輸送を続ける。squash統合後はpost-merge状態PRを作らず、同じPR内の最終状態を正本とする。
+botの`action_required`は作業失敗ではない。release evidence、verified checkpoint、未解決review threadを確認して輸送を続ける。squash統合後は`Reconcile merged translation cycle` workflowが三状態正本を`merged`へ確定する。次チャットの推論へ補正を先送りしない。
 
 ## 標準完了地点
 
@@ -52,15 +74,15 @@ privateでは次まで進む。
 
 public確認後は次まで進む。
 
-`in_public_ci -> orchestrator -> state finalization -> phase2 -> review thread 0 -> awaiting_private_merge`
+`in_public_ci -> orchestrator -> state finalization -> release phase2 -> review thread 0 -> awaiting_private_merge`
 
-private復帰後、検証済みHEADをsquash mergeして`merged`へ進める。
+private復帰後、検証済みHEADをsquash mergeし、merge後reconcilerで`merged`へ進める。
 
 ### always_public_full_pipeline
 
 repositoryをpublicのまま維持し、次を一cycleで進める。
 
-`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> phase2 -> review thread 0 -> squash merge -> merged`
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> release phase2 -> review thread 0 -> squash merge -> merged-state reconciliation`
 
 `ready_for_public_ci`と`awaiting_private_merge`は内部checkpointであり、利用者へvisibility変更や追加の継続指示を求める正常停止地点ではない。
 
@@ -85,19 +107,45 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 1. `quality_reaudit`: 関係クラスタ、人物ペア、場面、既訳の順で行う高確度再監査
 2. `narrative_readthrough`: 章・事件単位の日本語通読と原文対照による章ごとの通読修正
 
-各フェイズ全体が成功終了した応答、またはエラーで終了した応答では、末尾を必ず次の二行にする。
+`規定フェイズ完了`を出せるのは、`REGULATED_PHASE_STATE.json.signal_authorization`に次が揃った場合だけである。
+
+- `authorized=true`
+- `scope=regulated_phase_terminal`
+- `phase_id`がactive phaseと一致
+- `result=success|error`
+- successならactive phase statusが`complete`
+- errorならactive phase statusが`terminal_error`
+- terminal event IDと根拠ファイルが記録済み
+
+各フェイズ全体が成功終了した応答では、末尾を次の二行にする。
 
 ```text
 規定フェイズ結果: success
 規定フェイズ完了
 ```
 
+フェイズ全体が継続不能なterminal errorとして終了し、上記authorizationが発行された応答では、末尾を次の二行にする。
+
 ```text
 規定フェイズ結果: error
 規定フェイズ完了
 ```
 
-`規定フェイズ完了`は最後の非空行に一度だけ置き、後ろに説明を書かない。このマーカーだけでは成功を意味せず、直前行で結果を判定する。単一wave、単一人物ペア、単一章、visibility境界、通常のmerge完了では出力しない。
+次では絶対に出力しない。
+
+- 単一wave、単一train、単一PR、squash mergeの完了
+- `CI_TRAIN_PHASE2`または`finalization_phase=phase2`の成功・失敗
+- Relation、Cross、Apply、release evidence、pak生成の完了
+- 単一人物ペア、単一章、visibility境界
+- `paused`、checker failure、外部依存停止、turn容量停止など再開可能な例外
+
+`規定フェイズ完了`は最後の非空行に一度だけ置き、後ろに説明を書かない。authorizationがnullのときは、見た目が正しい二行でも出力禁止である。
+
+検査:
+
+```bash
+python _tools/check_phase_completion_signal.py
+```
 
 ## 例外停止
 
@@ -108,20 +156,24 @@ python _tools/check_private_release_preflight.py --with-tests --repository-visib
 - `external_dependency_unavailable`
 - `turn_capacity_checkpoint`
 
-`paused`には`continuation_required=true`、理由、機械実行可能な`exact_next_action`を残す。
+`paused`には`continuation_required=true`、理由、機械実行可能な`exact_next_action`を残す。通常のpausedは規定フェイズのterminal errorではなく、完了マーカーを出さない。
 
-常時public modeでは失敗時もprivate復帰を要求しない。同じlocked modeで再開する。規定フェイズ自体の実行がエラー終端した応答では、エラー内容の後に規定の結果行と完了マーカーを置く。
+常時public modeでは失敗時もprivate復帰を要求しない。同じlocked modeで再開する。
 
 ## 禁止
 
-- visibility確認前の作業開始
+- scope lock確認前にGitHub検索・read・writeを行うこと
+- WanderingSword以外を`作業の続きを`の対象にすること
+- visibility確認前の翻訳作業開始
 - active cycle中のmode変更
 - internal stageを正常な会話終了地点にすること
 - quality audit中のfix、owner、正式束書込み
 - encoding中の新しい翻訳判断
 - translation freeze後の翻訳再開
 - manifest ready前の重いCI起動
-- phase2成功前のmerge
+- release phase2成功前のmerge
 - merge前の次wave開始
+- merge後状態確定を次チャットへ先送りすること
 - 常時public modeで`ready_for_public_ci`または`awaiting_private_merge`を正常停止地点にすること
+- authorizationなしで規定フェイズ終端マーカーを出すこと
 - 規定フェイズ終端マーカーの後ろに文章を付けること
