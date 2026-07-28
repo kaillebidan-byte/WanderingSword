@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MODULE_PATH = ROOT / "_tools" / "fixed_encoding_pipeline.py"
+CONTROL_BEFORE = 'speaker_01$@$<Y>原文 {0}</>#nl次の行\r\n終端'
 
 
 def load_module():
@@ -18,6 +19,37 @@ def load_module():
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
+
+
+def control_payload(after: str) -> tuple[dict, dict]:
+    candidate = {
+        "scene_groups": ["control_fixture"],
+        "rows": [{"key": "Control_Index0_Text", "ja": CONTROL_BEFORE}],
+    }
+    decision = {
+        "status": "audited",
+        "scene_groups": ["control_fixture"],
+        "fixes": [
+            {
+                "key": "Control_Index0_Text",
+                "before": CONTROL_BEFORE,
+                "after": after,
+                "reason": "control regression",
+            }
+        ],
+        "keeps": [],
+    }
+    return decision, candidate
+
+
+def assert_control_rejected(module, after: str, expected: str) -> None:
+    decision, candidate = control_payload(after)
+    try:
+        module.validate_decision(decision, candidate)
+    except module.EncodingError as exc:
+        assert expected in str(exc), str(exc)
+    else:
+        raise AssertionError(f"expected rejection: {expected}")
 
 
 def main() -> None:
@@ -50,6 +82,20 @@ def main() -> None:
         assert "partition mismatch" in str(exc)
     else:
         raise AssertionError("missing keep must fail")
+
+    valid = 'speaker_01$@$<Y>修正文 {0}</>#nl続き\r\n終端'
+    control_decision, control_candidate = control_payload(valid)
+    control_result = module.validate_decision(control_decision, control_candidate)
+    assert control_result["fix_map"] == {"Control_Index0_Text": valid}
+
+    assert_control_rejected(module, 'speaker_02$@$<Y>修正文 {0}</>#nl続き\r\n終端', "speaker/control prefix changed")
+    assert_control_rejected(module, '<Y>修正文 {0}</>#nl続き\r\n終端', "speaker delimiter changed")
+    assert_control_rejected(module, 'speaker_01$@$修正文 {0}</>#nl続き\r\n終端', "control token sequence changed")
+    assert_control_rejected(module, 'speaker_01$@$<Y><B>修正文 {0}</>#nl続き\r\n終端', "control token sequence changed")
+    assert_control_rejected(module, 'speaker_01$@$<Y>修正文</> {0}#nl続き\r\n終端', "control token sequence changed")
+    assert_control_rejected(module, 'speaker_01$@$<Y>修正文 {1}</>#nl続き\r\n終端', "control token sequence changed")
+    assert_control_rejected(module, 'speaker_01$@$<Y>修正文 {0}</>#nl続き\n終端', "control token sequence changed")
+
     print("test_fixed_encoding_pipeline: OK")
 
 
