@@ -1,12 +1,13 @@
 {
-  "schema_version": 1,
-  "contract_id": "regulated-phase-completion-signal-v1",
+  "schema_version": 2,
+  "contract_id": "regulated-phase-completion-signal-v2-authorized",
   "marker": "規定フェイズ完了",
   "status_prefix": "規定フェイズ結果: ",
   "allowed_results": [
     "success",
     "error"
   ],
+  "state_file": "_phase4_proofread/REGULATED_PHASE_STATE.json",
   "pipeline": {
     "phase_order": [
       "quality_reaudit",
@@ -33,7 +34,18 @@
     "marker_is_not_success_signal": true,
     "routine_wave_completion_does_not_emit": true,
     "visibility_checkpoint_does_not_emit": true,
-    "single_pair_or_single_chapter_completion_does_not_emit": true
+    "single_pair_or_single_chapter_completion_does_not_emit": true,
+    "release_phase2_completion_does_not_emit": true,
+    "train_merge_does_not_emit": true,
+    "dynamic_authorization_required": true
+  },
+  "eligibility": {
+    "authorization_scope": "regulated_phase_terminal",
+    "success_phase_status": "complete",
+    "error_phase_status": "terminal_error",
+    "routine_pause_is_error": false,
+    "ci_phase2_is_regulated_phase": false,
+    "transport_merge_is_regulated_phase": false
   },
   "automation": {
     "terminal_detection": "last_nonempty_line_exact_match",
