@@ -1,8 +1,10 @@
 # 常時public full pipeline
 
-## 選択
+## 対象と選択
 
-新しいcycleを始める直前にrepository metadataを確認する。
+最初に`PROJECT_SCOPE_LOCK.json`で対象を`kaillebidan-byte/WanderingSword`へ固定する。別repositoryを探索、参照、変更してから戻る運用は禁止する。
+
+新しいcycleを始める直前にWanderingSword repository metadataを確認する。
 
 - privateなら`manual_visibility_cycle`
 - publicなら`always_public_full_pipeline`
@@ -21,7 +23,7 @@ python _tools/select_cycle_execution_mode.py --repository-visibility public --wr
 
 常時publicでも段階機械は変えない。
 
-`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> phase2 -> review thread 0 -> squash merge -> merged`
+`private_preparation -> private_quality_audit -> private_encoding -> translation_frozen -> release preflight -> orchestrator -> state finalization -> release phase2 -> review thread 0 -> squash merge -> merged-state reconciliation`
 
 `private_*`は認知段階の名前であり、repository visibilityを意味しない。
 
@@ -38,13 +40,23 @@ publicであることを理由に段階権限を広げない。
 
 通常commit、PR作成、ready化だけでは重いCIを起動しない。
 
-manifest ready、translation freeze、release preflight成功後に既存の`release-ci`入口を使う。Relation、Cross、Apply、finalization、phase2は既存経路をそのまま使う。
+manifest ready、translation freeze、release preflight成功後に既存の`release-ci`入口を使う。Relation、Cross、Apply、finalization、release phase2は既存経路をそのまま使う。
 
-`ready_for_public_ci`と`awaiting_private_merge`は内部checkpointとして記録する。ただし常時public modeでは正常停止地点にしない。追加のvisibility操作を求めず、同じcycleで`merged`まで進む。
+`ready_for_public_ci`と`awaiting_private_merge`は内部checkpointとして記録する。ただし常時public modeでは正常停止地点にしない。追加のvisibility操作を求めず、同じcycleでsquash mergeまで進む。
+
+merge後は`.github/workflows/reconcile-merged-cycle.yml`が次を同じmerge SHAへ確定する。
+
+- `CURRENT_WORK.json`
+- `PRIVATE_STAGE_STATE.json`
+- `CI_TRAIN_MANIFEST.json`
+
+次チャットがmerge済みPRを見つけて補正する状態を正常完了としない。
 
 ## 二フェイズ終端出力
 
-巨大作業の第一フェイズ`quality_reaudit`と、第二フェイズ`narrative_readthrough`（章ごとの通読修正）は、visibility modeと独立して`PHASE_COMPLETION_SIGNAL.json`に従う。
+巨大作業の第一フェイズ`quality_reaudit`と、第二フェイズ`narrative_readthrough`（章ごとの通読修正）は、visibility modeと独立して`PHASE_COMPLETION_SIGNAL.json`と`REGULATED_PHASE_STATE.json`に従う。
+
+マーカーを出せるのは、active phaseが`complete`または`terminal_error`になり、`signal_authorization.scope=regulated_phase_terminal`が発行された場合だけである。
 
 フェイズ成功時は応答末尾を次に固定する。
 
@@ -53,23 +65,31 @@ manifest ready、translation freeze、release preflight成功後に既存の`rel
 規定フェイズ完了
 ```
 
-フェイズがエラー終端した場合も応答末尾を次に固定する。
+フェイズ全体がterminal errorで終了した場合も応答末尾を次に固定する。
 
 ```text
 規定フェイズ結果: error
 規定フェイズ完了
 ```
 
-`規定フェイズ完了`の後ろには何も書かない。単一wave、単一人物ペア、単一章、visibility checkpoint、通常のcycle mergeでは出力しない。
+次は規定フェイズ終端ではない。
+
+- train、wave、PR、squash merge、transportの完了
+- `CI_TRAIN_PHASE2`または`finalization_phase=phase2`
+- Relation、Cross、Apply、pak再生成、release evidenceの成功・失敗
+- 単一人物ペア、単一章
+- 再開可能なchecker failure、外部依存停止、turn容量停止
+
+`規定フェイズ完了`の後ろには何も書かない。authorizationがnullなら、文面だけ正しくても出力しない。
 
 ## 失敗
 
 checker failure、外部依存停止、判断要求、turn容量停止だけを`paused`として許す。
 
-常時public modeの失敗を理由にprivate復帰を要求しない。状態正本へ失敗分類とexact next actionを残し、同じlocked modeで再開する。規定フェイズのエラー終端なら、説明後にエラー結果行と完了マーカーを必ず置く。
+常時public modeの失敗を理由にprivate復帰を要求しない。状態正本へ失敗分類とexact next actionを残し、同じlocked modeで再開する。通常の`paused`では規定フェイズ完了マーカーを出さない。
 
 ## merge
 
-phase2成功、未解決review thread 0、検証済みHEAD一致を確認してpublicのままsquash mergeする。
+release phase2成功、未解決review thread 0、検証済みHEAD一致を確認してpublicのままsquash mergeする。
 
-merge前に次waveを始めない。merge後に次cycleの開始visibilityを再確認し、次のmodeを選ぶ。
+merge前に次waveを始めない。merge後reconcilerが三状態正本を`merged`へ確定した後、次cycleの開始visibilityを再確認してmodeを選ぶ。
