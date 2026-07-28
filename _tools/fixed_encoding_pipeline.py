@@ -11,6 +11,7 @@ PAIR='宇文逸↔莫問'
 AUDIT_RE=re.compile(r'^AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN(?P<train>\d+)_WAVE(?P<wave>\d+)_(?P<date>\d{4}-\d{2}-\d{2})\.json$')
 ENCODING_PERMS={'translation_judgment_allowed':False,'fix_writes_allowed':True,'encoding_writes_allowed':True,'throughput_metrics_visible':True,'metrics_frozen':False}
 FROZEN_PERMS={'translation_judgment_allowed':False,'fix_writes_allowed':False,'encoding_writes_allowed':False,'throughput_metrics_visible':True,'metrics_frozen':False}
+CONTROL_TOKEN_RE=re.compile(r'\$@\$|<[^<>\r\n]+>|#nl|\r\n|\r|\n|\{[^{}\r\n]+\}')
 
 class EncodingError(ValueError): pass
 
@@ -58,6 +59,14 @@ def candidate_index(candidate):
         by[key]=row
     return rows,by
 
+def validate_protected_structure(key,before,after):
+    before_prefix,before_sep,_=before.partition('$@$'); after_prefix,after_sep,_=after.partition('$@$')
+    if bool(before_sep)!=bool(after_sep): raise EncodingError(f'speaker delimiter changed: {key}')
+    if before_sep and before_prefix!=after_prefix: raise EncodingError(f'speaker/control prefix changed: {key}')
+    before_tokens=CONTROL_TOKEN_RE.findall(before); after_tokens=CONTROL_TOKEN_RE.findall(after)
+    if before_tokens!=after_tokens:
+        raise EncodingError(f'control token sequence changed: {key}: before={before_tokens} after={after_tokens}')
+
 def validate_decision(decision,candidate):
     if decision.get('status')!='audited': raise EncodingError('decision status must be audited')
     rows,by=candidate_index(candidate); fixes=decision.get('fixes'); keeps=decision.get('keeps')
@@ -70,6 +79,7 @@ def validate_decision(decision,candidate):
         key,before,after,reason=(item.get(k) for k in ('key','before','after','reason'))
         if not all(isinstance(v,str) and v for v in (key,before,after,reason)): raise EncodingError(f'fix[{i}] fields invalid')
         if key not in by or by[key].get('ja')!=before: raise EncodingError(f'fix source mismatch: {key}')
+        validate_protected_structure(key,before,after)
         if key in fix_map: raise EncodingError(f'duplicate fix key: {key}')
         fix_map[key]=after; normalized.append({'key':key,'before':before,'after':after,'reason':reason})
     fix_keys=set(fix_map); keep_keys=set(keeps); candidate_keys=set(by)

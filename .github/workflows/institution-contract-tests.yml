@@ -36,6 +36,7 @@ on:
       - "_phase4_proofread/RUNBOOK_人物ペア再監査.md"
       - "_phase4_proofread/PLAN_章別通読監査.md"
       - "_tools/check_state_json_integrity.py"
+      - "_tools/fixed_encoding_pipeline.py"
       - "_tools/check_operational_docs_consistency.py"
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_private_translation_stage.py"
@@ -66,6 +67,7 @@ on:
       - "_tools/test_reconcile_merged_cycle.py"
       - "_tools/test_select_cycle_execution_mode.py"
       - "_tools/test_release_ci_triggers.py"
+      - "_tools/test_fixed_encoding_pipeline.py"
       - ".github/workflows/institution-contract-tests.yml"
       - ".github/workflows/pr-commit-budget.yml"
       - ".github/workflows/reconcile-merged-cycle.yml"
@@ -141,6 +143,9 @@ jobs:
           python _tools/check_phase_completion_signal.py
           python _tools/test_check_phase_completion_signal.py
           node _tools/test_regulated_phase_terminal_consumer.js
+
+      - name: Run encoding decision integrity regressions
+        run: python _tools/test_fixed_encoding_pipeline.py
 
       - name: Run post-merge reconciliation regression
         run: python _tools/test_reconcile_merged_cycle.py
