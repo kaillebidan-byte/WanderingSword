@@ -3,7 +3,7 @@ name: One-off Yuwen-Mowen train-26 preparation
 on:
   push:
     branches:
-      - agent/yuwen-mowen-train-26
+      - main
     paths:
       - .github/workflows/oneoff-train26-preparation.yml
 
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   prepare:
-    if: ${{ !contains(github.event.head_commit.message, '[train26-prepared]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[train26-bootstrap-cleanup]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,11 +48,7 @@ jobs:
           python /tmp/train26_prepare.py
       - name: Write live owner snapshots
         run: |
-          python _tools/check_candidate_ownership.py --write \
-            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json \
-            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json \
-            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json \
-            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json
+          python _tools/check_candidate_ownership.py --write             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json             _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json
       - name: Validate preparation state
         run: |
           python _tools/check_candidate_ownership.py --require-current-wave
@@ -66,5 +62,16 @@ jobs:
           git diff --cached --check
           git commit -m "準備: train-26 wave-01を40行でseal [train26-prepared]"
           git push
+      - name: Remove bootstrap workflow from main
+        run: |
+          git fetch origin main
+          rm -rf /tmp/train26-main-clean
+          git worktree add /tmp/train26-main-clean origin/main
+          cd /tmp/train26-main-clean
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/oneoff-train26-preparation.yml
+          git commit -m "制度: train-26一時workflowを削除 [train26-bootstrap-cleanup]"
+          git push origin HEAD:main
 
-# registry trigger
+# bootstrap via main
