@@ -28,7 +28,7 @@
 
 ## 禁止
 
-- 制度キューにpendingがある間、`5352_1`のtranslation cycleを開始しない。
+- 制度キューにpendingがある間、`5352_1`の翻訳cycleを開始しない。
 - merged済みPRのphase2やmergeを再実行しない。
 - 翻訳本文、owner値、locres、pak、minimal reservationへ触れない。
 - 独自ロック、一時workflow、別triggerを新造しない。
