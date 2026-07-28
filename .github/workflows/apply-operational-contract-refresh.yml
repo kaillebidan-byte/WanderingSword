@@ -1,0 +1,65 @@
+name: Apply operational contract refresh
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+concurrency:
+  group: apply-operational-contract-refresh-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.head_ref == 'agent/operational-contract-refresh'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout migration branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 1
+          show-progress: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply operational contract migration
+        run: python _tools/migrate_operational_contracts.py
+
+      - name: Run operational consistency regression
+        run: |
+          python _tools/check_operational_docs_consistency.py
+          python _tools/test_check_operational_docs_consistency.py
+          python _tools/test_reconcile_merged_cycle.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py
+          python _tools/check_state_json_integrity.py
+          git diff --check
+
+      - name: Commit atomic migration
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '4189823+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git reset .github/workflows/apply-operational-contract-refresh.yml _tools/migrate_operational_contracts.py
+          if git diff --cached --quiet; then
+            echo 'operational contract refresh already applied'
+            exit 0
+          fi
+          git commit -m '制度: 実作業正本とmode別手順を現行仕様へ同期'
+          git push origin HEAD:${{ github.head_ref }}
