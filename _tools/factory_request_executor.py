@@ -104,6 +104,8 @@ def execute(
         base_commit=base_commit,
         p4=p4,
     )
+    if result["current"].get("operation_mode", {}).get("declared_state") == "private_translation_work":
+        result["current"]["operation_mode"]["protocol"] = "_phase4_proofread/PUBLIC_CI_WINDOW.md"
     if branch_name is not None and result["branch"] != branch_name:
         raise ValueError(f"factory branch mismatch: request branch {branch_name!r}, adapter {result['branch']!r}")
     result["work_order"] = work_order
