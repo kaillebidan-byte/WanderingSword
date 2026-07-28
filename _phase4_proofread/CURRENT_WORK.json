@@ -10,7 +10,7 @@
   "stage": "translation_reaudit_in_progress",
   "status": "active",
   "last_completed_batch": 153,
-  "last_reviewed_batch": 153,
+  "last_reviewed_batch": 157,
   "pair_applied_keys": 1351,
   "project_applied_keys": 1727,
   "build_status": "verified_not_deployed",
@@ -32,7 +32,7 @@
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH153_2026-07-28.md"
   },
   "operation_mode": {
-    "declared_state": "private_translation_work",
+    "declared_state": "translation_frozen",
     "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
@@ -113,16 +113,11 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "5274_1",
-      "5278_1",
-      "5291_1",
-      "5292_3",
-      "5293_6",
-      "5293_7"
+      "5296_7"
     ],
-    "task": "監査済みtrain-26 wave-01をprivate_encodingへ送り、owner assignmentを行う。",
-    "boundary": "encoding完了前にrelease-ciを開始しない。",
-    "packet": "_phase4_proofread/PRIVATE_STAGE_STATE.json"
+    "task": "PR #162へrelease-ciを付与し、public CI・fix適用・release finalizationを同一PRで完了する。",
+    "boundary": "verified checkpoint前にmergeしない。ゲームフォルダへ配置しない。",
+    "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
     "README.md",
@@ -157,8 +152,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-26",
     "branch": "agent/yuwen-mowen-train-26",
-    "status": "accumulating",
-    "transport_status": "not_ready",
+    "status": "ready_for_public_ci",
+    "transport_status": "ready_for_public_ci",
     "base_checkpoint_batch": 153,
     "thresholds": {
       "bundle_count": 4,
@@ -170,29 +165,29 @@
       "reviewed_rows": 80
     },
     "totals": {
-      "bundle_count": 0,
-      "reviewed_rows": 0,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
+      "bundle_count": 4,
+      "reviewed_rows": 40,
+      "reviewed_keys": 40,
+      "unique_reviewed_rows": 40,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
       "new_pair_keys": 0,
       "new_project_keys": 0,
       "cross_register_keys": 0,
-      "existing_owner_updates": 0,
+      "existing_owner_updates": 4,
       "keep_only_bundles": 0
     },
     "private_stage": {
-      "stage": "private_quality_audit",
+      "stage": "translation_frozen",
       "status": "complete",
-      "transport_status": "not_ready",
+      "transport_status": "ready_for_public_ci",
       "wave_id": "yuwen-mowen-train-26-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "private_quality_audit"
+      "cycle_checkpoint": "translation_frozen"
     },
     "tracking_issue": null,
     "draft_pr": 162,
-    "finalization_phase": "phase1",
+    "finalization_phase": "phase2",
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true,
     "previous_release": {

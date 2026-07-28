@@ -6,20 +6,22 @@
 
 ## 現在地
 
-- translation PR #154: merged
-- train: `yuwen-mowen-train-25`
-- verified checkpoint: 第153束 / pair 1351 / project 1727
-- transport: `merged`
-- cycle: `target_reached / merged`
-- 次候補: `5274_1`（schema v6 minimal reservation）
+- translation PR #162: draft / active
+- train: `yuwen-mowen-train-26`
+- private stage: `translation_frozen`
+- transport: `ready_for_public_ci`
+- execution mode: `always_public_full_pipeline`
+- wave: 4 packets / 40 rows / 4 fixes / batches 154–157
+- verified checkpoint: 第153束 / pair 1351 / project 1727（train-25）
+- 次候補: `5296_7`（schema v6 minimal reservation）
 
 ## 次の作業
 
-cycle開始時visibilityからmodeを選び、CURRENT_WORKとPRIVATE_STAGE_STATEへlockした後、予約候補のpreparationを開始する。
+PR #162へ`release-ci`を付与し、preflight、relation、cross-register、apply、release finalization、verified checkpoint、squash mergeまで同一cycleで続ける。
 
 ## 禁止
 
-- merged済みPRのphase2やmergeを再実行しない。
-- mode lock前に翻訳準備、判断、owner書込みを開始しない。
+- verified checkpoint前にmergeしない。
+- translation_frozen後に翻訳判断やowner手書きを再開しない。
 - minimal reservationへprivate preparation詳細を先書きしない。
 - ゲームフォルダへ配置しない。

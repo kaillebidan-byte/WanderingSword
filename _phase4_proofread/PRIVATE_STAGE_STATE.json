@@ -2,7 +2,7 @@
   "schema_version": 2,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-26",
-  "stage": "private_quality_audit",
+  "stage": "translation_frozen",
   "mode": "wave_v2",
   "cycle_control": {
     "status": "running",
@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "監査済み四packetをprivate_encodingへ送り、owner assignmentを行う。",
-    "last_safe_checkpoint": "private_quality_audit",
+    "exact_next_action": "PR #162へrelease-ciを付与し、public CI・apply・finalizationを実行する。",
+    "last_safe_checkpoint": "translation_frozen",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -41,7 +41,7 @@
         "scene_groups": [
           "5274_1"
         ],
-        "status": "audited",
+        "status": "encoded",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
@@ -50,6 +50,11 @@
           "status": "complete",
           "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
           "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        },
+        "formal_batch": 154,
+        "review_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH154_2026-07-28.md"
         }
       },
       {
@@ -57,7 +62,7 @@
         "scene_groups": [
           "5278_1"
         ],
-        "status": "audited",
+        "status": "encoded",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
@@ -66,6 +71,11 @@
           "status": "complete",
           "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
           "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        },
+        "formal_batch": 155,
+        "review_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH155_2026-07-28.md"
         }
       },
       {
@@ -74,7 +84,7 @@
           "5291_1",
           "5292_3"
         ],
-        "status": "audited",
+        "status": "encoded",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
@@ -83,6 +93,11 @@
           "status": "complete",
           "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
           "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        },
+        "formal_batch": 156,
+        "review_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH156_2026-07-28.md"
         }
       },
       {
@@ -91,7 +106,7 @@
           "5293_6",
           "5293_7"
         ],
-        "status": "audited",
+        "status": "encoded",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
@@ -100,25 +115,47 @@
           "status": "complete",
           "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
           "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json"
+        },
+        "formal_batch": 157,
+        "review_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH157_2026-07-28.md"
         }
       }
-    ]
+    ],
+    "encoding_summary": {
+      "bundle_count": 4,
+      "reviewed_rows": 40,
+      "reviewed_keys": 40,
+      "unique_reviewed_rows": 40,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 4,
+      "keep_only_bundles": 0
+    }
   },
   "transport": {
-    "status": "not_ready",
+    "status": "ready_for_public_ci",
     "history": [
       {
         "status": "not_ready",
         "translation_stage": "private_preparation"
+      },
+      {
+        "status": "ready_for_public_ci",
+        "translation_stage": "translation_frozen"
       }
     ]
   },
   "permissions": {
-    "translation_judgment_allowed": true,
+    "translation_judgment_allowed": false,
     "fix_writes_allowed": false,
     "encoding_writes_allowed": false,
-    "throughput_metrics_visible": false,
-    "metrics_frozen": true
+    "throughput_metrics_visible": true,
+    "metrics_frozen": false
   },
   "history": [
     {
@@ -127,6 +164,14 @@
     },
     {
       "stage": "private_quality_audit",
+      "status": "complete"
+    },
+    {
+      "stage": "private_encoding",
+      "status": "complete"
+    },
+    {
+      "stage": "translation_frozen",
       "status": "active"
     }
   ],
