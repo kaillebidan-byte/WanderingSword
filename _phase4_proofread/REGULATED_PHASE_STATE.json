@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
+  "phase_order": [
+    "quality_reaudit",
+    "narrative_readthrough"
+  ],
+  "active_phase": "quality_reaudit",
+  "phases": {
+    "quality_reaudit": {
+      "status": "in_progress",
+      "audit_status_path": "project.quality_reaudit.status"
+    },
+    "narrative_readthrough": {
+      "status": "queued",
+      "audit_status_path": "project.narrative_readthrough.status"
+    }
+  },
+  "signal_authorization": null,
+  "last_terminal_event": null,
+  "routine_pause_is_terminal_error": false,
+  "forbidden_terminal_aliases": [
+    "ci_train.finalization_phase=phase2",
+    "release phase2 success",
+    "transport=merged",
+    "train merged",
+    "wave complete",
+    "single pair complete",
+    "single chapter complete"
+  ]
+}

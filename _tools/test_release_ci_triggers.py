@@ -69,13 +69,34 @@ def assert_institution_contract_workflow() -> None:
     assert "release-ci" not in text
     assert "ci-heavy-rerun" not in text
     assert "finalize-release" not in text
+    assert "check_project_scope_lock.py" in text
+    assert "test_check_project_scope_lock.py" in text
     assert "test_check_operation_mode.py" in text
     assert "test_check_autonomous_cycle.py" in text
     assert "test_select_cycle_execution_mode.py" in text
     assert "check_phase_completion_signal.py" in text
     assert "test_check_phase_completion_signal.py" in text
+    assert "test_reconcile_merged_cycle.py" in text
     assert "check_state_json_integrity.py" in text
     assert "test_release_ci_triggers.py" in text
+
+
+def assert_merged_cycle_reconciliation() -> None:
+    text = read("reconcile-merged-cycle.yml")
+    assert "types:\n      - closed" in text
+    assert "github.event.pull_request.merged == true" in text
+    assert "contents: write" in text
+    assert "pull-requests: read" in text
+    assert "python _tools/test_reconcile_merged_cycle.py" in text
+    assert "python _tools/reconcile_merged_cycle.py" in text
+    assert "--event-pr" in text
+    assert "--merge-sha" in text
+    assert "_phase4_proofread/CURRENT_WORK.json" in text
+    assert "_phase4_proofread/PRIVATE_STAGE_STATE.json" in text
+    assert "_phase4_proofread/CI_TRAIN_MANIFEST.json" in text
+    assert "git push origin HEAD:main" in text
+    for forbidden in ("fixes_*.json", "OWNER_ASSIGNMENT_PLAN", "apply_char.py", "apply_fixes_json.py"):
+        assert forbidden not in text, f"merge reconciler must not touch translation input: {forbidden}"
 
 
 def main() -> None:
@@ -93,12 +114,15 @@ def main() -> None:
 
     preflight = (ROOT / "_tools" / "check_private_release_preflight.py").read_text(encoding="utf-8")
     assert "check_state_json_integrity.py" in preflight
+    assert "check_project_scope_lock.py" in preflight
     assert "check_phase_completion_signal.py" in preflight
     assert '["check_candidate_ownership.py", "--release-live"]' in preflight
     assert 'check_candidate_ownership.py", "--write' not in preflight
     assert "check_autonomous_cycle.py" in preflight
     assert "test_check_state_json_integrity.py" in preflight
+    assert "test_check_project_scope_lock.py" in preflight
     assert "test_check_phase_completion_signal.py" in preflight
+    assert "test_reconcile_merged_cycle.py" in preflight
     assert "test_check_autonomous_cycle.py" in preflight
 
     relation = assert_reusable("relation-audit.yml")
@@ -131,7 +155,8 @@ def main() -> None:
     assert "check_autonomous_cycle.py" in finalization
 
     assert_institution_contract_workflow()
-    print("OK: release reruns stay bounded, institution tests are lightweight, and finalization inputs are deterministic")
+    assert_merged_cycle_reconciliation()
+    print("OK: release reruns stay bounded and merged transport state is reconciled without translation writes")
 
 
 if __name__ == "__main__":

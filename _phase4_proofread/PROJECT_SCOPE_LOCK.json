@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "contract_id": "wandering-sword-project-scope-lock-v1",
+  "canonical_repository": "kaillebidan-byte/WanderingSword",
+  "canonical_url": "https://github.com/kaillebidan-byte/WanderingSword",
+  "applies_to": [
+    "new_chat_resume",
+    "continue_work",
+    "visibility_change_report",
+    "translation_cycle",
+    "institution_repair"
+  ],
+  "allowed_repository_reads": [
+    "kaillebidan-byte/WanderingSword"
+  ],
+  "allowed_repository_writes": [
+    "kaillebidan-byte/WanderingSword"
+  ],
+  "cross_repository_discovery_forbidden": true,
+  "project_history_from_other_repositories_is_non_authoritative": true,
+  "resume_must_not_infer_browser_or_userscript_work": true,
+  "override": {
+    "allowed_only_when_user_explicitly_names_another_repository_for_the_current_task": true,
+    "conversation_history_alone_is_not_an_override": true
+  },
+  "scope_violation": {
+    "stop_before_external_read_or_write": true,
+    "stop_reason": "project_scope_violation",
+    "repository_mutation_forbidden": true
+  }
+}
