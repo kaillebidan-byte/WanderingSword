@@ -6,6 +6,7 @@
   "request_contract": "_phase4_proofread/FACTORY_REQUEST_CONTRACT.json",
   "execution_workflow": ".github/workflows/translation-factory-execute.yml",
   "encoding_workflow": ".github/workflows/translation-factory-encode.yml",
+  "finalization_workflow": ".github/workflows/translation-factory-finalize.yml",
   "purpose": "翻訳者へ意味判断だけを残し、GitHub・状態遷移・輸送判断を決定論的な作業指示へ固定する。",
   "human_judgment_stations": [
     {
@@ -103,7 +104,11 @@
     },
     "finalize_release_state": {
       "station_type": "machine",
-      "executor": "fixed_release_finalizer"
+      "executor": "fixed_release_finalizer",
+      "adapter": "_tools/fixed_release_finalizer.py",
+      "request_pattern": "_factory_requests/finalize-release-*.json",
+      "execution_workflow": ".github/workflows/translation-factory-finalize.yml",
+      "resulting_transport": "awaiting_private_merge"
     },
     "verify_phase2_and_merge": {
       "station_type": "machine",

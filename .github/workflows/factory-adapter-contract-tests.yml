@@ -2,12 +2,8 @@ name: Factory adapter contract tests
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
+    branches: [main]
     paths:
       - "README.md"
       - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
@@ -20,12 +16,14 @@ on:
       - "_tools/factory_request_executor.py"
       - "_tools/fixed_encoding_pipeline.py"
       - "_tools/factory_encoding_executor.py"
+      - "_tools/fixed_release_finalizer.py"
       - "_tools/check_factory_adapters.py"
       - "_tools/check_next_task_packet_v3.py"
       - "_tools/check_batch_planning.py"
       - "_tools/test_fixed_cycle_initializer.py"
       - "_tools/test_fixed_encoding_pipeline.py"
       - "_tools/test_factory_encoding_executor.py"
+      - "_tools/test_fixed_release_finalizer.py"
       - "_tools/test_check_next_task_packet_minimal.py"
       - "_tools/test_check_batch_planning.py"
       - "_tools/test_translation_factory_controller.py"
@@ -33,6 +31,7 @@ on:
       - ".github/workflows/translation-factory-plan.yml"
       - ".github/workflows/translation-factory-execute.yml"
       - ".github/workflows/translation-factory-encode.yml"
+      - ".github/workflows/translation-factory-finalize.yml"
       - ".github/workflows/factory-adapter-contract-tests.yml"
 
 concurrency:
@@ -66,6 +65,8 @@ jobs:
         run: python _tools/test_fixed_encoding_pipeline.py
       - name: Test encoding executor
         run: python _tools/test_factory_encoding_executor.py
+      - name: Test release finalizer
+        run: python _tools/test_fixed_release_finalizer.py
       - name: Test minimal next packet
         run: python _tools/test_check_next_task_packet_minimal.py
       - name: Test semantic batch planning
