@@ -1,0 +1,262 @@
+name: Finalize train21 state
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-21
+    paths:
+      - .github/workflows/finalize-train21-state.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Write verified release state
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          P4 = Path('_phase4_proofread')
+          release_id = 'yuwen-mowen-train-21-r1'
+          evidence_path = '_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_21.json'
+          applied_record = '_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH135_2026-07-28.md'
+          ci_head = '39155e6dc236e7253a264e0870ccd9f343f0608e'
+          asset_head = '4996ab7e5c737581db3795fd2d97702b3a5611a5'
+          run_id = 30321697780
+          pr = 148
+          batch = 135
+          pair_count = 1306
+          project_count = 1682
+
+          def load(name):
+              return json.loads((P4 / name).read_text(encoding='utf-8'))
+
+          def write(name, value):
+              (P4 / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          evidence = {
+              'schema_version': 2,
+              'status': 'verified',
+              'release_id': release_id,
+              'train_id': 'yuwen-mowen-train-21',
+              'pr': pr,
+              'ci_head': ci_head,
+              'asset_head': asset_head,
+              'applied_record': applied_record,
+              'counts': {
+                  'batch': batch,
+                  'pair_applied_keys': pair_count,
+                  'project_applied_keys': project_count,
+                  'pending_fixes': 0,
+              },
+              'orchestrator': {
+                  'id': run_id,
+                  'workflow': 'Release train orchestrator',
+                  'head_sha': ci_head,
+                  'event': 'pull_request',
+                  'conclusion': 'success',
+              },
+              'lineage': {'mode': 'branch_ancestor', 'merge_sha': None},
+              'notes': [
+                  '第132〜135束は58 reviewed keys・58 unique reviewed rows・1修正キーとして確定した',
+                  '58行のlive owner実測は既存owner所属24・新規owner0・未所有保持34・複数owner0で、既存owner値更新は1件だった',
+                  '低収穫challengeで初巡keepの57 unique rowsを再監査し、追加修正0件を確認した',
+                  f'orchestrator run {run_id}で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた',
+                  f'Apply bot asset HEAD {asset_head}で適用記録とaudit statusを第135束へ同期した',
+                  '次候補32025_1はminimal reservationのまま保持し、PR #148統合前にはpreparationを開始しない',
+              ],
+          }
+          write('RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_21.json', evidence)
+
+          manifest = load('CI_TRAIN_MANIFEST.json')
+          manifest['status'] = 'verified'
+          manifest['transport'].update(status='awaiting_private_merge', translation_stage='translation_frozen', pr=pr, merge_sha=None)
+          for bundle in manifest['bundles']:
+              bundle['apply_status'] = 'verified'
+          manifest['tracking_mode'] = 'quality_and_private_stage_verified_in_public_pr'
+          manifest['release_evidence'] = evidence_path
+          manifest['private_stage'].update(status='verified', transport_status='awaiting_private_merge')
+          manifest['applied_result'] = {
+              'orchestrator_run': run_id,
+              'asset_head': asset_head,
+              'pair_applied_keys': pair_count,
+              'project_applied_keys': project_count,
+              'pending_fixes': 0,
+              'checkpoint_status': 'verified',
+          }
+          manifest['verified_result'] = {
+              'release_id': release_id,
+              'release_evidence': evidence_path,
+              'record_index_synced': True,
+              'pair_applied_keys': pair_count,
+              'project_applied_keys': project_count,
+              'pending_fixes': 0,
+          }
+          write('CI_TRAIN_MANIFEST.json', manifest)
+
+          current = load('CURRENT_WORK.json')
+          current.update(
+              status='verified',
+              last_completed_batch=batch,
+              last_reviewed_batch=batch,
+              pair_applied_keys=pair_count,
+              project_applied_keys=project_count,
+          )
+          current['checkpoint'] = {
+              'status': 'verified',
+              'batch': batch,
+              'pair_applied_keys': pair_count,
+              'project_applied_keys': project_count,
+              'produced_by_pr': pr,
+              'release_identity': {
+                  'kind': 'pr_release_v2',
+                  'release_id': release_id,
+                  'evidence': evidence_path,
+                  'pr': pr,
+                  'validated_head': asset_head,
+              },
+              'applied_record': applied_record,
+          }
+          current['immediate_next'] = {
+              'scene_groups': ['32025_1'],
+              'task': 'PR #148のfinalize-release phase2と未解決review thread 0件を確認し、検証済みHEADをsquash統合する。',
+              'boundary': 'translation freeze後は翻訳判断、fix追加、owner変更、正式束追加を行わない。',
+              'packet': '_phase4_proofread/NEXT_TASK_PACKET.json',
+          }
+          train = current['ci_train']
+          train.update(status='verified', transport_status='awaiting_private_merge', draft_pr=pr)
+          train['private_stage'].update(status='verified', transport_status='awaiting_private_merge', cycle_checkpoint='awaiting_private_merge')
+          train['applied_result'] = manifest['applied_result']
+          train['verified_result'] = manifest['verified_result']
+          train['release_evidence'] = evidence_path
+          current['status'] = 'verified'
+          write('CURRENT_WORK.json', current)
+
+          state = load('PRIVATE_STAGE_STATE.json')
+          control = state['cycle_control']
+          control.update(
+              status='running',
+              continuation_required=True,
+              stop_reason=None,
+              exact_next_action='PR #148のfinalize-release phase2とreview thread 0件を確認し、検証済みHEADをsquash mergeする',
+              last_safe_checkpoint='awaiting_private_merge',
+          )
+          for packet in state['wave']['packets']:
+              packet['review_record']['apply_status'] = 'verified'
+          state['transport'] = {
+              'status': 'awaiting_private_merge',
+              'history': [
+                  {'status': 'not_ready', 'translation_stage': 'private_encoding'},
+                  {'status': 'ready_for_public_ci', 'translation_stage': 'translation_frozen', 'pr': pr},
+                  {'status': 'in_public_ci', 'translation_stage': 'translation_frozen', 'pr': pr},
+                  {'status': 'verified', 'translation_stage': 'translation_frozen', 'pr': pr, 'release_id': release_id},
+                  {'status': 'awaiting_private_merge', 'translation_stage': 'translation_frozen', 'pr': pr, 'release_id': release_id},
+              ],
+              'pr': pr,
+              'merge_sha': None,
+          }
+          state['verified_result'] = {
+              'release_id': release_id,
+              'evidence': evidence_path,
+              'ci_head': ci_head,
+              'asset_head': asset_head,
+              'pending_fixes': 0,
+          }
+          write('PRIVATE_STAGE_STATE.json', state)
+
+          packet = load('NEXT_TASK_PACKET.json')
+          packet['based_on_checkpoint'] = {
+              'batch': batch,
+              'pair_applied_keys': pair_count,
+              'project_applied_keys': project_count,
+              'produced_by_pr': pr,
+              'release_id': release_id,
+              'release_evidence': evidence_path,
+          }
+          packet['source'].update(
+              artifact_run=run_id,
+              artifact_id=8674239509,
+              artifact_digest='sha256:bf7f79e65dbcbacbc33f17ee2d3020ad3313371df064bc55dc16b5592a3bf5c0',
+              artifact_head=ci_head,
+          )
+          packet['release_candidate'].update(
+              train_id='yuwen-mowen-train-21',
+              release_id=release_id,
+              pr=pr,
+              status='verified',
+              merge_sha=None,
+          )
+          write('NEXT_TASK_PACKET.json', packet)
+
+          record_path = P4 / 'APPLIED_FIXES_YUWEN_MOWEN_BATCH135_2026-07-28.md'
+          text = record_path.read_text(encoding='utf-8')
+          text = text.replace('- release evidence: `None`', f'- release evidence: `{evidence_path}`')
+          record_path.write_text(text, encoding='utf-8')
+
+          handoff = f'''# 現在の申し送り
+
+> 再開指示: `現状把握して作業の続きを`
+>
+> 実visibility、GitHub PR metadata、Actionsを文書中の固定値より優先する。
+
+## 現在地
+
+- 実visibility: public
+- PR #146: squash merged (`fda4734c01bee3bc891ca6d1db2888d8b1a53539`)
+- PR #148: open / ready / mergeable
+- train: `yuwen-mowen-train-21`
+- verified checkpoint: 第135束 / pair {pair_count} / project {project_count}
+- last reviewed batch: 第135束
+- private stage: `translation_frozen`
+- train-21 transport: `awaiting_private_merge`
+- queue: 4packet / 58行 / 1修正 / 57保持
+
+## train-21
+
+莫問不在期、伏龍子との同行確認、血縁開示後の疑義、天山行きの責任を二巡監査した。疑似座標`5803_AttachDlgs_Index0`は除外し、実在場面だけを対象にした。修正は`22029_5_Dlgs_Index5_Text`の格関係一件で、推測と確定事実の境界を保った。
+
+58行のlive owner実測は既存owner 24、新規owner 0、未所有保持34、既存owner値更新1、複数owner0。低収穫challengeで57保持行を再監査し、追加修正0件を確認した。orchestrator run `{run_id}`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`{asset_head}`。
+
+## 次の作業
+
+最新HEADで`finalize-release`によるphase2 gateと未解決review thread 0件を確認し、検証済みHEADをsquash統合する。always-public cycleなのでvisibility変更は要求しない。
+
+次候補`32025_1`はminimal reservationのまま保持し、train-21統合前にpreparationを開始しない。
+
+## 禁止
+
+- translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- phase2成功前にPR #148をmergeしない。
+- train-21統合前に`32025_1`のpreparationを始めない。
+- ゲームフォルダへ配置しない。
+'''
+          (P4 / 'CURRENT_HANDOFF.md').write_text(handoff, encoding='utf-8')
+          PY
+          python _tools/check_release_finalization.py --with-tests
+      - name: Commit verified release state
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_21.json
+          git add _phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH135_2026-07-28.md
+          git add _phase4_proofread/CI_TRAIN_MANIFEST.json
+          git add _phase4_proofread/CURRENT_WORK.json
+          git add _phase4_proofread/PRIVATE_STAGE_STATE.json
+          git add _phase4_proofread/NEXT_TASK_PACKET.json
+          git add _phase4_proofread/CURRENT_HANDOFF.md
+          git commit -m '翻訳: train-21 release stateを検証済みに確定'
+          git push origin HEAD:${{ github.ref_name }}
