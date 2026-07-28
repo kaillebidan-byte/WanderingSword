@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-24-r1",
+  "train_id": "yuwen-mowen-train-24",
+  "pr": 153,
+  "ci_head": "3e98a40278f6a5e12312f8d48371b8c3151da8b7",
+  "asset_head": "109fb74a2665d5d61c494f2b19e92d82a4453fe5",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH149_2026-07-28.md",
+  "counts": {
+    "batch": 149,
+    "pair_applied_keys": 1344,
+    "project_applied_keys": 1720,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30342996289,
+    "workflow": "Release train orchestrator",
+    "head_sha": "3e98a40278f6a5e12312f8d48371b8c3151da8b7",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第146〜149束は54 reviewed keys・54 unique reviewed rows・20修正キーとして確定した",
+    "live owner実測は新規owner12・既存owner値更新8・複数owner0だった",
+    "武当入門直後の挨拶、師兄の教導、贈剣、門内案内、莫離の説明を意味・声・関係性の三面で修正した",
+    "orchestrator run 30342996289で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply bot asset HEAD 109fb74a2665d5d61c494f2b19e92d82a4453fe5で適用記録とaudit statusを第149束へ同期した",
+    "次候補5234_1はminimal reservationのまま保持し、PR #153統合前にはpreparationを開始しない"
+  ]
+}
