@@ -190,7 +190,14 @@
       "pre_challenge_unique_fix_rows": 1,
       "low_yield_detected": true,
       "release_decision": "quality_passed",
-      "challenge_pass": "completed_no_additional_fixes"
+      "challenge_pass": {
+        "status": "complete",
+        "scope": "all_initial_keep_unique_rows",
+        "reviewed_candidate_keep_rows": 57,
+        "findings_unique_rows": 0,
+        "finding_keys": 0,
+        "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN21_WAVE01_2026-07-28.md"
+      }
     },
     "private_stage": {
       "stage": "translation_frozen",
