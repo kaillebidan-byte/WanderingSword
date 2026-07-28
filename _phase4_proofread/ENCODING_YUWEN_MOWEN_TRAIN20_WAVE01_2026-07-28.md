@@ -8,8 +8,8 @@
 - reviewed rows: 32
 - fix keys: 10
 - keep keys: 22
-- new project owners: 10
-- existing owner updates: 0
+- new project owners: 8
+- existing owner updates: 2
 - keep-only bundles: 1
 
 sealed queue全体で確定した品質判断だけを収録した。新しい翻訳判断は追加していない。
