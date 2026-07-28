@@ -17,9 +17,9 @@
 ## ownership
 
 - existing candidate keys: 3
-- new owner keys: 1
+- new owner keys: 0
 - unowned keeps: 2
-- existing owner updates: 1
+- existing owner updates: 2
 - cross-register keys: 0
 - duplicate owners: 0
 
