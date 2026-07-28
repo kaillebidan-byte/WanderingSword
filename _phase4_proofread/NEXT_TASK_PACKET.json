@@ -3,12 +3,12 @@
   "status": "ready",
   "task_id": "post-train26-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 153,
+    "batch": 157,
     "pair_applied_keys": 1351,
     "project_applied_keys": 1727,
-    "produced_by_pr": 154,
-    "release_id": "yuwen-mowen-train-25-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_25.json"
+    "produced_by_pr": 162,
+    "release_id": "yuwen-mowen-train-26-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_26.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
@@ -27,22 +27,23 @@
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30348500770,
-    "artifact_id": 8683907226,
-    "artifact_digest": "sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38",
-    "artifact_head": "a375bb348ae2ecf90b67537dd0cf0ab7eef32beb",
+    "artifact_run": 30360391808,
+    "artifact_id": 8688546867,
+    "artifact_digest": "sha256:811e4e8fa0930d636e736c7371effbfa963e8445262ca5f9adca2e7e702a0ef1",
+    "artifact_head": "e75dcf356b8aed33066dff77ac04468cab5cb4a4",
     "freshness_rule": "train-26統合後、次cycleのpreparation開始時に最新Relation artifactで5296_7と近接場面を再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-26",
     "release_id": "yuwen-mowen-train-26-r1",
     "pr": 162,
-    "status": "ready_for_public_ci",
+    "status": "verified",
     "merge_sha": null
   },
   "do_not_do": [
     "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
-    "次cycleのexecution modeをCURRENT_WORKとPRIVATE_STAGE_STATEへlockする前にpreparationを開始しない",
+    "train-26統合前に5296_7のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {

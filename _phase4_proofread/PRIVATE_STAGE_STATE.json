@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "PR #162へrelease-ciを付与し、public CI・apply・finalizationを実行する。",
-    "last_safe_checkpoint": "translation_frozen",
+    "exact_next_action": "PR #162のfinalize-release phase2とreview thread 0件を確認し、検証済みHEADをsquash mergeする",
+    "last_safe_checkpoint": "awaiting_private_merge",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -54,7 +54,8 @@
         "formal_batch": 154,
         "review_record": {
           "status": "complete",
-          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH154_2026-07-28.md"
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH154_2026-07-28.md",
+          "apply_status": "verified"
         }
       },
       {
@@ -75,7 +76,8 @@
         "formal_batch": 155,
         "review_record": {
           "status": "complete",
-          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH155_2026-07-28.md"
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH155_2026-07-28.md",
+          "apply_status": "verified"
         }
       },
       {
@@ -97,7 +99,8 @@
         "formal_batch": 156,
         "review_record": {
           "status": "complete",
-          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH156_2026-07-28.md"
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH156_2026-07-28.md",
+          "apply_status": "verified"
         }
       },
       {
@@ -119,7 +122,8 @@
         "formal_batch": 157,
         "review_record": {
           "status": "complete",
-          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH157_2026-07-28.md"
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH157_2026-07-28.md",
+          "apply_status": "verified"
         }
       }
     ],
@@ -138,7 +142,7 @@
     }
   },
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "history": [
       {
         "status": "not_ready",
@@ -146,9 +150,29 @@
       },
       {
         "status": "ready_for_public_ci",
-        "translation_stage": "translation_frozen"
+        "translation_stage": "translation_frozen",
+        "pr": 162
+      },
+      {
+        "status": "in_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 162
+      },
+      {
+        "status": "verified",
+        "translation_stage": "translation_frozen",
+        "pr": 162,
+        "release_id": "yuwen-mowen-train-26-r1"
+      },
+      {
+        "status": "awaiting_private_merge",
+        "translation_stage": "translation_frozen",
+        "pr": 162,
+        "release_id": "yuwen-mowen-train-26-r1"
       }
-    ]
+    ],
+    "pr": 162,
+    "merge_sha": null
   },
   "permissions": {
     "translation_judgment_allowed": false,
@@ -196,5 +220,12 @@
     "merge_sha": "0df5ecb699b29a587f121baef8e68259606e1267",
     "status": "merged",
     "scope": "live consumer認証付き終端契約"
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-26-r1",
+    "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_26.json",
+    "ci_head": "e75dcf356b8aed33066dff77ac04468cab5cb4a4",
+    "asset_head": "b8e1a735b7518e4472d514d12a6aac3cd56ddd94",
+    "pending_fixes": 0
   }
 }

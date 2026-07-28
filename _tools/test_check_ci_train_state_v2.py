@@ -42,7 +42,7 @@ def sample_current(status: str, declared: str) -> dict:
             "transport_status": transport,
             "base_checkpoint_batch": 65,
             "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
-            "caps": {"bundle_count": 6, "reviewed_rows": 60},
+            "caps": {"bundle_count": 6, "reviewed_rows": 80},
         },
     }
 
@@ -85,7 +85,7 @@ def sample_manifest(status: str) -> dict:
             "verified_head": "a" * 40,
         },
         "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
-        "caps": {"bundle_count": 6, "reviewed_rows": 60},
+        "caps": {"bundle_count": 6, "reviewed_rows": 80},
         "allowed_early_release_reasons": [
             "workflow_change",
             "schema_change",
