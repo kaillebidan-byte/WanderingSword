@@ -92,8 +92,35 @@ def main() -> None:
     p2, h2, changed2 = reconciler.reconcile_companions(c, m, p, h, pr_number=PR, merge_sha=SHA)
     assert changed2 is False and p2 == p and h2 == h
 
-    c2, s2, m2, changed3 = reconciler.reconcile_values(c, s, m, pr_number=PR, merge_sha=SHA)
-    assert changed3 is False and c2 == c and s2 == s and m2 == m
+    institution_handoff = "# 制度キュー\nworkflow_duplicate_run_serialization\n"
+    pending_queue = {"tasks": [{"task_id": "repair", "status": "pending"}]}
+    p3, h3, changed3 = reconciler.reconcile_companions(
+        c,
+        m,
+        packet(),
+        institution_handoff,
+        pr_number=PR,
+        merge_sha=SHA,
+        institution_queue=pending_queue,
+    )
+    assert changed3 is True
+    assert p3["release_candidate"]["status"] == "merged"
+    assert h3 == institution_handoff
+
+    completed_queue = {"tasks": [{"task_id": "repair", "status": "completed"}]}
+    _, h4, _ = reconciler.reconcile_companions(
+        c,
+        m,
+        packet(),
+        institution_handoff,
+        pr_number=PR,
+        merge_sha=SHA,
+        institution_queue=completed_queue,
+    )
+    assert "PR #146: merged" in h4
+
+    c2, s2, m2, changed4 = reconciler.reconcile_values(c, s, m, pr_number=PR, merge_sha=SHA)
+    assert changed4 is False and c2 == c and s2 == s and m2 == m
 
     bad = manifest()
     bad["transport"]["pr"] = 999

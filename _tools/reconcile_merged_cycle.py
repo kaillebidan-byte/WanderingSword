@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""merge済み翻訳PRを検証し、三状態正本のtransportをmergedへ冪等に確定する。"""
+"""merge済み翻訳PRを検証し、状態正本のtransportをmergedへ冪等に確定する。"""
 from __future__ import annotations
 
 import argparse
@@ -21,8 +21,7 @@ STATE_NAME = "PRIVATE_STAGE_STATE.json"
 MANIFEST_NAME = "CI_TRAIN_MANIFEST.json"
 PACKET_NAME = "NEXT_TASK_PACKET.json"
 HANDOFF_NAME = "CURRENT_HANDOFF.md"
-PACKET_NAME = "NEXT_TASK_PACKET.json"
-HANDOFF_NAME = "CURRENT_HANDOFF.md"
+QUEUE_NAME = "INSTITUTION_WORK_QUEUE.json"
 VALID_PREMERGE_STATUSES = {"awaiting_private_merge", "merged"}
 
 
@@ -31,10 +30,6 @@ def load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"top level must be object: {path}")
     return value
-
-
-def write_text(path: Path, text: str) -> None:
-    path.write_text(text.rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
 def write_text(path: Path, text: str) -> None:
@@ -107,6 +102,15 @@ def insert_after(items: list[Any], anchor: str, value: str) -> None:
         items.insert(index, value)
 
 
+def has_pending_institution_task(queue: dict[str, Any] | None) -> bool:
+    if not isinstance(queue, dict):
+        return False
+    tasks = queue.get("tasks")
+    return isinstance(tasks, list) and any(
+        isinstance(task, dict) and task.get("status") == "pending" for task in tasks
+    )
+
+
 def reconcile_values(
     current: dict[str, Any],
     state: dict[str, Any],
@@ -141,8 +145,6 @@ def reconcile_values(
         state.get("transport", {}).get("merge_sha"),
     }
     existing_shas.discard(None)
-    if statuses.values() == {"merged"}:  # pragma: no cover - defensive only
-        pass
     if all(status == "merged" for status in statuses.values()):
         if existing_shas and existing_shas != {merge_sha}:
             raise ValueError(f"already-merged state uses a different SHA: {existing_shas!r}")
@@ -216,7 +218,6 @@ def reconcile_values(
     return current, state, manifest, True
 
 
-
 def render_handoff(current: dict[str, Any], manifest: dict[str, Any], packet: dict[str, Any]) -> str:
     checkpoint = current.get("checkpoint", {})
     scenes = " / ".join(map(str, packet.get("scene_groups", [])))
@@ -257,6 +258,7 @@ def reconcile_companions(
     *,
     pr_number: int,
     merge_sha: str,
+    institution_queue: dict[str, Any] | None = None,
 ) -> tuple[dict[str, Any], str, bool]:
     updated = copy.deepcopy(packet)
     release = updated.get("release_candidate")
@@ -269,7 +271,11 @@ def reconcile_companions(
         "新cycleのexecution modeをCURRENT_WORKとPRIVATE_STAGE_STATEへlockする前にpreparationを開始しない",
         "ゲームフォルダへ配置しない",
     ]
-    rendered = render_handoff(current, manifest, updated)
+    rendered = (
+        handoff
+        if has_pending_institution_task(institution_queue)
+        else render_handoff(current, manifest, updated)
+    )
     return updated, rendered, updated != packet or rendered != handoff
 
 
@@ -293,8 +299,7 @@ def main() -> int:
         "manifest": p4 / MANIFEST_NAME,
         "packet": p4 / PACKET_NAME,
         "handoff": p4 / HANDOFF_NAME,
-        "packet": p4 / PACKET_NAME,
-        "handoff": p4 / HANDOFF_NAME,
+        "queue": p4 / QUEUE_NAME,
     }
     try:
         current = load(paths["current"])
@@ -302,11 +307,10 @@ def main() -> int:
         manifest = load(paths["manifest"])
         packet = load(paths["packet"])
         handoff = paths["handoff"].read_text(encoding="utf-8")
+        queue = load(paths["queue"]) if paths["queue"].is_file() else None
         pr_number = aligned_pr_number(current, state, manifest)
         if args.event_pr is not None and args.event_pr != pr_number:
-            print(
-                f"NOOP: closed PR #{args.event_pr} is not the active translation PR #{pr_number}"
-            )
+            print(f"NOOP: closed PR #{args.event_pr} is not the active translation PR #{pr_number}")
             return 0
 
         merge_sha = args.merge_sha
@@ -322,11 +326,7 @@ def main() -> int:
                 raise ValueError(f"merged PR #{pr_number} has no merge_commit_sha")
 
         current, state, manifest, changed = reconcile_values(
-            current,
-            state,
-            manifest,
-            pr_number=pr_number,
-            merge_sha=merge_sha,
+            current, state, manifest, pr_number=pr_number, merge_sha=merge_sha
         )
         packet, handoff, companion_changed = reconcile_companions(
             current,
@@ -335,6 +335,7 @@ def main() -> int:
             handoff,
             pr_number=pr_number,
             merge_sha=merge_sha,
+            institution_queue=queue,
         )
         changed = changed or companion_changed
     except (OSError, ValueError, json.JSONDecodeError) as exc:
@@ -347,7 +348,7 @@ def main() -> int:
         print("NOOP: merged transport state is already reconciled")
         return 0
     if not args.write:
-        print("DRY RUN: pass --write to update the three state authorities")
+        print("DRY RUN: pass --write to update the state authorities")
         return 0
     try:
         write_json(paths["current"], current)
