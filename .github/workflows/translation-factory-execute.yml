@@ -6,6 +6,15 @@ on:
       - "agent/yuwen-mowen-train-*"
     paths:
       - "_factory_requests/*.json"
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+    paths:
+      - "_factory_requests/*.json"
 
 permissions:
   contents: write
@@ -17,7 +26,7 @@ concurrency:
 
 jobs:
   execute:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ github.actor != 'github-actions[bot]' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
@@ -26,7 +35,7 @@ jobs:
       - name: Checkout factory request branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -96,12 +105,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
           python _tools/factory_request_executor.py \
             --request "${{ steps.request.outputs.request }}" \
             --artifact-json "/tmp/translation-factory-artifact/${{ steps.request.outputs.artifact_file }}" \
             --repository-visibility "${{ steps.visibility.outputs.value }}" \
             --base-commit "${GITHUB_SHA}" \
-            --branch-name "${GITHUB_REF_NAME}" \
+            --branch-name "$branch_name" \
             --write \
             --output /tmp/translation-factory-result.json
 
@@ -148,4 +158,5 @@ jobs:
           git add _phase4_proofread
           git diff --cached --check
           git commit -m "状態: 次cycleを意味境界確定済みquality auditへ搬送 [factory-initialize]"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          git push origin "HEAD:${branch_name}"

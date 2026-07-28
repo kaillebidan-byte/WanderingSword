@@ -70,6 +70,8 @@ def validate(flow: dict[str, Any], request: dict[str, Any], workflow_text: str, 
     required_workflow = (
         "name: Translation factory executor",
         'branches:\n      - "agent/yuwen-mowen-train-*"',
+        "pull_request:",
+        "github.event.pull_request.head.repo.full_name == github.repository",
         'paths:\n      - "_factory_requests/*.json"',
         "github.actor != 'github-actions[bot]'",
         "gh run download",
@@ -78,7 +80,7 @@ def validate(flow: dict[str, Any], request: dict[str, Any], workflow_text: str, 
         "check_next_task_packet.py",
         "translation_quality_audit",
         'git rm "${{ steps.request.outputs.request }}"',
-        'git push origin "HEAD:${GITHUB_REF_NAME}"',
+        'git push origin "HEAD:${branch_name}"',
     )
     for needle in required_workflow:
         if needle not in workflow_text:
