@@ -20,49 +20,63 @@ jobs:
           fetch-depth: 0
 
       - name: Validate one-off audit encoder
-        run: |
-          python -m py_compile _tools/oneoff_train26_audit_encode.py
+        run: python -m py_compile _tools/oneoff_train26_audit_encode.py
 
-      - name: Complete private quality audit
+      - name: Ensure private quality audit checkpoint
         run: |
-          python _tools/oneoff_train26_audit_encode.py audit
-          python _tools/check_private_translation_stage.py
-          python _tools/check_autonomous_cycle.py
-          python _tools/check_ci_train_manifest.py
-
-      - name: Commit audit checkpoint atomically
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            _phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md \
-            _phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json \
-            _phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md \
-            _phase4_proofread/PRIVATE_STAGE_STATE.json \
-            _phase4_proofread/CURRENT_WORK.json \
-            _phase4_proofread/CI_TRAIN_MANIFEST.json
-          git diff --cached --check
-          git commit -m "監査: train-26 wave-01の40行を品質確定 [train26-audited]"
-          git push
+          STAGE="$(python -c 'import json; print(json.load(open("_phase4_proofread/PRIVATE_STAGE_STATE.json", encoding="utf-8"))["stage"])')"
+          if [ "$STAGE" = "private_preparation" ]; then
+            python _tools/oneoff_train26_audit_encode.py audit
+            python _tools/check_private_translation_stage.py
+            python _tools/check_autonomous_cycle.py
+            python _tools/check_ci_train_manifest.py
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add \
+              _phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md \
+              _phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.json \
+              _phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md \
+              _phase4_proofread/PRIVATE_STAGE_STATE.json \
+              _phase4_proofread/CURRENT_WORK.json \
+              _phase4_proofread/CI_TRAIN_MANIFEST.json
+            git diff --cached --check
+            git commit -m "監査: train-26 wave-01の40行を品質確定 [train26-audited]"
+            git push
+          elif [ "$STAGE" = "private_quality_audit" ]; then
+            python _tools/check_private_translation_stage.py
+            python _tools/check_autonomous_cycle.py
+            python _tools/check_ci_train_manifest.py
+          else
+            echo "unexpected stage before encoding: $STAGE" >&2
+            exit 1
+          fi
 
       - name: Encode fixes and seal owner assignment
         run: |
           python _tools/oneoff_train26_audit_encode.py freeze
           python _tools/apply_owner_assignment_v2.py
 
-      - name: Validate frozen train before public CI
-        run: |
-          python _tools/check_candidate_ownership.py --require-current-wave
-          python _tools/check_owner_assignment_result.py
-          python _tools/check_private_translation_stage.py
-          python _tools/check_ci_train_manifest.py --require-ready
-          python _tools/check_translation_quality_gate.py
-          python _tools/check_next_task_packet_v3.py
-          python _tools/check_autonomous_cycle.py
-          python _tools/check_private_release_preflight.py --repository-visibility public --with-tests
+      - name: Check candidate ownership
+        run: python _tools/check_candidate_ownership.py --require-current-wave
+      - name: Check owner assignment result
+        run: python _tools/check_owner_assignment_result.py
+      - name: Check private translation stage
+        run: python _tools/check_private_translation_stage.py
+      - name: Check train manifest
+        run: python _tools/check_ci_train_manifest.py --require-ready
+      - name: Check translation quality gate
+        run: python _tools/check_translation_quality_gate.py
+      - name: Check next task packet
+        run: python _tools/check_next_task_packet_v3.py
+      - name: Check autonomous cycle
+        run: python _tools/check_autonomous_cycle.py
+      - name: Run public preflight with tests
+        run: python _tools/check_private_release_preflight.py --repository-visibility public --with-tests
 
       - name: Commit frozen train and remove one-off tools
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git rm .github/workflows/oneoff-train26-audit-encode.yml
           git rm _tools/oneoff_train26_audit_encode.py
           git add _phase4_proofread
