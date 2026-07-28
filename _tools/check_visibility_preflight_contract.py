@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""turn入口のGitHub visibility preflight v2契約を検査する。"""
+"""turn入口のGitHub preflight v3 scope・mode・phase・merge契約を検査する。"""
 from __future__ import annotations
 
 import json
@@ -17,7 +17,6 @@ EXPECTED_DOCS = {
     "always_public_pipeline": "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md",
     "cold_start_acceptance": "_phase4_proofread/COLD_START_ACCEPTANCE.md",
 }
-
 REQUIRED_APPLIES_TO = {
     "new_chat_resume",
     "continue_work",
@@ -25,6 +24,47 @@ REQUIRED_APPLIES_TO = {
     "public_ci_entry",
     "private_translation_entry",
     "cycle_mode_selection",
+    "merged_cycle_reconciliation",
+}
+EXPECTED_PROJECT_SCOPE = {
+    "contract": "_phase4_proofread/PROJECT_SCOPE_LOCK.json",
+    "canonical_repository": "kaillebidan-byte/WanderingSword",
+    "scope_check_precedes_repository_metadata": True,
+    "cross_repository_discovery_forbidden": True,
+    "scope_violation_stops_before_external_read_or_write": True,
+}
+EXPECTED_CYCLE = {
+    "contract": "_phase4_proofread/EXECUTION_MODES.json",
+    "selection_time": "new_cycle_start_only",
+    "selection_source": "repository_visibility_at_cycle_start",
+    "private_selects": "manual_visibility_cycle",
+    "public_selects": "always_public_full_pipeline",
+    "active_cycle_mode_change_forbidden": True,
+    "state_authorities_must_match": True,
+    "same_continue_phrase_for_all_modes": True,
+}
+EXPECTED_SIGNAL = {
+    "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
+    "runtime_state": "_phase4_proofread/REGULATED_PHASE_STATE.json",
+    "dynamic_authorization_required": True,
+    "required_on_phase_success": True,
+    "required_on_phase_error": True,
+    "last_nonempty_line": "規定フェイズ完了",
+    "result_line_immediately_precedes_marker": True,
+    "release_phase2_is_not_regulated_phase": True,
+    "train_or_merge_completion_does_not_emit": True,
+    "routine_pause_does_not_emit": True,
+}
+EXPECTED_MERGED_CYCLE = {
+    "tool": "_tools/reconcile_merged_cycle.py",
+    "workflow": ".github/workflows/reconcile-merged-cycle.yml",
+    "state_authorities": [
+        "_phase4_proofread/CURRENT_WORK.json",
+        "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+        "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    ],
+    "next_chat_repair_is_not_normal_completion": True,
+    "idempotent": True,
 }
 
 
@@ -40,24 +80,47 @@ def load_contract(path: Path = CONTRACT_PATH) -> dict[str, Any]:
     return value
 
 
+def _validate_exact_object(
+    value: Any,
+    expected: dict[str, Any],
+    label: str,
+    errors: list[str],
+) -> None:
+    if not isinstance(value, dict):
+        errors.append(f"{label} must be an object")
+        return
+    for key, expected_value in expected.items():
+        if value.get(key) != expected_value:
+            errors.append(f"{label}.{key} mismatch")
+
+
 def validate_contract(contract: dict[str, Any], root: Path = ROOT) -> list[str]:
     errors: list[str] = []
 
-    if contract.get("schema_version") != 2:
-        errors.append("schema_version must be 2")
-    if contract.get("gate_id") != "github-visibility-preflight-v2-cycle-mode":
-        errors.append("gate_id must be github-visibility-preflight-v2-cycle-mode")
+    if contract.get("schema_version") != 3:
+        errors.append("schema_version must be 3")
+    if contract.get("gate_id") != "github-preflight-v3-scope-mode-phase-merge":
+        errors.append("gate_id must be github-preflight-v3-scope-mode-phase-merge")
     if contract.get("source_of_truth") != "github_repository_metadata":
         errors.append("source_of_truth must be github_repository_metadata")
 
     applies_to = contract.get("applies_to")
     if not isinstance(applies_to, list) or set(applies_to) != REQUIRED_APPLIES_TO:
-        errors.append("applies_to must contain the complete v2 entry-point set")
+        errors.append("applies_to must contain the complete v3 entry-point set")
+
+    _validate_exact_object(
+        contract.get("project_scope"), EXPECTED_PROJECT_SCOPE, "project_scope", errors
+    )
+    scope_path = root / EXPECTED_PROJECT_SCOPE["contract"]
+    if not scope_path.is_file():
+        errors.append(f"missing project scope contract: {EXPECTED_PROJECT_SCOPE['contract']}")
 
     ordering = contract.get("ordering")
     if not isinstance(ordering, dict):
         errors.append("ordering must be an object")
     else:
+        if ordering.get("project_scope_lock_is_first_internal_check") is not True:
+            errors.append("project scope lock must be the first internal check")
         if ordering.get("repository_metadata_is_first_external_check") is not True:
             errors.append("repository metadata must be the first external check")
         for key in (
@@ -77,39 +140,24 @@ def validate_contract(contract: dict[str, Any], root: Path = ROOT) -> list[str]:
         if report.get("requires_metadata_confirmation") is not True:
             errors.append("user visibility report must require metadata confirmation")
 
-    cycle = contract.get("cycle_mode")
-    if not isinstance(cycle, dict):
-        errors.append("cycle_mode must be an object")
-    else:
-        expected_cycle = {
-            "contract": "_phase4_proofread/EXECUTION_MODES.json",
-            "selection_time": "new_cycle_start_only",
-            "selection_source": "repository_visibility_at_cycle_start",
-            "private_selects": "manual_visibility_cycle",
-            "public_selects": "always_public_full_pipeline",
-            "active_cycle_mode_change_forbidden": True,
-            "state_authorities_must_match": True,
-            "same_continue_phrase_for_all_modes": True,
-        }
-        for key, expected in expected_cycle.items():
-            if cycle.get(key) != expected:
-                errors.append(f"cycle_mode.{key} mismatch")
-
-    signal = contract.get("phase_completion_signal")
-    if not isinstance(signal, dict):
-        errors.append("phase_completion_signal must be an object")
-    else:
-        expected_signal = {
-            "contract": "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json",
-            "required_on_phase_success": True,
-            "required_on_phase_error": True,
-            "last_nonempty_line": "規定フェイズ完了",
-            "result_line_immediately_precedes_marker": True,
-            "routine_wave_visibility_or_merge_checkpoint_does_not_emit": True,
-        }
-        for key, expected in expected_signal.items():
-            if signal.get(key) != expected:
-                errors.append(f"phase_completion_signal.{key} mismatch")
+    _validate_exact_object(contract.get("cycle_mode"), EXPECTED_CYCLE, "cycle_mode", errors)
+    _validate_exact_object(
+        contract.get("phase_completion_signal"),
+        EXPECTED_SIGNAL,
+        "phase_completion_signal",
+        errors,
+    )
+    _validate_exact_object(
+        contract.get("merged_cycle"), EXPECTED_MERGED_CYCLE, "merged_cycle", errors
+    )
+    for relative in (
+        EXPECTED_SIGNAL["contract"],
+        EXPECTED_SIGNAL["runtime_state"],
+        EXPECTED_MERGED_CYCLE["tool"],
+        EXPECTED_MERGED_CYCLE["workflow"],
+    ):
+        if not (root / relative).is_file():
+            errors.append(f"missing v3 contract dependency: {relative}")
 
     verdict = contract.get("verdict")
     if not isinstance(verdict, dict):
@@ -157,7 +205,7 @@ def main() -> int:
     if errors:
         print(f"FAILED: {len(errors)} error(s)")
         return 1
-    print("OK: visibility preflight v2 contract is structurally valid")
+    print("OK: visibility preflight v3 scope, mode, phase, and merge contract is structurally valid")
     return 0
 
 
