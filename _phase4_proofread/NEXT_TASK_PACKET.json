@@ -24,13 +24,13 @@
     "5347_1"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-28-wave-01",
     "packet_id": "yuwen-mowen-train28-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 159
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -43,16 +43,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-27",
-    "release_id": "yuwen-mowen-train-27-r1",
-    "pr": 166,
-    "status": "merged",
-    "merge_sha": "2e70b44a859eca26f134109eed8930cd46f67c40"
+    "train_id": "yuwen-mowen-train-28",
+    "release_id": "yuwen-mowen-train-28-r1",
+    "pr": 174,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -62,5 +60,37 @@
     "planned_batch": 159,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 62,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5331_2",
+      "5337_2",
+      "5339_2",
+      "5340_1",
+      "5340_2",
+      "5342_2",
+      "5342_3",
+      "5343_1",
+      "5345_1",
+      "5347_1"
+    ],
+    "grouping_decision": "5331_2から5343_1まででは39行で大比の勝敗分岐だけが閉じ、5345_1を加えた46行では旅程指示の途中で切れる。5347_1までの62行で、大比参加資格の確定から名剣山荘行きの編成・出発判断までが完結する。",
+    "exception": {
+      "reason_code": "complete_semantic_unit",
+      "detail": "5331_2から5343_1まででは39行で大比の勝敗分岐だけが閉じ、5345_1を加えた46行では旅程指示の途中で切れる。5347_1までの62行で、大比参加資格の確定から名剣山荘行きの編成・出発判断までが完結する。"
+    }
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 7,
+    "new_project_keys": 7,
+    "fix_keys": 14
   }
 }
