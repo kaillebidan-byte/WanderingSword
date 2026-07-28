@@ -1,0 +1,359 @@
+name: Prepare train22 wave
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-22
+    paths:
+      - .github/workflows/prepare-train22-wave.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  prepare:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download relation artifact
+        run: |
+          mkdir -p _ws_tmp/train22_prepare
+          curl -L --fail --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/8674239509/zip" \
+            -o _ws_tmp/train22_prepare/relation.zip
+          unzip -q _ws_tmp/train22_prepare/relation.zip -d _ws_tmp/train22_prepare/unpacked
+      - name: Generate candidate packets and preparation record
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p4 = Path('_phase4_proofread')
+          artifact_root = Path('_ws_tmp/train22_prepare/unpacked')
+          artifact_file = next(artifact_root.rglob('yuwen_mowen.json'))
+          evidence = json.loads(artifact_file.read_text(encoding='utf-8'))
+          groups = {g['family'].removesuffix('_Dlgs'): g for g in evidence['groups']}
+          source_artifact = {
+              'workflow': 'Release train orchestrator',
+              'run_id': 30321697780,
+              'artifact_id': 8674239509,
+              'artifact_name': 'relation-audit-evidence',
+              'artifact_file': 'yuwen_mowen.json',
+              'digest': 'sha256:bf7f79e65dbcbacbc33f17ee2d3020ad3313371df064bc55dc16b5592a3bf5c0',
+              'head_sha': '39155e6dc236e7253a264e0870ccd9f343f0608e',
+          }
+          packets = [
+              {
+                  'packet_id': 'yuwen-mowen-train22-packet-01',
+                  'scenes': ['32025_1'],
+                  'filename': 'CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json',
+                  'timeline': '一連の対立後の日常場面。宇文逸が峋谷関で瑶姫と莫問の衝突を雪児の料理が和らげた可能性に触れる。',
+                  'branch_note': '莫問は発話せず、明示言及だけを人物関係の再監査対象にする。段朝晨・欧陽雪の行は文脈参照に留める。',
+                  'questions': [
+                      '「从中调剂」を料理が二人の関係を取り持った意味として自然に保持しているか',
+                      '莫問と瑶姫が実際に刃を交えたと確定せず、「或许」を可能性として残しているか',
+                      '宇文逸の雪児への親しい呼びかけと、莫問への師兄呼称が崩れていないか',
+                  ],
+                  'fact_doubts': [
+                      'この場面で確定するのは、宇文逸が料理による仲裁効果を推測していることだけ',
+                      '欧陽雪・段朝晨の応酬は別人物ペアの所有境界を優先する',
+                  ],
+              },
+              {
+                  'packet_id': 'yuwen-mowen-train22-packet-02',
+                  'scenes': ['32007_1', '32004_1'],
+                  'filename': 'CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json',
+                  'timeline': '莫問と宇文逸が再び同門として過ごす日常。観棋の誘いと夜の剣稽古を通じ、師兄弟の距離が戻りつつある。',
+                  'branch_note': '碁の場面と稽古の場面を別の会話として保ち、莫問の内省が途中で途切れる余韻を補完しない。',
+                  'questions': [
+                      '宇文逸が莫問を一貫して「師兄」と呼び、別呼称へ揺れていないか',
+                      '莫問の自嘲・遠慮と、宇文逸の親しい誘いの温度差を保っているか',
+                      '32004_1の未完文を訳者の推測で補っていないか',
+                  ],
+                  'fact_doubts': [
+                      '莫問が剣以外のすべてを失ったと断定せず、未完の独白として扱う',
+                      '天下三智の具体的な構成員や棋力評価はこの場面だけでは補わない',
+                  ],
+              },
+              {
+                  'packet_id': 'yuwen-mowen-train22-packet-03',
+                  'scenes': ['32001_2', '32001_5', '30821_1'],
+                  'filename': 'CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json',
+                  'timeline': '師兄弟の武学問答と、丐幇の青竹杖を手掛かりに檀林へ踏み込む探索場面。',
+                  'branch_note': '武学問答の比喩と探索上の推測を分離し、青竹杖の置き手を確定しない。',
+                  'questions': [
+                      '《撥雲見日》と雲の比喩を過剰に説明せず、短い応酬として成立させているか',
+                      '「再无可授」を師兄弟関係の終わりではなく、教授できる武学がない意味に限定しているか',
+                      '青竹杖が誰かの手掛かりだという宇文逸の推測を確定事実にしていないか',
+                  ],
+                  'fact_doubts': [
+                      '青竹杖を残した人物はこの場面では不明',
+                      '莫問の「自然」は師弟関係の継続への肯定であり、別の誓約へ広げない',
+                  ],
+              },
+              {
+                  'packet_id': 'yuwen-mowen-train22-packet-04',
+                  'scenes': ['24221_2', '24221_3', '24221_5', '24221_6'],
+                  'filename': 'CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json',
+                  'timeline': '天山で対峙した直後の分岐。宇文逸は残篇の返還または謝罪を申し出て、莫問は戦いへ話を戻す。',
+                  'branch_note': '返還分岐と謝罪分岐を統合せず、24221_3と24221_6の長短差も別分岐として保持する。',
+                  'questions': [
+                      '「物归原主」を所有者へ返す意味として自然に訳し、宇文逸が所有権を断定しすぎていないか',
+                      '莫問の「不必」を謝罪拒絶・返還拒絶の各文脈で取り違えていないか',
+                      '江師叔への恩義と天山の責任を、莫問の発話以上に因果補完していないか',
+                  ],
+                  'fact_doubts': [
+                      '巫芸の残篇と小彤の経脈問題の詳細は別場面の情報で、この場面では説明を足さない',
+                      '返還と謝罪は排他的な分岐として扱う',
+                  ],
+              },
+              {
+                  'packet_id': 'yuwen-mowen-train22-packet-05',
+                  'scenes': ['24223_3', '24230_1', '24232_3'],
+                  'filename': 'CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json',
+                  'timeline': '莫問との決戦分岐。宇文逸は殺すためではなく、何度でも止めるという師弟関係の選択を示す。',
+                  'branch_note': '24223_3と24232_3の類似台詞を同一化せず、殺意の消失・選択の余地・師兄への敬意を分岐ごとに確認する。',
+                  'questions': [
+                      '「不是说要阻止我吗」の肯否を分岐ごとに正しく処理しているか',
+                      '「分出生死」を単なる勝敗ではなく、生死を決する戦いとして保っているか',
+                      '宇文逸の「没有选择」を莫問の免責断定にせず、理解を示す発話として扱っているか',
+                  ],
+                  'fact_doubts': [
+                      '莫問の剣から殺意が消えたことは24232_3で宇文逸が観察した内容',
+                      '宇文逸は莫問を許したと明言せず、何度でも止めると宣言している',
+                      '傘を持つ理由と「彼」の正体はこの抜粋だけから補わない',
+                  ],
+              },
+          ]
+
+          candidate_paths = []
+          prep_rows = []
+          for packet in packets:
+              rows = []
+              for scene in packet['scenes']:
+                  group = groups.get(scene)
+                  if group is None:
+                      raise SystemExit(f'missing relation group: {scene}')
+                  for row in group['rows']:
+                      rows.append({
+                          'key': row['key'],
+                          'speaker': row['speaker'],
+                          'zh': row['zh'],
+                          'ja': row['ja'],
+                      })
+              candidate = {
+                  'schema_version': 2,
+                  'stage': 'private_preparation',
+                  'status': 'prepared_without_translation_judgment',
+                  'current_pair': '宇文逸↔莫問',
+                  'scene_groups': packet['scenes'],
+                  'source': {'target': 'CG表', 'namespace': 'QuestDlgs'},
+                  'source_artifact': source_artifact,
+                  'scene_context': {
+                      'timeline': packet['timeline'],
+                      'branch_note': packet['branch_note'],
+                  },
+                  'rows': rows,
+                  'candidate_questions': packet['questions'],
+                  'unresolved_gates': {
+                      'allusion_candidates': [],
+                      'fact_doubts': packet['fact_doubts'],
+                  },
+                  'forbidden_outputs': [
+                      'fix_or_keep_decision',
+                      'fix_json_write',
+                      'new_owner_assignment',
+                      'formal_bundle_completion',
+                      'throughput_metrics',
+                  ],
+              }
+              path = p4 / packet['filename']
+              path.write_text(json.dumps(candidate, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+              candidate_paths.append(str(path))
+              prep_rows.append((packet['packet_id'], packet['scenes'], len(rows), str(path)))
+
+          lines = [
+              '# 宇文逸↔莫問 train-22 wave-01 準備記録',
+              '',
+              '- stage: `private_preparation`',
+              '- status: `complete`',
+              '- translation judgment: `not performed`',
+              '- owner/fix/formal batch writes: `not performed`',
+              '- source artifact: run `30321697780` / artifact `8674239509` / head `39155e6dc236e7253a264e0870ccd9f343f0608e`',
+              '',
+              '## packet',
+              '',
+          ]
+          total = 0
+          for packet_id, scenes, count, path in prep_rows:
+              total += count
+              lines.extend([
+                  f'### {packet_id}',
+                  '',
+                  f'- scenes: `{ "` / `".join(scenes) }`',
+                  f'- rows: {count}',
+                  f'- candidate: `{path}`',
+                  '',
+              ])
+          lines.extend([
+              '## wave境界',
+              '',
+              f'- packet count: {len(prep_rows)}',
+              f'- unique reviewed-candidate rows: {total}',
+              '- queue seal: packet threshold到達',
+              '- 次段階: sealed queue全体のprivate quality audit',
+              '- 24341_2以降は次wave候補として残し、本waveへ混在させない',
+              '',
+              'preparationでは訳文の良否、fix/keep、owner、正式束を決めていない。',
+          ])
+          (p4 / 'PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          (Path('_ws_tmp/train22_prepare/candidate_paths.txt')).write_text('\n'.join(candidate_paths) + '\n', encoding='utf-8')
+          PY
+      - name: Generate live ownership snapshots
+        run: |
+          mapfile -t candidates < _ws_tmp/train22_prepare/candidate_paths.txt
+          python _tools/check_candidate_ownership.py --write "${candidates[@]}"
+          python _tools/check_candidate_ownership.py "${candidates[@]}"
+      - name: Seal preparation and enter quality audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p4 = Path('_phase4_proofread')
+          current_path = p4 / 'CURRENT_WORK.json'
+          state_path = p4 / 'PRIVATE_STAGE_STATE.json'
+          manifest_path = p4 / 'CI_TRAIN_MANIFEST.json'
+          next_path = p4 / 'NEXT_TASK_PACKET.json'
+          current = json.loads(current_path.read_text(encoding='utf-8'))
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          next_task = json.loads(next_path.read_text(encoding='utf-8'))
+
+          packet_defs = [
+              ('yuwen-mowen-train22-packet-01', ['32025_1'], 'CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json'),
+              ('yuwen-mowen-train22-packet-02', ['32007_1', '32004_1'], 'CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json'),
+              ('yuwen-mowen-train22-packet-03', ['32001_2', '32001_5', '30821_1'], 'CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json'),
+              ('yuwen-mowen-train22-packet-04', ['24221_2', '24221_3', '24221_5', '24221_6'], 'CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json'),
+              ('yuwen-mowen-train22-packet-05', ['24223_3', '24230_1', '24232_3'], 'CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json'),
+          ]
+          packets = []
+          for packet_id, scenes, filename in packet_defs:
+              packets.append({
+                  'packet_id': packet_id,
+                  'scene_groups': scenes,
+                  'status': 'prepared',
+                  'preparation_record': {
+                      'candidate_packet': f'_phase4_proofread/{filename}',
+                      'context_record': '_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md',
+                  },
+                  'formal_batch': None,
+                  'audit_record': None,
+                  'review_record': None,
+              })
+
+          current['operation_mode']['declared_state'] = 'private_quality_audit'
+          current['immediate_next'] = {
+              'scene_groups': [scene for _, scenes, _ in packet_defs for scene in scenes],
+              'task': 'sealed 5packet・58行を二巡監査し、fix候補とintentional keepを記録する。',
+              'boundary': 'quality auditでは翻訳判断だけを行い、fix JSON、owner、正式束へ書き込まない。',
+              'packet': '_phase4_proofread/NEXT_TASK_PACKET.json',
+          }
+          current['ci_train']['status'] = 'private_quality_audit'
+          current['ci_train']['transport_status'] = 'not_ready'
+          current['ci_train']['private_stage'].update({
+              'stage': 'private_quality_audit',
+              'status': 'active',
+              'transport_status': 'not_ready',
+              'wave_id': 'yuwen-mowen-train-22-wave-01',
+              'cycle_status': 'running',
+              'cycle_checkpoint': 'private_quality_audit',
+          })
+
+          state['stage'] = 'private_quality_audit'
+          state['cycle_control'].update({
+              'status': 'running',
+              'continuation_required': True,
+              'stop_reason': None,
+              'exact_next_action': 'sealed 5packet・58行を二巡監査し、fix候補とintentional keepをAUDIT記録へ固定する',
+              'last_safe_checkpoint': 'private_quality_audit',
+          })
+          state['wave'] = {
+              'wave_id': 'yuwen-mowen-train-22-wave-01',
+              'queue_status': 'sealed',
+              'seal_reason': 'packet_threshold',
+              'seal_attestation': 'five narrative-separated packets covering 58 unique rows; 24341_2 and later groups remain outside this wave',
+              'packets': packets,
+              'encoding_summary': None,
+          }
+          state['permissions'].update({
+              'translation_judgment_allowed': True,
+              'fix_writes_allowed': False,
+              'encoding_writes_allowed': False,
+          })
+          state['history'] = [
+              {'stage': 'private_preparation', 'status': 'complete'},
+              {'stage': 'private_quality_audit', 'status': 'active'},
+          ]
+          state['replenishment_reason'] = None
+
+          manifest['status'] = 'private_quality_audit'
+          manifest['transport'].update({'status': 'not_ready', 'translation_stage': 'private_quality_audit'})
+          manifest['tracking_mode'] = 'private_quality_audit'
+          manifest['private_stage'].update({
+              'stage': 'private_quality_audit',
+              'status': 'active',
+              'transport_status': 'not_ready',
+          })
+          manifest['next_release'].update({
+              'candidate_scene': [scene for _, scenes, _ in packet_defs for scene in scenes],
+              'reservation_status': 'quality_audit_active',
+              'formal_batches': [],
+              'current_private_stage': 'private_quality_audit',
+          })
+
+          next_task['status'] = 'active'
+          next_task['scene_groups'] = [scene for _, scenes, _ in packet_defs for scene in scenes]
+          next_task['reservation'].update({
+              'status': 'quality_audit_active',
+              'wave_id': 'yuwen-mowen-train-22-wave-01',
+              'packet_id': None,
+              'preparation_started': True,
+              'quality_audit_started': True,
+              'encoding_started': False,
+              'formal_batch': None,
+          })
+          next_task['source']['freshness_rule'] = 'train-22 wave-01はartifact 8674239509の実在行から準備済み。quality audit中に別artifactへ差し替えない。'
+
+          for path, value in ((current_path, current), (state_path, state), (manifest_path, manifest), (next_path, next_task)):
+              path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          (p4 / 'CURRENT_HANDOFF.md').write_text('''# 現在の申し送り\n\n> 再開指示: `現状把握して作業の続きを`\n\n## 現在地\n\n- 実visibility: public\n- execution mode: `always_public_full_pipeline`\n- verified checkpoint: 第135束 / pair 1306 / project 1682\n- train: `yuwen-mowen-train-22`\n- branch: `agent/yuwen-mowen-train-22`\n- private stage: `private_quality_audit`\n- transport: `not_ready`\n- queue: 5packet / 58行 / sealed\n\n## 次の作業\n\n候補58行を二巡監査し、fix候補とintentional keepを`AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md`へ固定する。quality auditではfix JSON、owner、正式束を書かない。\n\n## 禁止\n\n- quality audit中にfix JSON、owner、正式束を書かない。\n- 類似分岐を同一台詞として統合しない。\n- 別人物ペアの所有行を修正数のために取り込まない。\n- manifest ready前にPRを開かない。\n- ゲームフォルダへ配置しない。\n''', encoding='utf-8')
+          PY
+      - name: Commit prepared wave
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _phase4_proofread/CANDIDATE_YUWEN_MOWEN_*.json
+          git add _phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md
+          git add _phase4_proofread/CURRENT_WORK.json
+          git add _phase4_proofread/PRIVATE_STAGE_STATE.json
+          git add _phase4_proofread/CI_TRAIN_MANIFEST.json
+          git add _phase4_proofread/NEXT_TASK_PACKET.json
+          git add _phase4_proofread/CURRENT_HANDOFF.md
+          git commit -m '翻訳: train-22 waveを準備して品質監査へ移行'
+          git push origin HEAD:${{ github.ref_name }}
