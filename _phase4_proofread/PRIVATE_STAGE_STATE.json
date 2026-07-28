@@ -2,7 +2,7 @@
   "schema_version": 2,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-22",
-  "stage": "private_quality_audit",
+  "stage": "private_encoding",
   "mode": "wave_v2",
   "cycle_control": {
     "status": "running",
@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "sealed 5packet・58行を二巡監査し、fix候補とintentional keepをAUDIT記録へ固定する",
-    "last_safe_checkpoint": "private_quality_audit",
+    "exact_next_action": "OWNER_ASSIGNMENT_PLANを作成し、AUDIT_DECISIONSの22件だけをownerへ収録して第136〜140束を生成する",
+    "last_safe_checkpoint": "private_encoding",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -41,13 +41,16 @@
         "scene_groups": [
           "32025_1"
         ],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE32025_1_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
@@ -56,13 +59,16 @@
           "32007_1",
           "32004_1"
         ],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32007_1_32004_1_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
@@ -72,13 +78,16 @@
           "32001_5",
           "30821_1"
         ],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32001_2_32001_5_30821_1_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
@@ -89,13 +98,16 @@
           "24221_5",
           "24221_6"
         ],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24221_2_24221_3_24221_5_24221_6_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       },
       {
@@ -105,13 +117,16 @@
           "24230_1",
           "24232_3"
         ],
-        "status": "prepared",
+        "status": "audited",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES24223_3_24230_1_24232_3_2026-07-28.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md"
         },
         "formal_batch": null,
-        "audit_record": null,
+        "audit_record": {
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.md",
+          "status": "complete"
+        },
         "review_record": null
       }
     ],
@@ -129,9 +144,9 @@
     "merge_sha": null
   },
   "permissions": {
-    "translation_judgment_allowed": true,
-    "fix_writes_allowed": false,
-    "encoding_writes_allowed": false,
+    "translation_judgment_allowed": false,
+    "fix_writes_allowed": true,
+    "encoding_writes_allowed": true,
     "throughput_metrics_visible": true,
     "metrics_frozen": false
   },
@@ -142,6 +157,10 @@
     },
     {
       "stage": "private_quality_audit",
+      "status": "complete"
+    },
+    {
+      "stage": "private_encoding",
       "status": "active"
     }
   ],

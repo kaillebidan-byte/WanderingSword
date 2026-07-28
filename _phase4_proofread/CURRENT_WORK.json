@@ -32,7 +32,7 @@
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH135_2026-07-28.md"
   },
   "operation_mode": {
-    "declared_state": "private_quality_audit",
+    "declared_state": "private_encoding",
     "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
@@ -127,8 +127,8 @@
       "24230_1",
       "24232_3"
     ],
-    "task": "sealed 5packet・58行を二巡監査し、fix候補とintentional keepを記録する。",
-    "boundary": "quality auditでは翻訳判断だけを行い、fix JSON、owner、正式束へ書き込まない。",
+    "task": "OWNER_ASSIGNMENT_PLANを作成し、監査済み22件だけをownerへ収録して第136〜140束を生成する。",
+    "boundary": "encodingではAUDIT_DECISIONSに固定済みの値だけを書き、新しい翻訳判断を行わない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -164,7 +164,7 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-22",
     "branch": "agent/yuwen-mowen-train-22",
-    "status": "private_quality_audit",
+    "status": "private_encoding",
     "transport_status": "not_ready",
     "base_checkpoint_batch": 135,
     "thresholds": {
@@ -194,23 +194,23 @@
       "primary_objective": "repair_substantive_translation_defects",
       "throughput_metrics_role": "transport_only",
       "low_yield_threshold_percent": 15,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
-      "keep_only_bundles": 0,
-      "pre_challenge_unique_fix_rows": 0,
+      "reviewed_keys": 58,
+      "unique_reviewed_rows": 58,
+      "fix_keys": 22,
+      "unique_fix_rows": 22,
+      "keep_only_bundles": 1,
+      "pre_challenge_unique_fix_rows": 22,
       "low_yield_detected": false,
-      "release_decision": "pending",
+      "release_decision": "quality_passed",
       "challenge_pass": null
     },
     "private_stage": {
-      "stage": "private_quality_audit",
+      "stage": "private_encoding",
       "status": "active",
       "transport_status": "not_ready",
       "wave_id": "yuwen-mowen-train-22-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "private_quality_audit"
+      "cycle_checkpoint": "private_encoding"
     },
     "tracking_issue": null,
     "draft_pr": null,

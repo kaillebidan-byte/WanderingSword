@@ -4,10 +4,10 @@
   "train_id": "yuwen-mowen-train-22",
   "branch": "agent/yuwen-mowen-train-22",
   "draft_pr": null,
-  "status": "private_quality_audit",
+  "status": "private_encoding",
   "transport": {
     "status": "not_ready",
-    "translation_stage": "private_quality_audit",
+    "translation_stage": "private_encoding",
     "pr": null,
     "merge_sha": null
   },
@@ -55,7 +55,7 @@
   },
   "bundles": [],
   "tracking_issue": null,
-  "tracking_mode": "private_quality_audit",
+  "tracking_mode": "private_encoding",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
@@ -71,20 +71,20 @@
     "primary_objective": "repair_substantive_translation_defects",
     "throughput_metrics_role": "transport_only",
     "low_yield_threshold_percent": 15,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
-    "keep_only_bundles": 0,
-    "pre_challenge_unique_fix_rows": 0,
+    "reviewed_keys": 58,
+    "unique_reviewed_rows": 58,
+    "fix_keys": 22,
+    "unique_fix_rows": 22,
+    "keep_only_bundles": 1,
+    "pre_challenge_unique_fix_rows": 22,
     "low_yield_detected": false,
-    "release_decision": "pending",
+    "release_decision": "quality_passed",
     "challenge_pass": null
   },
   "private_stage": {
     "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
     "state": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
-    "stage": "private_quality_audit",
+    "stage": "private_encoding",
     "status": "active",
     "transport_status": "not_ready"
   },
@@ -104,9 +104,15 @@
       "24230_1",
       "24232_3"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoding_active",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      136,
+      137,
+      138,
+      139,
+      140
+    ],
+    "current_private_stage": "private_encoding"
   }
 }

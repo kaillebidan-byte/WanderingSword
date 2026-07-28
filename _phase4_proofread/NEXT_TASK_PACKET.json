@@ -27,13 +27,13 @@
     "24232_3"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoding_active",
     "wave_id": "yuwen-mowen-train-22-wave-01",
     "packet_id": null,
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 136
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
