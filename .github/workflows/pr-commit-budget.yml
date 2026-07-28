@@ -1,0 +1,41 @@
+name: PR commit budget
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+concurrency:
+  group: pr-commit-budget-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  commit-budget:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout PR HEAD with history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Validate GitHub API write policy
+        run: python _tools/check_pr_commit_budget.py --validate-policy-only
+
+      - name: Enforce PR commit budget
+        run: >-
+          python _tools/check_pr_commit_budget.py
+          --base "${{ github.event.pull_request.base.sha }}"
+          --head "${{ github.event.pull_request.head.sha }}"
+
+      - name: Run commit-budget regression
+        run: python _tools/test_check_pr_commit_budget.py
