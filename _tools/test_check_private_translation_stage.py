@@ -71,7 +71,15 @@ def contract() -> dict:
         },
         "wave_policy": {
             "normal_seal": {"packet_count": 4, "unique_reviewed_rows": 40},
-            "caps": {"packet_count": 6, "unique_reviewed_rows": 60},
+            "standard_reviewed_rows": {"min": 40, "max": 60},
+            "caps": {"packet_count": 6, "unique_reviewed_rows": 80},
+            "semantic_extension": {
+                "allowed": True,
+                "after_standard_max": 60,
+                "hard_max": 80,
+                "reason": "complete_semantic_unit",
+                "fill_to_hard_max_required": False,
+            },
             "seal_reasons": [
                 "packet_threshold",
                 "unique_reviewed_rows_threshold",
@@ -251,6 +259,15 @@ def main() -> None:
     # 2. 複数packetを準備してsealしたら成功
     state, current, manifest = sample("private_preparation")
     assert errors(checker, state, current, manifest) == []
+
+    # 2b. 60行を超えても意味単位を完結させる80行までは成功
+    state, current, manifest = sample("private_preparation", count=6)
+    state["wave"]["preparation_summary"]["unique_reviewed_rows"] = 80
+    assert errors(checker, state, current, manifest) == []
+
+    # 2c. 80行を超えたら失敗
+    state["wave"]["preparation_summary"]["unique_reviewed_rows"] = 81
+    assert any("wave row cap exceeded" in error for error in errors(checker, state, current, manifest))
 
     # 3. queue未sealedでquality auditへ進んだら失敗
     state, current, manifest = sample("private_quality_audit")

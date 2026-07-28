@@ -161,8 +161,18 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
     else:
         if policy.get("normal_seal") != {"packet_count": 4, "unique_reviewed_rows": 40}:
             errors.append("contract.wave_policy.normal_seal mismatch")
-        if policy.get("caps") != {"packet_count": 6, "unique_reviewed_rows": 60}:
+        if policy.get("standard_reviewed_rows") != {"min": 40, "max": 60}:
+            errors.append("contract.wave_policy.standard_reviewed_rows mismatch")
+        if policy.get("caps") != {"packet_count": 6, "unique_reviewed_rows": 80}:
             errors.append("contract.wave_policy.caps mismatch")
+        if policy.get("semantic_extension") != {
+            "allowed": True,
+            "after_standard_max": 60,
+            "hard_max": 80,
+            "reason": "complete_semantic_unit",
+            "fill_to_hard_max_required": False,
+        }:
+            errors.append("contract.wave_policy.semantic_extension mismatch")
         if set(policy.get("seal_reasons", [])) != SEAL_REASONS:
             errors.append("contract.wave_policy.seal_reasons mismatch")
         if set(policy.get("replenishment_reasons", [])) != REPLENISHMENT_REASONS:
@@ -334,7 +344,7 @@ def _validate_wave(state: dict[str, Any], stage: str, errors: list[str]) -> None
                 if not _nonnegative_int(rows):
                     errors.append("preparation_summary.unique_reviewed_rows must be non-negative")
                     rows = 0
-                if rows > 60:
+                if rows > 80:
                     errors.append("wave row cap exceeded")
                 normal = len(packets) >= 4 or rows >= 40
                 exhausted = seal_reason == "scope_exhausted" and _nonempty_string(wave.get("seal_attestation"))
