@@ -7,7 +7,7 @@
 ## 現在地
 
 - 実visibility: public
-- PR: train-25 branch準備済み / PR作成前
+- PR #154: open / ready
 - train: `yuwen-mowen-train-25`
 - verified checkpoint: 第149束 / pair 1344 / project 1720
 - last reviewed batch: 第153束
@@ -21,7 +21,7 @@
 
 ## 次の作業
 
-PRを作成し、PR番号を三状態正本とminimal reservationへ同期する。その後release preflightを実行し、orchestrator・finalization・phase2・review thread 0・squash mergeまで進める。
+PR #154のrelease preflightを実行し、orchestrator・finalization・phase2・review thread 0・squash mergeまで進める。
 
 次候補`5274_1`はminimal reservationのまま保持し、train-25統合前にpreparationを開始しない。
 
