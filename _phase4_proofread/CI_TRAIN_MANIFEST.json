@@ -227,7 +227,7 @@
       }
     }
   ],
-  "tracking_issue": null,
+  "tracking_issue": 149,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,

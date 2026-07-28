@@ -64,6 +64,8 @@ python _tools/select_cycle_execution_mode.py --repository-visibility <private|pu
 
 botの`action_required`は作業失敗ではない。release evidence、verified checkpoint、未解決review threadを確認して輸送を続ける。squash統合後は`Reconcile merged translation cycle` workflowが三状態正本を`merged`へ確定する。次チャットの推論へ補正を先送りしない。
 
+post-merge状態PRを通常工程として作らず、squash統合後はmerge後reconcilerで三状態正本を`merged`へ確定する。
+
 ## 標準完了地点
 
 ### manual_visibility_cycle
