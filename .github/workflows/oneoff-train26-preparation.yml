@@ -1,0 +1,408 @@
+name: One-off Yuwen-Mowen train-26 preparation
+
+on:
+  push:
+    branches:
+      - agent/yuwen-mowen-train-26
+    paths:
+      - .github/workflows/oneoff-train26-preparation.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  prepare:
+    if: ${{ !contains(github.event.head_commit.message, '[train26-prepared]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout train branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/yuwen-mowen-train-26
+          fetch-depth: 0
+
+      - name: Lock cycle execution mode
+        run: |
+          python _tools/select_cycle_execution_mode.py \
+            --visibility public \
+            --branch agent/yuwen-mowen-train-26 \
+            --cycle-id yuwen-mowen-train-26
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _phase4_proofread/CURRENT_WORK.json _phase4_proofread/PRIVATE_STAGE_STATE.json
+          git commit -m "状態: train-26を常時public modeで開始 [train26-mode-lock]"
+          git push
+
+      - name: Download latest relation evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/train26-evidence
+          mkdir -p /tmp/train26-evidence
+          gh run download 30348500770 \
+            --repo "${{ github.repository }}" \
+            --name relation-audit-evidence \
+            --dir /tmp/train26-evidence
+          test -f /tmp/train26-evidence/yuwen_mowen.json
+
+      - name: Build source-backed preparation packets
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          from pathlib import Path
+
+          ROOT = Path(".")
+          P4 = ROOT / "_phase4_proofread"
+          EVIDENCE = Path("/tmp/train26-evidence/yuwen_mowen.json")
+          SOURCE = {
+              "workflow": "Release train orchestrator",
+              "run_id": 30348500770,
+              "artifact_id": 8683907226,
+              "artifact_name": "relation-audit-evidence",
+              "artifact_file": "yuwen_mowen.json",
+              "digest": "sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38",
+              "head_sha": "a375bb348ae2ecf90b67537dd0cf0ab7eef32beb",
+          }
+          PACKETS = [
+              {
+                  "id": "01",
+                  "scenes": ["5274_1"],
+                  "filename": "CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json",
+                  "timeline": "宇文逸が平康城から武当へ戻り、莫問へ事件を報告する。莫問は丐幇幇主が同件で来訪中だと伝え、宇文逸を殿内へ促す。",
+                  "branch_note": "七行で帰還報告が完結する。次の5278_1は莫棄を含む平康城での聞き込みへ場面が移るためpacket境界を分ける。",
+                  "fact_doubts": [
+                      "宇文逸は平康城で危険に遭ったが、悪党の正体や事件の全貌はこの場面では確定していない",
+                      "丐幇幇主の来訪目的は莫問の推測を含み、宇文逸の報告前に同一事件と断定しない",
+                  ],
+              },
+              {
+                  "id": "02",
+                  "scenes": ["5278_1"],
+                  "filename": "CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json",
+                  "timeline": "宇文逸・莫問・莫棄が平康城で李員外の居所と悪事を探るため、宿屋・医館・富商から聞き込みを始める。",
+                  "branch_note": "李員外の居所を知らない状態から情報収集方針を決める十四行の会話として自己完結する。",
+                  "fact_doubts": [
+                      "李員外の屋敷の場所はこの場面では未確認",
+                      "李員外の悪事について得られる手掛かりは可能性であり、聞き込み前に事実を補わない",
+                  ],
+              },
+              {
+                  "id": "03",
+                  "scenes": ["5291_1", "5292_3"],
+                  "filename": "CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json",
+                  "timeline": "李府で怯える人々と泣き声を手掛かりに救出を決める。陳麻子が蘭児を連れ去ったため、莫問が先行して救出へ向かい、宇文逸と莫棄が李天宝を足止めする。",
+                  "branch_note": "李府への潜入判断と直後の救出分担を、同一事件の連続する十二行としてまとめる。",
+                  "fact_doubts": [
+                      "十八人の側室が全員さらわれたという宇文逸の発言は推測",
+                      "柴房の泣き声の主が捕らわれた娘かどうかは、この時点では未確認",
+                  ],
+              },
+              {
+                  "id": "04",
+                  "scenes": ["5293_6", "5293_7"],
+                  "filename": "CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json",
+                  "timeline": "絶無心が官憲への敵対をちらつかせるが、莫問は武当弟子として公道を守ると明言する。直後、莫問が宇文逸のもとへ戻る。",
+                  "branch_note": "官憲と公道をめぐる対立と帰還の七行を一つの連続場面として扱う。",
+                  "fact_doubts": [
+                      "絶無心の脅しは官憲全体の確定した処分ではなく、本人が示す圧力",
+                      "莫問の発言は公道を守る原則であり、官憲一般への無差別な敵対へ広げない",
+                  ],
+              },
+          ]
+
+          evidence = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+          by_scene = {g["family"].removesuffix("_Dlgs"): g for g in evidence["groups"]}
+          expected = {"5274_1": 7, "5278_1": 14, "5291_1": 9, "5292_3": 3, "5293_6": 5, "5293_7": 2}
+          observed = {scene: len(by_scene[scene]["rows"]) for scene in expected}
+          if observed != expected:
+              raise SystemExit(f"source row count mismatch: {observed!r}")
+
+          candidate_paths = []
+          prep_lines = [
+              "# 宇文逸↔莫問 train-26 wave-01 preparation",
+              "",
+              "- stage: `private_preparation`",
+              "- status: `complete`",
+              "- source: train-25 Relation artifact",
+              "- queue: 4 packets / 40 unique rows",
+              "- reservation: `5274_1`を最新Relation artifactで再確認し、後続の意味単位を四packetへまとめた。",
+              "",
+              "## packet layout",
+              "",
+          ]
+          for packet in PACKETS:
+              rows = []
+              for scene in packet["scenes"]:
+                  for row in by_scene[scene]["rows"]:
+                      rows.append({
+                          "key": row["key"],
+                          "speaker": row["speaker"],
+                          "zh": row["zh"],
+                          "ja": row["ja"],
+                      })
+              value = {
+                  "schema_version": 2,
+                  "stage": "private_preparation",
+                  "status": "prepared_without_translation_judgment",
+                  "current_pair": "宇文逸↔莫問",
+                  "scene_groups": packet["scenes"],
+                  "source": {"target": "CG表", "namespace": "QuestDlgs"},
+                  "source_artifact": SOURCE,
+                  "scene_context": {
+                      "timeline": packet["timeline"],
+                      "branch_note": packet["branch_note"],
+                  },
+                  "rows": rows,
+                  "candidate_questions": [
+                      "宇文逸の師兄への敬意が翻訳調の過敬語または急な常体になっていないか",
+                      "莫問の穏やかな大師兄らしさが古風な「うむ」や説明調へ寄りすぎていないか",
+                      "推論・伝聞・未確定情報を客観事実へ強めていないか",
+                  ],
+                  "unresolved_gates": {
+                      "allusion_candidates": [],
+                      "fact_doubts": packet["fact_doubts"],
+                  },
+                  "forbidden_outputs": [
+                      "fix_or_keep_decision",
+                      "fix_json_write",
+                      "new_owner_assignment",
+                      "formal_bundle_completion",
+                      "throughput_metrics",
+                  ],
+              }
+              path = P4 / packet["filename"]
+              path.write_text(json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+              rel = path.as_posix()
+              candidate_paths.append(rel)
+              title = " + ".join(packet["scenes"])
+              prep_lines.extend([
+                  f"### packet-{packet['id']} — {title}",
+                  f"- rows: {len(rows)}",
+                  f"- candidate: `{rel}`",
+                  f"- context: {packet['timeline']}",
+                  "",
+              ])
+
+          prep_lines.extend([
+              "## boundaries",
+              "",
+              "- preparationでは翻訳判断、fix、owner、正式束を書かない。",
+              "- 莫棄・李天宝・絶無心など別人物の発話は文脈参照とし、明白な疑義はcross-register候補へ分離する。",
+              "- 李員外の悪事、柴房の泣き声、官憲の反応を場面以上に確定しない。",
+              "",
+          ])
+          prep_path = P4 / "PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"
+          prep_path.write_text("\n".join(prep_lines), encoding="utf-8")
+
+          state_path = P4 / "PRIVATE_STAGE_STATE.json"
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["train_id"] = "yuwen-mowen-train-26"
+          state["stage"] = "private_preparation"
+          control = state["cycle_control"]
+          control.update({
+              "status": "running",
+              "continuation_required": True,
+              "stop_reason": None,
+              "exact_next_action": "sealed queue全体をprivate_quality_auditとして監査する。",
+              "last_safe_checkpoint": "private_preparation",
+          })
+          state["wave"] = {
+              "wave_id": "yuwen-mowen-train-26-wave-01",
+              "queue_status": "sealed",
+              "seal_reason": "packet_threshold",
+              "seal_attestation": "four narrative-separated packets covering 40 unique source-backed rows from the Pingkang return report through Mo Wen's return after the Li residence confrontation",
+              "packets": [
+                  {
+                      "packet_id": f"yuwen-mowen-train26-packet-{packet['id']}",
+                      "scene_groups": packet["scenes"],
+                      "status": "prepared",
+                      "preparation_record": {
+                          "candidate_packet": f"_phase4_proofread/{packet['filename']}",
+                          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md",
+                      },
+                  }
+                  for packet in PACKETS
+              ],
+              "preparation_summary": {
+                  "packet_count": 4,
+                  "unique_reviewed_rows": 40,
+              },
+          }
+          state["transport"] = {
+              "status": "not_ready",
+              "history": [{"status": "not_ready", "translation_stage": "private_preparation"}],
+          }
+          state["permissions"] = {
+              "translation_judgment_allowed": False,
+              "fix_writes_allowed": False,
+              "encoding_writes_allowed": False,
+              "throughput_metrics_visible": False,
+              "metrics_frozen": True,
+          }
+          state["history"] = [{"stage": "private_preparation", "status": "active"}]
+          state["replenishment_reason"] = None
+          state["source_artifact"] = SOURCE
+          state["previous_release"] = {
+              "train_id": "yuwen-mowen-train-25",
+              "release_id": "yuwen-mowen-train-25-r1",
+              "pr": 154,
+              "merge_sha": "b1403a4213434ccdd215b5c2b9d530f40f19b8de",
+          }
+          state.pop("verified_result", None)
+          state_path.write_text(json.dumps(state, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+
+          current_path = P4 / "CURRENT_WORK.json"
+          current = json.loads(current_path.read_text(encoding="utf-8"))
+          current["stage"] = "translation_reaudit_in_progress"
+          current["status"] = "active"
+          current["state_base_commit"] = "75bd62191e1e3d9f1ae5ab5cf2fb5b765ba6f3b9"
+          current["operation_mode"]["declared_state"] = "private_translation_work"
+          current["immediate_next"] = {
+              "scene_groups": ["5274_1", "5278_1", "5291_1", "5292_3", "5293_6", "5293_7"],
+              "task": "train-26 wave-01のsealed queue全体をprivate_quality_auditとして監査する。",
+              "boundary": "監査完了前にfix JSON、owner、正式束番号、manifest bundleを書かない。",
+              "packet": "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+          }
+          previous = {
+              "train_id": "yuwen-mowen-train-25",
+              "release_id": "yuwen-mowen-train-25-r1",
+              "pr": 154,
+              "merge_sha": "b1403a4213434ccdd215b5c2b9d530f40f19b8de",
+          }
+          current["ci_train"] = {
+              "phase": "phase1_wave",
+              "policy": "_phase4_proofread/CI_TRAIN_PHASE2.md",
+              "quality_policy": "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
+              "private_stage_policy": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
+              "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+              "train_id": "yuwen-mowen-train-26",
+              "branch": "agent/yuwen-mowen-train-26",
+              "status": "accumulating",
+              "transport_status": "not_ready",
+              "base_checkpoint_batch": 153,
+              "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
+              "caps": {"bundle_count": 6, "reviewed_rows": 80},
+              "totals": {
+                  "bundle_count": 0,
+                  "reviewed_rows": 0,
+                  "reviewed_keys": 0,
+                  "unique_reviewed_rows": 0,
+                  "fix_keys": 0,
+                  "unique_fix_rows": 0,
+                  "new_pair_keys": 0,
+                  "new_project_keys": 0,
+                  "cross_register_keys": 0,
+                  "existing_owner_updates": 0,
+                  "keep_only_bundles": 0,
+              },
+              "private_stage": {
+                  "stage": "private_preparation",
+                  "status": "complete",
+                  "transport_status": "not_ready",
+                  "wave_id": "yuwen-mowen-train-26-wave-01",
+                  "cycle_status": "running",
+                  "cycle_checkpoint": "private_preparation",
+              },
+              "tracking_issue": None,
+              "draft_pr": None,
+              "finalization_phase": "phase1",
+              "post_merge_state_pr_required": False,
+              "single_pr_finalization": True,
+              "previous_release": previous,
+          }
+          current_path.write_text(json.dumps(current, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+
+          checkpoint = current["checkpoint"]
+          manifest = {
+              "schema_version": 2,
+              "phase": "phase1_wave",
+              "train_id": "yuwen-mowen-train-26",
+              "branch": "agent/yuwen-mowen-train-26",
+              "draft_pr": None,
+              "status": "accumulating",
+              "transport": {
+                  "status": "not_ready",
+                  "translation_stage": "private_preparation",
+              },
+              "base_checkpoint": {
+                  "batch": checkpoint["batch"],
+                  "pair_applied_keys": checkpoint["pair_applied_keys"],
+                  "project_applied_keys": checkpoint["project_applied_keys"],
+                  "produced_by_pr": checkpoint["produced_by_pr"],
+                  "release_identity": checkpoint["release_identity"],
+              },
+              "thresholds": {"bundle_count": 4, "reviewed_rows": 40, "fix_keys": 20},
+              "caps": {"bundle_count": 6, "reviewed_rows": 80},
+              "allowed_early_release_reasons": [
+                  "workflow_change",
+                  "schema_change",
+                  "security_or_visibility",
+                  "urgent_build_verification",
+              ],
+              "release_trigger": None,
+              "totals": {
+                  "bundle_count": 0,
+                  "reviewed_rows": 0,
+                  "reviewed_keys": 0,
+                  "unique_reviewed_rows": 0,
+                  "fix_keys": 0,
+                  "unique_fix_rows": 0,
+                  "new_pair_keys": 0,
+                  "new_project_keys": 0,
+                  "cross_register_keys": 0,
+                  "existing_owner_updates": 0,
+                  "keep_only_bundles": 0,
+              },
+              "bundles": [],
+              "tracking_issue": None,
+              "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+              "finalization_phase": "phase1",
+              "post_merge_state_pr_required": False,
+              "single_pr_finalization": True,
+              "private_stage": {
+                  "stage": "private_preparation",
+                  "status": "complete",
+                  "transport_status": "not_ready",
+                  "wave_id": "yuwen-mowen-train-26-wave-01",
+              },
+              "next_release": {
+                  "candidate_scene": ["5274_1", "5278_1", "5291_1", "5292_3", "5293_6", "5293_7"],
+                  "reservation_status": "preparation_sealed",
+                  "reservation_schema": 6,
+                  "formal_batches": [],
+                  "current_private_stage": "private_preparation",
+              },
+              "previous_release": previous,
+          }
+          (P4 / "CI_TRAIN_MANIFEST.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, separators=(",", ":")) + "\n",
+              encoding="utf-8",
+          )
+
+          print("\n".join(candidate_paths))
+          PY
+
+      - name: Write live owner snapshots
+        run: |
+          python _tools/check_candidate_ownership.py --write \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5274_1_2026-07-28.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5278_1_2026-07-28.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5291_1_5292_3_2026-07-28.json \
+            _phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5293_6_5293_7_2026-07-28.json
+
+      - name: Validate preparation state
+        run: |
+          python _tools/check_candidate_ownership.py --require-current-wave
+          python _tools/check_private_translation_stage.py
+          python _tools/check_autonomous_cycle.py
+          python _tools/check_ci_train_manifest.py
+
+      - name: Commit sealed preparation and remove one-off workflow
+        run: |
+          git rm .github/workflows/oneoff-train26-preparation.yml
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "準備: train-26 wave-01を40行でseal [train26-prepared]"
+          git push
