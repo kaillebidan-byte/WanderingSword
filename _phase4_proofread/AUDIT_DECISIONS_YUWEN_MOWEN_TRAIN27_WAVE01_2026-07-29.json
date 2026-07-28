@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-27",
+  "wave_id": "yuwen-mowen-train-27-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30360391808,
+    "artifact_id": 8688546867,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:811e4e8fa0930d636e736c7371effbfa963e8445262ca5f9adca2e7e702a0ef1",
+    "head_sha": "e75dcf356b8aed33066dff77ac04468cab5cb4a4"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train27-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5296_7_5302_4_2026-07-29.json",
+      "scene_groups": [
+        "5296_7",
+        "5297_2",
+        "5300_1",
+        "5302_2",
+        "5302_3",
+        "5302_4"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5297_2_Dlgs_Index15_Text",
+          "before": "5002 - 莫問 $@$うむ。まだ手はあるかもしれない……",
+          "after": "5002 - 莫問 $@$うむ。まだ、そこまで悪い状況ではないかもしれない……",
+          "reason": "原文「或许事情还不算太糟」は状況がまだ深刻一辺倒ではないという判断であり、解決手段が残るという「手はある」までは述べていない。"
+        },
+        {
+          "key": "5300_1_Dlgs_Index4_Text",
+          "before": "5002 - 莫問 $@$よし。今日は一日働きづめだった。皆、早めに戻って休もう。",
+          "after": "5002 - 莫問 $@$よし。今日は一日、皆も疲れただろう。早めに戻って休もう。",
+          "reason": "原文「今天累了一天了」は皆が一日を通して疲れたという意味。「働きづめ」は労働内容を補足するため除く。"
+        },
+        {
+          "key": "5302_4_Dlgs_Index2_Text",
+          "before": "5002 - 莫問 $@$わたしは幼い頃、武当山の麓に捨てられた。肉親の顔は知らない。",
+          "after": "5002 - 莫問 $@$わたしは幼い頃、武当山の麓に捨てられた。肉親には一度も会ったことがない。",
+          "reason": "原文「并未见过任何亲人」は親族の顔を覚えていないことではなく、いずれの肉親にも会ったことがないという莫問本人の認識。"
+        }
+      ],
+      "keeps": [
+        "5296_7_Dlgs_Index0_Text",
+        "5296_7_Dlgs_Index1_Text",
+        "5296_7_Dlgs_Index2_Text",
+        "5296_7_Dlgs_Index3_Text",
+        "5296_7_Dlgs_Index4_Text",
+        "5296_7_Dlgs_Index5_Text",
+        "5296_7_Dlgs_Index6_Text",
+        "5296_7_Dlgs_Index7_Text",
+        "5296_7_Dlgs_Index8_Text",
+        "5296_7_Dlgs_Index9_Text",
+        "5296_7_Dlgs_Index10_Text",
+        "5297_2_Dlgs_Index0_Text",
+        "5297_2_Dlgs_Index1_Text",
+        "5297_2_Dlgs_Index2_Text",
+        "5297_2_Dlgs_Index3_Text",
+        "5297_2_Dlgs_Index4_Text",
+        "5297_2_Dlgs_Index5_Text",
+        "5297_2_Dlgs_Index6_Text",
+        "5297_2_Dlgs_Index7_Text",
+        "5297_2_Dlgs_Index8_Text",
+        "5297_2_Dlgs_Index9_Text",
+        "5297_2_Dlgs_Index10_Text",
+        "5297_2_Dlgs_Index11_Text",
+        "5297_2_Dlgs_Index12_Text",
+        "5297_2_Dlgs_Index13_Text",
+        "5297_2_Dlgs_Index14_Text",
+        "5300_1_Dlgs_Index0_Text",
+        "5300_1_Dlgs_Index1_Text",
+        "5300_1_Dlgs_Index2_Text",
+        "5300_1_Dlgs_Index3_Text",
+        "5300_1_Dlgs_Index5_Text",
+        "5300_1_Dlgs_Index6_Text",
+        "5300_1_Dlgs_Index7_Text",
+        "5302_2_Dlgs_Index0_Text",
+        "5302_2_Dlgs_Index1_Text",
+        "5302_2_Dlgs_Index2_Text",
+        "5302_2_Dlgs_Index3_Text",
+        "5302_2_Dlgs_Index4_Text",
+        "5302_2_Dlgs_Index5_Text",
+        "5302_2_Dlgs_Index6_Text",
+        "5302_2_Dlgs_Index7_Text",
+        "5302_2_Dlgs_Index8_Text",
+        "5302_2_Dlgs_Index9_Text",
+        "5302_2_Dlgs_Index10_Text",
+        "5302_2_Dlgs_Index11_Text",
+        "5302_2_Dlgs_Index12_Text",
+        "5302_2_Dlgs_Index13_Text",
+        "5302_2_Dlgs_Index14_Text",
+        "5302_2_Dlgs_Index15_Text",
+        "5302_3_Dlgs_Index0_Text",
+        "5302_3_Dlgs_Index1_Text",
+        "5302_3_Dlgs_Index2_Text",
+        "5302_3_Dlgs_Index3_Text",
+        "5302_4_Dlgs_Index0_Text",
+        "5302_4_Dlgs_Index3_Text",
+        "5302_4_Dlgs_Index4_Text",
+        "5302_4_Dlgs_Index5_Text",
+        "5302_4_Dlgs_Index6_Text",
+        "5302_4_Dlgs_Index7_Text"
+      ],
+      "allusion_review_candidates": [
+        "5302_3_Dlgs_Index1_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5302_3_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「無極は太極を生み、太極は両儀を生む」は道家・易学系の語彙を組み合わせた武学口訣として機能する。現訳は読み下しの構造と剛柔相済の術理を保持しており、散文化しない。"
+        }
+      ],
+      "fact_doubts": [
+        "5302_4の出生談はこの時点の莫問本人の認識として扱い、後期に判明する出自情報を遡及させない",
+        "5297_2の李天宝一味と官府の関係は絶無心の潜入調査による報告範囲に限定し、官府全体の確定事実へ広げない"
+      ]
+    }
+  ]
+}

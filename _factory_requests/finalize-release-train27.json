@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-27",
+  "pr": 166,
+  "orchestrator_run_id": 30391224493,
+  "artifact_name": "release-finalization-inputs-166",
+  "ci_head": "4efff71dc9915e3f05f105530aa2f80d099ecea3",
+  "asset_head": "ae5759fa797bc69045e364f2bf18b98250128e91",
+  "apply_changed": true,
+  "date": "2026-07-29",
+  "completed_scenes": [
+    "5296_7",
+    "5297_2",
+    "5300_1",
+    "5302_2",
+    "5302_3",
+    "5302_4"
+  ],
+  "next_scene": "5331_2",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30391224493,
+    "artifact_id": 8700999975,
+    "artifact_digest": "sha256:112f411b984604795fc52ed6586f352feefb44dd8d103b7d7adcdad3b7847cc5",
+    "artifact_head": "4efff71dc9915e3f05f105530aa2f80d099ecea3",
+    "freshness_rule": "train-27統合後、次cycleのpreparation開始時に最新Relation artifactで5331_2と近接場面を再確認する。"
+  },
+  "notes": [
+    "第158束は62 reviewed rows・3修正・59保持として確定した",
+    "意味単位完結のため標準60行を2行延長し、hard cap 80以内で収録した",
+    "live owner実測は新規owner0・既存owner更新3・複数owner0だった",
+    "orchestrator run 30391224493で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply asset HEAD ae5759fa797bc69045e364f2bf18b98250128e91をrelease系譜の祖先として保持する",
+    "次候補5331_2はminimal reservationのまま保持し、PR #166統合前にはpreparationを開始しない"
+  ]
+}

@@ -1,25 +1,17 @@
-# 現在の申し送り
+# 現在の引継ぎ
 
-> 再開指示: `現状把握して作業の続きを`
->
-> 実visibility、open PR、ActionsはGitHub metadataを毎回取得し、この文書の固定値より優先する。
+- active train: `yuwen-mowen-train-27`
+- branch: `agent/yuwen-mowen-train-27`
+- stage: `translation_frozen`
+- transport: `ready_for_public_ci`
+- formal batches: `158`
+- reviewed rows: `62` / fixes: `3` / keeps: `59`
+- pull request: `#166`
 
-## 現在地
+## exact next action
 
-- translation PR #162: merged
-- train: `yuwen-mowen-train-26`
-- verified checkpoint: 第157束 / pair 1351 / project 1727
-- transport: `merged`
-- cycle: `target_reached / merged`
-- 次候補: `5296_7`（schema v6 minimal reservation）
+`release-ci` labelから固定`Release train orchestrator`を起動し、Relation・Cross・Apply・phase2を実行する。
 
-## 次の作業
+再開句: `現状把握して作業の続きを`
 
-cycle開始時visibilityからmodeを選び、CURRENT_WORKとPRIVATE_STAGE_STATEへlockした後、予約候補のpreparationを開始する。
-
-## 禁止
-
-- merged済みPRのphase2やmergeを再実行しない。
-- mode lock前に翻訳準備、判断、owner書込みを開始しない。
-- minimal reservationへprivate preparation詳細を先書きしない。
-- ゲームフォルダへ配置しない。
+翻訳判断は凍結済み。KEEP/FIX、owner、正式束を手作業で変更しない。
