@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-23-r1",
+  "train_id": "yuwen-mowen-train-23",
+  "pr": 151,
+  "ci_head": "bc7731a062918c566195992fb03e7d558cb6b4b8",
+  "asset_head": "6a166ceadcbe003189186f6ebe9752f8791d096f",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH145_2026-07-28.md",
+  "counts": {
+    "batch": 145,
+    "pair_applied_keys": 1332,
+    "project_applied_keys": 1708,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30327015549,
+    "workflow": "Release train orchestrator",
+    "head_sha": "bc7731a062918c566195992fb03e7d558cb6b4b8",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第141〜145束は56 reviewed keys・56 unique reviewed rows・8修正キーとして確定した",
+    "live owner実測は新規owner4・既存owner値更新4・複数owner0だった",
+    "帰隠、借りの返礼、分寸、莫問の変化、束手無策の意味ずれを修正した",
+    "低収穫条件により48保持行を再監査し、追加fix 0件を確認した",
+    "orchestrator run 30327015549で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply bot asset HEAD 6a166ceadcbe003189186f6ebe9752f8791d096fで適用記録とaudit statusを第145束へ同期した",
+    "次候補11996_1はminimal reservationのまま保持し、PR #151統合前にはpreparationを開始しない"
+  ]
+}
