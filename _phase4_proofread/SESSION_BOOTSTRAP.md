@@ -66,6 +66,14 @@ botの`action_required`は作業失敗ではない。release evidence、verified
 
 post-merge状態PRを通常工程として作らず、squash統合後はmerge後reconcilerで三状態正本を`merged`へ確定する。
 
+## 実作業文書の整合
+
+再開時に次を実行し、handoff、next reservation、mode別文書が機械正本と一致しなければ作業を開始しない。
+
+```bash
+python _tools/check_operational_docs_consistency.py
+```
+
 ## 標準完了地点
 
 ### manual_visibility_cycle

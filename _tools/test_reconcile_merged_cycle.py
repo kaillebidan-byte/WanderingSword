@@ -15,7 +15,14 @@ def current() -> dict:
         "translation_base_commit": "0" * 40,
         "state_base_commit": "0" * 40,
         "last_merged_translation_pr": 145,
-        "checkpoint": {"status": "verified", "produced_by_pr": PR},
+        "current_pair": "A↔B",
+        "checkpoint": {
+            "status": "verified",
+            "produced_by_pr": PR,
+            "batch": 20,
+            "pair_applied_keys": 30,
+            "project_applied_keys": 40,
+        },
         "ci_train": {
             "draft_pr": PR,
             "transport_status": "awaiting_private_merge",
@@ -55,40 +62,38 @@ def state() -> dict:
 
 def manifest() -> dict:
     return {
-        "transport": {
-            "status": "awaiting_private_merge",
-            "pr": PR,
-            "merge_sha": None,
-        },
+        "train_id": "train-test",
+        "transport": {"status": "awaiting_private_merge", "pr": PR, "merge_sha": None},
         "private_stage": {"transport_status": "awaiting_private_merge"},
     }
 
 
-def main() -> None:
-    c, s, m, changed = reconciler.reconcile_values(
-        current(), state(), manifest(), pr_number=PR, merge_sha=SHA
-    )
-    assert changed is True
-    assert c["translation_base_commit"] == SHA
-    assert c["state_base_commit"] == SHA
-    assert c["last_merged_translation_pr"] == PR
-    assert c["ci_train"]["transport_status"] == "merged"
-    assert c["ci_train"]["private_stage"]["cycle_checkpoint"] == "merged"
-    assert "_phase4_proofread/PROJECT_SCOPE_LOCK.json" in c["mandatory_read_order"]
-    assert "_phase4_proofread/REGULATED_PHASE_STATE.json" in c["mandatory_read_order"]
-    assert s["transport"]["status"] == "merged"
-    assert s["transport"]["merge_sha"] == SHA
-    assert s["cycle_control"]["status"] == "target_reached"
-    assert s["cycle_control"]["continuation_required"] is False
-    assert s["cycle_control"]["last_safe_checkpoint"] == "merged"
-    assert m["transport"] == {"status": "merged", "pr": PR, "merge_sha": SHA}
-    assert m["private_stage"]["transport_status"] == "merged"
+def packet() -> dict:
+    return {
+        "schema_version": 6,
+        "scene_groups": ["scene-1"],
+        "release_candidate": {"pr": PR, "status": "verified", "merge_sha": None},
+        "do_not_do": ["PR統合前に開始しない"],
+    }
 
-    c2, s2, m2, changed2 = reconciler.reconcile_values(
-        c, s, m, pr_number=PR, merge_sha=SHA
+
+def main() -> None:
+    c, s, m, changed = reconciler.reconcile_values(current(), state(), manifest(), pr_number=PR, merge_sha=SHA)
+    assert changed is True
+    p, h, companion_changed = reconciler.reconcile_companions(
+        c, m, packet(), "old handoff", pr_number=PR, merge_sha=SHA
     )
-    assert changed2 is False
-    assert c2 == c and s2 == s and m2 == m
+    assert companion_changed is True
+    assert p["release_candidate"] == {"pr": PR, "status": "merged", "merge_sha": SHA}
+    assert "PR #146: merged" in h
+    assert "transport: `merged`" in h
+    assert all("統合前" not in item for item in p["do_not_do"])
+
+    p2, h2, changed2 = reconciler.reconcile_companions(c, m, p, h, pr_number=PR, merge_sha=SHA)
+    assert changed2 is False and p2 == p and h2 == h
+
+    c2, s2, m2, changed3 = reconciler.reconcile_values(c, s, m, pr_number=PR, merge_sha=SHA)
+    assert changed3 is False and c2 == c and s2 == s and m2 == m
 
     bad = manifest()
     bad["transport"]["pr"] = 999
@@ -98,6 +103,15 @@ def main() -> None:
         assert "PR mismatch" in str(exc)
     else:
         raise AssertionError("PR mismatch must fail")
+
+    bad_packet = packet()
+    bad_packet["release_candidate"]["pr"] = 999
+    try:
+        reconciler.reconcile_companions(c, m, bad_packet, h, pr_number=PR, merge_sha=SHA)
+    except ValueError as exc:
+        assert "PR mismatch" in str(exc)
+    else:
+        raise AssertionError("packet PR mismatch must fail")
 
     bad_current = copy.deepcopy(current())
     bad_current["checkpoint"]["status"] = "unverified"
