@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "contract_id": "github-api-write-policy-v1",
+  "canonical_repository": "kaillebidan-byte/WanderingSword",
+  "write_transport": {
+    "single_path": "contents_api_or_atomic_git_commit",
+    "multiple_paths": "atomic_git_commit_required",
+    "atomic_methods": [
+      "local_git_commit_and_push",
+      "github_git_data_create_blob_create_tree_create_commit_update_ref"
+    ],
+    "file_by_file_contents_commit_loop_forbidden": true,
+    "collect_complete_write_set_before_first_write": true,
+    "refetch_blob_sha_before_contents_update": true,
+    "max_conflict_retry_count": 1
+  },
+  "pull_request_commit_budget": {
+    "normal_target": 8,
+    "hard_max": 16,
+    "count_range": "base_exclusive_to_head_inclusive",
+    "over_budget_action": "block_merge_and_rebuild_or_squash_branch"
+  },
+  "failure_triage": {
+    "404": "verify_repository_path_and_ref",
+    "409": "refetch_current_blob_sha_and_retry_once",
+    "422": "verify_action_schema_branch_and_pr_state",
+    "403": "verify_connector_permission_and_rate_limit",
+    "empty_workflow_runs": "verify_event_type_and_wrapper_scope_before_declaring_failure",
+    "merge_commit_sha_null_in_list": "fetch_individual_pull_request"
+  },
+  "discovery": {
+    "web_search_for_github_api_usage_forbidden": true,
+    "connector_schema_discovery_allowed_once_per_missing_action": true,
+    "same_failed_arguments_must_not_be_retried_repeatedly": true,
+    "record_action_inputs_and_http_status_before_fallback": true
+  },
+  "evidence": {
+    "incident_pull_request": 154,
+    "incident_total_commits": 53,
+    "incident_changed_files": 32,
+    "comparison_pull_request": 153,
+    "comparison_total_commits": 11
+  }
+}

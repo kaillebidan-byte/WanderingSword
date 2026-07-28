@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - "_phase4_proofread/PROJECT_SCOPE_LOCK.json"
+      - "_phase4_proofread/GITHUB_API_WRITE_POLICY.json"
       - "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json"
       - "_phase4_proofread/EXECUTION_MODES.json"
       - "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json"
@@ -24,6 +25,7 @@ on:
       - "_tools/check_state_json_integrity.py"
       - "_tools/check_private_release_preflight.py"
       - "_tools/check_project_scope_lock.py"
+      - "_tools/check_pr_commit_budget.py"
       - "_tools/check_visibility_preflight_contract.py"
       - "_tools/check_operation_mode.py"
       - "_tools/check_autonomous_cycle.py"
@@ -32,6 +34,8 @@ on:
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/select_cycle_execution_mode.py"
       - "_tools/test_check_project_scope_lock.py"
+      - "_tools/test_check_pr_commit_budget.py"
+      - "_tools/test_pr_commit_budget_workflow.py"
       - "_tools/test_check_visibility_preflight_contract.py"
       - "_tools/test_check_operation_mode.py"
       - "_tools/test_check_autonomous_cycle.py"
@@ -41,6 +45,7 @@ on:
       - "_tools/test_select_cycle_execution_mode.py"
       - "_tools/test_release_ci_triggers.py"
       - ".github/workflows/institution-contract-tests.yml"
+      - ".github/workflows/pr-commit-budget.yml"
       - ".github/workflows/reconcile-merged-cycle.yml"
 
 concurrency:
@@ -76,6 +81,12 @@ jobs:
           python _tools/test_check_project_scope_lock.py
           python _tools/check_visibility_preflight_contract.py
           python _tools/test_check_visibility_preflight_contract.py
+
+      - name: Run GitHub API write regressions
+        run: |
+          python _tools/check_pr_commit_budget.py --validate-policy-only
+          python _tools/test_check_pr_commit_budget.py
+          python _tools/test_pr_commit_budget_workflow.py
 
       - name: Run execution mode regressions
         run: |
