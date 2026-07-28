@@ -61,8 +61,10 @@
     "marker_detection": "last_nonempty_line_exact_match",
     "marker_only_is_terminal": false,
     "live_state_validation_required": true,
+    "live_state_unavailable_behavior": "reject_terminal",
     "consumer_reference": "_tools/regulated_phase_terminal_consumer.js",
     "python_validator": "_tools/check_phase_completion_signal.py",
+    "agent_gate": "_phase4_proofread/FINAL_RESPONSE_GATE.md",
     "success_line": "規定フェイズ結果: success",
     "error_line": "規定フェイズ結果: error",
     "user_input_required": false
