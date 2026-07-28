@@ -4,12 +4,14 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
+SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
 TEXT_PATHS = {
     "handoff": P4 / "CURRENT_HANDOFF.md",
@@ -70,10 +72,36 @@ def validate_institution_queue(queue: dict[str, Any]) -> list[str]:
             if pending_seen:
                 errors.append("institution work queue completed task appears after pending")
             completion = task.get("completion")
-            if not isinstance(completion, dict) or not isinstance(completion.get("pr"), int) or not completion.get("merge_sha"):
-                errors.append(f"institution completed task lacks merge evidence: {task.get('task_id')}")
+            if not isinstance(completion, dict) or not isinstance(completion.get("pr"), int) or completion.get("pr") <= 0:
+                errors.append(f"institution completed task lacks PR evidence: {task.get('task_id')}")
+            elif completion.get("merge_sha") is not None and (
+                not isinstance(completion.get("merge_sha"), str)
+                or not SHA_RE.fullmatch(completion["merge_sha"])
+            ):
+                errors.append(f"institution completed task has invalid optional merge SHA: {task.get('task_id')}")
         else:
             errors.append(f"institution task status invalid: {task.get('task_id')}")
+
+    completion_contract = queue.get("completion_contract")
+    if not isinstance(completion_contract, dict):
+        errors.append("institution completion contract missing")
+    else:
+        for key in (
+            "task_is_completed_only_in_implementing_pr",
+            "completed_entry_requires_pr_number",
+            "merge_sha_is_verified_from_github_after_merge",
+            "requires_root_cause",
+            "requires_permanent_fix",
+            "requires_normal_and_failure_regressions",
+            "requires_institution_ci",
+            "requires_live_checker_success",
+            "requires_zero_unresolved_review_threads",
+            "requires_squash_merge",
+            "requires_main_revalidation",
+            "requires_open_pr_triage",
+        ):
+            if completion_contract.get(key) is not True:
+                errors.append(f"institution completion contract flag is not true: {key}")
     return errors
 
 
@@ -112,6 +140,10 @@ def validate_snapshot(
                 errors.append("NEXT_TASK_PACKET retains a pre-merge prohibition after merge")
 
     errors.extend(validate_institution_queue(queue))
+    handoff = texts.get("handoff", "")
+    if any(line.startswith("- main:") for line in handoff.splitlines()):
+        errors.append("CURRENT_HANDOFF must not pin a stale main commit or PR number")
+
     mode = current.get("operation_mode", {}).get("execution_mode")
     if mode == "always_public_full_pipeline":
         cold = texts.get("cold", "")
@@ -121,7 +153,6 @@ def validate_snapshot(
             errors.append("cold-start contract retains legacy public=>private rule")
         active = pending_task(queue)
         if active is not None:
-            handoff = texts.get("handoff", "")
             if active.get("task_id") not in handoff:
                 errors.append("CURRENT_HANDOFF lacks current institution task")
             if "翻訳cycleを開始しない" not in handoff:
@@ -153,6 +184,12 @@ def validate_snapshot(
         for station in ("semantic_bundle_boundary", "translation_quality_audit"):
             if station not in text:
                 errors.append(f"{label} lacks human station marker: {station}")
+
+    for label in ("readme", "session", "always_public"):
+        text = texts.get(label, "")
+        for needle in ("PR番号", "merge SHA", "GitHub metadata"):
+            if needle not in text:
+                errors.append(f"{label} lacks feasible institution completion evidence marker: {needle}")
 
     forbidden = {
         "phase2": ("encoding後にowner snapshotを再生成する", "repository metadataでprivate復帰確認"),

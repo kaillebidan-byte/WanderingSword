@@ -27,7 +27,7 @@ python _tools/select_cycle_execution_mode.py --repository-visibility public --wr
 python _tools/resume_work_controller.py --repository-visibility public
 ```
 
-`INSTITUTION_WORK_QUEUE.json`にpending taskがある間は、翻訳状態正本の次候補より制度work orderを優先する。現在taskを実装するPRでcompletionを記録し、squash mergeとmain再検証が済むまでは同じtaskを再開する。task orderが空になった場合だけ`translation_factory_controller.py`へ委譲する。
+`INSTITUTION_WORK_QUEUE.json`にpending taskがある間は、翻訳状態正本の次候補より制度work orderを優先する。現在taskの実装PRを作成後、同じPR内でstatusを`completed`へ更新しPR番号を記録する。squash merge SHAは統合前に確定しないため事前記録を要求せず、統合後にGitHub metadataで検証する。squash mergeとmain再検証が済むまでは同じtaskを再開する。task orderが空になった場合だけ`translation_factory_controller.py`へ委譲する。
 
 利用者は`現状把握して作業の続きを`または同じ意図の定型文だけを使う。制度改修用の別起動文、長文引継ぎ、次タスクの手選択を要求しない。
 

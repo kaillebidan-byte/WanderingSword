@@ -2,11 +2,26 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-import copy
-
 from check_operational_docs_consistency import validate_snapshot
 
 SHA = "a" * 40
+
+
+def completion_contract() -> dict:
+    return {
+        "task_is_completed_only_in_implementing_pr": True,
+        "completed_entry_requires_pr_number": True,
+        "merge_sha_is_verified_from_github_after_merge": True,
+        "requires_root_cause": True,
+        "requires_permanent_fix": True,
+        "requires_normal_and_failure_regressions": True,
+        "requires_institution_ci": True,
+        "requires_live_checker_success": True,
+        "requires_zero_unresolved_review_threads": True,
+        "requires_squash_merge": True,
+        "requires_main_revalidation": True,
+        "requires_open_pr_triage": True,
+    }
 
 
 def fixtures():
@@ -29,12 +44,14 @@ def fixtures():
         "translation_policy": "blocked_while_institution_tasks_pending",
         "task_order": ["done", "next"],
         "tasks": [
-            {"task_id": "done", "status": "completed", "completion": {"pr": 1, "merge_sha": SHA}},
+            {"task_id": "done", "status": "completed", "completion": {"pr": 1}},
             {"task_id": "next", "status": "pending"},
         ],
+        "completion_contract": completion_contract(),
     }
     factory_markers = "translation_factory_controller.py semantic_bundle_boundary translation_quality_audit"
-    resume_markers = "resume_work_controller.py INSTITUTION_WORK_QUEUE.json " + factory_markers
+    evidence_markers = "PR番号 merge SHA GitHub metadata"
+    resume_markers = "resume_work_controller.py INSTITUTION_WORK_QUEUE.json " + factory_markers + " " + evidence_markers
     texts = {
         "handoff": (
             "PR #12: merged\ntransport: `merged`\ncycle: `target_reached / merged`\n"
@@ -49,7 +66,7 @@ def fixtures():
         "session": resume_markers,
         "factory": factory_markers,
         "private_stages": "encoding後に上書きしない",
-        "always_public": "INSTITUTION_WORK_QUEUE.json",
+        "always_public": "INSTITUTION_WORK_QUEUE.json " + evidence_markers,
     }
     return current, state, manifest, packet, queue, texts
 
@@ -67,6 +84,10 @@ def main() -> None:
     assert any("stale pre-merge" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
 
     current, state, manifest, packet, queue, texts = fixtures()
+    texts["handoff"] += "- main: PR #1\n"
+    assert any("must not pin" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
+
+    current, state, manifest, packet, queue, texts = fixtures()
     texts["cold"] = "private_translation_work + publicなら、翻訳を開始せずprivate復帰を依頼する"
     assert any("legacy public=>private" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
 
@@ -79,6 +100,7 @@ def main() -> None:
     errors = validate_snapshot(current, state, manifest, packet, queue, texts)
     assert any("resume_work_controller.py" in error for error in errors)
     assert any("translation_quality_audit" in error for error in errors)
+    assert any("completion evidence" in error for error in errors)
 
     current, state, manifest, packet, queue, texts = fixtures()
     texts["handoff"] = texts["handoff"].replace("next", "other")
@@ -87,8 +109,16 @@ def main() -> None:
     current, state, manifest, packet, queue, texts = fixtures()
     queue["tasks"][0]["status"] = "pending"
     queue["tasks"][1]["status"] = "completed"
-    queue["tasks"][1]["completion"] = {"pr": 2, "merge_sha": SHA}
+    queue["tasks"][1]["completion"] = {"pr": 2}
     assert any("completed task appears after pending" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
+
+    current, state, manifest, packet, queue, texts = fixtures()
+    queue["tasks"][0]["completion"]["merge_sha"] = "short"
+    assert any("invalid optional merge SHA" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
+
+    current, state, manifest, packet, queue, texts = fixtures()
+    queue["completion_contract"]["merge_sha_is_verified_from_github_after_merge"] = False
+    assert any("completion contract flag" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
 
     print("test_check_operational_docs_consistency: OK")
 

@@ -85,6 +85,8 @@
   ],
   "completion_contract": {
     "task_is_completed_only_in_implementing_pr": true,
+    "completed_entry_requires_pr_number": true,
+    "merge_sha_is_verified_from_github_after_merge": true,
     "requires_root_cause": true,
     "requires_permanent_fix": true,
     "requires_normal_and_failure_regressions": true,

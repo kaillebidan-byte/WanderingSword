@@ -96,7 +96,9 @@ def validate_queue(queue: dict[str, Any]) -> list[str]:
                 errors.append(f"pending task must not contain completion: {task_id}")
             for field in ("audit_scope", "completion_conditions", "forbidden"):
                 values = task.get(field)
-                if not isinstance(values, list) or not values or any(not isinstance(item, str) or not item for item in values):
+                if not isinstance(values, list) or not values or any(
+                    not isinstance(item, str) or not item for item in values
+                ):
                     errors.append(f"pending task {task_id}.{field} must be a non-empty string list")
         elif status == "completed":
             if pending_seen:
@@ -107,7 +109,10 @@ def validate_queue(queue: dict[str, Any]) -> list[str]:
             else:
                 if not isinstance(completion.get("pr"), int) or completion.get("pr") <= 0:
                     errors.append(f"completed task completion.pr is invalid: {task_id}")
-                if not isinstance(completion.get("merge_sha"), str) or not SHA_RE.fullmatch(completion.get("merge_sha", "")):
+                merge_sha = completion.get("merge_sha")
+                if merge_sha is not None and (
+                    not isinstance(merge_sha, str) or not SHA_RE.fullmatch(merge_sha)
+                ):
                     errors.append(f"completed task completion.merge_sha is invalid: {task_id}")
 
     if task_ids != order:
@@ -119,6 +124,8 @@ def validate_queue(queue: dict[str, Any]) -> list[str]:
     else:
         for key in (
             "task_is_completed_only_in_implementing_pr",
+            "completed_entry_requires_pr_number",
+            "merge_sha_is_verified_from_github_after_merge",
             "requires_root_cause",
             "requires_permanent_fix",
             "requires_normal_and_failure_regressions",
@@ -194,14 +201,16 @@ def build_resume_work_order(
             },
             "completion_update": {
                 "set_current_task_status": "completed",
-                "record_pr_and_merge_sha": True,
+                "record_pr_number_in_implementing_pr": True,
+                "verify_merge_sha_from_github_after_merge": True,
                 "preserve_remaining_task_order": True,
                 "apply_in_same_implementing_pr": True,
                 "contract": queue["completion_contract"],
             },
             "worker_rule": (
                 "GitHubの最新main、open PR、Actionsを再取得し、既存実装を監査して未解消部分だけを直す。"
-                "このtaskをsquash mergeしmainで再検証するまで翻訳cycleへ進まない。"
+                "PR作成後に同じPR内でtaskをcompletedへ更新しPR番号を記録する。"
+                "squash merge後はGitHub metadataでmerge SHAを検証し、main再検証まで翻訳cycleへ進まない。"
             ),
         }
 
