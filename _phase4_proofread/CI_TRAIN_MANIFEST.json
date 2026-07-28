@@ -1,1 +1,169 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-26","branch":"agent/yuwen-mowen-train-26","draft_pr":162,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":162,"merge_sha":"ae116fb06d1f9d513b9024432a321c240777bf2b"},"base_checkpoint":{"batch":153,"pair_applied_keys":1351,"project_applied_keys":1727,"produced_by_pr":154,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-25-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_25.json","pr":154,"validated_head":"06232160051837e1e0320d1aedf7a66e763eeec0"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":4,"reviewed_rows":40,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":4,"keep_only_bundles":0},"bundles":[{"batch":154,"review_status":"complete","apply_status":"verified","scene_groups":["5274_1"],"reviewed_rows":7,"reviewed_keys":7,"unique_rows":7,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":6,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH154_2026-07-28.md","ownership_summary":{"existing_keys":6,"unowned_kept":1,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["宇文逸は平康城で危険に遭ったが、悪党の正体や事件の全貌はこの場面では確定していない","丐幇幇主の来訪目的は莫問の推測を含み、宇文逸の報告前に同一事件と断定しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30348500770,"artifact_id":8683907226,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38","head_sha":"a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"}},{"batch":155,"review_status":"complete","apply_status":"verified","scene_groups":["5278_1"],"reviewed_rows":14,"reviewed_keys":14,"unique_rows":14,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":13,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch4.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH155_2026-07-28.md","ownership_summary":{"existing_keys":12,"unowned_kept":2,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["李員外の屋敷の場所はこの場面では未確認","李員外の悪事について得られる手掛かりは可能性であり、聞き込み前に事実を補わない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30348500770,"artifact_id":8683907226,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38","head_sha":"a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"}},{"batch":156,"review_status":"complete","apply_status":"verified","scene_groups":["5291_1","5292_3"],"reviewed_rows":12,"reviewed_keys":12,"unique_rows":12,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":11,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch4.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH156_2026-07-28.md","ownership_summary":{"existing_keys":12,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["十八人の側室が全員さらわれたという宇文逸の発言は推測","柴房の泣き声の主が捕らわれた娘かどうかは、この時点では未確認"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30348500770,"artifact_id":8683907226,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38","head_sha":"a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"}},{"batch":157,"review_status":"complete","apply_status":"verified","scene_groups":["5293_6","5293_7"],"reviewed_rows":7,"reviewed_keys":7,"unique_rows":7,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":6,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch4.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH157_2026-07-28.md","ownership_summary":{"existing_keys":7,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":[],"allusion_review_resolved":[],"fact_doubts":["絶無心の脅しは官憲全体の確定した処分ではなく、本人が示す圧力","莫問の発言は公道を守る原則であり、官憲一般への無差別な敵対へ広げない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30348500770,"artifact_id":8683907226,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:a6539172c7b9c86ce7a7c89742c887f5477eefd665b2bce6b62c8e6dae901f38","head_sha":"a375bb348ae2ecf90b67537dd0cf0ab7eef32beb"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-26-wave-01"},"next_release":{"candidate_scene":["5296_7"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[154,155,156,157],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-25","release_id":"yuwen-mowen-train-25-r1","pr":154,"merge_sha":"b1403a4213434ccdd215b5c2b9d530f40f19b8de"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":4,"unique_fix_rows":4,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":4,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":36,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN26_WAVE01_2026-07-28.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_26.json","merge_result":{"pr":162,"merge_sha":"ae116fb06d1f9d513b9024432a321c240777bf2b"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-27",
+  "branch": "agent/yuwen-mowen-train-27",
+  "draft_pr": 166,
+  "status": "ready_for_public_ci",
+  "transport": {
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 166,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 157,
+    "pair_applied_keys": 1351,
+    "project_applied_keys": 1727,
+    "produced_by_pr": 162,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-26-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_26.json",
+      "pr": 162,
+      "validated_head": "b8e1a735b7518e4472d514d12a6aac3cd56ddd94"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 62,
+    "reviewed_keys": 62,
+    "unique_reviewed_rows": 62,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 3,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 158,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5296_7",
+        "5297_2",
+        "5300_1",
+        "5302_2",
+        "5302_3",
+        "5302_4"
+      ],
+      "reviewed_rows": 62,
+      "reviewed_keys": 62,
+      "unique_rows": 62,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 59,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch4.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH158_2026-07-29.md",
+      "ownership_summary": {
+        "existing_keys": 59,
+        "unowned_kept": 3,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5302_3_Dlgs_Index1_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5302_3_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「無極は太極を生み、太極は両儀を生む」は道家・易学系の語彙を組み合わせた武学口訣として機能する。現訳は読み下しの構造と剛柔相済の術理を保持しており、散文化しない。"
+        }
+      ],
+      "fact_doubts": [
+        "5302_4の出生談はこの時点の莫問本人の認識として扱い、後期に判明する出自情報を遡及させない",
+        "5297_2の李天宝一味と官府の関係は絶無心の潜入調査による報告範囲に限定し、官府全体の確定事実へ広げない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30360391808,
+        "artifact_id": 8688546867,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:811e4e8fa0930d636e736c7371effbfa963e8445262ca5f9adca2e7e702a0ef1",
+        "head_sha": "e75dcf356b8aed33066dff77ac04468cab5cb4a4"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
+    "wave_id": "yuwen-mowen-train-27-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5296_7",
+      "5297_2",
+      "5300_1",
+      "5302_2",
+      "5302_3",
+      "5302_4"
+    ],
+    "reservation_status": "encoded",
+    "reservation_schema": 6,
+    "formal_batches": [
+      158
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-26",
+    "release_id": "yuwen-mowen-train-26-r1",
+    "pr": 162,
+    "merge_sha": "ae116fb06d1f9d513b9024432a321c240777bf2b"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 62,
+    "unique_reviewed_rows": 62,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 3,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 59,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN27_WAVE01_2026-07-29.md"
+    }
+  }
+}
