@@ -115,18 +115,29 @@ jobs:
             --write \
             --output /tmp/translation-factory-result.json
 
-      - name: Validate transported quality-audit station
-        shell: bash
+      - name: Validate generated JSON and project scope
         run: |
-          set -euo pipefail
           python _tools/check_state_json_integrity.py
           python _tools/check_project_scope_lock.py --repository "${GITHUB_REPOSITORY}"
+
+      - name: Validate generated mode and private stage
+        run: |
           python _tools/check_operation_mode.py --repository-visibility "${{ steps.visibility.outputs.value }}"
           python _tools/check_private_translation_stage.py
+
+      - name: Validate generated train manifest and reservation
+        run: |
           python _tools/check_ci_train_manifest_v2.py
           python _tools/check_next_task_packet.py
+
+      - name: Validate generated cycle and operational documents
+        run: |
           python _tools/check_autonomous_cycle.py
           python _tools/check_operational_docs_consistency.py
+          git diff --check
+
+      - name: Validate next factory work order
+        run: |
           python _tools/translation_factory_controller.py \
             --repository-visibility "${{ steps.visibility.outputs.value }}" \
             --output /tmp/translation-factory-next-work-order.json
@@ -139,7 +150,6 @@ jobs:
           if order.get('station_type') != 'human':
               raise SystemExit('quality audit must be the human station')
           PY
-          git diff --check
 
       - name: Run factory adapter regressions
         run: |
