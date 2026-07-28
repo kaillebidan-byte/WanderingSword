@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - "_phase4_proofread/PROJECT_SCOPE_LOCK.json"
+      - "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json"
       - "_phase4_proofread/EXECUTION_MODES.json"
       - "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json"
       - "_phase4_proofread/REGULATED_PHASE_STATE.json"
@@ -18,6 +19,8 @@ on:
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
       - "_phase4_proofread/PLAN_章別通読監査.md"
       - "AGENTS.md"
+      - "_tools/check_state_json_integrity.py"
+      - "_tools/check_private_release_preflight.py"
       - "_tools/check_project_scope_lock.py"
       - "_tools/check_operation_mode.py"
       - "_tools/check_autonomous_cycle.py"
@@ -30,6 +33,7 @@ on:
       - "_tools/test_check_phase_completion_signal.py"
       - "_tools/test_reconcile_merged_cycle.py"
       - "_tools/test_select_cycle_execution_mode.py"
+      - "_tools/test_release_ci_triggers.py"
       - ".github/workflows/institution-contract-tests.yml"
       - ".github/workflows/reconcile-merged-cycle.yml"
 
