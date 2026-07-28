@@ -9,22 +9,24 @@
 - verified checkpoint: 第135束 / pair 1306 / project 1682
 - train: `yuwen-mowen-train-22`
 - branch: `agent/yuwen-mowen-train-22`
-- private stage: `private_encoding`
-- transport: `not_ready`
+- private stage: `translation_frozen`
+- transport: `ready_for_public_ci`
 - queue: 5packet / 58行 / 22修正 / 36保持
+- formal batches: 第136〜140束
 
-## 品質監査
+## train-22
 
-二巡監査を完了した。師兄呼称、莫問の常体、`不必`と`欠一命`、決戦分岐の同文不一致を修正候補に固定した。同一原文は既存の安定訳を再利用し、分岐差と未完文は統合していない。
+師兄呼称、莫問の常体、`不必`・`欠一命`、決戦分岐の同文不一致を修正した。owner assignment v2で新規owner22、既存owner更新0、複数owner0として収録する。
 
 ## 次の作業
 
-`AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN22_WAVE01_2026-07-28.json`の22件だけをowner assignment generatorで収録し、第136〜140束とreview recordを作る。
+private release preflightを成功させ、同一HEADでPRを開いて`release-ci`からphase2、review thread 0、squash merge、merged-state reconciliationまで進める。
+
+次候補`24341_2`はminimal reservationのまま保持し、train-22統合前にpreparationを開始しない。
 
 ## 禁止
 
-- encoding中に新しい翻訳判断を行わない。
-- AUDIT_DECISIONS外のfix値を書かない。
-- ownerを手書きで推測せず、generatorを使う。
-- manifest ready前にPRを開かない。
+- translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- preflight成功前にPRを開かない。
+- train-22統合前に`24341_2`のpreparationを始めない。
 - ゲームフォルダへ配置しない。

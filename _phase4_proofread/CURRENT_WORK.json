@@ -10,7 +10,7 @@
   "stage": "translation_reaudited",
   "status": "verified",
   "last_completed_batch": 135,
-  "last_reviewed_batch": 135,
+  "last_reviewed_batch": 140,
   "pair_applied_keys": 1306,
   "project_applied_keys": 1682,
   "build_status": "verified_not_deployed",
@@ -32,7 +32,7 @@
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH135_2026-07-28.md"
   },
   "operation_mode": {
-    "declared_state": "private_encoding",
+    "declared_state": "translation_frozen",
     "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
@@ -113,22 +113,10 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "32025_1",
-      "32007_1",
-      "32004_1",
-      "32001_2",
-      "32001_5",
-      "30821_1",
-      "24221_2",
-      "24221_3",
-      "24221_5",
-      "24221_6",
-      "24223_3",
-      "24230_1",
-      "24232_3"
+      "24341_2"
     ],
-    "task": "OWNER_ASSIGNMENT_PLANを作成し、監査済み22件だけをownerへ収録して第136〜140束を生成する。",
-    "boundary": "encodingではAUDIT_DECISIONSに固定済みの値だけを書き、新しい翻訳判断を行わない。",
+    "task": "private release preflightを成功させ、readyになった同一HEADでPRを開いてrelease-ciを起動する。",
+    "boundary": "translation freeze後は翻訳判断、fix追加、owner変更、正式束追加を行わない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -164,8 +152,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-22",
     "branch": "agent/yuwen-mowen-train-22",
-    "status": "private_encoding",
-    "transport_status": "not_ready",
+    "status": "ready_for_public_ci",
+    "transport_status": "ready_for_public_ci",
     "base_checkpoint_batch": 135,
     "thresholds": {
       "bundle_count": 4,
@@ -177,17 +165,17 @@
       "reviewed_rows": 60
     },
     "totals": {
-      "bundle_count": 0,
-      "reviewed_rows": 0,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
-      "new_pair_keys": 0,
-      "new_project_keys": 0,
+      "bundle_count": 5,
+      "reviewed_rows": 58,
+      "reviewed_keys": 58,
+      "unique_reviewed_rows": 58,
+      "fix_keys": 22,
+      "unique_fix_rows": 22,
+      "new_pair_keys": 22,
+      "new_project_keys": 22,
       "cross_register_keys": 0,
       "existing_owner_updates": 0,
-      "keep_only_bundles": 0
+      "keep_only_bundles": 1
     },
     "quality_gate": {
       "schema_version": 1,
@@ -205,12 +193,12 @@
       "challenge_pass": null
     },
     "private_stage": {
-      "stage": "private_encoding",
-      "status": "active",
-      "transport_status": "not_ready",
+      "stage": "translation_frozen",
+      "status": "ready_for_public_ci",
+      "transport_status": "ready_for_public_ci",
       "wave_id": "yuwen-mowen-train-22-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "private_encoding"
+      "cycle_checkpoint": "ready_for_public_ci"
     },
     "tracking_issue": null,
     "draft_pr": null,
