@@ -14,6 +14,7 @@ on:
       - "_phase4_proofread/EXECUTION_MODES.json"
       - "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json"
       - "_phase4_proofread/REGULATED_PHASE_STATE.json"
+      - "_phase4_proofread/FINAL_RESPONSE_GATE.md"
       - "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md"
       - "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md"
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
