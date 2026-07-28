@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-26-r1",
+  "train_id": "yuwen-mowen-train-26",
+  "pr": 162,
+  "ci_head": "e75dcf356b8aed33066dff77ac04468cab5cb4a4",
+  "asset_head": "b8e1a735b7518e4472d514d12a6aac3cd56ddd94",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH157_2026-07-28.md",
+  "counts": {
+    "batch": 157,
+    "pair_applied_keys": 1351,
+    "project_applied_keys": 1727,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30360391808,
+    "workflow": "Release train orchestrator",
+    "head_sha": "e75dcf356b8aed33066dff77ac04468cab5cb4a4",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第154〜157束は40 reviewed keys・40 unique reviewed rows・4修正キーとして確定した",
+    "live owner実測は新規owner0・既存owner値更新4・複数owner0だった",
+    "莫問の兄弟子口調、平康城内の情報範囲、近道表現、官憲への懸念の意味を修正した",
+    "初回keep36行を再監査し、武侠呼称の姑娘と宇文逸の一人称は人物資料に従って保持した",
+    "orchestrator run 30360391808で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成を成功させた",
+    "Apply bot asset HEAD b8e1a735b7518e4472d514d12a6aac3cd56ddd94で適用記録とaudit statusを第157束へ同期した",
+    "次候補5296_7はminimal reservationのまま保持し、PR #162統合前にはpreparationを開始しない"
+  ]
+}
