@@ -6,11 +6,13 @@ on:
     branches: [main]
     paths:
       - "README.md"
+      - "_phase4_proofread/INSTITUTION_WORK_QUEUE.json"
       - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
       - "_phase4_proofread/FACTORY_REQUEST_CONTRACT.json"
       - "_phase4_proofread/FACTORY_FLOW.md"
       - "_phase4_proofread/SESSION_BOOTSTRAP.md"
       - "_phase4_proofread/PROJECT_SCOPE_LOCK.json"
+      - "_tools/resume_work_controller.py"
       - "_tools/translation_factory_controller.py"
       - "_tools/fixed_cycle_initializer.py"
       - "_tools/factory_request_executor.py"
@@ -20,6 +22,7 @@ on:
       - "_tools/check_factory_adapters.py"
       - "_tools/check_next_task_packet_v3.py"
       - "_tools/check_batch_planning.py"
+      - "_tools/test_resume_work_controller.py"
       - "_tools/test_fixed_cycle_initializer.py"
       - "_tools/test_fixed_encoding_pipeline.py"
       - "_tools/test_factory_encoding_executor.py"
@@ -55,6 +58,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate resume dispatcher
+        run: |
+          python _tools/resume_work_controller.py --repository-visibility public --validate-contract-only
+          python _tools/test_resume_work_controller.py
       - name: Validate factory contract
         run: python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
       - name: Validate permanent adapter wiring

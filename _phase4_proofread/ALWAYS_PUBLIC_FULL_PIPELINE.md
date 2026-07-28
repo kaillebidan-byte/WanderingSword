@@ -19,6 +19,18 @@ python _tools/select_cycle_execution_mode.py --repository-visibility public --wr
 
 進行中cycleの`execution_mode`と`cycle_start_visibility`は変更しない。前cycleのtransportが`merged`になった後だけ次cycleのモードを選べる。
 
+## 定型再開と制度優先
+
+常時public modeの再開入口は次とする。
+
+```bash
+python _tools/resume_work_controller.py --repository-visibility public
+```
+
+`INSTITUTION_WORK_QUEUE.json`にpending taskがある間は、翻訳状態正本の次候補より制度work orderを優先する。現在taskを実装するPRでcompletionを記録し、squash mergeとmain再検証が済むまでは同じtaskを再開する。task orderが空になった場合だけ`translation_factory_controller.py`へ委譲する。
+
+利用者は`現状把握して作業の続きを`または同じ意図の定型文だけを使う。制度改修用の別起動文、長文引継ぎ、次タスクの手選択を要求しない。
+
 ## 実行順
 
 常時publicでも段階機械は変えない。
