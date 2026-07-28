@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""翻訳内容へ触れず、Apply前の輸送準備とcycle実行モードを一括検査する。"""
+"""翻訳内容へ触れず、Apply前の輸送準備、scope、cycle実行モードを一括検査する。"""
 from __future__ import annotations
 
 import argparse
@@ -13,6 +13,7 @@ TOOLS = ROOT / "_tools"
 
 BASE_CHECKS = [
     ["check_state_json_integrity.py"],
+    ["check_project_scope_lock.py"],
     ["check_phase_completion_signal.py"],
     ["check_private_translation_stage.py"],
     ["check_autonomous_cycle.py"],
@@ -27,7 +28,9 @@ BASE_CHECKS = [
 ]
 TESTS = [
     ["test_check_state_json_integrity.py"],
+    ["test_check_project_scope_lock.py"],
     ["test_check_phase_completion_signal.py"],
+    ["test_reconcile_merged_cycle.py"],
     ["test_check_candidate_ownership.py"],
     ["test_apply_owner_assignment.py"],
     ["test_check_fix_owner_delta.py"],
@@ -67,6 +70,7 @@ def main() -> int:
     args = parse_args()
     failures: list[str] = []
     checks = [
+        ["check_project_scope_lock.py", "--repository", "kaillebidan-byte/WanderingSword"],
         ["check_operation_mode.py", "--repository-visibility", args.repository_visibility],
         *BASE_CHECKS,
     ]
@@ -83,7 +87,8 @@ def main() -> int:
 
     print("\nRelease preflight used live owner measurement and sealed owner-assignment evidence.")
     print("Stored candidate ownership snapshots remain immutable pre-quality-audit records.")
-    print("Regulated phase success and error responses share the exact terminal marker contract.")
+    print("External repository scope is locked to kaillebidan-byte/WanderingSword.")
+    print("Regulated phase marker requires an authorized terminal phase state.")
     print(f"Cycle execution mode is valid for repository visibility {args.repository_visibility}.")
     print(f"\nOK: pre-Apply release preflight passed for {args.repository_visibility}")
     return 0
