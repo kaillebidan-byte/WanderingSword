@@ -2,34 +2,26 @@
 
 > 再開指示: `現状把握して作業の続きを`
 >
-> 実visibility、GitHub PR metadata、Actionsを文書中の固定値より優先する。
+> 実visibility、open PR、ActionsはGitHub metadataを毎回取得し、この文書の固定値より優先する。
 
 ## 現在地
 
-- 実visibility: public
-- PR #154: open / ready / mergeable
+- translation PR #154: merged
 - train: `yuwen-mowen-train-25`
 - verified checkpoint: 第153束 / pair 1351 / project 1727
-- last reviewed batch: 第153束
-- private stage: `translation_frozen`
-- train-25 transport: `awaiting_private_merge`
-- queue: 4packet / 57行 / 13修正 / 44保持
-
-## train-25
-
-清河村の初任務の推理、討伐後の侠義の教え、村への報告、門派任務制度、平康城への注意、資深弟子昇格までを監査した。live owner実測は新規owner 7、既存owner更新6、複数owner0。
-
-orchestrator run `30348500770`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`06232160051837e1e0320d1aedf7a66e763eeec0`。
+- transport: `merged`
+- cycle: `target_reached / merged`
+- 次候補: `5274_1`（schema v6 minimal reservation）
 
 ## 次の作業
 
-PR #154の`finalize-release` phase2と未解決review thread 0件を確認し、検証済みHEADをsquash統合する。always-public cycleなのでvisibility変更は要求しない。
+GitHub repository metadataでcycle開始時visibilityを確認し、`EXECUTION_MODES.json`に従って新cycleのmodeを選ぶ。`CURRENT_WORK.operation_mode`と`PRIVATE_STAGE_STATE.cycle_control`へ同じmodeをlockした後、予約候補からwave preparationを開始する。
 
-次候補`5274_1`はminimal reservationのまま保持し、train-25統合前にpreparationを開始しない。
+public開始なら`always_public_full_pipeline`として、段階権限を守りながら同じcycleでmergeまで進める。private開始なら`manual_visibility_cycle`としてvisibility境界を使う。
 
 ## 禁止
 
-- translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。
-- phase2成功前にPR #154をmergeしない。
-- train-25統合前に`5274_1`のpreparationを始めない。
+- merged済みPRのphase2、review thread、squash mergeを再実行しない。
+- mode lock前に翻訳準備、判断、owner書込みを開始しない。
+- minimal reservationへprivate preparationの詳細を先書きしない。
 - ゲームフォルダへ配置しない。

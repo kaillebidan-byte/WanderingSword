@@ -1,59 +1,38 @@
 # CI列車 第一段階 wave方式
 
-## 目的
-
-翻訳の意味境界をpacketとして保ちつつ、準備・品質監査・収録を一列車分のwaveへまとめる。public CI窓への往復は複数正式束ごとに一回とする。
-
 ## 単位
 
-- **candidate packet**: preparationで作る未判断単位。`PRIVATE_STAGE_STATE.json`にだけ置く。
-- **wave**: 一回のpreparation、quality audit、encodingで処理する複数packetのqueue。
-- **正式束**: encodingでreview record、owner、fix JSON、正式束番号が確定した単位。
-- **CI列車**: encoding済み正式束をまとめてpublic CIへ送る単位。
+- candidate packet: preparationで作る未判断単位。PRIVATE_STAGE_STATEだけに置く。
+- wave: 複数packetをまとめたpreparation、quality audit、encodingのqueue。
+- 正式束: encodingでreview record、owner、fix JSON、番号が確定した単位。
+- CI列車: encoding済み正式束をまとめて輸送する単位。
 
 ## wave準備
 
-preparationでは複数packetを先に準備する。通常sealは4 packet以上または40 unique reviewed rows相当以上。追加候補が意味境界上存在しない場合だけ`scope_exhausted`を使う。40〜60 rowsを標準範囲とし、60 rows付近で意味単位が完結していない場合は、その意味単位を切らずに最大6 packet / 80 rowsまで延長できる。80 rowsを埋めることを目的にしてはならない。
+通常sealは4 packet以上または40 unique reviewed rows相当以上。追加候補が意味境界上存在しない場合だけ`scope_exhausted`を使う。40〜60 rowsを標準範囲とし、60行付近で意味単位が完結していない場合は最大6 packet / 80 rowsまで延長できる。80行を埋めることを目的にしない。
 
-一packetしか準備しなかったことをreplenishment理由にしてはならない。checkerは`preparation_underfilled`として失敗させる。
+## quality auditとencoding
 
-## quality audit
-
-sealed queueの全packetを続けて監査する。一packet完了ごとにencodingへ進まない。件数、release閾値、残量、manifest totalsは監査判断へ見せない。
-
-## encoding
-
-全packetが監査済みになってから収録する。ここでfix JSON、owner、重複family、review record、正式束番号、manifest集計を作る。
-
-bundle状態は次へ分ける。
-
-- `review_status: complete`
-- `apply_status: pending | verified`
-
-candidate packetはmanifestへ入れない。
+sealed queueの全packetを続けて監査し、一packetごとにencodingへ進まない。全packet監査後、記録済み判断だけをfix JSON、owner、review record、正式束、manifestへ収録する。candidate packetはmanifestへ入れない。
 
 ## release条件
 
-通常releaseは次のいずれか一つへ達した時点とする。
+次のいずれかでrelease可能になる。
 
 - 完成正式束4
 - 通読40 unique rows
 - 修正20キー
 
-標準範囲は通読40〜60 unique rowsとする。意味単位を完結させる場合に限り、完成正式束6を維持したまま通読80 unique rowsまで延長でき、80 rowsを強制上限とする。workflow変更、schema変更、security/visibility、緊急build確認は許可された早期release理由として別に記録する。
+40〜60行は標準範囲、60〜80行は意味単位完結のための延長範囲、80行は強制上限とする。packet上限6は維持する。
 
-全packetのencoding完了後に翻訳段階を`translation_frozen`へする。CI輸送は別軸で次へ進める。
+## transport
+
+全packet encoding後に`translation_frozen`へ進め、transportを次の順で動かす。
 
 `not_ready -> ready_for_public_ci -> in_public_ci -> verified -> awaiting_private_merge -> merged`
 
+manual public CI窓では翻訳判断、packet追加、owner変更、正式束追加を禁止する。always-publicではrepository visibilityではなくstage権限で同じ境界を守り、private_*段階の作業はpublicのまま実行できる。
+
 ## replenishment
 
-`private_encoding -> private_preparation`は通常loopではない。packet invalidation、重複正規化によるscope縮小、未解決context、source stale、scope境界訂正に限り、理由コード付きで使う。
-
-## private中の所在ポインタ
-
-制度改修branchまたは列車branchはdraft PRを所在ポインタとして使える。draft PRはCI実行や統合要求ではない。active branch、CURRENT_WORK、PRIVATE_STAGE_STATE、manifestを一致させる。
-
-## public CI
-
-public中は翻訳判断、packet追加、owner変更、正式束追加を禁止する。Relation / Cross / Apply、phase2 gate、release evidence、未解決thread、squash統合だけを行う。
+`private_encoding -> private_preparation`はpacket invalidation、重複正規化、未解決context、source stale、scope境界訂正に限り、理由コード付きで使う。一packetしか準備しなかったことをreplenishment理由にしない。

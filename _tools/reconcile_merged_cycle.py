@@ -19,6 +19,10 @@ P4 = ROOT / "_phase4_proofread"
 CURRENT_NAME = "CURRENT_WORK.json"
 STATE_NAME = "PRIVATE_STAGE_STATE.json"
 MANIFEST_NAME = "CI_TRAIN_MANIFEST.json"
+PACKET_NAME = "NEXT_TASK_PACKET.json"
+HANDOFF_NAME = "CURRENT_HANDOFF.md"
+PACKET_NAME = "NEXT_TASK_PACKET.json"
+HANDOFF_NAME = "CURRENT_HANDOFF.md"
 VALID_PREMERGE_STATUSES = {"awaiting_private_merge", "merged"}
 
 
@@ -27,6 +31,14 @@ def load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"top level must be object: {path}")
     return value
+
+
+def write_text(path: Path, text: str) -> None:
+    path.write_text(text.rstrip() + "\n", encoding="utf-8", newline="\n")
+
+
+def write_text(path: Path, text: str) -> None:
+    path.write_text(text.rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
 def write_json(path: Path, value: dict[str, Any]) -> None:
@@ -204,6 +216,63 @@ def reconcile_values(
     return current, state, manifest, True
 
 
+
+def render_handoff(current: dict[str, Any], manifest: dict[str, Any], packet: dict[str, Any]) -> str:
+    checkpoint = current.get("checkpoint", {})
+    scenes = " / ".join(map(str, packet.get("scene_groups", [])))
+    pr = manifest.get("transport", {}).get("pr")
+    return f"""# 現在の申し送り
+
+> 再開指示: `現状把握して作業の続きを`
+>
+> 実visibility、open PR、ActionsはGitHub metadataを毎回取得し、この文書の固定値より優先する。
+
+## 現在地
+
+- translation PR #{pr}: merged
+- train: `{manifest.get('train_id')}`
+- verified checkpoint: 第{checkpoint.get('batch')}束 / pair {checkpoint.get('pair_applied_keys')} / project {checkpoint.get('project_applied_keys')}
+- transport: `merged`
+- cycle: `target_reached / merged`
+- 次候補: `{scenes}`（schema v6 minimal reservation）
+
+## 次の作業
+
+cycle開始時visibilityからmodeを選び、CURRENT_WORKとPRIVATE_STAGE_STATEへlockした後、予約候補のpreparationを開始する。
+
+## 禁止
+
+- merged済みPRのphase2やmergeを再実行しない。
+- mode lock前に翻訳準備、判断、owner書込みを開始しない。
+- minimal reservationへprivate preparation詳細を先書きしない。
+- ゲームフォルダへ配置しない。
+"""
+
+
+def reconcile_companions(
+    current: dict[str, Any],
+    manifest: dict[str, Any],
+    packet: dict[str, Any],
+    handoff: str,
+    *,
+    pr_number: int,
+    merge_sha: str,
+) -> tuple[dict[str, Any], str, bool]:
+    updated = copy.deepcopy(packet)
+    release = updated.get("release_candidate")
+    if not isinstance(release, dict) or release.get("pr") != pr_number:
+        raise ValueError("NEXT_TASK_PACKET release_candidate PR mismatch")
+    release["status"] = "merged"
+    release["merge_sha"] = merge_sha
+    updated["do_not_do"] = [
+        "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+        "新cycleのexecution modeをCURRENT_WORKとPRIVATE_STAGE_STATEへlockする前にpreparationを開始しない",
+        "ゲームフォルダへ配置しない",
+    ]
+    rendered = render_handoff(current, manifest, updated)
+    return updated, rendered, updated != packet or rendered != handoff
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
@@ -222,11 +291,17 @@ def main() -> int:
         "current": p4 / CURRENT_NAME,
         "state": p4 / STATE_NAME,
         "manifest": p4 / MANIFEST_NAME,
+        "packet": p4 / PACKET_NAME,
+        "handoff": p4 / HANDOFF_NAME,
+        "packet": p4 / PACKET_NAME,
+        "handoff": p4 / HANDOFF_NAME,
     }
     try:
         current = load(paths["current"])
         state = load(paths["state"])
         manifest = load(paths["manifest"])
+        packet = load(paths["packet"])
+        handoff = paths["handoff"].read_text(encoding="utf-8")
         pr_number = aligned_pr_number(current, state, manifest)
         if args.event_pr is not None and args.event_pr != pr_number:
             print(
@@ -253,6 +328,15 @@ def main() -> int:
             pr_number=pr_number,
             merge_sha=merge_sha,
         )
+        packet, handoff, companion_changed = reconcile_companions(
+            current,
+            manifest,
+            packet,
+            handoff,
+            pr_number=pr_number,
+            merge_sha=merge_sha,
+        )
+        changed = changed or companion_changed
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
@@ -269,10 +353,12 @@ def main() -> int:
         write_json(paths["current"], current)
         write_json(paths["state"], state)
         write_json(paths["manifest"], manifest)
+        write_json(paths["packet"], packet)
+        write_text(paths["handoff"], handoff)
     except OSError as exc:
         print(f"ERROR: failed to write reconciled state: {exc}")
         return 1
-    print("OK: CURRENT_WORK, PRIVATE_STAGE_STATE and CI_TRAIN_MANIFEST are merged")
+    print("OK: state authorities, NEXT_TASK_PACKET and CURRENT_HANDOFF are merged")
     return 0
 
 
