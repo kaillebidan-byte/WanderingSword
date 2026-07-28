@@ -13,27 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PYTHONIOENCODING: utf-8
-      AUDIT_SCRIPT_B64: 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
     steps:
       - uses: actions/checkout@v4
         with:
           ref: agent/yuwen-mowen-train-26
           fetch-depth: 0
 
-      - name: Materialize deterministic audit encoder
+      - name: Validate one-off audit encoder
         run: |
-          python - <<'PY'
-          import base64, gzip, os
-          from pathlib import Path
-          Path("/tmp/train26_audit_encode.py").write_bytes(
-              gzip.decompress(base64.b64decode(os.environ["AUDIT_SCRIPT_B64"]))
-          )
-          PY
-          python -m py_compile /tmp/train26_audit_encode.py
+          python -m py_compile _tools/oneoff_train26_audit_encode.py
 
       - name: Complete private quality audit
         run: |
-          python /tmp/train26_audit_encode.py audit
+          python _tools/oneoff_train26_audit_encode.py audit
           python _tools/check_private_translation_stage.py
           python _tools/check_autonomous_cycle.py
           python _tools/check_ci_train_manifest.py
@@ -55,7 +47,7 @@ jobs:
 
       - name: Encode fixes and seal owner assignment
         run: |
-          python /tmp/train26_audit_encode.py freeze
+          python _tools/oneoff_train26_audit_encode.py freeze
           python _tools/apply_owner_assignment_v2.py
 
       - name: Validate frozen train before public CI
@@ -69,9 +61,10 @@ jobs:
           python _tools/check_autonomous_cycle.py
           python _tools/check_private_release_preflight.py --repository-visibility public --with-tests
 
-      - name: Commit frozen train and remove one-off workflow
+      - name: Commit frozen train and remove one-off tools
         run: |
           git rm .github/workflows/oneoff-train26-audit-encode.yml
+          git rm _tools/oneoff_train26_audit_encode.py
           git add _phase4_proofread
           git diff --cached --check
           git commit -m "翻訳: train-26を第154-157束でfreeze [train26-frozen]"
