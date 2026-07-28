@@ -49,37 +49,21 @@ jobs:
           python _tools/check_state_json_integrity.py
           git diff --check
 
-      - name: Commit atomic migration
-        id: commit
-        continue-on-error: true
+      - name: Commit non-workflow migration atomically
         shell: bash
         run: |
-          set -o pipefail
-          {
-            set -eux
-            git config user.name 'github-actions[bot]'
-            git config user.email '4189823+github-actions[bot]@users.noreply.github.com'
-            git status --short
-            git add -A
-            git reset .github/workflows/apply-operational-contract-refresh.yml _tools/migrate_operational_contracts.py
-            git diff --cached --stat
-            if git diff --cached --quiet; then
-              echo 'operational contract refresh already applied'
-              exit 0
-            fi
-            git commit -m '制度: 実作業正本とmode別手順を現行仕様へ同期'
-            git push origin HEAD:${{ github.head_ref }}
-          } 2>&1 | tee migration-commit.log
-
-      - name: Upload migration commit diagnostic
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: operational-contract-migration-commit
-          path: migration-commit.log
-          if-no-files-found: error
-          retention-days: 1
-
-      - name: Stop on commit failure
-        if: steps.commit.outcome == 'failure'
-        run: exit 1
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '4189823+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git reset \
+            .github/workflows/apply-operational-contract-refresh.yml \
+            .github/workflows/institution-contract-tests.yml \
+            .github/workflows/reconcile-merged-cycle.yml \
+            _tools/migrate_operational_contracts.py
+          if git diff --cached --quiet; then
+            echo 'non-workflow operational contract refresh already applied'
+            exit 0
+          fi
+          git commit -m '制度: 実作業正本とmode別手順を現行仕様へ同期'
+          git push origin HEAD:${{ github.head_ref }}
