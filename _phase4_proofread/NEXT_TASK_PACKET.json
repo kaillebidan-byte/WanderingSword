@@ -39,11 +39,10 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-26",
-    "release_id": "yuwen-mowen-train-26-r1",
-    "pr": 162,
-    "status": "merged",
-    "merge_sha": "ae116fb06d1f9d513b9024432a321c240777bf2b"
+    "train_id": "yuwen-mowen-train-27",
+    "release_id": "yuwen-mowen-train-27-r1",
+    "pr": 166,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
     "translation_frozen中にKEEP/FIX判断を再開しない",
