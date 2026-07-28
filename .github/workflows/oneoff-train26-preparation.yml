@@ -1,9 +1,8 @@
-# armed trigger
 name: One-off Yuwen-Mowen train-26 preparation
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, reopened]
 
 permissions:
   contents: write
@@ -11,7 +10,7 @@ permissions:
 
 jobs:
   prepare:
-    if: ${{ github.event.pull_request.merged == true }}
+    if: ${{ github.head_ref == 'agent/yuwen-mowen-train-26' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
