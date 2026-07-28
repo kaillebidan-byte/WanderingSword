@@ -84,7 +84,7 @@ def validate(flow: dict[str, Any], request: dict[str, Any], request_workflow: st
         "name: Translation factory encoding",
         'paths:\n      - "_phase4_proofread/AUDIT_DECISIONS_*.json"',
         "fixed_encoding_pipeline.py",
-        "apply_owner_assignment_v2.py",
+        "apply_owner_assignment_v2",
         "check_batch_planning.py",
         "check_owner_assignment_result.py",
         "ready_for_public_ci",
