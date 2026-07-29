@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-46",
+  "pr": 202,
+  "orchestrator_run_id": 30496632159,
+  "artifact_name": "release-finalization-inputs-202",
+  "ci_head": "18041e4c8a4563e411973332d77e4d991b46bba0",
+  "asset_head": "75eff2ebd4b36897e03ba9d162e0585fc61dcd90",
+  "apply_changed": true,
+  "next_scene": "9234_6",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30496632159,
+    "artifact_id": 8741857586,
+    "artifact_digest": "sha256:f11717517191a314822f3fe44f83acff2a60ff745e3b2ffdbb174f3be3333bae",
+    "artifact_head": "18041e4c8a4563e411973332d77e4d991b46bba0",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  }
+}
