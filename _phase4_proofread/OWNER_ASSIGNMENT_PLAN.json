@@ -2,13 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_12_5654_8_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch83.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch84.json",
       "values": {
-        "5654_8_Dlgs_Index7_Text": "19403 - ？？？ $@$風雲訣の噂が中原へ流れなければ……円覚の禿が陣取っていようと、各派が六扇門などという朝廷の犬に易々と従うものか。"
+        "5784_8_Dlgs_Index10_Text": "16002 - 程鈺 $@$よかった！　お二人とも、早く僕についてきてください！",
+        "5784_9_Dlgs_Index0_Text": "16002 - 程鈺 $@$程鈺といいます。天水城の程家堡、その堡主が僕の伯父です。",
+        "5784_9_Dlgs_Index1_Text": "16002 - 程鈺 $@$伯父の賀寿に来られたんですよね？　武当の方々が着いたと聞いて、伯父が皆さんを迎えに行けと僕を寄こしたんです。"
       },
       "fix_keys": [
-        "5654_8_Dlgs_Index7_Text"
+        "5784_8_Dlgs_Index10_Text",
+        "5784_9_Dlgs_Index0_Text",
+        "5784_9_Dlgs_Index1_Text"
       ]
     }
   ]
