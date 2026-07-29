@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-44",
+  "pr": 200,
+  "orchestrator_run_id": 30492452206,
+  "artifact_name": "release-finalization-inputs-200",
+  "ci_head": "e588ad993c88faec067e43182b453122f7e1ccc6",
+  "asset_head": "5c907423f53be117aac8c2e24c638a2965b63afd",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "9016_1",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30492452206,
+    "artifact_id": 8740252066,
+    "artifact_digest": "sha256:8e6e1c2dc66f7c18e96abdd87c44db58f701b12c6d21436f1c96244379292f74",
+    "artifact_head": "e588ad993c88faec067e43182b453122f7e1ccc6",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "train-44 orchestratorの固定artifactだけを使用する",
+    "次候補9016_1はminimal reservationとして保持する"
+  ]
+}
