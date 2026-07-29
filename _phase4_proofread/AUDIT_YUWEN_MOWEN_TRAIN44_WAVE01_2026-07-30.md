@@ -63,7 +63,7 @@
 
 ## 人物資料判断
 
-- `10_人物/宇文逸.md`: `keep`。M1cとM6が重なる決戦場面として現行資料で説明できる。
+- `10_人物/宇文逸.md`: `create`。離反後も`師兄／大師兄`と敬体を保ち、処断を拒む莫問限定の決戦規則を追加する。
 - `10_人物/莫問.md`: `revise`。「師兄（断絶宣告前まで）」を撤回し、断絶後も宇文逸側の兄弟子認識が続く非対称な関係と、決戦分岐の声を記録する。
 - `10_人物/瑶姬.md`: `keep`。一行の制止は現行の任務中モードと矛盾せず、新規規則には不足する。
 - 欧陽雪はcandidateで`unresolved_speakers`として記録され、source document targetではない。訳文は一次資料から監査したが、人物資料への還流判断は行わない。
@@ -95,6 +95,6 @@
 
 - FIX: 8
 - KEEP: 57
-- source documents: keep 2 / revise 1
+- source documents: keep 1 / revise 1 / create 1
 - unresolved translation decisions: 0
 - game verification: not started
