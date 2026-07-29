@@ -2,15 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5370_1_5450_3_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch76.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5452_1_5506_3_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch77.json",
       "values": {
-        "5449_2_Dlgs_Index2_Text": "5015 - 莫問 $@$この一戦、勝者は莫棄！　今回の門内大比、優勝は莫棄だ！",
-        "5450_3_Dlgs_Index2_Text": "5015 - 莫問 $@$武当の弟子として、侠義を行うのは何も間違っていない。"
+        "5501_2_Dlgs_Index6_Text": "17115 - 瑶姫 $@$ふふ、尾けてくる連中の狙いは分からない。早く引きずり出しておかないと、任務に差し障る方がよほど割に合わないでしょう～",
+        "5502_5_Dlgs_Index2_Text": "17005 - 欧陽雪 $@$莫問道長のお考えでは、誰かが故意にわたくしたちの足取りを漏らした、ということですか？",
+        "5502_6_Dlgs_Index3_Text": "17115 - 瑶姫 $@$千陵渡には確かに船があるわ。でも、小雪ちゃんはあまり外へ出ないから知らないでしょうね。あの渡し場は、ちょうど姑蘇の北西にあるのよ……"
       },
       "fix_keys": [
-        "5449_2_Dlgs_Index2_Text",
-        "5450_3_Dlgs_Index2_Text"
+        "5501_2_Dlgs_Index6_Text",
+        "5502_5_Dlgs_Index2_Text",
+        "5502_6_Dlgs_Index3_Text"
       ]
     }
   ]
