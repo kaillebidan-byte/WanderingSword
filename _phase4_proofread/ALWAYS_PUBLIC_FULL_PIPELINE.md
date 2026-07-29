@@ -54,6 +54,10 @@ publicであることを理由に段階権限を広げない。
 
 manifest ready、translation freeze、release preflight成功後に既存の`release-ci`入口を使う。Relation、Cross、Apply、finalization、release phase2は既存経路をそのまま使う。
 
+orchestrator開始時にevent HEADとlive PR HEAD、`translation_frozen`、`ready_for_public_ci`、train・branch・PR lineageを照合する。どれかが古い場合は失敗にせず`stale_noop`としてreleaseラベルを外し、Relation以降を開始しない。
+
+activeなreleaseラベルを持つbranchへ`synchronize`が発生した場合もguardだけを走らせ、ラベルを外して成功NOOPにする。修復後の最新HEADでreleaseを再開するには、人間が`release-ci`または`ci-heavy-rerun`を明示的に付け直す。botによるstation遷移も同じcleanupを通す。
+
 `ready_for_public_ci`と`awaiting_private_merge`は内部checkpointとして記録する。ただし常時public modeでは正常停止地点にしない。追加のvisibility操作を求めず、同じcycleでsquash mergeまで進む。
 
 merge後は`.github/workflows/reconcile-merged-cycle.yml`が次を同じmerge SHAへ確定する。
