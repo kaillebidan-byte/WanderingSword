@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-44",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30490044852,
+    "artifact_id": 8739323192,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:d843e3f8411d20c61c0c144e4eede0cc7105cf58d746525e388876545b52e200",
+    "artifact_head": "c618bf9d361a33571ca09bfc1fbe2798b10cc89d"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "6155_1",
+      "6155_3",
+      "6158_5",
+      "6171_5",
+      "6195_3",
+      "6198_3",
+      "6206_3",
+      "6213_1",
+      "6214_4",
+      "6229_1"
+    ],
+    "unique_reviewed_rows": 65,
+    "semantic_extension": {
+      "used": true,
+      "reason": "complete_semantic_unit"
+    },
+    "timeline": "莫問が宇文逸との師兄弟関係を断った後の決戦。宇文逸の敗北・ためらい、欧陽雪の介入、莫問の敗北と処断拒否、宇文逸の勝利と莫問の死、莫問が武当や大切な者を狙う脅し、宇文逸敗北後の断罪まで、相互排他的な戦闘分岐を監査する。",
+    "branch_note": "6155_1から6229_1は同一決戦から派生する複数の勝敗・介入・生死分岐であり、時系列へ直列合成しない。各分岐では咳・負傷・ためらい・呼称の有無・処断拒否を個別に確認する。6229_1で宇文逸敗北側の結末まで閉じ、次の9016_1以降は別事件のため含めない。",
+    "seal_attestation": "十場面・65行。標準60行を超えるが、莫問戦の勝敗・説得・欧陽雪介入・死亡・敗北後断罪の分岐群を途中で切らず、次の別事件へ移る直前まで意味単位を完結させるため延長した。",
+    "candidate_questions": [
+      "宇文逸のためらい、負傷、処断拒否、何度でも止める決意が分岐ごとの身体状態と感情に合っているか",
+      "莫問の嘲り、嫉妬、脅し、敗北受容、死への安堵が単純な悪役口調へ均されていないか",
+      "欧陽雪の逸兄さま・莫問兄さまという呼称、病弱な息、仲裁の切迫感が保たれているか",
+      "咳や呻きの短句で話者と負傷者を取り違えず、原文以上の致命傷や死亡確定を足していないか",
+      "相互排他的な戦闘分岐を一つの連続時系列へ合成せず、各結末の呼称と関係温度を個別に裁定しているか"
+    ],
+    "allusion_candidates": [
+      "分出生死",
+      "事已至此",
+      "侠义为重"
+    ],
+    "fact_doubts": [
+      "6155・6158・6171・6195・6198・6206・6213・6214・6229は相互排他的な戦闘分岐を含み、同一時系列へ合成しない",
+      "6206_3の莫問が攻撃を避けなかった理由は宇文逸の問いと莫問の最期の発話から読み取れる範囲に留め、意図を断定しすぎない",
+      "6198_3・6214_4の『師兄に選べる道がない』は宇文逸側の理解であり、莫問の客観的事情として確定しない",
+      "6155_3の欧陽雪介入と、6213_1・6214_4の複数人による制止は分岐固有であり、全ルートの同行事実へ拡張しない",
+      "莫問が欧陽雪や武当を狙う発言は当該分岐の脅し・選択であり、後続の実行結果を補完しない",
+      "6229_1の宇文逸敗北と莫問の断罪は一つの分岐結末であり、他の勝利・死亡分岐と併存させない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6155_1_6229_1_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN44_WAVE01_2026-07-30.md"
+  }
+}
