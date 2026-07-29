@@ -11,8 +11,12 @@ on:
       - main
     paths:
       - ".github/workflows/reconcile-merged-cycle.yml"
+      - "_phase4_proofread/FINAL_RESPONSE_POLICY.json"
+      - "_tools/final_response_policy.py"
+      - "_tools/sanitize_final_response_read_order.py"
       - "_tools/reconcile_merged_cycle.py"
       - "_tools/test_reconcile_merged_cycle.py"
+      - "_tools/test_final_response_policy.py"
   workflow_dispatch:
 
 concurrency:
@@ -49,8 +53,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run reconciler regression
-        run: python _tools/test_reconcile_merged_cycle.py
+      - name: Run reconciler and response-policy regressions
+        run: |
+          python _tools/test_reconcile_merged_cycle.py
+          python _tools/test_final_response_policy.py
 
       - name: Reconcile active merged translation PR
         if: github.event_name != 'push'
@@ -69,8 +75,10 @@ jobs:
           fi
           python _tools/reconcile_merged_cycle.py "${args[@]}"
 
+      - name: Sanitize routine final-response read order
+        run: python _tools/sanitize_final_response_read_order.py --write
+
       - name: Commit reconciled state
-        if: github.event_name != 'push'
         shell: bash
         run: |
           set -euo pipefail
@@ -80,7 +88,7 @@ jobs:
             _phase4_proofread/CI_TRAIN_MANIFEST.json \
             _phase4_proofread/NEXT_TASK_PACKET.json \
             _phase4_proofread/CURRENT_HANDOFF.md; then
-            echo "No merged state reconciliation required."
+            echo "No merged state or final-response read-order reconciliation required."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -91,6 +99,6 @@ jobs:
             _phase4_proofread/CI_TRAIN_MANIFEST.json \
             _phase4_proofread/NEXT_TASK_PACKET.json \
             _phase4_proofread/CURRENT_HANDOFF.md
-          git commit -m "制度: merge済み翻訳cycleの状態を確定"
+          git commit -m "制度: merge状態と最終応答読書順を確定"
           git pull --rebase origin main
           git push origin HEAD:main
