@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-32",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30433317078,
+    "artifact_id": 8716424394,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:d6016240852fc336189ebb0ba5e0b6db61aa633a54b34186119ce7e41480f764",
+    "artifact_head": "24cd869ce584686424d3dbc7b1414baa72401e32"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5452_1",
+      "5455_1",
+      "5501_2",
+      "5502_5",
+      "5502_6",
+      "5504_3",
+      "5506_3"
+    ],
+    "unique_reviewed_rows": 52,
+    "semantic_extension": {
+      "used": false,
+      "reason": "standard_range"
+    },
+    "timeline": "湛盧剣を得た宇文逸を師兄たちが祝い、清虚道長が名剣山荘行きの旅程と莫問の引率を命じる。名剣山荘を出た一行は追跡者と湛盧の噂の拡散を察知し、幽雲沢へ迂回するが、徐海の待ち伏せと見て応戦を決めるまで進む。",
+    "branch_note": "5506_3で莫問が待ち伏せの可能性を判断し、全員へ応戦を命じて追跡・迂回局面が閉じる。次の5508_13は城内へ入った後、黄将軍への接触方法を相談する別局面なので含めない。",
+    "seal_attestation": "七場面・52行で意味単位が完結し、標準40〜60行の範囲内で封印した。",
+    "candidate_questions": [
+      "莫問が清虚道長への服従、追跡者への分析、旅程変更、待ち伏せ時の短い指示を大師兄らしい端正さで切り替えているか",
+      "宇文逸の師兄・師父への敬意、湛盧を巡る警戒、危機時の即応が若者らしさを保ったまま訳されているか",
+      "瑶姫の艶を帯びたからかいと欧陽雪の慎重な提案が、莫問の分析口調と混同されていないか"
+    ],
+    "allusion_candidates": [
+      "湛盧",
+      "既来之则安之",
+      "饱一饱眼福",
+      "危机重重"
+    ],
+    "fact_doubts": [
+      "追跡者の黒幕と湛盧の噂を流した者は未確定であり、莫問たちの推測を超えて断定しない",
+      "四大悪人が別件を優先している可能性は欧陽雪の推測に留める",
+      "5506_3の待ち伏せが徐海によるものかは莫問の可能性判断であり、この時点では確定しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5452_1_5506_3_2026-07-29.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN32_WAVE01_2026-07-29.md"
+  }
+}
