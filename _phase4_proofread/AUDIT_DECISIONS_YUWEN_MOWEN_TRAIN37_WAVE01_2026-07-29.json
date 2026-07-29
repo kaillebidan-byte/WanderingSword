@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-37",
+  "wave_id": "yuwen-mowen-train-37-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30441027060,
+    "artifact_id": 8719458017,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:483e2dbb4b4c6b0e9856f8414d19388667463b243549fe168eecc33cb2dda8e1",
+    "head_sha": "0b2e3b2e3683e80e2f0f159b1ee1c903caac8d11"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train37-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5637_1_5653_2_2026-07-29.json",
+      "scene_groups": [
+        "5637_1",
+        "5646_1",
+        "5649_1",
+        "5651_1",
+        "5653_2"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5637_1_Dlgs_Index1_Text",
+          "before": "1 - 宇文逸 $@$……違う。中にあるのは、なぜ磁器の瓶なんだ？",
+          "after": "1 - 宇文逸 $@$……違う。なぜ中に磁器の瓶があるんだ？",
+          "reason": "「中にあるのは、なぜ磁器の瓶」は疑問詞と主題の係り受けが崩れている。原文「里面怎么是个瓷瓶？」の驚きを、宇文逸の率直な疑問として自然な語順へ直す。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index6_Text",
+          "before": "17005 - 欧陽雪 $@$……げほっ、げほっ……そんなはずは。江湖では誰もが知っています……",
+          "after": "17005 - 欧陽雪 $@$……げほっ、げほっ……そんなはずが……江湖では誰もが知っています……",
+          "reason": "原文「怎么可能……」は次行へ続く驚愕の未完文。現訳は「そんなはずは。」で断定的に閉じ、次の説明との連続を切るため、未完の「そんなはずが……」へ戻す。"
+        }
+      ],
+      "keeps": [
+        "5637_1_Dlgs_Index0_Text",
+        "5637_1_Dlgs_Index2_Text",
+        "5637_1_Dlgs_Index3_Text",
+        "5637_1_Dlgs_Index4_Text",
+        "5637_1_Dlgs_Index5_Text",
+        "5637_1_Dlgs_Index6_Text",
+        "5646_1_Dlgs_Index0_Text",
+        "5646_1_Dlgs_Index1_Text",
+        "5646_1_Dlgs_Index2_Text",
+        "5646_1_Dlgs_Index3_Text",
+        "5646_1_Dlgs_Index4_Text",
+        "5646_1_Dlgs_Index5_Text",
+        "5646_1_Dlgs_Index6_Text",
+        "5646_1_Dlgs_Index7_Text",
+        "5646_1_Dlgs_Index8_Text",
+        "5646_1_Dlgs_Index9_Text",
+        "5646_1_Dlgs_Index10_Text",
+        "5646_1_Dlgs_Index11_Text",
+        "5646_1_Dlgs_Index12_Text",
+        "5646_1_Dlgs_Index13_Text",
+        "5646_1_Dlgs_Index14_Text",
+        "5646_1_Dlgs_Index15_Text",
+        "5646_1_Dlgs_Index16_Text",
+        "5646_1_Dlgs_Index17_Text",
+        "5649_1_Dlgs_Index0_Text",
+        "5649_1_Dlgs_Index1_Text",
+        "5649_1_Dlgs_Index2_Text",
+        "5651_1_Dlgs_Index0_Text",
+        "5651_1_Dlgs_Index1_Text",
+        "5651_1_Dlgs_Index2_Text",
+        "5653_2_Dlgs_Index0_Text",
+        "5653_2_Dlgs_Index1_Text",
+        "5653_2_Dlgs_Index2_Text",
+        "5653_2_Dlgs_Index3_Text",
+        "5653_2_Dlgs_Index4_Text",
+        "5653_2_Dlgs_Index5_Text",
+        "5653_2_Dlgs_Index7_Text",
+        "5653_2_Dlgs_Index8_Text",
+        "5653_2_Dlgs_Index9_Text",
+        "5653_2_Dlgs_Index10_Text",
+        "5653_2_Dlgs_Index11_Text",
+        "5653_2_Dlgs_Index12_Text",
+        "5653_2_Dlgs_Index13_Text",
+        "5653_2_Dlgs_Index14_Text",
+        "5653_2_Dlgs_Index15_Text",
+        "5653_2_Dlgs_Index16_Text",
+        "5653_2_Dlgs_Index17_Text",
+        "5653_2_Dlgs_Index18_Text",
+        "5653_2_Dlgs_Index19_Text",
+        "5653_2_Dlgs_Index20_Text",
+        "5653_2_Dlgs_Index21_Text",
+        "5653_2_Dlgs_Index22_Text"
+      ],
+      "allusion_review_candidates": [
+        "5646_1_Dlgs_Index9_Text",
+        "5646_1_Dlgs_Index12_Text",
+        "5653_2_Dlgs_Index1_Text",
+        "5653_2_Dlgs_Index3_Text",
+        "5653_2_Dlgs_Index7_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5646_1_Dlgs_Index9_Text",
+          "decision": "keep",
+          "note": "「穿雲箭」は師門へ知らせる信号用具の固有名として保持し、説明を本文へ足さない。"
+        },
+        {
+          "key": "5646_1_Dlgs_Index12_Text",
+          "decision": "keep",
+          "note": "「卷土重来」は再起の機能を「再び勢力を盛り返し」で自然に保持する。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「走火入魔」は武侠世界の状態名として保持し、後続の莫問の観察以上に原因を説明しない。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「風雲訣」は秘笈・武功名として表記を保持し、この場面で真偽を確定しない。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index7_Text",
+          "decision": "keep",
+          "note": "「武林正宗」は伏龍子の正統性を表すため「武林正統の達人」で機能を保持する。"
+        }
+      ],
+      "fact_doubts": [
+        "5637_1時点で瓶が抜け道の仕掛けであることは一行の推測であり、作動前に確定しない",
+        "曹煜天が抜け道内にいることは5646_1では可能性、5649_1以降の守衛と追跡で確度が上がる時間差を保つ",
+        "曹煜天が使う力を真の風雲訣と確定せず、本人の主張と欧陽雪・莫問の観察を分ける",
+        "走火入魔の原因や無名との関係を後続場面から先取りしない"
+      ]
+    }
+  ]
+}

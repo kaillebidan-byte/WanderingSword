@@ -1,1 +1,191 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-36","branch":"agent/yuwen-mowen-train-36","draft_pr":189,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":189,"merge_sha":"cfae8d2491ddb99623fabcc71e5b952a2a185d2a"},"base_checkpoint":{"batch":166,"pair_applied_keys":1359,"project_applied_keys":1735,"produced_by_pr":188,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-35-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_35.json","pr":188,"validated_head":"9b97c98e941c84ea7ad00451226625cdc775e261"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":43,"reviewed_keys":43,"unique_reviewed_rows":43,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":2,"keep_only_bundles":0},"bundles":[{"batch":167,"review_status":"complete","apply_status":"verified","scene_groups":["5585_4","5586_3","5586_5","5603_1","5610_2","5611_8"],"reviewed_rows":43,"reviewed_keys":43,"unique_rows":43,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":2,"keep_keys":40,"fix_files":["_phase4_proofread/fixes_cross_register_hongfei_ouyang_20260726.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch81.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH167_2026-07-29.md","ownership_summary":{"existing_keys":40,"unowned_kept":2,"new_keys":1,"cross_register_keys":0},"allusion_review_candidates":["5585_4_Dlgs_Index3_Text","5586_5_Dlgs_Index3_Text","5603_1_Dlgs_Index11_Text","5603_1_Dlgs_Index12_Text"],"allusion_review_resolved":[{"key":"5585_4_Dlgs_Index3_Text","decision":"keep","note":"「六扇門」は官府系組織の固有名として保持し、一般名詞へ散文化しない。"},{"key":"5586_5_Dlgs_Index3_Text","decision":"keep","note":"「老叫花子」は洪飛の自嘲的自称として「この老いぼれ乞食」を保持し、語尾だけを人物registerに沿って修正する。"},{"key":"5603_1_Dlgs_Index11_Text","decision":"keep","note":"「妖女」は莫棄が玄火教徒へ向ける敵対的呼称として保持し、「同伴之誼」の関係強度だけを修正する。"},{"key":"5603_1_Dlgs_Index12_Text","decision":"keep","note":"「信誓旦旦」は強く誓っていた機能を「あれほど誓っていた」で自然に保持する。"}],"fact_doubts":["天龍幇が避戦するつもりだという情報は密偵報告に基づく推測であり確定事実にしない","洪飛が不風山に現れた真の目的は本人が伏せているため補わない","玄火教が包囲情報を漏らしたという見方は莫棄と各派掌門の疑念に留める","5611_8の『もう……』が指す人物や死の状況を関係資料だけから補完しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30438964097,"artifact_id":8718630312,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:74a3831ee4985b09d375a2a9f3c2bd50811edcfa75822127f20447422832dc2c","head_sha":"d5aa9c04526c50783c974767c221d1310ec474db"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-36-wave-01"},"next_release":{"candidate_scene":["5637_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[167],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-35","release_id":"yuwen-mowen-train-35-r1","pr":188,"merge_sha":"59230451183244a0877412937eac91198a582a5f"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":43,"unique_reviewed_rows":43,"fix_keys":3,"unique_fix_rows":3,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":3,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":40,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN36_WAVE01_2026-07-29.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_36.json","merge_result":{"pr":189,"merge_sha":"cfae8d2491ddb99623fabcc71e5b952a2a185d2a"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-37",
+  "branch": "agent/yuwen-mowen-train-37",
+  "draft_pr": 190,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 190,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 167,
+    "pair_applied_keys": 1360,
+    "project_applied_keys": 1736,
+    "produced_by_pr": 189,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-36-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_36.json",
+      "pr": 189,
+      "validated_head": "6d3f28f4c419011a86ed39b7ff502609087bca30"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 2,
+    "unique_fix_rows": 2,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 2,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 168,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5637_1",
+        "5646_1",
+        "5649_1",
+        "5651_1",
+        "5653_2"
+      ],
+      "reviewed_rows": 54,
+      "reviewed_keys": 54,
+      "unique_rows": 54,
+      "fix_keys": 2,
+      "unique_fix_rows": 2,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 2,
+      "keep_keys": 52,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch11.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH168_2026-07-29.md",
+      "ownership_summary": {
+        "existing_keys": 53,
+        "unowned_kept": 1,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5646_1_Dlgs_Index9_Text",
+        "5646_1_Dlgs_Index12_Text",
+        "5653_2_Dlgs_Index1_Text",
+        "5653_2_Dlgs_Index3_Text",
+        "5653_2_Dlgs_Index7_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5646_1_Dlgs_Index9_Text",
+          "decision": "keep",
+          "note": "「穿雲箭」は師門へ知らせる信号用具の固有名として保持し、説明を本文へ足さない。"
+        },
+        {
+          "key": "5646_1_Dlgs_Index12_Text",
+          "decision": "keep",
+          "note": "「卷土重来」は再起の機能を「再び勢力を盛り返し」で自然に保持する。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「走火入魔」は武侠世界の状態名として保持し、後続の莫問の観察以上に原因を説明しない。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「風雲訣」は秘笈・武功名として表記を保持し、この場面で真偽を確定しない。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index7_Text",
+          "decision": "keep",
+          "note": "「武林正宗」は伏龍子の正統性を表すため「武林正統の達人」で機能を保持する。"
+        }
+      ],
+      "fact_doubts": [
+        "5637_1時点で瓶が抜け道の仕掛けであることは一行の推測であり、作動前に確定しない",
+        "曹煜天が抜け道内にいることは5646_1では可能性、5649_1以降の守衛と追跡で確度が上がる時間差を保つ",
+        "曹煜天が使う力を真の風雲訣と確定せず、本人の主張と欧陽雪・莫問の観察を分ける",
+        "走火入魔の原因や無名との関係を後続場面から先取りしない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30441027060,
+        "artifact_id": 8719458017,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:483e2dbb4b4c6b0e9856f8414d19388667463b243549fe168eecc33cb2dda8e1",
+        "head_sha": "0b2e3b2e3683e80e2f0f159b1ee1c903caac8d11"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-37-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5654_12"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      168
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-36",
+    "release_id": "yuwen-mowen-train-36-r1",
+    "pr": 189,
+    "merge_sha": "cfae8d2491ddb99623fabcc71e5b952a2a185d2a"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 2,
+    "unique_fix_rows": 2,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 2,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 52,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN37_WAVE01_2026-07-29.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_37.json"
+}
