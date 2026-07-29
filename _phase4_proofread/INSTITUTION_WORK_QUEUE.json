@@ -3,7 +3,9 @@
   "contract_id": "resume-work-queue-v1",
   "standard_trigger": "現状把握して作業の続きを",
   "required_visibility": "public",
-  "mode_scope": ["always_public_full_pipeline"],
+  "mode_scope": [
+    "always_public_full_pipeline"
+  ],
   "translation_policy": "blocked_while_institution_tasks_pending",
   "selection_policy": "first_pending_in_task_order",
   "task_order": [
@@ -22,7 +24,10 @@
       "priority": 1,
       "branch": "agent/encoding-control-invariants",
       "summary": "quality auditのFIX後文が話者ID領域と制御トークン列を保持することをencoding前に検査する。",
-      "completion": {"pr": 176, "merge_sha": "c35813ab9fafd1473d61c082286a7d7b84d1e220"}
+      "completion": {
+        "pr": 176,
+        "merge_sha": "c35813ab9fafd1473d61c082286a7d7b84d1e220"
+      }
     },
     {
       "task_id": "workflow_duplicate_run_serialization",
@@ -31,7 +36,9 @@
       "priority": 2,
       "branch": "agent/workflow-duplicate-run-serialization",
       "summary": "同一PR・station・requestの重複runを既存concurrencyで直列化または取消し、push競合を同一生成物なら成功NOOP、異なる生成物なら明示停止にする。",
-      "completion": {"pr": 180}
+      "completion": {
+        "pr": 180
+      }
     },
     {
       "task_id": "stale_release_label_guard",
@@ -40,7 +47,9 @@
       "priority": 3,
       "branch": "agent/stale-release-label-guard",
       "summary": "station後退やbranch更新時に残ったrelease-ciラベルが古いHEAD・stateでorchestratorを起動しないようにする。",
-      "completion": {"pr": 181}
+      "completion": {
+        "pr": 181
+      }
     },
     {
       "task_id": "quality_audit_source_feedback_loop",
@@ -71,7 +80,9 @@
         "曖昧な文字列anchorやstale digestのまま資料を書き換える",
         "作業中の翻訳PRへ制度schema変更を混在させる"
       ],
-      "completion": {"pr": 193}
+      "completion": {
+        "pr": 193
+      }
     },
     {
       "task_id": "quality_audit_persona_alias_resolution",
@@ -83,7 +94,7 @@
       "root_cause": "quality_audit_contextが10_人物全体を単値alias辞書へ変換し、候補で使用されない汎用aliasの重複も走査時点で即時停止していた。宇文逸を示す話者ラベル『主人公』をcurrent pair情報で解決する経路もなかった。",
       "audit_scope": [
         "canonical nameをaliasより優先する",
-        "曖昧aliasにcurrent pairの人物が一名だち含まれる場合はその人物へ解決する",
+        "曖昧aliasにcurrent pairの人物が一名だけ含まれる場合はその人物へ解決する",
         "候補で使用されないalias衝突はmanifest生成を妨げない",
         "候補で使用されcurrent pairでも一意化できないaliasはfail closedする",
         "同一canonical nameの複数文書は引き続きfail closedする"
@@ -102,12 +113,14 @@
         "current pair外の曖昧aliasを推測で解決する",
         "制度修正を翻訳PR #194へ混在させる"
       ],
-      "completion": {"pr": 195}
+      "completion": {
+        "pr": 195
+      }
     },
     {
       "task_id": "post_feedback_owner_state_attestation_refresh",
       "title": "人物資料還流後のowner状態証跡を再封印",
-      "status": "pending",
+      "status": "completed",
       "priority": 6,
       "branch": "agent/post-feedback-owner-attestation-refresh",
       "summary": "人物資料還流がPRIVATE_STAGE_STATEへ完了記録を追記した後、owner assignment結果の状態digestを最終状態へ決定的に更新する。",
@@ -115,7 +128,7 @@
       "audit_scope": [
         "source feedback適用後かつowner checker前に状態digest refreshを実行する",
         "変更を許可する正本はPRIVATE_STAGE_STATEだけに限定する",
-        "CI_TRAIN_MANIDESTまたはCURRENT_WORKの変化はfail closedする",
+        "CI_TRAIN_MANIFESTまたはCURRENT_WORKの変化はfail closedする",
         "全packetのsource feedback record存在を確認してから再封印する",
         "再実行時は既に一致していれば安全NOOPにする"
       ],
@@ -132,7 +145,10 @@
         "manifestまたはCURRENT_WORKの予期しない差分を正当化する",
         "翻訳PR #194へ制度修正を混在させる",
         "失敗したencoding生成物を手作業でcommitする"
-      ]
+      ],
+      "completion": {
+        "pr": 196
+      }
     }
   ],
   "completion_contract": {
