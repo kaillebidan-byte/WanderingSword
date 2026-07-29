@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-35",
+  "pr": 188,
+  "orchestrator_run_id": 30438964097,
+  "artifact_name": "release-finalization-inputs-188",
+  "ci_head": "d5aa9c04526c50783c974767c221d1310ec474db",
+  "asset_head": "9b97c98e941c84ea7ad00451226625cdc775e261",
+  "apply_changed": true,
+  "date": "2026-07-29",
+  "next_scene": "5585_4",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30438964097,
+    "artifact_id": 8718630312,
+    "artifact_digest": "sha256:74a3831ee4985b09d375a2a9f3c2bd50811edcfa75822127f20447422832dc2c",
+    "artifact_head": "d5aa9c04526c50783c974767c221d1310ec474db",
+    "freshness_rule": "次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "Release train orchestrator run 30438964097でguard、preflight、Relation、Cross、Apply、pak検証、finalization入力生成が成功した。",
+    "第166束の1修正は新規owner batch80へ適用され、pending fixesは0件。",
+    "次候補5585_4は次のdirect exchangeとしてminimal reservationだけを作成し、PR #188統合前にpreparationを開始しない。"
+  ]
+}
