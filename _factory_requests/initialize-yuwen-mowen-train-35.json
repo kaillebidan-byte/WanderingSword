@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-35",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30437972410,
+    "artifact_id": 8718220255,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:2d481c964a8f16f3cb84c836c9a2f15827cf31fb812cde36483555b87f39025a",
+    "artifact_head": "be0c16569a7296dfc507c2fbc4353cb31740100c"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5572_6",
+      "5572_9",
+      "5581_5",
+      "5581_7",
+      "5581_8",
+      "5583_1",
+      "5583_2"
+    ],
+    "unique_reviewed_rows": 60,
+    "semantic_extension": {
+      "used": false,
+      "reason": "standard_range"
+    },
+    "timeline": "仮面の敵が風雲訣を狙って襲撃した後、一行は敵の目的と衣冠塚を確認し、黎城へ急ぐ。瑶姫と別れ、分岐条件に応じて清霄師伯または師父へ報告した後、清虚道長と再会する。宇文逸は叔父と復讐の真相を清虚が以前から知っていたと知り、清虚から真実を伏せた理由、休息と警戒の指示を受け、莫問が宇文逸の世話を託されるまでを扱う。",
+    "branch_note": "5581_7と5581_8は報告相手の条件が異なる分岐として別々に保持する。5583_2で清虚道長が事情を語り、宇文逸へ休息を命じ、莫問へ師弟を気遣うよう託すところで一連の師弟会話が閉じる。次の5585_4は天龍幇への攻撃前倒しを知らせる緊急局面なので含めない。",
+    "seal_attestation": "七場面・60行。分岐二場面を合成せず、仮面の敵との戦闘後から清虚道長との真相確認と休息指示までを標準40〜60行の上限内で封印した。",
+    "candidate_questions": [
+      "莫問が敵の目的分析、黎城への移動、師父への報告、宇文逸を気遣う責任を端正な大師兄の声で運べているか",
+      "宇文逸が仮面の敵への警戒、叔父を失った痛み、清虚道長への問いと理解を率直さと師父への敬意を保って語れているか",
+      "清虚道長が真実を伏せた責任、復讐への戒め、弟子への慈愛を古風な師の声で示し、莫問への呼称と二人称が既定人物資料に沿っているか"
+    ],
+    "allusion_candidates": [
+      "衣冠塚",
+      "后生可畏",
+      "全尸",
+      "复命"
+    ],
+    "fact_doubts": [
+      "仮面の敵が風雲訣だけを目的としていたかは5572_6時点の推測を越えて断定しない",
+      "5581_7と5581_8は報告相手による分岐であり、一つの時系列へ合成しない",
+      "清虚道長が叔父と復讐の真相を知った時期と範囲は5583_2の本人説明以上に補わない",
+      "衣冠塚の中に遺体がないことと叔父の生死を同一視しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_6_5583_2_2026-07-29.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN35_WAVE01_2026-07-29.md"
+  }
+}
