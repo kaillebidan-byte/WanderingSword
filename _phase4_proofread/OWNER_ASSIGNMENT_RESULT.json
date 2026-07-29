@@ -2,46 +2,48 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:92c35a1df894205aa3a3795cda3bed2c7109b4430529a4fd3232d1def1d1e98c",
+  "plan_digest": "sha256:6e15af81dbf9d3703a5f5c242f80fad41c99ee05f4e9bab089704a4cf09bdc9b",
   "candidate_digests": {
-    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_6_5583_2_2026-07-29.json": "sha256:b50dfcf51596406b1f4e0dd7ee14b8e73d1ebe80367198895877a4d2f0885e2e"
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-29.json": "sha256:8da6556b63f56b53c5d2f10d3ab12ca3c464fa1db5d7e05cdebb6c95ca501a53"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:d5b088afa6a7462f81c9a9d76d9ac72da37279d721e7d86062df1c7df8f2e049",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:76d3571261e9a7be1b07c20905da71ee20faec67cc09def0f9843cab97cd0bb8",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:178e9bb6dd56e1f2805681a306a75f3cee1134717e9c95ab08aa50343d6b9741"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:43244ed24d45f27eb15a839a7f215256e3744f180ecae5c1250b761918170aab",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:9bc8ec104530b21978864268c14b25c006d88cb94051f5dbed25f7c52e794297",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:6151af032b6dbd78640d37949a7130a128ec2003806da1af1a17ae379b77bcff"
   },
   "counts": {
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 2,
     "new_project_keys": 1,
-    "fix_keys": 1
+    "fix_keys": 3
   },
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_6_5583_2_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch80.json",
-      "candidate_rows": 60,
-      "fix_keys": 1,
-      "existing_keys": 52,
-      "unowned_keys": 8,
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch81.json",
+      "candidate_rows": 43,
+      "fix_keys": 3,
+      "existing_keys": 40,
+      "unowned_keys": 3,
       "new_keys": 1,
-      "unowned_kept": 7,
+      "unowned_kept": 2,
       "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch80.json"
+        "_phase4_proofread/fixes_cross_register_hongfei_ouyang_20260726.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch81.json"
       ],
-      "existing_owner_updates": 0
+      "existing_owner_updates": 2
     }
   ],
   "owner_file_digest_shards": [
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_01.json",
       "count": 32,
-      "digest": "sha256:26c460217303699b5463e6d22fa239a5bda869ff893748c0739d927847645b6e"
+      "digest": "sha256:cefde90c70d59fad891efed99ce24d0d3860ec68e3eb9bc0bbb2a69aa9d925a8"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_02.json",
       "count": 32,
-      "digest": "sha256:a43f6b4f5b25f9f8d3f97270f13e9b95961ddf4fb01acc3da155fb452c6c309c"
+      "digest": "sha256:da6379bc07dd15c68bf4b9a6b845d060746879cb3179a6a4c7f4afce55c37efa"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_03.json",
@@ -56,12 +58,12 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_05.json",
       "count": 32,
-      "digest": "sha256:55f6195c91264d180a473da896b57d8b5c73ecbaf74f63569710fefb49871a88"
+      "digest": "sha256:3fd822661ad1cf8d82bf68c9d978e8767ef2a92e28c24341619420c7e399c31b"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_06.json",
-      "count": 3,
-      "digest": "sha256:dbfe6cbd2feda046ec45e9741ebd7369700b821c0977c0221348f27b22dccba0"
+      "count": 4,
+      "digest": "sha256:0032179dce3eb02a9c31e9292a938c9a09f8a7352a75908a9437fb2bc59ad932"
     }
   ]
 }
