@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import subprocess
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -28,7 +29,7 @@ REQUEST_CONTRACT_PATH = P4 / "FACTORY_REQUEST_CONTRACT.json"
 def load_object(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
-        raise ValueError(f"top level must be object: {path.relative_to(ROOT)}")
+        raise ValueError(f"top level must be object: {path.relative_to(ROOT) if path.is_relative_to(ROOT) else path}")
     return value
 
 
@@ -49,6 +50,83 @@ def atomic_write(path: Path, text: str) -> None:
 
 def json_text(value: dict[str, Any]) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+
+
+def _git(root: Path, *args: str) -> str:
+    completed = subprocess.run(
+        ["git", *args],
+        cwd=root,
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or completed.stdout.strip()
+        raise ValueError(f"git {' '.join(args)} failed: {detail}")
+    return completed.stdout.strip()
+
+
+def _relative_repo_path(path: Path, root: Path) -> str:
+    candidate = path
+    if candidate.is_absolute():
+        try:
+            candidate = candidate.relative_to(root)
+        except ValueError as exc:
+            raise ValueError(f"path is outside repository: {path}") from exc
+    if ".." in candidate.parts:
+        raise ValueError(f"path escapes repository: {path}")
+    return candidate.as_posix()
+
+
+def execution_written_paths(path: Path) -> list[str]:
+    value = load_object(path)
+    paths = value.get("written_paths")
+    if not isinstance(paths, list) or not paths:
+        raise ValueError("execution result must contain non-empty written_paths")
+    if any(not isinstance(item, str) or not item or Path(item).is_absolute() or ".." in Path(item).parts for item in paths):
+        raise ValueError("execution result written_paths contains invalid repository path")
+    return sorted(set(paths))
+
+
+def classify_branch_update(local_parent: str, remote_head: str, differing_paths: list[str]) -> str:
+    if remote_head == local_parent:
+        return "ready_to_push"
+    if not differing_paths:
+        return "already_applied"
+    return "conflict"
+
+
+def reconcile_remote_branch(
+    remote_ref: str,
+    request_path: Path,
+    execution_result: Path,
+    *,
+    root: Path = ROOT,
+) -> dict[str, Any]:
+    local_head = _git(root, "rev-parse", "HEAD")
+    local_parent = _git(root, "rev-parse", "HEAD^")
+    remote_head = _git(root, "rev-parse", remote_ref)
+    scope = sorted(
+        set(
+            [
+                *execution_written_paths(execution_result),
+                _relative_repo_path(request_path, root),
+            ]
+        )
+    )
+    differing_output = _git(root, "diff", "--name-only", "HEAD", remote_ref, "--", *scope)
+    differing_paths = [line for line in differing_output.splitlines() if line]
+    status = classify_branch_update(local_parent, remote_head, differing_paths)
+    return {
+        "status": status,
+        "local_head": local_head,
+        "local_parent": local_parent,
+        "remote_head": remote_head,
+        "scope": scope,
+        "differing_paths": differing_paths,
+    }
 
 
 def execute(
@@ -133,11 +211,13 @@ def write_result(result: dict[str, Any], *, p4: Path = P4) -> list[str]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--request", required=True, type=Path)
-    parser.add_argument("--artifact-json", required=True, type=Path)
-    parser.add_argument("--repository-visibility", required=True, choices=("private", "public"))
+    parser.add_argument("--artifact-json", type=Path)
+    parser.add_argument("--repository-visibility", choices=("private", "public"))
     parser.add_argument("--base-commit")
     parser.add_argument("--branch-name")
     parser.add_argument("--write", action="store_true")
+    parser.add_argument("--reconcile-remote-ref")
+    parser.add_argument("--execution-result", type=Path)
     parser.add_argument("--output", type=Path)
     return parser.parse_args()
 
@@ -145,6 +225,22 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     try:
+        if args.reconcile_remote_ref:
+            if args.execution_result is None:
+                raise ValueError("--execution-result is required with --reconcile-remote-ref")
+            summary = reconcile_remote_branch(
+                args.reconcile_remote_ref,
+                args.request,
+                args.execution_result,
+            )
+            text = json.dumps(summary, ensure_ascii=False, indent=2) + "\n"
+            if args.output:
+                atomic_write(args.output, text)
+            print(text, end="")
+            return 2 if summary["status"] == "conflict" else 0
+
+        if args.artifact_json is None or args.repository_visibility is None:
+            raise ValueError("--artifact-json and --repository-visibility are required for execution")
         request = load_object(args.request)
         artifact = load_object(args.artifact_json)
         result = execute(

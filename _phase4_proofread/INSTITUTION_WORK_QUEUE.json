@@ -29,31 +29,13 @@
     {
       "task_id": "workflow_duplicate_run_serialization",
       "title": "重複workflow起動とnon-fast-forwardを無害化",
-      "status": "pending",
+      "status": "completed",
       "priority": 2,
       "branch": "agent/workflow-duplicate-run-serialization",
       "summary": "同一PR・station・requestの重複runを既存concurrencyで直列化または取消し、push競合を同一生成物なら成功NOOP、異なる生成物なら明示停止にする。",
-      "audit_scope": [
-        ".github/workflows/translation-factory-plan.yml",
-        ".github/workflows/translation-factory-execute.yml",
-        "_tools/factory_request_executor.py",
-        "_tools/fixed_cycle_initializer.py",
-        "_tools/test_translation_factory_workflow.py",
-        "既存のconcurrency・HEAD再取得・NOOP実装"
-      ],
-      "completion_conditions": [
-        "重複runとnon-fast-forwardの原因をコード上で特定する",
-        "既存GitHub Actions concurrencyを優先して同一PR・station・requestを直列化または旧run取消しする",
-        "push前にbranch HEADを再取得し、同一生成物が反映済みなら成功NOOPにする",
-        "異なる生成物の競合だけを明示的に停止する",
-        "正常系、同一生成物重複、異なる生成物競合の回帰を追加する",
-        "Institution contract testsまたはFactory adapter contract testsへ接続する"
-      ],
-      "forbidden": [
-        "独自ロック機構の新造",
-        "翻訳本文、owner値、locres、pak、次候補preparationの変更",
-        "一時workflowまたは別triggerの作成"
-      ]
+      "completion": {
+        "pr": 180
+      }
     },
     {
       "task_id": "stale_release_label_guard",

@@ -44,8 +44,10 @@ def main() -> None:
     assert resume.validate_queue(QUEUE) == []
     current, state, manifest, packet = translation_fixtures()
     order = resume.build_resume_work_order(QUEUE, FACTORY, current, state, manifest, packet, "public")
+    expected_pending = resume.first_pending_task(QUEUE)
+    assert expected_pending is not None
     assert order["route"] == "institution_repair"
-    assert order["task_id"] == "workflow_duplicate_run_serialization"
+    assert order["task_id"] == expected_pending["task_id"]
     assert order["translation_cycle_allowed"] is False
     assert order["completion_update"]["apply_in_same_implementing_pr"] is True
     assert order["completion_update"]["record_pr_number_in_implementing_pr"] is True

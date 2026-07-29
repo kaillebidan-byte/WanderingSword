@@ -18,16 +18,17 @@
 正本は`INSTITUTION_WORK_QUEUE.json`。`always_public_full_pipeline`ではpending制度タスクを翻訳cycleより先に処理する。
 
 - 完了: `quality_decision_control_invariants` / PR #176
-- 現在: `workflow_duplicate_run_serialization`
-- 次: `stale_release_label_guard`
+- 完了（本PR）: `workflow_duplicate_run_serialization` / PR #180
+- 現在: `stale_release_label_guard`（PR #180のsquash mergeとmain再検証後に開始）
 
 ## 次の作業
 
-`resume_work_controller.py --repository-visibility public`のwork orderに従い、`workflow_duplicate_run_serialization`を原因特定、恒久修正、正常・競合回帰、制度CI、squash merge、main再検証まで進める。PR作成後、同じPRで現在taskを`completed`へ更新しPR番号を記録する。merge SHAは統合後にGitHub metadataで検証する。
+PR #180の制度CI、live checker、review threadを確認し、squash mergeする。GitHub metadataでmerge SHAを取得してmain実装と制度キューを再検証した後、`resume_work_controller.py --repository-visibility public`の次のwork orderへ進む。PR番号は同じ実装PR内へ記録済み。
 
 ## 禁止
 
 - 制度キューにpendingがある間、`5352_1`の翻訳cycleを開始しない。
+- PR #180のmain再検証前に`stale_release_label_guard`の実装を始めない。
 - merged済みPRのphase2やmergeを再実行しない。
 - 翻訳本文、owner値、locres、pak、minimal reservationへ触れない。
 - 独自ロック、一時workflow、別triggerを新造しない。
