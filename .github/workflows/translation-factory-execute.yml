@@ -117,6 +117,13 @@ jobs:
             --write \
             --output /tmp/translation-factory-result.json
 
+      - name: Inject quality-audit reading and persona context
+        run: |
+          python _tools/quality_audit_context.py \
+            --execution-result /tmp/translation-factory-result.json \
+            --write \
+            --output /tmp/quality-audit-context-result.json
+
       - name: Validate generated JSON and project scope
         run: |
           python _tools/check_state_json_integrity.py
@@ -151,6 +158,10 @@ jobs:
               raise SystemExit(f"unexpected next factory action: {order.get('action')!r}")
           if order.get('station_type') != 'human':
               raise SystemExit('quality audit must be the human station')
+          if order.get('required_candidate_schema') != 3:
+              raise SystemExit('quality audit must require candidate schema 3')
+          if 'source_document_decisions' not in order.get('required_outputs', []):
+              raise SystemExit('quality audit must require source_document_decisions')
           PY
 
       - name: Run factory adapter regressions
@@ -158,6 +169,7 @@ jobs:
           python _tools/test_fixed_cycle_initializer.py
           python _tools/test_factory_request_executor.py
           python _tools/test_check_next_task_packet_minimal.py
+          python _tools/test_quality_audit_context.py
           python _tools/test_translation_factory_controller.py
           python _tools/test_translation_factory_workflow.py
 
@@ -170,7 +182,7 @@ jobs:
           git rm "${{ steps.request.outputs.request }}"
           git add _phase4_proofread
           git diff --cached --check
-          git commit -m "状態: 次cycleを意味境界確定済みquality auditへ搬送 [factory-initialize]"
+          git commit -m "状態: 次cycleを資料還流付きquality auditへ搬送 [factory-initialize]"
 
           branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
           remote_ref="refs/remotes/origin/${branch_name}"
@@ -226,7 +238,7 @@ jobs:
               ;;
             conflict)
               cat /tmp/translation-factory-reconcile.json >&2
-              echo "concurrent run pushed different factory output; refusing retry" >&2
+              echo "concurrent run pushed different generated output; refusing retry" >&2
               exit 1
               ;;
             ready_to_push)

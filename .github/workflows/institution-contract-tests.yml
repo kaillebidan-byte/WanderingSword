@@ -15,6 +15,7 @@ on:
       - "_phase4_proofread/INSTITUTION_WORK_QUEUE.json"
       - "_phase4_proofread/GITHUB_API_WRITE_POLICY.json"
       - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
+      - "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json"
       - "_phase4_proofread/FACTORY_FLOW.md"
       - "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json"
       - "_phase4_proofread/EXECUTION_MODES.json"
@@ -37,7 +38,12 @@ on:
       - "_phase4_proofread/RUNBOOK_人物ペア再監査.md"
       - "_phase4_proofread/PLAN_章別通読監査.md"
       - "_tools/check_state_json_integrity.py"
+      - "_tools/fixed_cycle_initializer.py"
       - "_tools/fixed_encoding_pipeline.py"
+      - "_tools/quality_audit_context.py"
+      - "_tools/source_document_feedback.py"
+      - "_tools/check_quality_audit_source_feedback.py"
+      - "_tools/check_factory_adapters.py"
       - "_tools/resume_work_controller.py"
       - "_tools/release_orchestrator_guard.py"
       - "_tools/check_operational_docs_consistency.py"
@@ -58,6 +64,9 @@ on:
       - "_tools/test_release_orchestrator_guard.py"
       - "_tools/test_translation_factory_controller.py"
       - "_tools/test_translation_factory_workflow.py"
+      - "_tools/test_fixed_cycle_initializer.py"
+      - "_tools/test_quality_audit_context.py"
+      - "_tools/test_source_document_feedback.py"
       - "_tools/test_check_operational_docs_consistency.py"
       - "_tools/test_check_project_scope_lock.py"
       - "_tools/test_check_pr_commit_budget.py"
@@ -74,6 +83,8 @@ on:
       - "_tools/test_release_ci_triggers.py"
       - "_tools/test_fixed_encoding_pipeline.py"
       - ".github/workflows/institution-contract-tests.yml"
+      - ".github/workflows/translation-factory-execute.yml"
+      - ".github/workflows/translation-factory-encode.yml"
       - ".github/workflows/pr-commit-budget.yml"
       - ".github/workflows/reconcile-merged-cycle.yml"
       - ".github/workflows/release-train-orchestrator.yml"
@@ -120,8 +131,16 @@ jobs:
           python _tools/test_resume_work_controller.py
           python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
           python _tools/translation_factory_controller.py --repository-visibility public
+          python _tools/check_factory_adapters.py
           python _tools/test_translation_factory_controller.py
           python _tools/test_translation_factory_workflow.py
+          python _tools/test_fixed_cycle_initializer.py
+
+      - name: Run quality-audit source feedback regressions
+        run: |
+          python _tools/test_quality_audit_context.py
+          python _tools/test_source_document_feedback.py
+          python _tools/test_fixed_encoding_pipeline.py
 
       - name: Run operational document consistency
         run: |
@@ -152,9 +171,6 @@ jobs:
           python _tools/check_phase_completion_signal.py
           python _tools/test_check_phase_completion_signal.py
           node _tools/test_regulated_phase_terminal_consumer.js
-
-      - name: Run encoding decision integrity regressions
-        run: python _tools/test_fixed_encoding_pipeline.py
 
       - name: Run stale release label regressions
         run: python _tools/test_release_orchestrator_guard.py

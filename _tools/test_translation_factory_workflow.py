@@ -47,13 +47,20 @@ def main() -> None:
     assert "already_applied" in execute
     assert "different factory output" in execute
     assert "test_factory_request_executor.py" in execute
+    assert "quality_audit_context.py" in execute
+    assert "test_quality_audit_context.py" in execute
+    assert "required_candidate_schema" in execute
     for forbidden in ("oneoff", "alternate trigger", "workflow_dispatch:"):
         assert forbidden not in execute
 
     encode = ENCODE.read_text(encoding="utf-8")
     assert "name: Translation factory encoding" in encode
     assert "NOOP: recorded audit is already encoded and transport-complete" in encode
-    assert "git status --porcelain -- _phase4_proofread" in encode
+    assert "git status --porcelain -- _phase4_proofread 10_人物" in encode
+    assert "check_quality_audit_source_feedback.py" in encode
+    assert "source_document_feedback.py" in encode
+    assert "git add _phase4_proofread 10_人物" in encode
+    assert "test_source_document_feedback.py" in encode
 
     finalize = FINALIZE.read_text(encoding="utf-8")
     assert "name: Translation factory finalization" in finalize

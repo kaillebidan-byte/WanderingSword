@@ -13,12 +13,14 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
 CONTRACT_PATH = P4 / "FACTORY_FLOW_CONTRACT.json"
+SOURCE_FEEDBACK_CONTRACT_PATH = P4 / "QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json"
 CURRENT_PATH = P4 / "CURRENT_WORK.json"
 STATE_PATH = P4 / "PRIVATE_STAGE_STATE.json"
 MANIFEST_PATH = P4 / "CI_TRAIN_MANIFEST.json"
 PACKET_PATH = P4 / "NEXT_TASK_PACKET.json"
 VALID_VISIBILITIES = {"private", "public"}
 EXPECTED_HUMAN_STATIONS = {"semantic_bundle_boundary", "translation_quality_audit"}
+EXPECTED_SOURCE_FEEDBACK_CONTRACT = "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json"
 
 
 class FactoryStateError(ValueError):
@@ -35,23 +37,90 @@ def load_object(path: Path) -> dict[str, Any]:
     return value
 
 
-def validate_contract(contract: dict[str, Any]) -> list[str]:
+def validate_source_feedback_contract(contract: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    if contract.get("schema_version") != 1:
+        errors.append("source feedback schema_version must be 1")
+    if contract.get("contract_id") != "quality-audit-source-feedback-v1":
+        errors.append("source feedback contract_id mismatch")
+    if contract.get("candidate_schema_version") != 3:
+        errors.append("source feedback candidate schema must be 3")
+    if contract.get("audit_decision_schema_version") != 2:
+        errors.append("source feedback audit decision schema must be 2")
+    if contract.get("reading_order") != [
+        "primary_evidence",
+        "independent_allusion_and_fact_gates",
+        "source_document_crosscheck",
+    ]:
+        errors.append("source feedback reading order mismatch")
+    required_documents = contract.get("required_documents")
+    if (
+        not isinstance(required_documents, list)
+        or not required_documents
+        or any(not isinstance(item, str) or not item for item in required_documents)
+        or len(required_documents) != len(set(required_documents))
+    ):
+        errors.append("source feedback required documents invalid")
+    if contract.get("source_document_types") != ["persona"]:
+        errors.append("source feedback document type mismatch")
+    if set(contract.get("decision_values", [])) != {"keep", "revise", "create", "unresolved"}:
+        errors.append("source feedback decision values mismatch")
+    auto = contract.get("auto_apply")
+    if not isinstance(auto, dict):
+        errors.append("source feedback auto_apply must be an object")
+    else:
+        if auto.get("allowed_document_types") != ["persona"]:
+            errors.append("source feedback auto_apply document type mismatch")
+        if auto.get("allowed_roots") != ["10_人物"]:
+            errors.append("source feedback auto_apply root mismatch")
+        if auto.get("required_confidence") != "high":
+            errors.append("source feedback auto_apply confidence mismatch")
+    return errors
+
+
+def validate_contract(
+    contract: dict[str, Any],
+    source_feedback_contract: dict[str, Any] | None = None,
+) -> list[str]:
     errors: list[str] = []
     if contract.get("schema_version") != 1:
         errors.append("schema_version must be 1")
     if contract.get("contract_id") != "translation-factory-flow-v1":
         errors.append("contract_id mismatch")
+    if contract.get("quality_audit_source_feedback_contract") != EXPECTED_SOURCE_FEEDBACK_CONTRACT:
+        errors.append("quality_audit_source_feedback_contract mismatch")
+    if contract.get("quality_audit_context_adapter") != "_tools/quality_audit_context.py":
+        errors.append("quality_audit_context_adapter mismatch")
+
     stations = contract.get("human_judgment_stations")
-    station_ids = {
-        item.get("station_id")
+    station_items = {
+        item.get("station_id"): item
         for item in stations
         if isinstance(item, dict) and isinstance(item.get("station_id"), str)
-    } if isinstance(stations, list) else set()
-    if station_ids != EXPECTED_HUMAN_STATIONS:
+    } if isinstance(stations, list) else {}
+    if set(station_items) != EXPECTED_HUMAN_STATIONS:
         errors.append(
             "human judgment stations must be exactly "
             + ", ".join(sorted(EXPECTED_HUMAN_STATIONS))
         )
+    quality = station_items.get("translation_quality_audit")
+    if isinstance(quality, dict):
+        if quality.get("source_feedback_adapter") != "_tools/source_document_feedback.py":
+            errors.append("translation_quality_audit source feedback adapter mismatch")
+        required_outputs = set(quality.get("required_outputs", []))
+        missing_outputs = {"reading_attestation", "source_document_decisions"} - required_outputs
+        if missing_outputs:
+            errors.append(
+                "translation_quality_audit missing required outputs: "
+                + ", ".join(sorted(missing_outputs))
+            )
+        if quality.get("reading_order") != [
+            "primary_evidence",
+            "independent_allusion_and_fact_gates",
+            "source_document_crosscheck",
+        ]:
+            errors.append("translation_quality_audit reading order mismatch")
+
     actions = contract.get("actions")
     if not isinstance(actions, dict) or not actions:
         errors.append("actions must be a non-empty object")
@@ -64,6 +133,24 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
                 errors.append(f"actions.{action}.station_type is invalid")
             if not isinstance(definition.get("executor"), str) or not definition.get("executor"):
                 errors.append(f"actions.{action}.executor is required")
+        initializer = actions.get("initialize_next_cycle_from_reservation")
+        if isinstance(initializer, dict):
+            if initializer.get("quality_audit_context_adapter") != "_tools/quality_audit_context.py":
+                errors.append("initializer quality audit context adapter mismatch")
+            if initializer.get("resulting_candidate_schema") != 3:
+                errors.append("initializer resulting candidate schema must be 3")
+        quality_action = actions.get("translation_quality_audit")
+        if isinstance(quality_action, dict):
+            if quality_action.get("source_feedback_contract") != EXPECTED_SOURCE_FEEDBACK_CONTRACT:
+                errors.append("translation_quality_audit action source feedback contract mismatch")
+            if quality_action.get("required_candidate_schema") != 3:
+                errors.append("translation_quality_audit required candidate schema must be 3")
+            if quality_action.get("required_audit_decision_schema") != 2:
+                errors.append("translation_quality_audit required audit decision schema must be 2")
+        encoding = actions.get("encode_recorded_decisions")
+        if isinstance(encoding, dict) and encoding.get("source_feedback_adapter") != "_tools/source_document_feedback.py":
+            errors.append("encode_recorded_decisions source feedback adapter mismatch")
+
     retry = contract.get("retry_policy")
     if not isinstance(retry, dict):
         errors.append("retry_policy must be an object")
@@ -85,6 +172,9 @@ def validate_contract(contract: dict[str, Any]) -> list[str]:
     missing = required_forbidden - forbidden
     if missing:
         errors.append("missing forbidden fallbacks: " + ", ".join(sorted(missing)))
+
+    if source_feedback_contract is not None:
+        errors.extend(validate_source_feedback_contract(source_feedback_contract))
     return errors
 
 
@@ -164,7 +254,7 @@ def derive_action(
         return "semantic_bundle_boundary", "semantic boundary decision is the only permitted human station"
 
     if stage == "private_quality_audit":
-        return "translation_quality_audit", "prepared packets require translation judgment"
+        return "translation_quality_audit", "prepared packets require translation and source-document judgment"
 
     if stage == "private_encoding":
         return "encode_recorded_decisions", "encoding may only consume recorded audit decisions"
@@ -194,10 +284,16 @@ def build_work_order(
     manifest: dict[str, Any],
     packet: dict[str, Any],
     repository_visibility: str,
+    source_feedback_contract: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if repository_visibility not in VALID_VISIBILITIES:
         raise FactoryStateError("factory_invalid_visibility", repository_visibility)
-    errors = validate_contract(contract)
+    if source_feedback_contract is None:
+        try:
+            source_feedback_contract = load_object(SOURCE_FEEDBACK_CONTRACT_PATH)
+        except (OSError, json.JSONDecodeError):
+            source_feedback_contract = None
+    errors = validate_contract(contract, source_feedback_contract)
     if errors:
         raise FactoryStateError("factory_contract_invalid", "; ".join(errors))
     action, reason = derive_action(current, state, manifest, packet)
@@ -212,7 +308,7 @@ def build_work_order(
         raise FactoryStateError("factory_contract_invalid", f"unexpected human station: {station_id}")
 
     retry = contract.get("retry_policy", {})
-    return {
+    result: dict[str, Any] = {
         "schema_version": 1,
         "contract_id": contract.get("contract_id"),
         "state_fingerprint": state_fingerprint(current, state, manifest, packet),
@@ -233,12 +329,35 @@ def build_work_order(
             else 0
         ),
         "forbidden_fallbacks": contract.get("forbidden_fallbacks", []),
-        "worker_rule": (
+    }
+    if action == "translation_quality_audit":
+        quality_station = next(
+            item for item in contract["human_judgment_stations"]
+            if item["station_id"] == "translation_quality_audit"
+        )
+        result.update(
+            {
+                "source_feedback_contract": EXPECTED_SOURCE_FEEDBACK_CONTRACT,
+                "required_candidate_schema": definition["required_candidate_schema"],
+                "required_audit_decision_schema": definition["required_audit_decision_schema"],
+                "required_inputs": quality_station["required_inputs"],
+                "required_outputs": quality_station["required_outputs"],
+                "reading_order": quality_station["reading_order"],
+                "worker_rule": (
+                    "candidateの一次資料だけで典故・事実疑義を先に立て、その後にquality_audit_contextの"
+                    "skill・人物資料を照合する。翻訳のKEEP/FIXに加え、各source_document_targetへ"
+                    "keep/revise/create/unresolvedを記録する。反例を既存ペルソナへ押し込まない。"
+                    "GitHub・状態・輸送操作は行わない。"
+                ),
+            }
+        )
+    else:
+        result["worker_rule"] = (
             "このactionだけを実行し、別API・別workflow・別triggerを考案しない。"
             if station_type == "machine"
-            else "指定された意味判断だけを返し、GitHub・状態・輸送操作を行わない。"
-        ),
-    }
+            else "指定された意味境界判断だけを返し、GitHub・状態・輸送操作を行わない。"
+        )
+    return result
 
 
 def parse_args() -> argparse.Namespace:
@@ -253,13 +372,14 @@ def main() -> int:
     args = parse_args()
     try:
         contract = load_object(CONTRACT_PATH)
-        errors = validate_contract(contract)
+        source_feedback_contract = load_object(SOURCE_FEEDBACK_CONTRACT_PATH)
+        errors = validate_contract(contract, source_feedback_contract)
         if errors:
             for error in errors:
                 print(f"ERROR: {error}")
             return 1
         if args.validate_contract_only:
-            print("OK: translation factory contract is valid")
+            print("OK: translation factory and quality-audit source feedback contracts are valid")
             return 0
         work_order = build_work_order(
             contract,
@@ -268,6 +388,7 @@ def main() -> int:
             load_object(MANIFEST_PATH),
             load_object(PACKET_PATH),
             args.repository_visibility,
+            source_feedback_contract,
         )
     except (OSError, json.JSONDecodeError, FactoryStateError) as exc:
         code = exc.code if isinstance(exc, FactoryStateError) else "factory_input_error"
