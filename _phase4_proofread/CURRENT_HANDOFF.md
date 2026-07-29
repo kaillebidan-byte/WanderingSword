@@ -6,6 +6,9 @@
 
 ## 現在地
 
+- PR #192: merged
+- transport: `merged`
+- cycle: `target_reached / merged`
 - translation PR #194: draft。train-40の監査8件と人物資料判断を記録済み
 - factory encoding: 翻訳収録と人物資料適用は成功したが、凍結検査で`PRIVATE_STAGE_STATE.json`のowner状態digest不一致を検出
 - institution task: `post_feedback_owner_state_attestation_refresh`
