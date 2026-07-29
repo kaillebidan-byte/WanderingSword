@@ -2,15 +2,15 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_1_5359_5_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch75.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5370_1_5450_3_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch76.json",
       "values": {
-        "5358_5_Dlgs_Index7_Text": "5509 - 慧空 $@$武当の無塵剣の名声こそ、江湖の誰もが称えております……",
-        "5359_5_Dlgs_Index0_Text": "5015 - 莫問 $@$（声を潜めて）このまま座して死を待つわけにはいかない……"
+        "5449_2_Dlgs_Index2_Text": "5015 - 莫問 $@$この一戦、勝者は莫棄！　今回の門内大比、優勝は莫棄だ！",
+        "5450_3_Dlgs_Index2_Text": "5015 - 莫問 $@$武当の弟子として、侠義を行うのは何も間違っていない。"
       },
       "fix_keys": [
-        "5358_5_Dlgs_Index7_Text",
-        "5359_5_Dlgs_Index0_Text"
+        "5449_2_Dlgs_Index2_Text",
+        "5450_3_Dlgs_Index2_Text"
       ]
     }
   ]

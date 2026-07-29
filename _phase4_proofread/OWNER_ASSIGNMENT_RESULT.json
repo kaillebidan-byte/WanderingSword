@@ -2,14 +2,14 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:e3676d8c869e2b19566ac4fb3661a1a17362ce84101ed75e81ab9e146ac6e866",
+  "plan_digest": "sha256:8b93820526878964195c8265a48b61e83f4e6de7384d1aff46ef53aee0899eb0",
   "candidate_digests": {
-    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_1_5359_5_2026-07-29.json": "sha256:bb59f3c867a93978895a90bfe661a8c8dc5dc0b5c04835cbf6f19f787286dcaf"
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5370_1_5450_3_2026-07-29.json": "sha256:5a5f14d309e37ab8cde92d0c346ec7f03c7c90b995c669cdfbd56a35eeb53d82"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:4120156788d7772553b49315aff96ca1bf79792feb83cd923f519c082989c8ac",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:0a962972d1ccffbcedae9fc60cd78a04ea0e7ddcd53ddcf99a854dd79cea022e",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:d2d6223053e788158aace86a7739f4592728410a2ee513db27a51bf7217d9893"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:849254de2d4a6a30882c16911b8861efc7db568284740cb7ca0fb3fc5d32462d",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:be811c224fe4d99eb1c6bcc21ed8987babfbef3b0c8ae4e9401e7732cfeedaa7",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:52d776853ae44d545f939290fa64a9d6eae89aedd7d0354a0ab6b18d6bcc46f2"
   },
   "counts": {
     "existing_owner_updates": 2,
@@ -18,17 +18,16 @@
   },
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_1_5359_5_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch75.json",
-      "candidate_rows": 49,
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5370_1_5450_3_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch76.json",
+      "candidate_rows": 44,
       "fix_keys": 2,
-      "existing_keys": 45,
+      "existing_keys": 40,
       "unowned_keys": 4,
       "new_keys": 0,
       "unowned_kept": 4,
       "fix_files": [
-        "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json",
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json"
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json"
       ],
       "existing_owner_updates": 2
     }
@@ -42,7 +41,7 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_02.json",
       "count": 32,
-      "digest": "sha256:f1f38b44058adefa96186b78e735f1d09e12830cea7986db9bf2867fe6996d89"
+      "digest": "sha256:eb60d4d5d4530b0f9a78e72b1b2a2aca4366a0f0dc2ddd3254d779a5a63b6266"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_03.json",
@@ -56,8 +55,8 @@
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_05.json",
-      "count": 30,
-      "digest": "sha256:4f8e48ead245b1dc60747a084048c8614b97c5f4f2ebf7c2e68a30230791c560"
+      "count": 31,
+      "digest": "sha256:d6454d2acb8389ba0c4290a4fa0896f0574ed0798fd0797ecb45d3122f26cde0"
     }
   ]
 }
