@@ -2,27 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_15_5807_1_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch85.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5809_11_5811_3_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch86.json",
       "values": {
-        "5786_3_Dlgs_Index4_Text": "16000 - 程徳明 $@$武当の無塵剣が直々に来てくれたのだ。我が程家堡にとって、まこと光栄の至りだ！",
-        "5786_3_Dlgs_Index5_Text": "5015 - 莫問 $@$程堡主、身に余るお言葉です。若輩の身には、とても……",
-        "5789_4_Dlgs_Index0_Text": "16001 - 程万清 $@$お二人、まもなく宴が始まる。右手最初の卓へ行き、<Y>席に着いて</>ください。",
-        "5790_11_Dlgs_Index0_Text": "1 - 宇文逸 $@$（声を潜めて）忘れるものですか。灰になっても分かります！　あいつが、梧桐村で江大哥を取り囲んで襲った蒼鷹です！",
-        "5801_2_Dlgs_Index0_Text": "1 - 宇文逸 $@$まずい、逃げるぞ！",
-        "5803_2_Dlgs_Index8_Text": "1 - 宇文逸 $@$依頼人……？　まさか、本当に程二爺がお前に……",
-        "5805_4_Dlgs_Index1_Text": "5015 - 莫問 $@$逃げた方角からすれば、<Y>西の一線天</>峡谷だろう……いったん城を出て、あちらを捜してみよう。",
-        "5805_4_Dlgs_Index2_Text": "1 - 宇文逸 $@$はい。師兄の言うとおりにします！"
+        "5810_7_Dlgs_Index15_Text": "5015 - 莫問 $@$……わたしたちにできるのは、武当へ連れていくところまでだ。だが、そこで受け入れてもらえるかは、師父や師伯たちの判断次第だ。",
+        "5811_2_Dlgs_Index1_Text": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると察したようだ。",
+        "5811_3_Dlgs_Index1_Text": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると察したようだ。"
       },
       "fix_keys": [
-        "5786_3_Dlgs_Index4_Text",
-        "5786_3_Dlgs_Index5_Text",
-        "5789_4_Dlgs_Index0_Text",
-        "5790_11_Dlgs_Index0_Text",
-        "5801_2_Dlgs_Index0_Text",
-        "5803_2_Dlgs_Index8_Text",
-        "5805_4_Dlgs_Index1_Text",
-        "5805_4_Dlgs_Index2_Text"
+        "5810_7_Dlgs_Index15_Text",
+        "5811_2_Dlgs_Index1_Text",
+        "5811_3_Dlgs_Index1_Text"
       ]
     }
   ]

@@ -1,1 +1,173 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-40","branch":"agent/yuwen-mowen-train-40","draft_pr":194,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":194,"merge_sha":"5618bff754d985045c269045333001c02ace70bd"},"base_checkpoint":{"batch":170,"pair_applied_keys":1360,"project_applied_keys":1736,"produced_by_pr":192,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-39-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_39.json","pr":192,"validated_head":"4c9cfcc190922249e425c050212677b90a1852bc"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":55,"reviewed_keys":55,"unique_reviewed_rows":55,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_only_bundles":0},"bundles":[{"batch":171,"review_status":"complete","apply_status":"verified","scene_groups":["5786_15","5786_3","5789_2","5789_4","5790_10","5790_11","5800_1","5801_2","5803_2","5805_3","5805_4","5807_1"],"reviewed_rows":55,"reviewed_keys":55,"unique_rows":55,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_keys":47,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch13.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH171_2026-07-30.md","ownership_summary":{"existing_keys":53,"unowned_kept":2,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["5786_3_Dlgs_Index4_Text","5786_3_Dlgs_Index9_Text","5803_2_Dlgs_Index7_Text"],"allusion_review_resolved":[{"key":"5786_3_Dlgs_Index4_Text","decision":"fix","note":"「蓬荜生辉」は賓客を迎えた家の光栄をへりくだって述べる定着成語。像を過度に直訳せず、程徳明の改まりモードで「光栄の至り」と機能と格を保つ。"},{"key":"5786_3_Dlgs_Index9_Text","decision":"keep","note":"「寿比南山」は祝寿の定着成語。日本語で南山の像を無理に逐語化せず、「ますますのご長寿をお祈りいたします」で儀礼機能を保つ。"},{"key":"5803_2_Dlgs_Index7_Text","decision":"keep","note":"「为武林除一害」は武林の害を除いたと開き直る定型的表現。「武林の害を一つ除いた」で悪役の自己正当化と語勢を保つ。"}],"fact_doubts":["程万清が蒼鷹へ依頼したという推測は蒼鷹の発言と宇文逸の疑念に留め、確定事実にしない","江吟風が何十人もの命を背負うという内容は蒼鷹の主張であり、この場面だけから事実認定しない","程徳明と弟妹の関係に関する蒼鷹の発言は敵対者の暴露・挑発として扱い、正確性を補完しない","蒼鷹が城外へ逃げる意図と一線天へ向かった判断は莫問の推測を越えて断定しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30444571095,"artifact_id":8720880620,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:3d530d2f3adbac8a042291fc023e00992bd2dd2eafb473d6485ea609babf414e","head_sha":"113ff62a9d642ec2212ee414ab8d3ec5afb256ef"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-40-wave-01"},"next_release":{"candidate_scene":["5809_11"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[171],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-39","release_id":"yuwen-mowen-train-39-r1","pr":192,"merge_sha":"6ca6d8a76c5524406211c8121bad709d19ef6580"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":55,"unique_reviewed_rows":55,"fix_keys":8,"unique_fix_rows":8,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":8,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":47,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN40_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_40.json","merge_result":{"pr":194,"merge_sha":"5618bff754d985045c269045333001c02ace70bd"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-41",
+  "branch": "agent/yuwen-mowen-train-41",
+  "draft_pr": 197,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 197,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 171,
+    "pair_applied_keys": 1360,
+    "project_applied_keys": 1736,
+    "produced_by_pr": 194,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-40-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_40.json",
+      "pr": 194,
+      "validated_head": "b69bd9c214fc8bcdb76c4be43ccb8df03a7cb7af"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 44,
+    "reviewed_keys": 44,
+    "unique_reviewed_rows": 44,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 3,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 172,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5809_11",
+        "5809_2",
+        "5810_7",
+        "5810_9",
+        "5811_2",
+        "5811_3"
+      ],
+      "reviewed_rows": 44,
+      "reviewed_keys": 44,
+      "unique_rows": 44,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 41,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch14.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH172_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 43,
+        "unowned_kept": 1,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5810_7_Dlgs_Index3_Text",
+        "5810_7_Dlgs_Index12_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5810_7_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「尸骨未寒」は死後まだ間もないことを示す定着成語。程鈺の悲嘆場面では骨の像を強制せず、「母さんが亡くなって、まだ間もないのに」で時間的近さと痛みを保つ。"
+        },
+        {
+          "key": "5810_7_Dlgs_Index12_Text",
+          "decision": "keep",
+          "note": "「三天打渔两天晒网」は物事を継続せず怠ることをいう定着した諺。「三日坊主」で程鈺の後悔と口語の自然さを保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "瑶姫が宇文逸を死なせようとしたという内容は莫問のこの時点の判断として扱い、客観事実へ昇格しない",
+        "程家堡が玄火教へ加入したという認識は登場人物が得た情報の範囲に留め、所属の経緯や確定時点を補完しない",
+        "程鈺が父に拒絶されていたことと母の潔白は程鈺の認識・願いとして扱い、客観事実と混同しない",
+        "5809_11と5809_2、5811_2と5811_3は分岐であり、連続して発生した会話として合成しない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30483162707,
+        "artifact_id": 8736529037,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:12cd63e58dbae6ea1117ff2613d7d718acb027c52cb194649b936204128238cf",
+        "head_sha": "b942049f4bb348550a914fbf24d09df7b03a332f"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-41-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5821_1"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      172
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-40",
+    "release_id": "yuwen-mowen-train-40-r1",
+    "pr": 194,
+    "merge_sha": "5618bff754d985045c269045333001c02ace70bd"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 44,
+    "unique_reviewed_rows": 44,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 3,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 41,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN41_WAVE01_2026-07-30.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_41.json"
+}

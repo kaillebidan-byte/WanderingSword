@@ -1,0 +1,554 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5809_11",
+    "5809_2",
+    "5810_7",
+    "5810_9",
+    "5811_2",
+    "5811_3"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30483162707,
+    "artifact_id": 8736529037,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:12cd63e58dbae6ea1117ff2613d7d718acb027c52cb194649b936204128238cf",
+    "head_sha": "b942049f4bb348550a914fbf24d09df7b03a332f"
+  },
+  "scene_context": {
+    "timeline": "蒼鷹撃破後、宇文逸と莫問が瑶姫と玄火教について話し、程家堡へ戻って程鈺の喪失と決意に向き合い、武当帰還または娜烏への連絡方針を定める。",
+    "branch_note": "5809_11と5809_2、5811_2と5811_3は進行分岐として別々に監査する。蒼鷹戦後の事後整理から程鈺の身の振り方と帰山方針までを閉じ、次の5821_1以降の別局面は含めない。"
+  },
+  "rows": [
+    {
+      "key": "5809_11_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（摇头）我没事，师兄不必担心。",
+      "ja": "1 - 宇文逸 $@$（首を振って）大丈夫です。師兄、心配はいりません。"
+    },
+    {
+      "key": "5809_11_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$时至今日，我早已见识过江湖险恶……也能明白，方才瑶姬的言不由衷。",
+      "ja": "1 - 宇文逸 $@$今では、江湖の怖さも十分に見てきました……先ほどの瑶姫の言葉が本心ではないことも分かっています。"
+    },
+    {
+      "key": "5809_11_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$只是没想到，这次程家堡的事也有玄火教背后谋算。",
+      "ja": "1 - 宇文逸 $@$ただ、今回の程家堡の件まで玄火教が裏で糸を引いていたとは……"
+    },
+    {
+      "key": "5809_11_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$今后或许……",
+      "ja": "1 - 宇文逸 $@$この先、もしかしたら……"
+    },
+    {
+      "key": "5809_11_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……如若真有那天，我实在不知自己能否对她出手……",
+      "ja": "1 - 宇文逸 $@$……本当にそんな日が来たら、瑶姫に刃を向けられるのか……自分でも分かりません。"
+    },
+    {
+      "key": "5809_11_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，假如她刚才说的都是真的……",
+      "ja": "5015 - 莫問 $@$師弟、もし先ほどの彼女の言葉がすべて真実なら……"
+    },
+    {
+      "key": "5809_11_Dlgs_Index7_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$无论出于什么原因，她都确实利用你了的信任，欺瞒你，甚至打算置你于死地……",
+      "ja": "5015 - 莫問 $@$どんな事情があろうと、彼女は師弟の信頼を利用し、欺いた。命まで奪おうとしたのも事実だ……"
+    },
+    {
+      "key": "5809_11_Dlgs_Index8_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……你又待如何？",
+      "ja": "5015 - 莫問 $@$……それでも、師弟はどうする？"
+    },
+    {
+      "key": "5809_11_Dlgs_Index10_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$唉，事情还未到那一步……先不要多想了。",
+      "ja": "5015 - 莫問 $@$……まだ、そこまで考える時ではない。今はよそう。"
+    },
+    {
+      "key": "5809_11_Dlgs_Index11_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$如今苍鹰虽已伏诛，但我们还需尽快回去解释一切，以免程家堡真的落入玄火教手中。",
+      "ja": "5015 - 莫問 $@$蒼鷹は倒した。だが、急いで戻ってすべてを説明しなければ、程家堡は本当に玄火教の手に落ちかねない。"
+    },
+    {
+      "key": "5809_11_Dlgs_Index12_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯……师兄你说得对，我们先<Y>回程家堡</>吧。",
+      "ja": "1 - 宇文逸 $@$……師兄の言うとおりです。まずは<Y>程家堡へ戻りましょう</>。"
+    },
+    {
+      "key": "5809_2_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，假如她刚才说的都是真的……",
+      "ja": "5015 - 莫問 $@$師弟、もし先ほどの彼女の言葉がすべて真実なら……"
+    },
+    {
+      "key": "5809_2_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$无论出于什么原因，她都确实利用你了的信任，欺瞒你，甚至打算置你于死地……",
+      "ja": "5015 - 莫問 $@$どんな事情があろうと、彼女は師弟の信頼を利用し、欺いた。命まで奪おうとしたのも事実だ……"
+    },
+    {
+      "key": "5809_2_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……你待如何？",
+      "ja": "5015 - 莫問 $@$……それでも、師弟はどうする？"
+    },
+    {
+      "key": "5809_2_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我……我也不知道……",
+      "ja": "1 - 宇文逸 $@$私……私にも分かりません……"
+    },
+    {
+      "key": "5809_2_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……那就先不要想那么多了。",
+      "ja": "5015 - 莫問 $@$……なら、今は考えるのをよそう。"
+    },
+    {
+      "key": "5809_2_Dlgs_Index5_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$如今苍鹰虽已伏诛，但我们还需尽快回去解释一切，以免程家堡真的落入玄火教手中。",
+      "ja": "5015 - 莫問 $@$蒼鷹は倒した。だが、急いで戻ってすべてを説明しなければ、程家堡は本当に玄火教の手に落ちかねない。"
+    },
+    {
+      "key": "5809_2_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯……师兄你说得对，我们先<Y>回程家堡</>吧。",
+      "ja": "1 - 宇文逸 $@$……師兄の言うとおりです。まずは<Y>程家堡へ戻りましょう</>。"
+    },
+    {
+      "key": "5810_7_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……程钰，你还好吧？",
+      "ja": "1 - 宇文逸 $@$……程鈺、大丈夫か？"
+    },
+    {
+      "key": "5810_7_Dlgs_Index1_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$是你们……",
+      "ja": "16002 - 程鈺 $@$お二人だったんですね……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index2_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$……你们都看到了。",
+      "ja": "16002 - 程鈺 $@$……全部、見ていたんですね。"
+    },
+    {
+      "key": "5810_7_Dlgs_Index3_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$娘亲尸骨未寒，他们就这样对我……父亲他一定早就不想看到我了……",
+      "ja": "16002 - 程鈺 $@$母さんが亡くなって、まだ間もないのに……あの人たちは、僕にあんな仕打ちを……父さんはきっと、ずっと前から僕の顔なんて見たくなかったんだ……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index4_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$呜……在他心里，从来没把我看做自己的孩子吧……",
+      "ja": "16002 - 程鈺 $@$うう……父さんは、最初から僕を自分の子だと思っていなかったんだろうな……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index5_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$你们是不是也觉得我娘她是那样的人？",
+      "ja": "16002 - 程鈺 $@$お二人も……母さんがそんな人だったと思っているんですか？"
+    },
+    {
+      "key": "5810_7_Dlgs_Index7_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$哭能解决什么问题？",
+      "ja": "5015 - 莫問 $@$泣いて、何が変わる？"
+    },
+    {
+      "key": "5810_7_Dlgs_Index8_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$若你真的相信你母亲，那就等练好了武功，再回来找出真相，还你母亲一个清白……",
+      "ja": "5015 - 莫問 $@$本当に母親を信じるなら、まず武を磨け。力をつけてから戻り、真相を突き止め、母親の潔白を証明するんだ……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index9_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$否则，在你足够强大之前，什么也做不了。",
+      "ja": "5015 - 莫問 $@$今のままでは、何もできない。"
+    },
+    {
+      "key": "5810_7_Dlgs_Index10_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$……足够强大？",
+      "ja": "16002 - 程鈺 $@$……強く、なる……？"
+    },
+    {
+      "key": "5810_7_Dlgs_Index11_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$莫问大侠你说得对，就算是为了我娘，我也该振作起来……",
+      "ja": "16002 - 程鈺 $@$……莫問大侠の言うとおりです。母さんのためにも、僕がしっかりしないと……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index12_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$……只可惜之前大伯教我武功时，我总是三天打渔两天晒网，不肯用功，如今……",
+      "ja": "16002 - 程鈺 $@$……伯父さんが武術を教えてくれた時、僕はいつも三日坊主で、ろくに稽古もしなかった。今になって……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index13_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$莫问大侠，宇文少侠，求你们教我武功吧！",
+      "ja": "16002 - 程鈺 $@$莫問大侠、宇文少侠……お願いします。僕に武術を教えてください！"
+    },
+    {
+      "key": "5810_7_Dlgs_Index14_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$我想变强！可是现在除了你们，我想不到还有谁能帮我了……",
+      "ja": "16002 - 程鈺 $@$僕は強くなりたい！　でも今は、二人のほかに頼れる人が思い浮かばないんです……"
+    },
+    {
+      "key": "5810_7_Dlgs_Index15_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……我们只能带你回武当，但最终能不能留下，还要看师父师伯他们的意思。",
+      "ja": "5015 - 莫問 $@$……武当へ連れていくことはできる。だが、そこで受け入れてもらえるかは、師父と師伯方の判断次第だ。"
+    },
+    {
+      "key": "5810_7_Dlgs_Index16_Text",
+      "speaker": "程钰",
+      "zh": "16002 - 程钰 $@$可我现在的情况……",
+      "ja": "16002 - 程鈺 $@$でも、今の僕は……"
+    },
+    {
+      "key": "5810_9_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$既然已经决定了，我们这便启程<Y>返回武当，向师父复命</>吧。",
+      "ja": "5015 - 莫問 $@$決まったな。では<Y>武当へ戻り、師父に復命</>しよう。"
+    },
+    {
+      "key": "5810_9_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$是，师兄。",
+      "ja": "1 - 宇文逸 $@$はい、師兄。"
+    },
+    {
+      "key": "5811_2_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……看来欧阳公子也猜到了此事与玄火教脱不了干系。",
+      "ja": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると見抜いたようだ。"
+    },
+    {
+      "key": "5811_2_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$既然如今程家堡加入玄火教已成定局，我们还是早些回武当，向师父禀明情况为上。",
+      "ja": "5015 - 莫問 $@$程家堡が玄火教へ加わった以上、早く武当へ戻って師父に事情を報告するべきだろう。"
+    },
+    {
+      "key": "5811_2_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可是师兄，我有点担心程钰，现在杜夫人和程堡主都没了，程二爷又误会他……",
+      "ja": "1 - 宇文逸 $@$でも師兄、程鈺のことが心配です。杜夫人も程堡主も亡くなり、程二爺には誤解されたままで……"
+    },
+    {
+      "key": "5811_2_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……要不我们还是回去看看吧？",
+      "ja": "1 - 宇文逸 $@$……やはり一度、戻って様子を見ませんか？"
+    },
+    {
+      "key": "5811_2_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$也好，走吧。",
+      "ja": "5015 - 莫問 $@$そうだな。行こう。"
+    },
+    {
+      "key": "5811_3_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……看来欧阳公子也猜到了此事与玄火教脱不了干系。",
+      "ja": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると見抜いたようだ。"
+    },
+    {
+      "key": "5811_3_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟可有联络娜乌姑娘的办法……如今程家堡加入玄火教已成定局，我们也该回山了。",
+      "ja": "5015 - 莫問 $@$師弟、娜烏姑娘へ連絡する手立てはあるか……程家堡が玄火教へ加わった以上、わたしたちも山へ戻るべきだ。"
+    },
+    {
+      "key": "5811_3_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$有的，我这就联系她……",
+      "ja": "1 - 宇文逸 $@$あります。すぐ連絡します……"
+    }
+  ],
+  "candidate_questions": [
+    "宇文逸の瑶姫への情と江湖を知った成長を同時に保てているか",
+    "莫問の厳しさが程鈺を突き放すだけでなく行動へ導く声になっているか",
+    "程鈺の喪失直後の幼さから決意への転換が自然か",
+    "分岐会話の差を必要以上に統一していないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "尸骨未寒",
+      "三天打渔两天晒网"
+    ],
+    "fact_doubts": [
+      "瑶姫が宇文逸を死なせようとしたという内容は莫問のこの時点の判断として扱う",
+      "程家堡が玄火教へ加入したという認識は登場人物が得た情報の範囲を越えて補完しない",
+      "程鈺が父に拒絶されていたことと母の潔白は程鈺の認識・願いとして扱う",
+      "5809_11と5809_2、5811_2と5811_3は分岐であり連続して発生した会話と見なさない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 44,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch14.json",
+        "keys": [
+          "5809_11_Dlgs_Index0_Text",
+          "5809_11_Dlgs_Index10_Text",
+          "5809_11_Dlgs_Index11_Text",
+          "5809_11_Dlgs_Index12_Text",
+          "5809_11_Dlgs_Index1_Text",
+          "5809_11_Dlgs_Index2_Text",
+          "5809_11_Dlgs_Index3_Text",
+          "5809_11_Dlgs_Index4_Text",
+          "5809_11_Dlgs_Index6_Text",
+          "5809_11_Dlgs_Index7_Text",
+          "5809_11_Dlgs_Index8_Text",
+          "5809_2_Dlgs_Index0_Text",
+          "5809_2_Dlgs_Index1_Text",
+          "5809_2_Dlgs_Index2_Text",
+          "5809_2_Dlgs_Index3_Text",
+          "5809_2_Dlgs_Index4_Text",
+          "5809_2_Dlgs_Index5_Text",
+          "5809_2_Dlgs_Index6_Text",
+          "5810_7_Dlgs_Index10_Text",
+          "5810_7_Dlgs_Index11_Text",
+          "5810_7_Dlgs_Index12_Text",
+          "5810_7_Dlgs_Index13_Text",
+          "5810_7_Dlgs_Index14_Text",
+          "5810_7_Dlgs_Index15_Text",
+          "5810_7_Dlgs_Index16_Text",
+          "5810_7_Dlgs_Index1_Text",
+          "5810_7_Dlgs_Index2_Text",
+          "5810_7_Dlgs_Index3_Text",
+          "5810_7_Dlgs_Index4_Text",
+          "5810_7_Dlgs_Index5_Text",
+          "5810_7_Dlgs_Index7_Text",
+          "5810_7_Dlgs_Index8_Text",
+          "5810_7_Dlgs_Index9_Text",
+          "5810_9_Dlgs_Index0_Text",
+          "5811_2_Dlgs_Index1_Text",
+          "5811_2_Dlgs_Index2_Text",
+          "5811_2_Dlgs_Index3_Text",
+          "5811_2_Dlgs_Index4_Text",
+          "5811_3_Dlgs_Index1_Text",
+          "5811_3_Dlgs_Index2_Text",
+          "5811_3_Dlgs_Index3_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch15.json",
+        "keys": [
+          "5810_9_Dlgs_Index1_Text",
+          "5811_2_Dlgs_Index6_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "5810_7_Dlgs_Index0_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/程鈺.md",
+        "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5809_11_Dlgs_Index0_Text",
+          "5809_11_Dlgs_Index1_Text",
+          "5809_11_Dlgs_Index2_Text",
+          "5809_11_Dlgs_Index3_Text",
+          "5809_11_Dlgs_Index4_Text",
+          "5809_11_Dlgs_Index12_Text",
+          "5809_2_Dlgs_Index3_Text",
+          "5809_2_Dlgs_Index6_Text",
+          "5810_7_Dlgs_Index0_Text",
+          "5810_9_Dlgs_Index1_Text",
+          "5811_2_Dlgs_Index3_Text",
+          "5811_2_Dlgs_Index4_Text",
+          "5811_3_Dlgs_Index3_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5809_11_Dlgs_Index6_Text",
+          "5809_11_Dlgs_Index7_Text",
+          "5809_11_Dlgs_Index8_Text",
+          "5809_11_Dlgs_Index10_Text",
+          "5809_11_Dlgs_Index11_Text",
+          "5809_2_Dlgs_Index0_Text",
+          "5809_2_Dlgs_Index1_Text",
+          "5809_2_Dlgs_Index2_Text",
+          "5809_2_Dlgs_Index4_Text",
+          "5809_2_Dlgs_Index5_Text",
+          "5810_7_Dlgs_Index7_Text",
+          "5810_7_Dlgs_Index8_Text",
+          "5810_7_Dlgs_Index9_Text",
+          "5810_7_Dlgs_Index15_Text",
+          "5810_9_Dlgs_Index0_Text",
+          "5811_2_Dlgs_Index1_Text",
+          "5811_2_Dlgs_Index2_Text",
+          "5811_2_Dlgs_Index6_Text",
+          "5811_3_Dlgs_Index1_Text",
+          "5811_3_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "10_人物/程鈺.md",
+        "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+        "document_type": "persona",
+        "name": "程鈺",
+        "aliases": [
+          "程鈺",
+          "程钰"
+        ],
+        "evidence_keys": [
+          "5810_7_Dlgs_Index1_Text",
+          "5810_7_Dlgs_Index2_Text",
+          "5810_7_Dlgs_Index3_Text",
+          "5810_7_Dlgs_Index4_Text",
+          "5810_7_Dlgs_Index5_Text",
+          "5810_7_Dlgs_Index10_Text",
+          "5810_7_Dlgs_Index11_Text",
+          "5810_7_Dlgs_Index12_Text",
+          "5810_7_Dlgs_Index13_Text",
+          "5810_7_Dlgs_Index14_Text",
+          "5810_7_Dlgs_Index16_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:73a3194b4fe4cf35f52974ef94bfe09c7a8056ae406dc727f3043b59700e1f28"
+  }
+}
