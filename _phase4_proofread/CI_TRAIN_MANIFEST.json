@@ -1,1 +1,198 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-34","branch":"agent/yuwen-mowen-train-34","draft_pr":187,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":187,"merge_sha":"f1f75c19978de9518eb9e70ae1c4882ba9a68410"},"base_checkpoint":{"batch":164,"pair_applied_keys":1358,"project_applied_keys":1734,"produced_by_pr":186,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-33-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_33.json","pr":186,"validated_head":"3e6920e4f979e097eb12376e3cc40e635e1f659f"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":49,"reviewed_keys":49,"unique_reviewed_rows":49,"fix_keys":0,"unique_fix_rows":0,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":0,"keep_only_bundles":1},"bundles":[{"batch":165,"review_status":"complete","apply_status":"verified","scene_groups":["5531_7","5535_2","5536_3","5536_4","5540_4","5551_2"],"reviewed_rows":49,"reviewed_keys":49,"unique_rows":49,"fix_keys":0,"unique_fix_rows":0,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":0,"keep_keys":49,"fix_files":[],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH165_2026-07-29.md","ownership_summary":{"existing_keys":41,"unowned_kept":8,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["5535_2_Dlgs_Index3_Text","5535_2_Dlgs_Index4_Text","5536_3_Dlgs_Index4_Text","5536_4_Dlgs_Index4_Text","5551_2_Dlgs_Index6_Text"],"allusion_review_resolved":[{"key":"5535_2_Dlgs_Index3_Text","decision":"keep","note":"『告辞』は別れの定型。宇文逸の『それでは失礼します』で機能を保つ。"},{"key":"5535_2_Dlgs_Index4_Text","decision":"keep","note":"黄宗政の返礼『告辞』は武人らしい短い『さらばだ』として保持する。"},{"key":"5536_3_Dlgs_Index4_Text","decision":"keep","note":"『铲除』は天龍幇を根絶する方針。『一掃する』で強度と作戦意図を保つ。"},{"key":"5536_4_Dlgs_Index4_Text","decision":"keep","note":"分岐側も同じ『铲除』の機能を保ち、別時系列へ合成しない。"},{"key":"5551_2_Dlgs_Index6_Text","decision":"keep","note":"『诚心以待』は真心から接する意。莫問の静かな共感として『真心から向き合ってくれる』を保持する。"}],"fact_doubts":["清河村と平康城の人さらいが天龍幇の捜索だったという判断は5531_7時点では莫問の推測に留める","5536_3と5536_4は清霄師伯の同行条件による分岐であり、一つの時系列へ合成しない","5540_4で瑶姫が遼城の状況を言い淀む理由を後続情報から補わない","5551_2で宇文逸が叔父を父親同然に思うのは本人の内心であり、叔父側の認識まで断定しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30436950682,"artifact_id":8717831540,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:aa0ce3e8d99c2ba574aa3728bef88e79bf43a23e5ccae2f2e3b8acc814e18521","head_sha":"ba6959a54e3e679cabd070da0f82834b1a3bb408"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-34-wave-01"},"next_release":{"candidate_scene":["5572_6"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[165],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-33","release_id":"yuwen-mowen-train-33-r1","pr":186,"merge_sha":"4d6f3f8a66fa6466054d0b01d18c92a451338248"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":49,"unique_reviewed_rows":49,"fix_keys":0,"unique_fix_rows":0,"keep_only_bundles":1,"pre_challenge_unique_fix_rows":0,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":49,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN34_WAVE01_2026-07-29.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_34.json","merge_result":{"pr":187,"merge_sha":"f1f75c19978de9518eb9e70ae1c4882ba9a68410"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-35",
+  "branch": "agent/yuwen-mowen-train-35",
+  "draft_pr": 188,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 188,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 165,
+    "pair_applied_keys": 1358,
+    "project_applied_keys": 1734,
+    "produced_by_pr": 187,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-34-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_34.json",
+      "pr": 187,
+      "validated_head": "1ad8d61b012d92dea6fa3f7e72bc1d979594e0e2"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 60,
+    "reviewed_keys": 60,
+    "unique_reviewed_rows": 60,
+    "fix_keys": 1,
+    "unique_fix_rows": 1,
+    "new_pair_keys": 1,
+    "new_project_keys": 1,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 166,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5572_6",
+        "5572_9",
+        "5581_5",
+        "5581_7",
+        "5581_8",
+        "5583_1",
+        "5583_2"
+      ],
+      "reviewed_rows": 60,
+      "reviewed_keys": 60,
+      "unique_rows": 60,
+      "fix_keys": 1,
+      "unique_fix_rows": 1,
+      "new_pair_keys": 1,
+      "new_project_keys": 1,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 0,
+      "keep_keys": 59,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch80.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH166_2026-07-29.md",
+      "ownership_summary": {
+        "existing_keys": 52,
+        "unowned_kept": 7,
+        "new_keys": 1,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5572_6_Dlgs_Index11_Text",
+        "5581_5_Dlgs_Index1_Text",
+        "5581_7_Dlgs_Index0_Text",
+        "5581_8_Dlgs_Index0_Text",
+        "5583_1_Dlgs_Index3_Text",
+        "5583_2_Dlgs_Index3_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5572_6_Dlgs_Index11_Text",
+          "decision": "keep",
+          "note": "「衣冠塚」は遺体のない墓を示す既定語。叔父の生死を補わず保持する。"
+        },
+        {
+          "key": "5581_5_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「復命」は義父へ任務結果を報告する門派語彙として機能を保つ。"
+        },
+        {
+          "key": "5581_7_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "清霄師伯への「復命」は分岐条件に対応する報告であり、別分岐と合成しない。"
+        },
+        {
+          "key": "5581_8_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "師父への「復命」は別分岐の報告。語義と門派registerを保持する。"
+        },
+        {
+          "key": "5583_1_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「後生可畏」は若者の働きを称える成句。「後生は畏るべきもの」で重みを保い。"
+        },
+        {
+          "key": "5583_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「全尸」は遺体が原形を留める意味。現訳は残酷さを弱めず機能を保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "仮面の敵が風雲訣だけを目的としていたかは5572_6時点の推測に留める",
+        "5581_7と5581_8は報告相手による分岐であり一つの時系列へ合成しない",
+        "清虚道長が叔父と復讐の真相を知った時期と範園は5583_2の本人説明以上に補わない",
+        "衣冠塚の中に遺体がないことと叔父の生死を同一視しない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30437972410,
+        "artifact_id": 8718220255,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:2d481c964a8f16f3cb84c836c9a2f15827cf31fb812cde36483555b87f39025a",
+        "head_sha": "be0c16569a7296dfc507c2fbc4353cb31740100c"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-35-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5585_4"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      166
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-34",
+    "release_id": "yuwen-mowen-train-34-r1",
+    "pr": 187,
+    "merge_sha": "f1f75c19978de9518eb9e70ae1c4882ba9a68410"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 60,
+    "unique_reviewed_rows": 60,
+    "fix_keys": 1,
+    "unique_fix_rows": 1,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 1,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 59,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN35_WAVE01_2026-07-29.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_35.json"
+}

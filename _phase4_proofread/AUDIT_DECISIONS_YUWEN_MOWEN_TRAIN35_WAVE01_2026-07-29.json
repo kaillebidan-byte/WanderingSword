@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-35",
+  "wave_id": "yuwen-mowen-train-35-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30437972410,
+    "artifact_id": 8718220255,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:2d481c964a8f16f3cb84c836c9a2f15827cf31fb812cde36483555b87f39025a",
+    "head_sha": "be0c16569a7296dfc507c2fbc4353cb31740100c"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train35-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_6_5583_2_2026-07-29.json",
+      "scene_groups": [
+        "5572_6",
+        "5572_9",
+        "5581_5",
+        "5581_7",
+        "5581_8",
+        "5583_1",
+        "5583_2"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5583_2_Dlgs_Index16_Text",
+          "before": "5003 - 清虚道長 $@$問児、お前は江湖の経験が豊富だから、師弟の面倒をよく見てやるのだぞ。",
+          "after": "5003 - 清虚道長 $@$問児、そなたは江湖の経験が豊富だから、師弟の面倒をよく見てやるのだぞ。",
+          "reason": "清虚道長の弟子への二人称は人物正本で「そなた」または省略が基調で、「お前」は慈愛ある師の声と衝突する。意味や文構造を変えず、呼称だけを既定registerへ戻す。"
+        }
+      ],
+      "keeps": [
+        "5572_6_Dlgs_Index0_Text",
+        "5572_6_Dlgs_Index1_Text",
+        "5572_6_Dlgs_Index2_Text",
+        "5572_6_Dlgs_Index3_Text",
+        "5572_6_Dlgs_Index4_Text",
+        "5572_6_Dlgs_Index5_Text",
+        "5572_6_Dlgs_Index6_Text",
+        "5572_6_Dlgs_Index7_Text",
+        "5572_6_Dlgs_Index8_Text",
+        "5572_6_Dlgs_Index9_Text",
+        "5572_6_Dlgs_Index10_Text",
+        "5572_6_Dlgs_Index11_Text",
+        "5572_9_Dlgs_Index0_Text",
+        "5572_9_Dlgs_Index1_Text",
+        "5572_9_Dlgs_Index3_Text",
+        "5581_5_Dlgs_Index0_Text",
+        "5581_5_Dlgs_Index1_Text",
+        "5581_5_Dlgs_Index2_Text",
+        "5581_5_Dlgs_Index3_Text",
+        "5581_5_Dlgs_Index4_Text",
+        "5581_5_Dlgs_Index5_Text",
+        "5581_5_Dlgs_Index6_Text",
+        "5581_5_Dlgs_Index7_Text",
+        "5581_5_Dlgs_Index8_Text",
+        "5581_5_Dlgs_Index9_Text",
+        "5581_5_Dlgs_Index10_Text",
+        "5581_7_Dlgs_Index0_Text",
+        "5581_7_Dlgs_Index1_Text",
+        "5581_8_Dlgs_Index0_Text",
+        "5581_8_Dlgs_Index1_Text",
+        "5583_1_Dlgs_Index0_Text",
+        "5583_1_Dlgs_Index1_Text",
+        "5583_1_Dlgs_Index2_Text",
+        "5583_1_Dlgs_Index3_Text",
+        "5583_1_Dlgs_Index4_Text",
+        "5583_1_Dlgs_Index5_Text",
+        "5583_1_Dlgs_Index6_Text",
+        "5583_1_Dlgs_Index7_Text",
+        "5583_1_Dlgs_Index8_Text",
+        "5583_1_Dlgs_Index9_Text",
+        "5583_1_Dlgs_Index10_Text",
+        "5583_1_Dlgs_Index11_Text",
+        "5583_2_Dlgs_Index0_Text",
+        "5583_2_Dlgs_Index1_Text",
+        "5583_2_Dlgs_Index2_Text",
+        "5583_2_Dlgs_Index3_Text",
+        "5583_2_Dlgs_Index4_Text",
+        "5583_2_Dlgs_Index5_Text",
+        "5583_2_Dlgs_Index7_Text",
+        "5583_2_Dlgs_Index8_Text",
+        "5583_2_Dlgs_Index9_Text",
+        "5583_2_Dlgs_Index10_Text",
+        "5583_2_Dlgs_Index11_Text",
+        "5583_2_Dlgs_Index12_Text",
+        "5583_2_Dlgs_Index13_Text",
+        "5583_2_Dlgs_Index14_Text",
+        "5583_2_Dlgs_Index15_Text",
+        "5583_2_Dlgs_Index17_Text",
+        "5583_2_Dlgs_Index18_Text"
+      ],
+      "allusion_review_candidates": [
+        "5572_6_Dlgs_Index11_Text",
+        "5581_5_Dlgs_Index1_Text",
+        "5581_7_Dlgs_Index0_Text",
+        "5581_8_Dlgs_Index0_Text",
+        "5583_1_Dlgs_Index3_Text",
+        "5583_2_Dlgs_Index3_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5572_6_Dlgs_Index11_Text",
+          "decision": "keep",
+          "note": "「衣冠塚」は遺体のない墓を示す既定語。叔父の生死を補わず保持する。"
+        },
+        {
+          "key": "5581_5_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「復命」は義父へ任務結果を報告する門派語彙として機能を保つ。"
+        },
+        {
+          "key": "5581_7_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "清霄師伯への「復命」は分岐条件に対応する報告であり、別分岐と合成しない。"
+        },
+        {
+          "key": "5581_8_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "師父への「復命」は別分岐の報告。語義と門派registerを保持する。"
+        },
+        {
+          "key": "5583_1_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「後生可畏」は若者の働きを称える成句。「後生は畏るべきもの」で重みを保い。"
+        },
+        {
+          "key": "5583_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「全尸」は遺体が原形を留める意味。現訳は残酷さを弱めず機能を保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "仮面の敵が風雲訣だけを目的としていたかは5572_6時点の推測に留める",
+        "5581_7と5581_8は報告相手による分岐であり一つの時系列へ合成しない",
+        "清虚道長が叔父と復讐の真相を知った時期と範園は5583_2の本人説明以上に補わない",
+        "衣冠塚の中に遺体がないことと叔父の生死を同一視しない"
+      ]
+    }
+  ]
+}

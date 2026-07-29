@@ -2,10 +2,14 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5531_7_5551_2_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch79.json",
-      "values": {},
-      "fix_keys": []
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_6_5583_2_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch80.json",
+      "values": {
+        "5583_2_Dlgs_Index16_Text": "5003 - 清虚道長 $@$問児、そなたは江湖の経験が豊富だから、師弟の面倒をよく見てやるのだぞ。"
+      },
+      "fix_keys": [
+        "5583_2_Dlgs_Index16_Text"
+      ]
     }
   ]
 }
