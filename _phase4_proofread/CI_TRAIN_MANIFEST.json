@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-30",
   "branch": "agent/yuwen-mowen-train-30",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 183,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 183,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,98 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 49,
+    "reviewed_keys": 49,
+    "unique_reviewed_rows": 49,
+    "fix_keys": 2,
+    "unique_fix_rows": 2,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 2,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 161,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5358_1",
+        "5358_5",
+        "5359_3",
+        "5359_4",
+        "5359_5"
+      ],
+      "reviewed_rows": 49,
+      "reviewed_keys": 49,
+      "unique_rows": 49,
+      "fix_keys": 2,
+      "unique_fix_rows": 2,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 2,
+      "keep_keys": 47,
+      "fix_files": [
+        "_phase4_proofread/fixes_cross_register_huikong_inn_reunion_20260724.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH161_2026-07-29.md",
+      "ownership_summary": {
+        "existing_keys": 45,
+        "unowned_kept": 4,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5358_1_Dlgs_Index5_Text",
+        "5358_1_Dlgs_Index10_Text",
+        "5358_5_Dlgs_Index5_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5358_1_Dlgs_Index5_Text",
+          "decision": "keep",
+          "note": "「楓橋水雲」は郭大家の新作琴譜の題として保持する。「猜灯谜」は灯会の催しを示す場面情報であり、題名の由来や現実の典拠を先取りしない。"
+        },
+        {
+          "key": "5358_1_Dlgs_Index10_Text",
+          "decision": "keep",
+          "note": "「既来之则安之」は、ここまで来た以上ひとまず腰を落ち着けるという機能。現訳は字面を持ち込まず、莫問の実務的判断として自然に移している。"
+        },
+        {
+          "key": "5358_5_Dlgs_Index5_Text",
+          "decision": "keep",
+          "note": "「少林七十二絶技」「禅宗伏魔功」は少林の武学名として保持する。莫問の「とか」によって伝聞的な称賛の範囲も保たれている。"
+        }
+      ],
+      "fact_doubts": [
+        "5358_1_Dlgs_Index2_Text〜Index10_Text: 部屋を手配した人物と意図は未確定。丘掌柜の保証と莫問の暫定判断を超えて事実化しない。",
+        "5358_5_Dlgs_Index5_Text: 慧空の修行歴と到達度は莫問が耳にした評判として扱い、客観ナレーションへ広げない。",
+        "5359_3_Dlgs_Index7_Text〜5359_5_Dlgs_Index2_Text: 確認できるのは戸外の物音と迷煙だけ。犯人・目的・後続結果を先取りしない。"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30431100673,
+        "artifact_id": 8715549901,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:23b5b1750f70b6ae38dc003351594a26a0f1b4ccf43c0f17a6219559ea380c94",
+        "head_sha": "bf30e266a120a38f3097232cc60c62467e68a28a"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-30-wave-01"
   },
   "next_release": {
@@ -73,15 +143,39 @@
       "5359_4",
       "5359_5"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      161
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-29",
     "release_id": "yuwen-mowen-train-29-r1",
     "pr": 182,
     "merge_sha": "73169d8ab89c5d184714da42884ec253fefc99c5"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 49,
+    "unique_reviewed_rows": 49,
+    "fix_keys": 2,
+    "unique_fix_rows": 2,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 2,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 47,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN30_WAVE01_2026-07-29.md"
+    }
   }
 }

@@ -2,13 +2,16 @@
 
 - active train: `yuwen-mowen-train-30`
 - branch: `agent/yuwen-mowen-train-30`
-- stage: `private_quality_audit`
-- transport: `not_ready`
-- wave: `yuwen-mowen-train-30-wave-01` / 1 packet / 49 unique rows
-- candidate: `_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_1_5359_5_2026-07-29.json`
-- previous release: `yuwen-mowen-train-29` / PR #182 / `73169d8ab89c5d184714da42884ec253fefc99c5`
+- stage: `translation_frozen`
+- transport: `ready_for_public_ci`
+- formal batches: `161`
+- reviewed rows: `49` / fixes: `2` / keeps: `47`
+- pull request: `#183`
 
 ## exact next action
 
-`_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_1_5359_5_2026-07-29.json`を読み、KEEP/FIX・人物性・事実・典故だけを監査する。
-GitHub API、branch、workflow、owner、正式束、encoding、CI、mergeはこのstationでは操作しない。
+`release-ci` labelから固定`Release train orchestrator`を起動し、Relation・Cross・Apply・phase2を実行する。
+
+再開句: `現状把握して作業の続きを`
+
+翻訳判断は凍結済み。KEEP/FIX、owner、正式束を手作業で変更しない。
