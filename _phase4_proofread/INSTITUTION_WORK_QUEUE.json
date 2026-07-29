@@ -40,29 +40,13 @@
     {
       "task_id": "stale_release_label_guard",
       "title": "staleなreleaseラベルrunを安全にNOOP化",
-      "status": "pending",
+      "status": "completed",
       "priority": 3,
       "branch": "agent/stale-release-label-guard",
       "summary": "station後退やbranch更新時に残ったrelease-ciラベルが古いHEAD・stateでorchestratorを起動しないようにする。",
-      "audit_scope": [
-        ".github/workflows/release-train-orchestrator.yml",
-        "release-ciラベルを扱うworkflowとstage transition",
-        "release preflightとHEAD freshness checker",
-        "既存concurrencyとlabel解除処理"
-      ],
-      "completion_conditions": [
-        "stale runの発火条件をコード上で特定する",
-        "station遷移時の実行ラベル解除またはbranch更新だけでは再発火しない構造を実装する",
-        "開始時にchecked-out HEAD、現在PR HEAD、translation_frozen、ready_for_public_ci、release input lineageを照合する",
-        "古いrunは失敗ではなく明示的skipまたはNOOPにする",
-        "最新HEAD正常系とstale HEAD・stale state異常系の回帰を追加する",
-        "concurrencyで旧run取消しが可能なら既存方式を流用する"
-      ],
-      "forbidden": [
-        "翻訳本文、owner値、locres、pak、次候補preparationの変更",
-        "release preflight防御層の削除",
-        "一時workflowまたは別triggerの作成"
-      ]
+      "completion": {
+        "pr": 181
+      }
     }
   ],
   "completion_contract": {

@@ -40,11 +40,25 @@ def completed_queue() -> dict:
     return queue
 
 
+def queue_with_pending() -> dict:
+    queue = completed_queue()
+    task = queue["tasks"][-1]
+    task["status"] = "pending"
+    task.pop("completion", None)
+    task["audit_scope"] = ["demo audit"]
+    task["completion_conditions"] = ["demo completion"]
+    task["forbidden"] = ["demo forbidden"]
+    return queue
+
+
 def main() -> None:
     assert resume.validate_queue(QUEUE) == []
     current, state, manifest, packet = translation_fixtures()
-    order = resume.build_resume_work_order(QUEUE, FACTORY, current, state, manifest, packet, "public")
-    expected_pending = resume.first_pending_task(QUEUE)
+
+    pending_queue = queue_with_pending()
+    assert resume.validate_queue(pending_queue) == []
+    order = resume.build_resume_work_order(pending_queue, FACTORY, current, state, manifest, packet, "public")
+    expected_pending = resume.first_pending_task(pending_queue)
     assert expected_pending is not None
     assert order["route"] == "institution_repair"
     assert order["task_id"] == expected_pending["task_id"]
@@ -61,7 +75,7 @@ def main() -> None:
     assert delegated["action"] == "initialize_next_cycle_from_reservation"
 
     try:
-        resume.build_resume_work_order(QUEUE, FACTORY, current, state, manifest, packet, "private")
+        resume.build_resume_work_order(pending_queue, FACTORY, current, state, manifest, packet, "private")
     except resume.ResumeStateError as exc:
         assert exc.code == "resume_institution_visibility_mismatch"
     else:
