@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-41",
   "branch": "agent/yuwen-mowen-train-41",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 197,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 197,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,93 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 44,
+    "reviewed_keys": 44,
+    "unique_reviewed_rows": 44,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 3,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 172,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5809_11",
+        "5809_2",
+        "5810_7",
+        "5810_9",
+        "5811_2",
+        "5811_3"
+      ],
+      "reviewed_rows": 44,
+      "reviewed_keys": 44,
+      "unique_rows": 44,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 41,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch14.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH172_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 43,
+        "unowned_kept": 1,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5810_7_Dlgs_Index3_Text",
+        "5810_7_Dlgs_Index12_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5810_7_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「尸骨未寒」は死後まだ間もないことを示す定着成語。程鈺の悲嘆場面では骨の像を強制せず、「母さんが亡くなって、まだ間もないのに」で時間的近さと痛みを保つ。"
+        },
+        {
+          "key": "5810_7_Dlgs_Index12_Text",
+          "decision": "keep",
+          "note": "「三天打渔两天晒网」は物事を継続せず怠ることをいう定着した諺。「三日坊主」で程鈺の後悔と口語の自然さを保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "瑶姫が宇文逸を死なせようとしたという内容は莫問のこの時点の判断として扱い、客観事実へ昇格しない",
+        "程家堡が玄火教へ加入したという認識は登場人物が得た情報の範囲に留め、所属の経緯や確定時点を補完しない",
+        "程鈺が父に拒絶されていたことと母の潔白は程鈺の認識・願いとして扱い、客観事実と混同しない",
+        "5809_11と5809_2、5811_2と5811_3は分岐であり、連続して発生した会話として合成しない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30483162707,
+        "artifact_id": 8736529037,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:12cd63e58dbae6ea1117ff2613d7d718acb027c52cb194649b936204128238cf",
+        "head_sha": "b942049f4bb348550a914fbf24d09df7b03a332f"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-41-wave-01"
   },
   "next_release": {
@@ -74,15 +139,39 @@
       "5811_2",
       "5811_3"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      172
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-40",
     "release_id": "yuwen-mowen-train-40-r1",
     "pr": 194,
     "merge_sha": "5618bff754d985045c269045333001c02ace70bd"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 44,
+    "unique_reviewed_rows": 44,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 3,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 41,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN41_WAVE01_2026-07-30.md"
+    }
   }
 }

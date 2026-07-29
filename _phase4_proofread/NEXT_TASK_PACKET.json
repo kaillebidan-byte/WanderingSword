@@ -20,13 +20,13 @@
     "5811_3"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-41-wave-01",
     "packet_id": "yuwen-mowen-train41-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 172
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -39,16 +39,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-40",
-    "release_id": "yuwen-mowen-train-40-r1",
-    "pr": 194,
-    "status": "merged",
-    "merge_sha": "5618bff754d985045c269045333001c02ace70bd"
+    "train_id": "yuwen-mowen-train-41",
+    "release_id": "yuwen-mowen-train-41-r1",
+    "pr": 197,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -64,5 +62,36 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:73a3194b4fe4cf35f52974ef94bfe09c7a8056ae406dc727f3043b59700e1f28"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 44,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5809_11",
+      "5809_2",
+      "5810_7",
+      "5810_9",
+      "5811_2",
+      "5811_3"
+    ],
+    "grouping_decision": "六場面・44行。蒼鷹戦後の感情整理、程家堡への帰還、程鈺の決意、武当帰還方針までが標準40〜60行内で完結する。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 3,
+    "new_project_keys": 0,
+    "fix_keys": 3
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN41_WAVE01_2026-07-30.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

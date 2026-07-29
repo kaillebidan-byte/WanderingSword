@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5809_11_Dlgs_Index0_Text",
+        "5809_11_Dlgs_Index4_Text",
+        "5810_7_Dlgs_Index0_Text",
+        "5811_2_Dlgs_Index3_Text"
+      ],
+      "reason": "師兄へ礼を保ちながら瑶姫への迷いを言いさし、程鈺には温かく案じる常体へ切り替えている。現行資料のM1感情・M3後輩モードと整合する。",
+      "scope": {
+        "pair": "宇文逸↔莫問",
+        "timeline": "蒼鷹撃破後から程家堡事後整理",
+        "scenes": [
+          "5809_11",
+          "5810_7",
+          "5811_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "after_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5809_11_Dlgs_Index7_Text",
+        "5810_7_Dlgs_Index7_Text",
+        "5810_7_Dlgs_Index8_Text",
+        "5810_7_Dlgs_Index15_Text"
+      ],
+      "reason": "宇文逸へ厳しい現実を短く示し、程鈺の悲嘆を行動へ転じさせ、最後に自分たちが約束できる範囲を明示する。現行資料の兄弟子・危機判断・後進指導の思考順序と整合する。",
+      "scope": {
+        "speaker": "莫問",
+        "counterparts": [
+          "宇文逸",
+          "程鈺"
+        ],
+        "timeline": "蒼鷹撃破後から武当同行決定",
+        "scenes": [
+          "5809_11",
+          "5810_7"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+      "after_digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程鈺.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5810_7_Dlgs_Index3_Text",
+        "5810_7_Dlgs_Index4_Text",
+        "5810_7_Dlgs_Index11_Text",
+        "5810_7_Dlgs_Index13_Text",
+        "5810_7_Dlgs_Index14_Text"
+      ],
+      "reason": "母の死と父から拒絶されたという受け止めを泣き・言いさしで吐露し、行動の道筋を示されると母のために武を学ぶ決意へ素早く切り替わる。現行資料の家族喪失・発話優先順位・決意モードと整合する。",
+      "scope": {
+        "speaker": "程鈺",
+        "counterparts": [
+          "莫問",
+          "宇文逸"
+        ],
+        "timeline": "母の死後・武当同行前",
+        "scene": "5810_7"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "after_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-41",
+  "wave_id": "yuwen-mowen-train-41-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN41_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5809_11_5811_3_2026-07-30.json",
+      "manifest_digest": "sha256:73a3194b4fe4cf35f52974ef94bfe09c7a8056ae406dc727f3043b59700e1f28"
+    }
+  ]
+}
