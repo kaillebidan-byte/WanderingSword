@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-34",
+  "wave_id": "yuwen-mowen-train-34-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30436950682,
+    "artifact_id": 8717831540,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:aa0ce3e8d99c2ba574aa3728bef88e79bf43a23e5ccae2f2e3b8acc814e18521",
+    "head_sha": "ba6959a54e3e679cabd070da0f82834b1a3bb408"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train34-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5531_7_5551_2_2026-07-29.json",
+      "scene_groups": [
+        "5531_7",
+        "5535_2",
+        "5536_3",
+        "5536_4",
+        "5540_4",
+        "5551_2"
+      ],
+      "status": "audited",
+      "fixes": [],
+      "keeps": [
+        "5531_7_Dlgs_Index0_Text",
+        "5531_7_Dlgs_Index1_Text",
+        "5531_7_Dlgs_Index2_Text",
+        "5531_7_Dlgs_Index3_Text",
+        "5531_7_Dlgs_Index4_Text",
+        "5531_7_Dlgs_Index5_Text",
+        "5535_2_Dlgs_Index0_Text",
+        "5535_2_Dlgs_Index1_Text",
+        "5535_2_Dlgs_Index2_Text",
+        "5535_2_Dlgs_Index3_Text",
+        "5535_2_Dlgs_Index4_Text",
+        "5536_3_Dlgs_Index0_Text",
+        "5536_3_Dlgs_Index1_Text",
+        "5536_3_Dlgs_Index2_Text",
+        "5536_3_Dlgs_Index3_Text",
+        "5536_3_Dlgs_Index4_Text",
+        "5536_3_Dlgs_Index5_Text",
+        "5536_3_Dlgs_Index6_Text",
+        "5536_4_Dlgs_Index0_Text",
+        "5536_4_Dlgs_Index1_Text",
+        "5536_4_Dlgs_Index2_Text",
+        "5536_4_Dlgs_Index3_Text",
+        "5536_4_Dlgs_Index4_Text",
+        "5536_4_Dlgs_Index5_Text",
+        "5536_4_Dlgs_Index6_Text",
+        "5540_4_Dlgs_Index0_Text",
+        "5540_4_Dlgs_Index1_Text",
+        "5540_4_Dlgs_Index2_Text",
+        "5540_4_Dlgs_Index3_Text",
+        "5540_4_Dlgs_Index4_Text",
+        "5540_4_Dlgs_Index5_Text",
+        "5540_4_Dlgs_Index6_Text",
+        "5540_4_Dlgs_Index7_Text",
+        "5540_4_Dlgs_Index8_Text",
+        "5540_4_Dlgs_Index9_Text",
+        "5540_4_Dlgs_Index10_Text",
+        "5540_4_Dlgs_Index12_Text",
+        "5540_4_Dlgs_Index13_Text",
+        "5551_2_Dlgs_Index0_Text",
+        "5551_2_Dlgs_Index1_Text",
+        "5551_2_Dlgs_Index2_Text",
+        "5551_2_Dlgs_Index3_Text",
+        "5551_2_Dlgs_Index4_Text",
+        "5551_2_Dlgs_Index5_Text",
+        "5551_2_Dlgs_Index6_Text",
+        "5551_2_Dlgs_Index7_Text",
+        "5551_2_Dlgs_Index8_Text",
+        "5551_2_Dlgs_Index9_Text",
+        "5551_2_Dlgs_Index10_Text"
+      ],
+      "allusion_review_candidates": [
+        "5535_2_Dlgs_Index3_Text",
+        "5535_2_Dlgs_Index4_Text",
+        "5536_3_Dlgs_Index4_Text",
+        "5536_4_Dlgs_Index4_Text",
+        "5551_2_Dlgs_Index6_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5535_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "『告辞』は別れの定型。宇文逸の『それでは失礼します』で機能を保つ。"
+        },
+        {
+          "key": "5535_2_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "黄宗政の返礼『告辞』は武人らしい短い『さらばだ』として保持する。"
+        },
+        {
+          "key": "5536_3_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "『铲除』は天龍幇を根絶する方針。『一掃する』で強度と作戦意図を保つ。"
+        },
+        {
+          "key": "5536_4_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "分岐側も同じ『铲除』の機能を保ち、別時系列へ合成しない。"
+        },
+        {
+          "key": "5551_2_Dlgs_Index6_Text",
+          "decision": "keep",
+          "note": "『诚心以待』は真心から接する意。莫問の静かな共感として『真心から向き合ってくれる』を保持する。"
+        }
+      ],
+      "fact_doubts": [
+        "清河村と平康城の人さらいが天龍幇の捜索だったという判断は5531_7時点では莫問の推測に留める",
+        "5536_3と5536_4は清霄師伯の同行条件による分岐であり、一つの時系列へ合成しない",
+        "5540_4で瑶姫が遼城の状況を言い淀む理由を後続情報から補わない",
+        "5551_2で宇文逸が叔父を父親同然に思うのは本人の内心であり、叔父側の認識まで断定しない"
+      ]
+    }
+  ]
+}
