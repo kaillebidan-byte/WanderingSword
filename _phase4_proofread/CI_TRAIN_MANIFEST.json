@@ -1,1 +1,189 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-33","branch":"agent/yuwen-mowen-train-33","draft_pr":186,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":186,"merge_sha":"4d6f3f8a66fa6466054d0b01d18c92a451338248"},"base_checkpoint":{"batch":163,"pair_applied_keys":1358,"project_applied_keys":1734,"produced_by_pr":185,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-32-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_32.json","pr":185,"validated_head":"1485874704f05d18511709a0af08a79c38632499"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":70,"reviewed_keys":70,"unique_reviewed_rows":70,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_only_bundles":0},"bundles":[{"batch":164,"review_status":"complete","apply_status":"verified","scene_groups":["5508_13","5509_4","5522_1","5523_1","5525_3","5525_6","5528_7","5531_3","5531_4"],"reviewed_rows":70,"reviewed_keys":70,"unique_rows":70,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":69,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH164_2026-07-29.md","ownership_summary":{"existing_keys":60,"unowned_kept":10,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["5508_13_Dlgs_Index1_Text","5508_13_Dlgs_Index7_Text","5509_4_Dlgs_Index1_Text","5531_3_Dlgs_Index0_Text"],"allusion_review_resolved":[{"key":"5508_13_Dlgs_Index1_Text","decision":"keep","note":"「高徒」は門派の優れた弟子を指す呼称。瑶姫のからかいとして「武当の高弟」で機能を保つ。"},{"key":"5508_13_Dlgs_Index7_Text","decision":"keep","note":"『孫子兵法』は書名として既定表記を保持する。"},{"key":"5509_4_Dlgs_Index1_Text","decision":"keep","note":"「孤本」は唯一伝存する本・稀覯本を指す場面語。説明へ崩さず保持する。"},{"key":"5531_3_Dlgs_Index0_Text","decision":"keep","note":"「窮寇莫追」は追い詰められた敵を深追いしない戒め。「逃げる敵を深追いするな」で発話機能を保つ。"}],"fact_doubts":["5509_4時点の黄将軍の重傷と隠蔽理由は瑶姫・莫問の推測に留める","徐海の天龍幇との関係と夜襲時の意図は、後続の事実以上に補わない","蘭児が徐海の娘だという確定は腕輪を徐海が確認した後に限る","5531_4終端で徐海の死は本文に明記されていないため、最期の言葉以上を断定しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30435847682,"artifact_id":8717392550,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:abf4cca467cf22ba04641924c8bfd808e141d9b09a6e50d01dfd7721c80016af","head_sha":"f7bb4ded7438422eb72aff4fa0d02bbfa6a9c00e"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-33-wave-01"},"next_release":{"candidate_scene":["5531_7"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[164],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-32","release_id":"yuwen-mowen-train-32-r1","pr":185,"merge_sha":"043cb8e89357533db67834d770b6bc97891fb9ed"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":70,"unique_reviewed_rows":70,"fix_keys":1,"unique_fix_rows":1,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":1,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":69,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN33_WAVE01_2026-07-29.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_33.json","merge_result":{"pr":186,"merge_sha":"4d6f3f8a66fa6466054d0b01d18c92a451338248"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-34",
+  "branch": "agent/yuwen-mowen-train-34",
+  "draft_pr": 187,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 187,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 164,
+    "pair_applied_keys": 1358,
+    "project_applied_keys": 1734,
+    "produced_by_pr": 186,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-33-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_33.json",
+      "pr": 186,
+      "validated_head": "3e6920e4f979e097eb12376e3cc40e635e1f659f"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 49,
+    "reviewed_keys": 49,
+    "unique_reviewed_rows": 49,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 1
+  },
+  "bundles": [
+    {
+      "batch": 165,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5531_7",
+        "5535_2",
+        "5536_3",
+        "5536_4",
+        "5540_4",
+        "5551_2"
+      ],
+      "reviewed_rows": 49,
+      "reviewed_keys": 49,
+      "unique_rows": 49,
+      "fix_keys": 0,
+      "unique_fix_rows": 0,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 0,
+      "keep_keys": 49,
+      "fix_files": [],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH165_2026-07-29.md",
+      "ownership_summary": {
+        "existing_keys": 41,
+        "unowned_kept": 8,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5535_2_Dlgs_Index3_Text",
+        "5535_2_Dlgs_Index4_Text",
+        "5536_3_Dlgs_Index4_Text",
+        "5536_4_Dlgs_Index4_Text",
+        "5551_2_Dlgs_Index6_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5535_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "『告辞』は別れの定型。宇文逸の『それでは失礼します』で機能を保つ。"
+        },
+        {
+          "key": "5535_2_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "黄宗政の返礼『告辞』は武人らしい短い『さらばだ』として保持する。"
+        },
+        {
+          "key": "5536_3_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "『铲除』は天龍幇を根絶する方針。『一掃する』で強度と作戦意図を保つ。"
+        },
+        {
+          "key": "5536_4_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "分岐側も同じ『铲除』の機能を保ち、別時系列へ合成しない。"
+        },
+        {
+          "key": "5551_2_Dlgs_Index6_Text",
+          "decision": "keep",
+          "note": "『诚心以待』は真心から接する意。莫問の静かな共感として『真心から向き合ってくれる』を保持する。"
+        }
+      ],
+      "fact_doubts": [
+        "清河村と平康城の人さらいが天龍幇の捜索だったという判断は5531_7時点では莫問の推測に留める",
+        "5536_3と5536_4は清霄師伯の同行条件による分岐であり、一つの時系列へ合成しない",
+        "5540_4で瑶姫が遼城の状況を言い淀む理由を後続情報から補わない",
+        "5551_2で宇文逸が叔父を父親同然に思うのは本人の内心であり、叔父側の認識まで断定しない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30436950682,
+        "artifact_id": 8717831540,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:aa0ce3e8d99c2ba574aa3728bef88e79bf43a23e5ccae2f2e3b8acc814e18521",
+        "head_sha": "ba6959a54e3e679cabd070da0f82834b1a3bb408"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-34-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5572_6"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      165
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-33",
+    "release_id": "yuwen-mowen-train-33-r1",
+    "pr": 186,
+    "merge_sha": "4d6f3f8a66fa6466054d0b01d18c92a451338248"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 49,
+    "unique_reviewed_rows": 49,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "keep_only_bundles": 1,
+    "pre_challenge_unique_fix_rows": 0,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 49,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN34_WAVE01_2026-07-29.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_34.json"
+}
