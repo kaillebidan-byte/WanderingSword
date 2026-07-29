@@ -1,1 +1,92 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-43","branch":"agent/yuwen-mowen-train-43","draft_pr":199,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":199,"merge_sha":"eb8e4b04c7f1486dd7e56e51a8070a00098e00e8"},"base_checkpoint":{"batch":173,"pair_applied_keys":1361,"project_applied_keys":1737,"produced_by_pr":198,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-42-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_42.json","pr":198,"validated_head":"b04d387cd9b1970bd77ffb2e76034072ea7d206f"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":63,"reviewed_keys":63,"unique_reviewed_rows":63,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_only_bundles":0},"bundles":[{"batch":174,"review_status":"complete","apply_status":"verified","scene_groups":["6002_5","6064_6","6151_2","6151_3"],"reviewed_rows":63,"reviewed_keys":63,"unique_rows":63,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_keys":55,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch17.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch21.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH174_2026-07-30.md","ownership_summary":{"existing_keys":63,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["6064_6_Dlgs_Index7_Text","6064_6_Dlgs_Index8_Text","6064_6_Dlgs_Index13_Text","6064_6_Dlgs_Index30_Text","6151_3_Dlgs_Index17_Text","6151_3_Dlgs_Index20_Text","6151_3_Dlgs_Index21_Text"],"allusion_review_resolved":[{"key":"6064_6_Dlgs_Index7_Text","decision":"keep","note":"「尸骨未寒」は死後間もないことを示す定着成語。この場面では伏龍子が生存しているため、現訳「死んだと思われて間もないうちに」が像の矛盾を避けつつ時間機能を保つ。"},{"key":"6064_6_Dlgs_Index8_Text","decision":"keep","note":"「报仇雪恨」は仇を討ち恨みを晴らす定着成語。現訳「仇を討とうとする」で行動目的を保っている。"},{"key":"6064_6_Dlgs_Index13_Text","decision":"keep","note":"「赶尽杀绝」は残らず滅ぼす定着表現。現訳「皆殺しにしなかった」が、この場面の否定と尋問目的を保つ。"},{"key":"6064_6_Dlgs_Index30_Text","decision":"fix","note":"「从长计议」は腰を据えて長期的に策を練る定着表現。「長い策を巡らせ」は不自然なため、「腰を据えて策を練り」へ直す。"},{"key":"6151_3_Dlgs_Index17_Text","decision":"keep","note":"「冠冕堂皇」は表向き立派でも内実を隠すもっともらしい口実。現訳「もっともらしい大義名分」は莫問の冷えた非難を保つ。"},{"key":"6151_3_Dlgs_Index20_Text","decision":"keep","note":"「迎刃而解」は問題が容易に解決する成語。現訳「たちどころに片づく」が莫問の危険な合理化を簡潔に保つ。"},{"key":"6151_3_Dlgs_Index21_Text","decision":"keep","note":"「生杀予夺」は生死や賞罰を意のままにする権力。現訳「生殺与奪を握る」が武侠語彙と力への自負を保つ。"}],"fact_doubts":["伏龍子の告白は本人の主張として扱い、武当・少林・丐幇、玉華、無名、悪人谷に関する細部を客観事実へ無条件に昇格しない","莫問が伏龍子の息子であることは6064_6の会話で示される範囲に留め、出生経緯や養育関係を補完しない","玉華の死、江師弟と巫芸への襲撃、曹煜天へ渡した偽の風雲訣の因果は、清虚道長の推論と伏龍子が明示的に認めた範囲を分ける","風雲訣残篇の所有権と宇文逸の習得経緯は6151_2・6151_3の発話範囲を越えて断定しない","莫問の各派殲滅はこの時点の選択と自己正当化であり、後続の実行結果や最終的な信念を補完しない","6002_5・6064_6と6151_2・6151_3には時間経過があり、一続きの会話として接続しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30488111463,"artifact_id":8738529803,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:7443d5218ac9a69a5dbceb39c728f4d8e593a0afbd9e27a4f57d61d4b289b172","head_sha":"719c65b77f7530d49dc5352dcb991661462b6cbd"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-43-wave-01"},"next_release":{"candidate_scene":["6155_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[174],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-42","release_id":"yuwen-mowen-train-42-r1","pr":198,"merge_sha":"452994da3e089feb21626354b5ea2a790060d408"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":63,"unique_reviewed_rows":63,"fix_keys":8,"unique_fix_rows":8,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":8,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":55,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN43_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_43.json","merge_result":{"pr":199,"merge_sha":"eb8e4b04c7f1486dd7e56e51a8070a00098e00e8"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-44",
+  "branch": "agent/yuwen-mowen-train-44",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 174,
+    "pair_applied_keys": 1361,
+    "project_applied_keys": 1737,
+    "produced_by_pr": 199,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-43-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_43.json",
+      "pr": 199,
+      "validated_head": "835861613434a1f150af44691b02f161ed63ce17"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-44-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "6155_1",
+      "6155_3",
+      "6158_5",
+      "6171_5",
+      "6195_3",
+      "6198_3",
+      "6206_3",
+      "6213_1",
+      "6214_4",
+      "6229_1"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-43",
+    "release_id": "yuwen-mowen-train-43-r1",
+    "pr": 199,
+    "merge_sha": "eb8e4b04c7f1486dd7e56e51a8070a00098e00e8"
+  }
+}
