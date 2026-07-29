@@ -1,118 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-42-quality-audit",
+  "task_id": "post-train42-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 172,
-    "pair_applied_keys": 1360,
-    "project_applied_keys": 1736,
-    "produced_by_pr": 197,
-    "release_id": "yuwen-mowen-train-41-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_41.json"
+    "batch": 173,
+    "pair_applied_keys": 1361,
+    "project_applied_keys": 1737,
+    "produced_by_pr": 198,
+    "release_id": "yuwen-mowen-train-42-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_42.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5821_1",
-    "5825_1",
-    "5828_1",
-    "5829_5",
-    "5831_3",
-    "5831_4",
-    "5897_6",
-    "5923_2",
-    "5926_2",
-    "5926_3",
-    "5928_1",
-    "5928_2",
-    "5928_6",
-    "5928_7"
+    "6002_5"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-42-wave-01",
-    "packet_id": "yuwen-mowen-train42-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 173
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30486391758,
-    "artifact_id": 8737822869,
-    "artifact_digest": "sha256:93ee9ad83a5bc873cdc527ac37606eee1f57a66f78d5e09282923e9173bc090b",
-    "artifact_head": "ae5e0929c00d7eebfe5017807aaf5ce4268ddd2b",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30488111463,
+    "artifact_id": 8738529803,
+    "artifact_digest": "sha256:7443d5218ac9a69a5dbceb39c728f4d8e593a0afbd9e27a4f57d61d4b289b172",
+    "artifact_head": "719c65b77f7530d49dc5352dcb991661462b6cbd",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-42",
     "release_id": "yuwen-mowen-train-42-r1",
     "pr": 198,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-42統合前に6002_5のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-42",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 173,
+    "planned_batch": 174,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:1c84ea7c328bfed58745077e3a90c7a68e219729dab7dcd9cd7d749fb3c717e9"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 73,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5821_1",
-      "5825_1",
-      "5828_1",
-      "5829_5",
-      "5831_3",
-      "5831_4",
-      "5897_6",
-      "5923_2",
-      "5926_2",
-      "5926_3",
-      "5928_1",
-      "5928_2",
-      "5928_6",
-      "5928_7"
-    ],
-    "grouping_decision": "十四場面・73行。標準60行を超えるが、程鈺の分岐を閉じた後の次任務で、丐幇分舵の対峙と瑶姫からの情報提示を途中で切らず、救出優先の判断まで含めて意味単位を完結させるため延長した。",
-    "exception": {
-      "reason_code": "complete_semantic_unit",
-      "detail": "十四場面・73行。標準60行を超えるが、程鈺の分岐を閉じた後の次任務で、丐幇分舵の対峙と瑶姫からの情報提示を途中で切らず、救出優先の判断まで含めて意味単位を完結させるため延長した。"
-    }
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 10,
-    "new_project_keys": 1,
-    "fix_keys": 11
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN42_WAVE01_2026-07-30.json",
-    "changed_documents": [
-      "10_人物/瑶姬.md"
-    ],
-    "unresolved_documents": []
   }
 }
