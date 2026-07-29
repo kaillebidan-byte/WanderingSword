@@ -74,10 +74,17 @@ jobs:
               if m:
                   max_batch = max(max_batch, int(m.group(1)))
           owner = p4 / f'fixes_relation_yuwen_mowen_{year}{month}{day}_batch{max_batch + 1}.json'
+          feedback = p4 / audit.name.replace('AUDIT_DECISIONS_', 'SOURCE_DOCUMENT_FEEDBACK_')
           print(f'audit={audit.as_posix()}')
           print(f'challenge={challenge.as_posix()}')
           print(f'owner={owner.as_posix()}')
+          print(f'feedback={feedback.as_posix()}')
           PY
+
+      - name: Validate reading and persona feedback decisions
+        run: |
+          python _tools/check_quality_audit_source_feedback.py \
+            --audit "${{ steps.inputs.outputs.audit }}"
 
       - name: Encode recorded audit decisions
         run: |
@@ -89,6 +96,13 @@ jobs:
             --write \
             --output /tmp/factory-encoding-result.json
 
+      - name: Apply recorded persona feedback
+        run: |
+          python _tools/source_document_feedback.py \
+            --audit "${{ steps.inputs.outputs.audit }}" \
+            --apply \
+            --record "${{ steps.inputs.outputs.feedback }}"
+
       - name: Validate frozen release state
         run: |
           python _tools/check_state_json_integrity.py
@@ -99,6 +113,9 @@ jobs:
           python _tools/check_batch_planning.py
           python _tools/check_translation_quality_gate.py
           python _tools/check_owner_assignment_result.py
+          python _tools/source_document_feedback.py \
+            --verify-record \
+            --record "${{ steps.inputs.outputs.feedback }}"
           python _tools/translation_factory_controller.py --repository-visibility public --output /tmp/next-work-order.json
           python - <<'PY'
           import json
@@ -111,21 +128,22 @@ jobs:
 
       - name: Run encoding regressions
         run: |
+          python _tools/test_source_document_feedback.py
           python _tools/test_fixed_encoding_pipeline.py
           python _tools/test_check_batch_planning.py
           python _tools/test_translation_factory_controller.py
 
-      - name: Commit frozen release state
+      - name: Commit frozen release state and persona feedback
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- _phase4_proofread)" ]]; then
+          if [[ -z "$(git status --porcelain -- _phase4_proofread 10_人物)" ]]; then
             echo "NOOP: recorded audit is already encoded and transport-complete"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _phase4_proofread
+          git add _phase4_proofread 10_人物
           git diff --cached --check
-          git commit -m "翻訳: 記録済み監査を正式束へ収録 [factory-encoding]"
+          git commit -m "翻訳: 記録済み監査と人物資料還流を収録 [factory-encoding]"
           git push origin "HEAD:${GITHUB_HEAD_REF}"

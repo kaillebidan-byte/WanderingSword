@@ -4,10 +4,11 @@
   "controller": "_tools/translation_factory_controller.py",
   "entrypoint": "python _tools/translation_factory_controller.py --repository-visibility <private|public>",
   "request_contract": "_phase4_proofread/FACTORY_REQUEST_CONTRACT.json",
+  "quality_audit_source_feedback_contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
   "execution_workflow": ".github/workflows/translation-factory-execute.yml",
   "encoding_workflow": ".github/workflows/translation-factory-encode.yml",
   "finalization_workflow": ".github/workflows/translation-factory-finalize.yml",
-  "purpose": "翻訳者へ意味判断だけを残し、GitHub・状態遷移・輸送判断を決定論的な作業指示へ固定する。",
+  "purpose": "翻訳者へ意味判断だけを残し、GitHub・状態遷移・輸送判断を決定論的な作業指示へ固定する。quality auditでは一次資料で翻訳と人物資料を相互再検証する。",
   "human_judgment_stations": [
     {
       "station_id": "semantic_bundle_boundary",
@@ -31,9 +32,30 @@
       "allowed_decisions": [
         "現訳を保持するか修正するか",
         "修正訳",
-        "人物性・事実・典故に関する監査判断"
+        "人物性・事実・典故に関する監査判断",
+        "既存ペルソナを維持・修正・追加・保留するか",
+        "ペルソナ修正の一次資料key、適用scope、置換または追記内容"
+      ],
+      "required_inputs": [
+        "candidateの原文・現訳・話者・時系列",
+        "candidate.quality_audit_context.required_documents",
+        "candidate.quality_audit_context.source_document_targets"
+      ],
+      "required_outputs": [
+        "reading_attestation",
+        "fixes",
+        "keeps",
+        "allusion_review_resolved",
+        "fact_doubts",
+        "source_document_decisions"
+      ],
+      "reading_order": [
+        "primary_evidence",
+        "independent_allusion_and_fact_gates",
+        "source_document_crosscheck"
       ],
       "record_adapter": "_tools/fixed_encoding_pipeline.py",
+      "source_feedback_adapter": "_tools/source_document_feedback.py",
       "forbidden_operations": [
         "branch設計",
         "workflow設計",
@@ -41,7 +63,9 @@
         "状態正本の直接編集",
         "encoding",
         "CI起動",
-        "merge"
+        "merge",
+        "一次資料よりペルソナを優先すること",
+        "証拠keyなしで人物全体へ一般化すること"
       ]
     }
   ],
@@ -56,6 +80,11 @@
     "owner_snapshot_and_conflict_checks",
     "state_authority_updates",
     "encoding_of_recorded_decisions",
+    "source_document_manifest_generation",
+    "source_document_digest_verification",
+    "source_document_patch_validation",
+    "source_document_deterministic_application",
+    "source_document_change_recording",
     "locres_and_pak_generation",
     "release_preflight",
     "release_train_orchestration",
@@ -71,7 +100,9 @@
       "adapter": "_tools/fixed_cycle_initializer.py",
       "request_operation": "initialize_with_semantic_boundary",
       "next_expected_station": "semantic_bundle_boundary",
-      "persisted_result_after_boundary_input": "translation_quality_audit"
+      "persisted_result_after_boundary_input": "translation_quality_audit",
+      "quality_audit_context_adapter": "_tools/quality_audit_context.py",
+      "resulting_candidate_schema": 3
     },
     "semantic_bundle_boundary": {
       "station_type": "human",
@@ -83,12 +114,16 @@
     },
     "translation_quality_audit": {
       "station_type": "human",
-      "executor": "translation_audit_form"
+      "executor": "translation_audit_form",
+      "source_feedback_contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+      "required_candidate_schema": 3,
+      "required_audit_decision_schema": 2
     },
     "encode_recorded_decisions": {
       "station_type": "machine",
       "executor": "fixed_encoding_pipeline",
       "adapter": "_tools/fixed_encoding_pipeline.py",
+      "source_feedback_adapter": "_tools/source_document_feedback.py",
       "trigger_record": "_phase4_proofread/AUDIT_DECISIONS_*.json",
       "execution_workflow": ".github/workflows/translation-factory-encode.yml",
       "resulting_stage": "translation_frozen",
@@ -144,5 +179,6 @@
     "missing_adapter": "factory_adapter_missing",
     "action_not_in_contract": "factory_unmapped_action",
     "stop_without_fallback": true
-  }
+  },
+  "quality_audit_context_adapter": "_tools/quality_audit_context.py"
 }

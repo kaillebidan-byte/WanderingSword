@@ -25,7 +25,11 @@ python _tools/resume_work_controller.py --repository-visibility <private|public>
 翻訳における人間判断は次の二stationだけ。
 
 - `semantic_bundle_boundary`: 意味単位の束境界と40〜80行の閉じ方
-- `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故の監査
+- `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故、既存ペルソナの維持・修正・追加・保留
+
+quality auditはcandidateの原文・現訳・前後文だけで典故疑義と設定事実疑義を先に立て、その後に`.agents/skills/zhja-game-translation-codex/`、`RUNBOOK_人物ペア再監査.md`、対象人物の`10_人物/*.md`を照合する。既存ペルソナは固定正解ではない。一次資料の反例が出た場合、訳文を資料へ押し込まず、`source_document_decisions`へ根拠key、適用scope、`keep/revise/create/unresolved`を記録する。
+
+`QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json`は読書順序、必須資料、candidate schema、audit decision schema、人物資料の決定的適用条件を定める。高確度かつdigest一致・一意anchorを満たす`revise/create`だけを`source_document_feedback.py`が適用し、`keep/unresolved`は人物資料を書き換えない。翻訳FIXと人物資料修正は同じaudit decisionから別々に検証し、同じencoding commitへ収録する。
 
 ## 再開時の順序
 
@@ -36,7 +40,8 @@ python _tools/resume_work_controller.py --repository-visibility <private|public>
 5. `NEXT_TASK_PACKET.json`、`CURRENT_HANDOFF.md`
 6. `resume_work_controller.py`が生成したwork order
 7. `institution_repair`、または委譲された恒久adapter・二つのhuman station
-8. 指定作業に必要な対象workflow、checker、tests、一次資料だけを読む
+8. 指定作業に必要な一次資料、skill、人物資料、関係資料、用語・設定正本、対象workflow、checker、testsを読む
+9. 一次資料と既存資料が衝突した場合は、翻訳判断と資料修正判断の両方を記録する
 
 人間向け文書の固定値よりGitHub metadataと機械状態正本を優先する。制度キューがpendingなら翻訳状態正本の`immediate_next`より制度work orderを優先する。manual mode用とalways-public用の文書は、active `execution_mode`に合う方だけを実行契約として使う。
 
@@ -51,6 +56,7 @@ python _tools/resume_work_controller.py --repository-visibility <private|public>
 - 実行mode: `_phase4_proofread/EXECUTION_MODES.json`
 - 段階権限: `_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json`
 - 工場フロー: `_phase4_proofread/FACTORY_FLOW_CONTRACT.json`
+- quality audit資料還流: `_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json`
 - 工場request: `_phase4_proofread/FACTORY_REQUEST_CONTRACT.json`
 
 ## 整合検査
@@ -59,8 +65,8 @@ python _tools/resume_work_controller.py --repository-visibility <private|public>
 python _tools/resume_work_controller.py --repository-visibility <private|public> --validate-contract-only
 python _tools/translation_factory_controller.py --repository-visibility <private|public> --validate-contract-only
 python _tools/check_factory_adapters.py
+python _tools/check_quality_audit_source_feedback.py --audit <AUDIT_DECISIONS_*.json>
 python _tools/check_operational_docs_consistency.py
-python _tools/check_handoff_consistency_v2.py --require-verified
 python _tools/check_private_release_preflight.py --with-tests --repository-visibility <private|public>
 ```
 
@@ -72,4 +78,4 @@ merge後reconcilerは三状態正本だけでなく、NEXT_TASK_PACKETとCURRENT
 
 ## 作業境界
 
-エージェントは修正適用、locres書戻し、pak再生成、構造・lint・回帰・LFS確認まで行う。Steamゲームフォルダへの配置、ゲーム起動、ゲーム内確認は利用者側。
+エージェントは修正適用、人物資料の記録済み高確度修正、locres書戻し、pak再生成、構造・lint・回帰・LFS確認まで行う。Steamゲームフォルダへの配置、ゲーム起動、ゲーム内確認は利用者側。

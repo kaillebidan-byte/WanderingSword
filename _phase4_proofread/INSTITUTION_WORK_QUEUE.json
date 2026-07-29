@@ -11,7 +11,8 @@
   "task_order": [
     "quality_decision_control_invariants",
     "workflow_duplicate_run_serialization",
-    "stale_release_label_guard"
+    "stale_release_label_guard",
+    "quality_audit_source_feedback_loop"
   ],
   "tasks": [
     {
@@ -46,6 +47,39 @@
       "summary": "station後退やbranch更新時に残ったrelease-ciラベルが古いHEAD・stateでorchestratorを起動しないようにする。",
       "completion": {
         "pr": 181
+      }
+    },
+    {
+      "task_id": "quality_audit_source_feedback_loop",
+      "title": "quality auditの人物資料還流を復旧",
+      "status": "completed",
+      "priority": 4,
+      "branch": "agent/quality-audit-source-feedback-loop",
+      "summary": "一次資料、skill、人物資料の読書契約をcandidateへ固定し、翻訳判断と同時に既存ペルソナの維持・修正・追加・保留を記録して決定的に還流する。",
+      "audit_scope": [
+        "quality auditへ必要資料とdigest付きreading manifestを渡す",
+        "人物資料を一次資料から再検証するsource_document_decisionsを必須化する",
+        "高確度・一意anchor・fresh digestの人物資料修正だけを決定的に適用する",
+        "翻訳・owner・人物資料の変更を同一workflow commitへまとめる",
+        "旧candidate schemaを過去記録の読取り以外で新規cycleへ流用しない"
+      ],
+      "completion_conditions": [
+        "candidate schema 3とaudit decision schema 2が契約・controller・context adapterで検査される",
+        "reading attestation欠落、必須資料欠落、digest stale、target未判定でencoding前に停止する",
+        "keep/revise/create/unresolvedの正常系と失敗系回帰がある",
+        "人物資料修正recordを生成し、適用後digestをlive checkerで検証する",
+        "README、factory flow、再開文書、人物ペアRUNBOOKが同じ循環を説明する",
+        "institution contract testsと既存factory回帰が成功する"
+      ],
+      "forbidden": [
+        "人物資料を固定正解として訳文を反例へ押し込む",
+        "人間判断を含む人物資料修正をmachine stationで新規に考案する",
+        "mediumまたはlow confidenceの資料修正を自動適用する",
+        "曖昧な文字列anchorやstale digestのまま資料を書き換える",
+        "作業中の翻訳PRへ制度schema変更を混在させる"
+      ],
+      "completion": {
+        "pr": 193
       }
     }
   ],

@@ -1,6 +1,6 @@
 # 新チャット再開プロトコル
 
-再開経路と制度作業優先順位は`INSTITUTION_WORK_QUEUE.json`、現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、実行modeは`EXECUTION_MODES.json`、終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的認可は`REGULATED_PHASE_STATE.json`を正本とする。
+再開経路と制度作業優先順位は`INSTITUTION_WORK_QUEUE.json`、現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、quality auditの資料還流は`QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json`、実行modeは`EXECUTION_MODES.json`、終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的認可は`REGULATED_PHASE_STATE.json`を正本とする。
 
 ## 起動文
 
@@ -43,13 +43,29 @@ pending taskがない場合だけ、controllerは`translation_factory_controller
 翻訳における人間判断stationは次の二つだけ。
 
 - `semantic_bundle_boundary`: 意味単位の束境界と40〜80行の閉じ方
-- `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故の監査
+- `translation_quality_audit`: KEEP/FIX、修正訳、人物性・事実・典故、既存ペルソナの維持・修正・追加・保留
 
-branch、PR、workflow、artifact、owner、状態正本、encoding、locres、pak、CI、phase2、merge、reconcileは機械工程である。制度改修はqueue taskのaudit scopeとcompletion contractに従う。
+branch、PR、workflow、artifact、owner、状態正本、encoding、人物資料への決定的書込み、locres、pak、CI、phase2、merge、reconcileは機械工程である。制度改修はqueue taskのaudit scopeとcompletion contractに従う。
+
+## quality auditの読書と資料還流
+
+`translation_quality_audit`では、candidateの原文・現訳・前後文・話者・時系列だけで典故疑義と設定事実疑義を先に立てる。その後に`quality_audit_context.required_documents`のskill、RUNBOOK、人物資料を照合する。
+
+監査記録には次を必須とする。
+
+- `reading_attestation`
+- candidate全行の`fixes` / `keeps`
+- `allusion_review_resolved`
+- `fact_doubts`
+- 全`source_document_targets`を被覆する`source_document_decisions`
+
+人物資料は固定正解ではない。一次資料と衝突した場合は、訳文を資料へ押し込まず、対象path、根拠key、適用scope、`keep/revise/create/unresolved`を記録する。high confidence、digest一致、一意anchorを満たす`revise/create`だけを機械適用する。証拠不足は`unresolved`とし、人物資料を書き換えない。
 
 ## 恒久factory adapter
 
-- 新cycle初期化: `translation-factory-execute.yml` → `factory_request_executor.py` → `fixed_cycle_initializer.py`
+- 新cycle初期化: `translation-factory-execute.yml` → `factory_request_executor.py` → `fixed_cycle_initializer.py` → `quality_audit_context.py`
+- 読書・人物資料判断の検査: `check_quality_audit_source_feedback.py`
+- 人物資料の決定的還流: `source_document_feedback.py`
 - 記録済み監査の収録: `translation-factory-encode.yml` → `factory_encoding_executor.py` → `fixed_encoding_pipeline.py`
 - release最終化: `translation-factory-finalize.yml` → `fixed_release_finalizer.py`
 - merge後確定: `reconcile_merged_cycle.py`
@@ -67,10 +83,10 @@ branch、PR、workflow、artifact、owner、状態正本、encoding、locres、p
 
 ## 段階権限
 
-- preparationでは翻訳判断、fix、owner、正式束を書かない。
-- quality auditでは翻訳判断だけを行う。
-- encodingでは記録済み判断だけを収録する。
-- translation freeze後は翻訳判断、fix追加、owner変更、次wave準備を行わない。
+- preparationでは翻訳判断、人物資料判断、fix、owner、正式束を書かない。読書manifestと人物資料targetを生成する。
+- quality auditでは翻訳判断と人物資料判断だけを行い、人物資料を直接書かない。
+- encodingでは記録済み翻訳判断と人物資料判断だけを収録する。
+- translation freeze後は翻訳判断、人物資料判断、fix追加、owner変更、次wave準備を行わない。
 - release finalizationはorchestrator artifactからrelease evidenceとverified checkpointを生成する。
 - phase2成功・未解決review thread 0件の前にmergeしない。
 - ゲームフォルダへ配置しない。
@@ -80,10 +96,11 @@ branch、PR、workflow、artifact、owner、状態正本、encoding、locres、p
 ```bash
 python _tools/resume_work_controller.py --repository-visibility <private|public> --validate-contract-only
 python _tools/check_factory_adapters.py
+python _tools/check_quality_audit_source_feedback.py --audit <AUDIT_DECISIONS_*.json>
 python _tools/check_operational_docs_consistency.py
 ```
 
-handoff、制度キュー、next reservation、mode別文書、release evidence、恒久adapter接続が機械正本と一致しなければ次工程へ進まない。
+handoff、制度キュー、next reservation、mode別文書、release evidence、読書manifest、人物資料還流、恒久adapter接続が機械正本と一致しなければ次工程へ進まない。
 
 ## 規定フェイズ終端
 
