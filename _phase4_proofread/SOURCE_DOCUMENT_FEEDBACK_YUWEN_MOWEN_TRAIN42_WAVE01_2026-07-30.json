@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5821_1_Dlgs_Index3_Text",
+        "5825_1_Dlgs_Index8_Text",
+        "5831_4_Dlgs_Index2_Text",
+        "5831_4_Dlgs_Index3_Text",
+        "5926_3_Dlgs_Index2_Text",
+        "5926_3_Dlgs_Index3_Text",
+        "5928_2_Dlgs_Index7_Text"
+      ],
+      "reason": "不安へ現実的な限界を示す、世評と真相を切り分ける、弟弟子へ志を尊重する助言をする、敵への怒りから救人優先へ切り替えるという思考順序が、現行の兄弟子・危機判断・敵対モードと整合する。",
+      "scope": {
+        "speaker": "莫問",
+        "counterparts": [
+          "宇文逸",
+          "程鈺",
+          "敵対者"
+        ],
+        "timeline": "程家堡事件後から丐幇分舵の救出判断",
+        "scenes": [
+          "5821_1",
+          "5825_1",
+          "5831_4",
+          "5926_3",
+          "5928_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+      "after_digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程鈺.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5821_1_Dlgs_Index2_Text",
+        "5821_1_Dlgs_Index5_Text",
+        "5829_5_Dlgs_Index1_Text",
+        "5829_5_Dlgs_Index2_Text",
+        "5829_5_Dlgs_Index3_Text",
+        "5829_5_Dlgs_Index5_Text",
+        "5829_5_Dlgs_Index7_Text"
+      ],
+      "reason": "受入れへの不安、母を「母さん」と呼ぶ幼さ、手紙から危険を推測する声、修行へ切り替わる決意、弟子入り後の「師兄」への移行が現行資料の時系列・発話優先順位と一致する。",
+      "scope": {
+        "speaker": "程鈺",
+        "timeline": "武当受入れ待ちから弟子入り分岐",
+        "scenes": [
+          "5821_1",
+          "5829_5"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "after_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5821_1_Dlgs_Index4_Text",
+        "5825_1_Dlgs_Index7_Text",
+        "5829_5_Dlgs_Index0_Text",
+        "5829_5_Dlgs_Index4_Text",
+        "5831_4_Dlgs_Index0_Text",
+        "5897_6_Dlgs_Index2_Text",
+        "5926_2_Dlgs_Index3_Text",
+        "5926_2_Dlgs_Index4_Text",
+        "5928_2_Dlgs_Index0_Text"
+      ],
+      "reason": "程鈺を励ます後輩モード、程堡主への義憤、師兄・師父への敬体、敵対場面の短い怒りへ切り替わっており、現行M3・M1b・M6の作業仮説と整合する。今回の修正は資料の反例ではなく訳文側の強度・自然さの補正である。",
+      "scope": {
+        "speaker": "宇文逸",
+        "timeline": "程家堡事件後から丐幇分舵対峙",
+        "scenes": [
+          "5821_1",
+          "5825_1",
+          "5829_5",
+          "5831_4",
+          "5897_6",
+          "5926_2",
+          "5928_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "after_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5897_6_Dlgs_Index0_Text"
+      ],
+      "reason": "「問児、逸児、そなたら二人で行くがよい」は弟子への慈愛ある呼称と古風な任務指示を同時に示し、現行資料の訓戒・任務モードおよび完成例と一致する。",
+      "scope": {
+        "speaker": "清虚道長",
+        "counterparts": [
+          "莫問",
+          "宇文逸"
+        ],
+        "timeline": "武当での次任務指示",
+        "scene": "5897_6"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/包閔.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5926_2_Dlgs_Index1_Text",
+        "5926_2_Dlgs_Index2_Text",
+        "5926_2_Dlgs_Index5_Text"
+      ],
+      "reason": "「娘的」「臭小子」「老子」と死を使った挑発が、現行資料の粗暴な悪態・威圧・苛立ちの優先順位と整合する。",
+      "scope": {
+        "speaker": "包閔",
+        "counterpart": "宇文逸",
+        "timeline": "丐幇分舵での対峙",
+        "scene": "5926_2"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8f502a1d9d13f0f49c110a00f6b1a73a4343d7da1375504b0a508a09e8ecca51",
+      "after_digest": "sha256:8f502a1d9d13f0f49c110a00f6b1a73a4343d7da1375504b0a508a09e8ecca51",
+      "changed": false
+    },
+    {
+      "target": "10_人物/杜彪.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5926_2_Dlgs_Index6_Text",
+        "5926_2_Dlgs_Index7_Text",
+        "5926_2_Dlgs_Index8_Text"
+      ],
+      "reason": "手下を制止し、親分の指示と利用価値を優先して撤退を決める声は、現行資料の命令・損得判断・残忍さと整合する。",
+      "scope": {
+        "speaker": "杜彪",
+        "counterparts": [
+          "包閔",
+          "宇文逸"
+        ],
+        "timeline": "丐幇分舵での撤退判断",
+        "scene": "5926_2"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "after_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/沙権賈.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5926_3_Dlgs_Index0_Text",
+        "5926_3_Dlgs_Index1_Text"
+      ],
+      "reason": "相手を威圧しつつ親分の命令と衝突しても代償を払わせると居直る声は、現行資料の粗野な威圧と頭目への従属を両立する仮説と整合する。",
+      "scope": {
+        "speaker": "沙権賈",
+        "counterparts": [
+          "莫問",
+          "宇文逸"
+        ],
+        "timeline": "丐幇分舵での対峙",
+        "scene": "5926_3"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "after_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "create",
+      "operation": "append_under_heading",
+      "evidence_keys": [
+        "5928_2_Dlgs_Index1_Text",
+        "5928_2_Dlgs_Index2_Text",
+        "5928_2_Dlgs_Index3_Text",
+        "5928_2_Dlgs_Index4_Text",
+        "5928_2_Dlgs_Index5_Text",
+        "5928_7_Dlgs_Index0_Text",
+        "5928_7_Dlgs_Index1_Text",
+        "5928_7_Dlgs_Index2_Text",
+        "5928_7_Dlgs_Index3_Text",
+        "5928_7_Dlgs_Index4_Text"
+      ],
+      "reason": "現行資料は儚げで情の深い別離モードだけを記載するが、今回の二分岐では柔らかな「〜の／〜わ」と長音を使いながら、目的物を優先し、相手を焦らし、第三者の生死を突き放して主導権を握る任務中の挑発モードが反復して確認できる。既存主張を否定せず、相手・場面限定の別モードとして追加する。",
+      "scope": {
+        "speaker": "瑶姫",
+        "counterparts": [
+          "宇文逸",
+          "莫問"
+        ],
+        "timeline": "丐幇分舵で青竹杖を得た後",
+        "branches": [
+          "5928_2",
+          "5928_7"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:c5f86a311030a90f61d44af5ff30bfb04558f0d8abd9f58f862176839df40418",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": true
+    }
+  ],
+  "changed_documents": [
+    "10_人物/瑶姬.md"
+  ],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-42",
+  "wave_id": "yuwen-mowen-train-42-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN42_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5821_1_5928_7_2026-07-30.json",
+      "manifest_digest": "sha256:1c84ea7c328bfed58745077e3a90c7a68e219729dab7dcd9cd7d749fb3c717e9"
+    }
+  ]
+}
