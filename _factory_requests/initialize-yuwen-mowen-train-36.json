@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-36",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30438964097,
+    "artifact_id": 8718630312,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:74a3831ee4985b09d375a2a9f3c2bd50811edcfa75822127f20447422832dc2c",
+    "artifact_head": "d5aa9c04526c50783c974767c221d1310ec474db"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5585_4",
+      "5586_3",
+      "5586_5",
+      "5603_1",
+      "5610_2",
+      "5611_8"
+    ],
+    "unique_reviewed_rows": 43,
+    "semantic_extension": {
+      "used": false,
+      "reason": "standard_range"
+    },
+    "timeline": "天龍幇が戦を避けるとの密偵情報を受け、各派が不風山への包囲攻撃を前倒しする。一行は急行中に洪飛と再会し、天龍幇の件への警告を受ける。山道では莫棄と斬無刑を援護し、天龍幇が包囲時刻を察知していたことから玄火教関与の疑念を聞く。残敵を片づけ、山頂で起きた異変へ急ぐところまでを扱う。",
+    "branch_note": "洪飛は包囲参加を否定しており、実際の意図を補わない。玄火教の関与は莫棄と各派掌門の推測であり、事実として確定しない。5611_8で山頂へ向かう判断まで閉じ、次の5637_1から始まる抜け道の仕掛け探索は別局面として含めない。",
+    "seal_attestation": "六場面・43行。攻撃前倒しの急報から不風山への移動、洪飛の警告、山道防衛、玄火教関与への疑念、山頂へ急ぐ判断までを一つの戦況移行単位として標準40〜60行内で封印した。",
+    "candidate_questions": [
+      "莫問が急報と戦況判断を簡潔で端正な大師兄の声で運び、宇文逸たちを適切に先導できているか",
+      "宇文逸が洪飛への敬意、師兄への信頼、戦況への焦りを場面ごとに自然に切り替えられているか",
+      "洪飛の粗野で飄々とした老侠客の声と、莫棄の玄火教への強い不信が過度に平坦化されていないか"
+    ],
+    "allusion_candidates": [
+      "六扇门",
+      "老叫花子",
+      "信誓旦旦",
+      "妖女"
+    ],
+    "fact_doubts": [
+      "天龍幇が避戦するつもりだという情報は密偵報告に基づく推測であり確定事実にしない",
+      "洪飛が不風山に現れた真の目的は本人が伏せているため補わない",
+      "玄火教が包囲情報を漏らしたという見方は莫棄と各派掌門の疑念に留める",
+      "5611_8の『もう……』が指す人物や死の状況を関係資料だけから補完しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-29.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN36_WAVE01_2026-07-29.md"
+  }
+}
