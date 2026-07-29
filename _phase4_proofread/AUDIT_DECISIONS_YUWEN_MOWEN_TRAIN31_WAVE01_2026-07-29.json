@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-31",
+  "wave_id": "yuwen-mowen-train-31-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30432296591,
+    "artifact_id": 8716013905,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:5c0afa395f227cd8d02fc6c4542bfed6d9e147dbbb5b428bfaa4040a735c70b1",
+    "head_sha": "8452bb0a111ca18d0b1cb2f8ca7d90081e9254bf"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train31-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5370_1_5450_3_2026-07-29.json",
+      "scene_groups": [
+        "5370_1",
+        "5388_1",
+        "5389_2",
+        "5389_4",
+        "5444_2",
+        "5446_1",
+        "5449_2",
+        "5450_3"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5449_2_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$この一戦、勝者は莫棄！　今回の門内大比、首位は莫棄だ！",
+          "after": "5015 - 莫問 $@$この一戦、勝者は莫棄！　今回の門内大比、優勝は莫棄だ！",
+          "reason": "原文「榜首」は大会で第一位を獲得した優勝者を指す。正式な勝者宣言で「首位」は順位表の説明に寄るため、莫問の簡潔な大会宣言として「優勝」に統一する。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$武当の弟子として、侠義を貫いた。何も間違ってはいない。",
+          "after": "5015 - 莫問 $@$武当の弟子として、侠義を行うのは何も間違っていない。",
+          "reason": "原文「行侠仗义并无不妥」は、武当弟子が侠義を行うことは正しいという一般的な弁護。現訳は完了した一行動を「貫いた」と評価する形へ狭めているため、莫問が行動規範を示す文へ戻す。"
+        }
+      ],
+      "keeps": [
+        "5370_1_Dlgs_Index0_Text",
+        "5370_1_Dlgs_Index1_Text",
+        "5370_1_Dlgs_Index2_Text",
+        "5388_1_Dlgs_Index0_Text",
+        "5388_1_Dlgs_Index1_Text",
+        "5388_1_Dlgs_Index2_Text",
+        "5388_1_Dlgs_Index3_Text",
+        "5389_2_Dlgs_Index0_Text",
+        "5389_2_Dlgs_Index1_Text",
+        "5389_2_Dlgs_Index2_Text",
+        "5389_2_Dlgs_Index3_Text",
+        "5389_2_Dlgs_Index4_Text",
+        "5389_2_Dlgs_Index5_Text",
+        "5389_4_Dlgs_Index0_Text",
+        "5389_4_Dlgs_Index1_Text",
+        "5389_4_Dlgs_Index2_Text",
+        "5389_4_Dlgs_Index3_Text",
+        "5389_4_Dlgs_Index4_Text",
+        "5389_4_Dlgs_Index5_Text",
+        "5444_2_Dlgs_Index0_Text",
+        "5444_2_Dlgs_Index1_Text",
+        "5444_2_Dlgs_Index2_Text",
+        "5444_2_Dlgs_Index3_Text",
+        "5444_2_Dlgs_Index4_Text",
+        "5444_2_Dlgs_Index5_Text",
+        "5446_1_Dlgs_Index0_Text",
+        "5446_1_Dlgs_Index1_Text",
+        "5446_1_Dlgs_Index2_Text",
+        "5446_1_Dlgs_Index3_Text",
+        "5446_1_Dlgs_Index4_Text",
+        "5446_1_Dlgs_Index5_Text",
+        "5449_2_Dlgs_Index0_Text",
+        "5449_2_Dlgs_Index1_Text",
+        "5449_2_Dlgs_Index3_Text",
+        "5450_3_Dlgs_Index0_Text",
+        "5450_3_Dlgs_Index1_Text",
+        "5450_3_Dlgs_Index3_Text",
+        "5450_3_Dlgs_Index4_Text",
+        "5450_3_Dlgs_Index5_Text",
+        "5450_3_Dlgs_Index6_Text",
+        "5450_3_Dlgs_Index7_Text",
+        "5450_3_Dlgs_Index8_Text"
+      ],
+      "allusion_review_candidates": [
+        "5446_1_Dlgs_Index5_Text",
+        "5449_2_Dlgs_Index2_Text",
+        "5450_3_Dlgs_Index1_Text",
+        "5450_3_Dlgs_Index2_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5446_1_Dlgs_Index5_Text",
+          "decision": "keep",
+          "note": "「事不宜迟」は先延ばしにできないという慣用句。現訳「なら、すぐ出発しましょう」は出立場面の機能を自然に保つ。"
+        },
+        {
+          "key": "5449_2_Dlgs_Index2_Text",
+          "decision": "fix",
+          "note": "「榜首」は門内大比の優勝者を示す。語を説明せず、正式宣言として「優勝」へ統一する。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「英雄救美」は美人を救う英雄気取りを嘲る定型表現。元鳴の皮肉として「美人を助けて英雄気取り」が機能と悪意を保つ。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index2_Text",
+          "decision": "fix",
+          "note": "「行侠仗义」は侠義に基づき人を助け正義を行うこと。莫問の一般的な行動規範として文を戻し、故事の説明は加えない。"
+        }
+      ],
+      "fact_doubts": [
+        "5389_2と5389_4は試合結果に応じた別分岐。相互の差分を誤訳や矛盾として統合しない。",
+        "5389_4_Dlgs_Index3_Text: 方闊海が功力を強引に高める秘術を持つという情報は莫問の観察として扱う。",
+        "5450_3_Dlgs_Index6_Text〜Index7_Text: 杜彪が全力を出さず何かを警戒していたことは莫問の推測であり、確定事実へ広げない。"
+      ]
+    }
+  ]
+}

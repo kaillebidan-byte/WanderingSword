@@ -2,24 +2,32 @@
 
 > 再開指示: `現状把握して作業の続きを`
 >
-> 実visibility、open PR、ActionsはGitHub metadataを毎回取得し、この文書の固定値より優先する。
+> 実visibility、GitHub PR metadata、Actionsを文書中の固定値より優先する。
 
 ## 現在地
 
-- translation PR #183: merged
-- train: `yuwen-mowen-train-30`
-- verified checkpoint: 第161束 / pair 1358 / project 1734
-- transport: `merged`
-- cycle: `target_reached / merged`
-- 次候補: `5370_1`（schema v6 minimal reservation）
+- 実visibility: public
+- PR #184: open / ready / mergeable
+- train: `yuwen-mowen-train-31`
+- verified checkpoint: 第162束 / pair 1358 / project 1734
+- last reviewed batch: 第162束
+- private stage: `translation_frozen`
+- transport: `awaiting_private_merge`
+- queue: 1packet / 44行 / 2修正 / 42保持
+
+## release
+
+orchestrator run `30433317078`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`3cfd973539f58593e6fb80824c7218f31ae1bce2`。
 
 ## 次の作業
 
-cycle開始時visibilityからmodeを選び、CURRENT_WORKとPRIVATE_STAGE_STATEへlockした後、予約候補のpreparationを開始する。
+PR #184の`finalize-release` phase2と未解決review thread 0件を確認し、検証済みHEADをsquash統合する。always-public cycleなのでvisibility変更は要求しない。
+
+次候補`5452_1`はminimal reservationのまま保持し、yuwen-mowen-train-31統合前にpreparationを開始しない。
 
 ## 禁止
 
-- merged済みPRのphase2やmergeを再実行しない。
-- mode lock前に翻訳準備、判断、owner書込みを開始しない。
-- minimal reservationへprivate preparation詳細を先書きしない。
+- translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- phase2成功前にPR #184をmergeしない。
+- yuwen-mowen-train-31統合前に`5452_1`のpreparationを始めない。
 - ゲームフォルダへ配置しない。
