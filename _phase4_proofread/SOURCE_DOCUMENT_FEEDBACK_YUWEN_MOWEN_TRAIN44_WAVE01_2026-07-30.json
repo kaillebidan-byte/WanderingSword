@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "create",
+      "operation": "append_under_heading",
+      "evidence_keys": [
+        "6155_1_Dlgs_Index4_Text",
+        "6158_5_Dlgs_Index2_Text",
+        "6158_5_Dlgs_Index3_Text",
+        "6158_5_Dlgs_Index5_Text",
+        "6198_3_Dlgs_Index2_Text",
+        "6198_3_Dlgs_Index3_Text",
+        "6198_3_Dlgs_Index5_Text",
+        "6198_3_Dlgs_Index8_Text",
+        "6206_3_Dlgs_Index0_Text",
+        "6206_3_Dlgs_Index1_Text",
+        "6214_4_Dlgs_Index2_Text",
+        "6214_4_Dlgs_Index3_Text",
+        "6214_4_Dlgs_Index7_Text"
+      ],
+      "reason": "現行資料は武当の兄弟子を「師兄」とするが、関係断絶後の敵対・決戦でも呼称と敬体を保ち、処断を拒む条件が明記されていない。一次資料では「師兄／大師兄」と呼び続け、戦闘・決意M6だけでなく武当・感情M1cが重なるため、莫問限定の決戦規則として追加する。",
+      "scope": {
+        "speaker": "宇文逸",
+        "counterpart": "莫問",
+        "timeline": "`6151_3`の関係断絶後に派生する相互排他的な決戦分岐",
+        "scenes": [
+          "6155_1",
+          "6155_3",
+          "6158_5",
+          "6171_5",
+          "6195_3",
+          "6198_3",
+          "6206_3",
+          "6213_1",
+          "6214_4",
+          "6229_1"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "after_digest": "sha256:a776b83a758462b7447c19919e5b072410641ede5fa71cd0fd0cbe5bdccd3b48",
+      "changed": true
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "revise",
+      "operation": "replace_exact",
+      "evidence_keys": [
+        "6155_1_Dlgs_Index1_Text",
+        "6155_1_Dlgs_Index3_Text",
+        "6155_3_Dlgs_Index5_Text",
+        "6155_3_Dlgs_Index6_Text",
+        "6155_3_Dlgs_Index9_Text",
+        "6198_3_Dlgs_Index0_Text",
+        "6198_3_Dlgs_Index1_Text",
+        "6206_3_Dlgs_Index4_Text",
+        "6206_3_Dlgs_Index7_Text",
+        "6229_1_Dlgs_Index4_Text",
+        "6229_1_Dlgs_Index5_Text"
+      ],
+      "reason": "現行資料は離反後の敵対段階を未確定としているが、今回の莫問話者行では宇文逸への同門呼称を用いず「お前」で嘲り、羨望、脅し、敗北受容、死への安堵、敗者への断罪へ分岐することが高確度で確認できる。宇文逸側の呼称継続は同一監査で宇文逸資料へ記録し、関係表を非対称な決戦段階へ改める。",
+      "scope": {
+        "speaker": "莫問",
+        "counterpart": "宇文逸",
+        "timeline": "`6151_3`の関係断絶後に派生する相互排他的な決戦分岐",
+        "scenes": [
+          "6155_1",
+          "6155_3",
+          "6158_5",
+          "6171_5",
+          "6195_3",
+          "6198_3",
+          "6206_3",
+          "6213_1",
+          "6214_4",
+          "6229_1"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:e60b0eb6acc92bdd95ae796109786a2ed9da3d9bf21bdb5e958a57eabf4b2284",
+      "after_digest": "sha256:dfe5af05c900713970023434829fd465910d645aa5d854f9656c757da6c24881",
+      "changed": true
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6213_1_Dlgs_Index8_Text"
+      ],
+      "reason": "「快住手！」の短い制止は、目的を優先して会話へ割って入る現行の任務中モードと矛盾しない。一行だけから新しい呼称・感情モードを一般化しない。",
+      "scope": {
+        "speaker": "瑶姫",
+        "counterparts": [
+          "莫問",
+          "宇文逸"
+        ],
+        "timeline": "莫問が武当と宇文逸を狙う分岐への介入",
+        "scene": "6213_1"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    }
+  ],
+  "changed_documents": [
+    "10_人物/宇文逸.md",
+    "10_人物/莫問.md"
+  ],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-44",
+  "wave_id": "yuwen-mowen-train-44-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN44_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6155_1_6229_1_2026-07-30.json",
+      "manifest_digest": "sha256:dffa8ec12298bd367a3729a16c0bb314e9bfee00afe8925832c7040c252a5ee5"
+    }
+  ]
+}
