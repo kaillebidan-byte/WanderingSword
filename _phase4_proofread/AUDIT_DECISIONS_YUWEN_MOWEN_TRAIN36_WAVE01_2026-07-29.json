@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-36",
+  "wave_id": "yuwen-mowen-train-36-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30438964097,
+    "artifact_id": 8718630312,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:74a3831ee4985b09d375a2a9f3c2bd50811edcfa75822127f20447422832dc2c",
+    "head_sha": "d5aa9c04526c50783c974767c221d1310ec474db"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train36-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-29.json",
+      "scene_groups": [
+        "5585_4",
+        "5586_3",
+        "5586_5",
+        "5603_1",
+        "5610_2",
+        "5611_8"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5586_3_Dlgs_Index2_Text",
+          "before": "17112 - 洪飛 $@$……この娘がわしの身分を教えたのだろう？",
+          "after": "17112 - 洪飛 $@$……この嬢ちゃんが、わしの身分を教えたのだろう？",
+          "reason": "原文「丫头」は洪飛の砕けモードにおける親しみ混じりの呼称。現訳「この娘」は説明的で老乞食らしい距離感を平坦化するため、既定の「嬢ちゃん」へ戻す。"
+        },
+        {
+          "key": "5586_5_Dlgs_Index3_Text",
+          "before": "17112 - 洪飛 $@$ふん、小僧が知った顔をしおって。この老いぼれ乞食は、たまたま通りかかっただけじゃ。もう行くぞ……",
+          "after": "17112 - 洪飛 $@$ふん、小僧が知った顔をしおって。この老いぼれ乞食は、たまたま通りかかっただけじゃ。もう行くわい……",
+          "reason": "洪飛の砕けモードは飄々とした老乞食の語尾を保つ。「もう行くぞ」は汎用的で強く、照れ隠しの飄逸さを削るため、人物正本の同場面基準に沿って「もう行くわい」へ直す。"
+        },
+        {
+          "key": "5603_1_Dlgs_Index11_Text",
+          "before": "5029 - 莫棄 $@$小逸、道中であの妖女と仲間として過ごし、情が移ったのは分かる。だが、それであいつが邪教の人間だってことを忘れるな！",
+          "after": "5029 - 莫棄 $@$小逸、道中であの妖女と仲間として過ごし、仲間の情が湧いたのは分かる。だが、それであいつが邪教の人間だってことを忘れるな！",
+          "reason": "原文「有些同伴之谊」は同行による仲間としての情を指す。現訳「情が移った」は対象への情愛一般へ強めて読めるため、「仲間の情」として関係の種類と強度を限定する。"
+        }
+      ],
+      "keeps": [
+        "5585_4_Dlgs_Index0_Text",
+        "5585_4_Dlgs_Index1_Text",
+        "5585_4_Dlgs_Index2_Text",
+        "5585_4_Dlgs_Index3_Text",
+        "5585_4_Dlgs_Index4_Text",
+        "5585_4_Dlgs_Index5_Text",
+        "5585_4_Dlgs_Index6_Text",
+        "5586_3_Dlgs_Index0_Text",
+        "5586_3_Dlgs_Index1_Text",
+        "5586_3_Dlgs_Index3_Text",
+        "5586_3_Dlgs_Index4_Text",
+        "5586_3_Dlgs_Index5_Text",
+        "5586_3_Dlgs_Index6_Text",
+        "5586_3_Dlgs_Index7_Text",
+        "5586_3_Dlgs_Index8_Text",
+        "5586_5_Dlgs_Index0_Text",
+        "5586_5_Dlgs_Index1_Text",
+        "5586_5_Dlgs_Index2_Text",
+        "5586_5_Dlgs_Index4_Text",
+        "5586_5_Dlgs_Index5_Text",
+        "5586_5_Dlgs_Index6_Text",
+        "5603_1_Dlgs_Index0_Text",
+        "5603_1_Dlgs_Index1_Text",
+        "5603_1_Dlgs_Index2_Text",
+        "5603_1_Dlgs_Index3_Text",
+        "5603_1_Dlgs_Index4_Text",
+        "5603_1_Dlgs_Index5_Text",
+        "5603_1_Dlgs_Index6_Text",
+        "5603_1_Dlgs_Index7_Text",
+        "5603_1_Dlgs_Index8_Text",
+        "5603_1_Dlgs_Index9_Text",
+        "5603_1_Dlgs_Index10_Text",
+        "5603_1_Dlgs_Index12_Text",
+        "5603_1_Dlgs_Index13_Text",
+        "5603_1_Dlgs_Index14_Text",
+        "5610_2_Dlgs_Index0_Text",
+        "5610_2_Dlgs_Index1_Text",
+        "5610_2_Dlgs_Index2_Text",
+        "5611_8_Dlgs_Index1_Text",
+        "5611_8_Dlgs_Index2_Text"
+      ],
+      "allusion_review_candidates": [
+        "5585_4_Dlgs_Index3_Text",
+        "5586_5_Dlgs_Index3_Text",
+        "5603_1_Dlgs_Index11_Text",
+        "5603_1_Dlgs_Index12_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5585_4_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「六扇門」は官府系組織の固有名として保持し、一般名詞へ散文化しない。"
+        },
+        {
+          "key": "5586_5_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「老叫花子」は洪飛の自嘲的自称として「この老いぼれ乞食」を保持し、語尾だけを人物registerに沿って修正する。"
+        },
+        {
+          "key": "5603_1_Dlgs_Index11_Text",
+          "decision": "keep",
+          "note": "「妖女」は莫棄が玄火教徒へ向ける敵対的呼称として保持し、「同伴之誼」の関係強度だけを修正する。"
+        },
+        {
+          "key": "5603_1_Dlgs_Index12_Text",
+          "decision": "keep",
+          "note": "「信誓旦旦」は強く誓っていた機能を「あれほど誓っていた」で自然に保持する。"
+        }
+      ],
+      "fact_doubts": [
+        "天龍幇が避戦するつもりだという情報は密偵報告に基づく推測であり確定事実にしない",
+        "洪飛が不風山に現れた真の目的は本人が伏せているため補わない",
+        "玄火教が包囲情報を漏らしたという見方は莫棄と各派掌門の疑念に留める",
+        "5611_8の『もう……』が指す人物や死の状況を関係資料だけから補完しない"
+      ]
+    }
+  ]
+}
