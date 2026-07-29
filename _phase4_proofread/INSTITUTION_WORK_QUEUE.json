@@ -86,7 +86,7 @@
     {
       "task_id": "quality_audit_persona_alias_resolution",
       "title": "人物alias衝突をcurrent pairで決定的に解決",
-      "status": "pending",
+      "status": "completed",
       "priority": 5,
       "branch": "agent/quality-audit-persona-alias-resolution",
       "summary": "人物資料全体の汎用alias衝突でreading manifest生成が停止しないよう、正本名を最優先し、候補に現れた曖昧aliasだけをcurrent pairで決定的に解決する。",
@@ -111,7 +111,10 @@
         "曖昧aliasをファイル順で選ぶ",
         "current pair外の曖昧aliasを推測で解決する",
         "制度修正を翻訳PR #194へ混在させる"
-      ]
+      ],
+      "completion": {
+        "pr": 195
+      }
     }
   ],
   "completion_contract": {
