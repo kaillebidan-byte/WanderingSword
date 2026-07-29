@@ -215,7 +215,7 @@ jobs:
               ;;
             conflict)
               cat /tmp/translation-factory-reconcile.json >&2
-              echo "factory branch changed with different generated output; refusing push" >&2
+              echo "factory branch changed with different factory output; refusing push" >&2
               exit 1
               ;;
             ready_to_push) ;;
@@ -238,7 +238,7 @@ jobs:
               ;;
             conflict)
               cat /tmp/translation-factory-reconcile.json >&2
-              echo "concurrent run pushed different generated output; refusing retry" >&2
+              echo "concurrent run pushed different factory output; refusing retry" >&2
               exit 1
               ;;
             ready_to_push)
