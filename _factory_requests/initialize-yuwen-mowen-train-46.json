@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-46",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30494673142,
+    "artifact_id": 8741117644,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:96dfcf259f9709f2c1a730bd046856e494501354c4607be005694c5c80792a5b",
+    "artifact_head": "4e2b35a7f953779f5d031b187c9c5ffd6866c7fa"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "9231_3",
+      "9232_3",
+      "9233_2",
+      "9233_4"
+    ],
+    "unique_reviewed_rows": 53,
+    "semantic_extension": {
+      "used": false,
+      "reason": "within_standard_range"
+    },
+    "timeline": "悪人谷残党との戦闘末尾、沙権賈の敗北と莫問の処断、同行者構成が異なる三つの分岐における無名の出現、宇文逸の内力への評価、悪人谷主としての正体開示、莫問への挑発と不倶戴天の宣言までを含む。各出現場面は相互排他的な分岐として扱い、同席者や発話を一本の時系列へ合成しない。",
+    "branch_note": "9231_3・9232_3・9233_4は無名出現時の同行者構成が異なる分岐であり、李元興・燕未還・荀杳杳の同席や発話を他分岐へ拡張しない。9233_2は悪人谷残党の敗北と莫問による処断を示す別の戦闘末尾で、全分岐に共通する出来事とは断定しない。次の9234_6以降は円覚の介入、烏長老の遺体・青竹杖の処置、少林への移動という後始末へ移るため別packetとする。",
+    "seal_attestation": "四場面・53行。悪人谷残党の敗北から、分岐別の無名出現・正体開示・莫問への挑発と不倶戴天の宣言までを閉じ、円覚による後始末直前で意味境界を切る。",
+    "candidate_questions": [
+      "無名の老獪な威圧、含み笑い、内心の観察が一律の尊大語へ均されず、外向きの挑発と心内語の差が保たれているか",
+      "莫問の『閉嘴』『不共戴天』が、無名への激しい敵意と知識不足を押し隠す拒絶として短く切れ、説明的に膨らんでいないか",
+      "9231_3・9232_3・9233_4の同行者構成と発話差を相互排他的な分岐として個別に裁定しているか",
+      "無名が宇文逸の内力を風雲訣だけではないと推測する心内語を、客観的な功法構成の確定事実へ昇格していないか",
+      "沙権賈の強がりと莫問の処断が、粗暴な敗北台詞と即断の応酬として保たれ、上品な説明へ弱められていないか"
+    ],
+    "allusion_candidates": [
+      "天人合一",
+      "不共戴天",
+      "负隅顽抗",
+      "阴沟里翻船",
+      "要杀要剐",
+      "花言巧语"
+    ],
+    "fact_doubts": [
+      "9231_3・9232_3・9233_4の『几近天人合一』『内力不只是风云诀』は無名の観察・推測であり、宇文逸の客観的な境界到達や内力構成として確定しない",
+      "無名の『自ら部下を始末するつもりだった』は本人の発言であり、実際にその計画が事前から存在したことや実行結果を補完しない",
+      "無名の『誰が莫問を騙しているか』『烏天瘤から何も聞き出せていない』は挑発であり、欺瞞主体や烏天瘤の供述内容を客観事実として確定しない",
+      "9231_3・9232_3・9233_4は同行者構成が異なる相互排他的な無名出現分岐であり、李元興・燕未還・荀杳杳の同席を全分岐へ拡張しない",
+      "9233_2の沙権賈敗北と莫問の処断は当該戦闘末尾の出来事であり、三つの無名出現分岐すべてに先行した共通事実とは断定しない",
+      "莫問の『不倶戴天の敵だと分かれば十分』は本人の拒絶と決意であり、無名と天山派覆滅の全真相が確定したことを意味しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN46_WAVE01_2026-07-30.md"
+  }
+}
