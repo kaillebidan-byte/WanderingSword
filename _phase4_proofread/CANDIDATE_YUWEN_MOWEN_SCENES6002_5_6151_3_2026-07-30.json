@@ -1,0 +1,755 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "6002_5",
+    "6064_6",
+    "6151_2",
+    "6151_3"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30488111463,
+    "artifact_id": 8738529803,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:7443d5218ac9a69a5dbceb39c728f4d8e593a0afbd9e27a4f57d61d4b289b172",
+    "head_sha": "719c65b77f7530d49dc5352dcb991661462b6cbd"
+  },
+  "scene_context": {
+    "timeline": "伏龍子が武当で風雲訣を奪還し、天山派滅亡と玉華・江師弟らを巡る復讐計画の全貌を明かす。その後、宇文逸が莫問へ風雲訣残篇を返し、復讐を止めるよう説得するが、莫問は各派殲滅を選び、師兄弟関係を断つ。",
+    "branch_note": "6002_5と6064_6は伏龍子の正体・莫問の出自・復讐計画を確定する連続局面。6151_2と6151_3は後続の宇文逸↔莫問対話で、風雲訣返還から『もう師兄と呼ぶな』までを一体で監査する。次の6155_1以降は戦闘後の別局面として含めない。"
+  },
+  "rows": [
+    {
+      "key": "6002_5_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你、你这是在做什么？？",
+      "ja": "1 - 宇文逸 $@$お、お前……何をしている！？"
+    },
+    {
+      "key": "6002_5_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……我在拿回本该属于我的东西。",
+      "ja": "5015 - 莫問 $@$……本来、わたしのものだったものを取り戻しているだけだ。"
+    },
+    {
+      "key": "6064_6_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（没、没想到无名居然就是那位伏龙子大侠……）",
+      "ja": "1 - 宇文逸 $@$（ま、まさか無名が、あの伏龍子大侠だったなんて……）"
+    },
+    {
+      "key": "6064_6_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（不对……重点是，师兄原来是他的儿子吗！？？）",
+      "ja": "1 - 宇文逸 $@$（いや、それより……師兄は、あの人の息子だったのか！？）"
+    },
+    {
+      "key": "6064_6_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（那我学的这风云诀岂不是……）",
+      "ja": "1 - 宇文逸 $@$（それなら、私が修めたこの風雲訣は……）"
+    },
+    {
+      "key": "6064_6_Dlgs_Index3_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$果然是你……",
+      "ja": "5003 - 清虚道長 $@$……やはり、そなただったか。"
+    },
+    {
+      "key": "6064_6_Dlgs_Index4_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$当年天山之巅那场决战，你虽赢了天绝，却跌落万丈悬崖，咳咳……",
+      "ja": "5003 - 清虚道長 $@$あの年、天山の頂で天絶に勝ちながら、万丈の崖へ落ちた……ごほ、ごほ……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index5_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$我们还以为你已经……",
+      "ja": "5003 - 清虚道長 $@$わしらは、てっきりそなたがもう……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index6_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$哼，你们自然是盼着我再也回不来才好！",
+      "ja": "9506 - 伏龍子 $@$ふん。お前たちは、儂が二度と戻らぬことを願っていたのだろうよ！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index7_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$枉我当年不惜为了正道与天绝一战，结果尸骨未寒，却已满门皆亡！",
+      "ja": "9506 - 伏龍子 $@$この儂が正道のため、天絶との決戦に身を投じたというのに！　死んだと思われて間もないうちに、家族は皆殺しにされた！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index8_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$若非我侥幸捡回一命，又在找无名报仇雪恨时意外发现真相……",
+      "ja": "9506 - 伏龍子 $@$儂が運よく命を拾い、無名を捜して仇を討とうとする中で、偶然真相を知ることがなければ……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index9_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$怕是永远无从得知，杀害我妻儿的真凶原来另有其人！",
+      "ja": "9506 - 伏龍子 $@$妻と子を殺した真犯人が別にいるなど、永遠に知れぬままだった！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index10_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$也根本想不到你们这些所谓的名门正派，为了风云诀究竟能露出怎样令人作呕的嘴脸！",
+      "ja": "9506 - 伏龍子 $@$お前たち名門正派とやらが、風雲訣のためなら、これほど吐き気のする本性をさらすとも思わなかった！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index11_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……是武当、少林还有丐帮……",
+      "ja": "5015 - 莫問 $@$……武当、少林、それに丐幇……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index12_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$没错！就像我之前告诉过你的那样……",
+      "ja": "9506 - 伏龍子 $@$そうだ！　以前、お前に話した通りだ……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index13_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$无名当初为了逼问风云诀的下落，根本没有赶尽杀绝！",
+      "ja": "9506 - 伏龍子 $@$無名は風雲訣の在り処を吐かせるため、当時は皆殺しにしなかった！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index14_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$后来他重伤逃走，这群无耻之徒却为夺取秘籍，杀光了包括你娘在内的所有幸存之人！",
+      "ja": "9506 - 伏龍子 $@$奴が重傷を負って逃げたあと、この恥知らずどもは秘笈を奪うため、お前の母を含む生き残りを一人残らず殺したのだ！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index15_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$这些年，我只要一想到风云诀落入了这种人手中……",
+      "ja": "9506 - 伏龍子 $@$この何年もの間、風雲訣がこんな連中の手にあると思うたび……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index16_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$就恨不得马上杀光了他们？！",
+      "ja": "9506 - 伏龍子 $@$今すぐ奴らを皆殺しにしてやりたくて、たまらなかった！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index17_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$咳咳……所以你明明早就可以报仇，却等到现在方才动手，就是为了取回我们手中的风云诀……",
+      "ja": "5003 - 清虚道長 $@$ごほ、ごほ……ならば、復讐する機会はとうにあったのに今まで待ったのは……わしらの手にある風雲訣を取り戻すためか。"
+    },
+    {
+      "key": "6064_6_Dlgs_Index18_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$不，不对……你其实早就已经动过手了，先师玉华的死，其中应该就有你的手笔吧？",
+      "ja": "5003 - 清虚道長 $@$いや、待て……そなたは、すでに手を下しておった。先師・玉華の死も、そなたの仕業ではないのか？"
+    },
+    {
+      "key": "6064_6_Dlgs_Index19_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$哈哈哈哈，不错！",
+      "ja": "9506 - 伏龍子 $@$ははははは！　その通りだ！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index20_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$玉华那个卑鄙小人比其他人更该死！",
+      "ja": "9506 - 伏龍子 $@$玉華の卑劣漢は、ほかの誰よりも死に値した！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index21_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$为了夺取风云诀，他不但在决战前夕的践行酒里给我下毒，害我掉落悬崖！",
+      "ja": "9506 - 伏龍子 $@$風雲訣を奪うため、奴は決戦前夜の餞の酒に毒を盛り、儂を崖へ落とした！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index22_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$连恶人谷都是他故意引去的天山……",
+      "ja": "9506 - 伏龍子 $@$悪人谷を天山へわざと引き入れたのも、奴だ……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index23_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$结果得了一册残本仍不知足，还想要继续抢夺巫芸从少林偷出来的那份！",
+      "ja": "9506 - 伏龍子 $@$その挙げ句、残本を一冊手にしても飽き足らず、巫芸が少林から盗み出したもう一部まで奪おうとした！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index24_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$哈哈哈哈，我怎么可能放过这么好的机会！？",
+      "ja": "9506 - 伏龍子 $@$ははははは！　あれほど好都合な機会を、儂が見逃すものか！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index25_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$原来如此……",
+      "ja": "5003 - 清虚道長 $@$……そういうことか。"
+    },
+    {
+      "key": "6064_6_Dlgs_Index26_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$难怪师父临终前会说小心天山，风云诀残本也不知所踪，咳咳……",
+      "ja": "5003 - 清虚道長 $@$だから師父は今際に『天山に気をつけよ』と……風雲訣の残本が消えたのも……ごほ、ごほ……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index27_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$这样说来，当年江师弟与巫芸刚逃出武当便被围攻，也是你一手促成的？",
+      "ja": "5003 - 清虚道長 $@$ならば当時、江師弟と巫芸が武当を出た直後に囲まれたのも、そなたが仕組んだのか？"
+    },
+    {
+      "key": "6064_6_Dlgs_Index28_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$没错，只不过当时他们运气好，冲出重围后就躲了起来，这些年倒是让我好找！",
+      "ja": "9506 - 伏龍子 $@$そうだ。だが奴らは運よく包囲を破り、そのまま身を隠した。おかげでこの何年、ずいぶん捜し回らされた！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index29_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$咳咳，你寻不到巫芸，再加上洪前辈也云游四海，行踪不定……",
+      "ja": "5003 - 清虚道長 $@$ごほ、ごほ……巫芸を見つけられず、洪先輩も四海を巡って居所が定まらぬ……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index30_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$这才不得不从长计议，暗中给了曹煜天一本假的风云诀，又布局多年，为的就是想要借他引出相关之人……",
+      "ja": "5003 - 清虚道長 $@$ゆえに長い策を巡らせ、曹煜天へ偽の風雲訣を密かに渡し、何年もかけて関係者を誘い出そうとした……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index31_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$而我前往关外之举，正好给了你找到江师弟机会。",
+      "ja": "5003 - 清虚道長 $@$そして、わしが関外へ赴いたことで、そなたに江師弟を見つける機会を与えてしまった。"
+    },
+    {
+      "key": "6064_6_Dlgs_Index32_Text",
+      "speaker": "伏龙子",
+      "zh": "9506 - 伏龙子 $@$说对了，原本一切顺利，你们早就死在了不风山，可是我却在辽城意外见到了我的儿子！",
+      "ja": "9506 - 伏龍子 $@$その通りだ。本来なら何もかも順調に進み、お前たちは不風山でとうに死んでいた。だが遼城で、思いがけず儂の息子に会ったのだ！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index33_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$难怪当时恶人谷会突然撤走……",
+      "ja": "5003 - 清虚道長 $@$だから、あの時悪人谷が突然退いたのか……"
+    },
+    {
+      "key": "6064_6_Dlgs_Index34_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$好哇！原来你这老东西不止害了我爹，连我娘的事也是你干的！",
+      "ja": "8500 - 江小彤 $@$そういうことだったのね！　このくそ爺、父さんを死に追いやっただけじゃない。母さんのことまで、あんたの仕業だったの！"
+    },
+    {
+      "key": "6064_6_Dlgs_Index35_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$我要杀了你，替他们报仇！",
+      "ja": "8500 - 江小彤 $@$あんたを殺して、父さんと母さんの仇を討つ！"
+    },
+    {
+      "key": "6151_2_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$既然找来了这里，那就出招吧。",
+      "ja": "45311 - 莫問 $@$ここまで来たなら、かかってこい。"
+    },
+    {
+      "key": "6151_2_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$等等！",
+      "ja": "1 - 宇文逸 $@$待ってください！"
+    },
+    {
+      "key": "6151_2_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师兄，我不是来和你动手的，而是想要还你这个……",
+      "ja": "1 - 宇文逸 $@$師兄、戦いに来たんじゃありません。これを返しに来たんです……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$这是……巫芸手里的那册残篇？",
+      "ja": "45311 - 莫問 $@$これは……巫芸が持っていたあの残篇か？"
+    },
+    {
+      "key": "6151_3_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯，其实早就应该物归原主了。",
+      "ja": "1 - 宇文逸 $@$ええ。本当は、もっと早くお返しすべきでした。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$之前是我不知内情，所以擅自学了，你要是不高兴，我……",
+      "ja": "1 - 宇文逸 $@$事情を知らず、勝手に修めてしまいました。もし気に障ったなら、私は……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$……不必。",
+      "ja": "45311 - 莫問 $@$……その必要はない。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$我和那人不同，不在乎这些。",
+      "ja": "45311 - 莫問 $@$わたしはあの男とは違う。そんなことにはこだわらない。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$那……师兄你还会继续报仇吗？",
+      "ja": "1 - 宇文逸 $@$では……師兄は、まだ復讐を続けるつもりですか？"
+    },
+    {
+      "key": "6151_3_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$其实当年害了天山派的罪魁祸首都已经死了，不久前师父也……也……",
+      "ja": "1 - 宇文逸 $@$天山派をあの惨状へ追いやった元凶たちは、もう皆死んでいます。それに先日、師父も……師父も……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index8_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$还是死了吗……",
+      "ja": "45311 - 莫問 $@$……やはり、亡くなったのか。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index9_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯……",
+      "ja": "1 - 宇文逸 $@$はい……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师兄，师父他临死前一直放心不下你……",
+      "ja": "1 - 宇文逸 $@$師兄。師父は最期まで、ずっと師兄のことを気にかけていました……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index11_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……能不能就让所有的恩怨到此为止，不要再牵连更多无辜的人了？",
+      "ja": "1 - 宇文逸 $@$……すべての恩讐をここで終わらせて、これ以上、罪のない人たちを巻き込まないでくれませんか？"
+    },
+    {
+      "key": "6151_3_Dlgs_Index12_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$你还真是……一点都没变，永远这么天真。",
+      "ja": "45311 - 莫問 $@$お前は本当に……少しも変わらないな。いつまでも甘い。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index14_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$不明白吗？",
+      "ja": "45311 - 莫問 $@$まだ分からないのか？"
+    },
+    {
+      "key": "6151_3_Dlgs_Index15_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$你以为天山派当年究竟为何会落得那般下场？",
+      "ja": "45311 - 莫問 $@$天山派が当時、なぜあのような末路を辿ったと思う？"
+    },
+    {
+      "key": "6151_3_Dlgs_Index16_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$只要风云诀还在，只要我还活着……",
+      "ja": "45311 - 莫問 $@$風雲訣がある限り、わたしが生きている限り……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index17_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$那些人迟早会因为贪图功法，又或是出于忌惮等等原故……而找出各种冠冕堂皇的借口来杀我。",
+      "ja": "45311 - 莫問 $@$奴らは遅かれ早かれ、功法を欲して、あるいはわたしを恐れて……もっともらしい大義名分を並べ、わたしを殺しに来る。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index18_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可……可是也不能因为这个，就杀光所有人吧？",
+      "ja": "1 - 宇文逸 $@$で、でも……だからって、皆殺しにしていいはずがないでしょう！"
+    },
+    {
+      "key": "6151_3_Dlgs_Index19_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$为什么不能。",
+      "ja": "45311 - 莫問 $@$なぜいけない。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index20_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$只要依循那人的遗愿灭了各派，所有的麻烦都将迎刃而解。",
+      "ja": "45311 - 莫問 $@$あの男の遺志どおり各派を滅ぼせば、厄介事はすべて、たちどころに片づく。"
+    },
+    {
+      "key": "6151_3_Dlgs_Index21_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$最重要的是……我现在有这个生杀予夺的实力！",
+      "ja": "45311 - 莫問 $@$何より……今のわたしには、生殺与奪を握るだけの力がある！"
+    },
+    {
+      "key": "6151_3_Dlgs_Index22_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可是师兄……",
+      "ja": "1 - 宇文逸 $@$でも、師兄……"
+    },
+    {
+      "key": "6151_3_Dlgs_Index23_Text",
+      "speaker": "莫问",
+      "zh": "45311 - 莫问 $@$不要再叫我师兄了！",
+      "ja": "45311 - 莫問 $@$もう師兄と呼ぶな！"
+    }
+  ],
+  "candidate_questions": [
+    "宇文逸の驚愕、師兄への敬意、説得、倫理的反発が同一人物の声として連続しているか",
+    "莫問の出自への動揺、復讐の論理、師弟関係断絶が説明調や単純な悪役調へ均されていないか",
+    "伏龍子の古風な自負、怨恨、策謀の告白が重さと勢いを保っているか",
+    "清虚道長の病中の推論と問いが、断定の補完や過剰説明になっていないか",
+    "天山派滅亡・玉華・巫芸・江師弟・風雲訣を巡る事実関係を発話範囲以上に確定していないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "尸骨未寒",
+      "报仇雪恨",
+      "赶尽杀绝",
+      "从长计议",
+      "冠冕堂皇",
+      "迎刃而解",
+      "生杀予夺"
+    ],
+    "fact_doubts": [
+      "伏龍子の告白は本人の主張として扱い、各派・玉華・無名・悪人谷に関する客観事実へ無条件に昇格しない",
+      "莫問が伏龍子の息子であることは6064_6の会話で示される範囲に留め、出生経緯を補完しない",
+      "玉華の死、江師弟と巫芸への襲撃、曹煜天へ渡した偽風雲訣の因果は発話者ごとの推論と告白を区別する",
+      "風雲訣残篇の所有権と宇文逸の習得経緯は6151の発話範囲を越えて断定しない",
+      "莫問の『各派を滅ぼす』はこの時点の選択と論理であり、後続展開や実行結果を補完しない",
+      "6002_5/6064_6と6151_2/6151_3には時間経過があり、一続きの会話として接続しない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 63,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json",
+        "keys": [
+          "6002_5_Dlgs_Index1_Text",
+          "6002_5_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch17.json",
+        "keys": [
+          "6064_6_Dlgs_Index0_Text",
+          "6064_6_Dlgs_Index10_Text",
+          "6064_6_Dlgs_Index11_Text",
+          "6064_6_Dlgs_Index12_Text",
+          "6064_6_Dlgs_Index13_Text",
+          "6064_6_Dlgs_Index14_Text",
+          "6064_6_Dlgs_Index15_Text",
+          "6064_6_Dlgs_Index16_Text",
+          "6064_6_Dlgs_Index17_Text",
+          "6064_6_Dlgs_Index18_Text",
+          "6064_6_Dlgs_Index19_Text",
+          "6064_6_Dlgs_Index1_Text",
+          "6064_6_Dlgs_Index20_Text",
+          "6064_6_Dlgs_Index21_Text",
+          "6064_6_Dlgs_Index22_Text",
+          "6064_6_Dlgs_Index23_Text",
+          "6064_6_Dlgs_Index24_Text",
+          "6064_6_Dlgs_Index25_Text",
+          "6064_6_Dlgs_Index26_Text",
+          "6064_6_Dlgs_Index27_Text",
+          "6064_6_Dlgs_Index28_Text",
+          "6064_6_Dlgs_Index29_Text",
+          "6064_6_Dlgs_Index2_Text",
+          "6064_6_Dlgs_Index30_Text",
+          "6064_6_Dlgs_Index31_Text",
+          "6064_6_Dlgs_Index32_Text",
+          "6064_6_Dlgs_Index33_Text",
+          "6064_6_Dlgs_Index34_Text",
+          "6064_6_Dlgs_Index35_Text",
+          "6064_6_Dlgs_Index3_Text",
+          "6064_6_Dlgs_Index4_Text",
+          "6064_6_Dlgs_Index5_Text",
+          "6064_6_Dlgs_Index6_Text",
+          "6064_6_Dlgs_Index7_Text",
+          "6064_6_Dlgs_Index8_Text",
+          "6064_6_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch21.json",
+        "keys": [
+          "6151_2_Dlgs_Index0_Text",
+          "6151_2_Dlgs_Index2_Text",
+          "6151_3_Dlgs_Index10_Text",
+          "6151_3_Dlgs_Index11_Text",
+          "6151_3_Dlgs_Index12_Text",
+          "6151_3_Dlgs_Index14_Text",
+          "6151_3_Dlgs_Index17_Text",
+          "6151_3_Dlgs_Index18_Text",
+          "6151_3_Dlgs_Index1_Text",
+          "6151_3_Dlgs_Index20_Text",
+          "6151_3_Dlgs_Index21_Text",
+          "6151_3_Dlgs_Index22_Text",
+          "6151_3_Dlgs_Index23_Text",
+          "6151_3_Dlgs_Index2_Text",
+          "6151_3_Dlgs_Index3_Text",
+          "6151_3_Dlgs_Index4_Text",
+          "6151_3_Dlgs_Index5_Text",
+          "6151_3_Dlgs_Index6_Text",
+          "6151_3_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch21.json",
+        "keys": [
+          "6151_2_Dlgs_Index1_Text",
+          "6151_3_Dlgs_Index0_Text",
+          "6151_3_Dlgs_Index15_Text",
+          "6151_3_Dlgs_Index16_Text",
+          "6151_3_Dlgs_Index19_Text",
+          "6151_3_Dlgs_Index9_Text"
+        ]
+      }
+    ],
+    "unowned": [],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/清虚道長.md",
+        "digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/伏龍子.md",
+        "digest": "sha256:1a6530525b147ba5869d07c1eb92046926361e5e348d0a418c6dc7e2b88739f2",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/江小彤.md",
+        "digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "6002_5_Dlgs_Index1_Text",
+          "6064_6_Dlgs_Index0_Text",
+          "6064_6_Dlgs_Index1_Text",
+          "6064_6_Dlgs_Index2_Text",
+          "6151_2_Dlgs_Index1_Text",
+          "6151_2_Dlgs_Index2_Text",
+          "6151_3_Dlgs_Index1_Text",
+          "6151_3_Dlgs_Index2_Text",
+          "6151_3_Dlgs_Index5_Text",
+          "6151_3_Dlgs_Index6_Text",
+          "6151_3_Dlgs_Index9_Text",
+          "6151_3_Dlgs_Index10_Text",
+          "6151_3_Dlgs_Index11_Text",
+          "6151_3_Dlgs_Index18_Text",
+          "6151_3_Dlgs_Index22_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "6002_5_Dlgs_Index2_Text",
+          "6064_6_Dlgs_Index11_Text",
+          "6151_2_Dlgs_Index0_Text",
+          "6151_3_Dlgs_Index0_Text",
+          "6151_3_Dlgs_Index3_Text",
+          "6151_3_Dlgs_Index4_Text",
+          "6151_3_Dlgs_Index8_Text",
+          "6151_3_Dlgs_Index12_Text",
+          "6151_3_Dlgs_Index14_Text",
+          "6151_3_Dlgs_Index15_Text",
+          "6151_3_Dlgs_Index16_Text",
+          "6151_3_Dlgs_Index17_Text",
+          "6151_3_Dlgs_Index19_Text",
+          "6151_3_Dlgs_Index20_Text",
+          "6151_3_Dlgs_Index21_Text",
+          "6151_3_Dlgs_Index23_Text"
+        ]
+      },
+      {
+        "path": "10_人物/清虚道長.md",
+        "digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+        "document_type": "persona",
+        "name": "清虚道長",
+        "aliases": [
+          "清虚道長",
+          "清虚",
+          "清虚道长"
+        ],
+        "evidence_keys": [
+          "6064_6_Dlgs_Index3_Text",
+          "6064_6_Dlgs_Index4_Text",
+          "6064_6_Dlgs_Index5_Text",
+          "6064_6_Dlgs_Index17_Text",
+          "6064_6_Dlgs_Index18_Text",
+          "6064_6_Dlgs_Index25_Text",
+          "6064_6_Dlgs_Index26_Text",
+          "6064_6_Dlgs_Index27_Text",
+          "6064_6_Dlgs_Index29_Text",
+          "6064_6_Dlgs_Index30_Text",
+          "6064_6_Dlgs_Index31_Text",
+          "6064_6_Dlgs_Index33_Text"
+        ]
+      },
+      {
+        "path": "10_人物/伏龍子.md",
+        "digest": "sha256:1a6530525b147ba5869d07c1eb92046926361e5e348d0a418c6dc7e2b88739f2",
+        "document_type": "persona",
+        "name": "伏龍子",
+        "aliases": [
+          "伏龍子",
+          "伏龙子"
+        ],
+        "evidence_keys": [
+          "6064_6_Dlgs_Index6_Text",
+          "6064_6_Dlgs_Index7_Text",
+          "6064_6_Dlgs_Index8_Text",
+          "6064_6_Dlgs_Index9_Text",
+          "6064_6_Dlgs_Index10_Text",
+          "6064_6_Dlgs_Index12_Text",
+          "6064_6_Dlgs_Index13_Text",
+          "6064_6_Dlgs_Index14_Text",
+          "6064_6_Dlgs_Index15_Text",
+          "6064_6_Dlgs_Index16_Text",
+          "6064_6_Dlgs_Index19_Text",
+          "6064_6_Dlgs_Index20_Text",
+          "6064_6_Dlgs_Index21_Text",
+          "6064_6_Dlgs_Index22_Text",
+          "6064_6_Dlgs_Index23_Text",
+          "6064_6_Dlgs_Index24_Text",
+          "6064_6_Dlgs_Index28_Text",
+          "6064_6_Dlgs_Index32_Text"
+        ]
+      },
+      {
+        "path": "10_人物/江小彤.md",
+        "digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+        "document_type": "persona",
+        "name": "江小彤",
+        "aliases": [
+          "江小彤"
+        ],
+        "evidence_keys": [
+          "6064_6_Dlgs_Index34_Text",
+          "6064_6_Dlgs_Index35_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:96fac764677ae647d64da6439f0901b63435be8d24090c0eb8128d8b8d2d803d"
+  }
+}
