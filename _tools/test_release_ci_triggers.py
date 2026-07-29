@@ -27,6 +27,30 @@ def assert_labeled_repair_rerun(name: str, labels: tuple[str, ...]) -> str:
     return text
 
 
+def assert_guarded_release_rerun() -> str:
+    text = assert_labeled_repair_rerun(
+        "release-train-orchestrator.yml",
+        ("release-ci", "ci-heavy-rerun"),
+    )
+    guard = text.split("  guard:\n", 1)[1].split("\n  preflight:\n", 1)[0]
+    preflight = text.split("\n  preflight:\n", 1)[1].split("\n  relation:\n", 1)[0]
+    assert "group: release-train-orchestrator-${{ github.event.pull_request.number }}" in text
+    assert "cancel-in-progress: true" in text
+    assert "gh api" in guard
+    assert "pulls/${{ github.event.pull_request.number }}" in guard
+    assert "release_orchestrator_guard.py" in guard
+    assert "--event-head" in guard
+    assert "--current-pr-head" in guard
+    assert "--head-ref" in guard
+    assert "--pr-number" in guard
+    assert "Remove stale release labels" in guard
+    assert "github.rest.issues.removeLabel" in guard
+    assert "['release-ci', 'ci-heavy-rerun']" in guard
+    assert "needs: guard" in preflight
+    assert "if: needs.guard.outputs.proceed == 'true'" in preflight
+    return text
+
+
 def assert_reusable(name: str) -> str:
     text = read(name)
     assert "workflow_call:" in text, name
@@ -79,6 +103,7 @@ def assert_institution_contract_workflow() -> None:
     assert "test_reconcile_merged_cycle.py" in text
     assert "check_state_json_integrity.py" in text
     assert "test_release_ci_triggers.py" in text
+    assert "test_release_orchestrator_guard.py" in text
 
 
 def assert_merged_cycle_reconciliation() -> None:
@@ -105,10 +130,7 @@ def assert_merged_cycle_reconciliation() -> None:
 
 
 def main() -> None:
-    orchestrator = assert_labeled_repair_rerun(
-        "release-train-orchestrator.yml",
-        ("release-ci", "ci-heavy-rerun"),
-    )
+    orchestrator = assert_guarded_release_rerun()
     assert "check_private_release_preflight.py" in orchestrator
     assert "uses: ./.github/workflows/relation-audit.yml" in orchestrator
     assert "uses: ./.github/workflows/cross-register-qa.yml" in orchestrator
@@ -129,6 +151,7 @@ def main() -> None:
     assert "test_check_phase_completion_signal.py" in preflight
     assert "test_reconcile_merged_cycle.py" in preflight
     assert "test_check_autonomous_cycle.py" in preflight
+    assert "test_release_orchestrator_guard.py" in preflight
 
     relation = assert_reusable("relation-audit.yml")
     cross = assert_reusable("cross-register-qa.yml")
@@ -161,7 +184,7 @@ def main() -> None:
 
     assert_institution_contract_workflow()
     assert_merged_cycle_reconciliation()
-    print("OK: release reruns stay bounded and merged transport state is reconciled without translation writes")
+    print("OK: release reruns are live-HEAD guarded; stale labels become successful NOOPs")
 
 
 if __name__ == "__main__":
