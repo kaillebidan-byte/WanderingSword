@@ -102,6 +102,9 @@ def assert_institution_contract_workflow() -> None:
     assert "test_select_cycle_execution_mode.py" in text
     assert "check_phase_completion_signal.py" in text
     assert "test_check_phase_completion_signal.py" in text
+    assert "resume_work_entrypoint.py" in text
+    assert "test_final_response_policy.py" in text
+    assert "sanitize_final_response_read_order.py" in text
     assert "test_reconcile_merged_cycle.py" in text
     assert "check_state_json_integrity.py" in text
     assert "test_release_ci_triggers.py" in text
@@ -116,11 +119,14 @@ def assert_merged_cycle_reconciliation() -> None:
     trigger = text.split("  workflow_dispatch:", 1)[0]
     assert '"_phase4_proofread/NEXT_TASK_PACKET.json"' not in trigger
     assert '"_phase4_proofread/CURRENT_HANDOFF.md"' not in trigger
-    assert text.count("if: github.event_name != 'push'") == 2
+    assert text.count("if: github.event_name != 'push'") == 1
     assert "contents: write" in text
     assert "pull-requests: read" in text
     assert "python _tools/test_reconcile_merged_cycle.py" in text
+    assert "python _tools/test_final_response_policy.py" in text
     assert "python _tools/reconcile_merged_cycle.py" in text
+    assert "python _tools/sanitize_final_response_read_order.py --write" in text
+    assert '"_phase4_proofread/FINAL_RESPONSE_POLICY.json"' in trigger
     assert "--event-pr" in text
     assert "--merge-sha" in text
     assert "_phase4_proofread/CURRENT_WORK.json" in text

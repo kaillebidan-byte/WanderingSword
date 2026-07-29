@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "contract_id": "final-response-policy-v1-opaque-terminal",
+  "live_state": "_phase4_proofread/REGULATED_PHASE_STATE.json",
+  "validator": "_tools/check_phase_completion_signal.py",
+  "terminal_renderer": "_tools/render_phase_completion_suffix.py",
+  "resume_entrypoint": "_tools/resume_work_entrypoint.py",
+  "normal_response": {
+    "reserved_terminal_token_allowed": false,
+    "safe_completion_label": "通常作業cycle完了",
+    "draft_validation_required": true,
+    "renderer_execution_forbidden": true,
+    "terminal_inference_forbidden_from": [
+      "wave complete",
+      "train merged",
+      "transport merged",
+      "release phase2 success",
+      "cycle target reached",
+      "single pair complete",
+      "single chapter complete"
+    ]
+  },
+  "authorized_terminal": {
+    "reserved_terminal_token_allowed": true,
+    "live_authorization_required": true,
+    "manual_suffix_construction_forbidden": true,
+    "renderer_output_only": true,
+    "validator_must_accept_renderer_output": true
+  },
+  "routine_read_policy": {
+    "opaque_terminal_token": true,
+    "raw_signal_contract_is_validator_only": true,
+    "raw_live_authorization_is_controller_only": true,
+    "mandatory_read_order_entry": "_phase4_proofread/FINAL_RESPONSE_POLICY.json"
+  },
+  "failure_behavior": {
+    "live_state_unavailable": "normal_response_without_terminal_token",
+    "authorization_missing": "normal_response_without_terminal_token",
+    "renderer_failure": "do_not_emit_terminal_suffix",
+    "validator_failure": "do_not_send_draft"
+  }
+}

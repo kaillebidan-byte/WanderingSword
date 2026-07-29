@@ -14,7 +14,8 @@
     "stale_release_label_guard",
     "quality_audit_source_feedback_loop",
     "quality_audit_persona_alias_resolution",
-    "post_feedback_owner_state_attestation_refresh"
+    "post_feedback_owner_state_attestation_refresh",
+    "final_response_marker_enforcement"
   ],
   "tasks": [
     {
@@ -148,6 +149,39 @@
       ],
       "completion": {
         "pr": 196
+      }
+    },
+    {
+      "task_id": "final_response_marker_enforcement",
+      "title": "通常応答から規定終端markerを機械排除",
+      "status": "completed",
+      "priority": 7,
+      "branch": "agent/final-response-marker-enforcement",
+      "summary": "通常cycle完了と規定フェイズ終端の混同を、最終応答policy・controller・専用renderer・送信前検査で機械的に防止する。",
+      "root_cause": "禁止規定とcheckerは存在したが、通常再開時に生の終端契約をmandatory readへ露出し、controller出力に最終応答modeがなく、モデルが文章生成だけで予約markerを付加できた。checkerも最終応答経路の決定的rendererとして強制されていなかった。",
+      "audit_scope": [
+        "通常再開で読む最終応答policyから予約markerの字面を除外する",
+        "resume entrypointがlive stateからnormal_responseまたはauthorized_terminalを一意に返す",
+        "normal_responseでは予約marker禁止と安全な完了表現を機械出力する",
+        "authorized_terminalでは専用rendererだけがlive認可済み三行suffixを生成する",
+        "post-merge reconcile後のmandatory read orderを安全policyへ自動補正する"
+      ],
+      "completion_conditions": [
+        "signal_authorization=nullの通常cycle完了報告がmarkerを含めず受理される",
+        "通常cycle完了報告へ予約markerを足す回帰入力が送信前に拒否される",
+        "認可なしrenderer実行がfail closedする",
+        "live認可ありrendererだけが既存checkerを通る三行suffixを生成する",
+        "新チャットの唯一入口とreconcile workflowが安全policyへ接続される",
+        "institution contract testsと既存phase signal回帰が成功する"
+      ],
+      "forbidden": [
+        "モデルがevent ID・result・markerを手入力または推測する",
+        "通常cycleのmerge・phase2・target_reachedを規定フェイズ終端へ昇格する",
+        "consumer側の非受理だけに依存して誤送信を許容する",
+        "作業中の翻訳PRへ制度改修を混在させる"
+      ],
+      "completion": {
+        "pr": 204
       }
     }
   ],
