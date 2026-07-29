@@ -1,52 +1,56 @@
 # 最終応答ゲート
 
-この文書は、規定フェイズ終端予約語を誤って通常応答へ出す事故と、その誤出力で自動化が停止する事故を分離して防ぐ。
+この文書は、通常cycle完了と規定フェイズ終端を混同して予約tokenを誤送信する事故を、送信前に機械的に遮断する。
 
-実際の予約語、接頭辞、動的状態は次を正本とする。
+routine正本は`_phase4_proofread/FINAL_RESPONSE_POLICY.json`とする。生の終端契約・live認可state・予約tokenの字面はvalidator／controller／renderer専用であり、通常応答を作るモデルの読書対象にしない。
 
-- `_phase4_proofread/PHASE_COMPLETION_SIGNAL.json`
-- `_phase4_proofread/REGULATED_PHASE_STATE.json`
+## 唯一の再開入口
 
-## エージェント側の送信前ゲート
+```bash
+python _tools/resume_work_entrypoint.py --repository-visibility <private|public>
+```
 
-`signal_authorization`がobjectでない間、契約の`marker`値は応答本文、報告、引用、例示、コードブロックを含め出力禁止とする。
+返された`final_response_gate.mode`に従う。
 
-通常応答を含む最終文面をUTF-8ファイルへ保存し、送信前に次を通す。
+### normal_response
+
+- `safe_completion_label`で通常作業の完了を報告する。
+- 予約token、認可ID、result行を本文・引用・説明・例示・コードブロックへ出さない。
+- terminal rendererを実行しない。
+- train、wave、PR、release phase2、transport merge、cycle target到達を規定フェイズ終端へ昇格しない。
+
+### authorized_terminal
+
+- モデルは終端suffixを手入力・復元・推測しない。
+- 次の専用rendererだけを実行する。
+
+```bash
+python _tools/render_phase_completion_suffix.py --output <terminal-suffix.txt>
+```
+
+- renderer出力を改変せず、応答の最終suffixとして一度だけ付ける。
+- rendererが失敗した場合は終端suffixを出さない。
+
+## 送信前検査
+
+通常応答を含む最終文面をUTF-8ファイルへ保存し、送信前に必ず次を通す。
 
 ```bash
 python _tools/check_phase_completion_signal.py --response-file <draft-response.txt>
 ```
 
-予約語を含まない通常応答は通る。予約語を含む応答は、live stateと一致する次の三行suffixがなければ失敗する。
+checker失敗後に手動で送信・terminal扱いへ上書きしない。
 
-```text
-<authorization_prefix><signal_authorization.event_id>
-<status_prefix><signal_authorization.result>
-<marker>
-```
+## 自動化consumer側
 
-train、wave、PR、release phase2、transport merge、cycle target到達は、このauthorizationを発行する根拠ではない。
+画面上の最後の一行や固定文字列検索だけで停止しない。`_tools/regulated_phase_terminal_consumer.js`のlive state照合が`accepted === true`の場合だけ停止する。
 
-## 自動化consumer側の受理条件
-
-画面上の最後の一行や固定文字列検索だけで停止してはならない。
-
-`_tools/regulated_phase_terminal_consumer.js`の`validateRegulatedPhaseTerminal(responseText, liveState)`を呼び、`accepted === true`の場合だけ停止する。
-
-consumerは次をすべて確認する。
-
-1. markerが一度だけ最終非空行にある。
-2. 直前のresultがlive authorizationと一致する。
-3. その直前のevent IDがlive authorizationと一致する。
-4. authorization scopeとactive phaseが一致する。
-5. successならphase statusが`complete`、errorなら`terminal_error`である。
-
-live stateを取得できない場合、固定文をterminalとして推測せず、必ず非受理にする。
+consumerは、suffixの一意性、event ID、result、authorization scope、active phase、terminal statusをすべて検証する。live stateを取得できない場合は非受理とする。
 
 ## 禁止
 
-- marker単独で停止する旧実装
-- resultとmarkerだけの二行判定
-- モデルが生成したevent IDをlive state照合なしで信用すること
-- `signal_authorization=null`の間に予約語を説明目的で再掲すること
-- checker失敗後に手動でterminal扱いへ上書きすること
+- 通常応答から生の終端契約・live認可stateを読むこと
+- marker単独または二行形式で停止する旧実装
+- モデルが認可ID・result・予約tokenを生成すること
+- consumer側の非受理だけに依存し、誤送信自体を許容すること
+- checkerまたはrenderer失敗後の手動上書き
