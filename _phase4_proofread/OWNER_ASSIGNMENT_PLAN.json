@@ -2,15 +2,13 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5637_1_5653_2_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch82.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_12_5654_8_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch83.json",
       "values": {
-        "5637_1_Dlgs_Index1_Text": "1 - 宇文逸 $@$……違う。なぜ中に磁器の瓶があるんだ？",
-        "5653_2_Dlgs_Index6_Text": "17005 - 欧陽雪 $@$……げほっ、げほっ……そんなはずが……江湖では誰もが知っています……"
+        "5654_8_Dlgs_Index7_Text": "19403 - ？？？ $@$風雲訣の噂が中原へ流れなければ……円覚の禿が陣取っていようと、各派が六扇門などという朝廷の犬に易々と従うものか。"
       },
       "fix_keys": [
-        "5637_1_Dlgs_Index1_Text",
-        "5653_2_Dlgs_Index6_Text"
+        "5654_8_Dlgs_Index7_Text"
       ]
     }
   ]
