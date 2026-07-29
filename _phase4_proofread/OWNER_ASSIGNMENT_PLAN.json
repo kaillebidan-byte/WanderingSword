@@ -2,23 +2,15 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5357_2_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch74.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_1_5359_5_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch75.json",
       "values": {
-        "5352_3_Dlgs_Index6_Text": "5029 - 莫棄 $@$それに、まだ知らないだろうが……大師兄は二年前の大会で優勝したんだぞ！",
-        "5353_5_Dlgs_Index2_Text": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、その師父であるこの俺を知らねえのか？",
-        "5353_5_Dlgs_Index8_Text": "17000 - 杜彪 $@$だが、こっちはただで弟子を一人失ったんだ。落とし前くらいつけてもらわねえとな。でなきゃ、この杜彪が甘い男だと思われちまう。",
-        "5353_5_Dlgs_Index13_Text": "1 - 宇文逸 $@$（悪人谷の奴らは、やはりどんな悪事にも平気で手を染める……）",
-        "5353_5_Dlgs_Index14_Text": "1 - 宇文逸 $@$（梧桐村では、包閔が小彤を盾に江兄さんを脅した。今度の杜彪は、街中で人をいたぶったうえ、私たちまで言葉で辱めようとしている……）",
-        "5353_5_Dlgs_Index19_Text": "17000 - 杜彪 $@$自分から死にに来たんだからな。閻羅殿へ行っても、恨み言を抜かすんじゃねえぞ！"
+        "5358_5_Dlgs_Index7_Text": "5509 - 慧空 $@$武当の無塵剣の名声こそ、江湖の誰もが称えております……",
+        "5359_5_Dlgs_Index0_Text": "5015 - 莫問 $@$（声を潜めて）このまま座して死を待つわけにはいかない……"
       },
       "fix_keys": [
-        "5352_3_Dlgs_Index6_Text",
-        "5353_5_Dlgs_Index2_Text",
-        "5353_5_Dlgs_Index8_Text",
-        "5353_5_Dlgs_Index13_Text",
-        "5353_5_Dlgs_Index14_Text",
-        "5353_5_Dlgs_Index19_Text"
+        "5358_5_Dlgs_Index7_Text",
+        "5359_5_Dlgs_Index0_Text"
       ]
     }
   ]
