@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-39",
+  "wave_id": "yuwen-mowen-train-39-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30443487167,
+    "artifact_id": 8720445782,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:ea512b02c36664245de28df41edd63b97ff811b71bcd41025d14198b8fa2e876",
+    "head_sha": "3c238ed734d39ce5da5ab0ced101010d0cfa147f"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train39-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-29.json",
+      "scene_groups": ["5756_2", "5756_5", "5781_10", "5781_1", "5784_4", "5784_8", "5784_9"],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5784_8_Dlgs_Index10_Text",
+          "before": "16002 - 程鈺 $@$よかった！　大侠のお二人、早くついてきてください！",
+          "after": "16002 - 程鈺 $@$よかった！　お二人とも、早く僕についてきてください！",
+          "reason": "原文「大侠你们快跟我来吧」は二人への呼びかけと「自分について来る」動作を含む。現訳「大侠のお二人」は日本語の呼びかけとして不自然で、「跟我」の主体も落ちるため、人物正本の二人まとめ呼称「お二人とも」と基調一人称「僕」を用いて戻す。"
+        },
+        {
+          "key": "5784_9_Dlgs_Index0_Text",
+          "before": "16002 - 程鈺 $@$程鈺といいます。天水城の程家堡、その堡主は私の伯父です。",
+          "after": "16002 - 程鈺 $@$程鈺といいます。天水城の程家堡、その堡主が僕の伯父です。",
+          "reason": "程鈺の弟子入り前の基調一人称は「僕」。明るく実直な若者の自己紹介で「私」へ儀礼化する根拠はなく、人物正本に沿って「僕」へ戻す。"
+        },
+        {
+          "key": "5784_9_Dlgs_Index1_Text",
+          "before": "16002 - 程鈺 $@$伯父の賀寿に来られたんですよね？　武当の方々が着いたと聞いて、伯父が皆さんを迎えに行けと私を寄こしたんです。",
+          "after": "16002 - 程鈺 $@$伯父の賀寿に来られたんですよね？　武当の方々が着いたと聞いて、伯父が皆さんを迎えに行けと僕を寄こしたんです。",
+          "reason": "同じ自己紹介場面で一人称が「私」へ揺れている。弟子入り前の程鈺の基調「僕」を保ち、若者らしい素直な説明へ統一する。"
+        }
+      ],
+      "keeps": [
+        "5756_2_Dlgs_Index0_Text", "5756_2_Dlgs_Index1_Text", "5756_2_Dlgs_Index2_Text", "5756_2_Dlgs_Index3_Text", "5756_2_Dlgs_Index4_Text", "5756_2_Dlgs_Index5_Text",
+        "5756_5_Dlgs_Index0_Text", "5756_5_Dlgs_Index1_Text", "5756_5_Dlgs_Index2_Text",
+        "5781_10_Dlgs_Index0_Text", "5781_10_Dlgs_Index1_Text", "5781_10_Dlgs_Index2_Text", "5781_10_Dlgs_Index3_Text", "5781_10_Dlgs_Index4_Text", "5781_10_Dlgs_Index5_Text",
+        "5781_1_Dlgs_Index0_Text", "5781_1_Dlgs_Index1_Text", "5781_1_Dlgs_Index2_Text", "5781_1_Dlgs_Index3_Text", "5781_1_Dlgs_Index4_Text", "5781_1_Dlgs_Index5_Text", "5781_1_Dlgs_Index6_Text", "5781_1_Dlgs_Index7_Text", "5781_1_Dlgs_Index8_Text", "5781_1_Dlgs_Index9_Text", "5781_1_Dlgs_Index10_Text", "5781_1_Dlgs_Index11_Text",
+        "5784_4_Dlgs_Index0_Text", "5784_4_Dlgs_Index1_Text",
+        "5784_8_Dlgs_Index0_Text", "5784_8_Dlgs_Index1_Text", "5784_8_Dlgs_Index2_Text", "5784_8_Dlgs_Index3_Text", "5784_8_Dlgs_Index4_Text", "5784_8_Dlgs_Index5_Text", "5784_8_Dlgs_Index6_Text", "5784_8_Dlgs_Index7_Text", "5784_8_Dlgs_Index8_Text", "5784_8_Dlgs_Index9_Text", "5784_8_Dlgs_Index11_Text", "5784_8_Dlgs_Index12_Text", "5784_8_Dlgs_Index13_Text",
+        "5784_9_Dlgs_Index2_Text", "5784_9_Dlgs_Index3_Text", "5784_9_Dlgs_Index4_Text", "5784_9_Dlgs_Index6_Text", "5784_9_Dlgs_Index7_Text", "5784_9_Dlgs_Index8_Text", "5784_9_Dlgs_Index10_Text", "5784_9_Dlgs_Index11_Text", "5784_9_Dlgs_Index12_Text"
+      ],
+      "allusion_review_candidates": ["5781_1_Dlgs_Index3_Text", "5781_1_Dlgs_Index4_Text", "5781_1_Dlgs_Index5_Text", "5781_1_Dlgs_Index9_Text", "5781_1_Dlgs_Index10_Text", "5784_9_Dlgs_Index8_Text"],
+      "allusion_review_resolved": [
+        {"key": "5781_1_Dlgs_Index3_Text", "decision": "keep", "note": "「走鏢」は程家堡の旧業を示すため「鏢局稼業」で機能を保持する。"},
+        {"key": "5781_1_Dlgs_Index4_Text", "decision": "keep", "note": "「侠骨」は程徳明の人物性を示すため「侠気に厚く」で自然に保持する。"},
+        {"key": "5781_1_Dlgs_Index5_Text", "decision": "keep", "note": "「戎騎」は西域を侵す騎兵の機能を「異族の騎兵」で保持し、特定民族を補わない。"},
+        {"key": "5781_1_Dlgs_Index9_Text", "decision": "keep", "note": "「交口称赞」「几分薄面」は「口をそろえて称え」「一目置く」で評判と面子の機能を保つ。"},
+        {"key": "5781_1_Dlgs_Index10_Text", "decision": "keep", "note": "「事半功倍」は人捜しが効率化する機能を「ずっと早く進む」で自然に保持する。"},
+        {"key": "5784_9_Dlgs_Index8_Text", "decision": "keep", "note": "「四海之内皆兄弟」は程徳明の信条として引用調を保ち、説明を加えない。"}
+      ],
+      "fact_doubts": [
+        "莫問が最近調べていた事柄の内容と重要性を本人の『大したことではない』以上に補完しない",
+        "程徳明の善行と江湖での評価は莫問の説明と周囲の評判として保持し、後続の真相を先取りしない",
+        "程鈺の父と玄火教の関係は相談中という情報に留め、同盟・所属・陰謀を確定しない",
+        "程鈺が迎え役になった経緯と程徳明の心配を、宇文逸の冗談以上に否定的評価へ広げない"
+      ]
+    }
+  ]
+}

@@ -1,1 +1,199 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-38","branch":"agent/yuwen-mowen-train-38","draft_pr":191,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":191,"merge_sha":"e3d43639ae83a0662a56ab4ef66deb6500dae026"},"base_checkpoint":{"batch":168,"pair_applied_keys":1360,"project_applied_keys":1736,"produced_by_pr":190,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-37-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_37.json","pr":190,"validated_head":"b93328c53498df25a58b03ae9cb5eaacb386aaa5"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":44,"reviewed_keys":44,"unique_reviewed_rows":44,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_only_bundles":0},"bundles":[{"batch":169,"review_status":"complete","apply_status":"verified","scene_groups":["5654_12","5654_1","5654_4","5654_6","5654_7","5654_8"],"reviewed_rows":44,"reviewed_keys":44,"unique_rows":44,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":43,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch11.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH169_2026-07-29.md","ownership_summary":{"existing_keys":44,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["5654_1_Dlgs_Index4_Text","5654_6_Dlgs_Index5_Text","5654_7_Dlgs_Index5_Text","5654_8_Dlgs_Index2_Text","5654_8_Dlgs_Index7_Text"],"allusion_review_resolved":[{"key":"5654_1_Dlgs_Index4_Text","decision":"keep","note":"「走火入魔」は武侠世界の状態名として保持し、真気逆流・経脈逆転という本文内の観察以上に原因を補わない。"},{"key":"5654_6_Dlgs_Index5_Text","decision":"keep","note":"「玉華子」は武当の故人名として保持し、謎の人物の評価を客観的事実へ変えない。"},{"key":"5654_7_Dlgs_Index5_Text","decision":"keep","note":"「風雲訣」は秘笈・武功名として保持し、本物の一、二割という説明は謎の人物の主張として扱う。"},{"key":"5654_8_Dlgs_Index2_Text","decision":"keep","note":"「道貌岸然」は謎の人物の侮蔑を「偽善者ども」で機能的に保持する。"},{"key":"5654_8_Dlgs_Index7_Text","decision":"fix","note":"「朝廷走狗」は「朝廷の犬」で敵対的呼称を保持し、「坐鎮」の役割だけを修正する。"}],"fact_doubts":["謎の人物の正体・所属・目的は本人の発言以上に確定しない","偽風雲訣の威力が本物の一、二割という説明は謎の人物の主張として保持する","各派が秘笈目的で集まったという見方は謎の人物の嘲笑であり、全派の確定動機にしない","清虚が隠している事柄の内容と真偽をこの場面から補完しない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30442376608,"artifact_id":8719993845,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:f9429365a947af691d919839fc1883fbb2c7c16a6b0fe2cdf19ff3b2c99cf59c","head_sha":"7aa941b876167a3387def7d65598a53e8f1925c8"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-38-wave-01"},"next_release":{"candidate_scene":["5756_2"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[169],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-37","release_id":"yuwen-mowen-train-37-r1","pr":190,"merge_sha":"11f7ee1278308d4856a280f319f3904c760cb792"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":44,"unique_reviewed_rows":44,"fix_keys":1,"unique_fix_rows":1,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":1,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":43,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN38_WAVE01_2026-07-29.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_38.json","merge_result":{"pr":191,"merge_sha":"e3d43639ae83a0662a56ab4ef66deb6500dae026"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-39",
+  "branch": "agent/yuwen-mowen-train-39",
+  "draft_pr": 192,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 192,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 169,
+    "pair_applied_keys": 1360,
+    "project_applied_keys": 1736,
+    "produced_by_pr": 191,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-38-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_38.json",
+      "pr": 191,
+      "validated_head": "4d9239a196f831df257b49257cbfdb0d806ef73c"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 3,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 170,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5756_2",
+        "5756_5",
+        "5781_10",
+        "5781_1",
+        "5784_4",
+        "5784_8",
+        "5784_9"
+      ],
+      "reviewed_rows": 54,
+      "reviewed_keys": 54,
+      "unique_rows": 54,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 51,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch12_reserved_5784_9.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch12.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH170_2026-07-29.md",
+      "ownership_summary": {
+        "existing_keys": 54,
+        "unowned_kept": 0,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5781_1_Dlgs_Index3_Text",
+        "5781_1_Dlgs_Index4_Text",
+        "5781_1_Dlgs_Index5_Text",
+        "5781_1_Dlgs_Index9_Text",
+        "5781_1_Dlgs_Index10_Text",
+        "5784_9_Dlgs_Index8_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5781_1_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「走鏢」は程家堡の旧業を示すため「鏢局稼業」で機能を保持する。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "「侠骨」は程徳明の人物性を示すため「侠気に厚く」で自然に保持する。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index5_Text",
+          "decision": "keep",
+          "note": "「戎騎」は西域を侵す騎兵の機能を「異族の騎兵」で保持し、特定民族を補わない。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index9_Text",
+          "decision": "keep",
+          "note": "「交口称赞」「几分薄面」は「口をそろえて称え」「一目置く」で評判と面子の機能を保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index10_Text",
+          "decision": "keep",
+          "note": "「事半功倍」は人捜しが効率化する機能を「ずっと早く進む」で自然に保持する。"
+        },
+        {
+          "key": "5784_9_Dlgs_Index8_Text",
+          "decision": "keep",
+          "note": "「四海之内皆兄弟」は程徳明の信条として引用調を保ち、説明を加えない。"
+        }
+      ],
+      "fact_doubts": [
+        "莫問が最近調べていた事柄の内容と重要性を本人の『大したことではない』以上に補完しない",
+        "程徳明の善行と江湖での評価は莫問の説明と周囲の評判として保持し、後続の真相を先取りしない",
+        "程鈺の父と玄火教の関係は相談中という情報に留め、同盟・所属・陰謀を確定しない",
+        "程鈺が迎え役になった経緯と程徳明の心配を、宇文逸の冗談以上に否定的評価へ広げない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30443487167,
+        "artifact_id": 8720445782,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:ea512b02c36664245de28df41edd63b97ff811b71bcd41025d14198b8fa2e876",
+        "head_sha": "3c238ed734d39ce5da5ab0ced101010d0cfa147f"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-39-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5786_15"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      170
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-38",
+    "release_id": "yuwen-mowen-train-38-r1",
+    "pr": 191,
+    "merge_sha": "e3d43639ae83a0662a56ab4ef66deb6500dae026"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 3,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 51,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN39_WAVE01_2026-07-29.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_39.json"
+}
