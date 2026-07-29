@@ -1,0 +1,689 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "9231_3",
+    "9232_3",
+    "9233_2",
+    "9233_4"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30494673142,
+    "artifact_id": 8741117644,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:96dfcf259f9709f2c1a730bd046856e494501354c4607be005694c5c80792a5b",
+    "head_sha": "4e2b35a7f953779f5d031b187c9c5ffd6866c7fa"
+  },
+  "scene_context": {
+    "timeline": "悪人谷残党との戦闘末尾、沙権賈の敗北と莫問の処断、同行者構成が異なる三つの分岐における無名の出現、宇文逸の内力への評価、悪人谷主としての正体開示、莫問への挑発と不倶戴天の宣言までを含む。各出現場面は相互排他的な分岐として扱い、同席者や発話を一本の時系列へ合成しない。",
+    "branch_note": "9231_3・9232_3・9233_4は無名出現時の同行者構成が異なる分岐であり、李元興・燕未還・荀杳杳の同席や発話を他分岐へ拡張しない。9233_2は悪人谷残党の敗北と莫問による処断を示す別の戦闘末尾で、全分岐に共通する出来事とは断定しない。次の9234_6以降は円覚の介入、烏長老の遺体・青竹杖の処置、少林への移動という後始末へ移るため別packetとする。"
+  },
+  "rows": [
+    {
+      "key": "9231_3_Dlgs_Index0_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$宗师境界……不，已几近天人合一之境……难道你已修成——",
+      "ja": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに——"
+    },
+    {
+      "key": "9231_3_Dlgs_Index1_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$（不……这内力不只是风云诀……）",
+      "ja": "9500 - 無名 $@$（いや……この内力は風雲訣だけではない……）"
+    },
+    {
+      "key": "9231_3_Dlgs_Index2_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$呵呵，一段时日未见，你竟可精进如斯，这江湖上已许久没有这般有趣的人物了……",
+      "ja": "9500 - 無名 $@$ふふ、しばらく見ないうちに、貴様はこれほどまでに精進したか。この江湖には久しくこれほど面白い人物はいなかったぞ……"
+    },
+    {
+      "key": "9231_3_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$辽城之时出现的面具人……你究竟是谁？",
+      "ja": "1 - 宇文逸 $@$遼城の時に現れた仮面の男……貴様、一体何者だ？"
+    },
+    {
+      "key": "9231_3_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$他是恶人谷主……无名。",
+      "ja": "5015 - 莫問 $@$奴は悪人谷の谷主……無名だ。"
+    },
+    {
+      "key": "9231_3_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你来此地，是要为你的部下报仇吗？",
+      "ja": "1 - 宇文逸 $@$ここに来たのは、部下の仇を討つためか？"
+    },
+    {
+      "key": "9231_3_Dlgs_Index6_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$报仇？呵呵呵呵……就算你们不动手，我也会亲自除掉他们。",
+      "ja": "9500 - 無名 $@$仇討ち？ふふふふ……貴様らが手を下さずとも、儂が自ら奴らを始末するつもりだった。"
+    },
+    {
+      "key": "9231_3_Dlgs_Index7_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$不过，能由你们手刃，亦非坏事，莫问，你觉得如何？",
+      "ja": "9500 - 無名 $@$だが、貴様らの手で討たれるのも悪くない。莫問、どう思う？"
+    },
+    {
+      "key": "9231_3_Dlgs_Index8_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$哼，你如今身份败露，难道还妄想花言巧语来蒙蔽我吗？！",
+      "ja": "5015 - 莫問 $@$ふん、今や正体も露見したというのに、まだ口先でわたしを欺けると思っているのか？！"
+    },
+    {
+      "key": "9231_3_Dlgs_Index9_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$蒙蔽？",
+      "ja": "9500 - 無名 $@$欺く、だと？"
+    },
+    {
+      "key": "9231_3_Dlgs_Index10_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$究竟谁在骗你，你心里不是已经很清楚了吗？",
+      "ja": "9500 - 無名 $@$一体誰が貴様を騙しているのか、もうよく分かっているのではないか？"
+    },
+    {
+      "key": "9231_3_Dlgs_Index11_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$还是说……过了这么久，你居然什么都还没从乌天瘤嘴里问出来？",
+      "ja": "9500 - 無名 $@$それとも……これほど時間が経っても、貴様は烏天瘤の口から何も聞き出せていないとでも言うのか？"
+    },
+    {
+      "key": "9231_3_Dlgs_Index12_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$闭嘴！",
+      "ja": "5015 - 莫問 $@$黙れ！"
+    },
+    {
+      "key": "9231_3_Dlgs_Index13_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$我只要知道，我跟你不共戴天就够了！",
+      "ja": "5015 - 莫問 $@$貴様が不倶戴天の敵だ——それだけ分かっていれば十分だ！"
+    },
+    {
+      "key": "9232_3_Dlgs_Index0_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$宗师境界……不，已几近天人合一之境……难道你已修成——",
+      "ja": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに——"
+    },
+    {
+      "key": "9232_3_Dlgs_Index1_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$（不……这内力不只是风云诀……）",
+      "ja": "9500 - 無名 $@$（いや……この内力は風雲訣だけではない……）"
+    },
+    {
+      "key": "9232_3_Dlgs_Index2_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$呵呵，一段时日未见，你竟可精进如斯，这江湖上已许久没有这般有趣的人物了……",
+      "ja": "9500 - 無名 $@$ふふ、しばらく見ないうちに、貴様はこれほどまでに精進したか。この江湖には久しくこれほど面白い人物はいなかったぞ……"
+    },
+    {
+      "key": "9232_3_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$辽城之时出现的面具人……你究竟是谁？",
+      "ja": "1 - 宇文逸 $@$遼城の時に現れた仮面の男……貴様、一体何者だ？"
+    },
+    {
+      "key": "9232_3_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$他是恶人谷主……无名。",
+      "ja": "5015 - 莫問 $@$奴は悪人谷の谷主……無名だ。"
+    },
+    {
+      "key": "9232_3_Dlgs_Index5_Text",
+      "speaker": "李元兴",
+      "zh": "7502 - 李元兴 $@$恶人谷主无名……你暗中谋划至今，终于亲自现身了。",
+      "ja": "7502 - 李元興 $@$悪人谷の谷主、無名……長らく陰で策を巡らせてきた貴様が、ついに自ら姿を現したか。"
+    },
+    {
+      "key": "9232_3_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你来此地，是要为你的部下报仇吗？",
+      "ja": "1 - 宇文逸 $@$ここに来たのは、部下の仇を討つためか？"
+    },
+    {
+      "key": "9232_3_Dlgs_Index7_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$报仇？呵呵呵呵……就算你们不动手，我也会亲自除掉他们。",
+      "ja": "9500 - 無名 $@$仇討ち？ふふふふ……貴様らが手を下さずとも、儂が自ら奴らを始末するつもりだった。"
+    },
+    {
+      "key": "9232_3_Dlgs_Index8_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$不过，能由你们手刃，亦非坏事，莫问，你觉得如何？",
+      "ja": "9500 - 無名 $@$だが、貴様らの手で討たれるのも悪くない。莫問、どう思う？"
+    },
+    {
+      "key": "9232_3_Dlgs_Index9_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$哼，你如今身份败露，难道还妄想花言巧语来蒙蔽我吗？！",
+      "ja": "5015 - 莫問 $@$ふん、今や正体も露見したというのに、まだ口先でわたしを欺けると思っているのか？！"
+    },
+    {
+      "key": "9232_3_Dlgs_Index10_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$蒙蔽？",
+      "ja": "9500 - 無名 $@$欺く、だと？"
+    },
+    {
+      "key": "9232_3_Dlgs_Index11_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$究竟谁在骗你，你心里不是已经很清楚了吗？",
+      "ja": "9500 - 無名 $@$一体誰が貴様を騙しているのか、もうよく分かっているのではないか？"
+    },
+    {
+      "key": "9232_3_Dlgs_Index12_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$还是说……过了这么久，你居然什么都还没从乌天瘤嘴里问出来？",
+      "ja": "9500 - 無名 $@$それとも……これほど時間が経っても、貴様は烏天瘤の口から何も聞き出せていないとでも言うのか？"
+    },
+    {
+      "key": "9232_3_Dlgs_Index13_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$闭嘴！",
+      "ja": "5015 - 莫問 $@$黙れ！"
+    },
+    {
+      "key": "9232_3_Dlgs_Index14_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$我只要知道，我跟你不共戴天就够了！",
+      "ja": "5015 - 莫問 $@$貴様が不倶戴天の敵だ——それだけ分かっていれば十分だ！"
+    },
+    {
+      "key": "9233_2_Dlgs_Index0_Text",
+      "speaker": "杜彪",
+      "zh": "17000 - 杜彪 $@$唔……！",
+      "ja": "17000 - 杜彪 $@$うっ……！"
+    },
+    {
+      "key": "9233_2_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你还要负隅顽抗吗？",
+      "ja": "1 - 宇文逸 $@$まだ抵抗を続けるつもりか？"
+    },
+    {
+      "key": "9233_2_Dlgs_Index2_Text",
+      "speaker": "沙权贾",
+      "zh": "17004 - 沙权贾 $@$该死……！",
+      "ja": "17004 - 沙権賈 $@$くそっ……！"
+    },
+    {
+      "key": "9233_2_Dlgs_Index3_Text",
+      "speaker": "沙权贾",
+      "zh": "17004 - 沙权贾 $@$没想到……老子会在这阴沟里翻船……",
+      "ja": "17004 - 沙権賈 $@$まさか……この俺が、こんなところで足をすくわれるとはな……"
+    },
+    {
+      "key": "9233_2_Dlgs_Index4_Text",
+      "speaker": "沙权贾",
+      "zh": "17004 - 沙权贾 $@$要杀要剐……动手吧！",
+      "ja": "17004 - 沙権賈 $@$殺すなり何なり……好きにしろ！"
+    },
+    {
+      "key": "9233_2_Dlgs_Index5_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$如你所愿！",
+      "ja": "5015 - 莫問 $@$望みどおりにしてやる！"
+    },
+    {
+      "key": "9233_4_Dlgs_Index0_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$宗师境界……不，已几近天人合一之境……难道你已修成——",
+      "ja": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに——"
+    },
+    {
+      "key": "9233_4_Dlgs_Index1_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$（不……这内力不只是风云诀……）",
+      "ja": "9500 - 無名 $@$（いや……この内力は風雲訣だけではない……）"
+    },
+    {
+      "key": "9233_4_Dlgs_Index2_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$呵呵，一段时日未见，你竟可精进如斯，这江湖上已许久没有这般有趣的人物了……",
+      "ja": "9500 - 無名 $@$ふふ、しばらく見ないうちに、貴様はこれほどまでに精進したか。この江湖には久しくこれほど面白い人物はいなかったぞ……"
+    },
+    {
+      "key": "9233_4_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$辽城之时出现的面具人……你究竟是谁？",
+      "ja": "1 - 宇文逸 $@$遼城の時に現れた仮面の男……貴様、一体何者だ？"
+    },
+    {
+      "key": "9233_4_Dlgs_Index4_Text",
+      "speaker": "燕未还",
+      "zh": "12011 - 燕未还 $@$他是无名，恶人谷主无名。",
+      "ja": "12011 - 燕未還 $@$奴は無名——悪人谷の谷主だ。"
+    },
+    {
+      "key": "9233_4_Dlgs_Index5_Text",
+      "speaker": "荀杳杳",
+      "zh": "12010 - 荀杳杳 $@$还真是……熟悉又陌生的一张面具呵。",
+      "ja": "12010 - 荀杳杳 $@$本当に……見覚えがあるようで、どこか見知らぬ仮面ね。"
+    },
+    {
+      "key": "9233_4_Dlgs_Index6_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$你们两个……呵，能在恶人谷中隐藏至今，无论心性胆识，都比那几个废物强上太多。",
+      "ja": "9500 - 無名 $@$貴様ら二人……ふっ、悪人谷に今日まで潜んでいたとは。心性も胆力も、あの役立たずどもよりはるかに上だ。"
+    },
+    {
+      "key": "9233_4_Dlgs_Index7_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$可惜，终归不能为我所用。",
+      "ja": "9500 - 無名 $@$惜しいが、結局は儂のために働く気はないらしい。"
+    },
+    {
+      "key": "9233_4_Dlgs_Index8_Text",
+      "speaker": "李元兴",
+      "zh": "7502 - 李元兴 $@$恶人谷主无名，你暗中谋划至今，终于亲自现身了。",
+      "ja": "7502 - 李元興 $@$悪人谷の谷主、無名……長らく陰で策を巡らせてきた貴様が、ついに自ら姿を現したか。"
+    },
+    {
+      "key": "9233_4_Dlgs_Index9_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你来此地，是要为你的部下报仇吗？",
+      "ja": "1 - 宇文逸 $@$ここに来たのは、部下の仇を討つためか？"
+    },
+    {
+      "key": "9233_4_Dlgs_Index10_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$报仇？呵呵呵呵……就算你们不动手，我也会亲自除掉他们。",
+      "ja": "9500 - 無名 $@$仇討ち？ふふふふ……貴様らが手を下さずとも、儂が自ら奴らを始末するつもりだった。"
+    },
+    {
+      "key": "9233_4_Dlgs_Index11_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$不过，能由你们手刃，亦非坏事，莫问，你觉得如何？",
+      "ja": "9500 - 無名 $@$だが、貴様らの手で討たれるのも悪くない。莫問、どう思う？"
+    },
+    {
+      "key": "9233_4_Dlgs_Index12_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$哼，你如今身份败露，难道还妄想花言巧语来蒙蔽我吗？！",
+      "ja": "5015 - 莫問 $@$ふん、今や正体も露見したというのに、まだ口先でわたしを欺けると思っているのか？！"
+    },
+    {
+      "key": "9233_4_Dlgs_Index13_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$蒙蔽？",
+      "ja": "9500 - 無名 $@$欺く、だと？"
+    },
+    {
+      "key": "9233_4_Dlgs_Index14_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$究竟谁在骗你，你心里不是已经很清楚了吗？",
+      "ja": "9500 - 無名 $@$一体誰が貴様を騙しているのか、もうよく分かっているのではないか？"
+    },
+    {
+      "key": "9233_4_Dlgs_Index15_Text",
+      "speaker": "无名",
+      "zh": "9500 - 无名 $@$还是说……过了这么久，你居然什么都还没从乌天瘤嘴里问出来？",
+      "ja": "9500 - 無名 $@$それとも……これほど時間が経っても、貴様は烏天瘤の口から何も聞き出せていないとでも言うのか？"
+    },
+    {
+      "key": "9233_4_Dlgs_Index16_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$闭嘴！",
+      "ja": "5015 - 莫問 $@$黙れ！"
+    },
+    {
+      "key": "9233_4_Dlgs_Index17_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$我只要知道，我跟你不共戴天就够了！",
+      "ja": "5015 - 莫問 $@$貴様が不倶戴天の敵だ——それだけ分かっていれば十分だ！"
+    }
+  ],
+  "candidate_questions": [
+    "無名の老獪な威圧、含み笑い、内心の観察が一律の尊大語へ均されず、外向きの挑発と心内語の差が保たれているか",
+    "莫問の『閉嘴』『不共戴天』が、無名への激しい敵意と知識不足を押し隠す拒絶として短く切れ、説明的に膨らんでいないか",
+    "9231_3・9232_3・9233_4の同行者構成と発話差を相互排他的な分岐として個別に裁定しているか",
+    "無名が宇文逸の内力を風雲訣だけではないと推測する心内語を、客観的な功法構成の確定事実へ昇格していないか",
+    "沙権賈の強がりと莫問の処断が、粗暴な敗北台詞と即断の応酬として保たれ、上品な説明へ弱められていないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "天人合一",
+      "不共戴天",
+      "负隅顽抗",
+      "阴沟里翻船",
+      "要杀要剐",
+      "花言巧语"
+    ],
+    "fact_doubts": [
+      "9231_3・9232_3・9233_4の『几近天人合一』『内力不只是风云诀』は無名の観察・推測であり、宇文逸の客観的な境界到達や内力構成として確定しない",
+      "無名の『自ら部下を始末するつもりだった』は本人の発言であり、実際にその計画が事前から存在したことや実行結果を補完しない",
+      "無名の『誰が莫問を騙しているか』『烏天瘤から何も聞き出せていない』は挑発であり、欺瞞主体や烏天瘤の供述内容を客観事実として確定しない",
+      "9231_3・9232_3・9233_4は同行者構成が異なる相互排他的な無名出現分岐であり、李元興・燕未還・荀杳杳の同席を全分岐へ拡張しない",
+      "9233_2の沙権賈敗北と莫問の処断は当該戦闘末尾の出来事であり、三つの無名出現分岐すべてに先行した共通事実とは断定しない",
+      "莫問の『不倶戴天の敵だと分かれば十分』は本人の拒絶と決意であり、無名と天山派覆滅の全真相が確定したことを意味しない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 53,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch28.json",
+        "keys": [
+          "9231_3_Dlgs_Index0_Text",
+          "9231_3_Dlgs_Index10_Text",
+          "9231_3_Dlgs_Index11_Text",
+          "9231_3_Dlgs_Index12_Text",
+          "9231_3_Dlgs_Index13_Text",
+          "9231_3_Dlgs_Index1_Text",
+          "9231_3_Dlgs_Index2_Text",
+          "9231_3_Dlgs_Index3_Text",
+          "9231_3_Dlgs_Index4_Text",
+          "9231_3_Dlgs_Index5_Text",
+          "9231_3_Dlgs_Index6_Text",
+          "9231_3_Dlgs_Index7_Text",
+          "9231_3_Dlgs_Index8_Text",
+          "9231_3_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch29.json",
+        "keys": [
+          "9232_3_Dlgs_Index0_Text",
+          "9232_3_Dlgs_Index10_Text",
+          "9232_3_Dlgs_Index11_Text",
+          "9232_3_Dlgs_Index12_Text",
+          "9232_3_Dlgs_Index13_Text",
+          "9232_3_Dlgs_Index14_Text",
+          "9232_3_Dlgs_Index1_Text",
+          "9232_3_Dlgs_Index2_Text",
+          "9232_3_Dlgs_Index3_Text",
+          "9232_3_Dlgs_Index4_Text",
+          "9232_3_Dlgs_Index5_Text",
+          "9232_3_Dlgs_Index6_Text",
+          "9232_3_Dlgs_Index7_Text",
+          "9232_3_Dlgs_Index8_Text",
+          "9232_3_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch30.json",
+        "keys": [
+          "9233_2_Dlgs_Index0_Text",
+          "9233_2_Dlgs_Index1_Text",
+          "9233_2_Dlgs_Index2_Text",
+          "9233_2_Dlgs_Index3_Text",
+          "9233_2_Dlgs_Index4_Text",
+          "9233_2_Dlgs_Index5_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch31.json",
+        "keys": [
+          "9233_4_Dlgs_Index0_Text",
+          "9233_4_Dlgs_Index10_Text",
+          "9233_4_Dlgs_Index11_Text",
+          "9233_4_Dlgs_Index12_Text",
+          "9233_4_Dlgs_Index13_Text",
+          "9233_4_Dlgs_Index14_Text",
+          "9233_4_Dlgs_Index15_Text",
+          "9233_4_Dlgs_Index16_Text",
+          "9233_4_Dlgs_Index17_Text",
+          "9233_4_Dlgs_Index1_Text",
+          "9233_4_Dlgs_Index2_Text",
+          "9233_4_Dlgs_Index3_Text",
+          "9233_4_Dlgs_Index4_Text",
+          "9233_4_Dlgs_Index5_Text",
+          "9233_4_Dlgs_Index6_Text",
+          "9233_4_Dlgs_Index7_Text",
+          "9233_4_Dlgs_Index8_Text",
+          "9233_4_Dlgs_Index9_Text"
+        ]
+      }
+    ],
+    "unowned": [],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:95f00858c08daf8625df080f17411d6e528c84ce1ab6f902840fdc8ce54bbbf7",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/無名.md",
+        "digest": "sha256:5116e6a2aefaa595a164e8b81431efdd3bfac0fde2d70a01fc0f5375ce904a57",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/杜彪.md",
+        "digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/沙権賈.md",
+        "digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/荀杳杳.md",
+        "digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/無名.md",
+        "digest": "sha256:5116e6a2aefaa595a164e8b81431efdd3bfac0fde2d70a01fc0f5375ce904a57",
+        "document_type": "persona",
+        "name": "無名",
+        "aliases": [
+          "無名",
+          "无名"
+        ],
+        "evidence_keys": [
+          "9231_3_Dlgs_Index0_Text",
+          "9231_3_Dlgs_Index1_Text",
+          "9231_3_Dlgs_Index2_Text",
+          "9231_3_Dlgs_Index6_Text",
+          "9231_3_Dlgs_Index7_Text",
+          "9231_3_Dlgs_Index9_Text",
+          "9231_3_Dlgs_Index10_Text",
+          "9231_3_Dlgs_Index11_Text",
+          "9232_3_Dlgs_Index0_Text",
+          "9232_3_Dlgs_Index1_Text",
+          "9232_3_Dlgs_Index2_Text",
+          "9232_3_Dlgs_Index7_Text",
+          "9232_3_Dlgs_Index8_Text",
+          "9232_3_Dlgs_Index10_Text",
+          "9232_3_Dlgs_Index11_Text",
+          "9232_3_Dlgs_Index12_Text",
+          "9233_4_Dlgs_Index0_Text",
+          "9233_4_Dlgs_Index1_Text",
+          "9233_4_Dlgs_Index2_Text",
+          "9233_4_Dlgs_Index6_Text",
+          "9233_4_Dlgs_Index7_Text",
+          "9233_4_Dlgs_Index10_Text",
+          "9233_4_Dlgs_Index11_Text",
+          "9233_4_Dlgs_Index13_Text",
+          "9233_4_Dlgs_Index14_Text",
+          "9233_4_Dlgs_Index15_Text"
+        ]
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "9231_3_Dlgs_Index3_Text",
+          "9231_3_Dlgs_Index5_Text",
+          "9232_3_Dlgs_Index3_Text",
+          "9232_3_Dlgs_Index6_Text",
+          "9233_2_Dlgs_Index1_Text",
+          "9233_4_Dlgs_Index3_Text",
+          "9233_4_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:95f00858c08daf8625df080f17411d6e528c84ce1ab6f902840fdc8ce54bbbf7",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "9231_3_Dlgs_Index4_Text",
+          "9231_3_Dlgs_Index8_Text",
+          "9231_3_Dlgs_Index12_Text",
+          "9231_3_Dlgs_Index13_Text",
+          "9232_3_Dlgs_Index4_Text",
+          "9232_3_Dlgs_Index9_Text",
+          "9232_3_Dlgs_Index13_Text",
+          "9232_3_Dlgs_Index14_Text",
+          "9233_2_Dlgs_Index5_Text",
+          "9233_4_Dlgs_Index12_Text",
+          "9233_4_Dlgs_Index16_Text",
+          "9233_4_Dlgs_Index17_Text"
+        ]
+      },
+      {
+        "path": "10_人物/杜彪.md",
+        "digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+        "document_type": "persona",
+        "name": "杜彪",
+        "aliases": [
+          "杜彪"
+        ],
+        "evidence_keys": [
+          "9233_2_Dlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "10_人物/沙権賈.md",
+        "digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+        "document_type": "persona",
+        "name": "沙権賈",
+        "aliases": [
+          "沙権賈",
+          "沙权贾"
+        ],
+        "evidence_keys": [
+          "9233_2_Dlgs_Index2_Text",
+          "9233_2_Dlgs_Index3_Text",
+          "9233_2_Dlgs_Index4_Text"
+        ]
+      },
+      {
+        "path": "10_人物/荀杳杳.md",
+        "digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+        "document_type": "persona",
+        "name": "荀杳杳",
+        "aliases": [
+          "荀杳杳"
+        ],
+        "evidence_keys": [
+          "9233_4_Dlgs_Index5_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "李元兴",
+      "燕未还"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:8d5d943d93c91ac10b600db7c52a33b7181ecfcf0bf380011a968e6aa8e49087"
+  }
+}
