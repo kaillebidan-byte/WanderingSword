@@ -36,6 +36,8 @@ def assert_guarded_release_rerun() -> str:
     preflight = text.split("\n  preflight:\n", 1)[1].split("\n  relation:\n", 1)[0]
     assert "group: release-train-orchestrator-${{ github.event.pull_request.number }}" in text
     assert "cancel-in-progress: true" in text
+    assert "pull-requests: write" in guard
+    assert "issues: write" in guard
     assert "gh api" in guard
     assert "pulls/${{ github.event.pull_request.number }}" in guard
     assert "release_orchestrator_guard.py" in guard
