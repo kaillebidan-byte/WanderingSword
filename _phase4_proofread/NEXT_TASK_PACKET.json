@@ -1,89 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-31-quality-audit",
+  "task_id": "post-train31-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 161,
+    "batch": 162,
     "pair_applied_keys": 1358,
     "project_applied_keys": 1734,
-    "produced_by_pr": 183,
-    "release_id": "yuwen-mowen-train-30-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_30.json"
+    "produced_by_pr": 184,
+    "release_id": "yuwen-mowen-train-31-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_31.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5370_1",
-    "5388_1",
-    "5389_2",
-    "5389_4",
-    "5444_2",
-    "5446_1",
-    "5449_2",
-    "5450_3"
+    "5452_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-31-wave-01",
-    "packet_id": "yuwen-mowen-train31-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 162
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30432296591,
-    "artifact_id": 8716013905,
-    "artifact_digest": "sha256:5c0afa395f227cd8d02fc6c4542bfed6d9e147dbbb5b428bfaa4040a735c70b1",
-    "artifact_head": "8452bb0a111ca18d0b1cb2f8ca7d90081e9254bf",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30433317078,
+    "artifact_id": 8716424394,
+    "artifact_digest": "sha256:d6016240852fc336189ebb0ba5e0b6db61aa633a54b34186119ce7e41480f764",
+    "artifact_head": "24cd869ce584686424d3dbc7b1414baa72401e32",
+    "freshness_rule": "次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-31",
     "release_id": "yuwen-mowen-train-31-r1",
     "pr": 184,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-31統合前に5452_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-31",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 162,
+    "planned_batch": 163,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 44,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5370_1",
-      "5388_1",
-      "5389_2",
-      "5389_4",
-      "5444_2",
-      "5446_1",
-      "5449_2",
-      "5450_3"
-    ],
-    "grouping_decision": "八場面・44行でrelation artifact上の連続範囲が意味境界を持って閉じ、標準40〜60行の範囲内で封印した。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 2,
-    "new_project_keys": 0,
-    "fix_keys": 2
   }
 }
