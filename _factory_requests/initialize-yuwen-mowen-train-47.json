@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-47",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30496632159,
+    "artifact_id": 8741857586,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:f11717517191a314822f3fe44f83acff2a60ff745e3b2ffdbb174f3be3333bae",
+    "artifact_head": "18041e4c8a4563e411973332d77e4d991b46bba0"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "9234_6",
+      "9236_6",
+      "9238_6",
+      "9245_1"
+    ],
+    "unique_reviewed_rows": 44,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "無名が退いた直後。円覚が戦闘を収拾し、分岐ごとに烏長老の遺体と青竹杖の扱いを決めて一行が少林へ向かう。その後、宇文逸と莫問が玄火教の丐幇襲撃、無名、風雲訣の出所について話す。",
+    "branch_note": "9234_6・9236_6・9238_6は同行者と青竹杖回収状況が異なる相互排他的分岐。李元興・燕未還・荀杳杳の関与や青竹杖の扱いを合成しない。9245_1は少林行き決定後の師兄弟の私的な確認で、前段分岐の同席者を持ち込まない。",
+    "seal_attestation": "三つの戦後分岐と直後の師兄弟会話、計44行。円覚の収拾と少林行きの決定から、玄火教襲撃と風雲訣の出所を宇文逸が説明し、莫問が事情を受け止めるまでを閉じる。次の9245_3は別の招待と翌日の帰山準備へ移るため切る。",
+    "candidate_questions": [
+      "三つの相互排他分岐で、円覚・宇文逸・莫問の口調と同一内容の訳が一貫しているか。",
+      "烏長老の遺体と青竹杖の処置が、各分岐の同行者・取得状況に即して訳し分けられているか。",
+      "9245_1で、宇文逸の後ろめたさと莫問の問い詰めすぎない師兄らしさが保たれているか。",
+      "玄火教・天山派・風雲訣・五霊心経に関する発話を、話者の知識や推測を越えて確定事実へ広げていないか。"
+    ],
+    "allusion_candidates": [
+      "9234_6_Dlgs_Index0_Text",
+      "9236_6_Dlgs_Index0_Text",
+      "9238_6_Dlgs_Index0_Text",
+      "9234_6_Dlgs_Index7_Text",
+      "9236_6_Dlgs_Index9_Text",
+      "9238_6_Dlgs_Index10_Text",
+      "9245_1_Dlgs_Index14_Text"
+    ],
+    "fact_doubts": [
+      "円覚の『天人合一の境地に達するほどの達人』は無名への評価であり、宇文逸や無名の客観的な境界到達を確定しない。",
+      "烏長老の遺体と青竹杖の処置は分岐ごとに異なるため、李元興・燕未還・荀杳杳の同行や青竹杖回収を全分岐共通へ拡張しない。",
+      "宇文逸の『玄火教の目的は青竹杖だけのようだ』は推測であり、玄離の計画や襲撃目的を確定しない。",
+      "莫問の『天山派覆滅後は誰も風雲訣を修得していない』は本人の知識範囲の説明であり、作中世界の絶対事実として扱わない。",
+      "宇文逸が五霊心経残篇から風雲訣を会得した経緯は本人の説明。無名の入手経路や両者の内力構成を補完しない。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9234_6_9245_1_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN47_WAVE01_2026-07-30.md"
+  }
+}
