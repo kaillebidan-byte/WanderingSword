@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-32-r1",
+  "train_id": "yuwen-mowen-train-32",
+  "pr": 185,
+  "ci_head": "f7bb4ded7438422eb72aff4fa0d02bbfa6a9c00e",
+  "asset_head": "1485874704f05d18511709a0af08a79c38632499",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH163_2026-07-29.md",
+  "counts": {
+    "batch": 163,
+    "pair_applied_keys": 1358,
+    "project_applied_keys": 1734,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30435847682,
+    "workflow": "Release train orchestrator",
+    "head_sha": "f7bb4ded7438422eb72aff4fa0d02bbfa6a9c00e",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "Release train orchestrator run 30435847682でguard、preflight、Relation、Cross、Apply、pak検証、finalization入力生成が成功した。",
+    "第163束の3修正は既存ownerへ適用され、pending fixesは0件。",
+    "次候補5508_13は次のdirect exchangeとしてminimal reservationだけを作成し、PR #185統合前にpreparationを開始しない。"
+  ]
+}

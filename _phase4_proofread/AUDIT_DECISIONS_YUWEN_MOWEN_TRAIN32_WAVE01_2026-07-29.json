@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-32",
+  "wave_id": "yuwen-mowen-train-32-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30433317078,
+    "artifact_id": 8716424394,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:d6016240852fc336189ebb0ba5e0b6db61aa633a54b34186119ce7e41480f764",
+    "head_sha": "24cd869ce584686424d3dbc7b1414baa72401e32"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train32-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5452_1_5506_3_2026-07-29.json",
+      "scene_groups": [
+        "5452_1",
+        "5455_1",
+        "5501_2",
+        "5502_5",
+        "5502_6",
+        "5504_3",
+        "5506_3"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5501_2_Dlgs_Index6_Text",
+          "before": "17115 - 瑶姫 $@$ふふ、尾けてくる連中の狙いは分からない。早く引きずり出さないと、任務に差し障る方がよほど損じゃないかしら～",
+          "after": "17115 - 瑶姫 $@$ふふ、尾けてくる連中の狙いは分からない。早く引きずり出しておかないと、任務に差し障る方がよほど割に合わないでしょう～",
+          "reason": "原文は「早めに追跡者を突き止めなければ、任務に支障が出てかえって割に合わない」という条件関係。現訳は条件節と比較対象の接続が崩れ、「損」の口語で瑶姫の余裕も弱まるため、条件と「得不偿失」の機能を自然な日本語へ戻す。"
+        },
+        {
+          "key": "5502_5_Dlgs_Index2_Text",
+          "before": "17005 - 欧陽雪 $@$莫問道長は、誰かが故意にわたくしたちの足取りを漏らしたとお考えなのですか？",
+          "after": "17005 - 欧陽雪 $@$莫問道長のお考えでは、誰かが故意にわたくしたちの足取りを漏らした、ということですか？",
+          "reason": "原文「莫问道长的意思是」は莫問の推論内容を確認する文。現訳の「莫問道長は、誰かが」は主語関係が一読で取りにくいため、「お考えでは」で推論の帰属を明示し、欧陽雪の慎重な問いとして整える。"
+        },
+        {
+          "key": "5502_6_Dlgs_Index3_Text",
+          "before": "17115 - 瑶姫 $@$千陵渡には確かに船があるけれど、小雪ちゃんはあまり外へ出ないから、まだ知らないでしょうけど、あの渡し場はちょうど姑蘇の北西にあるのよ……",
+          "after": "17115 - 瑶姫 $@$千陵渡には確かに船があるわ。でも、小雪ちゃんはあまり外へ出ないから知らないでしょうね。あの渡し場は、ちょうど姑蘇の北西にあるのよ……",
+          "reason": "同一文内で「けれど」と「でしょうけど」が重なり、瑶姫の説明とからかいの流れがもつれる。内容を増減せず、船の存在、外出の少ない小雪への含み、渡し場の位置を三拍に分けて地モードの余裕を戻す。"
+        }
+      ],
+      "keeps": [
+        "5452_1_Dlgs_Index0_Text",
+        "5452_1_Dlgs_Index1_Text",
+        "5452_1_Dlgs_Index2_Text",
+        "5452_1_Dlgs_Index3_Text",
+        "5452_1_Dlgs_Index4_Text",
+        "5455_1_Dlgs_Index0_Text",
+        "5455_1_Dlgs_Index1_Text",
+        "5455_1_Dlgs_Index2_Text",
+        "5455_1_Dlgs_Index3_Text",
+        "5455_1_Dlgs_Index4_Text",
+        "5455_1_Dlgs_Index5_Text",
+        "5501_2_Dlgs_Index0_Text",
+        "5501_2_Dlgs_Index1_Text",
+        "5501_2_Dlgs_Index2_Text",
+        "5501_2_Dlgs_Index3_Text",
+        "5501_2_Dlgs_Index4_Text",
+        "5501_2_Dlgs_Index5_Text",
+        "5501_2_Dlgs_Index7_Text",
+        "5501_2_Dlgs_Index8_Text",
+        "5501_2_Dlgs_Index9_Text",
+        "5501_2_Dlgs_Index10_Text",
+        "5502_5_Dlgs_Index0_Text",
+        "5502_5_Dlgs_Index1_Text",
+        "5502_5_Dlgs_Index3_Text",
+        "5502_5_Dlgs_Index4_Text",
+        "5502_6_Dlgs_Index0_Text",
+        "5502_6_Dlgs_Index1_Text",
+        "5502_6_Dlgs_Index2_Text",
+        "5502_6_Dlgs_Index4_Text",
+        "5502_6_Dlgs_Index5_Text",
+        "5502_6_Dlgs_Index6_Text",
+        "5502_6_Dlgs_Index7_Text",
+        "5504_3_Dlgs_Index0_Text",
+        "5504_3_Dlgs_Index1_Text",
+        "5504_3_Dlgs_Index2_Text",
+        "5504_3_Dlgs_Index3_Text",
+        "5504_3_Dlgs_Index4_Text",
+        "5504_3_Dlgs_Index5_Text",
+        "5504_3_Dlgs_Index6_Text",
+        "5504_3_Dlgs_Index7_Text",
+        "5504_3_Dlgs_Index8_Text",
+        "5504_3_Dlgs_Index9_Text",
+        "5504_3_Dlgs_Index10_Text",
+        "5504_3_Dlgs_Index11_Text",
+        "5504_3_Dlgs_Index12_Text",
+        "5504_3_Dlgs_Index13_Text",
+        "5506_3_Dlgs_Index0_Text",
+        "5506_3_Dlgs_Index1_Text",
+        "5506_3_Dlgs_Index2_Text"
+      ],
+      "allusion_review_candidates": [
+        "5452_1_Dlgs_Index2_Text",
+        "5501_2_Dlgs_Index6_Text",
+        "5502_5_Dlgs_Index0_Text",
+        "5502_5_Dlgs_Index3_Text",
+        "packet-scan:既来之则安之"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5452_1_Dlgs_Index2_Text",
+          "decision": "keep",
+          "note": "「饱一饱眼福」は珍しい物を存分に見る意。莫棄の快活な「ひと目、拝ませてくれよ」が場面機能を自然に保つ。"
+        },
+        {
+          "key": "5501_2_Dlgs_Index6_Text",
+          "decision": "fix",
+          "note": "「得不偿失」は得るものより損失が大きい意。条件関係を戻し、「割に合わない」で瑶姫の余裕ある指摘として表す。"
+        },
+        {
+          "key": "5502_5_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「湛盧」は固有の名剣名。説明や普通名詞化を加えず、既定表記を保持する。"
+        },
+        {
+          "key": "5502_5_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「危机重重」は危険が幹重にも続くこと。現訳「この先は危険が続くだろう」が推測範囲と警戒機能を保つ。"
+        },
+        {
+          "key": "packet-scan:既来之则安之",
+          "decision": "not_present",
+          "note": "封印した52行の原文には該当成句が存在しない。候補抽出上の語として記録し、別行へ意味を補わない。"
+        }
+      ],
+      "fact_doubts": [
+        "追跡者の黒幕と湛盧の噂を流した者は未確定であり、莫問たちの推測を超えて断定しない。",
+        "5504_3_Dlgs_Index6_Text: 四大悪人が別件を優先している可能性は欧陽雪の推測に留める。",
+        "5506_3_Dlgs_Index0_Text: 待ち伏せが徐海によるものかは莫問の可能性判断であり、この時点では確定しない。"
+      ]
+    }
+  ]
+}
