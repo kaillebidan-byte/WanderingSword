@@ -2,7 +2,7 @@
   "schema_version": 2,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-33",
-  "stage": "private_quality_audit",
+  "stage": "translation_frozen",
   "mode": "wave_v2",
   "cycle_control": {
     "status": "running",
@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5508_13_5531_4_2026-07-29.jsonをtranslation_quality_audit stationで監査する",
-    "last_safe_checkpoint": "private_quality_audit",
+    "exact_next_action": "release-ci labelで固定release trainを起動する",
+    "last_safe_checkpoint": "ready_for_public_ci",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -49,34 +49,60 @@
           "5531_3",
           "5531_4"
         ],
-        "status": "prepared",
+        "status": "encoded",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5508_13_5531_4_2026-07-29.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN33_WAVE01_2026-07-29.md"
         },
-        "audit_record": null,
-        "review_record": null,
-        "formal_batch": null
+        "audit_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN33_WAVE01_2026-07-29.md",
+          "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN33_WAVE01_2026-07-29.json"
+        },
+        "review_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH164_2026-07-29.md",
+          "apply_status": "pending"
+        },
+        "formal_batch": 164
       }
-    ]
+    ],
+    "encoding_summary": {
+      "bundle_count": 1,
+      "reviewed_rows": 70,
+      "reviewed_keys": 70,
+      "unique_reviewed_rows": 70,
+      "fix_keys": 1,
+      "unique_fix_rows": 1,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 1,
+      "keep_only_bundles": 0
+    }
   },
   "transport": {
-    "status": "not_ready",
+    "status": "ready_for_public_ci",
     "history": [
       {
         "status": "not_ready",
         "translation_stage": "private_preparation"
+      },
+      {
+        "status": "ready_for_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 186
       }
     ],
-    "pr": null,
+    "pr": 186,
     "merge_sha": null
   },
   "permissions": {
-    "translation_judgment_allowed": true,
+    "translation_judgment_allowed": false,
     "fix_writes_allowed": false,
     "encoding_writes_allowed": false,
-    "throughput_metrics_visible": false,
-    "metrics_frozen": true
+    "throughput_metrics_visible": true,
+    "metrics_frozen": false
   },
   "history": [
     {
@@ -85,6 +111,14 @@
     },
     {
       "stage": "private_quality_audit",
+      "status": "complete"
+    },
+    {
+      "stage": "private_encoding",
+      "status": "complete"
+    },
+    {
+      "stage": "translation_frozen",
       "status": "active"
     }
   ],
