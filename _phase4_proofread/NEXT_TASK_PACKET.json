@@ -26,13 +26,13 @@
     "5807_1"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-40-wave-01",
     "packet_id": "yuwen-mowen-train40-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 171
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -45,16 +45,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-39",
-    "release_id": "yuwen-mowen-train-39-r1",
-    "pr": 192,
-    "status": "merged",
-    "merge_sha": "6ca6d8a76c5524406211c8121bad709d19ef6580"
+    "train_id": "yuwen-mowen-train-40",
+    "release_id": "yuwen-mowen-train-40-r1",
+    "pr": 194,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -70,5 +68,47 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:3b68054309d4d5df6aac043aca1d11e970306945b4be31814bfdfca352e29074"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 55,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5786_15",
+      "5786_3",
+      "5789_2",
+      "5789_4",
+      "5790_10",
+      "5790_11",
+      "5800_1",
+      "5801_2",
+      "5803_2",
+      "5805_3",
+      "5805_4",
+      "5807_1"
+    ],
+    "grouping_decision": "十二場面・55行。寿宴への参加、蒼鷹との再遭遇、追跡、城壁での応酬、峡谷への移動までを標準40〜60行内の一つの追跡単位として封印した。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 8,
+    "new_project_keys": 0,
+    "fix_keys": 8
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN40_WAVE01_2026-07-30.json",
+    "changed_documents": [
+      "10_人物/十三鷹之蒼鷹.md"
+    ],
+    "unresolved_documents": [
+      "10_人物/程万清.md",
+      "10_人物/程徳明.md"
+    ]
   }
 }
