@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-46",
+  "wave_id": "yuwen-mowen-train-46-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30494673142,
+    "artifact_id": 8741117644,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:96dfcf259f9709f2c1a730bd046856e494501354c4607be005694c5c80792a5b",
+    "head_sha": "4e2b35a7f953779f5d031b187c9c5ffd6866c7fa"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train46-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-07-30.json",
+      "scene_groups": ["9231_3", "9232_3", "9233_2", "9233_4"],
+      "status": "audited",
+      "fixes": [
+        {"key":"9231_3_Dlgs_Index0_Text","before":"9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに——","after":"9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——","reason":"原文「难道你已修成——」は、対象を言い切る前に遮られながらも「修めた」という述語を保持する。現訳は述語まで落として観察の焦点が消えているため、未完のまま「修めたとでも——」を戻す。"},
+        {"key":"9232_3_Dlgs_Index0_Text","before":"9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに——","after":"9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——","reason":"原文「难道你已修成——」は、対象を言い切る前に遮られながらも「修めた」という述語を保持する。現訳は述語まで落として観察の焦点が消えているため、分岐複製でも「修めたとでも——」を戻す。"},
+        {"key":"9233_4_Dlgs_Index0_Text","before":"9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに——","after":"9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——","reason":"原文「难道你已修成——」は、対象を言い切る前に遮られながらも「修めた」という述語を保持する。現訳は述語まで落として観察の焦点が消えているため、分岐複製でも「修めたとでも——」を戻す。"},
+        {"key":"9231_3_Dlgs_Index7_Text","before":"9500 - 無名 $@$だが、貴様らの手で討たれるのも悪くない。莫問、どう思う？","after":"9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？","reason":"悪人谷残党は直前に討たれており、原文「能由你们手刃」はその結果を評する発話。現訳「討たれるのも」は未完・未来に聞こえるため、完了した出来事として「討たれたのも」へ直す。"},
+        {"key":"9232_3_Dlgs_Index8_Text","before":"9500 - 無名 $@$だが、貴様らの手で討たれるのも悪くない。莫問、どう思う？","after":"9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？","reason":"悪人谷残党は直前に討たれており、原文「能由你们手刃」はその結果を評する発話。現訳「討たれるのも」は未完・未来に聞こえるため、分岐複製でも「討たれたのも」へ直す。"},
+        {"key":"9233_4_Dlgs_Index11_Text","before":"9500 - 無名 $@$だが、貴様らの手で討たれるのも悪くない。莫問、どう思う？","after":"9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？","reason":"悪人谷残党は直前に討たれており、原文「能由你们手刃」はその結果を評する発話。現訳「討たれるのも」は未完・未来に聞こえるため、分岐複製でも「討たれたのも」へ直す。"},
+        {"key":"9233_2_Dlgs_Index1_Text","before":"1 - 宇文逸 $@$まだ抵抗を続けるつもりか？","after":"1 - 宇文逸 $@$まだ無駄な抵抗を続けるつもりか？","reason":"原文「负隅顽抗」は追い詰められてなお続ける無益な抵抗を責める成語。現訳は単なる抵抗へ弱めているため、宇文逸の戦闘時の断罪として「無駄な抵抗」を復元する。"},
+        {"key":"9233_4_Dlgs_Index7_Text","before":"9500 - 無名 $@$惜しいが、結局は儂のために働く気はないらしい。","after":"9500 - 無名 $@$惜しいが、結局、儂の手駒にはできぬか。","reason":"原文「不能为我所用」は、無名が二人を自分のために利用できないと判断する発話。現訳「働く気はないらしい」は本人たちの意思を推測する内容へ変えているため、黒幕の物象化した見方を保つ「儂の手駒にはできぬか」とする。"}
+      ],
+      "keeps": ["9231_3_Dlgs_Index1_Text","9231_3_Dlgs_Index2_Text","9231_3_Dlgs_Index3_Text","9231_3_Dlgs_Index4_Text","9231_3_Dlgs_Index5_Text","9231_3_Dlgs_Index6_Text","9231_3_Dlgs_Index8_Text","9231_3_Dlgs_Index9_Text","9231_3_Dlgs_Index10_Text","9231_3_Dlgs_Index11_Text","9231_3_Dlgs_Index12_Text","9231_3_Dlgs_Index13_Text","9232_3_Dlgs_Index1_Text","9232_3_Dlgs_Index2_Text","9232_3_Dlgs_Index3_Text","9232_3_Dlgs_Index4_Text","9232_3_Dlgs_Index5_Text","9232_3_Dlgs_Index6_Text","9232_3_Dlgs_Index7_Text","9232_3_Dlgs_Index9_Text","9232_3_Dlgs_Index10_Text","9232_3_Dlgs_Index11_Text","9232_3_Dlgs_Index12_Text","9232_3_Dlgs_Index13_Text","9232_3_Dlgs_Index14_Text","9233_2_Dlgs_Index0_Text","9233_2_Dlgs_Index2_Text","9233_2_Dlgs_Index3_Text","9233_2_Dlgs_Index4_Text","9233_2_Dlgs_Index5_Text","9233_4_Dlgs_Index1_Text","9233_4_Dlgs_Index2_Text","9233_4_Dlgs_Index3_Text","9233_4_Dlgs_Index4_Text","9233_4_Dlgs_Index5_Text","9233_4_Dlgs_Index6_Text","9233_4_Dlgs_Index8_Text","9233_4_Dlgs_Index9_Text","9233_4_Dlgs_Index10_Text","9233_4_Dlgs_Index12_Text","9233_4_Dlgs_Index13_Text","9233_4_Dlgs_Index14_Text","9233_4_Dlgs_Index15_Text","9233_4_Dlgs_Index16_Text","9233_4_Dlgs_Index17_Text"],
+      "allusion_review_candidates": ["9231_3_Dlgs_Index0_Text","9232_3_Dlgs_Index0_Text","9233_4_Dlgs_Index0_Text","9231_3_Dlgs_Index8_Text","9232_3_Dlgs_Index9_Text","9233_4_Dlgs_Index12_Text","9231_3_Dlgs_Index13_Text","9232_3_Dlgs_Index14_Text","9233_4_Dlgs_Index17_Text","9233_2_Dlgs_Index1_Text","9233_2_Dlgs_Index3_Text","9233_2_Dlgs_Index4_Text"],
+      "allusion_review_resolved": [
+        {"key":"9231_3_Dlgs_Index0_Text","decision":"fix","note":"「天人合一」は道家・武侠の境地を示す定着語で、この場面では特定典籍の引用ではない。語自体は保持し、行全体では脱落した「修めた」の述語だけを復元する。"},
+        {"key":"9232_3_Dlgs_Index0_Text","decision":"fix","note":"「天人合一」は分岐複製でも境地名として保持する。特定典籍の引用へ昇格せず、行全体の述語脱落のみ修正する。"},
+        {"key":"9233_4_Dlgs_Index0_Text","decision":"fix","note":"「天人合一」は分岐複製でも境地名として保持する。特定典籍の引用へ昇格せず、行全体の述語脱落のみ修正する。"},
+        {"key":"9231_3_Dlgs_Index8_Text","decision":"keep","note":"「花言巧语」は巧みな言葉で欺くことを指す定着表現。現訳「口先でわたしを欺ける」が莫問の拒絶と蔑視を自然な日本語で保つ。"},
+        {"key":"9232_3_Dlgs_Index9_Text","decision":"keep","note":"「花言巧语」は分岐複製でも定着表現として扱う。現訳の「口先で」が語気と機能を保つ。"},
+        {"key":"9233_4_Dlgs_Index12_Text","decision":"keep","note":"「花言巧语」は分岐複製でも定着表現として扱う。現訳の「口先で」が語気と機能を保つ。"},
+        {"key":"9231_3_Dlgs_Index13_Text","decision":"keep","note":"「不共戴天」は同じ天の下に生きられないほどの仇敵を示す成語。日本語にも定着した「不倶戴天」を用いた現訳が莫問の断絶を保つ。"},
+        {"key":"9232_3_Dlgs_Index14_Text","decision":"keep","note":"「不共戴天」は分岐複製でも日本語の定着成語「不倶戴天」を保持する。"},
+        {"key":"9233_4_Dlgs_Index17_Text","decision":"keep","note":"「不共戴天」は分岐複製でも日本語の定着成語「不倶戴天」を保持する。"},
+        {"key":"9233_2_Dlgs_Index1_Text","decision":"fix","note":"「负隅顽抗」は追い詰められてなお無益な抵抗を続ける成語。特定典籍の引用ではなく、現訳で脱落した無益さを「無駄な抵抗」として戻す。"},
+        {"key":"9233_2_Dlgs_Index3_Text","decision":"keep","note":"「阴沟里翻船」は思わぬ小所で失敗することを指す俗語・成語的表現。現訳「こんなところで足をすくわれる」が敗者の悔しさと機能を保つ。"},
+        {"key":"9233_2_Dlgs_Index4_Text","decision":"keep","note":"「要杀要剐」は殺すなり切り刻むなり好きにしろという居直りの定型句。現訳「殺すなり何なり……好きにしろ！」が粗野な強がりを自然に保つ。"}
+      ],
+      "fact_doubts": ["9231_3・9232_3・9233_4の「几近天人合一」「内力不只是风云诀」は無名の観察・推測であり、宇文逸の客観的な境界到達や内力構成として確定しない","無名の「自ら部下を始末するつもりだった」は本人の発言であり、実際にその計画が事前から存在したことや実行結果を補完しない","無名の「誰が莫問を騙しているか」「烏天瘤から何も聞き出せていない」は挑発であり、欺瞞主体や烏天瘤の供述内容を客観事実として確定しない","9231_3・9232_3・9233_4は同行者構成が異なる相互排他的な無名出現分岐であり、李元興・燕未還・荀杳杳の同席を全分岐へ拡張しない","9233_2の沙権賈敗北と莫問の処断は当該戦闘末尾の出来事であり、三つの無名出現分岐すべてに先行した共通事実とは断定しない","莫問の「不倶戴天の敵だと分かれば十分」は本人の拒絶と決意であり、無名と天山派覆滅の全真相が確定したことを意味しない"],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:8d5d943d93c91ac10b600db7c52a33b7181ecfcf0bf380011a968e6aa8e49087",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {"path":".agents/skills/zhja-game-translation-codex/SKILL.md","digest":"sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd","status":"reviewed"},
+          {"path":".agents/skills/zhja-game-translation-codex/references/03_style_guide.md","digest":"sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de","status":"reviewed"},
+          {"path":".agents/skills/zhja-game-translation-codex/references/04_persona.md","digest":"sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45","status":"reviewed"},
+          {"path":".agents/skills/zhja-game-translation-codex/references/05_terminology.md","digest":"sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900","status":"reviewed"},
+          {"path":".agents/skills/zhja-game-translation-codex/references/06_qa.md","digest":"sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6","status":"reviewed"},
+          {"path":".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md","digest":"sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917","status":"reviewed"},
+          {"path":".agents/skills/zhja-game-translation-codex/references/10_register_axes.md","digest":"sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef","status":"reviewed"},
+          {"path":"_phase4_proofread/RUNBOOK_人物ペア再監査.md","digest":"sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab","status":"reviewed"},
+          {"path":"10_人物/宇文逸.md","digest":"sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153","status":"reviewed"},
+          {"path":"10_人物/莫問.md","digest":"sha256:95f00858c08daf8625df080f17411d6e528c84ce1ab6f902840fdc8ce54bbbf7","status":"reviewed"},
+          {"path":"10_人物/無名.md","digest":"sha256:5116e6a2aefaa595a164e8b81431efdd3bfac0fde2d70a01fc0f5375ce904a57","status":"reviewed"},
+          {"path":"10_人物/杜彪.md","digest":"sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1","status":"reviewed"},
+          {"path":"10_人物/沙権賈.md","digest":"sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526","status":"reviewed"},
+          {"path":"10_人物/荀杳杳.md","digest":"sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e","status":"reviewed"}
+        ]
+      },
+      "source_document_decisions": [
+        {"target":"10_人物/無名.md","document_type":"persona","decision":"revise","evidence_keys":["9231_3_Dlgs_Index9_Text","9231_3_Dlgs_Index10_Text","9231_3_Dlgs_Index11_Text"],"reason":"現行の「自分の正体は決して明かさない」は正体露見前の方針だけを絶対化しており、露見後の対峙モードを表せない。無名は正体を指摘されても自ら素性を説明せず、莫問の疑念と烏天瘤の情報不足を逆用して挑発へ転じるため、時系列条件を加える。","scope":{"section":"## 発話優先順位（どう考えて喋るか）","timeline":"正体露見前後","counterpart":"莫問を含む対峙相手"},"confidence":"high","operation":"replace_exact","current_claim":"4. 自分の正体は決して明かさない","replacement_claim":"4. 正体露見前は自ら明かさない。露見後も素性を説明せず、相手の認識を利用して挑発へ転じる"},
+        {"target":"10_人物/宇文逸.md","document_type":"persona","decision":"keep","evidence_keys":["9231_3_Dlgs_Index3_Text","9231_3_Dlgs_Index5_Text","9233_2_Dlgs_Index1_Text"],"reason":"仮面の男への正体追及、来訪目的の問い、追い詰めた敵への短い断罪は、対敵M6の短い断定・問いかけ・気迫と整合する。新しい一般規則は不要。","scope":{"modes":["M6"],"timeline":"無名正体露見時と悪人谷残党戦闘末尾"},"confidence":"high","operation":"none"},
+        {"target":"10_人物/莫問.md","document_type":"persona","decision":"create","evidence_keys":["9231_3_Dlgs_Index8_Text","9231_3_Dlgs_Index12_Text","9231_3_Dlgs_Index13_Text"],"reason":"現行の離反・復讐・敵対節は無名との再対峙で、正体露見後の甘言を拒み、真相の説明より敵認定と行動を優先する短い発話モードを記録していない。三行が同じ機能を連続して示すため追記する。","scope":{"section":"### 離反・復讐・敵対・諦観","counterpart":"無名","timeline":"正体露見後の再対峙分岐"},"confidence":"high","operation":"append_under_heading","anchor_heading":"### 離反・復讐・敵対・諦観","replacement_claim":"- 無名との再対峙では、正体露見後の甘言を即座に拒み、「黙れ」「不倶戴天」と短く断ち切る。真相を語り尽くすより、敵認定と行動を優先する。"},
+        {"target":"10_人物/杜彪.md","document_type":"persona","decision":"keep","evidence_keys":["9233_2_Dlgs_Index0_Text"],"reason":"敗北時の短い呻きは、凶悪さを説明へ膨らませず一瞬の動揺を発声で示す現行資料と矛盾しない。単独の呻きから新規規則を作らない。","scope":{"scene":"9233_2","state":"敗北直後"},"confidence":"high","operation":"none"},
+        {"target":"10_人物/沙権賈.md","document_type":"persona","decision":"keep","evidence_keys":["9233_2_Dlgs_Index2_Text","9233_2_Dlgs_Index3_Text","9233_2_Dlgs_Index4_Text"],"reason":"悪態、思わぬ敗北への悔しさ、「殺すなり何なり」と居直る短句は、粗野で居直った常体という現行資料を直接裏づける。修正すべき資料上の反例はない。","scope":{"scene":"9233_2","state":"敗北・死を前にした居直り"},"confidence":"high","operation":"none"},
+        {"target":"10_人物/荀杳杳.md","document_type":"persona","decision":"keep","evidence_keys":["9233_4_Dlgs_Index5_Text"],"reason":"見覚えがありながら見知らぬ仮面という含みのある評言は、思わせぶりに本心をくるむ現行の含み・からかいモードと整合する。単行から別モードへ一般化しない。","scope":{"scene":"9233_4","mode":"含み・観察"},"confidence":"high","operation":"none"}
+      ]
+    }
+  ]
+}

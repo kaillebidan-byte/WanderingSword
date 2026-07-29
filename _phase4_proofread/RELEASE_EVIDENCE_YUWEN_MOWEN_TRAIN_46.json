@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-46-r1",
+  "train_id": "yuwen-mowen-train-46",
+  "pr": 202,
+  "ci_head": "18041e4c8a4563e411973332d77e4d991b46bba0",
+  "asset_head": "75eff2ebd4b36897e03ba9d162e0585fc61dcd90",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH177_2026-07-30.md",
+  "counts": {
+    "batch": 177,
+    "pair_applied_keys": 1362,
+    "project_applied_keys": 1738,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30496632159,
+    "workflow": "Release train orchestrator",
+    "head_sha": "18041e4c8a4563e411973332d77e4d991b46bba0",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "53行を監査し、8件FIX・45件KEEPを確定した。",
+    "無名の正体露見後の挑発モードと、莫問の無名再対峙モードを人物資料へ還流した。"
+  ]
+}
