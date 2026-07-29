@@ -27,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  preflight:
+  guard:
     if: >-
       github.actor != 'github-actions[bot]' &&
       github.event.repository.visibility == 'public' &&
@@ -44,6 +44,87 @@ jobs:
           )
         )
       )
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONIOENCODING: utf-8
+    outputs:
+      proceed: ${{ steps.release_guard.outputs.proceed }}
+      status: ${{ steps.release_guard.outputs.status }}
+      reason: ${{ steps.release_guard.outputs.reason }}
+    steps:
+      - name: Checkout event release HEAD
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve live pull request HEAD
+        id: live_pr
+        shell: bash
+        run: |
+          set -euo pipefail
+          live_head="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}" --jq .head.sha)"
+          if [[ ! "$live_head" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "invalid live PR HEAD: $live_head" >&2
+            exit 1
+          fi
+          echo "head=$live_head" >> "$GITHUB_OUTPUT"
+
+      - name: Guard release inputs against stale event and state
+        id: release_guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          python _tools/release_orchestrator_guard.py \
+            --event-action "${{ github.event.action }}" \
+            --event-label "${{ github.event.label.name }}" \
+            --event-head "${{ github.event.pull_request.head.sha }}" \
+            --current-pr-head "${{ steps.live_pr.outputs.head }}" \
+            --head-ref "${{ github.event.pull_request.head.ref }}" \
+            --pr-number "${{ github.event.pull_request.number }}" \
+            --github-output "$GITHUB_OUTPUT" \
+            --output /tmp/release-orchestrator-guard.json
+
+      - name: Remove stale release labels
+        if: steps.release_guard.outputs.remove_release_labels == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            for (const name of ['release-ci', 'ci-heavy-rerun']) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  name,
+                });
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error;
+                }
+              }
+            }
+
+      - name: Record release guard result
+        run: |
+          echo "status=${{ steps.release_guard.outputs.status }}"
+          echo "reason=${{ steps.release_guard.outputs.reason }}"
+          echo "event_head=${{ github.event.pull_request.head.sha }}"
+          echo "live_head=${{ steps.live_pr.outputs.head }}"
+
+  preflight:
+    needs: guard
+    if: needs.guard.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -179,4 +260,4 @@ jobs:
           echo "ci_head=${{ github.event.pull_request.head.sha }}"
           echo "asset_head=${{ needs.apply.outputs.asset_head }}"
           echo "apply_changed=${{ needs.apply.outputs.apply_changed }}"
-          echo "order=preflight -> relation+cross -> apply -> finalization-inputs -> release-label-cleanup"
+          echo "order=guard -> preflight -> relation+cross -> apply -> finalization-inputs -> release-label-cleanup"
