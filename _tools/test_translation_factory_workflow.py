@@ -21,6 +21,8 @@ def main() -> None:
     assert "gh api" in plan
     assert "translation_factory_controller.py" in plan
     assert "translation-factory-work-order" in plan
+    assert "group: translation-factory-plan-${{ github.event.pull_request.head.ref || github.ref_name }}" in plan
+    assert "cancel-in-progress: true" in plan
 
     execute = EXECUTE.read_text(encoding="utf-8")
     assert "name: Translation factory executor" in execute
@@ -38,6 +40,13 @@ def main() -> None:
     assert "translation_quality_audit" in execute
     assert 'git rm "${{ steps.request.outputs.request }}"' in execute
     assert 'git push origin "HEAD:${branch_name}"' in execute
+    assert "group: translation-factory-execute-${{ github.event.pull_request.head.ref || github.ref_name }}" in execute
+    assert "cancel-in-progress: true" in execute
+    assert "--reconcile-remote-ref" in execute
+    assert "--execution-result /tmp/translation-factory-result.json" in execute
+    assert "already_applied" in execute
+    assert "different factory output" in execute
+    assert "test_factory_request_executor.py" in execute
     for forbidden in ("oneoff", "alternate trigger", "workflow_dispatch:"):
         assert forbidden not in execute
 
