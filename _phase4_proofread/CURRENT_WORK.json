@@ -4,13 +4,13 @@
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "73169d8ab89c5d184714da42884ec253fefc99c5",
-  "state_base_commit": "ae17540ae3c6585ec0e3bdd1db2ed94660c7d9b4",
+  "state_base_commit": "7c4117ba867545858b02b8fd1fb3f677e46b380b",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudit_in_progress",
   "status": "verified",
-  "last_completed_batch": 160,
-  "last_reviewed_batch": 160,
+  "last_completed_batch": 161,
+  "last_reviewed_batch": 161,
   "pair_applied_keys": 1358,
   "project_applied_keys": 1734,
   "build_status": "verified_not_deployed",
@@ -18,18 +18,18 @@
   "last_merged_translation_pr": 182,
   "checkpoint": {
     "status": "verified",
-    "batch": 160,
+    "batch": 161,
     "pair_applied_keys": 1358,
     "project_applied_keys": 1734,
-    "produced_by_pr": 182,
+    "produced_by_pr": 183,
     "release_identity": {
       "kind": "pr_release_v2",
-      "release_id": "yuwen-mowen-train-29-r1",
-      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_29.json",
-      "pr": 182,
-      "validated_head": "f22ea0a65d91339bd38d4a2a24d793cb4e316cfc"
+      "release_id": "yuwen-mowen-train-30-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_30.json",
+      "pr": 183,
+      "validated_head": "7c4117ba867545858b02b8fd1fb3f677e46b380b"
     },
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH160_2026-07-29.md"
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH161_2026-07-29.md"
   },
   "operation_mode": {
     "declared_state": "translation_frozen",
@@ -113,14 +113,10 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "5358_1",
-      "5358_5",
-      "5359_3",
-      "5359_4",
-      "5359_5"
+      "5370_1"
     ],
-    "task": "release-ci labelでRelease train orchestratorを起動する。",
-    "boundary": "翻訳判断は凍結済み。Relation・Cross・Apply・phase2だけを実行する。",
+    "task": "PR #183のfinalize-release phase2と未解決review thread 0件を確認し、検証済みHEADをsquash統合する。",
+    "boundary": "translation_frozen後は翻訳判断、fix追加、owner変更、正式束追加を行わない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -156,8 +152,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-30",
     "branch": "agent/yuwen-mowen-train-30",
-    "status": "ready_for_public_ci",
-    "transport_status": "ready_for_public_ci",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
     "base_checkpoint_batch": 160,
     "thresholds": {
       "bundle_count": 4,
@@ -183,11 +179,11 @@
     },
     "private_stage": {
       "stage": "translation_frozen",
-      "status": "complete",
-      "transport_status": "ready_for_public_ci",
+      "status": "verified",
+      "transport_status": "awaiting_private_merge",
       "wave_id": "yuwen-mowen-train-30-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "ready_for_public_ci"
+      "cycle_checkpoint": "awaiting_private_merge"
     },
     "tracking_issue": null,
     "draft_pr": 183,
@@ -199,7 +195,24 @@
       "release_id": "yuwen-mowen-train-29-r1",
       "pr": 182,
       "merge_sha": "73169d8ab89c5d184714da42884ec253fefc99c5"
-    }
+    },
+    "applied_result": {
+      "orchestrator_run": 30432296591,
+      "asset_head": "7c4117ba867545858b02b8fd1fb3f677e46b380b",
+      "pair_applied_keys": 1358,
+      "project_applied_keys": 1734,
+      "pending_fixes": 0,
+      "checkpoint_status": "verified"
+    },
+    "verified_result": {
+      "release_id": "yuwen-mowen-train-30-r1",
+      "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_30.json",
+      "record_index_synced": true,
+      "pair_applied_keys": 1358,
+      "project_applied_keys": 1734,
+      "pending_fixes": 0
+    },
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_30.json"
   },
-  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_29.json"
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_30.json"
 }
