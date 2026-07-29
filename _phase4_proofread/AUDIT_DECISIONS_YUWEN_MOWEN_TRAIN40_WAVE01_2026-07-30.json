@@ -1,0 +1,239 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-40",
+  "wave_id": "yuwen-mowen-train-40-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30444571095,
+    "artifact_id": 8720880620,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:3d530d2f3adbac8a042291fc023e00992bd2dd2eafb473d6485ea609babf414e",
+    "head_sha": "113ff62a9d642ec2212ee414ab8d3ec5afb256ef"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train40-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_15_5807_1_2026-07-30.json",
+      "scene_groups": [
+        "5786_15",
+        "5786_3",
+        "5789_2",
+        "5789_4",
+        "5790_10",
+        "5790_11",
+        "5800_1",
+        "5801_2",
+        "5803_2",
+        "5805_3",
+        "5805_4",
+        "5807_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5786_3_Dlgs_Index4_Text",
+          "before": "16000 - 程徳明 $@$武当の無塵剣が直々に来てくれたのだ。我が程家堡には、これ以上ない誉れだよ！",
+          "after": "16000 - 程徳明 $@$武当の無塵剣が直々に来てくれたのだ。我が程家堡にとって、まこと光栄の至りだ！",
+          "reason": "原文の「蓬荜生辉」は賓客を迎えた家の光栄をへりくだって述べる定着成語。現訳の「誉れだよ」は程徳明の対外・改まりモードとして口語的に軽いため、もてなしの温度を保った「光栄の至りだ」へ改める。"
+        },
+        {
+          "key": "5786_3_Dlgs_Index5_Text",
+          "before": "5015 - 莫問 $@$程堡主、買いかぶりです。若輩の身には過分なお言葉……",
+          "after": "5015 - 莫問 $@$程堡主、身に余るお言葉です。若輩の身には、とても……",
+          "reason": "原文「谬赞／晚辈愧不敢当」は目上の堡主からの称賛を若輩が謙譲して辞退する発話。「買いかぶりです」は相手の評価を直接否定してややぶっきらぼうなため、莫問の対外礼節に合わせて「身に余るお言葉」とする。"
+        },
+        {
+          "key": "5789_4_Dlgs_Index0_Text",
+          "before": "16001 - 程万清 $@$お二人、まもなく宴が始まる。右手最初の卓の<Y>上座</>へどうぞ。",
+          "after": "16001 - 程万清 $@$お二人、まもなく宴が始まる。右手最初の卓へ行き、<Y>席に着いて</>ください。",
+          "reason": "原文の制御語「上桌」は上座の指定ではなく、右側第一卓へ行って着席する行動を示す。現訳は席次情報を「上座」として追加しているため、タグを保ったまま「席に着いて」へ戻す。"
+        },
+        {
+          "key": "5790_11_Dlgs_Index0_Text",
+          "before": "1 - 宇文逸 $@$（声を潜めて）忘れるものですか。灰になっても見違えない！　あいつが、梧桐村で江大哥を襲った蒼鷹です！",
+          "after": "1 - 宇文逸 $@$（声を潜めて）忘れるものですか。灰になっても分かります！　あいつが、梧桐村で江大哥を取り囲んで襲った蒼鷹です！",
+          "reason": "「化成灰我都认识」は『灰になっても見分けられる』という強い認知の比喩で、「見違えない」は日本語では意味がずれる。また「围攻」は単なる襲撃でなく取り囲んで攻めるため、宇文逸の怒りを保ちつつ両方を明示する。"
+        },
+        {
+          "key": "5801_2_Dlgs_Index0_Text",
+          "before": "1 - 宇文逸 $@$まずい、逃げる気だ！",
+          "after": "1 - 宇文逸 $@$まずい、逃げるぞ！",
+          "reason": "原文「要跑了」は逃走の意図ではなく、今まさに逃げ出す切迫した局面を告げる。追跡場面の短句として「逃げるぞ」に改める。"
+        },
+        {
+          "key": "5803_2_Dlgs_Index8_Text",
+          "before": "1 - 宇文逸 $@$依頼人……？　まさか、本当に程二爺が貴様を……",
+          "after": "1 - 宇文逸 $@$依頼人……？　まさか、本当に程二爺がお前に……",
+          "reason": "原文「程二爷让你……」は程二爺が蒼鷹に何かをさせたのでは、という言いさし。現訳「程二爺が貴様を」は蒼鷹を目的語にして主客が崩れるため、「程二爺がお前に……」として言いさしを保持する。"
+        },
+        {
+          "key": "5805_4_Dlgs_Index1_Text",
+          "before": "5015 - 莫問 $@$逃げた方角からすれば、<Y>西の一線天</>峡谷だろう……いったん城を出て、あちらを捜すぞ。",
+          "after": "5015 - 莫問 $@$逃げた方角からすれば、<Y>西の一線天</>峡谷だろう……いったん城を出て、あちらを捜してみよう。",
+          "reason": "原文「找找看吧」は莫問が弟弟子を含む二人の次行動を提案する表現。現訳「捜すぞ」は命令へ強めすぎるため、危機判断の簡潔さを保ちながら「捜してみよう」とする。"
+        },
+        {
+          "key": "5805_4_Dlgs_Index2_Text",
+          "before": "1 - 宇文逸 $@$はい、師兄の言うとおりにしましょう！",
+          "after": "1 - 宇文逸 $@$はい。師兄の言うとおりにします！",
+          "reason": "原文は宇文逸が莫問の案に従う返答。「言うとおりにしましょう」は聞き手へ共同提案する形になり発話役割が逆転するため、弟弟子の応答として「言うとおりにします」とする。"
+        }
+      ],
+      "keeps": [
+        "5786_15_Dlgs_Index0_Text",
+        "5786_15_Dlgs_Index1_Text",
+        "5786_15_Dlgs_Index2_Text",
+        "5786_15_Dlgs_Index3_Text",
+        "5786_15_Dlgs_Index4_Text",
+        "5786_15_Dlgs_Index5_Text",
+        "5786_3_Dlgs_Index0_Text",
+        "5786_3_Dlgs_Index1_Text",
+        "5786_3_Dlgs_Index2_Text",
+        "5786_3_Dlgs_Index3_Text",
+        "5786_3_Dlgs_Index6_Text",
+        "5786_3_Dlgs_Index7_Text",
+        "5786_3_Dlgs_Index8_Text",
+        "5786_3_Dlgs_Index9_Text",
+        "5789_2_Dlgs_Index0_Text",
+        "5789_2_Dlgs_Index1_Text",
+        "5789_2_Dlgs_Index2_Text",
+        "5789_2_Dlgs_Index3_Text",
+        "5789_4_Dlgs_Index1_Text",
+        "5789_4_Dlgs_Index2_Text",
+        "5790_10_Dlgs_Index0_Text",
+        "5790_10_Dlgs_Index1_Text",
+        "5790_10_Dlgs_Index2_Text",
+        "5790_11_Dlgs_Index1_Text",
+        "5790_11_Dlgs_Index2_Text",
+        "5790_11_Dlgs_Index3_Text",
+        "5790_11_Dlgs_Index4_Text",
+        "5790_11_Dlgs_Index5_Text",
+        "5800_1_Dlgs_Index0_Text",
+        "5800_1_Dlgs_Index1_Text",
+        "5800_1_Dlgs_Index2_Text",
+        "5801_2_Dlgs_Index1_Text",
+        "5803_2_Dlgs_Index0_Text",
+        "5803_2_Dlgs_Index1_Text",
+        "5803_2_Dlgs_Index2_Text",
+        "5803_2_Dlgs_Index3_Text",
+        "5803_2_Dlgs_Index4_Text",
+        "5803_2_Dlgs_Index5_Text",
+        "5803_2_Dlgs_Index6_Text",
+        "5803_2_Dlgs_Index7_Text",
+        "5803_2_Dlgs_Index9_Text",
+        "5805_3_Dlgs_Index0_Text",
+        "5805_3_Dlgs_Index1_Text",
+        "5805_4_Dlgs_Index0_Text",
+        "5807_1_Dlgs_Index0_Text",
+        "5807_1_Dlgs_Index1_Text",
+        "5807_1_Dlgs_Index2_Text"
+      ],
+      "allusion_review_candidates": [
+        "5786_3_Dlgs_Index4_Text",
+        "5786_3_Dlgs_Index9_Text",
+        "5803_2_Dlgs_Index7_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5786_3_Dlgs_Index4_Text",
+          "decision": "fix",
+          "note": "「蓬荜生辉」は賓客を迎えた家の光栄をへりくだって述べる定着成語。像を過度に直訳せず、程徳明の改まりモードで「光栄の至り」と機能と格を保つ。"
+        },
+        {
+          "key": "5786_3_Dlgs_Index9_Text",
+          "decision": "keep",
+          "note": "「寿比南山」は祝寿の定着成語。日本語で南山の像を無理に逐語化せず、「ますますのご長寿をお祈りいたします」で儀礼機能を保つ。"
+        },
+        {
+          "key": "5803_2_Dlgs_Index7_Text",
+          "decision": "keep",
+          "note": "「为武林除一害」は武林の害を除いたと開き直る定型的表現。「武林の害を一つ除いた」で悪役の自己正当化と語勢を保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "程万清が蒼鷹へ依頼したという推測は蒼鷹の発言と宇文逸の疑念に留め、確定事実にしない",
+        "江吟風が何十人もの命を背負うという内容は蒼鷹の主張であり、この場面だけから事実認定しない",
+        "程徳明と弟妹の関係に関する蒼鷹の発言は敵対者の暴露・挑発として扱い、正確性を補完しない",
+        "蒼鷹が城外へ逃げる意図と一線天へ向かった判断は莫問の推測を越えて断定しない"
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:3b68054309d4d5df6aac043aca1d11e970306945b4be31814bfdfca352e29074",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {"path": ".agents/skills/zhja-game-translation-codex/SKILL.md", "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md", "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md", "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md", "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef", "status": "reviewed"},
+          {"path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md", "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab", "status": "reviewed"},
+          {"path": "10_人物/宇文逸.md", "digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab", "status": "reviewed"},
+          {"path": "10_人物/莫問.md", "digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1", "status": "reviewed"},
+          {"path": "10_人物/程徳明.md", "digest": "sha256:f63f1fe900702eba52a4fcd48e704e23eadd8a16e15dce649566a720bc5bd917", "status": "reviewed"},
+          {"path": "10_人物/程万清.md", "digest": "sha256:8d1bd8432269b2b2e917f7fb48a22f67865b1e1866a9752ec57c50c70bcbfae6", "status": "reviewed"},
+          {"path": "10_人物/十三鷹之蒼鷹.md", "digest": "sha256:e5fa9b628f648a397884fa79102f454c6966d998ecfce9f2306b9dfa91371742", "status": "reviewed"}
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5786_3_Dlgs_Index8_Text", "5790_11_Dlgs_Index0_Text", "5805_4_Dlgs_Index2_Text"],
+          "reason": "対外儀礼では折り目正しい名乗り、師兄へは自然な敬体、敵対・追跡では短い気迫へ切り替わっており、現行のM4・M1b・M6の作業仮説と整合する。",
+          "scope": {"pair": "宇文逸↔莫問", "timeline": "程家堡到着後から一線天追跡", "scenes": ["5786_3", "5790_11", "5805_4"]},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5786_3_Dlgs_Index1_Text", "5790_11_Dlgs_Index1_Text", "5805_4_Dlgs_Index1_Text"],
+          "reason": "程堡主への対外礼節、宇文逸を抑える兄弟子の常体、逃走経路を整理して次行動を示す危機判断が、現行ペルソナの発話優先順位と整合する。",
+          "scope": {"pair": "宇文逸↔莫問", "timeline": "程家堡到着後から一線天追跡", "scenes": ["5786_3", "5790_11", "5805_4"]},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/程徳明.md",
+          "document_type": "persona",
+          "decision": "unresolved",
+          "evidence_keys": ["5786_3_Dlgs_Index0_Text", "5786_3_Dlgs_Index4_Text"],
+          "reason": "candidate内では他話者が程徳明を「程堡主」と呼び、現資料冒頭の「長老格」と衝突する可能性がある。ただし当該targetの許可済みevidence_keysは本人発話だけで役職名の直接根拠を含まないため、今回の自動改訂は保留する。",
+          "scope": {"speaker": "程徳明", "timeline": "程家堡寿宴前の賓客応対", "scene": "5786_3", "issue": "堡主／長老格の役職記述"},
+          "confidence": "medium",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/程万清.md",
+          "document_type": "persona",
+          "decision": "unresolved",
+          "evidence_keys": ["5789_4_Dlgs_Index0_Text"],
+          "reason": "candidate内では宇文逸と莫問が程万清を「程二爺」と呼び、現資料冒頭の「程家堡の主」と衝突する可能性がある。ただし当該targetの許可済みevidence_keysは本人の案内発話一行だけで役職名を直接確定できないため、今回の自動改訂は保留する。",
+          "scope": {"speaker": "程万清", "timeline": "程家堡寿宴直前", "scene": "5789_4", "issue": "堡主／二爺の役職記述"},
+          "confidence": "medium",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/十三鷹之蒼鷹.md",
+          "document_type": "persona",
+          "decision": "revise",
+          "evidence_keys": ["5790_11_Dlgs_Index4_Text", "5803_2_Dlgs_Index2_Text", "5803_2_Dlgs_Index7_Text"],
+          "reason": "現資料は高笑いを「ははは」へ固定しているが、今回の一次資料では含み笑い「嘿嘿」と対峙中の大笑い「哈哈哈哈」が明確に別機能を持つ。人物声を一律置換せず、声量と悪意で「ククッ／ハハハハ」等を分ける規則へ改訂する。",
+          "scope": {"speaker": "十三鷹之蒼鷹", "counterparts": ["宇文逸", "莫問"], "timeline": "程家堡寿宴から城壁対峙", "scenes": ["5790_11", "5803_2"]},
+          "confidence": "high",
+          "operation": "replace_exact",
+          "current_claim": "- **語尾・口調**: 貪欲で抜け目ない常体「〜だ」「〜ぞ」。功力を欲する野心（只要吃了它，我立刻就能获得十年功力……哈哈哈），高笑い「哈哈哈」＝**ははは**。",
+          "replacement_claim": "- **語尾・口調**: 貪欲で抜け目ない常体「〜だ」「〜ぞ」。功力を欲する野心を保ち、笑いは場面の声量と悪意で分ける。平静な高笑い「哈哈哈」は「ははは」、対峙で張る「哈哈哈哈」は「ハハハハ」、含み笑い「嘿嘿」は「ククッ」などを候補とする。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5786_3_Dlgs_Index8_Text",
+        "5790_11_Dlgs_Index0_Text",
+        "5805_4_Dlgs_Index2_Text"
+      ],
+      "reason": "対外儀礼では折り目正しい名乗り、師兄へは自然な敬体、敵対・追跡では短い気迫へ切り替わっており、現行のM4・M1b・M6の作業仮説と整合する。",
+      "scope": {
+        "pair": "宇文逸↔莫問",
+        "timeline": "程家堡到着後から一線天追跡",
+        "scenes": [
+          "5786_3",
+          "5790_11",
+          "5805_4"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "after_digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5786_3_Dlgs_Index1_Text",
+        "5790_11_Dlgs_Index1_Text",
+        "5805_4_Dlgs_Index1_Text"
+      ],
+      "reason": "程堡主への対外礼節、宇文逸を抑える兄弟子の常体、逃走経路を整理して次行動を示す危機判断が、現行ペルソナの発話優先順位と整合する。",
+      "scope": {
+        "pair": "宇文逸↔莫問",
+        "timeline": "程家堡到着後から一線天追跡",
+        "scenes": [
+          "5786_3",
+          "5790_11",
+          "5805_4"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+      "after_digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程徳明.md",
+      "document_type": "persona",
+      "decision": "unresolved",
+      "operation": null,
+      "evidence_keys": [
+        "5786_3_Dlgs_Index0_Text",
+        "5786_3_Dlgs_Index4_Text"
+      ],
+      "reason": "candidate内では他話者が程徳明を「程堡主」と呼び、現資料冒頭の「長老格」と衝突する可能性がある。ただし当該targetの許可済みevidence_keysは本人発話だけで役職名の直接根拠を含まないため、今回の自動改訂は保留する。",
+      "scope": {
+        "speaker": "程徳明",
+        "timeline": "程家堡寿宴前の賓客応対",
+        "scene": "5786_3",
+        "issue": "堡主／長老格の役職記述"
+      },
+      "confidence": "medium",
+      "before_digest": "sha256:f63f1fe900702eba52a4fcd48e704e23eadd8a16e15dce649566a720bc5bd917",
+      "after_digest": "sha256:f63f1fe900702eba52a4fcd48e704e23eadd8a16e15dce649566a720bc5bd917",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程万清.md",
+      "document_type": "persona",
+      "decision": "unresolved",
+      "operation": null,
+      "evidence_keys": [
+        "5789_4_Dlgs_Index0_Text"
+      ],
+      "reason": "candidate内では宇文逸と莫問が程万清を「程二爺」と呼び、現資料冒頭の「程家堡の主」と衝突する可能性がある。ただし当該targetの許可済みevidence_keysは本人の案内発話一行だけで役職名を直接確定できないため、今回の自動改訂は保留する。",
+      "scope": {
+        "speaker": "程万清",
+        "timeline": "程家堡寿宴直前",
+        "scene": "5789_4",
+        "issue": "堡主／二爺の役職記述"
+      },
+      "confidence": "medium",
+      "before_digest": "sha256:8d1bd8432269b2b2e917f7fb48a22f67865b1e1866a9752ec57c50c70bcbfae6",
+      "after_digest": "sha256:8d1bd8432269b2b2e917f7fb48a22f67865b1e1866a9752ec57c50c70bcbfae6",
+      "changed": false
+    },
+    {
+      "target": "10_人物/十三鷹之蒼鷹.md",
+      "document_type": "persona",
+      "decision": "revise",
+      "operation": "replace_exact",
+      "evidence_keys": [
+        "5790_11_Dlgs_Index4_Text",
+        "5803_2_Dlgs_Index2_Text",
+        "5803_2_Dlgs_Index7_Text"
+      ],
+      "reason": "現資料は高笑いを「ははは」へ固定しているが、今回の一次資料では含み笑い「嘿嘿」と対峙中の大笑い「哈哈哈哈」が明確に別機能を持つ。人物声を一律置換せず、声量と悪意で「ククッ／ハハハハ」等を分ける規則へ改訂する。",
+      "scope": {
+        "speaker": "十三鷹之蒼鷹",
+        "counterparts": [
+          "宇文逸",
+          "莫問"
+        ],
+        "timeline": "程家堡寿宴から城壁対峙",
+        "scenes": [
+          "5790_11",
+          "5803_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:e5fa9b628f648a397884fa79102f454c6966d998ecfce9f2306b9dfa91371742",
+      "after_digest": "sha256:d42530e206f3ec50321230cc2766d55518b9ea246e6c79028c6658ee33f534ff",
+      "changed": true
+    }
+  ],
+  "changed_documents": [
+    "10_人物/十三鷹之蒼鷹.md"
+  ],
+  "unresolved_documents": [
+    "10_人物/程万清.md",
+    "10_人物/程徳明.md"
+  ],
+  "train_id": "yuwen-mowen-train-40",
+  "wave_id": "yuwen-mowen-train-40-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN40_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_15_5807_1_2026-07-30.json",
+      "manifest_digest": "sha256:3b68054309d4d5df6aac043aca1d11e970306945b4be31814bfdfca352e29074"
+    }
+  ]
+}

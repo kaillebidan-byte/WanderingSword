@@ -2,35 +2,34 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:fb133e7eab238a667f3cfaa5630a7ad04c2107defc2d59ce63df1aa435d79bfe",
+  "plan_digest": "sha256:2e53ff298c8501b0218bece9faa0aa46f889b8a2168202e11d3cf36918a2a70f",
   "candidate_digests": {
-    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-29.json": "sha256:1a819948a6048d222d960c617c80cd7d15544f630d2bed243ab90b50c3ed3db7"
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_15_5807_1_2026-07-30.json": "sha256:7da0d1db5e6fb227ce893771a1e3cb8797c90111aba924b897fd967b959a260e"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:0ea25766f42a003bd93bbb36a778ff290c9a73f4d1f302a8471106e05e022838",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:a75bba5c60489adffa992f8c772eda838946ebe907c846e3dfeee9f7494f80fa",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:a0f573cad60e4422ffd04307641dc5663aff8c929977d1e9af025cdf778bd04d"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:c35712359ddacda29b74b773dc19c80aed13bf214923ffd1dcb46a7620b2f176",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:0eec5b5064b0c99bb04b3521274f76f538d653e5b2b2cff9893abe75dfa08a38",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:0c912d9172066cf52a7ce2bc3e23b500d5bb99cc64aa04af4acf21df5839195a"
   },
   "counts": {
-    "existing_owner_updates": 3,
+    "existing_owner_updates": 8,
     "new_project_keys": 0,
-    "fix_keys": 3
+    "fix_keys": 8
   },
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch84.json",
-      "candidate_rows": 54,
-      "fix_keys": 3,
-      "existing_keys": 54,
-      "unowned_keys": 0,
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_15_5807_1_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch85.json",
+      "candidate_rows": 55,
+      "fix_keys": 8,
+      "existing_keys": 53,
+      "unowned_keys": 2,
       "new_keys": 0,
-      "unowned_kept": 0,
+      "unowned_kept": 2,
       "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch12_reserved_5784_9.json",
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch12.json"
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch13.json"
       ],
-      "existing_owner_updates": 3
+      "existing_owner_updates": 8
     }
   ],
   "owner_file_digest_shards": [
@@ -42,7 +41,7 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_02.json",
       "count": 32,
-      "digest": "sha256:bd39a55cbad98b02c096e72f8d250375fdb6e43eb880b205db8c5108f5eb5c8b"
+      "digest": "sha256:c3f388fad72f35a9a065eb2b029577169ba8d7e58d48576e59f385ef3ddf89c1"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_03.json",
@@ -57,12 +56,22 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_05.json",
       "count": 32,
-      "digest": "sha256:552d4622eeccc23094aea1c8e19806d06a8ae9d8dbef58ceb257e0b79d46f367"
+      "digest": "sha256:5418a3d6a9e62c7c9684c2379cdf646b2ea1730a9ee050b886e4c769e2cbfd16"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_06.json",
-      "count": 7,
-      "digest": "sha256:089831a498253d61c147afbdb021594020f4fe82ad45c8f0b0805d96293c07d7"
+      "count": 8,
+      "digest": "sha256:f265e3b1689c5b17406c473fe732465becd32f9edee05006cc625a9c0578b8c6"
     }
-  ]
+  ],
+  "post_feedback_state_attestation": {
+    "adapter": "_tools/refresh_owner_assignment_state_digests.py",
+    "reason": "source_document_feedback_recorded_after_owner_assignment",
+    "changed_paths": [
+      "_phase4_proofread/PRIVATE_STAGE_STATE.json"
+    ],
+    "feedback_records": [
+      "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN40_WAVE01_2026-07-30.json"
+    ]
+  }
 }
