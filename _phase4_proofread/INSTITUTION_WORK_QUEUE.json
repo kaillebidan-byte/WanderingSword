@@ -154,7 +154,7 @@
     {
       "task_id": "final_response_marker_enforcement",
       "title": "通常応答から規定終端markerを機械排除",
-      "status": "pending",
+      "status": "completed",
       "priority": 7,
       "branch": "agent/final-response-marker-enforcement",
       "summary": "通常cycle完了と規定フェイズ終端の混同を、最終応答policy・controller・専用renderer・送信前検査で機械的に防止する。",
@@ -179,7 +179,10 @@
         "通常cycleのmerge・phase2・target_reachedを規定フェイズ終端へ昇格する",
         "consumer側の非受理だけに依存して誤送信を許容する",
         "作業中の翻訳PRへ制度改修を混在させる"
-      ]
+      ],
+      "completion": {
+        "pr": 204
+      }
     }
   ],
   "completion_contract": {
