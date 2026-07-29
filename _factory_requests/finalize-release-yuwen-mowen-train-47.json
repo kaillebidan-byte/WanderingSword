@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-47",
+  "pr": 203,
+  "orchestrator_run_id": 30498496936,
+  "artifact_name": "release-finalization-inputs-203",
+  "ci_head": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d",
+  "asset_head": "10b43420231f27a3c6f3b1edf9b1a37953c54b2b",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "9245_3",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30498496936,
+    "artifact_id": 8742555528,
+    "artifact_digest": "sha256:2e66f3141885e17337f88c7ad4739906216092d2694460a0375654ef0db878ef",
+    "artifact_head": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第178束は9234_6・9236_6・9238_6・9245_1の44行。",
+    "実変更2件、意図的保持42件。人物資料4件はkeep。",
+    "次候補9245_3はtrain-47統合前にpreparationを開始しない。"
+  ]
+}
