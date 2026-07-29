@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-47-r1",
+  "train_id": "yuwen-mowen-train-47",
+  "pr": 203,
+  "ci_head": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d",
+  "asset_head": "10b43420231f27a3c6f3b1edf9b1a37953c54b2b",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH178_2026-07-30.md",
+  "counts": {
+    "batch": 178,
+    "pair_applied_keys": 1362,
+    "project_applied_keys": 1738,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30498496936,
+    "workflow": "Release train orchestrator",
+    "head_sha": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第178束は9234_6・9236_6・9238_6・9245_1の44行。",
+    "実変更2件、意図的保持42件。人物資料4件はkeep。",
+    "次候補9245_3はtrain-47統合前にpreparationを開始しない。"
+  ]
+}

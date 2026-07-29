@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "release-ci labelで固定release trainを起動する",
-    "last_safe_checkpoint": "ready_for_public_ci",
+    "exact_next_action": "PR #203のfinalize-release phase2とreview thread 0件を確認し、検証済みHEADをsquash mergeする",
+    "last_safe_checkpoint": "awaiting_private_merge",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -58,7 +58,7 @@
         "review_record": {
           "status": "complete",
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH178_2026-07-30.md",
-          "apply_status": "pending"
+          "apply_status": "verified"
         },
         "formal_batch": 178,
         "source_document_target_count": 4,
@@ -83,7 +83,7 @@
     }
   },
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "history": [
       {
         "status": "not_ready",
@@ -93,6 +93,23 @@
         "status": "ready_for_public_ci",
         "translation_stage": "translation_frozen",
         "pr": 203
+      },
+      {
+        "status": "in_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 203
+      },
+      {
+        "status": "verified",
+        "translation_stage": "translation_frozen",
+        "pr": 203,
+        "release_id": "yuwen-mowen-train-47-r1"
+      },
+      {
+        "status": "awaiting_private_merge",
+        "translation_stage": "translation_frozen",
+        "pr": 203,
+        "release_id": "yuwen-mowen-train-47-r1"
       }
     ],
     "pr": 203,
@@ -144,5 +161,12 @@
     "merge_sha": "0df5ecb699b29a587f121baef8e68259606e1267",
     "status": "merged",
     "scope": "live consumer認証付き終端契約"
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-47-r1",
+    "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_47.json",
+    "ci_head": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d",
+    "asset_head": "10b43420231f27a3c6f3b1edf9b1a37953c54b2b",
+    "pending_fixes": 0
   }
 }
