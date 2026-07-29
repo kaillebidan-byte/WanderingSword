@@ -24,13 +24,13 @@
     "9230_2"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-45-wave-01",
     "packet_id": "yuwen-mowen-train45-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 176
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -43,16 +43,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-44",
-    "release_id": "yuwen-mowen-train-44-r1",
-    "pr": 200,
-    "status": "merged",
-    "merge_sha": "12c9fe255da9d211308929ca3c7b3ff1a0f5d381"
+    "train_id": "yuwen-mowen-train-45",
+    "release_id": "yuwen-mowen-train-45-r1",
+    "pr": 201,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -68,5 +66,43 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:6d9bba3991ad99b9b7cd0fd9e62874bc3cf6861f40662fb67531be54c70697d4"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 55,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "9016_1",
+      "9150_3",
+      "9150_4",
+      "9154_2",
+      "9209_2",
+      "9210_1",
+      "9223_6",
+      "9228_2",
+      "9229_2",
+      "9230_2"
+    ],
+    "grouping_decision": "十場面・55行。予約9016_1から、莫問の救出・再同行と悪人谷残党への対峙を閉じ、無名登場直前で意味境界を切る。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 6,
+    "new_project_keys": 1,
+    "fix_keys": 7
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN45_WAVE01_2026-07-30.json",
+    "changed_documents": [
+      "10_人物/宇文逸.md",
+      "10_人物/莫問.md"
+    ],
+    "unresolved_documents": []
   }
 }
