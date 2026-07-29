@@ -29,6 +29,7 @@ on:
       - "_phase4_proofread/NEXT_TASK_PACKET.json"
       - "_phase4_proofread/PHASE_COMPLETION_SIGNAL.json"
       - "_phase4_proofread/REGULATED_PHASE_STATE.json"
+      - "_phase4_proofread/FINAL_RESPONSE_POLICY.json"
       - "_phase4_proofread/FINAL_RESPONSE_GATE.md"
       - "_phase4_proofread/ALWAYS_PUBLIC_FULL_PIPELINE.md"
       - "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md"
@@ -47,6 +48,10 @@ on:
       - "_tools/check_quality_audit_source_feedback.py"
       - "_tools/check_factory_adapters.py"
       - "_tools/resume_work_controller.py"
+      - "_tools/resume_work_entrypoint.py"
+      - "_tools/final_response_policy.py"
+      - "_tools/render_phase_completion_suffix.py"
+      - "_tools/sanitize_final_response_read_order.py"
       - "_tools/release_orchestrator_guard.py"
       - "_tools/check_operational_docs_consistency.py"
       - "_tools/check_private_release_preflight.py"
@@ -80,6 +85,7 @@ on:
       - "_tools/test_check_ci_train_manifest.py"
       - "_tools/test_check_autonomous_cycle.py"
       - "_tools/test_check_phase_completion_signal.py"
+      - "_tools/test_final_response_policy.py"
       - "_tools/test_regulated_phase_terminal_consumer.js"
       - "_tools/test_reconcile_merged_cycle.py"
       - "_tools/test_select_cycle_execution_mode.py"
@@ -129,6 +135,8 @@ jobs:
 
       - name: Run resume and factory flow regressions
         run: |
+          python _tools/resume_work_entrypoint.py --repository-visibility public --validate-contract-only
+          python _tools/resume_work_entrypoint.py --repository-visibility public
           python _tools/resume_work_controller.py --repository-visibility public --validate-contract-only
           python _tools/resume_work_controller.py --repository-visibility public
           python _tools/test_resume_work_controller.py
@@ -171,10 +179,12 @@ jobs:
           python _tools/test_check_autonomous_cycle.py
           python _tools/test_select_cycle_execution_mode.py
 
-      - name: Run regulated phase signal regressions
+      - name: Run regulated phase and final-response regressions
         run: |
           python _tools/check_phase_completion_signal.py
           python _tools/test_check_phase_completion_signal.py
+          python _tools/test_final_response_policy.py
+          python _tools/sanitize_final_response_read_order.py
           node _tools/test_regulated_phase_terminal_consumer.js
 
       - name: Run stale release label regressions
