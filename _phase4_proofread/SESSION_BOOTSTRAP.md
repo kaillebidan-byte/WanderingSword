@@ -1,6 +1,8 @@
 # 新チャット再開プロトコル
 
-再開経路と制度作業優先順位は`INSTITUTION_WORK_QUEUE.json`、現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、quality auditの資料還流は`QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json`、実行modeは`EXECUTION_MODES.json`、終端契約は`PHASE_COMPLETION_SIGNAL.json`、動的認可は`REGULATED_PHASE_STATE.json`を正本とする。
+再開経路と制度作業優先順位は`INSTITUTION_WORK_QUEUE.json`、現在値は`CURRENT_WORK.json`、正式束と輸送は`CI_TRAIN_MANIFEST.json`、次候補予約は`NEXT_TASK_PACKET.json`、waveとcycle状態は`PRIVATE_STAGE_STATE.json`を正本とする。対象repositoryは`PROJECT_SCOPE_LOCK.json`、工場フローは`FACTORY_FLOW_CONTRACT.json`、quality auditの資料還流は`QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json`、実行modeは`EXECUTION_MODES.json`、通常応答と規定終端応答の分離は`FINAL_RESPONSE_POLICY.json`をroutine正本とする。
+
+生の終端契約とlive認可stateはvalidator・controller専用であり、通常cycleの読書対象にしない。`CURRENT_WORK.mandatory_read_order`に古いentryが残っていても、`FINAL_RESPONSE_POLICY.json`を優先し、`sanitize_final_response_read_order.py`で補正する。
 
 ## 起動文
 
@@ -8,7 +10,7 @@
 現状把握して作業の続きを
 ```
 
-`作業の続きを`など同じ意図の表現も再開指示として扱う。URLや前回作業を聞き直さず、規定URL、制度キュー、機械状態正本、GitHub metadataから復元する。状況報告だけで終了せず、再開controllerが指定する正常完了地点まで同じ応答内で実作業を進める。
+`作業の続きを`など同じ意図の表現も再開指示として扱う。URLや前回作業を聞き直さず、規定URL、制度キュー、機械状態正本、GitHub metadataから復元する。状況報告だけで終了せず、再開entrypointが指定する正常完了地点まで同じ応答内で実作業を進める。
 
 ## 冷間再開の事実確認
 
@@ -28,11 +30,13 @@ python _tools/check_project_scope_lock.py --repository kaillebidan-byte/Wanderin
 
 ## 唯一の再開入口
 
-repository metadata、制度キュー、四状態正本を取得した後、次でwork orderを得る。
+repository metadata、制度キュー、四状態正本を取得した後、次でwork orderと最終応答modeを同時に得る。
 
 ```bash
-python _tools/resume_work_controller.py --repository-visibility <private|public>
+python _tools/resume_work_entrypoint.py --repository-visibility <private|public>
 ```
+
+旧`resume_work_controller.py`は内部controllerであり、新チャットから直接呼ばない。entrypointの`final_response_gate`はwork orderと同じ強制力を持つ。
 
 `always_public_full_pipeline`で`INSTITUTION_WORK_QUEUE.json`にpending taskがある場合、controllerは`institution_repair`を返す。翻訳cycle、次候補preparation、owner、locres、pakには進まない。PR作成後、同じ制度PRでtaskを`completed`へ更新しPR番号を記録する。squash merge SHAは統合前に確定しないため事前記録を要求せず、統合後にGitHub metadataで検証する。実装・回帰・CI・squash merge・main再検証まで終える。
 
@@ -68,9 +72,11 @@ branch、PR、workflow、artifact、owner、状態正本、encoding、人物資�
 - 人物資料の決定的還流: `source_document_feedback.py`
 - 記録済み監査の収録: `translation-factory-encode.yml` → `factory_encoding_executor.py` → `fixed_encoding_pipeline.py`
 - release最終化: `translation-factory-finalize.yml` → `fixed_release_finalizer.py`
-- merge後確定: `reconcile_merged_cycle.py`
+- merge後確定: `reconcile_merged_cycle.py` → `sanitize_final_response_read_order.py`
+- 最終応答mode: `resume_work_entrypoint.py` → `final_response_policy.py`
+- 規定終端suffix: `render_phase_completion_suffix.py`のみ
 
-恒久adapterがなければ`factory_adapter_missing`で安全停止する。安全停止は作業終了ではなく、失敗stepと再開地点を保持した搬送停止である。手動状態編集、一時workflow、trigger実験は禁止する。
+恒久adapterがなければ安全停止する。安全停止は作業終了ではなく、失敗stepと再開地点を保持した搬送停止である。手動状態編集、一時workflow、trigger実験は禁止する。
 
 ## modeと標準完了地点
 
@@ -91,20 +97,35 @@ branch、PR、workflow、artifact、owner、状態正本、encoding、人物資�
 - phase2成功・未解決review thread 0件の前にmergeしない。
 - ゲームフォルダへ配置しない。
 
+## 最終応答ゲート
+
+`final_response_gate.mode=normal_response`では、`safe_completion_label`を用いて通常作業の完了を報告する。予約token、認可ID、result行を本文・引用・説明・例示へ出さない。terminal rendererは実行禁止。
+
+`final_response_gate.mode=authorized_terminal`の場合だけ、次を実行し、生成されたsuffixを改変せず末尾へ付ける。モデルがsuffixを手入力・復元・推測してはならない。
+
+```bash
+python _tools/render_phase_completion_suffix.py --output <terminal-suffix.txt>
+```
+
+通常応答も含め、送信前draftはUTF-8ファイルへ保存して検査する。
+
+```bash
+python _tools/check_phase_completion_signal.py --response-file <draft-response.txt>
+```
+
+checkerまたはrendererが失敗した応答は送信しない。train、wave、PR、release phase2、transport merge、cycle target到達はauthorized terminalへ昇格しない。
+
 ## 整合検査
 
 ```bash
-python _tools/resume_work_controller.py --repository-visibility <private|public> --validate-contract-only
+python _tools/resume_work_entrypoint.py --repository-visibility <private|public> --validate-contract-only
+python _tools/sanitize_final_response_read_order.py
 python _tools/check_factory_adapters.py
 python _tools/check_quality_audit_source_feedback.py --audit <AUDIT_DECISIONS_*.json>
 python _tools/check_operational_docs_consistency.py
 ```
 
-handoff、制度キュー、next reservation、mode別文書、release evidence、読書manifest、人物資料還流、恒久adapter接続が機械正本と一致しなければ次工程へ進まない。
-
-## 規定フェイズ終端
-
-終端予約語は`REGULATED_PHASE_STATE.json.signal_authorization`がliveに認可した場合だけconsumerへ渡す。単一wave、単一train、単一PR、CI、pak生成、visibility境界、paused状態では認可を発行しない。認可がない固定文字列を応答、引用、説明、例示へ出さない。
+handoff、制度キュー、next reservation、mode別文書、release evidence、読書manifest、人物資料還流、最終応答gate、恒久adapter接続が機械正本と一致しなければ次工程へ進まない。
 
 ## 例外停止
 
