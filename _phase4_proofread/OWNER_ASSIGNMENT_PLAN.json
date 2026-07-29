@@ -2,13 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5572_6_5583_2_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch80.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch81.json",
       "values": {
-        "5583_2_Dlgs_Index16_Text": "5003 - 清虚道長 $@$問児、そなたは江湖の経験が豊富だから、師弟の面倒をよく見てやるのだぞ。"
+        "5586_3_Dlgs_Index2_Text": "17112 - 洪飛 $@$……この嬢ちゃんが、わしの身分を教えたのだろう？",
+        "5586_5_Dlgs_Index3_Text": "17112 - 洪飛 $@$ふん、小僧が知った顔をしおって。この老いぼれ乞食は、たまたま通りかかっただけじゃ。もう行くわい……",
+        "5603_1_Dlgs_Index11_Text": "5029 - 莫棄 $@$小逸、道中であの妖女と仲間として過ごし、仲間の情が湧いたのは分かる。だが、それであいつが邪教の人間だってことを忘れるな！"
       },
       "fix_keys": [
-        "5583_2_Dlgs_Index16_Text"
+        "5586_3_Dlgs_Index2_Text",
+        "5586_5_Dlgs_Index3_Text",
+        "5603_1_Dlgs_Index11_Text"
       ]
     }
   ]
