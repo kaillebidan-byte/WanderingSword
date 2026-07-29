@@ -52,7 +52,7 @@
     {
       "task_id": "quality_audit_source_feedback_loop",
       "title": "quality auditの人物資料還流を復旧",
-      "status": "pending",
+      "status": "completed",
       "priority": 4,
       "branch": "agent/quality-audit-source-feedback-loop",
       "summary": "一次資料、skill、人物資料の読書契約をcandidateへ固定し、翻訳判断と同時に既存ペルソナの維持・修正・追加・保留を記録して決定的に還流する。",
@@ -64,7 +64,7 @@
         "旧candidate schemaを過去記録の読取り以外で新規cycleへ流用しない"
       ],
       "completion_conditions": [
-        "candidate schema 3とaudit decision schema 2が契約・controller・initializerで検査される",
+        "candidate schema 3とaudit decision schema 2が契約・controller・context adapterで検査される",
         "reading attestation欠落、必須資料欠落、digest stale、target未判定でencoding前に停止する",
         "keep/revise/create/unresolvedの正常系と失敗系回帰がある",
         "人物資料修正recordを生成し、適用後digestをlive checkerで検証する",
@@ -77,7 +77,10 @@
         "mediumまたはlow confidenceの資料修正を自動適用する",
         "曖昧な文字列anchorやstale digestのまま資料を書き換える",
         "作業中の翻訳PRへ制度schema変更を混在させる"
-      ]
+      ],
+      "completion": {
+        "pr": 193
+      }
     }
   ],
   "completion_contract": {
