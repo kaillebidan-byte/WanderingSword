@@ -1,0 +1,306 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-47",
+  "wave_id": "yuwen-mowen-train-47-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30496632159,
+    "artifact_id": 8741857586,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:f11717517191a314822f3fe44f83acff2a60ff745e3b2ffdbb174f3be3333bae",
+    "head_sha": "18041e4c8a4563e411973332d77e4d991b46bba0"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train47-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9234_6_9245_1_2026-07-30.json",
+      "scene_groups": [
+        "9234_6",
+        "9236_6",
+        "9238_6",
+        "9245_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "9238_6_Dlgs_Index6_Text",
+          "before": "12010 - 荀杳杳 $@$くすくす……元興兄さんの腕では、道中で山賊にでも遭えば少々危ないかもしれないわね。いっそ、わたしと五兄さんで送り届けましょう。",
+          "after": "12010 - 荀杳杳 $@$くすくす……元興兄さんの腕では、道中で山賊にでも遭えば少々危ないかもしれないわね。いっそ、わたしと五兄さんで護衛して送り届けましょう。",
+          "reason": "原文「护他回去」は、危険を案じる宇文逸に対し、荀杳杳と燕未還が李元興を護衛して帰す提案。現訳「送り届けましょう」では保護の機能が薄れるため、「護衛して」を戻す。"
+        },
+        {
+          "key": "9245_1_Dlgs_Index2_Text",
+          "before": "1 - 宇文逸 $@$しかも彼らの目的は、丐幇の青竹杖を奪うことだけのようです……玄離が一体何を企んでいるのか、分かりません。",
+          "after": "1 - 宇文逸 $@$しかも彼らの目的は、丐幇の青竹杖を奪うことだけのようです……玄離は一体、何を企んでいるのでしょう？",
+          "reason": "原文「不知玄离究竟在盘算什么？」は、莫問へ向けた推測を含む問い。現訳は単なる不知の陳述へ閉じ、宇文逸の問いかけと会話の受け渡しを落としているため、疑問形を復元する。"
+        }
+      ],
+      "keeps": [
+        "9234_6_Dlgs_Index0_Text",
+        "9234_6_Dlgs_Index1_Text",
+        "9234_6_Dlgs_Index2_Text",
+        "9234_6_Dlgs_Index3_Text",
+        "9234_6_Dlgs_Index4_Text",
+        "9234_6_Dlgs_Index5_Text",
+        "9234_6_Dlgs_Index6_Text",
+        "9234_6_Dlgs_Index7_Text",
+        "9236_6_Dlgs_Index0_Text",
+        "9236_6_Dlgs_Index1_Text",
+        "9236_6_Dlgs_Index2_Text",
+        "9236_6_Dlgs_Index3_Text",
+        "9236_6_Dlgs_Index4_Text",
+        "9236_6_Dlgs_Index5_Text",
+        "9236_6_Dlgs_Index6_Text",
+        "9236_6_Dlgs_Index7_Text",
+        "9236_6_Dlgs_Index8_Text",
+        "9236_6_Dlgs_Index9_Text",
+        "9238_6_Dlgs_Index0_Text",
+        "9238_6_Dlgs_Index1_Text",
+        "9238_6_Dlgs_Index2_Text",
+        "9238_6_Dlgs_Index3_Text",
+        "9238_6_Dlgs_Index4_Text",
+        "9238_6_Dlgs_Index5_Text",
+        "9238_6_Dlgs_Index7_Text",
+        "9238_6_Dlgs_Index8_Text",
+        "9238_6_Dlgs_Index9_Text",
+        "9238_6_Dlgs_Index10_Text",
+        "9245_1_Dlgs_Index0_Text",
+        "9245_1_Dlgs_Index1_Text",
+        "9245_1_Dlgs_Index3_Text",
+        "9245_1_Dlgs_Index4_Text",
+        "9245_1_Dlgs_Index5_Text",
+        "9245_1_Dlgs_Index6_Text",
+        "9245_1_Dlgs_Index7_Text",
+        "9245_1_Dlgs_Index8_Text",
+        "9245_1_Dlgs_Index9_Text",
+        "9245_1_Dlgs_Index10_Text",
+        "9245_1_Dlgs_Index11_Text",
+        "9245_1_Dlgs_Index12_Text",
+        "9245_1_Dlgs_Index14_Text",
+        "9245_1_Dlgs_Index15_Text"
+      ],
+      "allusion_review_candidates": [
+        "9234_6_Dlgs_Index0_Text",
+        "9236_6_Dlgs_Index0_Text",
+        "9238_6_Dlgs_Index0_Text",
+        "9234_6_Dlgs_Index7_Text",
+        "9236_6_Dlgs_Index9_Text",
+        "9238_6_Dlgs_Index10_Text",
+        "9245_1_Dlgs_Index14_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "9234_6_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「天人合一」は道家・武侠で定着した境地語。特定典籍の直接引用へ昇格せず、円覚の無名評として現訳を保持する。"
+        },
+        {
+          "key": "9236_6_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "相互排他分岐の複製。「天人合一」は境地語として保持し、無名の客観的な到達認定へ広げない。"
+        },
+        {
+          "key": "9238_6_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "相互排他分岐の複製。「天人合一」は境地語として保持し、無名の客観的な到達認定へ広げない。"
+        },
+        {
+          "key": "9234_6_Dlgs_Index7_Text",
+          "decision": "keep",
+          "note": "「客即是缘」は仏教色のある場面内の格言的表現だが、特定典籍の引用とする根拠はない。「客となるのもご縁」が像と穏やかさを保つ。"
+        },
+        {
+          "key": "9236_6_Dlgs_Index9_Text",
+          "decision": "keep",
+          "note": "相互排他分岐の複製。「客即是缘」を特定引用へ昇格せず、現訳の縁の像を保持する。"
+        },
+        {
+          "key": "9238_6_Dlgs_Index10_Text",
+          "decision": "keep",
+          "note": "相互排他分岐の複製。「客即是缘」を特定引用へ昇格せず、現訳の縁の像を保持する。"
+        },
+        {
+          "key": "9245_1_Dlgs_Index14_Text",
+          "decision": "keep",
+          "note": "「一日千里」は進歩の速さを示す定着成語。特定典籍の引用として読み下さず、「上達も目覚ましかった」が場面機能を保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "円覚の『天人合一の境地に達するほどの達人』は無名への評価であり、宇文逸や無名の客観的な境界到達を確定しない。",
+        "烏長老の遺体と青竹杖の処置は分岐ごとに異なるため、李元興・燕未還・荀杳杳の同行や青竹杖回収を全分岐共通へ拡張しない。",
+        "宇文逸の『玄火教の目的は青竹杖だけのようだ』は推測であり、玄離の計画や襲撃目的を確定しない。",
+        "莫問の『天山派覆滅後は誰も風雲訣を修得していない』は本人の知識範囲の説明であり、作中世界の絶対事実として扱わない。",
+        "宇文逸が五霊心経残篇から風雲訣を会得した経緯は本人の説明。無名の入手経路や両者の内力構成を補完しない。"
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:6b2b000841a0e7122470328016b5e0f4321dccc506c541bd2ec64c0acdff9c0b",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/円覚.md",
+            "digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/荀杳杳.md",
+            "digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/円覚.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "9234_6_Dlgs_Index0_Text",
+            "9234_6_Dlgs_Index3_Text",
+            "9234_6_Dlgs_Index4_Text",
+            "9234_6_Dlgs_Index7_Text"
+          ],
+          "reason": "南無阿弥陀仏、老衲、施主への穏やかな招き、烏長老への嘆きは、現行資料の高徳の老僧・慈悲・諭し口調と整合する。分岐複製から新しい一般規則は作らない。",
+          "scope": {
+            "scenes": [
+              "9234_6",
+              "9236_6",
+              "9238_6"
+            ],
+            "mode": "戦後の収拾と少林への招待"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "9234_6_Dlgs_Index1_Text",
+            "9236_6_Dlgs_Index5_Text",
+            "9238_6_Dlgs_Index8_Text",
+            "9245_1_Dlgs_Index2_Text",
+            "9245_1_Dlgs_Index9_Text",
+            "9245_1_Dlgs_Index12_Text"
+          ],
+          "reason": "師兄へ判断を委ねる敬体、仲間を案じる言いさし、玄離の意図を問う探究、秘密を明かして謝る順序は、M1bの礼と問いかけを重んじる現行資料に収まる。疑問形の脱落は訳文側だけを直す。",
+          "scope": {
+            "scenes": [
+              "9234_6",
+              "9236_6",
+              "9238_6",
+              "9245_1"
+            ],
+            "counterpart": "莫問",
+            "mode": "再同行後の相談・告白"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "9234_6_Dlgs_Index2_Text",
+            "9234_6_Dlgs_Index6_Text",
+            "9245_1_Dlgs_Index0_Text",
+            "9245_1_Dlgs_Index4_Text",
+            "9245_1_Dlgs_Index6_Text",
+            "9245_1_Dlgs_Index8_Text",
+            "9245_1_Dlgs_Index14_Text",
+            "9245_1_Dlgs_Index15_Text"
+          ],
+          "reason": "方丈には礼を保ち、宇文逸には「師弟」と常体で問い、風雲訣の知識を順序立てて確認した後に説明を受け止める。現行資料の再同行分岐、兄弟子の観察・判断、弟弟子への常体と整合する。",
+          "scope": {
+            "scenes": [
+              "9234_6",
+              "9236_6",
+              "9238_6",
+              "9245_1"
+            ],
+            "counterpart": "宇文逸と円覚",
+            "timeline": "無名退却後の再同行分岐"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/荀杳杳.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "9238_6_Dlgs_Index6_Text"
+          ],
+          "reason": "「咯咯」の含み笑い、元興兄さん・五兄さんの呼称、軽くからかいながら護衛を引き受ける発話は、含み・からかいモードと身内への情を分ける現行資料に整合する。護衛機能の脱落は訳文側だけを直す。",
+          "scope": {
+            "scene": "9238_6",
+            "mode": "含み・からかいを伴う身内支援",
+            "counterparts": [
+              "李元興",
+              "燕未還",
+              "宇文逸"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}

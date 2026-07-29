@@ -2,27 +2,15 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch91.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9234_6_9245_1_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch92.json",
       "values": {
-        "9231_3_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——",
-        "9232_3_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——",
-        "9233_4_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——",
-        "9231_3_Dlgs_Index7_Text": "9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？",
-        "9232_3_Dlgs_Index8_Text": "9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？",
-        "9233_4_Dlgs_Index11_Text": "9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？",
-        "9233_2_Dlgs_Index1_Text": "1 - 宇文逸 $@$まだ無駄な抵抗を続けるつもりか？",
-        "9233_4_Dlgs_Index7_Text": "9500 - 無名 $@$惜しいが、結局、儂の手駒にはできぬか。"
+        "9238_6_Dlgs_Index6_Text": "12010 - 荀杳杳 $@$くすくす……元興兄さんの腕では、道中で山賊にでも遭えば少々危ないかもしれないわね。いっそ、わたしと五兄さんで護衛して送り届けましょう。",
+        "9245_1_Dlgs_Index2_Text": "1 - 宇文逸 $@$しかも彼らの目的は、丐幇の青竹杖を奪うことだけのようです……玄離は一体、何を企んでいるのでしょう？"
       },
       "fix_keys": [
-        "9231_3_Dlgs_Index0_Text",
-        "9232_3_Dlgs_Index0_Text",
-        "9233_4_Dlgs_Index0_Text",
-        "9231_3_Dlgs_Index7_Text",
-        "9232_3_Dlgs_Index8_Text",
-        "9233_4_Dlgs_Index11_Text",
-        "9233_2_Dlgs_Index1_Text",
-        "9233_4_Dlgs_Index7_Text"
+        "9238_6_Dlgs_Index6_Text",
+        "9245_1_Dlgs_Index2_Text"
       ]
     }
   ]

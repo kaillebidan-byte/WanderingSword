@@ -1,0 +1,587 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "9234_6",
+    "9236_6",
+    "9238_6",
+    "9245_1"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30496632159,
+    "artifact_id": 8741857586,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:f11717517191a314822f3fe44f83acff2a60ff745e3b2ffdbb174f3be3333bae",
+    "head_sha": "18041e4c8a4563e411973332d77e4d991b46bba0"
+  },
+  "scene_context": {
+    "timeline": "無名が退いた直後。円覚が戦闘を収拾し、分岐ごとに烏長老の遺体と青竹杖の扱いを決めて一行が少林へ向かう。その後、宇文逸と莫問が玄火教の丐幇襲撃、無名、風雲訣の出所について話す。",
+    "branch_note": "9234_6・9236_6・9238_6は同行者と青竹杖回収状況が異なる相互排他的分岐。李元興・燕未還・荀杳杳の関与や青竹杖の扱いを合成しない。9245_1は少林行き決定後の師兄弟の私的な確認で、前段分岐の同席者を持ち込まない。"
+  },
+  "rows": [
+    {
+      "key": "9234_6_Dlgs_Index0_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$阿弥陀佛， 能入天人合一之境的绝顶高手，若无死战之心，则世间无人可将其留下，宇文施主与诸位，还是随老衲往少林喝上一杯清茶吧。",
+      "ja": "5500 - 円覚 $@$南無阿弥陀仏……天人合一の境地に達するほどの達人となれば、死闘を覚悟せぬ限り、世の誰にも引き留められまい。宇文施主も皆様も、老衲と少林へ参り、清茶でも一服なされてはいかがかな。"
+    },
+    {
+      "key": "9234_6_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……师兄，你以为呢？",
+      "ja": "1 - 宇文逸 $@$それは……師兄、どうしますか？"
+    },
+    {
+      "key": "9234_6_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$回方丈，我与师弟奉师命来此协助丐帮，如今乌长老身死，总要将他遗体送回丐帮。",
+      "ja": "5015 - 莫問 $@$方丈、わたしと師弟は師命を受け、丐幇への加勢に参りました。烏長老が亡くなった以上、ご遺体を丐幇へ送り届けねばなりません。"
+    },
+    {
+      "key": "9234_6_Dlgs_Index3_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$乌长老……唉，是老衲来迟一步啊。",
+      "ja": "5500 - 円覚 $@$烏長老……ああ、老衲が一歩遅かったか……"
+    },
+    {
+      "key": "9234_6_Dlgs_Index4_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$二位甫经大战，尚需歇息，此事就让老衲遣门下弟子前去吧。",
+      "ja": "5500 - 円覚 $@$お二方は激戦を終えたばかり、まだ休まねばなるまい。この件は老衲が門弟を遣わそう。"
+    },
+    {
+      "key": "9234_6_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$既然方丈都这样说了……师兄，我们便随方丈同上少林吧。",
+      "ja": "1 - 宇文逸 $@$方丈がそうおっしゃるなら……師兄、方丈と共に少林へ向かいましょう。"
+    },
+    {
+      "key": "9234_6_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……那便叨扰方丈了。",
+      "ja": "5015 - 莫問 $@$……では、お言葉に甘えます。"
+    },
+    {
+      "key": "9234_6_Dlgs_Index7_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$呵呵，客即是缘，何言叨扰？诸位施主请随老衲动身吧。",
+      "ja": "5500 - 円覚 $@$ほほ、客となるのもご縁。何を遠慮なさることがあろう。皆様、老衲と参りましょう。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index0_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$阿弥陀佛， 能入天人合一之境的绝顶高手，若无死战之心，则世间无人可将其留下，宇文施主与诸位，还是随老衲往少林喝上一杯清茶吧。",
+      "ja": "5500 - 円覚 $@$南無阿弥陀仏……天人合一の境地に達するほどの達人となれば、死闘を覚悟せぬ限り、世の誰にも引き留められまい。宇文施主も皆様も、老衲と少林へ参り、清茶でも一服なされてはいかがかな。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……师兄，你以为呢？",
+      "ja": "1 - 宇文逸 $@$それは……師兄、どうしますか？"
+    },
+    {
+      "key": "9236_6_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$回方丈，我与师弟奉师命来此协助丐帮，如今既取回青竹杖，总该将其送往丐帮，况且……还有乌长老遗体。",
+      "ja": "5015 - 莫問 $@$方丈、わたしと師弟は師命を受け、丐幇への加勢に参りました。青竹杖を取り戻した以上、丐幇へ送り届けねばなりません。それに……烏長老のご遺体もあります。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index3_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$乌长老……唉，是老衲来迟一步啊。",
+      "ja": "5500 - 円覚 $@$烏長老……ああ、老衲が一歩遅かったか……"
+    },
+    {
+      "key": "9236_6_Dlgs_Index4_Text",
+      "speaker": "李元兴",
+      "zh": "7502 - 李元兴 $@$青竹杖为丐帮信物，还是让区区将青竹杖与乌长老的遗体送回丐帮吧。",
+      "ja": "7502 - 李元興 $@$青竹杖は丐幇の信物です。ここは、この李元興が烏長老のご遺体と共に丐幇へお届けしましょう。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……元兴大哥，此去谭城路程不短，我怕你独自前去会遭逢意外。",
+      "ja": "1 - 宇文逸 $@$しかし……元興大哥、譚城までは遠い。一人で向かって、何かあっては……"
+    },
+    {
+      "key": "9236_6_Dlgs_Index6_Text",
+      "speaker": "李元兴",
+      "zh": "7502 - 李元兴 $@$如今沙权贾等人已亡，玄火教亦暂时退去，想来不会有事，况区区虽不善武力，但也不是手无缚鸡之力的书生，宇文兄弟还是随圆觉方丈往少林稍歇吧。",
+      "ja": "7502 - 李元興 $@$沙権賈らはすでに死に、玄火教もひとまず退いた。まず何事もないだろう。それに、この李元興、武芸は不得手でも何もできぬ書生ではない。宇文兄弟は円覚方丈と少林へ行き、しばし休むといい。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$既然元兴大哥这样说了……师兄，我们便随方丈同上少林吧。",
+      "ja": "1 - 宇文逸 $@$元興大哥がそう言うなら……師兄、方丈と共に少林へ向かいましょう。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index8_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……那便叨扰方丈了。",
+      "ja": "5015 - 莫問 $@$……では、お言葉に甘えます。"
+    },
+    {
+      "key": "9236_6_Dlgs_Index9_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$呵呵，客即是缘，何言叨扰？诸位施主请随老衲动身吧。",
+      "ja": "5500 - 円覚 $@$ほほ、客となるのもご縁。何を遠慮なさることがあろう。皆様、老衲と参りましょう。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index0_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$阿弥陀佛， 能入天人合一之境的绝顶高手，若无死战之心，则世间无人可将其留下，宇文施主与诸位，还是随老衲往少林喝上一杯清茶吧。",
+      "ja": "5500 - 円覚 $@$南無阿弥陀仏……天人合一の境地に達するほどの達人となれば、死闘を覚悟せぬ限り、世の誰にも引き留められまい。宇文施主も皆様も、老衲と少林へ参り、清茶でも一服なされてはいかがかな。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……师兄，你以为呢？",
+      "ja": "1 - 宇文逸 $@$それは……師兄、どうしますか？"
+    },
+    {
+      "key": "9238_6_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$回方丈，我与师弟奉师命来此协助丐帮，如今既取回青竹杖，总该将其送往丐帮，况且……还有乌长老遗体。",
+      "ja": "5015 - 莫問 $@$方丈、わたしと師弟は師命を受け、丐幇への加勢に参りました。青竹杖を取り戻した以上、丐幇へ送り届けねばなりません。それに……烏長老のご遺体もあります。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index3_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$乌长老……唉，是老衲来迟一步啊。",
+      "ja": "5500 - 円覚 $@$烏長老……ああ、老衲が一歩遅かったか……"
+    },
+    {
+      "key": "9238_6_Dlgs_Index4_Text",
+      "speaker": "李元兴",
+      "zh": "7502 - 李元兴 $@$青竹杖为丐帮信物，还是让区区将青竹杖与乌长老的遗体送回丐帮吧。",
+      "ja": "7502 - 李元興 $@$青竹杖は丐幇の信物です。ここは、この李元興が烏長老のご遺体と共に丐幇へお届けしましょう。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……元兴大哥，此去谭城路程不短，我怕你独自前去会遭逢意外。",
+      "ja": "1 - 宇文逸 $@$しかし……元興大哥、譚城までは遠い。一人で向かって、何かあっては……"
+    },
+    {
+      "key": "9238_6_Dlgs_Index6_Text",
+      "speaker": "荀杳杳",
+      "zh": "12010 - 荀杳杳 $@$咯咯，以元兴大哥的身手，路上遇着山贼保不定都有几分风险，索性让奴与五哥一同护他回去吧。",
+      "ja": "12010 - 荀杳杳 $@$くすくす……元興兄さんの腕では、道中で山賊にでも遭えば少々危ないかもしれないわね。いっそ、わたしと五兄さんで送り届けましょう。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index7_Text",
+      "speaker": "燕未还",
+      "zh": "12011 - 燕未还 $@$嗯，有我们在，宇文兄弟不必担忧。",
+      "ja": "12011 - 燕未還 $@$うむ、我らがついている。宇文兄弟、心配はいらない。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯……既是这样……师兄，我们便随方丈同上少林吧。",
+      "ja": "1 - 宇文逸 $@$そうか……それなら……師兄、方丈と共に少林へ向かいましょう。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index9_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……那便叨扰方丈了。",
+      "ja": "5015 - 莫問 $@$……では、お言葉に甘えます。"
+    },
+    {
+      "key": "9238_6_Dlgs_Index10_Text",
+      "speaker": "圆觉",
+      "zh": "5500 - 圆觉 $@$呵呵，客即是缘，何言叨扰？诸位施主请随老衲动身吧。",
+      "ja": "5500 - 円覚 $@$ほほ、客となるのもご縁。何を遠慮なさることがあろう。皆様、老衲と参りましょう。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟在想些什么？",
+      "ja": "5015 - 莫問 $@$師弟、何を考えている？"
+    },
+    {
+      "key": "9245_1_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我在想玄火教突袭丐帮之事……自天龙帮覆灭之后，玄火教虽是动作频频， 可如此堂而皇之袭击中原大派，还是头一遭。",
+      "ja": "1 - 宇文逸 $@$玄火教が丐幇を襲撃した件について考えていました……天龍幇が滅びて以来、玄火教はたびたび動きを見せてきましたが、これほど堂々と中原の名門を襲ったのは初めてです。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$而且他们的目的，似乎仅仅只是抢走丐帮的青竹杖……不知玄离究竟在盘算什么？",
+      "ja": "1 - 宇文逸 $@$しかも彼らの目的は、丐幇の青竹杖を奪うことだけのようです……玄離が一体何を企んでいるのか、分かりません。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$原来是这件事……",
+      "ja": "5015 - 莫問 $@$そのことか……"
+    },
+    {
+      "key": "9245_1_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……师弟就不好奇无名……与《风云诀》吗？",
+      "ja": "5015 - 莫問 $@$……師弟は、無名のことも……《風雲訣》のことも気にならないのか？"
+    },
+    {
+      "key": "9245_1_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我……",
+      "ja": "1 - 宇文逸 $@$私は……"
+    },
+    {
+      "key": "9245_1_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$据我所知，《风云诀》乃当年天山派镇派神功，自二十多年前天山派覆灭之后，便已无人习得。",
+      "ja": "5015 - 莫問 $@$わたしの知る限り、《風雲訣》はかつて天山派に伝わる至高の功法だった。二十数年前に天山派が滅んで以来、修得した者はいない。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index7_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$今日交战之时，师弟与那恶人谷主无名却同样施展出了《风云诀》……",
+      "ja": "5015 - 莫問 $@$今日の戦いでは、師弟も、あの悪人谷主・無名も《風雲訣》を使っていた……"
+    },
+    {
+      "key": "9245_1_Dlgs_Index8_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$不知你们从何得来？",
+      "ja": "5015 - 莫問 $@$二人は、どこで《風雲訣》を得たんだ？"
+    },
+    {
+      "key": "9245_1_Dlgs_Index9_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这件事我该先向师兄道歉……其实早在碗子山时，我就已从江大哥交给我保管的“五灵心经”残篇中有所领悟。",
+      "ja": "1 - 宇文逸 $@$この件は、まず師兄に謝らなければなりません……実は碗子山にいた頃、江大哥から預かった《五霊心経》の残篇を読み、すでにその一端を会得していました。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$不风山一战后，方辗转得知，此功原来竟是《风云诀》。",
+      "ja": "1 - 宇文逸 $@$不風山での一戦を経て、ようやくそれが《風雲訣》だったと知ったのです。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index11_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$至于那恶人无名从何得来，眼下我也无从知晓，只知他在《风云诀》上的造诣，要比我更为深厚。",
+      "ja": "1 - 宇文逸 $@$無名がどこで手に入れたのかは、今の私にも分かりません。ただ、彼が私より深く《風雲訣》を修めていることだけは確かです。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index12_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（犹豫）因此事涉及江大哥，是以……非是有意隐瞒师兄，还请师兄勿怪。",
+      "ja": "1 - 宇文逸 $@$（ためらう）この件は江大哥に関わることでしたので……師兄に故意に隠していたわけではありません。どうか、お許しください。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index14_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$莫怪你甫上武当，便已有了内功修为，且修习武功之时，进境一日千里。",
+      "ja": "5015 - 莫問 $@$道理で、お前は武当に入ったばかりの頃から内功を備え、武術の上達も目覚ましかったわけだ。"
+    },
+    {
+      "key": "9245_1_Dlgs_Index15_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$原来如此。",
+      "ja": "5015 - 莫問 $@$なるほど。"
+    }
+  ],
+  "candidate_questions": [
+    "三つの相互排他分岐で、円覚・宇文逸・莫問の口調と同一内容の訳が一貫しているか。",
+    "烏長老の遺体と青竹杖の処置が、各分岐の同行者・取得状況に即して訳し分けられているか。",
+    "9245_1で、宇文逸の後ろめたさと莫問の問い詰めすぎない師兄らしさが保たれているか。",
+    "玄火教・天山派・風雲訣・五霊心経に関する発話を、話者の知識や推測を越えて確定事実へ広げていないか。"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "9234_6_Dlgs_Index0_Text",
+      "9236_6_Dlgs_Index0_Text",
+      "9238_6_Dlgs_Index0_Text",
+      "9234_6_Dlgs_Index7_Text",
+      "9236_6_Dlgs_Index9_Text",
+      "9238_6_Dlgs_Index10_Text",
+      "9245_1_Dlgs_Index14_Text"
+    ],
+    "fact_doubts": [
+      "円覚の『天人合一の境地に達するほどの達人』は無名への評価であり、宇文逸や無名の客観的な境界到達を確定しない。",
+      "烏長老の遺体と青竹杖の処置は分岐ごとに異なるため、李元興・燕未還・荀杳杳の同行や青竹杖回収を全分岐共通へ拡張しない。",
+      "宇文逸の『玄火教の目的は青竹杖だけのようだ』は推測であり、玄離の計画や襲撃目的を確定しない。",
+      "莫問の『天山派覆滅後は誰も風雲訣を修得していない』は本人の知識範囲の説明であり、作中世界の絶対事実として扱わない。",
+      "宇文逸が五霊心経残篇から風雲訣を会得した経緯は本人の説明。無名の入手経路や両者の内力構成を補完しない。"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 44,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch24.json",
+        "keys": [
+          "9234_6_Dlgs_Index1_Text",
+          "9234_6_Dlgs_Index2_Text",
+          "9234_6_Dlgs_Index5_Text",
+          "9234_6_Dlgs_Index6_Text",
+          "9236_6_Dlgs_Index1_Text",
+          "9236_6_Dlgs_Index2_Text",
+          "9236_6_Dlgs_Index7_Text",
+          "9236_6_Dlgs_Index8_Text",
+          "9238_6_Dlgs_Index1_Text",
+          "9238_6_Dlgs_Index2_Text",
+          "9238_6_Dlgs_Index8_Text",
+          "9238_6_Dlgs_Index9_Text",
+          "9245_1_Dlgs_Index11_Text",
+          "9245_1_Dlgs_Index12_Text",
+          "9245_1_Dlgs_Index14_Text",
+          "9245_1_Dlgs_Index3_Text",
+          "9245_1_Dlgs_Index4_Text",
+          "9245_1_Dlgs_Index6_Text",
+          "9245_1_Dlgs_Index7_Text",
+          "9245_1_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch32.json",
+        "keys": [
+          "9234_6_Dlgs_Index0_Text",
+          "9234_6_Dlgs_Index3_Text",
+          "9234_6_Dlgs_Index4_Text",
+          "9234_6_Dlgs_Index7_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch33.json",
+        "keys": [
+          "9236_6_Dlgs_Index0_Text",
+          "9236_6_Dlgs_Index3_Text",
+          "9236_6_Dlgs_Index4_Text",
+          "9236_6_Dlgs_Index5_Text",
+          "9236_6_Dlgs_Index6_Text",
+          "9236_6_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch34.json",
+        "keys": [
+          "9238_6_Dlgs_Index0_Text",
+          "9238_6_Dlgs_Index10_Text",
+          "9238_6_Dlgs_Index3_Text",
+          "9238_6_Dlgs_Index4_Text",
+          "9238_6_Dlgs_Index5_Text",
+          "9238_6_Dlgs_Index6_Text",
+          "9238_6_Dlgs_Index7_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch35.json",
+        "keys": [
+          "9245_1_Dlgs_Index0_Text",
+          "9245_1_Dlgs_Index10_Text",
+          "9245_1_Dlgs_Index15_Text",
+          "9245_1_Dlgs_Index1_Text",
+          "9245_1_Dlgs_Index2_Text",
+          "9245_1_Dlgs_Index5_Text",
+          "9245_1_Dlgs_Index8_Text"
+        ]
+      }
+    ],
+    "unowned": [],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/円覚.md",
+        "digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/荀杳杳.md",
+        "digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/円覚.md",
+        "digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+        "document_type": "persona",
+        "name": "円覚",
+        "aliases": [
+          "円覚",
+          "圆觉"
+        ],
+        "evidence_keys": [
+          "9234_6_Dlgs_Index0_Text",
+          "9234_6_Dlgs_Index3_Text",
+          "9234_6_Dlgs_Index4_Text",
+          "9234_6_Dlgs_Index7_Text",
+          "9236_6_Dlgs_Index0_Text",
+          "9236_6_Dlgs_Index3_Text",
+          "9236_6_Dlgs_Index9_Text",
+          "9238_6_Dlgs_Index0_Text",
+          "9238_6_Dlgs_Index3_Text",
+          "9238_6_Dlgs_Index10_Text"
+        ]
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "9234_6_Dlgs_Index1_Text",
+          "9234_6_Dlgs_Index5_Text",
+          "9236_6_Dlgs_Index1_Text",
+          "9236_6_Dlgs_Index5_Text",
+          "9236_6_Dlgs_Index7_Text",
+          "9238_6_Dlgs_Index1_Text",
+          "9238_6_Dlgs_Index5_Text",
+          "9238_6_Dlgs_Index8_Text",
+          "9245_1_Dlgs_Index1_Text",
+          "9245_1_Dlgs_Index2_Text",
+          "9245_1_Dlgs_Index5_Text",
+          "9245_1_Dlgs_Index9_Text",
+          "9245_1_Dlgs_Index10_Text",
+          "9245_1_Dlgs_Index11_Text",
+          "9245_1_Dlgs_Index12_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "9234_6_Dlgs_Index2_Text",
+          "9234_6_Dlgs_Index6_Text",
+          "9236_6_Dlgs_Index2_Text",
+          "9236_6_Dlgs_Index8_Text",
+          "9238_6_Dlgs_Index2_Text",
+          "9238_6_Dlgs_Index9_Text",
+          "9245_1_Dlgs_Index0_Text",
+          "9245_1_Dlgs_Index3_Text",
+          "9245_1_Dlgs_Index4_Text",
+          "9245_1_Dlgs_Index6_Text",
+          "9245_1_Dlgs_Index7_Text",
+          "9245_1_Dlgs_Index8_Text",
+          "9245_1_Dlgs_Index14_Text",
+          "9245_1_Dlgs_Index15_Text"
+        ]
+      },
+      {
+        "path": "10_人物/荀杳杳.md",
+        "digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+        "document_type": "persona",
+        "name": "荀杳杳",
+        "aliases": [
+          "荀杳杳"
+        ],
+        "evidence_keys": [
+          "9238_6_Dlgs_Index6_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "李元兴",
+      "燕未还"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:6b2b000841a0e7122470328016b5e0f4321dccc506c541bd2ec64c0acdff9c0b"
+  }
+}

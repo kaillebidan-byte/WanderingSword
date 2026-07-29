@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/円覚.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9234_6_Dlgs_Index0_Text",
+        "9234_6_Dlgs_Index3_Text",
+        "9234_6_Dlgs_Index4_Text",
+        "9234_6_Dlgs_Index7_Text"
+      ],
+      "reason": "南無阿弥陀仏、老衲、施主への穏やかな招き、烏長老への嘆きは、現行資料の高徳の老僧・慈悲・諭し口調と整合する。分岐複製から新しい一般規則は作らない。",
+      "scope": {
+        "scenes": [
+          "9234_6",
+          "9236_6",
+          "9238_6"
+        ],
+        "mode": "戦後の収拾と少林への招待"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+      "after_digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9234_6_Dlgs_Index1_Text",
+        "9236_6_Dlgs_Index5_Text",
+        "9238_6_Dlgs_Index8_Text",
+        "9245_1_Dlgs_Index2_Text",
+        "9245_1_Dlgs_Index9_Text",
+        "9245_1_Dlgs_Index12_Text"
+      ],
+      "reason": "師兄へ判断を委ねる敬体、仲間を案じる言いさし、玄離の意図を問う探究、秘密を明かして謝る順序は、M1bの礼と問いかけを重んじる現行資料に収まる。疑問形の脱落は訳文側だけを直す。",
+      "scope": {
+        "scenes": [
+          "9234_6",
+          "9236_6",
+          "9238_6",
+          "9245_1"
+        ],
+        "counterpart": "莫問",
+        "mode": "再同行後の相談・告白"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9234_6_Dlgs_Index2_Text",
+        "9234_6_Dlgs_Index6_Text",
+        "9245_1_Dlgs_Index0_Text",
+        "9245_1_Dlgs_Index4_Text",
+        "9245_1_Dlgs_Index6_Text",
+        "9245_1_Dlgs_Index8_Text",
+        "9245_1_Dlgs_Index14_Text",
+        "9245_1_Dlgs_Index15_Text"
+      ],
+      "reason": "方丈には礼を保ち、宇文逸には「師弟」と常体で問い、風雲訣の知識を順序立てて確認した後に説明を受け止める。現行資料の再同行分岐、兄弟子の観察・判断、弟弟子への常体と整合する。",
+      "scope": {
+        "scenes": [
+          "9234_6",
+          "9236_6",
+          "9238_6",
+          "9245_1"
+        ],
+        "counterpart": "宇文逸と円覚",
+        "timeline": "無名退却後の再同行分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/荀杳杳.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9238_6_Dlgs_Index6_Text"
+      ],
+      "reason": "「咯咯」の含み笑い、元興兄さん・五兄さんの呼称、軽くからかいながら護衛を引き受ける発話は、含み・からかいモードと身内への情を分ける現行資料に整合する。護衛機能の脱落は訳文側だけを直す。",
+      "scope": {
+        "scene": "9238_6",
+        "mode": "含み・からかいを伴う身内支援",
+        "counterparts": [
+          "李元興",
+          "燕未還",
+          "宇文逸"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "after_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-47",
+  "wave_id": "yuwen-mowen-train-47-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN47_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9234_6_9245_1_2026-07-30.json",
+      "manifest_digest": "sha256:6b2b000841a0e7122470328016b5e0f4321dccc506c541bd2ec64c0acdff9c0b"
+    }
+  ]
+}
