@@ -10,6 +10,11 @@
   "ci_head": "18041e4c8a4563e411973332d77e4d991b46bba0",
   "asset_head": "75eff2ebd4b36897e03ba9d162e0585fc61dcd90",
   "apply_changed": true,
+  "date": "2026-07-30",
+  "notes": [
+    "53行を監査し、8件FIX・45件KEEPを確定した。",
+    "無名の正体露見後の挑発モードと、莫問の無名再対峙モードを人物資料へ還流した。"
+  ],
   "next_scene": "9234_6",
   "next_source": {
     "artifact_workflow": "Release train orchestrator",
