@@ -1,0 +1,254 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-41",
+  "wave_id": "yuwen-mowen-train-41-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30483162707,
+    "artifact_id": 8736529037,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:12cd63e58dbae6ea1117ff2613d7d718acb027c52cb194649b936204128238cf",
+    "head_sha": "b942049f4bb348550a914fbf24d09df7b03a332f"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train41-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5809_11_5811_3_2026-07-30.json",
+      "scene_groups": [
+        "5809_11",
+        "5809_2",
+        "5810_7",
+        "5810_9",
+        "5811_2",
+        "5811_3"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5810_7_Dlgs_Index15_Text",
+          "before": "5015 - 莫問 $@$……武当へ連れていくことはできる。だが、そこで受け入れてもらえるかは、師父と師伯方の判断次第だ。",
+          "after": "5015 - 莫問 $@$……わたしたちにできるのは、武当へ連れていくところまでだ。だが、そこで受け入れてもらえるかは、師父や師伯たちの判断次第だ。",
+          "reason": "原文「我们只能带你回武当」は、莫問たちが約束できる範囲を武当へ連れていくところまでに限定する発話。現訳は単なる可能表現になって限界の提示が弱いため、後進へ現実的な道筋を示す莫問の声として「できるのは〜ところまでだ」とする。"
+        },
+        {
+          "key": "5811_2_Dlgs_Index1_Text",
+          "before": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると見抜いたようだ。",
+          "after": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると察したようだ。",
+          "reason": "原文「猜到了」は状況から推し量ったことを示し、確証を得て真相を見抜いたとまでは言わない。現訳「見抜いた」は認識を確定へ強めるため、「察した」として莫問の推測範囲を保つ。"
+        },
+        {
+          "key": "5811_3_Dlgs_Index1_Text",
+          "before": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると見抜いたようだ。",
+          "after": "5015 - 莫問 $@$……欧陽公子も、この一件に玄火教が絡んでいると察したようだ。",
+          "reason": "原文「猜到了」は状況から推し量ったことを示し、確証を得て真相を見抜いたとまでは言わない。分岐側でも認識を確定へ強めず、「察した」として同じ推測範囲を保つ。"
+        }
+      ],
+      "keeps": [
+        "5809_11_Dlgs_Index0_Text",
+        "5809_11_Dlgs_Index1_Text",
+        "5809_11_Dlgs_Index2_Text",
+        "5809_11_Dlgs_Index3_Text",
+        "5809_11_Dlgs_Index4_Text",
+        "5809_11_Dlgs_Index6_Text",
+        "5809_11_Dlgs_Index7_Text",
+        "5809_11_Dlgs_Index8_Text",
+        "5809_11_Dlgs_Index10_Text",
+        "5809_11_Dlgs_Index11_Text",
+        "5809_11_Dlgs_Index12_Text",
+        "5809_2_Dlgs_Index0_Text",
+        "5809_2_Dlgs_Index1_Text",
+        "5809_2_Dlgs_Index2_Text",
+        "5809_2_Dlgs_Index3_Text",
+        "5809_2_Dlgs_Index4_Text",
+        "5809_2_Dlgs_Index5_Text",
+        "5809_2_Dlgs_Index6_Text",
+        "5810_7_Dlgs_Index0_Text",
+        "5810_7_Dlgs_Index1_Text",
+        "5810_7_Dlgs_Index2_Text",
+        "5810_7_Dlgs_Index3_Text",
+        "5810_7_Dlgs_Index4_Text",
+        "5810_7_Dlgs_Index5_Text",
+        "5810_7_Dlgs_Index7_Text",
+        "5810_7_Dlgs_Index8_Text",
+        "5810_7_Dlgs_Index9_Text",
+        "5810_7_Dlgs_Index10_Text",
+        "5810_7_Dlgs_Index11_Text",
+        "5810_7_Dlgs_Index12_Text",
+        "5810_7_Dlgs_Index13_Text",
+        "5810_7_Dlgs_Index14_Text",
+        "5810_7_Dlgs_Index16_Text",
+        "5810_9_Dlgs_Index0_Text",
+        "5810_9_Dlgs_Index1_Text",
+        "5811_2_Dlgs_Index2_Text",
+        "5811_2_Dlgs_Index3_Text",
+        "5811_2_Dlgs_Index4_Text",
+        "5811_2_Dlgs_Index6_Text",
+        "5811_3_Dlgs_Index2_Text",
+        "5811_3_Dlgs_Index3_Text"
+      ],
+      "allusion_review_candidates": [
+        "5810_7_Dlgs_Index3_Text",
+        "5810_7_Dlgs_Index12_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5810_7_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「尸骨未寒」は死後まだ間もないことを示す定着成語。程鈺の悲嘆場面では骨の像を強制せず、「母さんが亡くなって、まだ間もないのに」で時間的近さと痛みを保つ。"
+        },
+        {
+          "key": "5810_7_Dlgs_Index12_Text",
+          "decision": "keep",
+          "note": "「三天打渔两天晒网」は物事を継続せず怠ることをいう定着した諺。「三日坊主」で程鈺の後悔と口語の自然さを保つ。"
+        }
+      ],
+      "fact_doubts": [
+        "瑶姫が宇文逸を死なせようとしたという内容は莫問のこの時点の判断として扱い、客観事実へ昇格しない",
+        "程家堡が玄火教へ加入したという認識は登場人物が得た情報の範囲に留め、所属の経緯や確定時点を補完しない",
+        "程鈺が父に拒絶されていたことと母の潔白は程鈺の認識・願いとして扱い、客観事実と混同しない",
+        "5809_11と5809_2、5811_2と5811_3は分岐であり、連続して発生した会話として合成しない"
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:73a3194b4fe4cf35f52974ef94bfe09c7a8056ae406dc727f3043b59700e1f28",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:a4f627fafe83832187f72599d8c7a4afc19c6a5cb8167ee2525eae34c02a30ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:5a35e45010abdaa38b34ce0a40349d308278d34a19d763f0cd9f72275ac2f3c1",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/程鈺.md",
+            "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5809_11_Dlgs_Index0_Text",
+            "5809_11_Dlgs_Index4_Text",
+            "5810_7_Dlgs_Index0_Text",
+            "5811_2_Dlgs_Index3_Text"
+          ],
+          "reason": "師兄へ礼を保ちながら瑶姫への迷いを言いさし、程鈺には温かく案じる常体へ切り替えている。現行資料のM1感情・M3後輩モードと整合する。",
+          "scope": {
+            "pair": "宇文逸↔莫問",
+            "timeline": "蒼鷹撃破後から程家堡事後整理",
+            "scenes": [
+              "5809_11",
+              "5810_7",
+              "5811_2"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5809_11_Dlgs_Index7_Text",
+            "5810_7_Dlgs_Index7_Text",
+            "5810_7_Dlgs_Index8_Text",
+            "5810_7_Dlgs_Index15_Text"
+          ],
+          "reason": "宇文逸へ厳しい現実を短く示し、程鈺の悲嘆を行動へ転じさせ、最後に自分たちが約束できる範囲を明示する。現行資料の兄弟子・危機判断・後進指導の思考順序と整合する。",
+          "scope": {
+            "speaker": "莫問",
+            "counterparts": [
+              "宇文逸",
+              "程鈺"
+            ],
+            "timeline": "蒼鷹撃破後から武当同行決定",
+            "scenes": [
+              "5809_11",
+              "5810_7"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/程鈺.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5810_7_Dlgs_Index3_Text",
+            "5810_7_Dlgs_Index4_Text",
+            "5810_7_Dlgs_Index11_Text",
+            "5810_7_Dlgs_Index13_Text",
+            "5810_7_Dlgs_Index14_Text"
+          ],
+          "reason": "母の死と父から拒絶されたという受け止めを泣き・言いさしで吐露し、行動の道筋を示されると母のために武を学ぶ決意へ素早く切り替わる。現行資料の家族喪失・発話優先順位・決意モードと整合する。",
+          "scope": {
+            "speaker": "程鈺",
+            "counterparts": [
+              "莫問",
+              "宇文逸"
+            ],
+            "timeline": "母の死後・武当同行前",
+            "scene": "5810_7"
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}
