@@ -2,14 +2,10 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5508_13_5531_4_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch78.json",
-      "values": {
-        "5531_4_Dlgs_Index10_Text": "19102 - 副将-徐海 $@$……少侠、頼む！　生きていようと死んでいようと、娘を見つけて……家へ連れ帰ってくれ……"
-      },
-      "fix_keys": [
-        "5531_4_Dlgs_Index10_Text"
-      ]
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5531_7_5551_2_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch79.json",
+      "values": {},
+      "fix_keys": []
     }
   ]
 }
