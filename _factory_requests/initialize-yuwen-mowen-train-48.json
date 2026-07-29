@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-48",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30498496936,
+    "artifact_id": 8742555528,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:2e66f3141885e17337f88c7ad4739906216092d2694460a0375654ef0db878ef",
+    "artifact_head": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "9245_3",
+      "9261_1",
+      "9262_1",
+      "9267_1",
+      "9273_1",
+      "9279_1",
+      "12439_2",
+      "12439_3",
+      "12439_5",
+      "12440_3",
+      "12440_4"
+    ],
+    "unique_reviewed_rows": 53,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "少林寺で円覚の招きを受けた宇文逸と、翌朝の武当帰山に備える莫問が別れた後。丐幇分舵襲撃をめぐる平康・樊城・総舵・閻浮鎮での調査分岐を経て、後日の譚城で莫問が丐幇と玄火教のつながりを調べ、宇文逸と再会するまで。",
+    "branch_note": "9261_1と9262_1は平康分舵での相互排他的な進行差分として扱い、絶無心の説明と宇文逸の問いを合成しない。12439系と12440系も『故人』への言及と帰山前の忠告が分岐するため、片方の情報を他方へ補わない。",
+    "seal_attestation": "帰山前の短い別れを導入に、丐幇分舵襲撃の各地調査、朝廷関与の推測、譚城での後続調査と師兄弟の再会まで、11場面・53行で一つの事件追跡と関係進行を閉じる。",
+    "candidate_questions": [
+      "莫問の沈着な推理と宇文逸の師弟registerが、危機下でも人物差を保っているか",
+      "9261_1と9262_1、12439系と12440系の分岐差を混同せず、各場面の情報量を保てているか",
+      "莫問が『故人』を濁す含みと、宇文逸が力になろうと踏み込む距離感が自然に出ているか"
+    ],
+    "allusion_candidates": [
+      "一人计短，二人计长",
+      "肝脑涂地、在所不辞",
+      "万无一失"
+    ],
+    "fact_doubts": [
+      "玄火教が丐幇掌握を狙うという説明は莫問の推理であり、襲撃目的の確定事実へ広げない",
+      "童安または廠衛の関与は冷無情の推測であり、毒の出所は本人も不明としている",
+      "名簿上の数名と玄火教の接触は莫問の調査報告の範囲に限り、丐幇全体の関与へ一般化しない",
+      "莫問が会おうとした『故人』の正体はこの場面では明示されず、丐幇関係者と断定しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9245_3_12440_4_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN48_WAVE01_2026-07-30.md"
+  }
+}
