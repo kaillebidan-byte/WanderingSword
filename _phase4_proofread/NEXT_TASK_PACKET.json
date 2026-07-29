@@ -1,85 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-36-quality-audit",
+  "task_id": "post-train36-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 166,
-    "pair_applied_keys": 1359,
-    "project_applied_keys": 1735,
-    "produced_by_pr": 188,
-    "release_id": "yuwen-mowen-train-35-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_35.json"
+    "batch": 167,
+    "pair_applied_keys": 1360,
+    "project_applied_keys": 1736,
+    "produced_by_pr": 189,
+    "release_id": "yuwen-mowen-train-36-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_36.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5585_4",
-    "5586_3",
-    "5586_5",
-    "5603_1",
-    "5610_2",
-    "5611_8"
+    "5637_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-36-wave-01",
-    "packet_id": "yuwen-mowen-train36-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 167
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30441027060,
+    "artifact_id": 8719458017,
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30438964097,
-    "artifact_id": 8718630312,
-    "artifact_digest": "sha256:74a3831ee4985b09d375a2a9f3c2bd50811edcfa75822127f20447422832dc2c",
-    "artifact_head": "d5aa9c04526c50783c974767c221d1310ec474db",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_digest": "sha256:483e2dbb4b4c6b0e9856f8414d19388667463b243549fe168eecc33cb2dda8e1",
+    "artifact_head": "0b2e3b2e3683e80e2f0f159b1ee1c903caac8d11",
+    "freshness_rule": "次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-36",
     "release_id": "yuwen-mowen-train-36-r1",
     "pr": 189,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-36統合前に5637_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-36",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 167,
+    "planned_batch": 168,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 43,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5585_4",
-      "5586_3",
-      "5586_5",
-      "5603_1",
-      "5610_2",
-      "5611_8"
-    ],
-    "grouping_decision": "六場面・43行。攻撃前倒しの急報から不風山への移動、洪飛の警告、山道防衛、玄火教関与への疑念、山頂へ急ぐ判断までを一つの戦況移行単位として標準40〜60行内で封印した。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 2,
-    "new_project_keys": 1,
-    "fix_keys": 3
   }
 }
