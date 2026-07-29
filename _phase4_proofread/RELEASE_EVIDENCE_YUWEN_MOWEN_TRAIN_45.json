@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-45-r1",
+  "train_id": "yuwen-mowen-train-45",
+  "pr": 201,
+  "ci_head": "4e2b35a7f953779f5d031b187c9c5ffd6866c7fa",
+  "asset_head": "d66a475ee8f52670c43e68682d2c0e7d08da623d",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH176_2026-07-30.md",
+  "counts": {
+    "batch": 176,
+    "pair_applied_keys": 1362,
+    "project_applied_keys": 1738,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30494673142,
+    "workflow": "Release train orchestrator",
+    "head_sha": "4e2b35a7f953779f5d031b187c9c5ffd6866c7fa",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "train-45 orchestratorの固定artifactだけを使用する",
+    "次候補9231_3はminimal reservationとして保持する"
+  ]
+}

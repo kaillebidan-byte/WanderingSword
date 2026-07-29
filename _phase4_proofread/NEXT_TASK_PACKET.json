@@ -1,108 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-45-quality-audit",
+  "task_id": "post-train45-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 175,
-    "pair_applied_keys": 1361,
-    "project_applied_keys": 1737,
-    "produced_by_pr": 200,
-    "release_id": "yuwen-mowen-train-44-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_44.json"
+    "batch": 176,
+    "pair_applied_keys": 1362,
+    "project_applied_keys": 1738,
+    "produced_by_pr": 201,
+    "release_id": "yuwen-mowen-train-45-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_45.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "9016_1",
-    "9150_3",
-    "9150_4",
-    "9154_2",
-    "9209_2",
-    "9210_1",
-    "9223_6",
-    "9228_2",
-    "9229_2",
-    "9230_2"
+    "9231_3"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-45-wave-01",
-    "packet_id": "yuwen-mowen-train45-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 176
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30492452206,
-    "artifact_id": 8740252066,
-    "artifact_digest": "sha256:8e6e1c2dc66f7c18e96abdd87c44db58f701b12c6d21436f1c96244379292f74",
-    "artifact_head": "e588ad993c88faec067e43182b453122f7e1ccc6",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30494673142,
+    "artifact_id": 8741117644,
+    "artifact_digest": "sha256:96dfcf259f9709f2c1a730bd046856e494501354c4607be005694c5c80792a5b",
+    "artifact_head": "4e2b35a7f953779f5d031b187c9c5ffd6866c7fa",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-45",
     "release_id": "yuwen-mowen-train-45-r1",
     "pr": 201,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-45統合前に9231_3のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-45",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 176,
+    "planned_batch": 177,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:6d9bba3991ad99b9b7cd0fd9e62874bc3cf6861f40662fb67531be54c70697d4"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 55,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "9016_1",
-      "9150_3",
-      "9150_4",
-      "9154_2",
-      "9209_2",
-      "9210_1",
-      "9223_6",
-      "9228_2",
-      "9229_2",
-      "9230_2"
-    ],
-    "grouping_decision": "十場面・55行。予約9016_1から、莫問の救出・再同行と悪人谷残党への対峙を閉じ、無名登場直前で意味境界を切る。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 6,
-    "new_project_keys": 1,
-    "fix_keys": 7
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN45_WAVE01_2026-07-30.json",
-    "changed_documents": [
-      "10_人物/宇文逸.md",
-      "10_人物/莫問.md"
-    ],
-    "unresolved_documents": []
   }
 }
