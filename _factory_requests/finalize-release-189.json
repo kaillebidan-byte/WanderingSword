@@ -7,6 +7,7 @@
   "pr": 189,
   "orchestrator_run_id": 30441027060,
   "artifact_name": "release-finalization-inputs-189",
+  "date": "2026-07-29",
   "ci_head": "0b2e3b2e3683e80e2f0f159b1ee1c903caac8d11",
   "asset_head": "6d3f28f4c419011a86ed39b7ff502609087bca30",
   "apply_changed": true,
