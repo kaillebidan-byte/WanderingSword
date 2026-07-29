@@ -85,6 +85,7 @@
     "source_document_patch_validation",
     "source_document_deterministic_application",
     "source_document_change_recording",
+    "post_feedback_owner_state_attestation_refresh",
     "locres_and_pak_generation",
     "release_preflight",
     "release_train_orchestration",
@@ -124,19 +125,14 @@
       "executor": "fixed_encoding_pipeline",
       "adapter": "_tools/fixed_encoding_pipeline.py",
       "source_feedback_adapter": "_tools/source_document_feedback.py",
+      "post_feedback_attestation_adapter": "_tools/refresh_owner_assignment_state_digests.py",
       "trigger_record": "_phase4_proofread/AUDIT_DECISIONS_*.json",
       "execution_workflow": ".github/workflows/translation-factory-encode.yml",
       "resulting_stage": "translation_frozen",
       "resulting_transport": "ready_for_public_ci"
     },
-    "run_release_preflight": {
-      "station_type": "machine",
-      "executor": "fixed_release_preflight"
-    },
-    "run_release_train": {
-      "station_type": "machine",
-      "executor": "release_train_orchestrator"
-    },
+    "run_release_preflight": {"station_type": "machine", "executor": "fixed_release_preflight"},
+    "run_release_train": {"station_type": "machine", "executor": "release_train_orchestrator"},
     "finalize_release_state": {
       "station_type": "machine",
       "executor": "fixed_release_finalizer",
@@ -145,18 +141,9 @@
       "execution_workflow": ".github/workflows/translation-factory-finalize.yml",
       "resulting_transport": "awaiting_private_merge"
     },
-    "verify_phase2_and_merge": {
-      "station_type": "machine",
-      "executor": "fixed_phase2_merge_pipeline"
-    },
-    "reconcile_merged_cycle": {
-      "station_type": "machine",
-      "executor": "reconcile_merged_cycle"
-    },
-    "resume_recorded_checkpoint": {
-      "station_type": "machine",
-      "executor": "recorded_exact_next_action"
-    }
+    "verify_phase2_and_merge": {"station_type": "machine", "executor": "fixed_phase2_merge_pipeline"},
+    "reconcile_merged_cycle": {"station_type": "machine", "executor": "reconcile_merged_cycle"},
+    "resume_recorded_checkpoint": {"station_type": "machine", "executor": "recorded_exact_next_action"}
   },
   "retry_policy": {
     "known_transient_max_retries": 1,

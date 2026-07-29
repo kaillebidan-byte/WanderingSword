@@ -40,15 +40,16 @@ controllerは四状態正本とminimal reservationを読み、一つのwork orde
 5. `check_quality_audit_source_feedback.py`が読書証跡、証拠key、scope、digest、mutation条件を事前検査する。
 6. `factory_encoding_executor.py`から`fixed_encoding_pipeline.py`を実行する。
 7. `source_document_feedback.py`が高確度・digest一致・一意anchorの人物資料修正だけを決定的に適用する。
-8. 40〜60行を標準semantic wave、意味単位完結時のみ61〜80行を`complete_semantic_unit`として正式束へ収録する。
-9. `apply_owner_assignment_v2.py`で既存owner更新、新規owner、digest、manifest集計を生成する。
-10. 人物資料修正記録、review record、owner結果、正式束、状態正本を同じencoding commitへ収録する。
-11. `translation_frozen`・`ready_for_public_ci`へ遷移し、`release-ci` labelから既存orchestratorを起動する。
+8. `refresh_owner_assignment_state_digests.py`が人物資料還流後に追記された`PRIVATE_STAGE_STATE`だけを許可し、owner状態証跡を最終状態へ再封印する。manifestまたはCURRENT_WORKの予期しない変化は拒否する。
+9. 40〜60行を標準semantic wave、意味単位完結時のみ61〜80行を`complete_semantic_unit`として正式束へ収録する。
+10. `apply_owner_assignment_v2.py`で既存owner更新、新規owner、digest、manifest集計を生成する。
+11. 人物資料修正記録、review record、owner結果、正式束、状態正本を同じencoding commitへ収録する。
+12. `translation_frozen`・`ready_for_public_ci`へ遷移し、`release-ci` labelから既存orchestratorを起動する。
 
 ## release finalization
 
 1. `Release train orchestrator`成功後、固定`release-finalization-inputs-*` artifactを使用する。
-2. `_factory_requests/finalize-release-*.json`へPR、orchestrator run、CI HEAD、Apply HEAD、次Relation reservationを一件だけ記録する。
+2. `_factory_requests/finalize-release-*.json`へPR、orchestrator run、CI HEAD、Apply HEAD、次Relation reservationを一仰だけ記録する。
 3. `translation-factory-finalize.yml`がartifactをrun IDとnameで取得する。
 4. `fixed_release_finalizer.py`がrequestとartifactを完全照合する。
 5. release evidence、第N束verified checkpoint、manifest、private state、handoff、次sceneのminimal reservationを同じcommitへ生成する。

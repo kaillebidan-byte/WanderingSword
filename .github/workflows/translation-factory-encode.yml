@@ -103,6 +103,9 @@ jobs:
             --apply \
             --record "${{ steps.inputs.outputs.feedback }}"
 
+      - name: Refresh owner state attestation after persona feedback
+        run: python _tools/refresh_owner_assignment_state_digests.py
+
       - name: Validate frozen release state
         run: |
           python _tools/check_state_json_integrity.py
@@ -129,6 +132,7 @@ jobs:
       - name: Run encoding regressions
         run: |
           python _tools/test_source_document_feedback.py
+          python _tools/test_refresh_owner_assignment_state_digests.py
           python _tools/test_fixed_encoding_pipeline.py
           python _tools/test_check_batch_planning.py
           python _tools/test_translation_factory_controller.py

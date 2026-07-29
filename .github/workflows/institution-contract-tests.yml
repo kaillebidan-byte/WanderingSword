@@ -42,6 +42,8 @@ on:
       - "_tools/fixed_encoding_pipeline.py"
       - "_tools/quality_audit_context.py"
       - "_tools/source_document_feedback.py"
+      - "_tools/refresh_owner_assignment_state_digests.py"
+      - "_tools/check_post_feedback_owner_attestation.py"
       - "_tools/check_quality_audit_source_feedback.py"
       - "_tools/check_factory_adapters.py"
       - "_tools/resume_work_controller.py"
@@ -67,6 +69,7 @@ on:
       - "_tools/test_fixed_cycle_initializer.py"
       - "_tools/test_quality_audit_context.py"
       - "_tools/test_source_document_feedback.py"
+      - "_tools/test_refresh_owner_assignment_state_digests.py"
       - "_tools/test_check_operational_docs_consistency.py"
       - "_tools/test_check_project_scope_lock.py"
       - "_tools/test_check_pr_commit_budget.py"
@@ -132,6 +135,7 @@ jobs:
           python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
           python _tools/translation_factory_controller.py --repository-visibility public
           python _tools/check_factory_adapters.py
+          python _tools/check_post_feedback_owner_attestation.py
           python _tools/test_translation_factory_controller.py
           python _tools/test_translation_factory_workflow.py
           python _tools/test_fixed_cycle_initializer.py
@@ -140,6 +144,7 @@ jobs:
         run: |
           python _tools/test_quality_audit_context.py
           python _tools/test_source_document_feedback.py
+          python _tools/test_refresh_owner_assignment_state_digests.py
           python _tools/test_fixed_encoding_pipeline.py
 
       - name: Run operational document consistency
