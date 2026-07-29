@@ -12,7 +12,8 @@
     "quality_decision_control_invariants",
     "workflow_duplicate_run_serialization",
     "stale_release_label_guard",
-    "quality_audit_source_feedback_loop"
+    "quality_audit_source_feedback_loop",
+    "quality_audit_persona_alias_resolution"
   ],
   "tasks": [
     {
@@ -81,6 +82,36 @@
       "completion": {
         "pr": 193
       }
+    },
+    {
+      "task_id": "quality_audit_persona_alias_resolution",
+      "title": "人物alias衝突をcurrent pairで決定的に解決",
+      "status": "pending",
+      "priority": 5,
+      "branch": "agent/quality-audit-persona-alias-resolution",
+      "summary": "人物資料全体の汎用alias衝突でreading manifest生成が停止しないよう、正本名を最優先し、候補に現れた曖昧aliasだけをcurrent pairで決定的に解決する。",
+      "root_cause": "quality_audit_contextが10_人物全体を単値alias辞書へ変換し、候補で使用されない汎用aliasの重複も走査時点で即時停止していた。宇文逸を示す話者ラベル『主人公』をcurrent pair情報で解決する経路もなかった。",
+      "audit_scope": [
+        "canonical nameをaliasより優先する",
+        "曖昧aliasにcurrent pairの人物が一名だけ含まれる場合はその人物へ解決する",
+        "候補で使用されないalias衝突はmanifest生成を妨げない",
+        "候補で使用されcurrent pairでも一意化できないaliasはfail closedする",
+        "同一canonical nameの複数文書は引き続きfail closedする"
+      ],
+      "completion_conditions": [
+        "主人公aliasが複数人物資料に存在しても宇文逸↔莫問cycleで宇文逸へ解決される",
+        "未使用alias衝突の正常系回帰がある",
+        "使用中の非pair曖昧aliasとcanonical name重複の失敗系回帰がある",
+        "source feedback contractにalias解決規則が固定される",
+        "institution contract testsとfactory adapter testsが成功する",
+        "PR #194を改修前のrequestから再開できる"
+      ],
+      "forbidden": [
+        "人物資料から汎用aliasを根拠なく削除する",
+        "曖昧aliasをファイル順で選ぶ",
+        "current pair外の曖昧aliasを推測で解決する",
+        "制度修正を翻訳PR #194へ混在させる"
+      ]
     }
   ],
   "completion_contract": {

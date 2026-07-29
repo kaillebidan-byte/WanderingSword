@@ -9,6 +9,12 @@
     "independent_allusion_and_fact_gates",
     "source_document_crosscheck"
   ],
+  "alias_resolution": {
+    "canonical_name_precedes_alias": true,
+    "current_pair_preferred_for_ambiguous_alias": true,
+    "unused_alias_collisions_are_non_blocking": true,
+    "used_alias_ambiguity_fails_closed": true
+  },
   "required_documents": [
     ".agents/skills/zhja-game-translation-codex/SKILL.md",
     ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-import copy
 import json
 import tempfile
 from pathlib import Path
@@ -31,11 +30,15 @@ def fixture() -> tuple[Path, Path]:
         write(root / relative, f"# fixture {relative}\n")
     write(
         root / "10_人物/宇文逸.md",
-        "---\nname: 宇文逸\naliases: [宇文逸]\n---\n\n# 宇文逸\n",
+        "---\nname: 宇文逸\naliases: [宇文逸, 主人公]\n---\n\n# 宇文逸\n",
     )
     write(
         root / "10_人物/莫問.md",
         "---\nname: 莫問\naliases: [莫問, 莫问]\n---\n\n# 莫問\n",
+    )
+    write(
+        root / "10_人物/別主人公.md",
+        "---\nname: 別主人公\naliases: [主人公, 別名]\n---\n\n# 別主人公\n",
     )
     candidate_path = root / "_phase4_proofread/CANDIDATE_TEST.json"
     write(
@@ -45,7 +48,7 @@ def fixture() -> tuple[Path, Path]:
                 "schema_version": 2,
                 "current_pair": "宇文逸↔莫問",
                 "rows": [
-                    {"key": "k1", "speaker": "宇文逸", "zh": "zh", "ja": "ja"},
+                    {"key": "k1", "speaker": "主人公", "zh": "zh", "ja": "ja"},
                     {"key": "k2", "speaker": "莫问", "zh": "zh", "ja": "ja"},
                     {"key": "k3", "speaker": "未登録", "zh": "zh", "ja": "ja"},
                 ],
@@ -90,11 +93,18 @@ def main() -> None:
     assert candidate["schema_version"] == 3
     audit_context = candidate["quality_audit_context"]
     assert audit_context["manifest_digest"].startswith("sha256:")
+    assert audit_context["alias_resolution"] == context.EXPECTED_ALIAS_RESOLUTION
     targets = {item["path"] for item in audit_context["source_document_targets"]}
     assert targets == {"10_人物/宇文逸.md", "10_人物/莫問.md"}
+    protagonist = next(
+        item for item in audit_context["source_document_targets"]
+        if item["path"] == "10_人物/宇文逸.md"
+    )
+    assert protagonist["evidence_keys"] == ["k1"]
     required = {item["path"] for item in audit_context["required_documents"]}
     assert "10_人物/宇文逸.md" in required
     assert "10_人物/莫問.md" in required
+    assert "10_人物/別主人公.md" not in required
     assert "source_document_decision" in candidate["forbidden_outputs"]
     state = context.load_object(root / "_phase4_proofread/PRIVATE_STAGE_STATE.json")
     assert state["wave"]["packets"][0]["source_document_target_count"] == 2
@@ -114,17 +124,47 @@ def main() -> None:
         raise AssertionError("missing required document must block")
 
     root, candidate_path = fixture()
-    duplicate = root / "10_人物/重複.md"
+    contract_path = root / context.CONTRACT_REL
+    contract = context.load_object(contract_path)
+    contract.pop("alias_resolution")
+    write(contract_path, json.dumps(contract, ensure_ascii=False))
+    try:
+        context.inject(candidate_path, root)
+    except context.ContextError as exc:
+        assert "alias resolution policy mismatch" in str(exc)
+    else:
+        raise AssertionError("missing alias resolution policy must block")
+
+    root, candidate_path = fixture()
+    candidate = context.load_object(candidate_path)
+    candidate["rows"].append(
+        {"key": "k4", "speaker": "別名", "zh": "zh", "ja": "ja"}
+    )
+    write(candidate_path, json.dumps(candidate, ensure_ascii=False))
+    duplicate = root / "10_人物/さらに別.md"
     write(
         duplicate,
-        "---\nname: 重複\naliases: [宇文逸]\n---\n\n# 重複\n",
+        "---\nname: さらに別\naliases: [別名]\n---\n\n# さらに別\n",
     )
     try:
         context.inject(candidate_path, root)
     except context.ContextError as exc:
-        assert "multiple documents" in str(exc)
+        assert "persona alias remains ambiguous for speaker: 別名" in str(exc)
     else:
-        raise AssertionError("duplicate persona alias must block")
+        raise AssertionError("used non-pair ambiguous alias must block")
+
+    root, candidate_path = fixture()
+    duplicate = root / "10_人物/宇文逸重複.md"
+    write(
+        duplicate,
+        "---\nname: 宇文逸\naliases: [宇文逸]\n---\n\n# 宇文逸重複\n",
+    )
+    try:
+        context.inject(candidate_path, root)
+    except context.ContextError as exc:
+        assert "canonical name resolves to multiple documents" in str(exc)
+    else:
+        raise AssertionError("duplicate canonical persona name must block")
 
     print("test_quality_audit_context: OK")
 

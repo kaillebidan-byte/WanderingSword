@@ -17,6 +17,12 @@ ROOT = Path(__file__).resolve().parent.parent
 P4 = ROOT / "_phase4_proofread"
 CONTRACT_REL = "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json"
 PAIR = "宇文逸↔莫問"
+EXPECTED_ALIAS_RESOLUTION = {
+    "canonical_name_precedes_alias": True,
+    "current_pair_preferred_for_ambiguous_alias": True,
+    "unused_alias_collisions_are_non_blocking": True,
+    "used_alias_ambiguity_fails_closed": True,
+}
 
 
 class ContextError(ValueError):
@@ -84,16 +90,21 @@ def _frontmatter(path: Path) -> tuple[str | None, list[str]]:
     return name, aliases
 
 
-def persona_index(root: Path) -> dict[str, dict[str, Any]]:
+def persona_index(root: Path) -> dict[str, list[dict[str, Any]]]:
     directory = root / "10_人物"
     if not directory.is_dir():
         raise ContextError("persona document root is missing: 10_人物")
-    result: dict[str, dict[str, Any]] = {}
+    result: dict[str, list[dict[str, Any]]] = {}
+    canonical_names: dict[str, str] = {}
     for path in sorted(directory.glob("*.md")):
         name, aliases = _frontmatter(path)
         if not name:
             continue
         relative = path.relative_to(root).as_posix()
+        existing_path = canonical_names.get(name)
+        if existing_path is not None and existing_path != relative:
+            raise ContextError(f"persona canonical name resolves to multiple documents: {name}")
+        canonical_names[name] = relative
         record = {
             "path": relative,
             "digest": digest_path(path),
@@ -102,11 +113,38 @@ def persona_index(root: Path) -> dict[str, dict[str, Any]]:
             "aliases": list(dict.fromkeys([name, *aliases])),
         }
         for alias in record["aliases"]:
-            existing = result.get(alias)
-            if existing is not None and existing["path"] != relative:
-                raise ContextError(f"persona alias resolves to multiple documents: {alias}")
-            result[alias] = record
+            bucket = result.setdefault(alias, [])
+            if all(item["path"] != relative for item in bucket):
+                bucket.append(record)
     return result
+
+
+def resolve_persona(
+    index: dict[str, list[dict[str, Any]]],
+    label: str,
+    current_pair_names: set[str],
+    *,
+    role: str,
+) -> dict[str, Any] | None:
+    matches = index.get(label, [])
+    if not matches:
+        return None
+
+    canonical = [item for item in matches if item["name"] == label]
+    if len(canonical) == 1:
+        return canonical[0]
+    if len(canonical) > 1:
+        raise ContextError(f"persona canonical name remains ambiguous for {role}: {label}")
+
+    pair_matches = [item for item in matches if item["name"] in current_pair_names]
+    if len(pair_matches) == 1:
+        return pair_matches[0]
+    if len(pair_matches) > 1:
+        raise ContextError(f"persona alias remains ambiguous within current pair for {role}: {label}")
+
+    if len(matches) == 1:
+        return matches[0]
+    raise ContextError(f"persona alias remains ambiguous for {role}: {label}")
 
 
 def build_context(candidate: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
@@ -114,6 +152,8 @@ def build_context(candidate: dict[str, Any], root: Path = ROOT) -> dict[str, Any
     contract_errors = feedback.validate_contract(contract)
     if contract_errors:
         raise ContextError("source feedback contract invalid: " + "; ".join(contract_errors))
+    if contract.get("alias_resolution") != EXPECTED_ALIAS_RESOLUTION:
+        raise ContextError("source feedback alias resolution policy mismatch")
     rows = candidate.get("rows")
     if not isinstance(rows, list) or not rows:
         raise ContextError("candidate.rows must be a non-empty list")
@@ -135,8 +175,12 @@ def build_context(candidate: dict[str, Any], root: Path = ROOT) -> dict[str, Any
     pair = candidate.get("current_pair", PAIR)
     if not isinstance(pair, str) or "↔" not in pair:
         raise ContextError("candidate current_pair is invalid")
-    for name in pair.split("↔"):
-        record = index.get(name)
+    pair_names = [name.strip() for name in pair.split("↔")]
+    if len(pair_names) != 2 or any(not name for name in pair_names):
+        raise ContextError("candidate current_pair must contain two non-empty names")
+    current_pair_names = set(pair_names)
+    for name in pair_names:
+        record = resolve_persona(index, name, current_pair_names, role="current pair")
         if record is None:
             raise ContextError(f"current pair persona is unresolved: {name}")
         documents[record["path"]] = {
@@ -158,7 +202,7 @@ def build_context(candidate: dict[str, Any], root: Path = ROOT) -> dict[str, Any
         speaker = str(row.get("speaker") or "").strip()
         if not speaker:
             continue
-        record = index.get(speaker)
+        record = resolve_persona(index, speaker, current_pair_names, role="speaker")
         if record is None:
             if speaker not in unresolved:
                 unresolved.append(speaker)
@@ -185,6 +229,7 @@ def build_context(candidate: dict[str, Any], root: Path = ROOT) -> dict[str, Any
         "contract_id": contract["contract_id"],
         "contract_path": CONTRACT_REL,
         "reading_order": list(contract["reading_order"]),
+        "alias_resolution": dict(contract["alias_resolution"]),
         "primary_evidence": {
             "candidate_rows": True,
             "scene_context": True,
