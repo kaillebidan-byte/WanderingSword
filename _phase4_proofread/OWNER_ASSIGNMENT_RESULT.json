@@ -2,43 +2,43 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:cf3dcd65d265ab7b528c708fca2e4136f203b00411ead62215663da666a6c09a",
+  "plan_digest": "sha256:bbdddc6dd4ccf8d8aa2015b21fb1fe417844707dc59249f5329d25fc7254a423",
   "candidate_digests": {
-    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-29.json": "sha256:81e37cbce2f6520a93b0541b34d5181d28d778a8f7e19cd4f2e4abaadb8a5cad"
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5357_2_2026-07-29.json": "sha256:bd726b764f2253e432e3cf3c554b5163d898842d5bc2262bdd005ae0bffaf909"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:25b38833bb22532b08b1490abb0cc6a634b373d88cf46e9042e39ec134d20525",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:d85f006b3a33a8b5d9ccb6dbf4569c3cd5661c89328088e8664e3eb3f9873b76",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:9367753956e16d84e3e9e3de4279b1b085aa8fe913909d98036bf411f9d484cc"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:1cb2375184d09ff3d4512d07f4a758c6dce6b71bd1f73d7069702e44ce6b893f",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:701d91858a25b969f57d8e0a42551549dd9c6a083f5f6931e857c8d3ed509158",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:6e5c59899c88876cb76245829d5aaa7d62f82cff69236d14f3675decbded1a3d"
   },
   "counts": {
-    "existing_owner_updates": 7,
-    "new_project_keys": 7,
-    "fix_keys": 14
+    "existing_owner_updates": 6,
+    "new_project_keys": 0,
+    "fix_keys": 6
   },
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-29.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch73.json",
-      "candidate_rows": 62,
-      "fix_keys": 14,
-      "existing_keys": 42,
-      "unowned_keys": 20,
-      "new_keys": 7,
-      "unowned_kept": 13,
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5357_2_2026-07-29.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch74.json",
+      "candidate_rows": 50,
+      "fix_keys": 6,
+      "existing_keys": 40,
+      "unowned_keys": 10,
+      "new_keys": 0,
+      "unowned_kept": 10,
       "fix_files": [
-        "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_departure_20260724.json",
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch73.json"
+        "_phase4_proofread/fixes_cross_register_dubiao_roadside_humiliation_20260724.json",
+        "_phase4_proofread/fixes_cross_register_moqi_wuchen_boast_20260724.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch54.json"
       ],
-      "existing_owner_updates": 7
+      "existing_owner_updates": 6
     }
   ],
   "owner_file_digest_shards": [
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_01.json",
       "count": 32,
-      "digest": "sha256:59ce45bd964149c06b234daa2cb7b138868d002cddc2482edc7c56d6c38ca401"
+      "digest": "sha256:222b5572567aaea9922dcad4bffc2fc540ae60d3b6e02247145423a66579be2f"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_02.json",
@@ -48,7 +48,7 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_03.json",
       "count": 32,
-      "digest": "sha256:f1a43ff7aa8d283e7535d099499c8fc0a62acbeb6559c8f7fb50f78e011dfcda"
+      "digest": "sha256:388f26b6a6bc31abd2d60e911d126d12b68ed70c0dd8d6c39e32fc396b901e1f"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_04.json",
@@ -57,8 +57,8 @@
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_05.json",
-      "count": 28,
-      "digest": "sha256:aeccd833c423b74e2440ec8752ca777f0c67c9f1034a59d971f2aa0e9c45aa0b"
+      "count": 29,
+      "digest": "sha256:f0a278785b3989c572baef855ea2600bc18d639e2fdd206bda7d37494ae821e9"
     }
   ]
 }

@@ -2,33 +2,32 @@
 
 > 再開指示: `現状把握して作業の続きを`
 >
-> 実visibility、main、open PR、ActionsはGitHub metadataを毎回取得し、この文書の固定値より優先する。
+> 実visibility、GitHub PR metadata、Actionsを文書中の固定値より優先する。
 
 ## 現在地
 
-- translation PR #174: merged
-- train: `yuwen-mowen-train-28`
-- verified checkpoint: 第159束 / pair 1358 / project 1734
-- transport: `merged`
-- cycle: `target_reached / merged`
-- 次候補: `5352_1`（schema v6 minimal reservation）
+- 実visibility: public
+- PR #182: open / ready / mergeable
+- train: `yuwen-mowen-train-29`
+- verified checkpoint: 第160束 / pair 1358 / project 1734
+- last reviewed batch: 第160束
+- private stage: `translation_frozen`
+- transport: `awaiting_private_merge`
+- queue: 1packet / 50行 / 6修正 / 44保持
 
-## 制度改修キュー
+## release
 
-正本は`INSTITUTION_WORK_QUEUE.json`。`always_public_full_pipeline`ではpending制度タスクを翻訳cycleより先に処理する。
-
-- 完了: `quality_decision_control_invariants` / PR #176
-- 完了: `workflow_duplicate_run_serialization` / PR #180
-- 完了（本PR）: `stale_release_label_guard` / PR #181
+orchestrator run `30431100673`で完全preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功した。asset HEADは`f22ea0a65d91339bd38d4a2a24d793cb4e316cfc`。
 
 ## 次の作業
 
-PR #181の制度CI、live checker、review threadを確認し、squash mergeする。GitHub metadataでmerge SHAを取得してmain実装と制度キューを再検証する。制度キューが空であることを確認後、`resume_work_controller.py --repository-visibility public`が返すtranslation factoryの一つのactionへ進む。PR番号は同じ実装PR内へ記録済み。
+PR #182の`finalize-release` phase2と未解決review thread 0件を確認し、検証済みHEADをsquash統合する。always-public cycleなのでvisibility変更は要求しない。
+
+次候補`5358_1`はminimal reservationのまま保持し、yuwen-mowen-train-29統合前にpreparationを開始しない。
 
 ## 禁止
 
-- PR #181のmain再検証前に`5352_1`の翻訳cycleを開始しない。
-- merged済みPRのphase2やmergeを再実行しない。
-- 翻訳本文、owner値、locres、pak、minimal reservationへ触れない。
-- 独自ロック、一時workflow、別triggerを新造しない。
+- translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない。
+- phase2成功前にPR #182をmergeしない。
+- yuwen-mowen-train-29統合前に`5358_1`のpreparationを始めない。
 - ゲームフォルダへ配置しない。

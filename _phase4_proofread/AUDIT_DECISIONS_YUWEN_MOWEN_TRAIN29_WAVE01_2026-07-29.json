@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "train_id": "yuwen-mowen-train-29",
+  "wave_id": "yuwen-mowen-train-29-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30399952996,
+    "artifact_id": 8704311278,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:7f96893786df8ad035cc760a6ae50edee25fa9bf520508352c874ff053d53c10",
+    "head_sha": "ad7c3f40df8fcbf8023ff68bc016ee8d5fcee934"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train29-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5357_2_2026-07-29.json",
+      "scene_groups": [
+        "5352_1",
+        "5352_3",
+        "5353_5",
+        "5357_1",
+        "5357_2"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5352_3_Dlgs_Index6_Text",
+          "before": "5029 - 莫棄 $@$それに、まだ知らないだろうが……大師兄は二年前の大会で首位だったんだぞ！",
+          "after": "5029 - 莫棄 $@$それに、まだ知らないだろうが……大師兄は二年前の大会で優勝したんだぞ！",
+          "reason": "原文「榜首」は大会の優勝者。現訳の「首位だった」は説明調なので、莫棄が大師兄を誇らしげに持ち上げる会話として「優勝した」にする。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index2_Text",
+          "before": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、その師父の顔も知らねえのか？",
+          "after": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、その師父であるこの俺を知らねえのか？",
+          "reason": "原文「老子这个做师父的」は、夜哭鬼の師父である自分を尊大に押し出す言い方。現訳の「その師父の顔」は修飾関係が曖昧なため、杜彪の自己誇示を明確にする。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index8_Text",
+          "before": "17000 - 杜彪 $@$だが、こっちは弟子を一人失ったままだ。落とし前くらいつけてもらわねえとな。でなきゃ、俺がずいぶん甘い男だと思われちまう。",
+          "after": "17000 - 杜彪 $@$だが、こっちはただで弟子を一人失ったんだ。落とし前くらいつけてもらわねえとな。でなきゃ、この杜彪が甘い男だと思われちまう。",
+          "reason": "「平白没了个徒弟」は何の見返りもなく弟子を失ったという不満。「我杜彪」の名乗りを落とさず、残忍な悪党が面子のために落とし前を迫る声を戻す。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index13_Text",
+          "before": "1 - 宇文逸 $@$（悪人谷の奴らは、やはりどんな悪事も平気で働く……）",
+          "after": "1 - 宇文逸 $@$（悪人谷の奴らは、やはりどんな悪事にも平気で手を染める……）",
+          "reason": "原文「无恶不作」は悪事を選ばないという断定。現訳の「どんな悪事も平気で働く」は日本語の結びが不自然なため、怒りを抑えた心内語として整える。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index14_Text",
+          "before": "1 - 宇文逸 $@$（梧桐村では、包閔が小彤を盾に江兄さんを脅した。今度の杜彪は、往来で人をいたぶり、そのうえ私たちまで辱めようとしている……）",
+          "after": "1 - 宇文逸 $@$（梧桐村では、包閔が小彤を盾に江兄さんを脅した。今度の杜彪は、街中で人をいたぶったうえ、私たちまで言葉で辱めようとしている……）",
+          "reason": "「当街」は人目のある街中、「出言折辱」は言葉で辱めること。現訳の「往来で」は場所表現として不自然で、後半の発話による侮辱も薄いため明示する。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index19_Text",
+          "before": "17000 - 杜彪 $@$自分から死にに来たんだからな。閻羅殿へ行っても、理不尽だと喚くんじゃねえぞ！",
+          "after": "17000 - 杜彪 $@$自分から死にに来たんだからな。閻羅殿へ行っても、恨み言を抜かすんじゃねえぞ！",
+          "reason": "原文「喊冤」は不当な目に遭ったと訴えること。現訳の「理不尽だと喚く」は日本語として硬く、杜彪の嘲弄的な脅しを弱めるため「恨み言を抜かす」にする。"
+        }
+      ],
+      "keeps": [
+        "5352_1_Dlgs_Index0_Text",
+        "5352_1_Dlgs_Index1_Text",
+        "5352_1_Dlgs_Index2_Text",
+        "5352_3_Dlgs_Index0_Text",
+        "5352_3_Dlgs_Index1_Text",
+        "5352_3_Dlgs_Index3_Text",
+        "5352_3_Dlgs_Index4_Text",
+        "5352_3_Dlgs_Index5_Text",
+        "5352_3_Dlgs_Index7_Text",
+        "5352_3_Dlgs_Index8_Text",
+        "5352_3_Dlgs_Index9_Text",
+        "5352_3_Dlgs_Index10_Text",
+        "5352_3_Dlgs_Index11_Text",
+        "5352_3_Dlgs_Index12_Text",
+        "5352_3_Dlgs_Index13_Text",
+        "5352_3_Dlgs_Index14_Text",
+        "5352_3_Dlgs_Index15_Text",
+        "5352_3_Dlgs_Index16_Text",
+        "5353_5_Dlgs_Index0_Text",
+        "5353_5_Dlgs_Index1_Text",
+        "5353_5_Dlgs_Index3_Text",
+        "5353_5_Dlgs_Index4_Text",
+        "5353_5_Dlgs_Index5_Text",
+        "5353_5_Dlgs_Index6_Text",
+        "5353_5_Dlgs_Index7_Text",
+        "5353_5_Dlgs_Index9_Text",
+        "5353_5_Dlgs_Index10_Text",
+        "5353_5_Dlgs_Index11_Text",
+        "5353_5_Dlgs_Index12_Text",
+        "5353_5_Dlgs_Index15_Text",
+        "5353_5_Dlgs_Index16_Text",
+        "5353_5_Dlgs_Index17_Text",
+        "5353_5_Dlgs_Index18_Text",
+        "5357_1_Dlgs_Index0_Text",
+        "5357_1_Dlgs_Index1_Text",
+        "5357_1_Dlgs_Index2_Text",
+        "5357_1_Dlgs_Index3_Text",
+        "5357_1_Dlgs_Index4_Text",
+        "5357_1_Dlgs_Index5_Text",
+        "5357_1_Dlgs_Index6_Text",
+        "5357_2_Dlgs_Index0_Text",
+        "5357_2_Dlgs_Index1_Text",
+        "5357_2_Dlgs_Index2_Text",
+        "5357_2_Dlgs_Index3_Text"
+      ],
+      "allusion_review_candidates": [
+        "5353_5_Dlgs_Index0_Text",
+        "5353_5_Dlgs_Index16_Text",
+        "5353_5_Dlgs_Index19_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5353_5_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「袖裡乾坤」は杜彪の暗器技を指す固有の技名として保持する。現訳は語を散文化せず、後続の「無影無形」を妙技の描写へ分けている。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index16_Text",
+          "decision": "keep",
+          "note": "「士可殺不可辱」は殺されても辱めには屈しないという対句。現訳「士は殺されても辱めは受けぬ」は意味と格調を保ち、過剰な説明を加えていない。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index19_Text",
+          "decision": "fix",
+          "note": "「閻羅殿」は冥府の裁きの場を指す語として保持する。修正対象は典故名ではなく、後続「喊冤」の不自然な日本語と杜彪の嘲弄口調だけ。"
+        }
+      ],
+      "fact_doubts": [
+        "5352_1_Dlgs_Index2_Text: 毒蛇を操る者が小彤かどうかは宇文逸の推測。現訳の「まさか」で未確定性を保持する。",
+        "5352_3_Dlgs_Index7_Text: 無塵の鋳造者と寒泉の来歴は莫棄が「据说」と語る伝聞。現訳の「らしいぞ」で人物発話の範囲に留める。",
+        "5353_5_Dlgs_Index2_Text: 杜彪が夜哭鬼の師父であることは杜彪自身の名乗りとして扱い、地の事実説明へ広げない。"
+      ]
+    }
+  ]
+}
