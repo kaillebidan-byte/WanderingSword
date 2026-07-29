@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-38",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30442376608,
+    "artifact_id": 8719993845,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:f9429365a947af691d919839fc1883fbb2c7c16a6b0fe2cdf19ff3b2c99cf59c",
+    "artifact_head": "7aa941b876167a3387def7d65598a53e8f1925c8"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5654_12",
+      "5654_1",
+      "5654_4",
+      "5654_6",
+      "5654_7",
+      "5654_8"
+    ],
+    "unique_reviewed_rows": 44,
+    "semantic_extension": {
+      "used": false,
+      "reason": "standard_range"
+    },
+    "timeline": "走火入魔した曹煜天との戦闘中、莫問が宇文逸へ欧陽雪を連れて退避するよう命じる。曹煜天の内力が崩壊し、莫問が一人で足止めを引き受けるが、謎の人物が介入して一行を救う。謎の人物は曹煜天の風雲訣が改竄された偽物で、自ら曹煜天へ渡したと明かし、秘笈を破壊する。各派の動機と清虚への不信を示唆し、宇文逸へ再訪を告げるところまでを扱う。",
+    "branch_note": "5654_12と5654_4は進行条件の異なる退避指示として別場面のまま保持する。謎の人物の正体はこの場面で明かされないため、人物名を補わない。偽風雲訣の由来、各派の私心、清虚の隠し事は謎の人物の発言であり、宇文逸と莫問が認めた事実へ変えない。次の5756_2から時系列と任務が変わるため含めない。",
+    "seal_attestation": "六場面・44行。走火入魔した曹煜天との戦闘終盤、退避と決死の足止め、謎の人物の介入、偽風雲訣の告白、各派と清虚への不信の示唆、再訪予告までを一つの戦闘決着・謎提示単位として標準40〜60行内で封印した。",
+    "candidate_questions": [
+      "莫問が負傷下の退避指示、決死の足止め、武当への反論を端正さと気迫を保って語れているか",
+      "宇文逸が師兄を置いて行けない焦り、謎の人物への疑問、各派を信じる率直さを自然に示せているか",
+      "謎の人物が傲岸で底知れず、嘲笑と含みを持つ古風な声を保ち、正体を先取りする表現になっていないか"
+    ],
+    "allusion_candidates": [
+      "走火入魔",
+      "玉华子",
+      "风云诀",
+      "道貌岸然",
+      "朝廷走狗"
+    ],
+    "fact_doubts": [
+      "謎の人物の正体・所属・目的は本人の発言以上に確定しない",
+      "偽風雲訣の威力が本物の一、二割という説明は謎の人物の主張として保持する",
+      "各派が秘笈目的で集まったという見方は謎の人物の嘲笑であり、全派の確定動機にしない",
+      "清虚が隠している事柄の内容と真偽をこの場面から補完しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_12_5654_8_2026-07-29.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN38_WAVE01_2026-07-29.md"
+  }
+}
