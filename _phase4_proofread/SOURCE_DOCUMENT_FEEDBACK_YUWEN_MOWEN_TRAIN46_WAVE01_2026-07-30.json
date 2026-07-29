@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/無名.md",
+      "document_type": "persona",
+      "decision": "revise",
+      "operation": "replace_exact",
+      "evidence_keys": [
+        "9231_3_Dlgs_Index9_Text",
+        "9231_3_Dlgs_Index10_Text",
+        "9231_3_Dlgs_Index11_Text"
+      ],
+      "reason": "現行の「自分の正体は決して明かさない」は正体露見前の方針だけを絶対化しており、露見後の対峙モードを表せない。無名は正体を指摘されても自ら素性を説明せず、莫問の疑念と烏天瘤の情報不足を逆用して挑発へ転じるため、時系列条件を加える。",
+      "scope": {
+        "section": "## 発話優先順位（どう考えて喋るか）",
+        "timeline": "正体露見前後",
+        "counterpart": "莫問を含む対峙相手"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:5116e6a2aefaa595a164e8b81431efdd3bfac0fde2d70a01fc0f5375ce904a57",
+      "after_digest": "sha256:20eacdecea2859c33ae90895488e361edea39fd1edca855b325f348715fc2749",
+      "changed": true
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9231_3_Dlgs_Index3_Text",
+        "9231_3_Dlgs_Index5_Text",
+        "9233_2_Dlgs_Index1_Text"
+      ],
+      "reason": "仮面の男への正体追及、来訪目的の問い、追い詰めた敵への短い断罪は、対敵M6の短い断定・問いかけ・気迫と整合する。新しい一般規則は不要。",
+      "scope": {
+        "modes": [
+          "M6"
+        ],
+        "timeline": "無名正体露見時と悪人谷残党戦闘末尾"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "create",
+      "operation": "append_under_heading",
+      "evidence_keys": [
+        "9231_3_Dlgs_Index8_Text",
+        "9231_3_Dlgs_Index12_Text",
+        "9231_3_Dlgs_Index13_Text"
+      ],
+      "reason": "現行の離反・復讐・敵対節は無名との再対峙で、正体露見後の甘言を拒み、真相の説明より敵認定と行動を優先する短い発話モードを記録していない。三行が同じ機能を連続して示すため追記する。",
+      "scope": {
+        "section": "### 離反・復讐・敵対・諦観",
+        "counterpart": "無名",
+        "timeline": "正体露見後の再対峙分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:95f00858c08daf8625df080f17411d6e528c84ce1ab6f902840fdc8ce54bbbf7",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": true
+    },
+    {
+      "target": "10_人物/杜彪.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9233_2_Dlgs_Index0_Text"
+      ],
+      "reason": "敗北時の短い呻きは、凶悪さを説明へ膨らませず一瞬の動揺を発声で示す現行資料と矛盾しない。単独の呻きから新規規則を作らない。",
+      "scope": {
+        "scene": "9233_2",
+        "state": "敗北直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "after_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/沙権賈.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9233_2_Dlgs_Index2_Text",
+        "9233_2_Dlgs_Index3_Text",
+        "9233_2_Dlgs_Index4_Text"
+      ],
+      "reason": "悪態、思わぬ敗北への悔しさ、「殺すなり何なり」と居直る短句は、粗野で居直った常体という現行資料を直接裏づける。修正すべき資料上の反例はない。",
+      "scope": {
+        "scene": "9233_2",
+        "state": "敗北・死を前にした居直り"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "after_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "changed": false
+    },
+    {
+      "target": "10_人物/荀杳杳.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9233_4_Dlgs_Index5_Text"
+      ],
+      "reason": "見覚えがありながら見知らぬ仮面という含みのある評言は、思わせぶりに本心をくるむ現行の含み・からかいモードと整合する。単行から別モードへ一般化しない。",
+      "scope": {
+        "scene": "9233_4",
+        "mode": "含み・観察"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "after_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "changed": false
+    }
+  ],
+  "changed_documents": [
+    "10_人物/無名.md",
+    "10_人物/莫問.md"
+  ],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-46",
+  "wave_id": "yuwen-mowen-train-46-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN46_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-07-30.json",
+      "manifest_digest": "sha256:8d5d943d93c91ac10b600db7c52a33b7181ecfcf0bf380011a968e6aa8e49087"
+    }
+  ]
+}

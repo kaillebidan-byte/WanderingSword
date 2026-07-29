@@ -18,13 +18,13 @@
     "9233_4"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-46-wave-01",
     "packet_id": "yuwen-mowen-train46-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 177
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -37,16 +37,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-45",
-    "release_id": "yuwen-mowen-train-45-r1",
-    "pr": 201,
-    "status": "merged",
-    "merge_sha": "9a3dce9ebe1fd30abe4b734f74a0e3a227b525a8"
+    "train_id": "yuwen-mowen-train-46",
+    "release_id": "yuwen-mowen-train-46-r1",
+    "pr": 202,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -62,5 +60,37 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:8d5d943d93c91ac10b600db7c52a33b7181ecfcf0bf380011a968e6aa8e49087"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 53,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "9231_3",
+      "9232_3",
+      "9233_2",
+      "9233_4"
+    ],
+    "grouping_decision": "四場面・53行。悪人谷残党の敗北から、分岐別の無名出現・正体開示・莫問への挑発と不倶戴天の宣言までを閉じ、円覚による後始末直前で意味境界を切る。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 8,
+    "new_project_keys": 0,
+    "fix_keys": 8
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN46_WAVE01_2026-07-30.json",
+    "changed_documents": [
+      "10_人物/無名.md",
+      "10_人物/莫問.md"
+    ],
+    "unresolved_documents": []
   }
 }

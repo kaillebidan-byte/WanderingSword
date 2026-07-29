@@ -2,25 +2,27 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9016_1_9230_2_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch90.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch91.json",
       "values": {
-        "9016_1_Dlgs_Index1_Text": "5015 - 莫問 $@$笛の音で毒蛇を操る……五仙教の手口だろう。",
-        "9150_3_Dlgs_Index0_Text": "5015 - 莫問 $@$お前……お前たち、なぜここに？",
-        "9150_4_Dlgs_Index0_Text": "5015 - 莫問 $@$（首を振る）だが、わたしはもう戻れない……戻るつもりもない。",
-        "9150_4_Dlgs_Index2_Text": "1 - 宇文逸 $@$師兄、当時いったい何があって、ここまで絶望してしまったのか、私には分かりません……",
-        "9150_4_Dlgs_Index4_Text": "1 - 宇文逸 $@$今になって師兄へ近づいたのも、何か企んでいるからに違いありません。師兄、どうかあの男に惑わされないでください！",
-        "9230_2_Dlgs_Index1_Text": "12010 - 荀杳杳 $@$くすくす……包四兄さんの目には彼しか映らないの？　わたしたち古い馴染みは、目にも入らないのかしら？",
-        "9230_2_Dlgs_Index8_Text": "5015 - 莫問 $@$師弟、皆も共に、この悪党どもを討とう！"
+        "9231_3_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——",
+        "9232_3_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——",
+        "9233_4_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたとでも——",
+        "9231_3_Dlgs_Index7_Text": "9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？",
+        "9232_3_Dlgs_Index8_Text": "9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？",
+        "9233_4_Dlgs_Index11_Text": "9500 - 無名 $@$だが、貴様らの手で討たれたのも悪くはない。莫問、どう思う？",
+        "9233_2_Dlgs_Index1_Text": "1 - 宇文逸 $@$まだ無駄な抵抗を続けるつもりか？",
+        "9233_4_Dlgs_Index7_Text": "9500 - 無名 $@$惜しいが、結局、儂の手駒にはできぬか。"
       },
       "fix_keys": [
-        "9016_1_Dlgs_Index1_Text",
-        "9150_3_Dlgs_Index0_Text",
-        "9150_4_Dlgs_Index0_Text",
-        "9150_4_Dlgs_Index2_Text",
-        "9150_4_Dlgs_Index4_Text",
-        "9230_2_Dlgs_Index1_Text",
-        "9230_2_Dlgs_Index8_Text"
+        "9231_3_Dlgs_Index0_Text",
+        "9232_3_Dlgs_Index0_Text",
+        "9233_4_Dlgs_Index0_Text",
+        "9231_3_Dlgs_Index7_Text",
+        "9232_3_Dlgs_Index8_Text",
+        "9233_4_Dlgs_Index11_Text",
+        "9233_2_Dlgs_Index1_Text",
+        "9233_4_Dlgs_Index7_Text"
       ]
     }
   ]
