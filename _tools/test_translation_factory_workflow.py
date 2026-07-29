@@ -59,8 +59,12 @@ def main() -> None:
     assert "git status --porcelain -- _phase4_proofread 10_人物" in encode
     assert "check_quality_audit_source_feedback.py" in encode
     assert "source_document_feedback.py" in encode
+    assert "refresh_owner_assignment_state_digests.py" in encode
+    assert encode.index("source_document_feedback.py") < encode.index("refresh_owner_assignment_state_digests.py")
+    assert encode.index("refresh_owner_assignment_state_digests.py") < encode.index("check_owner_assignment_result.py")
     assert "git add _phase4_proofread 10_人物" in encode
     assert "test_source_document_feedback.py" in encode
+    assert "test_refresh_owner_assignment_state_digests.py" in encode
 
     finalize = FINALIZE.read_text(encoding="utf-8")
     assert "name: Translation factory finalization" in finalize

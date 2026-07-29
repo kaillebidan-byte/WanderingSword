@@ -6,26 +6,20 @@
 
 ## 現在地
 
-- translation PR #192: merged
-- train: `yuwen-mowen-train-39`
-- verified checkpoint: 第170束 / pair 1360 / project 1736
-- transport: `merged`
-- cycle: `target_reached / merged`
-- 次候補: `5786_15`（schema v6 minimal reservation）
-- translation試走 PR #194: draft。factory requestを保持したままreading manifest注入失敗地点で停止
-- institution task `quality_audit_persona_alias_resolution`: PR #195で完了記録済み
+- translation PR #194: draft。train-40の監査8件と人物資料判断を記録済み
+- factory encoding: 翻訳収録と人物資料適用は成功したが、凍結検査で`PRIVATE_STAGE_STATE.json`のowner状態digest不一致を検出
+- institution task: `post_feedback_owner_state_attestation_refresh`
+- institution branch: `agent/post-feedback-owner-attestation-refresh`
 
 ## 次の作業
 
-GitHub metadataでPR #195のsquash mergeとmain実装を確認する。その後、PR #194の既存factory requestを更新済みmainへ載せ直し、同じtrain-40試走をreading manifest生成から再開する。
+人物資料還流後に変更された`PRIVATE_STAGE_STATE`だけをowner assignment証跡へ再封印する恒久adapterを制度PRで実装し、CI・squash merge・main再検証を終える。その後、PR #194を更新済みmainへ載せ直し、同じ監査記録からencodingを再開する。
 
 ## 禁止
 
-- PR #195のmain統合確認前に翻訳cycleを開始しない。
+- pendingな制度タスクがある間は翻訳cycleを開始しない。
 - 制度修正を翻訳PR #194へ混在させない。
-- `主人公`aliasを人物資料から根拠なく削除しない。
-- 曖昧aliasをファイル順や推測で選ばない。
-- merged済みPRのphase2やmergeを再実行しない。
-- mode lock前に翻訳準備、判断、owner書込みを開始しない。
-- minimal reservationへprivate preparation詳細を先書きしない。
+- owner file、candidate、翻訳判断を再生成しない。
+- CI_TRAIN_MANIFESTまたはCURRENT_WORKの予期しない差分をdigest更新で隠さない。
+- 失敗runの作業treeを手作業でcommitしない。
 - ゲームフォルダへ配置しない。
