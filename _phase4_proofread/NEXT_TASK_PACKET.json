@@ -1,87 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-39-quality-audit",
+  "task_id": "post-train39-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 169,
+    "batch": 170,
     "pair_applied_keys": 1360,
     "project_applied_keys": 1736,
-    "produced_by_pr": 191,
-    "release_id": "yuwen-mowen-train-38-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_38.json"
+    "produced_by_pr": 192,
+    "release_id": "yuwen-mowen-train-39-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_39.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5756_2",
-    "5756_5",
-    "5781_10",
-    "5781_1",
-    "5784_4",
-    "5784_8",
-    "5784_9"
+    "5786_15"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-39-wave-01",
-    "packet_id": "yuwen-mowen-train39-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 170
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
-    "artifact_run": 30443487167,
-    "artifact_id": 8720445782,
+    "artifact_run": 30444571095,
+    "artifact_id": 8720880620,
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_digest": "sha256:ea512b02c36664245de28df41edd63b97ff811b71bcd41025d14198b8fa2e876",
-    "artifact_head": "3c238ed734d39ce5da5ab0ced101010d0cfa147f",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_digest": "sha256:3d530d2f3adbac8a042291fc023e00992bd2dd2eafb473d6485ea609babf414e",
+    "artifact_head": "113ff62a9d642ec2212ee414ab8d3ec5afb256ef",
+    "freshness_rule": "次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-39",
     "release_id": "yuwen-mowen-train-39-r1",
     "pr": 192,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-39統合前に5786_15のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-39",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 170,
+    "planned_batch": 171,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 54,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5756_2",
-      "5756_5",
-      "5781_10",
-      "5781_1",
-      "5784_4",
-      "5784_8",
-      "5784_9"
-    ],
-    "grouping_decision": "七場面・54行。天水城行きの準備、到着と程家堡の評判、暴れ馬との遭遇、程鈺の自己紹介と程家堡への案内までを一つの旅立ち・到着・案内単位として標準40〜60行内で封印した。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 3,
-    "new_project_keys": 0,
-    "fix_keys": 3
   }
 }
