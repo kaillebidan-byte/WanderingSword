@@ -23,8 +23,8 @@ permissions:
   actions: read
 
 concurrency:
-  group: translation-factory-${{ github.ref_name }}
-  cancel-in-progress: false
+  group: translation-factory-execute-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   execute:
@@ -156,6 +156,7 @@ jobs:
       - name: Run factory adapter regressions
         run: |
           python _tools/test_fixed_cycle_initializer.py
+          python _tools/test_factory_request_executor.py
           python _tools/test_check_next_task_packet_minimal.py
           python _tools/test_translation_factory_controller.py
           python _tools/test_translation_factory_workflow.py
@@ -170,5 +171,71 @@ jobs:
           git add _phase4_proofread
           git diff --cached --check
           git commit -m "状態: 次cycleを意味境界確定済みquality auditへ搬送 [factory-initialize]"
+
           branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
-          git push origin "HEAD:${branch_name}"
+          remote_ref="refs/remotes/origin/${branch_name}"
+
+          reconcile_remote() {
+            git fetch --no-tags origin "+refs/heads/${branch_name}:${remote_ref}"
+            set +e
+            python _tools/factory_request_executor.py \
+              --request "${{ steps.request.outputs.request }}" \
+              --reconcile-remote-ref "$remote_ref" \
+              --execution-result /tmp/translation-factory-result.json \
+              --output /tmp/translation-factory-reconcile.json
+            reconcile_rc=$?
+            set -e
+            reconcile_status="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["status"])' /tmp/translation-factory-reconcile.json)"
+            if [[ "$reconcile_rc" -eq 2 && "$reconcile_status" == "conflict" ]]; then
+              return 0
+            fi
+            if [[ "$reconcile_rc" -ne 0 ]]; then
+              cat /tmp/translation-factory-reconcile.json >&2
+              exit "$reconcile_rc"
+            fi
+          }
+
+          reconcile_remote
+          case "$reconcile_status" in
+            already_applied)
+              echo "NOOP: identical factory output is already present on ${branch_name}"
+              exit 0
+              ;;
+            conflict)
+              cat /tmp/translation-factory-reconcile.json >&2
+              echo "factory branch changed with different generated output; refusing push" >&2
+              exit 1
+              ;;
+            ready_to_push) ;;
+            *)
+              echo "unexpected reconcile status: ${reconcile_status}" >&2
+              exit 1
+              ;;
+          esac
+
+          if git push origin "HEAD:${branch_name}"; then
+            exit 0
+          fi
+
+          echo "initial push lost a branch race; rechecking remote output once" >&2
+          reconcile_remote
+          case "$reconcile_status" in
+            already_applied)
+              echo "NOOP: concurrent run already pushed identical factory output"
+              exit 0
+              ;;
+            conflict)
+              cat /tmp/translation-factory-reconcile.json >&2
+              echo "concurrent run pushed different factory output; refusing retry" >&2
+              exit 1
+              ;;
+            ready_to_push)
+              cat /tmp/translation-factory-reconcile.json >&2
+              echo "push failed without remote progress; refusing identical retry" >&2
+              exit 1
+              ;;
+            *)
+              echo "unexpected reconcile status after push failure: ${reconcile_status}" >&2
+              exit 1
+              ;;
+          esac
