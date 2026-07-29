@@ -1,1 +1,223 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-44","branch":"agent/yuwen-mowen-train-44","draft_pr":200,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":200,"merge_sha":"12c9fe255da9d211308929ca3c7b3ff1a0f5d381"},"base_checkpoint":{"batch":174,"pair_applied_keys":1361,"project_applied_keys":1737,"produced_by_pr":199,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-43-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_43.json","pr":199,"validated_head":"835861613434a1f150af44691b02f161ed63ce17"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":65,"reviewed_keys":65,"unique_reviewed_rows":65,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_only_bundles":0},"bundles":[{"batch":175,"review_status":"complete","apply_status":"verified","scene_groups":["6155_1","6155_3","6158_5","6171_5","6195_3","6198_3","6206_3","6213_1","6214_4","6229_1"],"reviewed_rows":65,"reviewed_keys":65,"unique_rows":65,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_keys":57,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch21.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch22.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch24.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH175_2026-07-30.md","ownership_summary":{"existing_keys":65,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["6155_3_Dlgs_Index3_Text","6155_3_Dlgs_Index7_Text","6195_3_Dlgs_Index3_Text","6198_3_Dlgs_Index2_Text","6198_3_Dlgs_Index3_Text","6214_4_Dlgs_Index2_Text","6214_4_Dlgs_Index3_Text"],"allusion_review_resolved":[{"key":"6155_3_Dlgs_Index3_Text","decision":"keep","note":"「分出生死」は生死を賭けて決着をつける通常の武侠表現で、特定典籍の引用ではない。現訳「生死を分かつ」が関係断絶の重さを保つ。"},{"key":"6155_3_Dlgs_Index7_Text","decision":"fix","note":"「事已至此」は「ここまで来た以上」とする通常表現で現訳を保持する。行全体では直前の「只可惜」の惜しみが脱落しているため「残念だが」を復元する。"},{"key":"6195_3_Dlgs_Index3_Text","decision":"keep","note":"「事已至此」は「ここまで来た以上」とする通常表現。特定典籍の引用へ昇格せず、脅しから決着へ移る機能を保つ。"},{"key":"6198_3_Dlgs_Index2_Text","decision":"keep","note":"「分出生死」は特定典籍の引用ではなく、生死を賭けた決着を指す通常表現。現訳「生死を分かつ」が妥当。"},{"key":"6198_3_Dlgs_Index3_Text","decision":"keep","note":"「侠义为重」は侠義を最優先するという武侠倫理の通常表現。現訳「侠義を何より重んじる」が思想と師兄への敬意を保つ。"},{"key":"6214_4_Dlgs_Index2_Text","decision":"keep","note":"「分出生死」は別分岐でも生死を賭けた決着を指す通常表現。現訳の重さを保持する。"},{"key":"6214_4_Dlgs_Index3_Text","decision":"keep","note":"「侠义为重」は武侠倫理の通常表現で、特定典籍の引用ではない。現訳「侠義を何より重んじる」が妥当。"}],"fact_doubts":["6155・6158・6171・6195・6198・6206・6213・6214・6229は相互排他的な戦闘分岐を含み、同一時系列へ合成しない","6206_3で莫問が攻撃を避けなかった理由は、宇文逸の問いと莫問の「こうなるのも悪くない」「やっと終わる」という発話の範囲に留め、自死の意図や計画を客観事実として補わない","6198_3・6214_4の「師兄に選べる道がない」は宇文逸側の理解であり、莫問の客観的事情として確定しない","6155_3の欧陽雪介入と6213_1・6214_4の複数人による制止は分岐固有であり、全ルートの同行事実へ拡張しない","莫問が欧陽雪や武当を狙う発言は当該分岐の脅し・選択であり、後続の実行結果を補完しない","6229_1の宇文逸敗北と莫問の断罪は一つの分岐結末であり、他の勝利・死亡分岐と併存させない"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30490044852,"artifact_id":8739323192,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:d843e3f8411d20c61c0c144e4eede0cc7105cf58d746525e388876545b52e200","head_sha":"c618bf9d361a33571ca09bfc1fbe2798b10cc89d"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-44-wave-01"},"next_release":{"candidate_scene":["9016_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[175],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-43","release_id":"yuwen-mowen-train-43-r1","pr":199,"merge_sha":"eb8e4b04c7f1486dd7e56e51a8070a00098e00e8"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":65,"unique_reviewed_rows":65,"fix_keys":8,"unique_fix_rows":8,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":8,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":57,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN44_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_44.json","merge_result":{"pr":200,"merge_sha":"12c9fe255da9d211308929ca3c7b3ff1a0f5d381"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-45",
+  "branch": "agent/yuwen-mowen-train-45",
+  "draft_pr": 201,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 201,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 175,
+    "pair_applied_keys": 1361,
+    "project_applied_keys": 1737,
+    "produced_by_pr": 200,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-44-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_44.json",
+      "pr": 200,
+      "validated_head": "5c907423f53be117aac8c2e24c638a2965b63afd"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 55,
+    "reviewed_keys": 55,
+    "unique_reviewed_rows": 55,
+    "fix_keys": 7,
+    "unique_fix_rows": 7,
+    "new_pair_keys": 1,
+    "new_project_keys": 1,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 6,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 176,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "9016_1",
+        "9150_3",
+        "9150_4",
+        "9154_2",
+        "9209_2",
+        "9210_1",
+        "9223_6",
+        "9228_2",
+        "9229_2",
+        "9230_2"
+      ],
+      "reviewed_rows": 55,
+      "reviewed_keys": 55,
+      "unique_rows": 55,
+      "fix_keys": 7,
+      "unique_fix_rows": 7,
+      "new_pair_keys": 1,
+      "new_project_keys": 1,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 6,
+      "keep_keys": 48,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch23.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch27.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch90.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH176_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 51,
+        "unowned_kept": 3,
+        "new_keys": 1,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "9228_2_Dlgs_Index3_Text",
+        "9228_2_Dlgs_Index6_Text",
+        "9229_2_Dlgs_Index3_Text",
+        "9229_2_Dlgs_Index6_Text",
+        "9229_2_Dlgs_Index8_Text",
+        "9230_2_Dlgs_Index3_Text",
+        "9230_2_Dlgs_Index4_Text",
+        "9230_2_Dlgs_Index7_Text",
+        "9230_2_Dlgs_Index10_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "9228_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「新仇旧怨」は新旧の恨みをまとめて指す定着表現。特定典籍の引用ではなく、現訳「新旧の恨み」が戦闘前の決着宣言を保つ。"
+        },
+        {
+          "key": "9228_2_Dlgs_Index6_Text",
+          "decision": "keep",
+          "note": "「恶贯满盈」は悪事が極みに達したことを示す成語。現訳「悪逆非道」が莫問の断罪と手加減無用の判断を簡潔に保つ。"
+        },
+        {
+          "key": "9229_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「新仇旧怨」は通常の成語的表現で、現訳「新旧の恨み」を保持する。"
+        },
+        {
+          "key": "9229_2_Dlgs_Index6_Text",
+          "decision": "keep",
+          "note": "「脚底抹油」は素早く逃げることを指す俗語。現訳「今すぐ逃げ出せば」が李元興の丁寧な脅しの機能を保つ。"
+        },
+        {
+          "key": "9229_2_Dlgs_Index8_Text",
+          "decision": "keep",
+          "note": "「头掉也就碗大个疤」は死を恐れない荒くれの強がり。直訳像より人物声を優先した現訳「命なんざ惜しくねえ」が機能と下品な勢いを保つ。"
+        },
+        {
+          "key": "9230_2_Dlgs_Index3_Text",
+          "decision": "keep",
+          "note": "「有恩报恩，有仇报仇」は恩と仇をそれぞれ返す江湖の定型的な対句。特定典籍の引用ではなく、現訳の反復と長音ダッシュが名乗りの格を保つ。"
+        },
+        {
+          "key": "9230_2_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "「脚底抹油」は逃走を促す俗語。現訳「今すぐ逃げ出せば」が、含み笑いから冷たい警告へ移る李元興の発話を保つ。"
+        },
+        {
+          "key": "9230_2_Dlgs_Index7_Text",
+          "decision": "keep",
+          "note": "「头掉也就碗大个疤」は死を恐れぬ強がり。現訳「命なんざ惜しくねえ」が包閔の粗暴さを自然な日本語で再現する。"
+        },
+        {
+          "key": "9230_2_Dlgs_Index10_Text",
+          "decision": "keep",
+          "note": "「伤天害理」「新仇旧怨」はいずれも定着した道徳・怨恨表現。現訳「非道」「新旧の恨み」が宇文逸の断罪を保ち、特定典籍へ昇格しない。"
+        }
+      ],
+      "fact_doubts": [
+        "9016_1の「果然是小彤」は宇文逸の推定であり、江小彤が毒蛇を操った客観事実へ昇格しない",
+        "9150_4の「回不去」は莫問自身の認識であり、帰還が客観的に不可能だと確定しない",
+        "9150_3・9150_4の救出拒否と9154_2以降の再同行は分岐条件を確認し、全ルートの連続した和解へ合成しない",
+        "9209_2・9210_1・9223_6は別事件の同行場面であり、一続きの移動・任務として補完しない",
+        "9228_2・9229_2・9230_2は同行者構成が異なる相互排他的な対峙分岐であり、李元興・燕未還・荀杳杳の同席を全分岐へ拡張しない",
+        "悪人谷残党の過去の悪行、烏長老の死、玄火教との関係は各行で話者が述べる範囲に留め、後続の無名登場場面から逆算して補完しない"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30492452206,
+        "artifact_id": 8740252066,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:8e6e1c2dc66f7c18e96abdd87c44db58f701b12c6d21436f1c96244379292f74",
+        "head_sha": "e588ad993c88faec067e43182b453122f7e1ccc6"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-45-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "9231_3"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      176
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-44",
+    "release_id": "yuwen-mowen-train-44-r1",
+    "pr": 200,
+    "merge_sha": "12c9fe255da9d211308929ca3c7b3ff1a0f5d381"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 55,
+    "unique_reviewed_rows": 55,
+    "fix_keys": 7,
+    "unique_fix_rows": 7,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 7,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 48,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN45_WAVE01_2026-07-30.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_45.json"
+}

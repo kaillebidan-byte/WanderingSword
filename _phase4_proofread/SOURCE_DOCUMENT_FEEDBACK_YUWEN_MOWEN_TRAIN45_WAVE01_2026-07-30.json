@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/元鳴.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9016_1_Dlgs_Index0_Text"
+      ],
+      "reason": "大量の蛇が突然現れた場面で、言いよどみながら直情的に驚く発話は、現行資料の「事実に直面すると素直に動揺する」「蛇の急出に動揺する」という主張と整合する。",
+      "scope": {
+        "speaker": "元鳴",
+        "counterpart": "宇文逸・莫問ほか",
+        "timeline": "五仙教の蛇が出現した場面",
+        "scenes": [
+          "9016_1"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "after_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "revise",
+      "operation": "replace_exact",
+      "evidence_keys": [
+        "9016_1_Dlgs_Index1_Text",
+        "9150_3_Dlgs_Index0_Text",
+        "9150_4_Dlgs_Index0_Text",
+        "9150_4_Dlgs_Index5_Text",
+        "9150_4_Dlgs_Index6_Text",
+        "9154_2_Dlgs_Index0_Text",
+        "9154_2_Dlgs_Index4_Text",
+        "9209_2_Dlgs_Index0_Text",
+        "9210_1_Dlgs_Index1_Text",
+        "9210_1_Dlgs_Index3_Text",
+        "9223_6_Dlgs_Index0_Text",
+        "9228_2_Dlgs_Index6_Text",
+        "9229_2_Dlgs_Index9_Text",
+        "9230_2_Dlgs_Index8_Text"
+      ],
+      "reason": "現行表では「再会・終盤」が未確定だが、一次資料では救出を拒んで「お前／お前たち」と距離を取る分岐と、別分岐で「師弟」を再び用い、観察・指揮・共闘を担う再同行場面が高確度で確認できる。両者を一本の時系列へ合成せず、非対称な再接続として表へ反映する。",
+      "scope": {
+        "speaker": "莫問",
+        "counterpart": "宇文逸",
+        "timeline": "離反後の救出拒否と後期再同行・悪人谷残党対峙の分岐",
+        "scenes": [
+          "9016_1",
+          "9150_3",
+          "9150_4",
+          "9154_2",
+          "9209_2",
+          "9210_1",
+          "9223_6",
+          "9228_2",
+          "9229_2",
+          "9230_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:dfe5af05c900713970023434829fd465910d645aa5d854f9656c757da6c24881",
+      "after_digest": "sha256:95f00858c08daf8625df080f17411d6e528c84ce1ab6f902840fdc8ce54bbbf7",
+      "changed": true
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "revise",
+      "operation": "replace_exact",
+      "evidence_keys": [
+        "9016_1_Dlgs_Index2_Text",
+        "9016_1_Dlgs_Index3_Text",
+        "9150_3_Dlgs_Index1_Text",
+        "9150_4_Dlgs_Index2_Text",
+        "9150_4_Dlgs_Index3_Text",
+        "9150_4_Dlgs_Index4_Text",
+        "9154_2_Dlgs_Index1_Text",
+        "9154_2_Dlgs_Index2_Text",
+        "9154_2_Dlgs_Index3_Text",
+        "9209_2_Dlgs_Index1_Text",
+        "9210_1_Dlgs_Index0_Text",
+        "9210_1_Dlgs_Index2_Text",
+        "9223_6_Dlgs_Index1_Text",
+        "9228_2_Dlgs_Index0_Text",
+        "9228_2_Dlgs_Index2_Text",
+        "9228_2_Dlgs_Index3_Text",
+        "9228_2_Dlgs_Index7_Text",
+        "9229_2_Dlgs_Index0_Text",
+        "9229_2_Dlgs_Index2_Text",
+        "9229_2_Dlgs_Index3_Text",
+        "9229_2_Dlgs_Index10_Text",
+        "9230_2_Dlgs_Index9_Text",
+        "9230_2_Dlgs_Index10_Text"
+      ],
+      "reason": "現行資料は離反後の決戦分岐までを記すが、今回の一次資料では救出・説得でも師兄呼称と敬体を保ち、別分岐で再同行した後も同じ関係軸を維持しつつ、悪人谷残党への発話だけ戦闘M6へ切り替えることが確認できる。適用範囲を再会・再同行分岐まで拡張し、分岐合成禁止も明記する。",
+      "scope": {
+        "speaker": "宇文逸",
+        "counterpart": "莫問",
+        "timeline": "離反後の救出・説得から再同行・共闘の分岐",
+        "scenes": [
+          "9016_1",
+          "9150_3",
+          "9150_4",
+          "9154_2",
+          "9209_2",
+          "9210_1",
+          "9223_6",
+          "9228_2",
+          "9229_2",
+          "9230_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a776b83a758462b7447c19919e5b072410641ede5fa71cd0fd0cbe5bdccd3b48",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": true
+    },
+    {
+      "target": "10_人物/包閔.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9228_2_Dlgs_Index1_Text",
+        "9228_2_Dlgs_Index5_Text",
+        "9229_2_Dlgs_Index1_Text",
+        "9229_2_Dlgs_Index5_Text",
+        "9229_2_Dlgs_Index8_Text",
+        "9230_2_Dlgs_Index0_Text",
+        "9230_2_Dlgs_Index6_Text",
+        "9230_2_Dlgs_Index7_Text"
+      ],
+      "reason": "「娘的」「怕个卵」「老子」「拼了」が、悪態を先に吐き、宇文逸や一行を粗野に威圧する現行資料の声と整合する。死を恐れぬ強がりも上品化されておらず、資料側の反例ではない。",
+      "scope": {
+        "speaker": "包閔",
+        "counterpart": "宇文逸・同行者",
+        "timeline": "悪人谷残党との対峙分岐",
+        "scenes": [
+          "9228_2",
+          "9229_2",
+          "9230_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8f502a1d9d13f0f49c110a00f6b1a73a4343d7da1375504b0a508a09e8ecca51",
+      "after_digest": "sha256:8f502a1d9d13f0f49c110a00f6b1a73a4343d7da1375504b0a508a09e8ecca51",
+      "changed": false
+    },
+    {
+      "target": "10_人物/杜彪.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9228_2_Dlgs_Index4_Text",
+        "9229_2_Dlgs_Index4_Text",
+        "9230_2_Dlgs_Index2_Text"
+      ],
+      "reason": "宇文逸や燕未還らの出現に一瞬うろたえ、短い驚きを漏らす発話は、現行資料の「驚き・動揺では一瞬うろたえる」という例外モードと整合する。残忍・嘲弄の基調を否定する反例ではない。",
+      "scope": {
+        "speaker": "杜彪",
+        "counterpart": "宇文逸・同行者",
+        "timeline": "悪人谷残党との対峙開始",
+        "scenes": [
+          "9228_2",
+          "9229_2",
+          "9230_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "after_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/荀杳杳.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9230_2_Dlgs_Index1_Text"
+      ],
+      "reason": "「咯咯」から旧知の包閔を思わせぶりにからかう発話は、現行資料の含み・からかいモードと一致する。今回の修正は「どうでもいい」という補足を除き、既存の含みを訳文へ戻すもので、資料改訂は不要。",
+      "scope": {
+        "speaker": "荀杳杳",
+        "counterpart": "包閔",
+        "timeline": "悪人谷残党との再会・対峙",
+        "scenes": [
+          "9230_2"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "after_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "changed": false
+    }
+  ],
+  "changed_documents": [
+    "10_人物/宇文逸.md",
+    "10_人物/莫問.md"
+  ],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-45",
+  "wave_id": "yuwen-mowen-train-45-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN45_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9016_1_9230_2_2026-07-30.json",
+      "manifest_digest": "sha256:6d9bba3991ad99b9b7cd0fd9e62874bc3cf6861f40662fb67531be54c70697d4"
+    }
+  ]
+}
