@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-40-r1",
+  "train_id": "yuwen-mowen-train-40",
+  "pr": 194,
+  "ci_head": "b942049f4bb348550a914fbf24d09df7b03a332f",
+  "asset_head": "b69bd9c214fc8bcdb76c4be43ccb8df03a7cb7af",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH171_2026-07-30.md",
+  "counts": {
+    "batch": 171,
+    "pair_applied_keys": 1360,
+    "project_applied_keys": 1736,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30483162707,
+    "workflow": "Release train orchestrator",
+    "head_sha": "b942049f4bb348550a914fbf24d09df7b03a332f",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "orchestrator run 30483162707はguard、preflight、Relation、Cross、Apply、pak再生成、未適用0件、finalization入力生成まで成功",
+    "次の未監査意味単位は5809_11から開始"
+  ]
+}
