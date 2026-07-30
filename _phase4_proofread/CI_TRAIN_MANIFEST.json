@@ -1,1 +1,88 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-62","branch":"agent/yuwen-mowen-train-62","draft_pr":219,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":219,"merge_sha":"2dbbc1f84b14ea8877c1d7070c20f750b354d685"},"base_checkpoint":{"batch":192,"pair_applied_keys":1406,"project_applied_keys":1782,"produced_by_pr":218,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-61-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_61.json","pr":218,"validated_head":"cfe1eaeae8feb52ec723ac65951ebbaf7a9c7b14"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":45,"reviewed_keys":45,"unique_reviewed_rows":45,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":3,"keep_only_bundles":0},"bundles":[{"batch":193,"review_status":"complete","apply_status":"verified","scene_groups":["5581_5","5581_7","5581_8","5583_1","5583_2"],"reviewed_rows":45,"reviewed_keys":45,"unique_rows":45,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":3,"keep_keys":41,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch107.json","_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch2.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH193_2026-07-31.md","ownership_summary":{"existing_keys":39,"unowned_kept":5,"new_keys":1,"cross_register_keys":0},"allusion_review_candidates":["后生可畏","大是大非","舟车劳顿"],"allusion_review_resolved":[{"key":"5583_1_Dlgs_Index3_Text","decision":"特定典籍由来の定着成語","note":"『后生可畏』は『論語』子罕に由来し、日本語の定着した読み下し『後生畏るべし』を優先する。朗誦ではなく若い弟子への称賛として機能するため、修正訳では『とはこのことじゃ』で会話へ接続する。"},{"key":"5583_1_Dlgs_Index6_Text","decision":"定着した価値判断表現","note":"『大是大非』は根本的な是非・大義に関わる判断を指す定着表現。特定典籍の引用ではなく師の評価として機能し、現訳『こうした大義に関わることでは』が文脈と重みを保つ。"},{"key":"5583_2_Dlgs_Index12_Text","decision":"定着した旅疲れ表現","note":"『舟车劳顿』は長旅の疲労を表す定着表現。現訳『この道中、旅の疲れもあるじゃろう』は、休息を勧める清虚の生活上の気遣いとして自然に機能する。"}],"fact_doubts":[{"scope":"yaoji_departure_and_reunion","keys":["5581_5_Dlgs_Index1_Text","5581_5_Dlgs_Index3_Text","5581_5_Dlgs_Index9_Text","5581_5_Dlgs_Index10_Text"],"note":"義父への復命は瑶姫本人の理由。再会が早い可能性も軽口と予測に留まり、具体的な予定・任務・再会時期を確定しない。"},{"scope":"report_destination_branch_variants","keys":["5581_7_Dlgs_Index0_Text","5581_7_Dlgs_Index1_Text","5581_8_Dlgs_Index0_Text","5581_8_Dlgs_Index1_Text"],"note":"5581_7は清霄師伯、5581_8は師父へ復命する並行分岐。復命先と経路を直列合成せず、訳文修正は共通する宇文逸の応答registerだけに限定する。"},{"scope":"qingxu_concealment_and_liaocheng_truth","keys":["5583_1_Dlgs_Index7_Text","5583_1_Dlgs_Index9_Text","5583_1_Dlgs_Index11_Text","5583_2_Dlgs_Index0_Text","5583_2_Dlgs_Index2_Text","5583_2_Dlgs_Index3_Text","5583_2_Dlgs_Index4_Text","5583_2_Dlgs_Index5_Text","5583_2_Dlgs_Index7_Text","5583_2_Dlgs_Index8_Text"],"note":"清虚が真相を伏せた理由は、当時の情勢不明と宇文逸が性急に復讐へ走る危険を避けるためという本人の説明。叔父の死因、襲撃の具体像、清虚が知った時期・経路は補完しない。"},{"scope":"scheduled_assault_before_emergency_change","keys":["5583_2_Dlgs_Index10_Text","5583_2_Dlgs_Index11_Text","5583_2_Dlgs_Index12_Text","5583_2_Dlgs_Index13_Text","5583_2_Dlgs_Index15_Text","5583_2_Dlgs_Index16_Text","5583_2_Dlgs_Index17_Text","5583_2_Dlgs_Index18_Text"],"note":"この場面では各派は翌日の総攻撃を予定し、清虚は会議へ向かい弟子らへ休息を命じる。次場面5585_4の攻撃前倒しを遡及して混入させない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30560674292,"artifact_id":8766746770,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:5ea8ccd1f0ca01987c4b4a73c24538b8b2056486532e8ea8f3058cf89b125cf0","head_sha":"c8154a64dc05227e058e2ff5a8fb338c31ad40ca"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-62-wave-01"},"next_release":{"candidate_scene":["5585_4"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[193],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-61","release_id":"yuwen-mowen-train-61-r1","pr":218,"merge_sha":"e6795078505470e7a8771b6b3e819af366b7da26"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":45,"unique_reviewed_rows":45,"fix_keys":4,"unique_fix_rows":4,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":4,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":41,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN62_WAVE01_2026-07-31.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_62.json","merge_result":{"pr":219,"merge_sha":"2dbbc1f84b14ea8877c1d7070c20f750b354d685"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-63",
+  "branch": "agent/yuwen-mowen-train-63",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 193,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 219,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-62-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_62.json",
+      "pr": 219,
+      "validated_head": "56f20c46e4693486baaeacac4aa991561d8092c4"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-63-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5585_4",
+      "5586_3",
+      "5586_5",
+      "5603_1",
+      "5610_2",
+      "5611_8"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-62",
+    "release_id": "yuwen-mowen-train-62-r1",
+    "pr": 219,
+    "merge_sha": "2dbbc1f84b14ea8877c1d7070c20f750b354d685"
+  }
+}
