@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-55-r1",
+  "train_id": "yuwen-mowen-train-55",
+  "pr": 212,
+  "ci_head": "bd27afce75956fe289e6cdefcbb514e67f8aa90b",
+  "asset_head": "47b34313b6413e11e578f3db9328dc2326c0bdd1",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH186_2026-07-30.md",
+  "counts": {
+    "batch": 186,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30511937043,
+    "workflow": "Release train orchestrator",
+    "head_sha": "bd27afce75956fe289e6cdefcbb514e67f8aa90b",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第186束は門内大比の告知・全条件分岐・名剣山荘出発準備までの10場面62行。",
+    "実変更4件、意図的保持58件。人物資料六件はいずれもkeep。",
+    "低収率challengeでKEEP58行を全件再監査し、追加FIX0件。",
+    "次候補5352_1はtrain-55統合前にpreparationを開始しない。"
+  ]
+}
