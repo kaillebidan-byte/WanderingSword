@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-63",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30562590785,
+    "artifact_id": 8767523023,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:c5397147b048764b76d16b4d52e980fc51926fec13417495a79e2a834cd799fe",
+    "artifact_head": "39a116c5ba1e1c99b7770803d48317cb85bc7f8a"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5585_4",
+      "5586_3",
+      "5586_5",
+      "5603_1",
+      "5610_2",
+      "5611_8"
+    ],
+    "unique_reviewed_rows": 43,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "翌朝、天龍幇が戦を避けるとの密偵情報で不風山総攻撃が前倒しされ、一行が急行する。途中で洪飛と再会し、東側山道で莫棄・斬無刑を助け、玄火教関与への警戒を受け、残党を突破して山頂の異変へ急ぐまで。",
+    "branch_note": "5586_3と5586_5は洪飛への紹介から莫問の挨拶、洪飛の忠告までを連続して読む。5603_1では玄火教関与は掌門たちと莫棄の推測に留める。5611_8は直前の戦闘・死別を受けた短い慰めと山頂への再出発で今回の急行局面を閉じる。次の5637_1は曹煜天の抜け道を探す仕掛け調査へ局面が切り替わるため含めない。",
+    "seal_attestation": "起点5585_4の総攻撃前倒しの急報から、洪飛との遭遇、東側山道での残党戦と玄火教への警戒、山道突破、5611_8の山頂異変を受けた再出発まで、6場面43行で不風山急行の意味単位を閉じた。5637_1以降の抜け道調査は含めない。",
+    "candidate_questions": [
+      "宇文逸が大師兄・洪飛・莫棄・欧陽雪へ、敬体と常体を関係別に自然に切り替えられているか",
+      "莫問の急報説明、洪飛への儀礼、山道での指揮が、硬すぎず兄弟子の簡潔さを保てているか",
+      "洪飛の隠密行動と忠告、莫棄の玄火教への疑念が、客観的事実へ強められていないか",
+      "緊急局面の速度を保ちつつ、原文の推測・警告・別れの間を削っていないか"
+    ],
+    "allusion_candidates": [
+      "自作聪明",
+      "合眼缘",
+      "信誓旦旦",
+      "拼死反扑"
+    ],
+    "fact_doubts": [
+      "天龍幇が避戦を企てるという情報は六扇門の密偵報告であり、曹煜天の具体的計画を確定しない",
+      "洪飛が不風山付近にいる目的は本人が通りすがりと述べて隠しており、包囲参加や別任務を断定しない",
+      "天龍幇が包囲時刻を事前に知ったことと玄火教関与は掌門たち・莫棄の推測であり、内通や裏切りを確定しない",
+      "玄火教が当日不在であることは莫棄の疑念の根拠だが、瑶姫個人の関与や意図へ広げない",
+      "5611_8の死別対象・死因・直前戦闘の全経緯は、このcandidateの関係行だけから補完しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-31.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN63_WAVE01_2026-07-31.md"
+  }
+}
