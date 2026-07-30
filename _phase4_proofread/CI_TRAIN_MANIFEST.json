@@ -1,1 +1,98 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-50","branch":"agent/yuwen-mowen-train-50","draft_pr":207,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":207,"merge_sha":"da31a1ea4f663fd2d0442317cf2f457722799103"},"base_checkpoint":{"batch":180,"pair_applied_keys":1377,"project_applied_keys":1753,"produced_by_pr":206,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-49-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_49.json","pr":206,"validated_head":"2c9480473887a6564ea894cc7eb138f9cb23b286"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":60,"reviewed_keys":60,"unique_reviewed_rows":60,"fix_keys":17,"unique_fix_rows":17,"new_pair_keys":5,"new_project_keys":5,"cross_register_keys":0,"existing_owner_updates":12,"keep_only_bundles":0},"bundles":[{"batch":181,"review_status":"complete","apply_status":"verified","scene_groups":["5203_4","5203_6","5203_7","5203_14","5211_4","5211_5","5212_1","5214_6","5215_1","5215_2","5217_2","5220_1","5222_1","5222_3"],"reviewed_rows":60,"reviewed_keys":60,"unique_rows":60,"fix_keys":17,"unique_fix_rows":17,"new_pair_keys":5,"new_project_keys":5,"cross_register_keys":0,"existing_owner_updates":12,"keep_keys":43,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch37.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch38.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch95.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH181_2026-07-30.md","ownership_summary":{"existing_keys":46,"unowned_kept":9,"new_keys":5,"cross_register_keys":0},"allusion_review_candidates":["5203_7_Dlgs_Index6_Text","5203_7_Dlgs_Index8_Text"],"allusion_review_resolved":[{"key":"5203_7_Dlgs_Index6_Text","decision":"keep","note":"「侠肝义胆」は侠気と義を備える意の定着成語。特定典籍の直接引用には昇格せず、現訳の「侠気ある方」で人物評価の機能を保つ。"},{"key":"5203_7_Dlgs_Index8_Text","decision":"fix","note":"「莫逆之交」は日本語にも「莫逆の友」として定着する成語。現訳の「無二の友」から定着表現へ戻し、成語性を保持する。"}],"fact_doubts":["江吟風の死亡は宇文逸がこの場面で告げる情報として扱い、死亡状況や時期を補完しない。","清虚道長が宇文逸の命を救ったという説明は宇文逸の発言範囲に留め、救命の経緯を補完しない。","碗子山の件が広まっているという説明は莫問が洛村と平康を往来する商人から得た認識であり、武林全体の公知へ広げない。","江師叔の件が武当で忌避されるという説明は莫問の注意であり、禁忌の理由や門派全体の統一見解を補完しない。"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30503591974,"artifact_id":8744439828,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:adb307d150791bfb36d5e0583362aacdb762fa111d0e5ba4913234b914ad52e3","head_sha":"ea07ec250a9788a720ae810e23aac5d19683af74"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-50-wave-01"},"next_release":{"candidate_scene":["5224_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[181],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-49","release_id":"yuwen-mowen-train-49-r1","pr":206,"merge_sha":"db5241cfa141c1948ca191fcdc63dab6bda07683"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":60,"unique_reviewed_rows":60,"fix_keys":17,"unique_fix_rows":17,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":17,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_50.json","merge_result":{"pr":207,"merge_sha":"da31a1ea4f663fd2d0442317cf2f457722799103"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-51",
+  "branch": "agent/yuwen-mowen-train-51",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 181,
+    "pair_applied_keys": 1382,
+    "project_applied_keys": 1758,
+    "produced_by_pr": 207,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-50-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_50.json",
+      "pr": 207,
+      "validated_head": "73f2fec20e158d1d1d5810c237c173a4b6f79ef5"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-51-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5224_1",
+      "5224_2",
+      "5227_1",
+      "5227_2",
+      "5227_3",
+      "5227_5",
+      "5229_1",
+      "5229_2",
+      "5229_3",
+      "5229_4",
+      "5229_6",
+      "5229_9",
+      "5229_10",
+      "5229_11",
+      "5229_12",
+      "5229_13"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-50",
+    "release_id": "yuwen-mowen-train-50-r1",
+    "pr": 207,
+    "merge_sha": "da31a1ea4f663fd2d0442317cf2f457722799103"
+  }
+}
