@@ -1,1 +1,247 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-60","branch":"agent/yuwen-mowen-train-60","draft_pr":217,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":217,"merge_sha":"f9d9742f363f0bd478f87dcbf1856bf8b181c1fb"},"base_checkpoint":{"batch":190,"pair_applied_keys":1404,"project_applied_keys":1780,"produced_by_pr":216,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-59-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_59.json","pr":216,"validated_head":"39556e9201b2f2d44de5f0a45560a8a7ace41e40"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":61,"reviewed_keys":61,"unique_reviewed_rows":61,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":2,"new_project_keys":2,"cross_register_keys":0,"existing_owner_updates":1,"keep_only_bundles":0},"bundles":[{"batch":191,"review_status":"complete","apply_status":"verified","scene_groups":["5522_1","5523_1","5525_3","5525_6","5528_7","5531_3","5531_4","5531_7"],"reviewed_rows":61,"reviewed_keys":61,"unique_rows":61,"fix_keys":3,"unique_fix_rows":3,"new_pair_keys":2,"new_project_keys":2,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":58,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch105.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH191_2026-07-30.md","ownership_summary":{"existing_keys":51,"unowned_kept":8,"new_keys":2,"cross_register_keys":0},"allusion_review_candidates":["穷寇莫追","想来就来，想走就走","千方百计","绝非易于之辈","错已铸成"],"allusion_review_resolved":[{"key":"5531_3_Dlgs_Index0_Text","decision":"定着した兵法成語","note":"「穷寇莫追」は逃走する敵を追い詰めないという兵法系の定着表現。会話では特定典籍の朗誦ではなく制止として機能しており、現訳「逃げる敵を深追いするな」が意味と速度を保つ。"},{"key":"5522_1_Dlgs_Index3_Text","decision":"通常の対句表現","note":"「想来就来、想走就走」は勝手に出入りすることを責める並列表現で、特定典籍の引用ではない。現訳「好き勝手に出入りできると思うな」が徐海の怒号を保つ。"},{"key":"5525_6_Dlgs_Index1_Text","decision":"定着した成語","note":"「千方百计」はあらゆる手段を尽くす意の成語。現訳「あの手この手で」は瑶姬の推測口調と会話速度を保つ。"},{"key":"5528_7_Dlgs_Index4_Text","decision":"定着した評価表現","note":"「绝非易于之辈」は容易に扱える相手ではない意。現訳「侮れる相手ではない」は莫問の戦闘時の警告として機能と強度を保つ。"},{"key":"5531_4_Dlgs_Index23_Text","decision":"定着した不可逆表現","note":"「错已铸成」は過ちが既に成り、取り返せないという比喩的な通常表現。修正訳「もう取り返しがつかない」は徐海の悔恨と不可逆性を自然に保つ。"}],"fact_doubts":[{"scope":"xu_hai_feigned_injury_and_coercion_inference","keys":["5525_6_Dlgs_Index0_Text","5525_6_Dlgs_Index1_Text","5525_6_Dlgs_Index2_Text","5525_6_Dlgs_Index3_Text"],"note":"徐海が負傷を装ったこと、夜襲に合わせて戦場を離れたこと、天龍幇の制約下にあることは宇文逸・瑶姬・莫問の推測と判断。共謀の詳細や自発的裏切りを客観事実へ強めない。"},{"scope":"enemy_roles_and_escape_sequence","keys":["5528_7_Dlgs_Index0_Text","5528_7_Dlgs_Index1_Text","5528_7_Dlgs_Index2_Text","5531_3_Dlgs_Index0_Text"],"note":"曹煜天を黒白無常が逃がす場面だが、指揮系統、事前計画、黒白無常の具体的任務は台詞だけでは確定しない。"},{"scope":"laner_identity_survival_and_kidnapping_motive","keys":["5531_4_Dlgs_Index10_Text","5531_4_Dlgs_Index11_Text","5531_4_Dlgs_Index13_Text","5531_4_Dlgs_Index15_Text","5531_4_Dlgs_Index16_Text","5531_4_Dlgs_Index17_Text","5531_4_Dlgs_Index19_Text","5531_7_Dlgs_Index1_Text","5531_7_Dlgs_Index2_Text","5531_7_Dlgs_Index4_Text"],"note":"蘭の腕輪と徐海の確認、宇文逸の証言により蘭児が徐海の娘で無事に清河村にいることは場面内で共有される。一方、清河村・平康城の拉致全体が蘭児捜索だったという説明は莫問らの推測に留める。"},{"scope":"xu_hai_injury_remaining_life_and_death","keys":["5531_3_Dlgs_Index1_Text","5531_4_Dlgs_Index0_Text","5531_4_Dlgs_Index1_Text","5531_4_Dlgs_Index2_Text","5531_4_Dlgs_Index3_Text","5531_4_Dlgs_Index21_Text","5531_4_Dlgs_Index22_Text","5531_4_Dlgs_Index23_Text","5531_4_Dlgs_Index24_Text"],"note":"重い傷と残り時間の少なさは宇文逸の観察と徐海自身の発言で示されるが、具体的な傷因、残り時間、死亡時点はこの会話から補完しない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30517114013,"artifact_id":8749318444,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:0de6465b7a48c1f04a4378ff74fcb1768df3c560f9d71cf36edba189f99c30fc","head_sha":"fc8d3b9401bee2797bef5db9a81bf719a02df0a9"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-60-wave-01"},"next_release":{"candidate_scene":["5535_2"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[191],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-59","release_id":"yuwen-mowen-train-59-r1","pr":216,"merge_sha":"fc6b924458372e745c4f261c29127cf1678d7581"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":61,"unique_reviewed_rows":61,"fix_keys":3,"unique_fix_rows":3,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":3,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":58,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN60_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_60.json","merge_result":{"pr":217,"merge_sha":"f9d9742f363f0bd478f87dcbf1856bf8b181c1fb"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-61",
+  "branch": "agent/yuwen-mowen-train-61",
+  "draft_pr": 218,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 218,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 191,
+    "pair_applied_keys": 1406,
+    "project_applied_keys": 1782,
+    "produced_by_pr": 217,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-60-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_60.json",
+      "pr": 217,
+      "validated_head": "bcf074fd5dc9bfb4524251f9ce4d2caf7c449f9e"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 58,
+    "reviewed_keys": 58,
+    "unique_reviewed_rows": 58,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 3,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 192,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5535_2",
+        "5536_3",
+        "5536_4",
+        "5540_4",
+        "5551_2",
+        "5572_6",
+        "5572_9"
+      ],
+      "reviewed_rows": 58,
+      "reviewed_keys": 58,
+      "unique_rows": 58,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 55,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch9.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH192_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 49,
+        "unowned_kept": 9,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "真心以待",
+        "借刀杀人",
+        "泛泛之辈",
+        "衣冠冢",
+        "神不守舍"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5551_2_Dlgs_Index6_Text",
+          "decision": "定着した誠意表現",
+          "note": "「真心以待」は心から誠実に接する意の定着表現で、特定典籍の引用ではない。現訳「あれほど真心から向き合ってくれる人」は、莫問が清虚と宇文逸の叔父を重ねる静かな家族観を保つ。"
+        },
+        {
+          "key": "5572_6_Dlgs_Index6_Text",
+          "decision": "定着した兵法成語",
+          "note": "「借刀杀人」は他者の力を利用して敵を除く兵法系の定着成語。この場面では瑶姫の推測として機能しており、現訳「他人の手を借りて私たちを始末させよう」が像と不確実性を保つ。"
+        },
+        {
+          "key": "5572_6_Dlgs_Index7_Text",
+          "decision": "定着した評価表現",
+          "note": "「泛泛之辈」は平凡な人物・並の者を指す定着表現。現訳「並の相手ではなさそうね」は瑶姫の観察と推測の強度を保つ。"
+        },
+        {
+          "key": "5572_6_Dlgs_Index11_Text",
+          "decision": "葬送文化の定着語",
+          "note": "「衣冠冢」は遺体の代わりに衣冠などを納める塚を指す文化語。現訳「衣冠塚」は世界観と行為を保持し、一般的な墓へ早合点しない。"
+        },
+        {
+          "key": "5572_9_Dlgs_Index1_Text",
+          "decision": "定着した成語",
+          "note": "「神不守舍」は心が落ち着かず上の空である状態を表す成語。現訳「少し上の空みたいですけど」は宇文逸の気遣いと疑問を自然に保つ。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "letter_variants_and_sect_plan",
+          "keys": [
+            "5536_3_Dlgs_Index1_Text",
+            "5536_3_Dlgs_Index3_Text",
+            "5536_3_Dlgs_Index4_Text",
+            "5536_4_Dlgs_Index1_Text",
+            "5536_4_Dlgs_Index3_Text",
+            "5536_4_Dlgs_Index4_Text",
+            "5536_3_Dlgs_Index5_Text",
+            "5536_4_Dlgs_Index5_Text"
+          ],
+          "note": "黎城会合、準備完了、天龍幇一掃は師父の書状を読んだ莫問の説明と推測、欧陽雪の父も向かうという予測。5536_3だけに清霄師伯を待つ指示があり、5536_4へ混入させない。"
+        },
+        {
+          "scope": "yaoji_liaocheng_foreknowledge",
+          "keys": [
+            "5540_4_Dlgs_Index9_Text",
+            "5540_4_Dlgs_Index10_Text",
+            "5540_4_Dlgs_Index12_Text"
+          ],
+          "note": "瑶姫は遼城の状況に懸念を示すが、何を知っているかを言い切らず話を切る。叔父の運命や襲撃を事前に知っていたと補完しない。"
+        },
+        {
+          "scope": "uncle_fate_and_masked_attacker_identity",
+          "keys": [
+            "5551_2_Dlgs_Index1_Text",
+            "5551_2_Dlgs_Index4_Text",
+            "5551_2_Dlgs_Index8_Text",
+            "5572_6_Dlgs_Index2_Text",
+            "5572_6_Dlgs_Index3_Text",
+            "5572_6_Dlgs_Index11_Text"
+          ],
+          "note": "帰宅前の宇文逸は叔父との再会を期待しているが、後段では衣冠塚を建てると述べる。candidate内には叔父の死因・遺体の有無・襲撃の全経緯・仮面の怪人の正体を確定する一次発話がないため補完しない。"
+        },
+        {
+          "scope": "fengyunjue_target_and_borrowed_knife_inference",
+          "keys": [
+            "5572_6_Dlgs_Index2_Text",
+            "5572_6_Dlgs_Index3_Text",
+            "5572_6_Dlgs_Index4_Text",
+            "5572_6_Dlgs_Index5_Text",
+            "5572_6_Dlgs_Index6_Text",
+            "5572_6_Dlgs_Index7_Text",
+            "5572_6_Dlgs_Index8_Text",
+            "5572_6_Dlgs_Index9_Text"
+          ],
+          "note": "仮面の怪人が宇文逸へ風雲訣を要求したことは本人の証言で示される。一方、怪人の誤解、天龍幇の借刀殺人、助っ人関係、力量・来歴は欧陽雪・瑶姫・莫問の推測と不知に留める。"
+        },
+        {
+          "scope": "mo_wen_distraction_reason",
+          "keys": [
+            "5572_9_Dlgs_Index0_Text",
+            "5572_9_Dlgs_Index1_Text",
+            "5572_9_Dlgs_Index3_Text"
+          ],
+          "note": "宇文逸は莫問が仮面の怪人を考えているのかと尋ねるが、莫問は理由を明かさず出発を促す。既知関係、正体認識、隠し事の内容を確定しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30518336257,
+        "artifact_id": 8749763285,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:ea1d8a7ffd4b592175f25905c453f872218b3b27eda119ca9521083f04962386",
+        "head_sha": "0b4e023276591d771c066b3280e2552024dc627a"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-61-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5581_5"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      192
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-60",
+    "release_id": "yuwen-mowen-train-60-r1",
+    "pr": 217,
+    "merge_sha": "f9d9742f363f0bd478f87dcbf1856bf8b181c1fb"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 58,
+    "unique_reviewed_rows": 58,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 3,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 55,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN61_WAVE01_2026-07-31.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_61.json"
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5535_2_Dlgs_Index3_Text",
+        "5536_3_Dlgs_Index2_Text",
+        "5536_4_Dlgs_Index2_Text",
+        "5540_4_Dlgs_Index2_Text",
+        "5540_4_Dlgs_Index3_Text",
+        "5540_4_Dlgs_Index4_Text",
+        "5540_4_Dlgs_Index5_Text",
+        "5540_4_Dlgs_Index10_Text",
+        "5540_4_Dlgs_Index13_Text",
+        "5551_2_Dlgs_Index0_Text",
+        "5551_2_Dlgs_Index1_Text",
+        "5551_2_Dlgs_Index3_Text",
+        "5551_2_Dlgs_Index4_Text",
+        "5551_2_Dlgs_Index7_Text",
+        "5551_2_Dlgs_Index8_Text",
+        "5551_2_Dlgs_Index9_Text",
+        "5551_2_Dlgs_Index10_Text",
+        "5572_6_Dlgs_Index3_Text",
+        "5572_6_Dlgs_Index10_Text",
+        "5572_6_Dlgs_Index11_Text",
+        "5572_9_Dlgs_Index1_Text"
+      ],
+      "reason": "黄将軍への辞去、師父の書状への問い、遼城へ戻る相談、叔父を父同然に慕う私的な告白、事件後の抑えた決断、莫問への敬体は、現行資料の対外・同門・親密・感情モードの切替と整合する。「友人」から「友達」への修正は資料改訂ではなく私的場面の発話自然性の調整で足りる。",
+      "scope": {
+        "relationship": "黄宗政、莫問、欧陽雪、瑶姫との同行と叔父への家族感情",
+        "timeline": "峋谷関辞去から遼城帰還・叔父の死後・黎城再出発まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5535_2_Dlgs_Index0_Text",
+        "5536_3_Dlgs_Index0_Text",
+        "5536_3_Dlgs_Index1_Text",
+        "5536_3_Dlgs_Index3_Text",
+        "5536_3_Dlgs_Index4_Text",
+        "5536_4_Dlgs_Index0_Text",
+        "5536_4_Dlgs_Index1_Text",
+        "5536_4_Dlgs_Index3_Text",
+        "5536_4_Dlgs_Index4_Text",
+        "5540_4_Dlgs_Index6_Text",
+        "5540_4_Dlgs_Index7_Text",
+        "5551_2_Dlgs_Index5_Text",
+        "5551_2_Dlgs_Index6_Text",
+        "5572_6_Dlgs_Index8_Text",
+        "5572_6_Dlgs_Index9_Text",
+        "5572_9_Dlgs_Index0_Text",
+        "5572_9_Dlgs_Index3_Text"
+      ],
+      "reason": "将軍への礼、書状の要点整理、師弟を一人で行かせない世話、家族観に反応する短い沈黙、怪人の来歴を断定しない観察、最後に理由を伏せて道程を示す発話は、現行資料の兄弟子・謀士・気遣い・負い目を言いさしへ出すモードと整合する。",
+      "scope": {
+        "relationship": "宇文逸ら同行者への世話と判断、黄宗政への礼",
+        "timeline": "峋谷関辞去から遼城事件後の黎城再出発まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/黄宗政.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5535_2_Dlgs_Index1_Text",
+        "5535_2_Dlgs_Index2_Text",
+        "5535_2_Dlgs_Index4_Text"
+      ],
+      "reason": "客人を無理に引き止めず、今後の助力を鷹揚に申し出て短く別れを返す流れは、現行資料の豪放な老将と盟友への情に整合する。「私」を「わし」へ戻す修正は資料の既定自称を適用するもので、資料改訂は不要。",
+      "scope": {
+        "relationship": "峋谷関を救った宇文逸一行への謝意と別れ",
+        "timeline": "徐海事件解決後の将軍府辞去"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe",
+      "after_digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5540_4_Dlgs_Index0_Text",
+        "5540_4_Dlgs_Index1_Text",
+        "5540_4_Dlgs_Index9_Text",
+        "5540_4_Dlgs_Index12_Text",
+        "5572_6_Dlgs_Index1_Text",
+        "5572_6_Dlgs_Index2_Text",
+        "5572_6_Dlgs_Index4_Text",
+        "5572_6_Dlgs_Index6_Text",
+        "5572_6_Dlgs_Index7_Text"
+      ],
+      "reason": "軽い笑いと長音で同行を主導し、遼城への懸念を言いさし、戦闘後も柔らかな語尾のまま怪人の狙いと力量を推測する発話は、現行資料の任務中・挑発・翳りのモードと整合する。咳の表記修正は既存の負傷時発声規則を適用するもの。",
+      "scope": {
+        "relationship": "宇文逸・莫問・欧陽雪との同行と仮面の怪人戦後",
+        "timeline": "黎城行き決定から遼城事件後まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-61",
+  "wave_id": "yuwen-mowen-train-61-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN61_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5535_2_5572_9_2026-07-31.json",
+      "manifest_digest": "sha256:9ec7fad85bc69ad70bfa0a38910a5f592a36076558841bee55a1b39c47e124de"
+    }
+  ]
+}
