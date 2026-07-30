@@ -2,21 +2,19 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5244_3_5293_7_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch98.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5297_2_5302_4_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch99.json",
       "values": {
-        "5245_1_Dlgs_Index1_Text": "1 - 宇文逸 $@$はは、莫問師兄、ありがとうございます！",
-        "5245_1_Dlgs_Index2_Text": "1 - 宇文逸 $@$これまで師兄にいろいろ教えていただいたおかげです。そうでなければ、ここまで順調には来られませんでした！",
-        "5245_1_Dlgs_Index5_Text": "1 - 宇文逸 $@$分かりました。では、師父が私をお呼びになった理由を伺ってきます。",
-        "5274_1_Dlgs_Index1_Text": "1 - 宇文逸 $@$はあ、師兄、聞いてください。今回は本当にいろいろあったんです……",
-        "5293_6_Dlgs_Index2_Text": "1 - 宇文逸 $@$それは……"
+        "5296_7_Dlgs_Index5_Text": "1 - 宇文逸 $@$なるほど。では、私にも参加できるんですか？",
+        "5302_2_Dlgs_Index2_Text": "1 - 宇文逸 $@$師兄はもうこんなに強いのに、それでもこんなに稽古を重ねているんですね！　私はいつになったら追いつけるんだろう！",
+        "5302_2_Dlgs_Index6_Text": "1 - 宇文逸 $@$師兄が間に合って李天宝の罪証を持ち帰ってくれなければ、私が衝動に任せて動いたせいで、本当に六扇門の計画を台無しにしていたかもしれません……",
+        "5302_2_Dlgs_Index12_Text": "5002 - 莫問 $@$そうだ。今日、師弟が絶無心と戦った時の招式だが、まだ少しぎこちないところがあった……よければ今、少し手ほどきしてやろうか？"
       },
       "fix_keys": [
-        "5245_1_Dlgs_Index1_Text",
-        "5245_1_Dlgs_Index2_Text",
-        "5245_1_Dlgs_Index5_Text",
-        "5274_1_Dlgs_Index1_Text",
-        "5293_6_Dlgs_Index2_Text"
+        "5296_7_Dlgs_Index5_Text",
+        "5302_2_Dlgs_Index2_Text",
+        "5302_2_Dlgs_Index6_Text",
+        "5302_2_Dlgs_Index12_Text"
       ]
     }
   ]

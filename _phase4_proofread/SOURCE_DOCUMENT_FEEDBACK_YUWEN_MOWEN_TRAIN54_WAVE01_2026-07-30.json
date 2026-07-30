@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5296_7_Dlgs_Index5_Text",
+        "5302_2_Dlgs_Index2_Text",
+        "5302_2_Dlgs_Index5_Text",
+        "5302_2_Dlgs_Index6_Text",
+        "5302_2_Dlgs_Index9_Text",
+        "5302_2_Dlgs_Index10_Text",
+        "5302_4_Dlgs_Index0_Text",
+        "5302_4_Dlgs_Index3_Text",
+        "5302_4_Dlgs_Index5_Text",
+        "5302_4_Dlgs_Index6_Text"
+      ],
+      "reason": "品剣大会への素直な期待、師兄への尊敬と自省、慰められた後の照れた笑い、身の上話を聞いた際の謝罪と言いよどみは、現行資料の武当平時M1bと感情場面M1cに整合する。反例や別時系列へ一般化すべき欠落規則はない。",
+      "scope": {
+        "relation_stage": "入門後・同門",
+        "scene_modes": [
+          "期待",
+          "自省",
+          "慰め",
+          "気まずさ"
+        ],
+        "generalization": "この時系列と場面に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "create",
+      "operation": "append_under_heading",
+      "evidence_keys": [
+        "5302_4_Dlgs_Index2_Text",
+        "5302_4_Dlgs_Index4_Text"
+      ],
+      "reason": "夜間稽古で莫問が自ら、幼少時に武当山麓へ捨てられ肉親に会ったことがなく、清虚を家族と考えると明言する。現行人物資料にはこの高確度の家族観と、その補完禁止範囲がないため、同門初期の当該告白に限定して追記する。",
+      "scope": {
+        "relation_stage": "同門・任務同行",
+        "scene_modes": [
+          "夜間稽古",
+          "身の上話"
+        ],
+        "generalization": "本人の告白としてのみ使用し、出生事情・血縁・後期分岐へ拡張しない"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": true
+    }
+  ],
+  "changed_documents": [
+    "10_人物/莫問.md"
+  ],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-54",
+  "wave_id": "yuwen-mowen-train-54-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN54_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5297_2_5302_4_2026-07-30.json",
+      "manifest_digest": "sha256:b225199310fb7980ea25fbd60d9b6321861b60d2ad4c5c848619cc4e0a1533db"
+    }
+  ]
+}
