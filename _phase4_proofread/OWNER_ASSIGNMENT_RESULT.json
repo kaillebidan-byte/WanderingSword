@@ -2,47 +2,47 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:3110e37767accfe4631b2bbba6d0cf8901dff4066e31db54319b4d9e991d9ef1",
+  "plan_digest": "sha256:889d093ddaec15ce469640e21536fae8e3ff5a20398d8494d3f5d6de5ceb9fa9",
   "candidate_digests": {
-    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-30.json": "sha256:429a5bf809d5617a616e7db3ff83bae8bbe33d2dfba33f8b2cb6a744a6bd690c"
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json": "sha256:5aabe5ba3bae2b35a613b5d6c82672bbc16e5e2e741109b5a9d1fa264f3f4b57"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:772d320b2c5d075b1f7c36e50f783e6a97ee2f4dd3c3c89c991715a806b03d37",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:c47a231455ea5e59030f9c1980a8fd4f9f8ea4983365c12597d369df8cc54108",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:db937a374080ea24672497e680d238c624eeee8d82048c529b094082d087b36f"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:cac394596a60bcb2a94ba24414bb8e4f0903f6744d659109941c2ece76580171",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:970a41d937567369a29e99424284d182e3592ca608e9afa4a75324691c3da525",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:bfbb26f53cc688ece8b9410b010f479a78c4cfa7c76f9224d66f11b4e32f1e3c"
   },
   "counts": {
-    "existing_owner_updates": 4,
+    "existing_owner_updates": 2,
     "new_project_keys": 0,
-    "fix_keys": 4
+    "fix_keys": 2
   },
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch100.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch101.json",
       "candidate_rows": 62,
-      "fix_keys": 4,
-      "existing_keys": 49,
-      "unowned_keys": 13,
+      "fix_keys": 2,
+      "existing_keys": 51,
+      "unowned_keys": 11,
       "new_keys": 0,
-      "unowned_kept": 13,
+      "unowned_kept": 11,
       "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch51.json"
+        "_phase4_proofread/fixes_cross_register_dubiao_roadside_humiliation_20260724.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json"
       ],
-      "existing_owner_updates": 4
+      "existing_owner_updates": 2
     }
   ],
   "owner_file_digest_shards": [
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_01.json",
       "count": 32,
-      "digest": "sha256:cefde90c70d59fad891efed99ce24d0d3860ec68e3eb9bc0bbb2a69aa9d925a8"
+      "digest": "sha256:0ee968bd978ad8d8c5c5095a5902940c728bc11084fee866ec1d6a056231fb5e"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_02.json",
       "count": 32,
-      "digest": "sha256:a99843b5be1225afccb7185a916d8390698372a0773d466475547276c5983888"
+      "digest": "sha256:94e84b97a539097a81e202a8de9504855d4c59fcc0e4eaef06c2af19b8cca4d2"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_03.json",
@@ -57,12 +57,12 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_05.json",
       "count": 32,
-      "digest": "sha256:a8418b1d15ad7f06419a65f167602d82d30cbb956237e08dd24332949ff7040a"
+      "digest": "sha256:647ea8f6bb71200b020bf39b480b40c0907d1d11fe519c1bb07714475e879bef"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_06.json",
-      "count": 23,
-      "digest": "sha256:f53a7057d6ce4efed80e1f426ac6571ecd1e2d90c38e2c7e32aeb65ec2354778"
+      "count": 24,
+      "digest": "sha256:03bf734cb7c832c108a7bd95141118d5b04c5eb53036f78348e63fb6929a5e12"
     }
   ],
   "post_feedback_state_attestation": {
@@ -72,7 +72,7 @@
       "_phase4_proofread/PRIVATE_STAGE_STATE.json"
     ],
     "feedback_records": [
-      "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN55_WAVE01_2026-07-30.json"
+      "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN56_WAVE01_2026-07-30.json"
     ]
   }
 }

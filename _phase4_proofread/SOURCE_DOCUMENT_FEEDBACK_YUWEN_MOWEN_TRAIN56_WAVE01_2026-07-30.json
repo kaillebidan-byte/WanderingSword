@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/元鳴.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5352_1_Dlgs_Index0_Text"
+      ],
+      "reason": "毒蛇の急出に言いよどみながら驚く直情的な反応は、現行資料の動揺モードと整合する。新しい規則や反例はない。",
+      "scope": {
+        "relationship": "武当同門の道中",
+        "timeline": "門内大比後・名剣山荘への出発直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "after_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5352_1_Dlgs_Index1_Text",
+        "5352_3_Dlgs_Index0_Text",
+        "5352_3_Dlgs_Index1_Text",
+        "5352_3_Dlgs_Index11_Text",
+        "5352_3_Dlgs_Index12_Text",
+        "5352_3_Dlgs_Index14_Text",
+        "5352_3_Dlgs_Index15_Text",
+        "5353_5_Dlgs_Index0_Text",
+        "5353_5_Dlgs_Index5_Text",
+        "5353_5_Dlgs_Index6_Text",
+        "5353_5_Dlgs_Index9_Text",
+        "5357_1_Dlgs_Index2_Text",
+        "5357_2_Dlgs_Index2_Text",
+        "5358_1_Dlgs_Index8_Text",
+        "5358_1_Dlgs_Index10_Text"
+      ],
+      "reason": "同門への案内と教導、危険察知時の簡潔な制止、対外折衝での礼、未知の手配者への慎重な判断は、現行資料の同門期・危機判断・対外モードで説明できる。",
+      "scope": {
+        "relationship": "宇文逸を含む武当同門と対外人物",
+        "timeline": "門内大比後・名剣山荘への道中"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5352_1_Dlgs_Index2_Text",
+        "5352_3_Dlgs_Index3_Text",
+        "5352_3_Dlgs_Index4_Text",
+        "5352_3_Dlgs_Index8_Text",
+        "5352_3_Dlgs_Index10_Text",
+        "5352_3_Dlgs_Index13_Text",
+        "5352_3_Dlgs_Index16_Text",
+        "5353_5_Dlgs_Index13_Text",
+        "5353_5_Dlgs_Index14_Text",
+        "5353_5_Dlgs_Index15_Text",
+        "5353_5_Dlgs_Index16_Text",
+        "5357_1_Dlgs_Index0_Text",
+        "5357_1_Dlgs_Index6_Text",
+        "5357_2_Dlgs_Index0_Text",
+        "5357_2_Dlgs_Index1_Text",
+        "5357_2_Dlgs_Index3_Text",
+        "5358_1_Dlgs_Index0_Text",
+        "5358_1_Dlgs_Index3_Text",
+        "5358_1_Dlgs_Index7_Text"
+      ],
+      "reason": "師兄への自然な敬体、未知の情報への問い、悪人への内心の憤りと断罪、対外人物への礼は、現行資料の武当平時・対外・戦闘・心内語の切替と整合する。",
+      "scope": {
+        "relationship": "莫問ら武当同門、杜彪、船頭、宿屋",
+        "timeline": "門内大比後・名剣山荘への道中"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/杜彪.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5353_5_Dlgs_Index1_Text",
+        "5353_5_Dlgs_Index2_Text",
+        "5353_5_Dlgs_Index7_Text",
+        "5353_5_Dlgs_Index8_Text",
+        "5353_5_Dlgs_Index10_Text",
+        "5353_5_Dlgs_Index11_Text",
+        "5353_5_Dlgs_Index12_Text",
+        "5353_5_Dlgs_Index18_Text",
+        "5353_5_Dlgs_Index19_Text"
+      ],
+      "reason": "高笑い、粗暴な自称、弟子の死を軽んじる嘲弄、屈辱を強いる脅しは、現行資料の残忍・嘲弄モードと整合する。訳文一行の発声修正だけで資料改訂は不要。",
+      "scope": {
+        "relationship": "武当一行への敵対",
+        "timeline": "杜彪初対面・戦闘直前"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "after_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-56",
+  "wave_id": "yuwen-mowen-train-56-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN56_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json",
+      "manifest_digest": "sha256:f038b6ed73f8b549724df4cab4b25d5e1213dad56a97e0e18e5363b7e755cba3"
+    }
+  ]
+}

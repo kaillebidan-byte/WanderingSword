@@ -1,0 +1,369 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-56",
+  "wave_id": "yuwen-mowen-train-56-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30511937043,
+    "artifact_id": 8747445861,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:76717c3b57953c5aab447be20c153baa85839e73a8d9d5f393bf526efb9ada60",
+    "head_sha": "bd27afce75956fe289e6cdefcbb514e67f8aa90b"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train56-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json",
+      "scene_groups": [
+        "5352_1",
+        "5352_3",
+        "5353_5",
+        "5357_1",
+        "5357_2",
+        "5358_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5353_5_Dlgs_Index0_Text",
+          "before": "5015 - 莫問 $@$先ほどの袖裡乾坤、影も形も捉えられぬ妙技……並の使い手ではあるまい。失礼だが、名を伺いたい。",
+          "after": "5015 - 莫問 $@$先ほどの袖裡乾坤、影も形も捉えられぬ妙技……並の使い手ではあるまい。差し支えなければ、お名前を伺いたい。",
+          "reason": "voice/relation: 「不知尊驾高姓大名」は、正体不明の強敵へ礼を保って名を問う対外折衝。現訳の「失礼だが、名を伺いたい」でも意味は通るが、尊称を使う慎重な莫問の敬度が弱いため、距離を保った自然な問いへ直す。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index2_Text",
+          "before": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、その師父であるこの俺を知らねえのか？",
+          "after": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、師匠の俺を知らねえのか？",
+          "reason": "voice: 「老子这个做师父的」は杜彪が粗暴に自分を師匠と名乗る挑発。現訳の「その師父であるこの俺」は中国語構文をなぞった説明調で発声しにくいため、凶悪さと嘲りを保つ自然な悪役口調へ直す。"
+        }
+      ],
+      "keeps": [
+        "5352_1_Dlgs_Index0_Text",
+        "5352_1_Dlgs_Index1_Text",
+        "5352_1_Dlgs_Index2_Text",
+        "5352_3_Dlgs_Index0_Text",
+        "5352_3_Dlgs_Index1_Text",
+        "5352_3_Dlgs_Index3_Text",
+        "5352_3_Dlgs_Index4_Text",
+        "5352_3_Dlgs_Index5_Text",
+        "5352_3_Dlgs_Index6_Text",
+        "5352_3_Dlgs_Index7_Text",
+        "5352_3_Dlgs_Index8_Text",
+        "5352_3_Dlgs_Index9_Text",
+        "5352_3_Dlgs_Index10_Text",
+        "5352_3_Dlgs_Index11_Text",
+        "5352_3_Dlgs_Index12_Text",
+        "5352_3_Dlgs_Index13_Text",
+        "5352_3_Dlgs_Index14_Text",
+        "5352_3_Dlgs_Index15_Text",
+        "5352_3_Dlgs_Index16_Text",
+        "5353_5_Dlgs_Index1_Text",
+        "5353_5_Dlgs_Index3_Text",
+        "5353_5_Dlgs_Index4_Text",
+        "5353_5_Dlgs_Index5_Text",
+        "5353_5_Dlgs_Index6_Text",
+        "5353_5_Dlgs_Index7_Text",
+        "5353_5_Dlgs_Index8_Text",
+        "5353_5_Dlgs_Index9_Text",
+        "5353_5_Dlgs_Index10_Text",
+        "5353_5_Dlgs_Index11_Text",
+        "5353_5_Dlgs_Index12_Text",
+        "5353_5_Dlgs_Index13_Text",
+        "5353_5_Dlgs_Index14_Text",
+        "5353_5_Dlgs_Index15_Text",
+        "5353_5_Dlgs_Index16_Text",
+        "5353_5_Dlgs_Index17_Text",
+        "5353_5_Dlgs_Index18_Text",
+        "5353_5_Dlgs_Index19_Text",
+        "5357_1_Dlgs_Index0_Text",
+        "5357_1_Dlgs_Index1_Text",
+        "5357_1_Dlgs_Index2_Text",
+        "5357_1_Dlgs_Index3_Text",
+        "5357_1_Dlgs_Index4_Text",
+        "5357_1_Dlgs_Index5_Text",
+        "5357_1_Dlgs_Index6_Text",
+        "5357_2_Dlgs_Index0_Text",
+        "5357_2_Dlgs_Index1_Text",
+        "5357_2_Dlgs_Index2_Text",
+        "5357_2_Dlgs_Index3_Text",
+        "5358_1_Dlgs_Index0_Text",
+        "5358_1_Dlgs_Index1_Text",
+        "5358_1_Dlgs_Index2_Text",
+        "5358_1_Dlgs_Index3_Text",
+        "5358_1_Dlgs_Index4_Text",
+        "5358_1_Dlgs_Index5_Text",
+        "5358_1_Dlgs_Index6_Text",
+        "5358_1_Dlgs_Index7_Text",
+        "5358_1_Dlgs_Index8_Text",
+        "5358_1_Dlgs_Index9_Text",
+        "5358_1_Dlgs_Index10_Text",
+        "5358_1_Dlgs_Index11_Text"
+      ],
+      "allusion_review_candidates": [
+        "袖里乾坤",
+        "士可杀不可辱",
+        "放马过来",
+        "阎罗殿",
+        "既来之则安之",
+        "无坚不摧"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5353_5_Dlgs_Index0_Text",
+          "decision": "技名として原語維持",
+          "note": "「袖里乾坤」は杜彪の暗器技を指す技名。特定典籍の引用として読み下さず、既訳の「袖裡乾坤」を保持する。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index16_Text",
+          "decision": "定着した格言",
+          "note": "「士可杀不可辱」は命より名誉を重んじる定着格言。特定出典の直引用へ過剰同定せず、「士は殺されても辱めは受けぬ」で格調と反抗を保つ。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index17_Text",
+          "decision": "定着した挑発表現",
+          "note": "「放马过来」は相手へ攻撃を促す定着表現。現訳の「やれるものなら、かかってこい」で挑発機能と勢いを保つ。"
+        },
+        {
+          "key": "5353_5_Dlgs_Index19_Text",
+          "decision": "仏教・民間信仰の定着語",
+          "note": "「阎罗殿」は死後の裁きの場を指す定着語。引用句ではなく、現訳の「閻羅殿」を保持する。"
+        },
+        {
+          "key": "5358_1_Dlgs_Index10_Text",
+          "decision": "古典由来の定着成語",
+          "note": "「既来之则安之」は『論語』季氏篇に由来するが、ここでは宿へ来た以上ひとまず落ち着くという成語機能。現訳は場面に合わせて「ここまで来たのだ。ひとまず休ませてもらおう」と保持する。"
+        },
+        {
+          "key": "5352_3_Dlgs_Index7_Text",
+          "decision": "定着した成語",
+          "note": "「无坚不摧」は何ものも破れないほど鋭いという誇張成語。莫棄の伝聞と誇張として「斬れぬものなし」を保持し、無塵の客観性能へ一般化しない。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "speaker_inference",
+          "keys": [
+            "5352_1_Dlgs_Index1_Text",
+            "5352_1_Dlgs_Index2_Text"
+          ],
+          "note": "笛で毒蛇を操る手段を五仙教と見るのは莫問の推測で、小彤本人を疑うのは宇文逸の反応に留まる。実行者を確定しない。"
+        },
+        {
+          "scope": "hearsay_and_exaggeration",
+          "keys": [
+            "5352_3_Dlgs_Index7_Text",
+            "5352_3_Dlgs_Index9_Text",
+            "5352_3_Dlgs_Index11_Text",
+            "5352_3_Dlgs_Index12_Text"
+          ],
+          "note": "無塵の鋳造法と絶対的な切れ味は莫棄の伝聞と誇張。莫問は普通の兵刃より少し鋭い程度へ抑えており、客観設定へ一本化しない。"
+        },
+        {
+          "scope": "speaker_identification",
+          "keys": [
+            "5353_5_Dlgs_Index0_Text",
+            "5353_5_Dlgs_Index2_Text",
+            "5353_5_Dlgs_Index6_Text"
+          ],
+          "note": "杜彪が千手怪で悪人谷四大悪人の一人、夜哭鬼の師匠であるという情報は、莫問の識別と杜彪本人の発言に基づく。場面外の来歴を補わない。"
+        },
+        {
+          "scope": "unresolved_benefactor",
+          "keys": [
+            "5357_1_Dlgs_Index5_Text",
+            "5357_1_Dlgs_Index6_Text",
+            "5357_2_Dlgs_Index2_Text",
+            "5358_1_Dlgs_Index2_Text",
+            "5358_1_Dlgs_Index8_Text",
+            "5358_1_Dlgs_Index9_Text",
+            "5358_1_Dlgs_Index10_Text"
+          ],
+          "note": "船頭と丘掌柜が示す手配者の正体・目的は未確定。悪意がないという評価も当人たちの説明と莫問の暫定判断に留め、善意や罠へ断定しない。"
+        },
+        {
+          "scope": "merchant_hearsay",
+          "keys": [
+            "5358_1_Dlgs_Index4_Text",
+            "5358_1_Dlgs_Index5_Text",
+            "5358_1_Dlgs_Index6_Text",
+            "5358_1_Dlgs_Index7_Text"
+          ],
+          "note": "灯会祭が二日後で、灯謎の最高賞が郭大家の新作琴譜『楓橋水雲』だという情報は丘掌柜の伝聞として保持する。琴譜の価値や来歴を補完しない。"
+        }
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:f038b6ed73f8b549724df4cab4b25d5e1213dad56a97e0e18e5363b7e755cba3",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/元鳴.md",
+            "digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/杜彪.md",
+            "digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/元鳴.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5352_1_Dlgs_Index0_Text"
+          ],
+          "reason": "毒蛇の急出に言いよどみながら驚く直情的な反応は、現行資料の動揺モードと整合する。新しい規則や反例はない。",
+          "scope": {
+            "relationship": "武当同門の道中",
+            "timeline": "門内大比後・名剣山荘への出発直後"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5352_1_Dlgs_Index1_Text",
+            "5352_3_Dlgs_Index0_Text",
+            "5352_3_Dlgs_Index1_Text",
+            "5352_3_Dlgs_Index11_Text",
+            "5352_3_Dlgs_Index12_Text",
+            "5352_3_Dlgs_Index14_Text",
+            "5352_3_Dlgs_Index15_Text",
+            "5353_5_Dlgs_Index0_Text",
+            "5353_5_Dlgs_Index5_Text",
+            "5353_5_Dlgs_Index6_Text",
+            "5353_5_Dlgs_Index9_Text",
+            "5357_1_Dlgs_Index2_Text",
+            "5357_2_Dlgs_Index2_Text",
+            "5358_1_Dlgs_Index8_Text",
+            "5358_1_Dlgs_Index10_Text"
+          ],
+          "reason": "同門への案内と教導、危険察知時の簡潔な制止、対外折衝での礼、未知の手配者への慎重な判断は、現行資料の同門期・危機判断・対外モードで説明できる。",
+          "scope": {
+            "relationship": "宇文逸を含む武当同門と対外人物",
+            "timeline": "門内大比後・名剣山荘への道中"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5352_1_Dlgs_Index2_Text",
+            "5352_3_Dlgs_Index3_Text",
+            "5352_3_Dlgs_Index4_Text",
+            "5352_3_Dlgs_Index8_Text",
+            "5352_3_Dlgs_Index10_Text",
+            "5352_3_Dlgs_Index13_Text",
+            "5352_3_Dlgs_Index16_Text",
+            "5353_5_Dlgs_Index13_Text",
+            "5353_5_Dlgs_Index14_Text",
+            "5353_5_Dlgs_Index15_Text",
+            "5353_5_Dlgs_Index16_Text",
+            "5357_1_Dlgs_Index0_Text",
+            "5357_1_Dlgs_Index6_Text",
+            "5357_2_Dlgs_Index0_Text",
+            "5357_2_Dlgs_Index1_Text",
+            "5357_2_Dlgs_Index3_Text",
+            "5358_1_Dlgs_Index0_Text",
+            "5358_1_Dlgs_Index3_Text",
+            "5358_1_Dlgs_Index7_Text"
+          ],
+          "reason": "師兄への自然な敬体、未知の情報への問い、悪人への内心の憤りと断罪、対外人物への礼は、現行資料の武当平時・対外・戦闘・心内語の切替と整合する。",
+          "scope": {
+            "relationship": "莫問ら武当同門、杜彪、船頭、宿屋",
+            "timeline": "門内大比後・名剣山荘への道中"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/杜彪.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5353_5_Dlgs_Index1_Text",
+            "5353_5_Dlgs_Index2_Text",
+            "5353_5_Dlgs_Index7_Text",
+            "5353_5_Dlgs_Index8_Text",
+            "5353_5_Dlgs_Index10_Text",
+            "5353_5_Dlgs_Index11_Text",
+            "5353_5_Dlgs_Index12_Text",
+            "5353_5_Dlgs_Index18_Text",
+            "5353_5_Dlgs_Index19_Text"
+          ],
+          "reason": "高笑い、粗暴な自称、弟子の死を軽んじる嘲弄、屈辱を強いる脅しは、現行資料の残忍・嘲弄モードと整合する。訳文一行の発声修正だけで資料改訂は不要。",
+          "scope": {
+            "relationship": "武当一行への敵対",
+            "timeline": "杜彪初対面・戦闘直前"
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}
