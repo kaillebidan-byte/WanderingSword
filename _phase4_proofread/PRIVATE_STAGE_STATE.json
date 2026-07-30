@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "release-ci labelで固定release trainを起動する",
-    "last_safe_checkpoint": "ready_for_public_ci",
+    "exact_next_action": "PR #211のfinalize-release phase2とreview thread 0件を確認し、検証済みHEADをsquash mergeする",
+    "last_safe_checkpoint": "awaiting_private_merge",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -60,7 +60,7 @@
         "review_record": {
           "status": "complete",
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH185_2026-07-30.md",
-          "apply_status": "pending"
+          "apply_status": "verified"
         },
         "formal_batch": 185,
         "source_document_target_count": 2,
@@ -85,7 +85,7 @@
     }
   },
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "history": [
       {
         "status": "not_ready",
@@ -95,6 +95,23 @@
         "status": "ready_for_public_ci",
         "translation_stage": "translation_frozen",
         "pr": 211
+      },
+      {
+        "status": "in_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 211
+      },
+      {
+        "status": "verified",
+        "translation_stage": "translation_frozen",
+        "pr": 211,
+        "release_id": "yuwen-mowen-train-54-r1"
+      },
+      {
+        "status": "awaiting_private_merge",
+        "translation_stage": "translation_frozen",
+        "pr": 211,
+        "release_id": "yuwen-mowen-train-54-r1"
       }
     ],
     "pr": 211,
@@ -146,5 +163,12 @@
     "merge_sha": "0df5ecb699b29a587f121baef8e68259606e1267",
     "status": "merged",
     "scope": "live consumer認証付き終端契約"
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-54-r1",
+    "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_54.json",
+    "ci_head": "4bf51d0e63009f8f46a28ec0fe72e82e7707c846",
+    "asset_head": "df2c083874fb0debff3386df6c237673383c7896",
+    "pending_fixes": 0
   }
 }
