@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-53",
+  "pr": 210,
+  "orchestrator_run_id": 30509137843,
+  "artifact_name": "release-finalization-inputs-210",
+  "ci_head": "89d7c18918f3ef744b1867616230406d0ae7f60a",
+  "asset_head": "5d3875361e6b4d3c1a055f5c660ce43ff031c00e",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "5296_7",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30509137843,
+    "artifact_id": 8746435654,
+    "artifact_digest": "sha256:31b916645d5dce8c80b2b2963930e61c00dec6492669b26644e28d2edcf24d99",
+    "artifact_head": "89d7c18918f3ef744b1867616230406d0ae7f60a",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第184束は5244_3・5245_1・5274_1・5278_1・5291_1・5292_3・5293_6・5293_7の50行。",
+    "実変更5件、意図的保持45件。人物資料2件はkeep。低収率challengeでKEEP45行を全件再監査し、追加FIX0件。",
+    "次候補5296_7はtrain-53統合前にpreparationを開始しない。"
+  ]
+}
