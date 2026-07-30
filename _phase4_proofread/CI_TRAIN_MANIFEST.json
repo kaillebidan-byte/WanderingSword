@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-48",
   "branch": "agent/yuwen-mowen-train-48",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 205,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 205,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,96 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 53,
+    "reviewed_keys": 53,
+    "unique_reviewed_rows": 53,
     "fix_keys": 0,
     "unique_fix_rows": 0,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
     "existing_owner_updates": 0,
-    "keep_only_bundles": 0
+    "keep_only_bundles": 1
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 179,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "9245_3",
+        "9261_1",
+        "9262_1",
+        "9267_1",
+        "9273_1",
+        "9279_1",
+        "12439_2",
+        "12439_3",
+        "12439_5",
+        "12440_3",
+        "12440_4"
+      ],
+      "reviewed_rows": 53,
+      "reviewed_keys": 53,
+      "unique_rows": 53,
+      "fix_keys": 0,
+      "unique_fix_rows": 0,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 0,
+      "keep_keys": 53,
+      "fix_files": [],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH179_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 41,
+        "unowned_kept": 12,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "9279_1_Dlgs_Index6_Text",
+        "12440_3_Dlgs_Index4_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "9279_1_Dlgs_Index6_Text",
+          "decision": "keep",
+          "note": "「万无一失」は万全を期す意の定着成語。特定典籍の直接引用へ昇格せず、六扇門と廠衛が二重に動く理由を「万一を潰す」とした現訳を保持する。"
+        },
+        {
+          "key": "12440_3_Dlgs_Index4_Text",
+          "decision": "keep",
+          "note": "「一人计短，二人计长」は二人で知恵を出す定着した諺、「肝脑涂地、在所不辞」は献身を誇張する成語。宇文逸の勢いを保つ「一人で考えるより、二人で考えたほうが知恵も出ます」「粉骨砕身、何でもします」を保持し、特定典籍の引用とは扱わない。"
+        }
+      ],
+      "fact_doubts": [
+        "玄火教が丐幇掌握を狙うという説明は莫問の推理であり、襲撃目的の確定事実へ広げない。",
+        "童安または廠衛の関与は冷無情の推測であり、毒の出所は本人も不明としている。",
+        "名簿上の数名と玄火教の接触は莫問の調査報告の範囲に限り、丐幇全体の関与へ一般化しない。",
+        "莫問が会おうとした「故人」の正体はこの場面では明示されず、丐幇関係者と断定しない。"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30498496936,
+        "artifact_id": 8742555528,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:2e66f3141885e17337f88c7ad4739906216092d2694460a0375654ef0db878ef",
+        "head_sha": "e3865fb9b21ca29b76ef806e72bc0cbebc5bb87d"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-48-wave-01"
   },
   "next_release": {
@@ -79,15 +147,39 @@
       "12440_3",
       "12440_4"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      179
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-47",
     "release_id": "yuwen-mowen-train-47-r1",
     "pr": 203,
     "merge_sha": "ba39e437bfe33c7ffb5883d811936fc19e2e91cc"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 53,
+    "unique_reviewed_rows": 53,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "keep_only_bundles": 1,
+    "pre_challenge_unique_fix_rows": 0,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 53,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN48_WAVE01_2026-07-30.md"
+    }
   }
 }
