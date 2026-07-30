@@ -1,0 +1,386 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-49",
+  "wave_id": "yuwen-mowen-train-49-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30501996757,
+    "artifact_id": 8743847333,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:60b88cce8b90979d10ba35ab229b501dd176dc3273b8c7e56de9db9800c5dfc9",
+    "head_sha": "822ae5039784e7d94673bedd3f7cf783fe1f7672"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train49-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES22020_8_32007_1_2026-07-30.json",
+      "scene_groups": [
+        "22020_8",
+        "24221_2",
+        "24221_3",
+        "24221_5",
+        "24221_6",
+        "24223_3",
+        "24230_1",
+        "24232_3",
+        "24341_2",
+        "30821_1",
+        "32001_2",
+        "32001_5",
+        "32004_1",
+        "32007_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "22020_8_Dlgs_Index0_Text",
+          "before": "5015 - 莫問 $@$わたしたちは……天山に本来あるべきものを取り戻しているのです。",
+          "after": "5015 - 莫問 $@$わたしたちは……本来、天山に属するものを取り戻している。",
+          "reason": "meaning/voice: 「属于」は所属・帰属を示すため「天山に属する」と明確化する。離反を明かす冷えた断定に対し、現訳の「のです」は説明的で柔らかすぎる。"
+        },
+        {
+          "key": "22020_8_Dlgs_Index2_Text",
+          "before": "9500 - 無名 $@$はは、驚くことなどない。",
+          "after": "9500 - 無名 $@$ふふ、驚くこともあるまい。",
+          "reason": "voice: 無名の「呵呵」は低温の嘲弄。明るい「はは」ではなく、含みのある「ふふ」と老獪な反語へ戻す。"
+        },
+        {
+          "key": "22020_8_Dlgs_Index3_Text",
+          "before": "9500 - 無名 $@$これは元々彼が我々に負っていたものだ。次は……お前の番だ！",
+          "after": "9500 - 無名 $@$これはもともと、奴が我々に返すべきものだった。次は……お前の番だ！",
+          "reason": "meaning/voice: 「他欠我们的」は相手が返すべきものという機能。現訳の「負っていたもの」は日本語の発話として硬く不明瞭なため、無名の酷薄な脅しとして整える。"
+        },
+        {
+          "key": "24223_3_Dlgs_Index1_Text",
+          "before": "45311 - 莫問 $@$今日私を殺さなければ、遅かれ早かれ後悔することになるぞ。",
+          "after": "45311 - 莫問 $@$今日、わたしを殺さなければ、いつか必ず後悔するぞ。",
+          "reason": "voice: 「迟早有一天」を直訳した「遅かれ早かれ後悔することになる」は説明調。瀕死の敵対場面に合う短い断定へ直し、莫問の一人称表記も揃える。"
+        },
+        {
+          "key": "24223_3_Dlgs_Index3_Text",
+          "before": "1 - 宇文逸 $@$私がずっと強くなろうと努力してきたのは、もう二度と身近な誰かが去っていくのを見たくないからです。",
+          "after": "1 - 宇文逸 $@$私がずっと強くなろうとしてきたのは、もう二度と、そばにいる誰かを失いたくないからです。",
+          "reason": "voice: 感情の核心を中国語語順の長い説明文にせず、「そばにいる誰かを失いたくない」と宇文逸の発話として自然な順序へ直す。"
+        },
+        {
+          "key": "24232_3_Dlgs_Index2_Text",
+          "before": "1 - 宇文逸 $@$それに……私は、師兄と生死を分かつつもりなど、一度もありませんでした。",
+          "after": "1 - 宇文逸 $@$それに……私は、師兄と生死を決するつもりなど、一度もありませんでした。",
+          "reason": "meaning/voice: 「分出生死」は生死を決する戦い。日本語として不安定な「生死を分かつ」を「生死を決する」へ直す。"
+        },
+        {
+          "key": "30821_1_Dlgs_Index2_Text",
+          "before": "1 - 宇文逸 $@$この杖の先は檀林の奥を指している。誰かが我々に手がかりを残したのかもしれない。",
+          "after": "1 - 宇文逸 $@$この杖の先は檀林の奥を指している。誰かが私たちに手がかりを残したのかもしれない。",
+          "reason": "voice/relation: 宇文逸の基調は「私」。集団一人称の硬い「我々」を「私たち」へ戻し、推測の範囲は保つ。"
+        },
+        {
+          "key": "32001_2_Dlgs_Index0_Text",
+          "before": "1 - 宇文逸 $@$師兄の《撥雲見日》は、それでも私の剣勢を封じ込めることができるでしょうか？",
+          "after": "1 - 宇文逸 $@$師兄の《撥雲見日》で、今も私の剣勢を封じられますか？",
+          "reason": "voice: 「封じ込めることができるでしょうか」は冗長な直訳調。「还能」を「今も」とし、師兄への礼を保った自然な挑戦へ直す。"
+        },
+        {
+          "key": "32001_5_Dlgs_Index0_Text",
+          "before": "5015 - 莫問 $@$師弟は聡明で比類なき才能を持ち、わたしにはもう教えることは何もない……",
+          "after": "5015 - 莫問 $@$師弟は悟りが早く、才も比類ない。今のわたしには、もう教えられることもない……",
+          "reason": "voice: 「颖悟绝伦」を説明的な長句にせず、兄弟子が弟弟子の才を短く認める声へ直す。「如今」も「今のわたしには」で保持する。"
+        },
+        {
+          "key": "32001_5_Dlgs_Index1_Text",
+          "before": "1 - 宇文逸 $@$ですが、武学の高低がどうあれ、私はやはり師兄の師弟です！",
+          "after": "1 - 宇文逸 $@$ですが、武学の高低がどうあれ、私は師兄の師弟に変わりありません！",
+          "reason": "relation/voice: 「私はやはり師兄の師弟です」は日本語として不自然。武学差にかかわらず師弟関係は変わらないという核心を自然に示す。"
+        },
+        {
+          "key": "32001_5_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$（笑）それは当然のこと。",
+          "after": "5015 - 莫問 $@$（笑）もちろんだ。",
+          "reason": "voice: 「那是自然」は兄弟子の柔らかな肯定。「それは当然のこと」という名詞止めを、発話として自然な「もちろんだ」へ直す。"
+        },
+        {
+          "key": "32004_1_Dlgs_Index0_Text",
+          "before": "1 - 宇文逸 $@$こんな時間まで剣の稽古をされているとは、師兄はますます勤勉になられましたね。",
+          "after": "1 - 宇文逸 $@$こんな時間まで剣の稽古とは、師兄はますます精が出ますね。",
+          "reason": "relation/voice: 呼称と文末敬体で礼は足りる。行為敬語を重ねた「稽古をされている」「勤勉になられました」は過剰なため、親しい師兄への自然な敬体へ戻す。"
+        },
+        {
+          "key": "32004_1_Dlgs_Index1_Text",
+          "before": "1 - 宇文逸 $@$それに引き換え、私は最近忙しくしていて、ずいぶん怠けてしまいました……",
+          "after": "1 - 宇文逸 $@$それに引き換え、私はこのところ忙しさにかまけ、ずいぶん稽古を怠っていました……",
+          "reason": "meaning/voice: 忙しさと怠慢を並べる現訳は因果が曖昧。「忙しさにかまけて稽古を怠った」と場面上の対象を明確にする。"
+        },
+        {
+          "key": "32004_1_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$師弟は天賦の才に恵まれ、武学の境地は日進月歩。わたしのようにしていては……かえって心境を妨げるだけだ。",
+          "after": "5015 - 莫問 $@$師弟は天賦の才に恵まれ、武学の境地も日進月歩。わたしのように根を詰めれば……かえって心境の妨げになろう。",
+          "reason": "meaning/voice: 「若我这般」は莫問のように根を詰めること。「わたしのようにしていては」の曖昧さを解き、心境を妨げるという忠告を自然にする。"
+        },
+        {
+          "key": "32004_1_Dlgs_Index7_Text",
+          "before": "1 - 宇文逸 $@$師兄が身をもって模範を示されているのに、私が怠けているわけにはいきません。",
+          "after": "1 - 宇文逸 $@$師兄が自ら手本を示しているのに、私だけ怠けてはいられません。",
+          "reason": "relation/voice: 「身をもって模範を示されている」は行為敬語が重く、親しい師兄への発話を儀礼化している。呼称と敬体を残して自然な文へ直す。"
+        },
+        {
+          "key": "32004_1_Dlgs_Index9_Text",
+          "before": "5015 - 莫問 $@$構いませんとも。",
+          "after": "5015 - 莫問 $@$いいとも。",
+          "reason": "voice: 「有何不可」は気軽な承諾。接客調に聞こえる「構いませんとも」を兄弟子の常体「いいとも」へ直す。"
+        },
+        {
+          "key": "32007_1_Dlgs_Index0_Text",
+          "before": "1 - 宇文逸 $@$師兄は……碁を観ていらっしゃるのですか？",
+          "after": "1 - 宇文逸 $@$師兄は……碁を観ているんですか？",
+          "reason": "relation/voice: 私的な日常場面で「観ていらっしゃるのですか」は過剰敬語。師兄呼称と自然な敬体を保つ。"
+        },
+        {
+          "key": "32007_1_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$（笑）天下三智の名は伊達ではない。師弟、わたしをおだてて恥をさらさせるのはよしてくれ。",
+          "after": "5015 - 莫問 $@$（笑）天下三智の名は伊達ではない。師弟、わたしをおだてて恥をかかせるのはよしてくれ。",
+          "reason": "voice: 「哄我前去献丑」はおだてて参加させ、恥をかかせるという軽口。現訳の使役「恥をさらさせる」は不自然なため、莫問の笑いを保って整える。"
+        }
+      ],
+      "keeps": [
+        "22020_8_Dlgs_Index1_Text",
+        "24221_2_Dlgs_Index0_Text",
+        "24221_2_Dlgs_Index1_Text",
+        "24221_3_Dlgs_Index0_Text",
+        "24221_3_Dlgs_Index1_Text",
+        "24221_3_Dlgs_Index2_Text",
+        "24221_5_Dlgs_Index0_Text",
+        "24221_5_Dlgs_Index1_Text",
+        "24221_6_Dlgs_Index0_Text",
+        "24221_6_Dlgs_Index1_Text",
+        "24221_6_Dlgs_Index2_Text",
+        "24221_6_Dlgs_Index3_Text",
+        "24221_6_Dlgs_Index4_Text",
+        "24223_3_Dlgs_Index0_Text",
+        "24223_3_Dlgs_Index2_Text",
+        "24223_3_Dlgs_Index4_Text",
+        "24223_3_Dlgs_Index5_Text",
+        "24230_1_Dlgs_Index1_Text",
+        "24230_1_Dlgs_Index2_Text",
+        "24230_1_Dlgs_Index3_Text",
+        "24232_3_Dlgs_Index0_Text",
+        "24232_3_Dlgs_Index1_Text",
+        "24232_3_Dlgs_Index3_Text",
+        "24232_3_Dlgs_Index5_Text",
+        "24232_3_Dlgs_Index6_Text",
+        "24232_3_Dlgs_Index7_Text",
+        "24341_2_Dlgs_Index2_Text",
+        "24341_2_Dlgs_Index3_Text",
+        "24341_2_Dlgs_Index4_Text",
+        "30821_1_Dlgs_Index0_Text",
+        "30821_1_Dlgs_Index1_Text",
+        "30821_1_Dlgs_Index3_Text",
+        "32001_2_Dlgs_Index1_Text",
+        "32004_1_Dlgs_Index3_Text",
+        "32004_1_Dlgs_Index4_Text",
+        "32004_1_Dlgs_Index5_Text",
+        "32004_1_Dlgs_Index8_Text",
+        "32007_1_Dlgs_Index1_Text"
+      ],
+      "allusion_review_candidates": [
+        "24221_3_Dlgs_Index1_Text",
+        "24221_6_Dlgs_Index1_Text",
+        "32001_2_Dlgs_Index0_Text",
+        "32004_1_Dlgs_Index2_Text",
+        "32007_1_Dlgs_Index2_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "24221_3_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「物归原主」は本来の持ち主へ返す意の定着成語。特定典籍の直接引用ではなく、残篇返却の機能を「もっと早くお返しすべきでした」で保っているため保持する。"
+        },
+        {
+          "key": "24221_6_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "分岐側の「物归原主」も同じ定着成語。小彤の経脈を救うため返却が遅れた説明を優先し、「持ち主にお返しすべきでした」で機能を保つ。"
+        },
+        {
+          "key": "32001_2_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「拨云见日」はこの場面では武功・技名。《撥雲見日》の固有名を保持し、成語の意味へ読み下したり散文化したりしない。"
+        },
+        {
+          "key": "32004_1_Dlgs_Index2_Text",
+          "decision": "keep",
+          "note": "「一日千里」は進境の速さを示す定着成語。日本語の同等成語「日進月歩」で武学の上達速度を保ち、特定典籍の引用とは扱わない。"
+        },
+        {
+          "key": "32007_1_Dlgs_Index2_Text",
+          "decision": "keep",
+          "note": "「天下三智」は作中の称号として機能する固有呼称。構成員や絶対順位を補わず、《天下三智》の名声を指す現訳を保持する。"
+        }
+      ],
+      "fact_doubts": [
+        "「天山に本来あるべきもの」の具体物は22020_8だけでは特定せず、天山の権利や復讐対象全体へ広げない。",
+        "江小彤の両親の死について天山も責任を免れないという発言は莫問の認識であり、客観的な責任確定へ広げない。",
+        "宇文逸の「師兄に選べる道がない」は宇文逸の理解であり、莫問に他の選択肢が存在しなかったという設定事実へ確定しない。",
+        "24341_2の助力は莫問が借りを返すための行動であり、天山隠棲の放棄や武当への恒久復帰を確定しない。",
+        "青竹杖が手がかりとして残されたという説明は宇文逸の推測であり、置いた人物や意図を確定しない。",
+        "「天下三智」は作中の呼称として扱い、三名の絶対的な知略順位や構成員をこの場面だけから補完しない。"
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:7e557695d5f68735d842243ec960cdb4fe7b0d55e779db87cdf41adb055e413c",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/無名.md",
+            "digest": "sha256:20eacdecea2859c33ae90895488e361edea39fd1edca855b325f348715fc2749",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "24221_2_Dlgs_Index1_Text",
+            "24221_5_Dlgs_Index1_Text",
+            "24223_3_Dlgs_Index3_Text",
+            "24223_3_Dlgs_Index5_Text",
+            "24232_3_Dlgs_Index3_Text",
+            "24232_3_Dlgs_Index5_Text",
+            "24232_3_Dlgs_Index7_Text",
+            "24341_2_Dlgs_Index4_Text",
+            "32001_5_Dlgs_Index1_Text",
+            "32004_1_Dlgs_Index8_Text"
+          ],
+          "reason": "離反・敵対後も宇文逸が「師兄／大師兄」と呼び、敬体を保ちながら処断を拒み、何度でも止めると告げる。後日の助力や稽古でも師兄呼称と自然な敬体へ戻るため、現行資料の離反後・再会・再同行分岐の規則と整合する。分岐を直列化する新規主張は不要。",
+          "scope": {
+            "scenes": [
+              "24221_2",
+              "24221_5",
+              "24223_3",
+              "24232_3",
+              "24341_2",
+              "32001_5",
+              "32004_1"
+            ],
+            "counterpart": "莫問",
+            "timeline": "天山側への離反・決戦分岐から後日の関係回復まで"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "22020_8_Dlgs_Index0_Text",
+            "24221_2_Dlgs_Index0_Text",
+            "24223_3_Dlgs_Index1_Text",
+            "24232_3_Dlgs_Index0_Text",
+            "24341_2_Dlgs_Index2_Text",
+            "24341_2_Dlgs_Index3_Text",
+            "32001_2_Dlgs_Index1_Text",
+            "32001_5_Dlgs_Index0_Text",
+            "32004_1_Dlgs_Index2_Text",
+            "32004_1_Dlgs_Index9_Text",
+            "32007_1_Dlgs_Index2_Text"
+          ],
+          "reason": "離反・敵対期は呼称を省いて冷えた断定と死の受容を示し、後日の助力では借りを返すと距離を残す。一方、再同行後の稽古・碁では「師弟」と兄弟子の常体へ戻る。現行資料の敵対・再会・再同行を分岐別に扱う規則で説明でき、資料改訂は要らない。",
+          "scope": {
+            "scenes": [
+              "22020_8",
+              "24221_2",
+              "24223_3",
+              "24232_3",
+              "24341_2",
+              "32001_2",
+              "32001_5",
+              "32004_1",
+              "32007_1"
+            ],
+            "counterpart": "宇文逸",
+            "modes": [
+              "離反・敵対・諦観",
+              "借りを返す助力",
+              "再同行後の教導と軽口"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/無名.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "22020_8_Dlgs_Index2_Text",
+            "22020_8_Dlgs_Index3_Text"
+          ],
+          "reason": "「呵呵」で驚きを嘲り、続けて宇文逸を次の標的として脅す発話は、現行資料の低温の含み笑い、情報を小出しにして酷薄な脅しへ移る声の核に整合する。訳文側の「はは」を修正すれば足り、資料側の変更は不要。",
+          "scope": {
+            "scene": "22020_8",
+            "counterpart": "宇文逸・莫問",
+            "mode": "正体露見後の嘲弄と脅し"
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}
