@@ -2,7 +2,7 @@
   "schema_version": 2,
   "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
   "train_id": "yuwen-mowen-train-50",
-  "stage": "private_quality_audit",
+  "stage": "translation_frozen",
   "mode": "wave_v2",
   "cycle_control": {
     "status": "running",
@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5203_4_5222_3_2026-07-30.jsonをtranslation_quality_audit stationで監査する",
-    "last_safe_checkpoint": "private_quality_audit",
+    "exact_next_action": "release-ci labelで固定release trainを起動する",
+    "last_safe_checkpoint": "ready_for_public_ci",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -54,36 +54,66 @@
           "5222_1",
           "5222_3"
         ],
-        "status": "prepared",
+        "status": "encoded",
         "preparation_record": {
           "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5203_4_5222_3_2026-07-30.json",
           "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN50_WAVE01_2026-07-30.md",
           "quality_audit_context_digest": "sha256:ac190f2d49ffc4eb9b52fe670df2c564974667373ea8b8406ed1246642486bdf"
         },
-        "audit_record": null,
-        "review_record": null,
-        "formal_batch": null,
-        "source_document_target_count": 3
+        "audit_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN50_WAVE01_2026-07-30.md",
+          "decision_record": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN50_WAVE01_2026-07-30.json"
+        },
+        "review_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH181_2026-07-30.md",
+          "apply_status": "pending"
+        },
+        "formal_batch": 181,
+        "source_document_target_count": 3,
+        "source_document_feedback_record": {
+          "status": "complete",
+          "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN50_WAVE01_2026-07-30.json"
+        }
       }
-    ]
+    ],
+    "encoding_summary": {
+      "bundle_count": 1,
+      "reviewed_rows": 60,
+      "reviewed_keys": 60,
+      "unique_reviewed_rows": 60,
+      "fix_keys": 17,
+      "unique_fix_rows": 17,
+      "new_pair_keys": 5,
+      "new_project_keys": 5,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 12,
+      "keep_only_bundles": 0
+    }
   },
   "transport": {
-    "status": "not_ready",
+    "status": "ready_for_public_ci",
     "history": [
       {
         "status": "not_ready",
         "translation_stage": "private_preparation"
+      },
+      {
+        "status": "ready_for_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 207
       }
     ],
-    "pr": null,
+    "pr": 207,
     "merge_sha": null
   },
   "permissions": {
-    "translation_judgment_allowed": true,
+    "translation_judgment_allowed": false,
     "fix_writes_allowed": false,
     "encoding_writes_allowed": false,
-    "throughput_metrics_visible": false,
-    "metrics_frozen": true
+    "throughput_metrics_visible": true,
+    "metrics_frozen": false
   },
   "history": [
     {
@@ -92,6 +122,14 @@
     },
     {
       "stage": "private_quality_audit",
+      "status": "complete"
+    },
+    {
+      "stage": "private_encoding",
+      "status": "complete"
+    },
+    {
+      "stage": "translation_frozen",
       "status": "active"
     }
   ],

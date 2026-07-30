@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5203_4_Dlgs_Index3_Text",
+        "5203_7_Dlgs_Index7_Text",
+        "5203_7_Dlgs_Index8_Text",
+        "5211_4_Dlgs_Index0_Text",
+        "5211_4_Dlgs_Index2_Text",
+        "5214_6_Dlgs_Index0_Text",
+        "5214_6_Dlgs_Index4_Text",
+        "5222_1_Dlgs_Index1_Text"
+      ],
+      "reason": "入門前は莫問大哥・清虚道長、入門後は莫問師兄・師父へ切り替わり、訃報では言いさし、入門時には素直な喜び、師門では自然な敬体を使う。現行資料のM1境界・問いかけ・敬意の規則と整合し、改訂は不要。",
+      "scope": {
+        "scenes": [
+          "5203_4",
+          "5203_6",
+          "5203_7",
+          "5203_14",
+          "5211_4",
+          "5211_5",
+          "5212_1",
+          "5214_6",
+          "5215_1",
+          "5215_2",
+          "5217_2",
+          "5220_1",
+          "5222_1",
+          "5222_3"
+        ],
+        "counterpart": "莫問・清虚道長",
+        "mode": "入門前の対外応答から拝師・武当平時への切替"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5203_4_Dlgs_Index0_Text",
+        "5203_7_Dlgs_Index0_Text",
+        "5203_14_Dlgs_Index3_Text",
+        "5211_4_Dlgs_Index3_Text",
+        "5211_5_Dlgs_Index0_Text",
+        "5212_1_Dlgs_Index1_Text",
+        "5215_1_Dlgs_Index3_Text",
+        "5222_1_Dlgs_Index3_Text",
+        "5222_3_Dlgs_Index0_Text"
+      ],
+      "reason": "入門前は少侠・宇文少侠へ端正な敬体、入門後は宇文師弟・師弟へ柔らかな常体で案内・休息・装備・施設情報を順序立てて示す。現行資料の関係段階と兄弟子モードに整合し、反例や新規規則はない。",
+      "scope": {
+        "scenes": [
+          "5203_4",
+          "5203_6",
+          "5203_7",
+          "5203_14",
+          "5211_4",
+          "5211_5",
+          "5212_1",
+          "5214_6",
+          "5215_1",
+          "5215_2",
+          "5217_2",
+          "5220_1",
+          "5222_1",
+          "5222_3"
+        ],
+        "counterpart": "宇文逸・清虚道長",
+        "timeline": "武当訪問時の客人対応から入門直後の兄弟子案内まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5214_6_Dlgs_Index1_Text",
+        "5214_6_Dlgs_Index3_Text"
+      ],
+      "reason": "問児・逸児の呼称、弟子へ武当案内を命じ、疑問は師兄へ尋ねるよう促す順序は、慈愛ある古風な師モードと入門後呼称の現行資料に整合する。二行から新規規則を作らない。",
+      "scope": {
+        "scene": "5214_6",
+        "counterpart": "莫問・宇文逸",
+        "mode": "拝師直後の師としての訓示"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-50",
+  "wave_id": "yuwen-mowen-train-50-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN50_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5203_4_5222_3_2026-07-30.json",
+      "manifest_digest": "sha256:ac190f2d49ffc4eb9b52fe670df2c564974667373ea8b8406ed1246642486bdf"
+    }
+  ]
+}
