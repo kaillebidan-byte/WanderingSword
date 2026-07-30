@@ -1,95 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-62-quality-audit",
+  "task_id": "post-train62-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 192,
-    "pair_applied_keys": 1406,
-    "project_applied_keys": 1782,
-    "produced_by_pr": 218,
-    "release_id": "yuwen-mowen-train-61-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_61.json"
+    "batch": 193,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 219,
+    "release_id": "yuwen-mowen-train-62-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_62.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5581_5",
-    "5581_7",
-    "5581_8",
-    "5583_1",
-    "5583_2"
+    "5585_4"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-62-wave-01",
-    "packet_id": "yuwen-mowen-train62-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 193
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30560674292,
-    "artifact_id": 8766746770,
-    "artifact_digest": "sha256:5ea8ccd1f0ca01987c4b4a73c24538b8b2056486532e8ea8f3058cf89b125cf0",
-    "artifact_head": "c8154a64dc05227e058e2ff5a8fb338c31ad40ca",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30562590785,
+    "artifact_id": 8767523023,
+    "artifact_digest": "sha256:c5397147b048764b76d16b4d52e980fc51926fec13417495a79e2a834cd799fe",
+    "artifact_head": "39a116c5ba1e1c99b7770803d48317cb85bc7f8a",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-62",
     "release_id": "yuwen-mowen-train-62-r1",
     "pr": 219,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-62統合前に5585_4のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-62",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 193,
+    "planned_batch": 194,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:d9cc7e22ed777d10ad4a1ab66e395331caa908d505142a277fb3fcd4f8afb0c6"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 45,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5581_5",
-      "5581_7",
-      "5581_8",
-      "5583_1",
-      "5583_2"
-    ],
-    "grouping_decision": "起点5581_5の瑶姫との別れから、復命先の二分岐、清虚への任務報告、遼城の真相を伏せた理由の説明、5583_2の宿で休む指示と師父の出発まで、5場面45行で帰還報告と真相説明の意味単位を閉じた。5585_4以降の翌朝の急報と不風山総攻撃は含めない。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 3,
-    "new_project_keys": 1,
-    "fix_keys": 4
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN62_WAVE01_2026-07-31.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
