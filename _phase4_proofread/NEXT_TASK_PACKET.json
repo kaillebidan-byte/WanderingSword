@@ -23,13 +23,13 @@
     "5502_6"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-58-wave-01",
     "packet_id": "yuwen-mowen-train58-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 189
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -42,16 +42,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-57",
-    "release_id": "yuwen-mowen-train-57-r1",
-    "pr": 214,
-    "status": "merged",
-    "merge_sha": "2275ca8eac53aba4b0341e7a78c54dd2a5018e4b"
+    "train_id": "yuwen-mowen-train-58",
+    "release_id": "yuwen-mowen-train-58-r1",
+    "pr": 215,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -67,5 +65,39 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:9401bed1ef4e4c7f37a00928776c80a9f8b3ab5744e553b20c7beb0185b8b6f4"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 57,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5388_1",
+      "5389_2",
+      "5389_4",
+      "5452_1",
+      "5444_2",
+      "5446_1",
+      "5501_2",
+      "5502_5",
+      "5502_6"
+    ],
+    "grouping_decision": "方闊海戦の危機、試合後の二分岐、湛盧獲得後の出立、姑蘇での尾行対応、幽雲沢への迂回決定を57行で閉じた。別時系列の門内大比・杜彪戦直後・出発前の師命は分離する。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 5,
+    "new_project_keys": 0,
+    "fix_keys": 5
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN58_WAVE01_2026-07-30.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

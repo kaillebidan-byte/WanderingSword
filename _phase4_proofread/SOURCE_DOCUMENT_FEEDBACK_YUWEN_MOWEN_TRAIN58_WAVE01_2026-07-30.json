@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5388_1_Dlgs_Index0_Text",
+        "5389_2_Dlgs_Index0_Text",
+        "5389_2_Dlgs_Index4_Text",
+        "5389_4_Dlgs_Index0_Text",
+        "5389_4_Dlgs_Index4_Text",
+        "5452_1_Dlgs_Index3_Text",
+        "5444_2_Dlgs_Index2_Text",
+        "5444_2_Dlgs_Index4_Text",
+        "5446_1_Dlgs_Index1_Text",
+        "5446_1_Dlgs_Index5_Text",
+        "5501_2_Dlgs_Index0_Text",
+        "5501_2_Dlgs_Index2_Text",
+        "5501_2_Dlgs_Index3_Text",
+        "5501_2_Dlgs_Index8_Text",
+        "5502_5_Dlgs_Index4_Text",
+        "5502_6_Dlgs_Index0_Text",
+        "5502_6_Dlgs_Index7_Text"
+      ],
+      "reason": "負傷時の短い応答、莫問師兄への自然な敬体、欧陽雪・瑶姫との同行時の距離、尾行への驚きと迂回提案は、現行資料の武当平時・対外・親密・緊張時の切替で説明できる。呼称一件の訳文修正だけで人物資料の改訂は不要。",
+      "scope": {
+        "relationship": "莫問ら武当同門、欧陽雪、瑶姫、追跡者",
+        "timeline": "品剣大会の方闊海戦後から名剣山荘出立・姑蘇での尾行発覚まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/方闊海.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5388_1_Dlgs_Index1_Text",
+        "5388_1_Dlgs_Index2_Text"
+      ],
+      "reason": "宇文逸を小僧と呼ぶ粗暴さ、勝ち誇る高笑い、次の一刀を制御できないと凄む具体的な脅しは、現行資料の粗暴・短気・威圧モードと整合する。",
+      "scope": {
+        "relationship": "品剣大会での宇文逸への敵対",
+        "timeline": "方闊海戦で宇文逸を追い詰めた直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:aea240fa15bcfe4f6377d8da1704cb7a9eede6332a0bf5ecc49ad50d7fbe9e1c",
+      "after_digest": "sha256:aea240fa15bcfe4f6377d8da1704cb7a9eede6332a0bf5ecc49ad50d7fbe9e1c",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5388_1_Dlgs_Index3_Text",
+        "5389_2_Dlgs_Index1_Text",
+        "5389_2_Dlgs_Index2_Text",
+        "5389_2_Dlgs_Index3_Text",
+        "5389_2_Dlgs_Index5_Text",
+        "5389_4_Dlgs_Index1_Text",
+        "5389_4_Dlgs_Index2_Text",
+        "5389_4_Dlgs_Index3_Text",
+        "5389_4_Dlgs_Index5_Text",
+        "5452_1_Dlgs_Index0_Text",
+        "5444_2_Dlgs_Index0_Text",
+        "5444_2_Dlgs_Index1_Text",
+        "5444_2_Dlgs_Index3_Text",
+        "5444_2_Dlgs_Index5_Text",
+        "5446_1_Dlgs_Index4_Text",
+        "5501_2_Dlgs_Index1_Text",
+        "5501_2_Dlgs_Index5_Text",
+        "5501_2_Dlgs_Index10_Text",
+        "5502_5_Dlgs_Index0_Text",
+        "5502_5_Dlgs_Index1_Text",
+        "5502_5_Dlgs_Index3_Text",
+        "5502_6_Dlgs_Index5_Text",
+        "5502_6_Dlgs_Index6_Text"
+      ],
+      "reason": "方闊海への短い制止、負傷した宇文逸への労いと忠告、出立時の案内、尾行発覚後の慎重な状況判断と迂回決定は、現行資料の同門期の兄弟子・世話・謀士・危機判断モードで説明できる。訳文の主題化と事実強度を直すだけで資料改訂は不要。",
+      "scope": {
+        "relationship": "宇文逸ら同門と同行者への指揮・気遣い",
+        "timeline": "品剣大会の試合後から峋谷関へ向かう道中"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5452_1_Dlgs_Index4_Text"
+      ],
+      "reason": "宇文逸を逸児と呼び、技を無理に収めた反動と傷の具合を簡潔に尋ねる発話は、現行資料の慈愛ある師モードと生活上の気遣いに整合する。",
+      "scope": {
+        "relationship": "師父から宇文逸への負傷確認",
+        "timeline": "品剣大会で湛盧を得た直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5446_1_Dlgs_Index0_Text",
+        "5501_2_Dlgs_Index4_Text",
+        "5501_2_Dlgs_Index6_Text",
+        "5501_2_Dlgs_Index9_Text",
+        "5502_6_Dlgs_Index3_Text",
+        "5502_6_Dlgs_Index4_Text"
+      ],
+      "reason": "待たされたことを美人二人とからかう軽口、尾行者を引きずり出そうとする積極策、欧陽雪を小雪ちゃんと呼ぶ親しさ、地理知識を交えた婉曲な反論は、現行資料の柔らかな語尾で主導権を握る任務中モードと整合する。",
+      "scope": {
+        "relationship": "宇文逸・欧陽雪・莫問との同行任務",
+        "timeline": "名剣山荘出立後・姑蘇で尾行を受けた時点"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-58",
+  "wave_id": "yuwen-mowen-train-58-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN58_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5388_1_5502_6_2026-07-30.json",
+      "manifest_digest": "sha256:9401bed1ef4e4c7f37a00928776c80a9f8b3ab5744e553b20c7beb0185b8b6f4"
+    }
+  ]
+}
