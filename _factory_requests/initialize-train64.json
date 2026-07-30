@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-64",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30564568561,
+    "artifact_id": 8768301659,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:161146fb71cf089a156f06d006a626ac2a8221cffc0100c70708e8cc6d5a2edb",
+    "artifact_head": "28b2ca94cdf0e8a594f323eee87fec620cc1c60f"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5637_1",
+      "5646_1",
+      "5649_1",
+      "5651_1",
+      "5653_2"
+    ],
+    "unique_reviewed_rows": 54,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "不風山山頂で曹煜天の抜け道を探し、隠された瓷瓶の仕掛けを動かして暗道へ落下する。一行は閉じ込められたまま奥へ進むことを決め、守衛を突破して曹煜天を追跡し、休整を挟んで風雲訣を名乗る暴走状態の曹煜天との再戦へ入るまで。",
+    "branch_note": "5637_1から5646_1は瓷瓶の発見、誤作動、暗道への落下、入口閉鎖後の進行判断を連続して読む。5649_1と5651_1は守衛突破後の追跡と、莫問が休整を指示する兄弟子判断を一つの追跡局面として扱う。5653_2は曹煜天が風雲訣を名乗って内力を暴走させ、莫問が正面衝突を避けて援軍まで持ちこたえるよう指示するところで再戦開始を閉じる。次の5654_*は走火入魔の崩壊と第三者介入へ局面が移るため含めない。",
+    "seal_attestation": "起点5637_1の隠し仕掛け調査から、暗道への落下と進行決定、守衛突破、追跡・休整、5653_2の曹煜天との再戦開始まで、5場面54行で抜け道追跡局面を閉じた。5654_*以降の走火入魔崩壊と第三者介入は含めない。",
+    "candidate_questions": [
+      "宇文逸が仕掛け発見時の探究心、暗道内の決意、曹煜天への断罪を場面温度に応じて切り替えられているか",
+      "莫問の状況整理、同行判断、休整指示、戦闘指揮が兄弟子として簡潔かつ自然に聞こえるか",
+      "欧陽雪の瓷器鑑定と風雲訣への異議が、知識ある令嬢の声を保ちつつ客観事実へ強められていないか",
+      "曹煜天の誇大な主張と敵意を強く保ちながら、各派への非難や風雲訣の真偽を作品事実として確定していないか"
+    ],
+    "allusion_candidates": [
+      "误打误撞",
+      "卷土重来",
+      "不堪设想",
+      "不可同日而语",
+      "假仁假义",
+      "两面三刀",
+      "为所欲为"
+    ],
+    "fact_doubts": [
+      "瓷瓶が暗道入口の仕掛けであることは発見時点では欧陽雪・莫問・宇文逸の推測で、作動結果が出る前から確定しない",
+      "暗道の先に山下出口や曹煜天がいること、各派が破った絵を辿って入口を見つけることは一行の推測・期待であり確定しない",
+      "曹煜天が使う力を風雲訣と称するのは本人の主張で、欧陽雪は伏龍子の正統な絶学と陰邪な現象の不一致を指摘しており真偽を解消しない",
+      "5653_2時点の走火入魔は莫問が内力暴走から立てた判断で、後続場面の確定情報を遡及して補強しない",
+      "六扇門・武当・少林・丐幇・悪人谷・玄火教・呼延岐への曹煜天の非難は敵意ある本人の認識で、裏切りや偽善を客観事実へしない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5637_1_5653_2_2026-07-31.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN64_WAVE01_2026-07-31.md"
+  }
+}
