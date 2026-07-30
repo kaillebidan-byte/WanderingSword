@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-49",
+  "pr": 206,
+  "orchestrator_run_id": 30503591974,
+  "artifact_name": "release-finalization-inputs-206",
+  "ci_head": "ea07ec250a9788a720ae810e23aac5d19683af74",
+  "asset_head": "2c9480473887a6564ea894cc7eb138f9cb23b286",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "5203_14",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30503591974,
+    "artifact_id": 8744439828,
+    "artifact_digest": "sha256:adb307d150791bfb36d5e0583362aacdb762fa111d0e5ba4913234b914ad52e3",
+    "artifact_head": "ea07ec250a9788a720ae810e23aac5d19683af74",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第180束は22020_8・24221_2・24221_3・24221_5・24221_6・24223_3・24230_1・24232_3・24341_2・30821_1・32001_2・32001_5・32004_1・32007_1の56行。",
+    "実変更18件、意図的保持38件。人物資料3件はkeep。",
+    "次候補5203_14はtrain-49統合前にpreparationを開始しない。"
+  ]
+}
