@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-59",
+  "pr": 216,
+  "orchestrator_run_id": 30517114013,
+  "artifact_name": "release-finalization-inputs-216",
+  "ci_head": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9",
+  "asset_head": "39556e9201b2f2d44de5f0a45560a8a7ace41e40",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "5522_1",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30517114013,
+    "artifact_id": 8749318444,
+    "artifact_digest": "sha256:0de6465b7a48c1f04a4378ff74fcb1768df3c560f9d71cf36edba189f99c30fc",
+    "artifact_head": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第190束は門内大比後・名剣山荘行き前の過去時系列と、幽雲沢から峋谷関の献書失敗までの現行時系列を分離した7場面51行。",
+    "実変更5件、意図的保持46件。人物資料五件はいずれもkeep。",
+    "低収率challengeでKEEP46行を全件再監査し、追加FIX0件。",
+    "次候補5522_1はtrain-59統合前にpreparationを開始しない。"
+  ]
+}
