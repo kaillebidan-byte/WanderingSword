@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-64-r1",
+  "train_id": "yuwen-mowen-train-64",
+  "pr": 221,
+  "ci_head": "9ba605a779a8c4c71c70dd9441b197325f9ef18c",
+  "asset_head": "d4fcc7de93d8b620bc102ae78cfc801bd760b811",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH195_2026-07-31.md",
+  "counts": {
+    "batch": 195,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30566778812,
+    "workflow": "Release train orchestrator",
+    "head_sha": "9ba605a779a8c4c71c70dd9441b197325f9ef18c",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "5654_12は文字列順で先に出るが物語順では5654_1から走火入魔崩壊が始まるため、時系列に従い5654_1を予約する。",
+    "ゲームフォルダへの配置とゲーム内確認は行わない。"
+  ]
+}

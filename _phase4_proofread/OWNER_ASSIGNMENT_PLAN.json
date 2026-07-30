@@ -2,15 +2,19 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch108.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5637_1_5653_2_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch109.json",
       "values": {
-        "5586_3_Dlgs_Index5_Text": "17005 - 欧陽雪 $@$粗酒を数杯お出ししただけで、おもてなしにもなりません。先輩のお気に召したなら何よりです。",
-        "5603_1_Dlgs_Index11_Text": "5029 - 莫棄 $@$小逸、道中を共にして、あの妖女に仲間の情が湧いたのは分かる。だが、それであいつが邪教の人間だってことを忘れるな！"
+        "5646_1_Dlgs_Index13_Text": "5015 - 莫問 $@$各派は山頂で抜け道を捜している。知らせを送らずとも、私たちがさっき剥がした絵を手掛かりに、じきに入口を見つけるはずだ……",
+        "5649_1_Dlgs_Index0_Text": "1 - 宇文逸 $@$これほど大勢の守衛がいる。やはり曹煜天はこの先だ！",
+        "5653_2_Dlgs_Index3_Text": "45350 - 曹煜天 $@$お前たち正道の偽君子が、あれこれ策を巡らせて不風山を包囲したのは、俺の風雲訣が目当てだろう？",
+        "5653_2_Dlgs_Index15_Text": "1 - 宇文逸 $@$この命がある限り、これ以上、貴様の好き勝手にはさせない！"
       },
       "fix_keys": [
-        "5586_3_Dlgs_Index5_Text",
-        "5603_1_Dlgs_Index11_Text"
+        "5646_1_Dlgs_Index13_Text",
+        "5649_1_Dlgs_Index0_Text",
+        "5653_2_Dlgs_Index3_Text",
+        "5653_2_Dlgs_Index15_Text"
       ]
     }
   ]
