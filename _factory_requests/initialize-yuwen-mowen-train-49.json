@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-49",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30501996757,
+    "artifact_id": 8743847333,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:60b88cce8b90979d10ba35ab229b501dd176dc3273b8c7e56de9db9800c5dfc9",
+    "artifact_head": "822ae5039784e7d94673bedd3f7cf783fe1f7672"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "22020_8",
+      "24221_2",
+      "24221_3",
+      "24221_5",
+      "24221_6",
+      "24223_3",
+      "24230_1",
+      "24232_3",
+      "24341_2",
+      "30821_1",
+      "32001_2",
+      "32001_5",
+      "32004_1",
+      "32007_1"
+    ],
+    "unique_reviewed_rows": 56,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "莫問が無名とともに天山側へ立ったことを明かした後。宇文逸が天山残篇を返す、または謝罪する分岐から対決へ進み、戦後に殺さず何度でも止めると告げる。その後、莫問が借りを返すため助力し、再び調査・稽古・日常会話を共にするまで。",
+    "branch_note": "24221_2・24221_3は残篇返却、24221_5・24221_6は謝罪と江小彤への使用説明へ分岐するため合成しない。24223_3と24230_1・24232_3も戦後の応答が異なる分岐として扱う。24341_2以降は後日の助力と関係回復を示す別時点であり、対決直後の連続場面へ畳み込まない。",
+    "seal_attestation": "天山側への離反開示、対決前後の分岐、宇文逸の不殺と反復制止、後日の助力、再び師兄弟として調査・稽古・日常を共にするところまで、14場面・56行で関係の崩壊から回復までを閉じる。次の5203系は両者の初対面へ時系列が戻るため別packetとする。",
+    "candidate_questions": [
+      "敵対期の莫問の冷たさと、宇文逸がなお師兄と呼び続ける距離感が分岐ごとに保たれているか",
+      "残篇返却・謝罪・戦後応答の相互排他分岐を合成せず、それぞれの情報量と感情の向きを保てているか",
+      "後日の助力から稽古や軽口へ戻る関係回復が、完全な過去清算へ過剰に広げられていないか"
+    ],
+    "allusion_candidates": [
+      "物归原主",
+      "拨云见日",
+      "一日千里",
+      "天下三智"
+    ],
+    "fact_doubts": [
+      "『天山に本来あるべきもの』の具体物は22020_8だけでは特定せず、天山の権利や復讐対象全体へ広げない",
+      "江小彤の両親の死について天山も責任を免れないという発言は莫問の認識であり、客観的な責任確定へ広げない",
+      "宇文逸の『師兄に選べる道がない』は宇文逸の理解であり、莫問に他の選択肢が存在しなかったという設定事実へ確定しない",
+      "24341_2の助力は莫問が借りを返すための行動であり、天山隠棲の放棄や武当への恒久復帰を確定しない",
+      "青竹杖が手がかりとして残されたという説明は宇文逸の推測であり、置いた人物や意図を確定しない",
+      "『天下三智』は作中の呼称として扱い、三名の絶対的な知略順位や構成員をこの場面だけから補完しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES22020_8_32007_1_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN49_WAVE01_2026-07-30.md"
+  }
+}
