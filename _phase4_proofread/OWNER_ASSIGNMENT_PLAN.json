@@ -2,17 +2,19 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5535_2_5572_9_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch106.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_5_5583_2_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch107.json",
       "values": {
-        "5535_2_Dlgs_Index2_Text": "19103 - 黄宗政 $@$今後、わしの力が必要なことがあれば、遠慮なく訪ねてくるがいい。",
-        "5551_2_Dlgs_Index8_Text": "1 - 宇文逸 $@$叔父さんは酒好きだけど、本当にいい人なんだ。友達を連れて帰るたび、いつも自分で腕を振るってくれて……",
-        "5572_6_Dlgs_Index1_Text": "17115 - 瑶姫 $@$ゴホッ、ゴホッ……平気よ。小雪ちゃんたちが間に合ってくれて助かったわ～"
+        "5581_7_Dlgs_Index1_Text": "1 - 宇文逸 $@$はい、行きましょう。",
+        "5581_8_Dlgs_Index1_Text": "1 - 宇文逸 $@$はい、行きましょう。",
+        "5583_1_Dlgs_Index1_Text": "5003 - 清虚道長 $@$ふふ、堅苦しい挨拶は無用じゃ……この旅はご苦労であった。",
+        "5583_1_Dlgs_Index3_Text": "5003 - 清虚道長 $@$まさか、そなたらが一挙に天龍幇の企みを挫き、峋谷関の包囲まで解くとはな。まこと、後生畏るべしとはこのことじゃ！"
       },
       "fix_keys": [
-        "5535_2_Dlgs_Index2_Text",
-        "5551_2_Dlgs_Index8_Text",
-        "5572_6_Dlgs_Index1_Text"
+        "5581_7_Dlgs_Index1_Text",
+        "5581_8_Dlgs_Index1_Text",
+        "5583_1_Dlgs_Index1_Text",
+        "5583_1_Dlgs_Index3_Text"
       ]
     }
   ]

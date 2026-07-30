@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5581_5_Dlgs_Index0_Text",
+        "5581_5_Dlgs_Index2_Text",
+        "5581_7_Dlgs_Index1_Text",
+        "5581_8_Dlgs_Index1_Text",
+        "5583_1_Dlgs_Index0_Text",
+        "5583_1_Dlgs_Index4_Text",
+        "5583_1_Dlgs_Index8_Text",
+        "5583_1_Dlgs_Index9_Text",
+        "5583_2_Dlgs_Index0_Text",
+        "5583_2_Dlgs_Index7_Text",
+        "5583_2_Dlgs_Index8_Text"
+      ],
+      "reason": "瑶姫との私的な別れ、莫問への師兄register、清虚への帰還挨拶・問い・受容は、現行資料の親密・武当平時・武当感情モードで説明できる。二分岐の応答は資料に合わせるのではなく、一次資料と同型場面から敬体へ修正する。",
+      "scope": {
+        "relationship": "瑶姫、莫問、清虚への別れ・同行・師弟会話",
+        "timeline": "黎城到着から遼城の真相説明と休息指示まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5581_5_Dlgs_Index1_Text",
+        "5581_5_Dlgs_Index3_Text",
+        "5581_5_Dlgs_Index4_Text",
+        "5581_5_Dlgs_Index8_Text",
+        "5581_5_Dlgs_Index9_Text",
+        "5581_5_Dlgs_Index10_Text"
+      ],
+      "reason": "義父への復命を告げつつ、手荒さを茶化し、莫問の評価を軽くからかい、再会を匂わせる別れは、現行資料の柔らかな長音・軽い笑い・別離の翳りと整合する。",
+      "scope": {
+        "relationship": "宇文逸・欧陽雪・莫問ら同行者との別れ",
+        "timeline": "峋谷関任務後の黎城到着時"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5581_5_Dlgs_Index7_Text",
+        "5581_7_Dlgs_Index0_Text",
+        "5581_8_Dlgs_Index0_Text",
+        "5583_1_Dlgs_Index5_Text",
+        "5583_2_Dlgs_Index17_Text"
+      ],
+      "reason": "瑶姫への簡潔な評価、師弟への進行指示、清虚への敬体での任務評価と応答は、現行資料の同門期の兄弟子・謀士・目上への礼の切替と整合する。",
+      "scope": {
+        "relationship": "瑶姫・宇文逸・清虚への評価、指示、復命",
+        "timeline": "黎城到着から清虚の出発まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5583_1_Dlgs_Index1_Text",
+        "5583_1_Dlgs_Index2_Text",
+        "5583_1_Dlgs_Index3_Text",
+        "5583_1_Dlgs_Index6_Text",
+        "5583_1_Dlgs_Index7_Text",
+        "5583_1_Dlgs_Index10_Text",
+        "5583_1_Dlgs_Index11_Text",
+        "5583_2_Dlgs_Index1_Text",
+        "5583_2_Dlgs_Index2_Text",
+        "5583_2_Dlgs_Index3_Text",
+        "5583_2_Dlgs_Index4_Text",
+        "5583_2_Dlgs_Index5_Text",
+        "5583_2_Dlgs_Index9_Text",
+        "5583_2_Dlgs_Index10_Text",
+        "5583_2_Dlgs_Index11_Text",
+        "5583_2_Dlgs_Index12_Text",
+        "5583_2_Dlgs_Index13_Text",
+        "5583_2_Dlgs_Index15_Text",
+        "5583_2_Dlgs_Index16_Text",
+        "5583_2_Dlgs_Index18_Text"
+      ],
+      "reason": "帰還した弟子を労い、大義を認め、逸児の顔色を案じ、真相を伏せた理由を悔恨と保護意図の順で説明し、最後に休息と用心を命じる流れは、現行資料の慈愛ある訓導・悔恨・生活上の気遣いに整合する。二件の修正は訳文の古風度と成語処理で足り、資料規則の改訂は不要。",
+      "scope": {
+        "relationship": "宇文逸・莫問・欧陽雪への師としての労い、説明、指示",
+        "timeline": "峋谷関任務の帰還報告から翌日の総攻撃準備まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-62",
+  "wave_id": "yuwen-mowen-train-62-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN62_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_5_5583_2_2026-07-31.json",
+      "manifest_digest": "sha256:d9cc7e22ed777d10ad4a1ab66e395331caa908d505142a277fb3fcd4f8afb0c6"
+    }
+  ]
+}
