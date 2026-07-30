@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-56",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30511937043,
+    "artifact_id": 8747445861,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:76717c3b57953c5aab447be20c153baa85839e73a8d9d5f393bf526efb9ada60",
+    "artifact_head": "bd27afce75956fe289e6cdefcbb514e67f8aa90b"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5352_1",
+      "5352_3",
+      "5353_5",
+      "5357_1",
+      "5357_2",
+      "5358_1"
+    ],
+    "unique_reviewed_rows": 62,
+    "semantic_extension": {
+      "used": true,
+      "reason": "complete_semantic_unit"
+    },
+    "timeline": "門内大比後、名剣山荘へ向かう道中。毒蛇襲撃と杜彪との対立を経て姑蘇へ入り、暴雨で船が止まり、何者かが手配した迎仙楼へ入るまで。",
+    "branch_note": "5352_1から5358_1までは出発後の連続した本筋として扱う。5358_5で少林僧との再会と翌日の同行合意へ話題が移るため、次の意味単位へ分離する。",
+    "seal_attestation": "毒蛇事件の発生と五仙教疑義、杜彪の挑発、姑蘇での渡航停止、手配済みの宿への入室までを62行で閉じ、次の少林僧との再会は次束へ分ける。",
+    "candidate_questions": [
+      "毒蛇を操る笛を五仙教の手段と見る莫問の推測と、宇文逸が小彤を疑う反応の確度を保てているか。",
+      "杜彪への対峙で、莫問の慎重な敬語、莫棄の直情、宇文逸の侠義的激昂の声差が出ているか。",
+      "無塵の来歴と『剣は外物』という莫問の教えが、誇張や設定追加なく伝わるか。",
+      "船頭と宿屋の『誰かが手配済み』という不穏さを、正体や意図を断定せず段階的に保てているか。"
+    ],
+    "allusion_candidates": [
+      "袖里乾坤",
+      "士可杀不可辱",
+      "放马过来",
+      "阎罗殿",
+      "既来之则安之",
+      "无坚不摧"
+    ],
+    "fact_doubts": [
+      "笛で毒蛇を操る手段が五仙教によるものか、小彤本人かは、この場面では莫問と宇文逸の推測に留まる。",
+      "無塵の鋳造者・寒泉・切れ味は莫棄の伝聞と誇張を含み、莫問は普通の兵刃より少し鋭い程度へ抑えている。",
+      "杜彪が悪人谷四大悪人の一人で夜哭鬼の師父であるという情報は、莫問の識別と杜彪自身の発言に基づく。",
+      "船頭と宿屋が示す手配者の正体・目的・天候との関係は未確定であり、善意または罠へ断定しない。",
+      "灯会祭が二日後で、灯謎の一等賞が郭大家の新作琴譜『楓橋水雲』であるという情報は丘掌柜の伝聞として扱う。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN56_WAVE01_2026-07-30.md"
+  }
+}
