@@ -32,8 +32,8 @@
     "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH184_2026-07-30.md"
   },
   "operation_mode": {
-    "declared_state": "private_translation_work",
-    "protocol": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
+    "declared_state": "translation_frozen",
+    "protocol": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
     "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
     "actual_visibility_source": "github_repository_metadata",
     "visibility_change_actor": "none",
@@ -120,11 +120,9 @@
       "5302_3",
       "5302_4"
     ],
-    "task": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5297_2_5302_4_2026-07-30.jsonをtranslation_quality_audit stationでKEEP/FIX監査する。",
-    "boundary": "quality auditでは翻訳判断だけを記録し、fix・owner・正式束・CI操作を行わない。",
-    "packet": "_phase4_proofread/NEXT_TASK_PACKET.json",
-    "source_feedback_contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "quality_audit_context_digest": "sha256:b225199310fb7980ea25fbd60d9b6321861b60d2ad4c5c848619cc4e0a1533db"
+    "task": "release-ci labelでRelease train orchestratorを起動する。",
+    "boundary": "翻訳判断は凍結済み。Relation・Cross・Apply・phase2だけを実行する。",
+    "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
     "README.md",
@@ -158,8 +156,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-54",
     "branch": "agent/yuwen-mowen-train-54",
-    "status": "accumulating",
-    "transport_status": "not_ready",
+    "status": "ready_for_public_ci",
+    "transport_status": "ready_for_public_ci",
     "base_checkpoint_batch": 184,
     "thresholds": {
       "bundle_count": 4,
@@ -171,28 +169,28 @@
       "reviewed_rows": 80
     },
     "totals": {
-      "bundle_count": 0,
-      "reviewed_rows": 0,
-      "reviewed_keys": 0,
-      "unique_reviewed_rows": 0,
-      "fix_keys": 0,
-      "unique_fix_rows": 0,
+      "bundle_count": 1,
+      "reviewed_rows": 62,
+      "reviewed_keys": 62,
+      "unique_reviewed_rows": 62,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
       "new_pair_keys": 0,
       "new_project_keys": 0,
       "cross_register_keys": 0,
-      "existing_owner_updates": 0,
+      "existing_owner_updates": 4,
       "keep_only_bundles": 0
     },
     "private_stage": {
-      "stage": "private_quality_audit",
-      "status": "active",
-      "transport_status": "not_ready",
+      "stage": "translation_frozen",
+      "status": "complete",
+      "transport_status": "ready_for_public_ci",
       "wave_id": "yuwen-mowen-train-54-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "private_quality_audit"
+      "cycle_checkpoint": "ready_for_public_ci"
     },
     "tracking_issue": null,
-    "draft_pr": null,
+    "draft_pr": 211,
     "finalization_phase": "phase2",
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true,

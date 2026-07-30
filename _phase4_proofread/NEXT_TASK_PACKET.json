@@ -20,13 +20,13 @@
     "5302_4"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-54-wave-01",
     "packet_id": "yuwen-mowen-train54-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 185
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -39,16 +39,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-53",
-    "release_id": "yuwen-mowen-train-53-r1",
-    "pr": 210,
-    "status": "merged",
-    "merge_sha": "0c255a20f54d65dd51f12f2202e5c474d2a7eca0"
+    "train_id": "yuwen-mowen-train-54",
+    "release_id": "yuwen-mowen-train-54-r1",
+    "pr": 211,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -64,5 +62,41 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:b225199310fb7980ea25fbd60d9b6321861b60d2ad4c5c848619cc4e0a1533db"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 62,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5297_2",
+      "5296_7",
+      "5300_1",
+      "5302_2",
+      "5302_3",
+      "5302_4"
+    ],
+    "grouping_decision": "平康城事件の真相開示、事件後総括、武当帰還、夜間稽古、宇文逸の反省と莫問の生い立ちまで、6場面62行で事件の後処理と師弟関係深化を完結させる。",
+    "exception": {
+      "reason_code": "complete_semantic_unit",
+      "detail": "平康城事件の真相開示、事件後総括、武当帰還、夜間稽古、宇文逸の反省と莫問の生い立ちまで、6場面62行で事件の後処理と師弟関係深化を完結させる。"
+    }
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 4,
+    "new_project_keys": 0,
+    "fix_keys": 4
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN54_WAVE01_2026-07-30.json",
+    "changed_documents": [
+      "10_人物/莫問.md"
+    ],
+    "unresolved_documents": []
   }
 }
