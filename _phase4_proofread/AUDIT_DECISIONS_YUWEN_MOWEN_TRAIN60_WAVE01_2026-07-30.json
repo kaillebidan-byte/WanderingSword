@@ -1,0 +1,273 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-60",
+  "wave_id": "yuwen-mowen-train-60-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30517114013,
+    "artifact_id": 8749318444,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:0de6465b7a48c1f04a4378ff74fcb1768df3c560f9d71cf36edba189f99c30fc",
+    "head_sha": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train60-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5522_1_5531_7_2026-07-30.json",
+      "scene_groups": [
+        "5522_1",
+        "5523_1",
+        "5525_3",
+        "5525_6",
+        "5528_7",
+        "5531_3",
+        "5531_4",
+        "5531_7"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5531_4_Dlgs_Index7_Text",
+          "before": "19102 - 副将-徐海 $@$全ておれのせいだ……",
+          "after": "19102 - 副将-徐海 $@$全部、おれのせいだ……",
+          "reason": "voice: 「都怪我」は娘を守れなかった悔恨がこぼれる短句。現訳の「全て」は瀕死の徐海の口から出るには硬いため、軍人の張りを失った私的な「全部、おれのせいだ」へ戻す。"
+        },
+        {
+          "key": "5531_4_Dlgs_Index21_Text",
+          "before": "19102 - 副将-徐海 $@$……おれにはもう……時間があまりない……",
+          "after": "19102 - 副将-徐海 $@$……おれはもう……長くない……",
+          "reason": "voice/meaning: 「没多少时间了」は死期が近いことを告げる瀕死の短句。「時間があまりない」は期限の説明にも聞こえ、発話が整いすぎるため、「もう長くない」で生命の残りと息切れを自然に保つ。"
+        },
+        {
+          "key": "5531_4_Dlgs_Index23_Text",
+          "before": "19102 - 副将-徐海 $@$だが、犯した過ちは消えない……おれは……",
+          "after": "19102 - 副将-徐海 $@$だが、もう取り返しがつかない……おれは……",
+          "reason": "voice/meaning: 「错已铸成」は過ちが既に成り、取り返せないという嘆き。現訳の「犯した過ちは消えない」は説明的で硬いため、徐海の途切れる悔恨として「もう取り返しがつかない」へ直す。"
+        }
+      ],
+      "keeps": [
+        "5522_1_Dlgs_Index0_Text",
+        "5522_1_Dlgs_Index1_Text",
+        "5522_1_Dlgs_Index2_Text",
+        "5522_1_Dlgs_Index3_Text",
+        "5522_1_Dlgs_Index4_Text",
+        "5522_1_Dlgs_Index5_Text",
+        "5522_1_Dlgs_Index6_Text",
+        "5523_1_Dlgs_Index0_Text",
+        "5523_1_Dlgs_Index1_Text",
+        "5523_1_Dlgs_Index2_Text",
+        "5525_3_Dlgs_Index0_Text",
+        "5525_3_Dlgs_Index1_Text",
+        "5525_3_Dlgs_Index2_Text",
+        "5525_3_Dlgs_Index3_Text",
+        "5525_3_Dlgs_Index4_Text",
+        "5525_6_Dlgs_Index0_Text",
+        "5525_6_Dlgs_Index1_Text",
+        "5525_6_Dlgs_Index2_Text",
+        "5525_6_Dlgs_Index3_Text",
+        "5525_6_Dlgs_Index4_Text",
+        "5528_7_Dlgs_Index0_Text",
+        "5528_7_Dlgs_Index1_Text",
+        "5528_7_Dlgs_Index2_Text",
+        "5528_7_Dlgs_Index3_Text",
+        "5528_7_Dlgs_Index4_Text",
+        "5528_7_Dlgs_Index5_Text",
+        "5528_7_Dlgs_Index6_Text",
+        "5531_3_Dlgs_Index0_Text",
+        "5531_3_Dlgs_Index1_Text",
+        "5531_3_Dlgs_Index2_Text",
+        "5531_4_Dlgs_Index0_Text",
+        "5531_4_Dlgs_Index1_Text",
+        "5531_4_Dlgs_Index2_Text",
+        "5531_4_Dlgs_Index3_Text",
+        "5531_4_Dlgs_Index4_Text",
+        "5531_4_Dlgs_Index5_Text",
+        "5531_4_Dlgs_Index6_Text",
+        "5531_4_Dlgs_Index8_Text",
+        "5531_4_Dlgs_Index9_Text",
+        "5531_4_Dlgs_Index10_Text",
+        "5531_4_Dlgs_Index11_Text",
+        "5531_4_Dlgs_Index12_Text",
+        "5531_4_Dlgs_Index13_Text",
+        "5531_4_Dlgs_Index14_Text",
+        "5531_4_Dlgs_Index15_Text",
+        "5531_4_Dlgs_Index16_Text",
+        "5531_4_Dlgs_Index17_Text",
+        "5531_4_Dlgs_Index18_Text",
+        "5531_4_Dlgs_Index19_Text",
+        "5531_4_Dlgs_Index20_Text",
+        "5531_4_Dlgs_Index22_Text",
+        "5531_4_Dlgs_Index24_Text",
+        "5531_7_Dlgs_Index0_Text",
+        "5531_7_Dlgs_Index1_Text",
+        "5531_7_Dlgs_Index2_Text",
+        "5531_7_Dlgs_Index3_Text",
+        "5531_7_Dlgs_Index4_Text",
+        "5531_7_Dlgs_Index5_Text"
+      ],
+      "allusion_review_candidates": [
+        "穷寇莫追",
+        "想来就来，想走就走",
+        "千方百计",
+        "绝非易于之辈",
+        "错已铸成"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5531_3_Dlgs_Index0_Text",
+          "decision": "定着した兵法成語",
+          "note": "「穷寇莫追」は逃走する敵を追い詰めないという兵法系の定着表現。会話では特定典籍の朗誦ではなく制止として機能しており、現訳「逃げる敵を深追いするな」が意味と速度を保つ。"
+        },
+        {
+          "key": "5522_1_Dlgs_Index3_Text",
+          "decision": "通常の対句表現",
+          "note": "「想来就来、想走就走」は勝手に出入りすることを責める並列表現で、特定典籍の引用ではない。現訳「好き勝手に出入りできると思うな」が徐海の怒号を保つ。"
+        },
+        {
+          "key": "5525_6_Dlgs_Index1_Text",
+          "decision": "定着した成語",
+          "note": "「千方百计」はあらゆる手段を尽くす意の成語。現訳「あの手この手で」は瑶姬の推測口調と会話速度を保つ。"
+        },
+        {
+          "key": "5528_7_Dlgs_Index4_Text",
+          "decision": "定着した評価表現",
+          "note": "「绝非易于之辈」は容易に扱える相手ではない意。現訳「侮れる相手ではない」は莫問の戦闘時の警告として機能と強度を保つ。"
+        },
+        {
+          "key": "5531_4_Dlgs_Index23_Text",
+          "decision": "定着した不可逆表現",
+          "note": "「错已铸成」は過ちが既に成り、取り返せないという比喩的な通常表現。修正訳「もう取り返しがつかない」は徐海の悔恨と不可逆性を自然に保つ。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "xu_hai_feigned_injury_and_coercion_inference",
+          "keys": [
+            "5525_6_Dlgs_Index0_Text",
+            "5525_6_Dlgs_Index1_Text",
+            "5525_6_Dlgs_Index2_Text",
+            "5525_6_Dlgs_Index3_Text"
+          ],
+          "note": "徐海が負傷を装ったこと、夜襲に合わせて戦場を離れたこと、天龍幇の制約下にあることは宇文逸・瑶姬・莫問の推測と判断。共謀の詳細や自発的裏切りを客観事実へ強めない。"
+        },
+        {
+          "scope": "enemy_roles_and_escape_sequence",
+          "keys": [
+            "5528_7_Dlgs_Index0_Text",
+            "5528_7_Dlgs_Index1_Text",
+            "5528_7_Dlgs_Index2_Text",
+            "5531_3_Dlgs_Index0_Text"
+          ],
+          "note": "曹煜天を黒白無常が逃がす場面だが、指揮系統、事前計画、黒白無常の具体的任務は台詞だけでは確定しない。"
+        },
+        {
+          "scope": "laner_identity_survival_and_kidnapping_motive",
+          "keys": [
+            "5531_4_Dlgs_Index10_Text",
+            "5531_4_Dlgs_Index11_Text",
+            "5531_4_Dlgs_Index13_Text",
+            "5531_4_Dlgs_Index15_Text",
+            "5531_4_Dlgs_Index16_Text",
+            "5531_4_Dlgs_Index17_Text",
+            "5531_4_Dlgs_Index19_Text",
+            "5531_7_Dlgs_Index1_Text",
+            "5531_7_Dlgs_Index2_Text",
+            "5531_7_Dlgs_Index4_Text"
+          ],
+          "note": "蘭の腕輪と徐海の確認、宇文逸の証言により蘭児が徐海の娘で無事に清河村にいることは場面内で共有される。一方、清河村・平康城の拉致全体が蘭児捜索だったという説明は莫問らの推測に留める。"
+        },
+        {
+          "scope": "xu_hai_injury_remaining_life_and_death",
+          "keys": [
+            "5531_3_Dlgs_Index1_Text",
+            "5531_4_Dlgs_Index0_Text",
+            "5531_4_Dlgs_Index1_Text",
+            "5531_4_Dlgs_Index2_Text",
+            "5531_4_Dlgs_Index3_Text",
+            "5531_4_Dlgs_Index21_Text",
+            "5531_4_Dlgs_Index22_Text",
+            "5531_4_Dlgs_Index23_Text",
+            "5531_4_Dlgs_Index24_Text"
+          ],
+          "note": "重い傷と残り時間の少なさは宇文逸の観察と徐海自身の発言で示されるが、具体的な傷因、残り時間、死亡時点はこの会話から補完しない。"
+        }
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:1540ada244be081f0c687334bec2f33dbdb6ffd8362decc10288c773bfb45117",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {"path": ".agents/skills/zhja-game-translation-codex/SKILL.md", "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md", "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md", "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md", "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef", "status": "reviewed"},
+          {"path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md", "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab", "status": "reviewed"},
+          {"path": "10_人物/宇文逸.md", "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153", "status": "reviewed"},
+          {"path": "10_人物/莫問.md", "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4", "status": "reviewed"},
+          {"path": "10_人物/副将-徐海.md", "digest": "sha256:68dc157f29b4357af382f510a1f037a0bf72251d5b4cf1bf9e85bd66094518dd", "status": "reviewed"},
+          {"path": "10_人物/瑶姬.md", "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c", "status": "reviewed"},
+          {"path": "10_人物/黄宗政.md", "digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe", "status": "reviewed"}
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5522_1_Dlgs_Index0_Text", "5523_1_Dlgs_Index0_Text", "5523_1_Dlgs_Index2_Text", "5525_3_Dlgs_Index0_Text", "5525_3_Dlgs_Index3_Text", "5525_6_Dlgs_Index0_Text", "5525_6_Dlgs_Index4_Text", "5528_7_Dlgs_Index0_Text", "5528_7_Dlgs_Index6_Text", "5531_4_Dlgs_Index0_Text", "5531_4_Dlgs_Index2_Text", "5531_4_Dlgs_Index15_Text", "5531_4_Dlgs_Index17_Text", "5531_4_Dlgs_Index19_Text", "5531_7_Dlgs_Index4_Text", "5531_7_Dlgs_Index5_Text"],
+          "reason": "戦闘時の短い悪態と追撃、莫問への自然な敬体、探索時の問いかけ、負傷者への折り目正しい対応、蘭児の身元判明後の驚きと危機判断は、現行資料の戦闘・武当平時・対外・親密モードの切替で説明できる。",
+          "scope": {"relationship": "莫問ら同行者、徐海、敵対者への応答", "timeline": "峋谷関の将軍府侵入から徐海の娘の身元判明後まで"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5522_1_Dlgs_Index2_Text", "5523_1_Dlgs_Index1_Text", "5525_3_Dlgs_Index1_Text", "5525_3_Dlgs_Index2_Text", "5525_6_Dlgs_Index3_Text", "5528_7_Dlgs_Index4_Text", "5528_7_Dlgs_Index5_Text", "5531_3_Dlgs_Index0_Text", "5531_3_Dlgs_Index1_Text", "5531_4_Dlgs_Index12_Text", "5531_4_Dlgs_Index13_Text", "5531_7_Dlgs_Index1_Text", "5531_7_Dlgs_Index2_Text"],
+          "reason": "包囲時の離脱判断、書斎の観察、城外戦より任務を優先する指揮、黒白無常への警戒、深追いの制止、腕輪から身元を結びつける推理は、現行資料の同門期の兄弟子・謀士・危機判断モードと整合する。",
+          "scope": {"relationship": "宇文逸ら同行者への指揮と徐海事件の推理", "timeline": "峋谷関侵入・夜襲・徐海捜索と身元判明"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/副将-徐海.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5522_1_Dlgs_Index3_Text", "5522_1_Dlgs_Index4_Text", "5531_4_Dlgs_Index1_Text", "5531_4_Dlgs_Index3_Text", "5531_4_Dlgs_Index4_Text", "5531_4_Dlgs_Index7_Text", "5531_4_Dlgs_Index8_Text", "5531_4_Dlgs_Index9_Text", "5531_4_Dlgs_Index10_Text", "5531_4_Dlgs_Index11_Text", "5531_4_Dlgs_Index16_Text", "5531_4_Dlgs_Index18_Text", "5531_4_Dlgs_Index21_Text", "5531_4_Dlgs_Index22_Text", "5531_4_Dlgs_Index23_Text", "5531_4_Dlgs_Index24_Text"],
+          "reason": "敵対時の軍人らしい怒号から、瀕死で娘を案じる「おれ」の私的な声、少侠への懇願、将軍への悔恨へ崩れる流れは、現行資料の軍人モードと娘への情・追い詰め時の切替に整合する。三件は訳文の硬さを直すもので、資料規則の改訂は不要。",
+          "scope": {"relationship": "侵入者への敵対、宇文逸への懇願、黄宗政への忠誠と悔恨", "timeline": "将軍府での対峙から致命傷後の娘の身元判明まで"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/瑶姬.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5522_1_Dlgs_Index5_Text", "5525_6_Dlgs_Index1_Text", "5525_6_Dlgs_Index2_Text", "5531_7_Dlgs_Index3_Text"],
+          "reason": "徐海への柔らかな挑発、夜襲と戦場離脱を結びつける冷静な推測、郭燾の欺瞞を軽い長音で評する発話は、現行資料の任務中・挑発モードと整合する。",
+          "scope": {"relationship": "徐海・宇文逸・莫問らとの任務中会話", "timeline": "将軍府侵入から徐海事件の真相推測まで"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/黄宗政.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5522_1_Dlgs_Index6_Text"],
+          "reason": "負傷して咳き込みながらも全員を一喝して戦闘を止める短い号令は、現行資料の豪快な将軍としての重い常体と職権の声に整合する。",
+          "scope": {"relationship": "将軍府内の配下と侵入者を制止する公的号令", "timeline": "将軍府で一行が包囲された直後"},
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}
