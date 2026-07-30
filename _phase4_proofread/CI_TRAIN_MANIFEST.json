@@ -1,1 +1,92 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-54","branch":"agent/yuwen-mowen-train-54","draft_pr":211,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":211,"merge_sha":"f8b90a3a89b757508c9a963291465cd9ea6d9863"},"base_checkpoint":{"batch":184,"pair_applied_keys":1404,"project_applied_keys":1780,"produced_by_pr":210,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-53-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_53.json","pr":210,"validated_head":"5d3875361e6b4d3c1a055f5c660ce43ff031c00e"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":62,"reviewed_keys":62,"unique_reviewed_rows":62,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":4,"keep_only_bundles":0},"bundles":[{"batch":185,"review_status":"complete","apply_status":"verified","scene_groups":["5297_2","5296_7","5300_1","5302_2","5302_3","5302_4"],"reviewed_rows":62,"reviewed_keys":62,"unique_rows":62,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":4,"keep_keys":58,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch4.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH185_2026-07-30.md","ownership_summary":{"existing_keys":59,"unowned_kept":3,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["一手遮天","一网打尽","急于求成","一蹴而就","望尘莫及","无极生太极，太极生两仪","刚柔并济，剑意归华"],"allusion_review_resolved":[{"key":"5297_2_Dlgs_Index5_Text","decision":"定着した成語","note":"「一手遮天」は権勢で一地を思うままに支配する比喩。特定典籍の引用として扱わず、現訳の「牛耳る」で場面機能を保つ。"},{"key":"5297_2_Dlgs_Index9_Text","decision":"定着した成語","note":"「一网打尽」は一味を残らず捕らえる意で、日本語にも定着した「一網打尽」を保持する。"},{"key":"5296_7_Dlgs_Index8_Text","decision":"定着した成語","note":"「急于求成」は成果を焦ることへの戒め。特定典籍引用ではなく、焦らず励むという応答機能を保つ。"},{"key":"5302_2_Dlgs_Index3_Text","decision":"定着した成語","note":"「一蹴而就」は一度で成し遂げる意。日本語では「一朝一夕に身につくものではない」として武術修練の積み重ねを保つ。"},{"key":"outside-candidate:5331_2_Dlgs_Index5_Text","decision":"今回の意味境界外","note":"「望尘莫及」は次場面5331_2に属し、今回candidateの62行には実在しない。次束で一次資料とともに改めて典故疑義ゲートを通す。"},{"key":"5302_3_Dlgs_Index1_Text","decision":"古典語を組み合わせた作品内武術訣","note":"「无极生太极，太极生两仪」は既知の宇宙論語彙を組み合わせるが、この一行全体を特定典籍の完全一致引用とは扱わない。擬古調と修練のリズムを保持する。"},{"key":"5302_3_Dlgs_Index1_Text","decision":"作品内の擬古武術訣","note":"「刚柔并济，剑意归华」は特定出典を断定せず、剛柔と剣意の対句・調子を保つ。"}],"fact_doubts":[{"scope":"speaker_report","keys":["5297_2_Dlgs_Index4_Text"],"note":"李天宝が旅商人情報を山賊へ流し、人身売買を助けたという内容は絶無心の捜査報告として保持し、証拠の範囲を補完しない。"},{"scope":"speaker_report","keys":["5297_2_Dlgs_Index5_Text","5297_2_Dlgs_Index6_Text"],"note":"知州買収と天龍幇とのつながりは絶無心の説明範囲に留め、組織全体の客観設定へ強めない。"},{"scope":"speaker_report","keys":["5297_2_Dlgs_Index9_Text"],"note":"神侯が李天宝を生かして潜入捜査を命じた経緯は絶無心の説明であり、法的権限や正式手続きを追加しない。"},{"scope":"speaker_inference","keys":["5296_7_Dlgs_Index1_Text"],"note":"品剣大会がただでは済まないという判断は、絶無心の話を受けた莫問の推測として保持する。"},{"scope":"speaker_self_report","keys":["5302_4_Dlgs_Index2_Text"],"note":"武当山麓に捨てられ肉親に会ったことがないという内容は莫問本人の認識・記憶の範囲を保ち、出自を補完しない。"},{"scope":"speaker_belief","keys":["5302_4_Dlgs_Index4_Text"],"note":"清虚を家族と考えるという発言は莫問の家族観として保持し、血縁・養子縁組などの制度的関係へ強めない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30509137843,"artifact_id":8746435654,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:31b916645d5dce8c80b2b2963930e61c00dec6492669b26644e28d2edcf24d99","head_sha":"89d7c18918f3ef744b1867616230406d0ae7f60a"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-54-wave-01"},"next_release":{"candidate_scene":["5331_2"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[185],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-53","release_id":"yuwen-mowen-train-53-r1","pr":210,"merge_sha":"0c255a20f54d65dd51f12f2202e5c474d2a7eca0"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":62,"unique_reviewed_rows":62,"fix_keys":4,"unique_fix_rows":4,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":4,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":58,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN54_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_54.json","merge_result":{"pr":211,"merge_sha":"f8b90a3a89b757508c9a963291465cd9ea6d9863"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-55",
+  "branch": "agent/yuwen-mowen-train-55",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 185,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "produced_by_pr": 211,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-54-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_54.json",
+      "pr": 211,
+      "validated_head": "df2c083874fb0debff3386df6c237673383c7896"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-55-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5331_2",
+      "5337_2",
+      "5339_2",
+      "5340_1",
+      "5340_2",
+      "5342_2",
+      "5342_3",
+      "5343_1",
+      "5345_1",
+      "5347_1"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-54",
+    "release_id": "yuwen-mowen-train-54-r1",
+    "pr": 211,
+    "merge_sha": "f8b90a3a89b757508c9a963291465cd9ea6d9863"
+  }
+}
