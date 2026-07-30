@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-58",
+  "pr": 215,
+  "orchestrator_run_id": 30515671572,
+  "artifact_name": "release-finalization-inputs-215",
+  "ci_head": "8576c9411e5147a06968c8e63ef2983e9162ffbd",
+  "asset_head": "47a0ee62af5bf833fe0e224a7a117a2d093d605d",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "5449_2",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30515671572,
+    "artifact_id": 8748772597,
+    "artifact_digest": "sha256:6ffdb53413809bb32c9ad9d509428d1751134b87d4475101ce1646710b4b88bb",
+    "artifact_head": "8576c9411e5147a06968c8e63ef2983e9162ffbd",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第189束は方闊海戦の危機と二分岐、湛盧獲得後の出立、姑蘇での尾行発覚、幽雲沢への迂回決定までの9場面57行。",
+    "実変更5件、意図的保持52件。人物資料五件はいずれもkeep。",
+    "低収率challengeでKEEP52行を全件再監査し、追加FIX0件。",
+    "次候補5449_2はtrain-58統合前にpreparationを開始しない。"
+  ]
+}
