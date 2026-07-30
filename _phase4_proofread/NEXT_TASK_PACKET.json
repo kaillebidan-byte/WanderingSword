@@ -21,13 +21,13 @@
     "5240_4"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-52-wave-01",
     "packet_id": "yuwen-mowen-train52-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 183
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -40,16 +40,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-51",
-    "release_id": "yuwen-mowen-train-51-r1",
-    "pr": 208,
-    "status": "merged",
-    "merge_sha": "44ce0a73edc2ca73b2ce41e9cafcd232c00a6d65"
+    "train_id": "yuwen-mowen-train-52",
+    "release_id": "yuwen-mowen-train-52-r1",
+    "pr": 209,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -65,5 +63,37 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:257969c34f2599a1e46e99ef28e2c401a2421f4576d03cb36ccbba85cefadf7f"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 54,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5230_6",
+      "5234_1",
+      "5237_2",
+      "5237_3",
+      "5238_1",
+      "5240_1",
+      "5240_4"
+    ],
+    "grouping_decision": "初任務の出発から清河村調査、山賊討伐後の侠義の教え、村と門派への報告、報酬と門派任務制度の説明、一日の終了まで、7場面54行で一つの導線を閉じる。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 11,
+    "new_project_keys": 9,
+    "fix_keys": 20
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN52_WAVE01_2026-07-30.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5230_6_Dlgs_Index5_Text",
+        "5234_1_Dlgs_Index1_Text",
+        "5240_1_Dlgs_Index5_Text",
+        "5240_4_Dlgs_Index9_Text"
+      ],
+      "reason": "初任務への意気込み、師兄への自然な敬体、状況を整理する問いと推理、功を莫問へ譲る折り目正しさが、現行のM1b・探究心・素直さの規則と整合する。",
+      "scope": {
+        "relation": "宇文逸→莫問・道通",
+        "timeline": "武当入門直後の初門派任務",
+        "register": "M1bと対外報告"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5230_6_Dlgs_Index3_Text",
+        "5234_1_Dlgs_Index4_Text",
+        "5237_2_Dlgs_Index2_Text",
+        "5238_1_Dlgs_Index6_Text",
+        "5240_4_Dlgs_Index10_Text"
+      ],
+      "reason": "弟弟子へ必要情報を示し、証言から人数と力量を推理し、侠義を簡潔に教え、村長へは対外礼を使う。現行の兄弟子常体・謀士判断・敬度分離の規則と整合する。",
+      "scope": {
+        "relation": "莫問→宇文逸・清河村村長",
+        "timeline": "武当入門直後の初任務同行",
+        "register": "兄弟子教導・危機判断・対外礼"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清河村村長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5238_1_Dlgs_Index1_Text",
+        "5238_1_Dlgs_Index5_Text",
+        "5238_1_Dlgs_Index8_Text"
+      ],
+      "reason": "小老児の自称、少侠への腰の低い感謝、酒席でもてなそうとする地主としての礼、引き留めない慎ましさが現行資料と一致する。",
+      "scope": {
+        "relation": "清河村村長→宇文逸・莫問",
+        "timeline": "山賊討伐後の報告",
+        "register": "庶民の老村長・感謝と見送り"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:42416a6d138de462f5c5d379dc39a9789011b92f47dfd4af3144aa2a75992f9a",
+      "after_digest": "sha256:42416a6d138de462f5c5d379dc39a9789011b92f47dfd4af3144aa2a75992f9a",
+      "changed": false
+    },
+    {
+      "target": "10_人物/蘭児.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5238_1_Dlgs_Index2_Text",
+        "5238_1_Dlgs_Index3_Text"
+      ],
+      "reason": "村長を「おじいちゃん」と呼ぶ親しさ、少侠への素直な感謝、村に平穏が戻った喜びが、純真な村娘という現行資料と一致する。",
+      "scope": {
+        "relation": "蘭児→清河村村長・宇文逸・莫問",
+        "timeline": "山賊討伐後の報告",
+        "register": "親族的呼称と素直な感謝"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:e6369fcb6b28a539d83025a04ae038c42fb02c76d16e736682554919e3a0787e",
+      "after_digest": "sha256:e6369fcb6b28a539d83025a04ae038c42fb02c76d16e736682554919e3a0787e",
+      "changed": false
+    },
+    {
+      "target": "10_人物/道通.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5240_1_Dlgs_Index2_Text",
+        "5240_1_Dlgs_Index3_Text",
+        "5240_1_Dlgs_Index4_Text",
+        "5240_1_Dlgs_Index6_Text"
+      ],
+      "reason": "豪快な笑い、小逸への惜しみない称賛、武当の将来を喜ぶ闊達さ、報酬を明快に渡す世話好きの声が現行資料と一致する。",
+      "scope": {
+        "relation": "道通→莫問・宇文逸",
+        "timeline": "初門派任務の帰還報告",
+        "register": "闊達な長老・祝福と報酬授与"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a6da8190646726cb43265ecefc632ed729c262d94a098977cf81745e7569ca72",
+      "after_digest": "sha256:a6da8190646726cb43265ecefc632ed729c262d94a098977cf81745e7569ca72",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-52",
+  "wave_id": "yuwen-mowen-train-52-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN52_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5230_6_5240_4_2026-07-30.json",
+      "manifest_digest": "sha256:257969c34f2599a1e46e99ef28e2c401a2421f4576d03cb36ccbba85cefadf7f"
+    }
+  ]
+}
