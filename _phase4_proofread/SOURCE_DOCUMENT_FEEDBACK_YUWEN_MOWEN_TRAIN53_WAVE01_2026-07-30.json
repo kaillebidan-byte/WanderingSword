@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5244_3_Dlgs_Index1_Text",
+        "5244_3_Dlgs_Index3_Text",
+        "5278_1_Dlgs_Index8_Text",
+        "5278_1_Dlgs_Index9_Text",
+        "5291_1_Dlgs_Index6_Text",
+        "5293_6_Dlgs_Index3_Text",
+        "5293_6_Dlgs_Index4_Text"
+      ],
+      "reason": "危険を聞けば注意と備えを与え、調査では情報源を順に示し、緊張時は短い判断と公道を守る断言へ切り替える。現行資料の兄弟子・謀士・危機判断の主張と一致し、反例や欠落規則は確認されなかった。",
+      "scope": {
+        "relation_stage": "同門・任務同行",
+        "scene_modes": [
+          "気遣い",
+          "調査",
+          "危機判断"
+        ],
+        "generalization": "この時系列と場面に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5245_1_Dlgs_Index1_Text",
+        "5245_1_Dlgs_Index2_Text",
+        "5245_1_Dlgs_Index5_Text",
+        "5274_1_Dlgs_Index1_Text",
+        "5274_1_Dlgs_Index2_Text",
+        "5293_6_Dlgs_Index2_Text",
+        "5293_7_Dlgs_Index0_Text"
+      ],
+      "reason": "師兄への感謝と敬意、苦労を報告する自然な敬体、危機での短い言いさしを示す。現行資料の武当平時M1bと感情時の短句の主張に整合し、別時系列へ一般化する追加規則は不要。",
+      "scope": {
+        "relation_stage": "入門後・同門",
+        "scene_modes": [
+          "昇格",
+          "報告",
+          "危機"
+        ],
+        "generalization": "この時系列と場面に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-53",
+  "wave_id": "yuwen-mowen-train-53-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN53_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5244_3_5293_7_2026-07-30.json",
+      "manifest_digest": "sha256:bcc0d348e87ebcc8d91b524175d960d09db0f4dd44f78a6fa59ce96f21082e73"
+    }
+  ]
+}
