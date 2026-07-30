@@ -20,13 +20,13 @@
     "5611_8"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-63-wave-01",
     "packet_id": "yuwen-mowen-train63-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 194
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -39,16 +39,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-62",
-    "release_id": "yuwen-mowen-train-62-r1",
-    "pr": 219,
-    "status": "merged",
-    "merge_sha": "2dbbc1f84b14ea8877c1d7070c20f750b354d685"
+    "train_id": "yuwen-mowen-train-63",
+    "release_id": "yuwen-mowen-train-63-r1",
+    "pr": 220,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -64,5 +62,36 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:9ac15357b8c5a1b594a71e9920d2022c55983f4883db7c7690aeed0083cc0d65"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 43,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5585_4",
+      "5586_3",
+      "5586_5",
+      "5603_1",
+      "5610_2",
+      "5611_8"
+    ],
+    "grouping_decision": "起点5585_4の総攻撃前倒しの急報から、洪飛との遭遇、東側山道での残党戦と玄火教への警戒、山道突破、5611_8の山頂異変を受けた再出発まで、6場面43行で不風山急行の意味単位を閉じた。5637_1以降の抜け道調査は含めない。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 2,
+    "new_project_keys": 0,
+    "fix_keys": 2
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN63_WAVE01_2026-07-31.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

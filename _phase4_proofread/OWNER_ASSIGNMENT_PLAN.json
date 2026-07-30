@@ -2,19 +2,15 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_5_5583_2_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch107.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch108.json",
       "values": {
-        "5581_7_Dlgs_Index1_Text": "1 - 宇文逸 $@$はい、行きましょう。",
-        "5581_8_Dlgs_Index1_Text": "1 - 宇文逸 $@$はい、行きましょう。",
-        "5583_1_Dlgs_Index1_Text": "5003 - 清虚道長 $@$ふふ、堅苦しい挨拶は無用じゃ……この旅はご苦労であった。",
-        "5583_1_Dlgs_Index3_Text": "5003 - 清虚道長 $@$まさか、そなたらが一挙に天龍幇の企みを挫き、峋谷関の包囲まで解くとはな。まこと、後生畏るべしとはこのことじゃ！"
+        "5586_3_Dlgs_Index5_Text": "17005 - 欧陽雪 $@$粗酒を数杯お出ししただけで、おもてなしにもなりません。先輩のお気に召したなら何よりです。",
+        "5603_1_Dlgs_Index11_Text": "5029 - 莫棄 $@$小逸、道中を共にして、あの妖女に仲間の情が湧いたのは分かる。だが、それであいつが邪教の人間だってことを忘れるな！"
       },
       "fix_keys": [
-        "5581_7_Dlgs_Index1_Text",
-        "5581_8_Dlgs_Index1_Text",
-        "5583_1_Dlgs_Index1_Text",
-        "5583_1_Dlgs_Index3_Text"
+        "5586_3_Dlgs_Index5_Text",
+        "5603_1_Dlgs_Index11_Text"
       ]
     }
   ]

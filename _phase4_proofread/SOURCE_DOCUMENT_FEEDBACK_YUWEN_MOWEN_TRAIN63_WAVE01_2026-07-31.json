@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5585_4_Dlgs_Index0_Text",
+        "5585_4_Dlgs_Index2_Text",
+        "5585_4_Dlgs_Index6_Text",
+        "5586_3_Dlgs_Index0_Text",
+        "5586_3_Dlgs_Index8_Text",
+        "5586_5_Dlgs_Index2_Text",
+        "5586_5_Dlgs_Index5_Text",
+        "5603_1_Dlgs_Index7_Text",
+        "5603_1_Dlgs_Index10_Text",
+        "5603_1_Dlgs_Index13_Text",
+        "5610_2_Dlgs_Index0_Text",
+        "5610_2_Dlgs_Index1_Text",
+        "5611_8_Dlgs_Index1_Text"
+      ],
+      "reason": "莫問・莫棄には師兄呼称と自然な敬体を保ち、洪飛には対外の礼、欧陽雪には親密な気遣い、緊急時には短い決意へ切り替える。現行資料の武当平時・江湖対外・親密・戦闘判断の各モードで一次資料を説明できる。",
+      "scope": {
+        "relationship": "莫問・莫棄・洪飛・欧陽雪への同門、対外、親密会話",
+        "timeline": "不風山総攻撃の急報から山頂異変への急行まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5585_4_Dlgs_Index1_Text",
+        "5585_4_Dlgs_Index3_Text",
+        "5585_4_Dlgs_Index4_Text",
+        "5585_4_Dlgs_Index5_Text",
+        "5586_5_Dlgs_Index0_Text",
+        "5603_1_Dlgs_Index1_Text",
+        "5610_2_Dlgs_Index2_Text",
+        "5611_8_Dlgs_Index2_Text"
+      ],
+      "reason": "急報を情報順に説明し、洪老幇主には儀礼的に名乗り、同門と同行者には簡潔な常体で次の行動を示す。現行資料の兄弟子・目上への礼・危機判断の切替と整合する。",
+      "scope": {
+        "relationship": "宇文逸・洪飛・莫棄・斬無刑・欧陽雪への説明、挨拶、指揮",
+        "timeline": "総攻撃前倒しから山頂へ急ぐまで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/洪飛.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5586_3_Dlgs_Index1_Text",
+        "5586_3_Dlgs_Index2_Text",
+        "5586_3_Dlgs_Index4_Text",
+        "5586_3_Dlgs_Index6_Text",
+        "5586_3_Dlgs_Index7_Text",
+        "5586_5_Dlgs_Index1_Text",
+        "5586_5_Dlgs_Index3_Text",
+        "5586_5_Dlgs_Index4_Text",
+        "5586_5_Dlgs_Index6_Text"
+      ],
+      "reason": "小僧・嬢ちゃんの悪態混じりの親しみ、老いぼれ乞食の自嘲、通りすがりと言い張る照れ隠し、最後の忠告は、現行資料の砕けモードと発話優先順位に整合する。真相を語る老夫モードへ誤って引き上げる根拠はない。",
+      "scope": {
+        "relationship": "宇文逸・欧陽雪・莫問への再会、紹介、忠告",
+        "timeline": "不風山へ向かう途中の遭遇"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+      "after_digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+      "changed": false
+    },
+    {
+      "target": "10_人物/斬無刑.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5603_1_Dlgs_Index2_Text",
+        "5603_1_Dlgs_Index3_Text",
+        "5603_1_Dlgs_Index4_Text",
+        "5603_1_Dlgs_Index5_Text"
+      ],
+      "reason": "各派の進攻、東側小道の任務、残党の反撃、加勢後の状況を短く淡々と報告する四行は、現行資料の武張った道士・任務報告・簡潔な状況判断に整合する。",
+      "scope": {
+        "relationship": "宇文逸・莫問らへの戦況報告",
+        "timeline": "不風山東側山道の残党戦直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:3d5ad91c20f6f64fc1cd93b50fcbedec35194c6719a075e5ac75712243dfcd18",
+      "after_digest": "sha256:3d5ad91c20f6f64fc1cd93b50fcbedec35194c6719a075e5ac75712243dfcd18",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-63",
+  "wave_id": "yuwen-mowen-train-63-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN63_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5611_8_2026-07-31.json",
+      "manifest_digest": "sha256:9ac15357b8c5a1b594a71e9920d2022c55983f4883db7c7690aeed0083cc0d65"
+    }
+  ]
+}
