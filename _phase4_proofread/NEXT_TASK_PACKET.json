@@ -1,100 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-56-quality-audit",
+  "task_id": "post-train56-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 186,
+    "batch": 187,
     "pair_applied_keys": 1404,
     "project_applied_keys": 1780,
-    "produced_by_pr": 212,
-    "release_id": "yuwen-mowen-train-55-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_55.json"
+    "produced_by_pr": 213,
+    "release_id": "yuwen-mowen-train-56-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_56.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5352_1",
-    "5352_3",
-    "5353_5",
-    "5357_1",
-    "5357_2",
-    "5358_1"
+    "5358_5"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-56-wave-01",
-    "packet_id": "yuwen-mowen-train56-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 187
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30511937043,
-    "artifact_id": 8747445861,
-    "artifact_digest": "sha256:76717c3b57953c5aab447be20c153baa85839e73a8d9d5f393bf526efb9ada60",
-    "artifact_head": "bd27afce75956fe289e6cdefcbb514e67f8aa90b",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30513303813,
+    "artifact_id": 8747926235,
+    "artifact_digest": "sha256:6812da531fcec0642c1249e957136d86f666c9edfb03fb7ae2164c16730d872c",
+    "artifact_head": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-56",
     "release_id": "yuwen-mowen-train-56-r1",
     "pr": 213,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-56統合前に5358_5のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-56",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 187,
+    "planned_batch": 188,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:f038b6ed73f8b549724df4cab4b25d5e1213dad56a97e0e18e5363b7e755cba3"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 62,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5352_1",
-      "5352_3",
-      "5353_5",
-      "5357_1",
-      "5357_2",
-      "5358_1"
-    ],
-    "grouping_decision": "毒蛇事件の発生と五仙教疑義、杜彪の挑発、姑蘇での渡航停止、手配済みの宿への入室までを62行で閉じ、次の少林僧との再会は次束へ分ける。",
-    "exception": {
-      "reason_code": "complete_semantic_unit",
-      "detail": "毒蛇事件の発生と五仙教疑義、杜彪の挑発、姑蘇での渡航停止、手配済みの宿への入室までを62行で閉じ、次の少林僧との再会は次束へ分ける。"
-    }
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 2,
-    "new_project_keys": 0,
-    "fix_keys": 2
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN56_WAVE01_2026-07-30.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }

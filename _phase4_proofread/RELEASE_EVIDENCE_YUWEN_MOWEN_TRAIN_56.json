@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-56-r1",
+  "train_id": "yuwen-mowen-train-56",
+  "pr": 213,
+  "ci_head": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf",
+  "asset_head": "17b873fe90bebc56205cbc498f28a3c241149a77",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH187_2026-07-30.md",
+  "counts": {
+    "batch": 187,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30513303813,
+    "workflow": "Release train orchestrator",
+    "head_sha": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第187束は毒蛇事件、無塵を巡る会話、杜彪との対立、姑蘇到着、迎仙楼への入室までの6場面62行。",
+    "実変更2件、意図的保持60件。人物資料四件はいずれもkeep。",
+    "低収率challengeでKEEP60行を全件再監査し、追加FIX0件。",
+    "次候補5358_5はtrain-56統合前にpreparationを開始しない。"
+  ]
+}
