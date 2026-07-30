@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-55",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30510535450,
+    "artifact_id": 8746930268,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:39e8f901ae398665a804ca2728b63a22085b1bf8209e4ce64a03a10d91dbb27e",
+    "artifact_head": "4bf51d0e63009f8f46a28ec0fe72e82e7707c846"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5331_2",
+      "5337_2",
+      "5339_2",
+      "5340_1",
+      "5340_2",
+      "5342_2",
+      "5342_3",
+      "5343_1",
+      "5345_1",
+      "5347_1"
+    ],
+    "unique_reviewed_rows": 62,
+    "semantic_extension": {
+      "used": true,
+      "reason": "complete_semantic_unit"
+    },
+    "timeline": "清虚から門内大比と品剣大会出場者選抜の準備を命じられた宇文逸が莫問へ伝達する。門内大比では予選から決勝までの分岐結果を経て上位者が決まり、清虚は名剣山荘行きの引率を莫問へ命じる。出発時、宇文逸は江吟風の墓参りのため梧桐村へ寄りたいと願い、元鳴が反発するが、莫問と莫棄が認めて一行は経由を決める。",
+    "branch_note": "5331_2から5347_1までを物語順に封印する。5342_2・5342_3と5343_1は門内大比の勝敗による条件分岐であり、一つの線形結果へ統合せず、各分岐の話者registerと事実範囲を個別に監査する。5345_1で大会後の名剣山荘行きが共通収束し、5347_1で梧桐村経由の合意まで閉じる。次の5352_1は道中の毒蛇事件へ移るため分離する。",
+    "seal_attestation": "門内大比の告知、参加準備、予選・決勝の全条件分岐、上位者決定、名剣山荘行きの引率命令、梧桐村経由を巡る同門間の対立と合意まで、10場面62行で選抜と出発準備の意味単位を完結させる。",
+    "candidate_questions": [
+      "莫問の大会運営、宇文逸への励まし、勝敗宣告、清虚への服命、出発時の仲裁が同じ説明口調へ均されず、場面ごとの兄弟子・運営者・弟子としての温度を保っているか",
+      "宇文逸の謙遜、勝負前後の礼、敗北受容、優勝時の反応、江吟風の墓参りを願う切実さが、過剰な丁寧体または英雄的な断定へ平坦化されていないか",
+      "莫棄の快活な誇張と宇文逸への親しみ、元鳴の競争心と江吟風への敵意が、呼称・敬意方向・感情強度を保っているか",
+      "5342_2・5342_3・5343_1の勝敗分岐を単一の正史へ統合せず、各分岐内の結果とその後の共通収束だけを一次資料どおり扱えているか"
+    ],
+    "allusion_candidates": [
+      "妄自菲薄",
+      "望尘莫及",
+      "名不虚传",
+      "甘拜下风",
+      "不无不可",
+      "放马过来"
+    ],
+    "fact_doubts": [
+      "品剣大会が前倒しされ賞品が湛盧剣だという内容は莫問が師父から得た情報と判断の範囲に留め、開催事情や賞品由来を補完しない",
+      "過去の品剣大会入賞者は再参加できず莫問は二年前に参加したという説明は莫問本人の説明範囲を保ち、制度の例外や全歴代結果を追加しない",
+      "門内大比の勝敗と最終順位は条件分岐に依存するため、5342_2・5342_3・5343_1を同時成立する単一結果へ統合しない",
+      "清虚が同行せず清霄が先行して各派と協議し大会中の判断を担うという内容は当該出発計画として保持し、恒常的な権限関係へ一般化しない",
+      "江吟風を武当の先達とみなす莫問の発言と裏切り者と呼ぶ元鳴の発言は各人物の立場として保持し、客観的評価へ一本化しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN55_WAVE01_2026-07-30.md"
+  }
+}
