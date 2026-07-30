@@ -24,13 +24,13 @@
     "5347_1"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-55-wave-01",
     "packet_id": "yuwen-mowen-train55-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 186
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -43,16 +43,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-54",
-    "release_id": "yuwen-mowen-train-54-r1",
-    "pr": 211,
-    "status": "merged",
-    "merge_sha": "f8b90a3a89b757508c9a963291465cd9ea6d9863"
+    "train_id": "yuwen-mowen-train-55",
+    "release_id": "yuwen-mowen-train-55-r1",
+    "pr": 212,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -68,5 +66,43 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:8d7bd7ac2b871749c1123d3bf6353bbf9e1c6112ca05e9c1919e2f79815695da"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 62,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5331_2",
+      "5337_2",
+      "5339_2",
+      "5340_1",
+      "5340_2",
+      "5342_2",
+      "5342_3",
+      "5343_1",
+      "5345_1",
+      "5347_1"
+    ],
+    "grouping_decision": "門内大比の告知、参加準備、予選・決勝の全条件分岐、上位者決定、名剣山荘行きの引率命令、梧桐村経由を巡る同門間の対立と合意まで、10場面62行で選抜と出発準備の意味単位を完結させる。",
+    "exception": {
+      "reason_code": "complete_semantic_unit",
+      "detail": "門内大比の告知、参加準備、予選・決勝の全条件分岐、上位者決定、名剣山荘行きの引率命令、梧桐村経由を巡る同門間の対立と合意まで、10場面62行で選抜と出発準備の意味単位を完結させる。"
+    }
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 4,
+    "new_project_keys": 0,
+    "fix_keys": 4
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN55_WAVE01_2026-07-30.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

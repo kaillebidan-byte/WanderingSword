@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5331_2_Dlgs_Index0_Text",
+        "5331_2_Dlgs_Index4_Text",
+        "5331_2_Dlgs_Index8_Text",
+        "5337_2_Dlgs_Index3_Text",
+        "5340_2_Dlgs_Index4_Text",
+        "5342_2_Dlgs_Index0_Text",
+        "5342_3_Dlgs_Index0_Text",
+        "5342_3_Dlgs_Index1_Text",
+        "5347_1_Dlgs_Index3_Text",
+        "5347_1_Dlgs_Index4_Text",
+        "5347_1_Dlgs_Index15_Text",
+        "5347_1_Dlgs_Index17_Text"
+      ],
+      "reason": "大師兄への伝言と大会前の謙遜、師兄との手合わせでの礼、敗北分岐の潔い受容、内心の常体、江吟風の墓参りを願う言いよどみは、現行資料の武当平時M1b・心内語M7・感情時の短句に整合する。分岐を越えて追加すべき反例はない。",
+      "scope": {
+        "relation_stage": "入門後・同門",
+        "scene_modes": [
+          "報告",
+          "大会前後",
+          "戦闘",
+          "敗北受容",
+          "内心",
+          "墓参りの願い"
+        ],
+        "generalization": "この時系列と各条件分岐に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/旁白.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5331_2_Dlgs_Index1_Text"
+      ],
+      "reason": "宇文逸が莫問へ経緯を語ったことを中立な常体で簡潔に叙述しており、現行資料の状況説明・プレイヤー行動の客観描写規則と一致する。",
+      "scope": {
+        "relation_stage": "非人物のナレーション",
+        "scene_modes": [
+          "経緯の省略叙述"
+        ],
+        "generalization": "当該一行の客観描写に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:0e4653b3b5f1cc650755253e89fdc178bf0507b3f55fc74e56fca7d033acd14e",
+      "after_digest": "sha256:0e4653b3b5f1cc650755253e89fdc178bf0507b3f55fc74e56fca7d033acd14e",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5331_2_Dlgs_Index3_Text",
+        "5331_2_Dlgs_Index5_Text",
+        "5331_2_Dlgs_Index7_Text",
+        "5331_2_Dlgs_Index9_Text",
+        "5337_2_Dlgs_Index0_Text",
+        "5340_1_Dlgs_Index2_Text",
+        "5340_1_Dlgs_Index3_Text",
+        "5342_3_Dlgs_Index2_Text",
+        "5343_1_Dlgs_Index4_Text",
+        "5345_1_Dlgs_Index4_Text",
+        "5347_1_Dlgs_Index8_Text"
+      ],
+      "reason": "弟弟子への励ましと行動案内、門内大比の運営者としての簡潔な号令、師父への正式な服命、出発時の落ち着いた仲裁は、現行資料の兄弟子・教導・同門任務・礼の各規則で説明できる。新たなモードや反例は確認されなかった。",
+      "scope": {
+        "relation_stage": "同門・任務同行",
+        "scene_modes": [
+          "励まし",
+          "大会運営",
+          "勝敗宣告",
+          "師父への服命",
+          "仲裁"
+        ],
+        "generalization": "門内大比から名剣山荘出発までの当該時系列に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元鳴.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5340_2_Dlgs_Index2_Text",
+        "5340_2_Dlgs_Index3_Text",
+        "5340_2_Dlgs_Index5_Text",
+        "5347_1_Dlgs_Index5_Text",
+        "5347_1_Dlgs_Index6_Text",
+        "5347_1_Dlgs_Index9_Text",
+        "5347_1_Dlgs_Index10_Text",
+        "5347_1_Dlgs_Index16_Text"
+      ],
+      "reason": "宇文逸へ競争心をむき出しにする常体、江吟風への敵意、格上の師兄へも不満を隠さず意見する一方で敬称と敬体を残す切替は、現行資料の負けん気・直情・対上発話規則に整合する。",
+      "scope": {
+        "relation_stage": "同門・大会および出発",
+        "scene_modes": [
+          "競争",
+          "挑発",
+          "反発",
+          "不承不承の同意"
+        ],
+        "generalization": "当該時系列の宇文逸・兄弟子相手に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "after_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5345_1_Dlgs_Index0_Text",
+        "5345_1_Dlgs_Index1_Text",
+        "5345_1_Dlgs_Index2_Text",
+        "5345_1_Dlgs_Index3_Text"
+      ],
+      "reason": "名剣山荘行きの方針を説明し、清霄の役割と合流条件を示した後、問児へ引率を託す順序は、現行資料の師モード・任務割当・判断を委ねる発話優先順位と一致する。",
+      "scope": {
+        "relation_stage": "平時の師弟・任務付与",
+        "scene_modes": [
+          "出発方針",
+          "役割分担",
+          "引率命令"
+        ],
+        "generalization": "当該名剣山荘行きの計画に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清霄道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5345_1_Dlgs_Index5_Text"
+      ],
+      "reason": "集団へ各自の準備を命じ、宇文逸だけを残す短い号令は、現行資料の任務・盟主モードと弟子への簡潔な命令に整合する。",
+      "scope": {
+        "relation_stage": "初期・武当門内",
+        "scene_modes": [
+          "集団への号令",
+          "宇文逸への個別指示"
+        ],
+        "generalization": "当該出発準備場面に限定"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "after_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-55",
+  "wave_id": "yuwen-mowen-train-55-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN55_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-30.json",
+      "manifest_digest": "sha256:8d7bd7ac2b871749c1123d3bf6353bbf9e1c6112ca05e9c1919e2f79815695da"
+    }
+  ]
+}

@@ -2,19 +2,19 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5297_2_5302_4_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch99.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch100.json",
       "values": {
-        "5296_7_Dlgs_Index5_Text": "1 - 宇文逸 $@$なるほど。では、私にも参加できるんですか？",
-        "5302_2_Dlgs_Index2_Text": "1 - 宇文逸 $@$師兄はもうこんなに強いのに、それでもこんなに稽古を重ねているんですね！　私はいつになったら追いつけるんだろう！",
-        "5302_2_Dlgs_Index6_Text": "1 - 宇文逸 $@$師兄が間に合って李天宝の罪証を持ち帰ってくれなければ、私が衝動に任せて動いたせいで、本当に六扇門の計画を台無しにしていたかもしれません……",
-        "5302_2_Dlgs_Index12_Text": "5002 - 莫問 $@$そうだ。今日、師弟が絶無心と戦った時の招式だが、まだ少しぎこちないところがあった……よければ今、少し手ほどきしてやろうか？"
+        "5331_2_Dlgs_Index0_Text": "1 - 宇文逸 $@$大師兄、師父から、門内大比の準備をしておくよう伝言を預かりました……",
+        "5331_2_Dlgs_Index7_Text": "5015 - 莫問 $@$わたしは二年前に一度参加している。今回、師父から大比の手配を命じられたのも、まだ参加していない師弟たちへ機会を譲れということだろう……",
+        "5342_2_Dlgs_Index0_Text": "1 - 宇文逸 $@$……元鳴師兄、お見事でした。この一戦は私の負けです。",
+        "5345_1_Dlgs_Index4_Text": "5015 - 莫問 $@$弟子、承知いたしました。"
       },
       "fix_keys": [
-        "5296_7_Dlgs_Index5_Text",
-        "5302_2_Dlgs_Index2_Text",
-        "5302_2_Dlgs_Index6_Text",
-        "5302_2_Dlgs_Index12_Text"
+        "5331_2_Dlgs_Index0_Text",
+        "5331_2_Dlgs_Index7_Text",
+        "5342_2_Dlgs_Index0_Text",
+        "5345_1_Dlgs_Index4_Text"
       ]
     }
   ]
