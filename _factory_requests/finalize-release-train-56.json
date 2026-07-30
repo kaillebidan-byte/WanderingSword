@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-56",
+  "pr": 213,
+  "orchestrator_run_id": 30513303813,
+  "artifact_name": "release-finalization-inputs-213",
+  "ci_head": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf",
+  "asset_head": "17b873fe90bebc56205cbc498f28a3c241149a77",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "5358_5",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30513303813,
+    "artifact_id": 8747926235,
+    "artifact_digest": "sha256:6812da531fcec0642c1249e957136d86f666c9edfb03fb7ae2164c16730d872c",
+    "artifact_head": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第187束は毒蛇事件、無塵を巡る会話、杜彪との対立、姑蘇到着、迎仙楼への入室までの6場面62行。",
+    "実変更2件、意図的保持60件。人物資料四件はいずれもkeep。",
+    "低収率challengeでKEEP60行を全件再監査し、追加FIX0件。",
+    "次候補5358_5はtrain-56統合前にpreparationを開始しない。"
+  ]
+}
