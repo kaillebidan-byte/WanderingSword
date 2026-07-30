@@ -1,0 +1,273 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-59",
+  "wave_id": "yuwen-mowen-train-59-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30515671572,
+    "artifact_id": 8748772597,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:6ffdb53413809bb32c9ad9d509428d1751134b87d4475101ce1646710b4b88bb",
+    "head_sha": "8576c9411e5147a06968c8e63ef2983e9162ffbd"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train59-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5449_2_5509_4_2026-07-30.json",
+      "scene_groups": [
+        "5449_2",
+        "5455_1",
+        "5450_3",
+        "5504_3",
+        "5506_3",
+        "5508_13",
+        "5509_4"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5455_1_Dlgs_Index3_Text",
+          "before": "5015 - 莫問 $@$弟子、承知いたしました。",
+          "after": "5015 - 莫問 $@$承知いたしました。",
+          "reason": "voice/relation: 「弟子遵命」は清虚の命を受ける服命であり、身分機能は丁重な応答に宿る。現訳の「弟子、」は中国語の自称構文を日本語へ表面転写して不自然なため、莫問の端正な服命へ戻す。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$武当の弟子として、侠義を行うのは何も間違っていない。",
+          "after": "5015 - 莫問 $@$武当の弟子として、侠義を貫いたことに何の非もない。",
+          "reason": "voice/meaning: 「行侠仗义」は侠として正義を行う意の定着表現だが、「侠義を行う」は中国語構文が透ける。宇文逸の行動を擁護する意味と莫問の重い断定を保ち、自然な日本語へ直す。"
+        },
+        {
+          "key": "5508_13_Dlgs_Index1_Text",
+          "before": "17115 - 瑶姫 $@$まさか。城壁の一つや二つ、あなたほどの武当の高弟を止められるものかしら～",
+          "after": "17115 - 瑶姫 $@$まさか。たかが城壁一つで、あなたほどの武当の高弟を止められるものかしら～",
+          "reason": "meaning/voice: 原文は「小小一道城墙」で城壁一つを軽んじる発話。「一つや二つ」は数を追加しているため、瑶姫のからかいと伸ばしを保ったまま原文の数量へ戻す。"
+        },
+        {
+          "key": "5508_13_Dlgs_Index4_Text",
+          "before": "5015 - 莫問 $@$試してみよう。ただし、こちらの目的を正直に明かすわけにはいかない。",
+          "after": "5015 - 莫問 $@$試してみよう。ただし、こちらの用向きをそのまま明かすわけにはいかない。",
+          "reason": "meaning/voice: 「不能直接表明来意」は訪問目的を直接明かせないという策であり、正直か不正直かという道徳軸ではない。莫問の慎重な策を余計な含意なく表す。"
+        },
+        {
+          "key": "5509_4_Dlgs_Index3_Text",
+          "before": "5015 - 莫問 $@$そうだ。傷は相当深いのだろう……士気への影響を恐れ、やむなく伏せているのかもしれない。",
+          "after": "5015 - 莫問 $@$そうだ。傷の具合は、まだ楽観できそうにない……士気への影響を恐れ、やむなく伏せているのかもしれない。",
+          "reason": "meaning/fact: 「伤势恐怕还不容乐观」は傷勢の見通しを楽観できないという推測で、傷が深いと具体的に確定してはいない。黄将軍の状態を断定せず、莫問の推測範囲を保つ。"
+        }
+      ],
+      "keeps": [
+        "5449_2_Dlgs_Index0_Text",
+        "5449_2_Dlgs_Index1_Text",
+        "5449_2_Dlgs_Index2_Text",
+        "5449_2_Dlgs_Index3_Text",
+        "5455_1_Dlgs_Index0_Text",
+        "5455_1_Dlgs_Index1_Text",
+        "5455_1_Dlgs_Index2_Text",
+        "5455_1_Dlgs_Index4_Text",
+        "5455_1_Dlgs_Index5_Text",
+        "5450_3_Dlgs_Index0_Text",
+        "5450_3_Dlgs_Index1_Text",
+        "5450_3_Dlgs_Index3_Text",
+        "5450_3_Dlgs_Index4_Text",
+        "5450_3_Dlgs_Index5_Text",
+        "5450_3_Dlgs_Index6_Text",
+        "5450_3_Dlgs_Index7_Text",
+        "5450_3_Dlgs_Index8_Text",
+        "5504_3_Dlgs_Index0_Text",
+        "5504_3_Dlgs_Index1_Text",
+        "5504_3_Dlgs_Index2_Text",
+        "5504_3_Dlgs_Index3_Text",
+        "5504_3_Dlgs_Index4_Text",
+        "5504_3_Dlgs_Index5_Text",
+        "5504_3_Dlgs_Index6_Text",
+        "5504_3_Dlgs_Index7_Text",
+        "5504_3_Dlgs_Index8_Text",
+        "5504_3_Dlgs_Index9_Text",
+        "5504_3_Dlgs_Index10_Text",
+        "5504_3_Dlgs_Index11_Text",
+        "5504_3_Dlgs_Index12_Text",
+        "5504_3_Dlgs_Index13_Text",
+        "5506_3_Dlgs_Index0_Text",
+        "5506_3_Dlgs_Index1_Text",
+        "5506_3_Dlgs_Index2_Text",
+        "5508_13_Dlgs_Index0_Text",
+        "5508_13_Dlgs_Index2_Text",
+        "5508_13_Dlgs_Index3_Text",
+        "5508_13_Dlgs_Index5_Text",
+        "5508_13_Dlgs_Index6_Text",
+        "5508_13_Dlgs_Index7_Text",
+        "5508_13_Dlgs_Index8_Text",
+        "5508_13_Dlgs_Index9_Text",
+        "5508_13_Dlgs_Index10_Text",
+        "5509_4_Dlgs_Index0_Text",
+        "5509_4_Dlgs_Index1_Text",
+        "5509_4_Dlgs_Index2_Text"
+      ],
+      "allusion_review_candidates": [
+        "获益良多",
+        "英雄救美",
+        "行侠仗义",
+        "非等闲之辈",
+        "孙子兵法"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5449_2_Dlgs_Index0_Text",
+          "decision": "定着した四字表現",
+          "note": "「获益良多」は多くの益を得る意の通常成語で、特定典籍の引用ではない。現訳の「多くを学びました」は門内試合後の謝意として機能を保つ。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index1_Text",
+          "decision": "定着した物語類型・成語",
+          "note": "「英雄救美」は英雄が美女を救う定着表現。元鳴は宇文逸を皮肉っており、「美人を助けて英雄気取り」が嘲りの方向と強度を保つ。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index2_Text",
+          "decision": "侠義を示す定着表現",
+          "note": "「行侠仗义」は侠として正義を行う意で、特定典籍の引用ではない。修正訳「侠義を貫いたこと」は莫問の擁護と武当弟子としての道義を自然に保つ。"
+        },
+        {
+          "key": "5450_3_Dlgs_Index5_Text",
+          "decision": "定着した成語",
+          "note": "「非等闲之辈」はただ者ではない意。現訳の「並の相手ではない」は莫問の警戒として像と機能を保つ。"
+        },
+        {
+          "key": "5508_13_Dlgs_Index7_Text",
+          "decision": "古典兵法書の固有書名",
+          "note": "「孙子兵法」は兵法書の書名であり、引用句ではない。日本語標準字形の『孫子兵法』を保持し、読み下しや内容補足を行わない。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "du_biao_intent_and_strength_inference",
+          "keys": [
+            "5450_3_Dlgs_Index0_Text",
+            "5450_3_Dlgs_Index6_Text",
+            "5450_3_Dlgs_Index7_Text"
+          ],
+          "note": "杜彪が引き下がらない、戦闘で全力を出していない、何かを警戒していたという判断は莫問の観察と推測。杜彪の客観的な意図・力量・計画へ一般化しない。"
+        },
+        {
+          "scope": "four_villains_motive_inference",
+          "keys": [
+            "5450_3_Dlgs_Index7_Text",
+            "5504_3_Dlgs_Index1_Text",
+            "5504_3_Dlgs_Index3_Text",
+            "5504_3_Dlgs_Index4_Text",
+            "5504_3_Dlgs_Index5_Text",
+            "5504_3_Dlgs_Index6_Text",
+            "5504_3_Dlgs_Index7_Text",
+            "5504_3_Dlgs_Index8_Text"
+          ],
+          "note": "四大悪人の姑蘇出現、湛盧の噂、追手をけしかける意図、峋谷関行きを阻む目的は一行の質問・観察・推論。背後関係や真の目的を確定しない。"
+        },
+        {
+          "scope": "xu_hai_ambush_inference",
+          "keys": [
+            "5506_3_Dlgs_Index0_Text",
+            "5506_3_Dlgs_Index1_Text"
+          ],
+          "note": "待ち伏せが徐海によるものという判断は莫問が危機時に立てた即時推測。実行者と指揮系統を確定事実へ強めない。"
+        },
+        {
+          "scope": "military_book_hearsay_and_provenance",
+          "keys": [
+            "5508_13_Dlgs_Index6_Text",
+            "5508_13_Dlgs_Index7_Text",
+            "5508_13_Dlgs_Index8_Text",
+            "5508_13_Dlgs_Index9_Text",
+            "5508_13_Dlgs_Index10_Text"
+          ],
+          "note": "黄将軍の兵法書収集と、前朝名将自筆の『孫子兵法』という由来は欧陽雪が父から聞いた情報と本人の所持説明。書物の真正性や献書成功を補完しない。"
+        },
+        {
+          "scope": "huang_general_injury_and_concealment_inference",
+          "keys": [
+            "5509_4_Dlgs_Index0_Text",
+            "5509_4_Dlgs_Index1_Text",
+            "5509_4_Dlgs_Index2_Text",
+            "5509_4_Dlgs_Index3_Text"
+          ],
+          "note": "黄将軍の襲撃・負傷・傷勢・士気維持のための秘匿は、直接対面前の瑶姫と莫問による推測。重症度、刺客、秘匿方針を客観事実として断定しない。"
+        }
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:8a5764b48afd2638ebc591623eec51d7d47df0db91ba0f85846fc3ddb17788dd",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {"path": ".agents/skills/zhja-game-translation-codex/SKILL.md", "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md", "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md", "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md", "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef", "status": "reviewed"},
+          {"path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md", "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab", "status": "reviewed"},
+          {"path": "10_人物/宇文逸.md", "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153", "status": "reviewed"},
+          {"path": "10_人物/莫問.md", "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4", "status": "reviewed"},
+          {"path": "10_人物/清虚道長.md", "digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4", "status": "reviewed"},
+          {"path": "10_人物/元鳴.md", "digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919", "status": "reviewed"},
+          {"path": "10_人物/瑶姫.md", "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c", "status": "reviewed"}
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5449_2_Dlgs_Index0_Text", "5455_1_Dlgs_Index5_Text", "5450_3_Dlgs_Index8_Text", "5504_3_Dlgs_Index0_Text", "5504_3_Dlgs_Index1_Text", "5504_3_Dlgs_Index7_Text", "5504_3_Dlgs_Index8_Text", "5504_3_Dlgs_Index11_Text", "5504_3_Dlgs_Index12_Text", "5506_3_Dlgs_Index2_Text", "5508_13_Dlgs_Index0_Text", "5508_13_Dlgs_Index2_Text", "5508_13_Dlgs_Index3_Text", "5508_13_Dlgs_Index9_Text", "5509_4_Dlgs_Index0_Text"],
+          "reason": "門内大比後の兄弟子への折り目正しい敬体、清虚への短い服命、危機時の推測と決断、瑶姫との軽口、欧陽雪の案を立てる応答は、現行資料の武当平時・緊張・親密・対外モードの切替と整合する。",
+          "scope": {"relationship": "武当の師父・師兄、欧陽雪、瑶姫との同行", "timeline": "門内大比後と、幽雲沢から峋谷関へ至る別時系列の二ブロック"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5449_2_Dlgs_Index2_Text", "5455_1_Dlgs_Index3_Text", "5450_3_Dlgs_Index0_Text", "5450_3_Dlgs_Index2_Text", "5450_3_Dlgs_Index5_Text", "5450_3_Dlgs_Index6_Text", "5450_3_Dlgs_Index7_Text", "5504_3_Dlgs_Index2_Text", "5504_3_Dlgs_Index3_Text", "5506_3_Dlgs_Index0_Text", "5506_3_Dlgs_Index1_Text", "5508_13_Dlgs_Index4_Text", "5508_13_Dlgs_Index5_Text", "5509_4_Dlgs_Index3_Text"],
+          "reason": "門内大比の公的宣告、清虚への端正な服命、侠義を擁護する重い断定、杜彪・追手・徐海への観察と即時指揮、将軍府での慎重な策は、現行資料の礼・同門期の兄弟子・謀士・危機判断モードで説明できる。",
+          "scope": {"relationship": "清虚への弟子礼と、宇文逸ら同行者への判断・指揮", "timeline": "門内大比後・名剣山荘行き前と、幽雲沢から峋谷関への任務中"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/清虚道長.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5449_2_Dlgs_Index3_Text", "5455_1_Dlgs_Index0_Text", "5455_1_Dlgs_Index1_Text", "5455_1_Dlgs_Index2_Text", "5455_1_Dlgs_Index4_Text"],
+          "reason": "大比の決着を穏やかに見届け、問児へ三人を託し、逸児だけを残して言い含める順序は、現行資料の慈愛ある古風な師モードと訓戒・任務時の呼称規則に整合する。",
+          "scope": {"relationship": "武当掌門から莫問・宇文逸ら弟子への指示", "timeline": "門内大比後・名剣山荘出発前"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/元鳴.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5450_3_Dlgs_Index1_Text"],
+          "reason": "文頭の「ふん」で不満を先に出し、宇文逸を身の程知らずと責める直情的な発話は、現行資料の負けん気・不満・対下の罵りモードと整合する。",
+          "scope": {"relationship": "杜彪戦後に宇文逸を責める同門会話", "timeline": "名剣山荘行き前の姑蘇"},
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/瑶姫.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": ["5504_3_Dlgs_Index9_Text", "5504_3_Dlgs_Index10_Text", "5508_13_Dlgs_Index1_Text", "5508_13_Dlgs_Index10_Text", "5509_4_Dlgs_Index1_Text", "5509_4_Dlgs_Index2_Text"],
+          "reason": "宇文逸をからかいながら実務上の船頭探しへ戻す声、通行証をめぐる艶のある軽口、小雪ちゃん・雪ちゃんと呼ぶ親しさ、将軍の状態を推し量る柔らかな断定は、現行資料の地モードと伸ばしのある主導的な発話に整合する。",
+          "scope": {"relationship": "宇文逸・欧陽雪・莫問との同行任務", "timeline": "幽雲沢から峋谷関の将軍府献書失敗まで"},
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}
