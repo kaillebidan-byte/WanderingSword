@@ -213,7 +213,7 @@
           {"path": "10_人物/莫問.md", "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4", "status": "reviewed"},
           {"path": "10_人物/清虚道長.md", "digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4", "status": "reviewed"},
           {"path": "10_人物/元鳴.md", "digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919", "status": "reviewed"},
-          {"path": "10_人物/瑶姫.md", "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c", "status": "reviewed"}
+          {"path": "10_人物/瑶姬.md", "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c", "status": "reviewed"}
         ]
       },
       "source_document_decisions": [
@@ -258,11 +258,11 @@
           "operation": "none"
         },
         {
-          "target": "10_人物/瑶姫.md",
+          "target": "10_人物/瑶姬.md",
           "document_type": "persona",
           "decision": "keep",
           "evidence_keys": ["5504_3_Dlgs_Index9_Text", "5504_3_Dlgs_Index10_Text", "5508_13_Dlgs_Index1_Text", "5508_13_Dlgs_Index10_Text", "5509_4_Dlgs_Index1_Text", "5509_4_Dlgs_Index2_Text"],
-          "reason": "宇文逸をからかいながら実務上の船頭探しへ戻す声、通行証をめぐる艶のある軽口、小雪ちゃん・雪ちゃんと呼ぶ親しさ、将軍の状態を推し量る柔らかな断定は、現行資料の地モードと伸ばしのある主導的な発話に整合する。",
+          "reason": "宇文逸をからかいながら実務上の船頭探しへ戻す声、通行証をめぐる柔らかな軽口、小雪ちゃん・雪ちゃんと呼ぶ親しさ、将軍の状態を推し量る言いさしは、現行資料の任務中・挑発モードと、柔らかな語尾のまま会話の主導権を握る方針に整合する。",
           "scope": {"relationship": "宇文逸・欧陽雪・莫問との同行任務", "timeline": "幽雲沢から峋谷関の将軍府献書失敗まで"},
           "confidence": "high",
           "operation": "none"
