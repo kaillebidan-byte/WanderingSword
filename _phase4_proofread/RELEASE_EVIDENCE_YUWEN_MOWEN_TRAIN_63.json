@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-63-r1",
+  "train_id": "yuwen-mowen-train-63",
+  "pr": 220,
+  "ci_head": "28b2ca94cdf0e8a594f323eee87fec620cc1c60f",
+  "asset_head": "a4cb75f84cd8975d1adf8397195e4e600a126007",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH194_2026-07-31.md",
+  "counts": {
+    "batch": 194,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30564568561,
+    "workflow": "Release train orchestrator",
+    "head_sha": "28b2ca94cdf0e8a594f323eee87fec620cc1c60f",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": []
+}

@@ -1,0 +1,571 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5585_4",
+    "5586_3",
+    "5586_5",
+    "5603_1",
+    "5610_2",
+    "5611_8"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30562590785,
+    "artifact_id": 8767523023,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:c5397147b048764b76d16b4d52e980fc51926fec13417495a79e2a834cd799fe",
+    "head_sha": "39a116c5ba1e1c99b7770803d48317cb85bc7f8a"
+  },
+  "scene_context": {
+    "timeline": "翌朝、天龍幇が戦を避けるとの密偵情報で不風山総攻撃が前倒しされ、一行が急行する。途中で洪飛と再会し、東側山道で莫棄・斬無刑を助け、玄火教関与への警戒を受け、残党を突破して山頂の異変へ急ぐまで。",
+    "branch_note": "5586_3と5586_5は洪飛への紹介から莫問の挨拶、洪飛の忠告までを連続して読む。5603_1では玄火教関与は掌門たちと莫棄の推測に留める。5611_8は直前の戦闘・死別を受けた短い慰めと山頂への再出発で今回の急行局面を閉じる。次の5637_1は曹煜天の抜け道を探す仕掛け調査へ局面が切り替わるため含めない。"
+  },
+  "rows": [
+    {
+      "key": "5585_4_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师兄，欧阳姑娘？怎么这么早……",
+      "ja": "1 - 宇文逸 $@$師兄、欧陽姑娘？　こんな朝早く……"
+    },
+    {
+      "key": "5585_4_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$刚才师门紧急传信，不风山那边情况有变！",
+      "ja": "5015 - 莫問 $@$さっき師門から急報が入った。不風山で動きがあった！"
+    },
+    {
+      "key": "5585_4_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$啊？发生了什么事吗！",
+      "ja": "1 - 宇文逸 $@$えっ、何があったんですか？"
+    },
+    {
+      "key": "5585_4_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$是六扇门在天龙帮中的密探传回来的消息……",
+      "ja": "5015 - 莫問 $@$六扇門が天龍幇へ潜り込ませていた密偵からの知らせだ……"
+    },
+    {
+      "key": "5585_4_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$说是天龙帮似乎有避战的打算，为免曹煜天逃脱，各派决定提前围攻！",
+      "ja": "5015 - 莫問 $@$知らせでは、天龍幇は戦を避けるつもりらしい。曹煜天を逃がさぬため、各派は包囲攻撃を前倒しすると決めた！"
+    },
+    {
+      "key": "5585_4_Dlgs_Index5_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$现在应该已经打起来了，我们也得赶紧<Y>前往黎城东边的不风山</>，与众人会合了！",
+      "ja": "5015 - 莫問 $@$今頃はもう戦いが始まっているはずだ。こちらも急いで<Y>黎城東の不風山へ向かい</>、皆と合流しよう！"
+    },
+    {
+      "key": "5585_4_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$那还等什么，我们现在就出发吧！",
+      "ja": "1 - 宇文逸 $@$なら、今すぐ出発しましょう！"
+    },
+    {
+      "key": "5586_3_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$洪老前辈，没想到在这里也能遇到您！？",
+      "ja": "1 - 宇文逸 $@$洪老先輩、まさかここでまたお会いできるとは思いませんでした！"
+    },
+    {
+      "key": "5586_3_Dlgs_Index1_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$臭小子，嚷这么大声做什么……",
+      "ja": "17112 - 洪飛 $@$この小僧め、そんな大声出してどうする……"
+    },
+    {
+      "key": "5586_3_Dlgs_Index2_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$……是这丫头告诉了你我的身份吧？",
+      "ja": "17112 - 洪飛 $@$……この嬢ちゃんが、わしの身分を教えたのだろう？"
+    },
+    {
+      "key": "5586_3_Dlgs_Index3_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$前辈见谅，我是见您与公子投缘，便多提了几句。",
+      "ja": "17005 - 欧陽雪 $@$先輩、お許しください。公子と気が合うご様子でしたので、つい少しお話ししてしまいました。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index4_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$哈哈，这小子确实合我的眼缘……前些时候还要多谢你这小丫头的款待了。",
+      "ja": "17112 - 洪飛 $@$ははっ、この小僧は確かに気に入った……この前は嬢ちゃんにも世話になったな。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index5_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$几杯薄酒不成敬意，前辈不嫌弃就好。",
+      "ja": "17005 - 欧陽雪 $@$粗酒を数杯差し上げただけで、礼にもなりません。先輩のお気に召したなら何よりです。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index6_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$不嫌弃不嫌弃……嗯？",
+      "ja": "17112 - 洪飛 $@$気に入ったとも、気に入ったとも……ん？"
+    },
+    {
+      "key": "5586_3_Dlgs_Index7_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$小子，你身后这位看起来有些眼熟啊，他是……？",
+      "ja": "17112 - 洪飛 $@$小僧、お前の後ろにいる者、どこかで見覚えがあるな。誰だ……？"
+    },
+    {
+      "key": "5586_3_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$啊对，还没给洪老前辈你介绍呢，这是我的大师兄莫问……",
+      "ja": "1 - 宇文逸 $@$あ、そうでした。洪老先輩にはまだ紹介していませんね。こちらは私の大師兄、莫問です……"
+    },
+    {
+      "key": "5586_5_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$原来是洪老帮主，在下武当弟子莫问，拜见前辈！",
+      "ja": "5015 - 莫問 $@$洪老幇主でしたか。武当弟子の莫問と申します。先輩にご挨拶申し上げます。"
+    },
+    {
+      "key": "5586_5_Dlgs_Index1_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$嗯嗯，我听说过你，清虚的弟子……不错，不错……",
+      "ja": "17112 - 洪飛 $@$うむうむ、お前のことは聞いておる。清虚の弟子か……なかなか、なかなか……"
+    },
+    {
+      "key": "5586_5_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）咳，前辈……您这个时候出现在这里，应该也是为了围攻天龙帮的事来的吧？",
+      "ja": "1 - 宇文逸 $@$（小声で）こほん、先輩……こんな時にここへ来られたのも、天龍幇包囲のためですよね？"
+    },
+    {
+      "key": "5586_5_Dlgs_Index3_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$哼，臭小子自作聪明，老叫花子我只是正好路过，现在就要走了……",
+      "ja": "17112 - 洪飛 $@$ふん、小僧が知った顔をしおって。この老いぼれ乞食は、たまたま通りかかっただけじゃ。もう行くわい……"
+    },
+    {
+      "key": "5586_5_Dlgs_Index4_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$记得不许跟别人说你看过我，听到没！",
+      "ja": "17112 - 洪飛 $@$わしを見たことは誰にも言うでないぞ。よいな！"
+    },
+    {
+      "key": "5586_5_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$是是，前辈放心……",
+      "ja": "1 - 宇文逸 $@$はいはい、誰にも言いませんよ……"
+    },
+    {
+      "key": "5586_5_Dlgs_Index6_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$还有，天龙帮这事可不简单……你自己多长点心吧！",
+      "ja": "17112 - 洪飛 $@$それと、天龍幇の件は一筋縄ではいかん……お前もよくよく用心せい！"
+    },
+    {
+      "key": "5603_1_Dlgs_Index0_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$哈哈，还好你们来得及时！不然还真要被这些家伙给逃了！",
+      "ja": "5029 - 莫棄 $@$ははっ、間に合ってくれて助かった！　もう少し遅ければ、こいつらを逃がすところだった！"
+    },
+    {
+      "key": "5603_1_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$不是已经开始围攻了吗，你们二人怎么还在此处？",
+      "ja": "5015 - 莫問 $@$もう包囲は始まっているはずだ。二人とも、なぜまだここにいる？"
+    },
+    {
+      "key": "5603_1_Dlgs_Index2_Text",
+      "speaker": "斩无刑",
+      "zh": "17104 - 斩无刑 $@$各派掌门已经带人杀上山顶了。",
+      "ja": "17104 - 斬無刑 $@$各派の掌門は、すでに人を率いて山頂へ攻め上がった。"
+    },
+    {
+      "key": "5603_1_Dlgs_Index3_Text",
+      "speaker": "斩无刑",
+      "zh": "17104 - 斩无刑 $@$我们两人是为了确保天龙帮恶徒无人逃脱，奉命去守东侧的那条小道的。",
+      "ja": "17104 - 斬無刑 $@$我ら二人は、天龍幇の悪党を一人も逃がさぬよう、命を受けて東側の小道を守っていた。"
+    },
+    {
+      "key": "5603_1_Dlgs_Index4_Text",
+      "speaker": "斩无刑",
+      "zh": "17104 - 斩无刑 $@$没想到这些天龙帮余孽突然拼死反扑，所以被拖在了这里。",
+      "ja": "17104 - 斬無刑 $@$だが、残党どもが突然、死に物狂いで反撃してきたため、ここに足止めされた。"
+    },
+    {
+      "key": "5603_1_Dlgs_Index5_Text",
+      "speaker": "斩无刑",
+      "zh": "17104 - 斩无刑 $@$好在有你们刚才的帮忙，剩下的家伙已经不足为虑了……",
+      "ja": "17104 - 斬無刑 $@$幸い、先ほど加勢してもらったおかげで、残りはもう脅威ではない……"
+    },
+    {
+      "key": "5603_1_Dlgs_Index6_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$是啊！小逸，大师兄你们赶紧去山顶，这里接下来就交给我们吧！",
+      "ja": "5029 - 莫棄 $@$そうだ！　小逸、大師兄、早く山頂へ！　ここは俺たちに任せてくれ！"
+    },
+    {
+      "key": "5603_1_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好，我们这就过去！",
+      "ja": "1 - 宇文逸 $@$分かった。すぐ向かう！"
+    },
+    {
+      "key": "5603_1_Dlgs_Index8_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$等等小逸，如果你们遇到玄火教的人，记得一定要小心……",
+      "ja": "5029 - 莫棄 $@$待て、小逸。玄火教の連中に会ったら、くれぐれも用心しろ……"
+    },
+    {
+      "key": "5603_1_Dlgs_Index9_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$此次天龙帮突然反扑，好似提前得知了我们围攻的时间，几位掌门都觉得，这事很可能跟玄火教脱不了干系。",
+      "ja": "5029 - 莫棄 $@$天龍幇の反撃は、まるでこちらの包囲時刻を前もって知っていたようだった。掌門たちも、玄火教が関わっている可能性が高いと見ている。"
+    },
+    {
+      "key": "5603_1_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$玄火教？这怎么可能……",
+      "ja": "1 - 宇文逸 $@$玄火教が？　そんなはずは……"
+    },
+    {
+      "key": "5603_1_Dlgs_Index11_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$小逸，我知道你们这一路跟那妖女有些同伴之谊，但你可千万别因此而忘了她邪教中人的身份！",
+      "ja": "5029 - 莫棄 $@$小逸、道中であの妖女と仲間として過ごし、仲間の情が湧いたのは分かる。だが、それであいつが邪教の人間だってことを忘れるな！"
+    },
+    {
+      "key": "5603_1_Dlgs_Index12_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$原本信誓旦旦要铲除天龙帮的玄火教，今日却无一人到场，已经足够说明问题了，不是吗！",
+      "ja": "5029 - 莫棄 $@$天龍幇を滅ぼすとあれほど誓っていた玄火教が、今日は一人も姿を見せない。それだけで十分おかしいだろう！"
+    },
+    {
+      "key": "5603_1_Dlgs_Index13_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……我明白师兄你的意思了，我们会小心的。",
+      "ja": "1 - 宇文逸 $@$……師兄の言いたいことは分かりました。私たちも気をつけます。"
+    },
+    {
+      "key": "5603_1_Dlgs_Index14_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$那就好，你们快去吧，等这边事情结束，我们也会尽快上山支援的！",
+      "ja": "5029 - 莫棄 $@$ならいい。急げ！　こっちが片づき次第、俺たちもすぐ山頂へ応援に向かう！"
+    },
+    {
+      "key": "5610_2_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$耽误了这么长时间，也不知道曹煜天那边怎么样了……",
+      "ja": "1 - 宇文逸 $@$ずいぶん手間取った……曹煜天の方は、どうなっているだろう。"
+    },
+    {
+      "key": "5610_2_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我们得尽快把这山道上的恶徒清理干净了。",
+      "ja": "1 - 宇文逸 $@$急いで、この山道の賊を片づけないと。"
+    },
+    {
+      "key": "5610_2_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$嗯，我们动作再快些。",
+      "ja": "5015 - 莫問 $@$ああ、先を急ごう。"
+    },
+    {
+      "key": "5611_8_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$欧阳姑娘，他已经……你别太伤心了。",
+      "ja": "1 - 宇文逸 $@$欧陽姑娘、もう……。どうか、あまり気を落とさないでください。"
+    },
+    {
+      "key": "5611_8_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，欧阳姑娘，看来山顶情况有变，我们还是赶紧上山吧！",
+      "ja": "5015 - 莫問 $@$師弟、欧陽姑娘。山頂で何かあったようだ。急ごう！"
+    }
+  ],
+  "candidate_questions": [
+    "宇文逸が大師兄・洪飛・莫棄・欧陽雪へ、敬体と常体を関係別に自然に切り替えられているか",
+    "莫問の急報説明、洪飛への儀礼、山道での指揮が、硬すぎず兄弟子の簡潔さを保てているか",
+    "洪飛の隠密行動と忠告、莫棄の玄火教への疑念が、客観的事実へ強められていないか",
+    "緊急局面の速度を保ちつつ、原文の推測・警告・別れの間を削っていないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "自作聪明",
+      "合眼缘",
+      "信誓旦旦",
+      "拼死反扑"
+    ],
+    "fact_doubts": [
+      "天龍幇が避戦を企てるという情報は六扇門の密偵報告であり、曹煜天の具体的計画を確定しない",
+      "洪飛が不風山付近にいる目的は本人が通りすがりと述べて隠しており、包囲参加や別任務を断定しない",
+      "天龍幇が包囲時刻を事前に知ったことと玄火教関与は掌門たち・莫棄の推測であり、内通や裏切りを確定しない",
+      "玄火教が当日不在であることは莫棄の疑念の根拠だが、瑶姫個人の関与や意図へ広げない",
+      "5611_8の死別対象・死因・直前戦闘の全経緯は、このcandidateの関係行だけから補完しない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 43,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_cross_register_hongfei_ouyang_20260726.json",
+        "keys": [
+          "5586_3_Dlgs_Index3_Text",
+          "5586_3_Dlgs_Index5_Text",
+          "5586_3_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index7_Text",
+          "5586_5_Dlgs_Index1_Text",
+          "5586_5_Dlgs_Index3_Text",
+          "5586_5_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_cross_register_moqi_zhanwuxing_20260726.json",
+        "keys": [
+          "5603_1_Dlgs_Index0_Text",
+          "5603_1_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json",
+        "keys": [
+          "5585_4_Dlgs_Index0_Text",
+          "5585_4_Dlgs_Index1_Text",
+          "5585_4_Dlgs_Index2_Text",
+          "5585_4_Dlgs_Index3_Text",
+          "5585_4_Dlgs_Index4_Text",
+          "5585_4_Dlgs_Index5_Text",
+          "5585_4_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index4_Text",
+          "5586_3_Dlgs_Index8_Text",
+          "5586_5_Dlgs_Index0_Text",
+          "5586_5_Dlgs_Index2_Text",
+          "5586_5_Dlgs_Index4_Text",
+          "5586_5_Dlgs_Index5_Text",
+          "5603_1_Dlgs_Index10_Text",
+          "5603_1_Dlgs_Index11_Text",
+          "5603_1_Dlgs_Index12_Text",
+          "5603_1_Dlgs_Index13_Text",
+          "5603_1_Dlgs_Index14_Text",
+          "5603_1_Dlgs_Index1_Text",
+          "5603_1_Dlgs_Index3_Text",
+          "5603_1_Dlgs_Index4_Text",
+          "5603_1_Dlgs_Index5_Text",
+          "5603_1_Dlgs_Index6_Text",
+          "5603_1_Dlgs_Index7_Text",
+          "5603_1_Dlgs_Index8_Text",
+          "5603_1_Dlgs_Index9_Text",
+          "5610_2_Dlgs_Index0_Text",
+          "5610_2_Dlgs_Index1_Text",
+          "5610_2_Dlgs_Index2_Text",
+          "5611_8_Dlgs_Index1_Text",
+          "5611_8_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch81.json",
+        "keys": [
+          "5586_3_Dlgs_Index2_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "5586_3_Dlgs_Index0_Text",
+      "5586_3_Dlgs_Index1_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/洪飛.md",
+        "digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/斬無刑.md",
+        "digest": "sha256:3d5ad91c20f6f64fc1cd93b50fcbedec35194c6719a075e5ac75712243dfcd18",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5585_4_Dlgs_Index0_Text",
+          "5585_4_Dlgs_Index2_Text",
+          "5585_4_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index0_Text",
+          "5586_3_Dlgs_Index8_Text",
+          "5586_5_Dlgs_Index2_Text",
+          "5586_5_Dlgs_Index5_Text",
+          "5603_1_Dlgs_Index7_Text",
+          "5603_1_Dlgs_Index10_Text",
+          "5603_1_Dlgs_Index13_Text",
+          "5610_2_Dlgs_Index0_Text",
+          "5610_2_Dlgs_Index1_Text",
+          "5611_8_Dlgs_Index1_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5585_4_Dlgs_Index1_Text",
+          "5585_4_Dlgs_Index3_Text",
+          "5585_4_Dlgs_Index4_Text",
+          "5585_4_Dlgs_Index5_Text",
+          "5586_5_Dlgs_Index0_Text",
+          "5603_1_Dlgs_Index1_Text",
+          "5610_2_Dlgs_Index2_Text",
+          "5611_8_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "10_人物/洪飛.md",
+        "digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+        "document_type": "persona",
+        "name": "洪飛",
+        "aliases": [
+          "洪飛",
+          "洪飞",
+          "洪老前輩"
+        ],
+        "evidence_keys": [
+          "5586_3_Dlgs_Index1_Text",
+          "5586_3_Dlgs_Index2_Text",
+          "5586_3_Dlgs_Index4_Text",
+          "5586_3_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index7_Text",
+          "5586_5_Dlgs_Index1_Text",
+          "5586_5_Dlgs_Index3_Text",
+          "5586_5_Dlgs_Index4_Text",
+          "5586_5_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "10_人物/斬無刑.md",
+        "digest": "sha256:3d5ad91c20f6f64fc1cd93b50fcbedec35194c6719a075e5ac75712243dfcd18",
+        "document_type": "persona",
+        "name": "斬無刑",
+        "aliases": [
+          "斬無刑",
+          "斩无刑"
+        ],
+        "evidence_keys": [
+          "5603_1_Dlgs_Index2_Text",
+          "5603_1_Dlgs_Index3_Text",
+          "5603_1_Dlgs_Index4_Text",
+          "5603_1_Dlgs_Index5_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "欧阳雪",
+      "莫弃"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:9ac15357b8c5a1b594a71e9920d2022c55983f4883db7c7690aeed0083cc0d65"
+  }
+}
