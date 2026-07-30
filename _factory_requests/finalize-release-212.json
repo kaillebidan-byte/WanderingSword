@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-55",
+  "pr": 212,
+  "orchestrator_run_id": 30511937043,
+  "artifact_name": "release-finalization-inputs-212",
+  "ci_head": "bd27afce75956fe289e6cdefcbb514e67f8aa90b",
+  "asset_head": "47b34313b6413e11e578f3db9328dc2326c0bdd1",
+  "apply_changed": true,
+  "date": "2026-07-30",
+  "next_scene": "5352_1",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30511937043,
+    "artifact_id": 8747445861,
+    "artifact_digest": "sha256:76717c3b57953c5aab447be20c153baa85839e73a8d9d5f393bf526efb9ada60",
+    "artifact_head": "bd27afce75956fe289e6cdefcbb514e67f8aa90b",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
+  },
+  "notes": [
+    "第186束は門内大比の告知・全条件分岐・名剣山荘出発準備までの10場面62行。",
+    "実変更4件、意図的保持58件。人物資料六件はいずれもkeep。",
+    "低収率challengeでKEEP58行を全件再監査し、追加FIX0件。",
+    "次候補5352_1はtrain-55統合前にpreparationを開始しない。"
+  ]
+}
