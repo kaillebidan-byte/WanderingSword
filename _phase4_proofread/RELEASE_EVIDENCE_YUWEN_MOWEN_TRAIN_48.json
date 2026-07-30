@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-48-r1",
+  "train_id": "yuwen-mowen-train-48",
+  "pr": 205,
+  "ci_head": "822ae5039784e7d94673bedd3f7cf783fe1f7672",
+  "asset_head": "c0af57e1dc19f955dcbb5edac0b98180ac392177",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH179_2026-07-30.md",
+  "counts": {
+    "batch": 179,
+    "pair_applied_keys": 1362,
+    "project_applied_keys": 1738,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30501996757,
+    "workflow": "Release train orchestrator",
+    "head_sha": "822ae5039784e7d94673bedd3f7cf783fe1f7672",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第179束は9245_3・9261_1・9262_1・9267_1・9273_1・9279_1・12439_2・12439_3・12439_5・12440_3・12440_4の53行。",
+    "実変更0件、意図的保持53件。人物資料4件はkeep。",
+    "次候補22020_8はtrain-48統合前にpreparationを開始しない。"
+  ]
+}

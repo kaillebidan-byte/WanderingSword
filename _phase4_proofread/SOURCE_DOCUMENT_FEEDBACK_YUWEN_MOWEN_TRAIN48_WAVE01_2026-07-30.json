@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9245_3_Dlgs_Index1_Text",
+        "9261_1_Dlgs_Index0_Text",
+        "9262_1_Dlgs_Index6_Text",
+        "9279_1_Dlgs_Index2_Text",
+        "12439_2_Dlgs_Index1_Text",
+        "12440_3_Dlgs_Index4_Text",
+        "12440_4_Dlgs_Index3_Text"
+      ],
+      "reason": "師兄・師叔への呼称と敬体、危機下で問いを重ねる順序、譚城で莫問を気遣って助力を申し出る勢いは、現行資料のM1bと問いかけを重んじる声の核に整合する。分岐ごとの情報差と「故人」の曖昧さも現訳側で保持されており、資料改訂は要らない。",
+      "scope": {
+        "scenes": [
+          "9245_3",
+          "9261_1",
+          "9262_1",
+          "9267_1",
+          "9273_1",
+          "9279_1",
+          "12439_2",
+          "12439_3",
+          "12439_5",
+          "12440_3",
+          "12440_4"
+        ],
+        "counterpart": "莫問・武当の師叔・絶無心・冷無情",
+        "mode": "同門任務同行と譚城での再会・気遣い"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9245_3_Dlgs_Index0_Text",
+        "9261_1_Dlgs_Index5_Text",
+        "9261_1_Dlgs_Index6_Text",
+        "9267_1_Dlgs_Index1_Text",
+        "9273_1_Dlgs_Index1_Text",
+        "9279_1_Dlgs_Index4_Text",
+        "12439_2_Dlgs_Index0_Text",
+        "12439_2_Dlgs_Index3_Text",
+        "12439_3_Dlgs_Index0_Text",
+        "12440_3_Dlgs_Index0_Text",
+        "12440_4_Dlgs_Index2_Text"
+      ],
+      "reason": "宇文逸には兄弟子の柔らかな常体、師叔には敬体を使い分け、襲撃現場では観察から推理へ進み、譚城では「故人」を濁しつつ弟弟子を気遣う。現行資料の同門任務同行、謀士・危機判断、世話・気遣いの規則に収まり、別時系列へ広げる新規主張も不要。",
+      "scope": {
+        "scenes": [
+          "9245_3",
+          "9261_1",
+          "9262_1",
+          "9267_1",
+          "9273_1",
+          "9279_1",
+          "12439_2",
+          "12439_3",
+          "12439_5",
+          "12440_3",
+          "12440_4"
+        ],
+        "counterpart": "宇文逸・道微・冷無情",
+        "timeline": "武当同門としての任務同行から譚城再会まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/道妙.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9261_1_Dlgs_Index2_Text",
+        "9261_1_Dlgs_Index3_Text",
+        "9262_1_Dlgs_Index2_Text",
+        "9262_1_Dlgs_Index3_Text"
+      ],
+      "reason": "遅着と全滅を短く告げる「遅かった……」「わしらが来た時には、路地に生き残りはおらなんだ」は、武当長老としての「わし」と落ち着いた古風な常体に整合する。分岐複製から新しい規則は作らない。",
+      "scope": {
+        "scenes": [
+          "9261_1",
+          "9262_1"
+        ],
+        "mode": "襲撃後の現場報告",
+        "counterpart": "宇文逸・莫問・絶無心"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:02c36bd5a6016480d9c0814c32bbdfa2be8e6418a762c6f96578a1b958fcf3c9",
+      "after_digest": "sha256:02c36bd5a6016480d9c0814c32bbdfa2be8e6418a762c6f96578a1b958fcf3c9",
+      "changed": false
+    },
+    {
+      "target": "10_人物/道微.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9267_1_Dlgs_Index2_Text"
+      ],
+      "reason": "守備隊の介入と殷門主の検分を端的に報告する発話は、現行資料の武当の状況報告を端的に伝える規則と整合する。この一行から豪快さや弟子への諭しを新設しない。",
+      "scope": {
+        "scene": "9267_1",
+        "mode": "襲撃後の現場報告",
+        "counterpart": "宇文逸・莫問"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:cc59aed1b25ef6306ac0c6e6b93730f35b17c99c4a0a1563ad68ff3dace23b49",
+      "after_digest": "sha256:cc59aed1b25ef6306ac0c6e6b93730f35b17c99c4a0a1563ad68ff3dace23b49",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-48",
+  "wave_id": "yuwen-mowen-train-48-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN48_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9245_3_12440_4_2026-07-30.json",
+      "manifest_digest": "sha256:a755cfa0dbce627123965165ff9573ed68a94b1afeb6a173def5efff68d97bd2"
+    }
+  ]
+}
