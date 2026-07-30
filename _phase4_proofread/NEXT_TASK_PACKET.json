@@ -19,13 +19,13 @@
     "5653_2"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-64-wave-01",
     "packet_id": "yuwen-mowen-train64-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 195
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -38,16 +38,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-63",
-    "release_id": "yuwen-mowen-train-63-r1",
-    "pr": 220,
-    "status": "merged",
-    "merge_sha": "58d7b58d57bd67ea0cbcca9168d4cd5bca4a885b"
+    "train_id": "yuwen-mowen-train-64",
+    "release_id": "yuwen-mowen-train-64-r1",
+    "pr": 221,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -63,5 +61,35 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:10ae2b0d4faa53ddd9395fb98d81c823beabfa44df26f5b5d61936cff26e3d5f"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 54,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5637_1",
+      "5646_1",
+      "5649_1",
+      "5651_1",
+      "5653_2"
+    ],
+    "grouping_decision": "起点5637_1の隠し仕掛け調査から、暗道への落下と進行決定、守衛突破、追跡・休整、5653_2の曹煜天との再戦開始まで、5場面54行で抜け道追跡局面を閉じた。5654_*以降の走火入魔崩壊と第三者介入は含めない。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 4,
+    "new_project_keys": 0,
+    "fix_keys": 4
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN64_WAVE01_2026-07-31.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

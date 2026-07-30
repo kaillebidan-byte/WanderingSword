@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-64",
   "branch": "agent/yuwen-mowen-train-64",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 221,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 221,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,189 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 4,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 195,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5637_1",
+        "5646_1",
+        "5649_1",
+        "5651_1",
+        "5653_2"
+      ],
+      "reviewed_rows": 54,
+      "reviewed_keys": 54,
+      "unique_rows": 54,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 4,
+      "keep_keys": 50,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch11.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH195_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 53,
+        "unowned_kept": 1,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "误打误撞",
+        "卷土重来",
+        "不堪设想",
+        "不可同日而语",
+        "假仁假义",
+        "两面三刀",
+        "为所欲为"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5646_1_Dlgs_Index2_Text",
+          "decision": "定着した偶然成功の成語",
+          "note": "「误打误撞」は意図せず試したことが偶然うまくいく意の定着成語。特定典籍の引用ではなく、欧陽雪の軽いからかいとして現訳「当てずっぽうで動かしたおかげで、かえって」が偶然性と反転を保つ。"
+        },
+        {
+          "key": "5646_1_Dlgs_Index12_Text",
+          "decision": "特定詩句由来だが現代語として定着した成語",
+          "note": "「卷土重来」は再起して勢力を盛り返す意の定着成語。この場面では古典引用ではなく曹煜天再起への危惧で、現訳「再び勢力を盛り返し」が機能を保つ。"
+        },
+        {
+          "key": "5646_1_Dlgs_Index12_Text",
+          "decision": "定着した重大結果の成語",
+          "note": "「不堪设想」は結果が想像に堪えないほど深刻になる意の定着成語。現訳「取り返しのつかないことになる」は、莫問の簡潔な危機判断として深刻さを自然に保つ。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index20_Text",
+          "decision": "定着した比較成語",
+          "note": "「不可同日而语」は同列に論じられないほど差がある意の定着成語。戦闘中の警告では現訳「さっきまでとは別物だ」が差の大きさを短く伝える。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index10_Text",
+          "decision": "定着した偽善批判の成語",
+          "note": "「假仁假义」は仁義を装う偽善を罵る定着表現。曹煜天の敵意ある認識として現訳「偽善者」が強度を保つ。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index10_Text",
+          "decision": "定着した二面性批判の成語",
+          "note": "「两面三刀」は表裏を使い分ける不実さを罵る定着成語。現訳「裏切り者」は曹煜天の誇張した非難として機能し、客観的な裏切りの確定には用いない。"
+        },
+        {
+          "key": "5653_2_Dlgs_Index15_Text",
+          "decision": "定着した放縦行為の成語",
+          "note": "「为所欲为」は思うままに好き勝手をする意の定着成語。修正訳でも「好き勝手」を保持し、宇文逸の断罪を自然な日本語へ移す。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "hidden_vase_mechanism_inference",
+          "keys": [
+            "5637_1_Dlgs_Index1_Text",
+            "5637_1_Dlgs_Index2_Text",
+            "5637_1_Dlgs_Index3_Text",
+            "5637_1_Dlgs_Index4_Text",
+            "5637_1_Dlgs_Index5_Text",
+            "5637_1_Dlgs_Index6_Text"
+          ],
+          "note": "瓷瓶の価値と隠匿理由、暗道入口の仕掛けであることは発見時点では欧陽雪・莫問・宇文逸の推測。次場面で作動結果が出るまで、個々の台詞では確定させない。"
+        },
+        {
+          "scope": "tunnel_route_and_reinforcement_expectations",
+          "keys": [
+            "5646_1_Dlgs_Index3_Text",
+            "5646_1_Dlgs_Index4_Text",
+            "5646_1_Dlgs_Index6_Text",
+            "5646_1_Dlgs_Index7_Text",
+            "5646_1_Dlgs_Index9_Text",
+            "5646_1_Dlgs_Index13_Text",
+            "5646_1_Dlgs_Index14_Text"
+          ],
+          "note": "暗道の先に山下出口や曹煜天がいること、各派が剥がした絵を手掛かりに入口へ到達することは一行の推測・期待。閉じ込め、出口、援軍到着を確定情報へ強めない。"
+        },
+        {
+          "scope": "cao_location_and_pursuit_inference",
+          "keys": [
+            "5649_1_Dlgs_Index0_Text",
+            "5649_1_Dlgs_Index1_Text",
+            "5651_1_Dlgs_Index0_Text",
+            "5651_1_Dlgs_Index1_Text"
+          ],
+          "note": "多数の守衛と北東への移動から曹煜天の位置と追いつける見込みを判断している。追跡時点の推測と莫問の戦術判断として保ち、逃走経路や成功を先取りしない。"
+        },
+        {
+          "scope": "fengyunjue_authenticity_dispute",
+          "keys": [
+            "5653_2_Dlgs_Index1_Text",
+            "5653_2_Dlgs_Index3_Text",
+            "5653_2_Dlgs_Index4_Text",
+            "5653_2_Dlgs_Index5_Text",
+            "5653_2_Dlgs_Index6_Text",
+            "5653_2_Dlgs_Index7_Text",
+            "5653_2_Dlgs_Index8_Text"
+          ],
+          "note": "曹煜天は暴走する力を風雲訣と称する一方、欧陽雪は伏龍子の正統な絶学と陰邪な現象の不一致を指摘し、曹煜天自身も真偽を問わない。風雲訣の真偽・由来をこの場面で解消しない。"
+        },
+        {
+          "scope": "incipient_qigong_deviation",
+          "keys": [
+            "5653_2_Dlgs_Index0_Text",
+            "5653_2_Dlgs_Index1_Text",
+            "5653_2_Dlgs_Index20_Text",
+            "5653_2_Dlgs_Index21_Text"
+          ],
+          "note": "5653_2時点では莫問が内力の急増と暴走から「走火入魔に近い」と判断する段階。後続5654_*の症状・確定判断を遡及して混入させない。"
+        },
+        {
+          "scope": "cao_hostile_accusations",
+          "keys": [
+            "5653_2_Dlgs_Index3_Text",
+            "5653_2_Dlgs_Index9_Text",
+            "5653_2_Dlgs_Index10_Text",
+            "5653_2_Dlgs_Index11_Text",
+            "5653_2_Dlgs_Index12_Text",
+            "5653_2_Dlgs_Index17_Text"
+          ],
+          "note": "各派・悪人谷・玄火教・呼延岐への偽善・裏切り批判と、宇文逸が自分を追い詰めたという因果は曹煜天の敵意ある認識。各勢力の裏切りや包囲目的を客観事実として確定しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30564568561,
+        "artifact_id": 8768301659,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:161146fb71cf089a156f06d006a626ac2a8221cffc0100c70708e8cc6d5a2edb",
+        "head_sha": "28b2ca94cdf0e8a594f323eee87fec620cc1c60f"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-64-wave-01"
   },
   "next_release": {
@@ -73,15 +234,39 @@
       "5651_1",
       "5653_2"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      195
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-63",
     "release_id": "yuwen-mowen-train-63-r1",
     "pr": 220,
     "merge_sha": "58d7b58d57bd67ea0cbcca9168d4cd5bca4a885b"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 4,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 50,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN64_WAVE01_2026-07-31.md"
+    }
   }
 }

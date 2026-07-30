@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5637_1_Dlgs_Index0_Text",
+        "5637_1_Dlgs_Index1_Text",
+        "5637_1_Dlgs_Index5_Text",
+        "5637_1_Dlgs_Index6_Text",
+        "5646_1_Dlgs_Index0_Text",
+        "5646_1_Dlgs_Index5_Text",
+        "5646_1_Dlgs_Index6_Text",
+        "5646_1_Dlgs_Index7_Text",
+        "5646_1_Dlgs_Index8_Text",
+        "5646_1_Dlgs_Index9_Text",
+        "5646_1_Dlgs_Index16_Text",
+        "5646_1_Dlgs_Index17_Text",
+        "5649_1_Dlgs_Index0_Text",
+        "5649_1_Dlgs_Index1_Text",
+        "5651_1_Dlgs_Index2_Text",
+        "5653_2_Dlgs_Index0_Text",
+        "5653_2_Dlgs_Index5_Text",
+        "5653_2_Dlgs_Index13_Text",
+        "5653_2_Dlgs_Index14_Text",
+        "5653_2_Dlgs_Index15_Text",
+        "5653_2_Dlgs_Index22_Text"
+      ],
+      "reason": "仕掛けを見抜こうとする探究心、莫問・欧陽雪への自然な敬体と気遣い、追跡中の短い判断、曹煜天へのM6の断罪が場面ごとに切り替わる。4件の修正は意味の具体化と発声の自然化で足り、現行資料のモード規則に反例はない。",
+      "scope": {
+        "relationship": "莫問・欧陽雪との同行、曹煜天との敵対",
+        "timeline": "不風山の暗道入口発見から曹煜天との再戦開始まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5637_1_Dlgs_Index4_Text",
+        "5646_1_Dlgs_Index3_Text",
+        "5646_1_Dlgs_Index4_Text",
+        "5646_1_Dlgs_Index10_Text",
+        "5646_1_Dlgs_Index11_Text",
+        "5646_1_Dlgs_Index12_Text",
+        "5646_1_Dlgs_Index13_Text",
+        "5646_1_Dlgs_Index14_Text",
+        "5649_1_Dlgs_Index2_Text",
+        "5651_1_Dlgs_Index0_Text",
+        "5651_1_Dlgs_Index1_Text",
+        "5653_2_Dlgs_Index1_Text",
+        "5653_2_Dlgs_Index20_Text",
+        "5653_2_Dlgs_Index21_Text"
+      ],
+      "reason": "仕掛けの仮説、入口閉鎖後の危機整理、同行決定、休整指示、内力暴走の観察から戦闘指揮への移行は、現行資料の謀士・危機判断と兄弟子モードに整合する。宇文逸へは師弟呼称と簡潔な常体を保っている。",
+      "scope": {
+        "relationship": "宇文逸への兄弟子判断と欧陽雪を含む同行指揮",
+        "timeline": "暗道入口の判断から曹煜天との再戦開始まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/曹煜天.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5653_2_Dlgs_Index2_Text",
+        "5653_2_Dlgs_Index3_Text",
+        "5653_2_Dlgs_Index4_Text",
+        "5653_2_Dlgs_Index8_Text",
+        "5653_2_Dlgs_Index9_Text",
+        "5653_2_Dlgs_Index10_Text",
+        "5653_2_Dlgs_Index11_Text",
+        "5653_2_Dlgs_Index12_Text",
+        "5653_2_Dlgs_Index16_Text",
+        "5653_2_Dlgs_Index17_Text",
+        "5653_2_Dlgs_Index18_Text",
+        "5653_2_Dlgs_Index19_Text"
+      ],
+      "reason": "嘲笑、正道への非難、力への誇大な自負、武林支配の宣言、宇文逸への逆恨みと殺意は、現行資料の傲岸・凶暴・高圧な敵役像と整合する。修正は一行の意味回復だけで、人物規則の変更は不要。",
+      "scope": {
+        "relationship": "宇文逸・莫問・欧陽雪への敵対と威圧",
+        "timeline": "風雲訣を名乗る内力暴走後の再戦開始時"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:e78efb7b259f70923532a0e186d267321c14520c9d709ab63dd3e23d1e0b5054",
+      "after_digest": "sha256:e78efb7b259f70923532a0e186d267321c14520c9d709ab63dd3e23d1e0b5054",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-64",
+  "wave_id": "yuwen-mowen-train-64-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN64_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5637_1_5653_2_2026-07-31.json",
+      "manifest_digest": "sha256:10ae2b0d4faa53ddd9395fb98d81c823beabfa44df26f5b5d61936cff26e3d5f"
+    }
+  ]
+}
