@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5522_1_Dlgs_Index0_Text",
+        "5523_1_Dlgs_Index0_Text",
+        "5523_1_Dlgs_Index2_Text",
+        "5525_3_Dlgs_Index0_Text",
+        "5525_3_Dlgs_Index3_Text",
+        "5525_6_Dlgs_Index0_Text",
+        "5525_6_Dlgs_Index4_Text",
+        "5528_7_Dlgs_Index0_Text",
+        "5528_7_Dlgs_Index6_Text",
+        "5531_4_Dlgs_Index0_Text",
+        "5531_4_Dlgs_Index2_Text",
+        "5531_4_Dlgs_Index15_Text",
+        "5531_4_Dlgs_Index17_Text",
+        "5531_4_Dlgs_Index19_Text",
+        "5531_7_Dlgs_Index4_Text",
+        "5531_7_Dlgs_Index5_Text"
+      ],
+      "reason": "戦闘時の短い悪態と追撃、莫問への自然な敬体、探索時の問いかけ、負傷者への折り目正しい対応、蘭児の身元判明後の驚きと危機判断は、現行資料の戦闘・武当平時・対外・親密モードの切替で説明できる。",
+      "scope": {
+        "relationship": "莫問ら同行者、徐海、敵対者への応答",
+        "timeline": "峋谷関の将軍府侵入から徐海の娘の身元判明後まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5522_1_Dlgs_Index2_Text",
+        "5523_1_Dlgs_Index1_Text",
+        "5525_3_Dlgs_Index1_Text",
+        "5525_3_Dlgs_Index2_Text",
+        "5525_6_Dlgs_Index3_Text",
+        "5528_7_Dlgs_Index4_Text",
+        "5528_7_Dlgs_Index5_Text",
+        "5531_3_Dlgs_Index0_Text",
+        "5531_3_Dlgs_Index1_Text",
+        "5531_4_Dlgs_Index12_Text",
+        "5531_4_Dlgs_Index13_Text",
+        "5531_7_Dlgs_Index1_Text",
+        "5531_7_Dlgs_Index2_Text"
+      ],
+      "reason": "包囲時の離脱判断、書斎の観察、城外戦より任務を優先する指揮、黒白無常への警戒、深追いの制止、腕輪から身元を結びつける推理は、現行資料の同門期の兄弟子・謀士・危機判断モードと整合する。",
+      "scope": {
+        "relationship": "宇文逸ら同行者への指揮と徐海事件の推理",
+        "timeline": "峋谷関侵入・夜襲・徐海捜索と身元判明"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/副将-徐海.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5522_1_Dlgs_Index3_Text",
+        "5522_1_Dlgs_Index4_Text",
+        "5531_4_Dlgs_Index1_Text",
+        "5531_4_Dlgs_Index3_Text",
+        "5531_4_Dlgs_Index4_Text",
+        "5531_4_Dlgs_Index7_Text",
+        "5531_4_Dlgs_Index8_Text",
+        "5531_4_Dlgs_Index9_Text",
+        "5531_4_Dlgs_Index10_Text",
+        "5531_4_Dlgs_Index11_Text",
+        "5531_4_Dlgs_Index16_Text",
+        "5531_4_Dlgs_Index18_Text",
+        "5531_4_Dlgs_Index21_Text",
+        "5531_4_Dlgs_Index22_Text",
+        "5531_4_Dlgs_Index23_Text",
+        "5531_4_Dlgs_Index24_Text"
+      ],
+      "reason": "敵対時の軍人らしい怒号から、瀕死で娘を案じる「おれ」の私的な声、少侠への懇願、将軍への悔恨へ崩れる流れは、現行資料の軍人モードと娘への情・追い詰め時の切替に整合する。三件は訳文の硬さを直すもので、資料規則の改訂は不要。",
+      "scope": {
+        "relationship": "侵入者への敵対、宇文逸への懇願、黄宗政への忠誠と悔恨",
+        "timeline": "将軍府での対峙から致命傷後の娘の身元判明まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:68dc157f29b4357af382f510a1f037a0bf72251d5b4cf1bf9e85bd66094518dd",
+      "after_digest": "sha256:68dc157f29b4357af382f510a1f037a0bf72251d5b4cf1bf9e85bd66094518dd",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5522_1_Dlgs_Index5_Text",
+        "5525_6_Dlgs_Index1_Text",
+        "5525_6_Dlgs_Index2_Text",
+        "5531_7_Dlgs_Index3_Text"
+      ],
+      "reason": "徐海への柔らかな挑発、夜襲と戦場離脱を結びつける冷静な推測、郭燾の欺瞞を軽い長音で評する発話は、現行資料の任務中・挑発モードと整合する。",
+      "scope": {
+        "relationship": "徐海・宇文逸・莫問らとの任務中会話",
+        "timeline": "将軍府侵入から徐海事件の真相推測まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    },
+    {
+      "target": "10_人物/黄宗政.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5522_1_Dlgs_Index6_Text"
+      ],
+      "reason": "負傷して咳き込みながらも全員を一喝して戦闘を止める短い号令は、現行資料の豪快な将軍としての重い常体と職権の声に整合する。",
+      "scope": {
+        "relationship": "将軍府内の配下と侵入者を制止する公的号令",
+        "timeline": "将軍府で一行が包囲された直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe",
+      "after_digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-60",
+  "wave_id": "yuwen-mowen-train-60-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN60_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5522_1_5531_7_2026-07-30.json",
+      "manifest_digest": "sha256:1540ada244be081f0c687334bec2f33dbdb6ffd8362decc10288c773bfb45117"
+    }
+  ]
+}
