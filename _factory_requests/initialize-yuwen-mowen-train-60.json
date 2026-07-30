@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-60",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30517114013,
+    "artifact_id": 8749318444,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:0de6465b7a48c1f04a4378ff74fcb1768df3c560f9d71cf36edba189f99c30fc",
+    "artifact_head": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5522_1",
+      "5523_1",
+      "5525_3",
+      "5525_6",
+      "5528_7",
+      "5531_3",
+      "5531_4",
+      "5531_7"
+    ],
+    "unique_reviewed_rows": 61,
+    "semantic_extension": {
+      "used": true,
+      "reason": "complete_semantic_unit"
+    },
+    "timeline": "峋谷関で将軍府へ侵入した一行が徐海・天龍幇の策と対峙し、徐海の負傷・娘の正体判明・最期の悔恨を経て黄将軍へ報告する直前まで。",
+    "branch_note": "将軍府での包囲から書斎探索、夜襲下の徐海捜索、黒白無常戦、徐海の娘が清河村の蘭児と判明する場面、帰還判断までを連続して読む。次の黄将軍への正式報告と峋谷関離脱は次束へ分離する。",
+    "seal_attestation": "起点5522_1の将軍府包囲から、徐海の死期・娘の生存判明・天龍幇の捜索目的への推測を経て5531_7の黄将軍へ戻る判断まで、8場面61行で一つの危機解決単位を閉じた。61行は直後の帰還判断を切り離さないためのcomplete_semantic_unit延長であり、5535_2以降の別れと黎城行きは含めない。",
+    "candidate_questions": [
+      "宇文逸・莫問・欧陽雪・瑶姬が戦闘、探索、負傷者への対応、身元判明で声と敬度を適切に切り替えているか",
+      "徐海の娘の消息、天龍幇の目的、徐海の負傷と死期について、発言・推測以上の事実を足していないか",
+      "黒白無常の過剰演出と莫問の警告が、場面の脅威を保ちつつ原意を逸脱していないか",
+      "徐海の息切れ・咳・言いさし・最期の悔恨を、整いすぎた説明文へ平坦化していないか"
+    ],
+    "allusion_candidates": [
+      "穷寇莫追",
+      "想来就来，想走就走",
+      "千方百计",
+      "绝非易于之辈",
+      "错已铸成"
+    ],
+    "fact_doubts": [
+      "徐海が負傷を装ったという宇文逸・瑶姬の推測と、天龍幇の言いなりだという莫問の判断を客観事実へ確定しない",
+      "夜襲と徐海の戦場離脱の関係、曹煜天・黒白無常の役割を台詞外から補完しない",
+      "蘭児が徐海の娘であることは腕輪と徐海の認識で確定するが、過去の拉致全体の目的は莫問らの推測に留める",
+      "徐海の傷勢・残り時間・死亡を、この会話で明示された範囲を越えて具体化しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5522_1_5531_7_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN60_WAVE01_2026-07-30.md"
+  }
+}
