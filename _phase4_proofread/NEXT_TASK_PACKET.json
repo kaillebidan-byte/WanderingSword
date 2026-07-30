@@ -1,113 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-50-quality-audit",
+  "task_id": "post-train50-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 180,
-    "pair_applied_keys": 1377,
-    "project_applied_keys": 1753,
-    "produced_by_pr": 206,
-    "release_id": "yuwen-mowen-train-49-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_49.json"
+    "batch": 181,
+    "pair_applied_keys": 1382,
+    "project_applied_keys": 1758,
+    "produced_by_pr": 207,
+    "release_id": "yuwen-mowen-train-50-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_50.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5203_4",
-    "5203_6",
-    "5203_7",
-    "5203_14",
-    "5211_4",
-    "5211_5",
-    "5212_1",
-    "5214_6",
-    "5215_1",
-    "5215_2",
-    "5217_2",
-    "5220_1",
-    "5222_1",
-    "5222_3"
+    "5224_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-50-wave-01",
-    "packet_id": "yuwen-mowen-train50-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 181
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30503591974,
-    "artifact_id": 8744439828,
-    "artifact_digest": "sha256:adb307d150791bfb36d5e0583362aacdb762fa111d0e5ba4913234b914ad52e3",
-    "artifact_head": "ea07ec250a9788a720ae810e23aac5d19683af74",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30504867937,
+    "artifact_id": 8744925085,
+    "artifact_digest": "sha256:b2126f2b153caa6538d8ef1b16ede8bbedf6e883f8643beaada831749e119223",
+    "artifact_head": "22943291ded9fe88b444b5a6ffe369ecbf7605f2",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-50",
     "release_id": "yuwen-mowen-train-50-r1",
     "pr": 207,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-50統合前に5224_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-50",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 181,
+    "planned_batch": 182,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:ac190f2d49ffc4eb9b52fe670df2c564974667373ea8b8406ed1246642486bdf"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 60,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5203_4",
-      "5203_6",
-      "5203_7",
-      "5203_14",
-      "5211_4",
-      "5211_5",
-      "5212_1",
-      "5214_6",
-      "5215_1",
-      "5215_2",
-      "5217_2",
-      "5220_1",
-      "5222_1",
-      "5222_3"
-    ],
-    "grouping_decision": "初対面の謝罪と身元確認、江吟風の訃報、清虚への取次ぎ、入門決定、弟子部屋への案内、拝師後の武当施設巡り前半まで、14場面・60行で入門前から兄弟子関係成立までを閉じる。次の5224系は錬丹房後の会話と清霄面会へ進むため別packetとする。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 12,
-    "new_project_keys": 5,
-    "fix_keys": 17
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN50_WAVE01_2026-07-30.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
