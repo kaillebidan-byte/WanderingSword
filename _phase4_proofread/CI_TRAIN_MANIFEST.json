@@ -1,1 +1,196 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-51","branch":"agent/yuwen-mowen-train-51","draft_pr":208,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":208,"merge_sha":"44ce0a73edc2ca73b2ce41e9cafcd232c00a6d65"},"base_checkpoint":{"batch":181,"pair_applied_keys":1382,"project_applied_keys":1758,"produced_by_pr":207,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-50-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_50.json","pr":207,"validated_head":"73f2fec20e158d1d1d5810c237c173a4b6f79ef5"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":69,"reviewed_keys":69,"unique_reviewed_rows":69,"fix_keys":18,"unique_fix_rows":18,"new_pair_keys":13,"new_project_keys":13,"cross_register_keys":0,"existing_owner_updates":5,"keep_only_bundles":0},"bundles":[{"batch":182,"review_status":"complete","apply_status":"verified","scene_groups":["5224_1","5224_2","5227_1","5227_2","5227_3","5227_5","5229_1","5229_2","5229_3","5229_4","5229_6","5229_9","5229_10","5229_11","5229_12","5229_13"],"reviewed_rows":69,"reviewed_keys":69,"unique_rows":69,"fix_keys":18,"unique_fix_rows":18,"new_pair_keys":13,"new_project_keys":13,"cross_register_keys":0,"existing_owner_updates":5,"keep_keys":51,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch57.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch96.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH182_2026-07-30.md","ownership_summary":{"existing_keys":37,"unowned_kept":19,"new_keys":13,"cross_register_keys":0},"allusion_review_candidates":["5224_1_Dlgs_Index1_Text","5227_1_Dlgs_Index0_Text","5227_2_Dlgs_Index2_Text","5229_3_Dlgs_Index0_Text","5227_5_Dlgs_Index16_Text","5229_12_Dlgs_Index0_Text"],"allusion_review_resolved":[{"key":"5224_1_Dlgs_Index1_Text","decision":"keep","note":"「妙手丹仙」は道玄の作中称号。典籍引用ではなく固有の異名としてタグと漢字を保持する。"},{"key":"5227_1_Dlgs_Index0_Text","decision":"keep","note":"「心有余悸」は恐怖の余韻が残る意の定着成語。現訳の「まだ肝を冷やしている」で場面機能を保ち、特定典籍の引用へ昇格しない。"},{"key":"5227_2_Dlgs_Index2_Text","decision":"fix","note":"「一表人才」「如花似玉」は定着成語。後者を男性へ誤用する莫棄の冗談が次行の突っ込みの核なので、原文混入を除き「なかなかの男前、花も恥じらう美しさ」として笑いを保持する。"},{"key":"5229_3_Dlgs_Index0_Text","decision":"keep","note":"「锦上添花」は十分なものへさらに花を添える意の定着成語。現訳は『さらに贈る必要はない』という機能を自然に保っており、字面の直訳へ戻さない。"},{"key":"5227_5_Dlgs_Index16_Text","decision":"keep","note":"「循序渐进」は順序を追って進む意の定着成語。現訳の「基礎から順を追って修めていく」で教導の機能と武学語感を保つ。"},{"key":"5229_12_Dlgs_Index0_Text","decision":"fix","note":"「气敛于内，剑以意行，劲凝臂指」は特定典籍の引用とは確認できず、作品内の心法口訣として扱う。三句の文言調と反復を保ち、日本語として通る「剣は意に従い、勁は腕と指に凝らす」へ整える。"}],"fact_doubts":["宮中から道玄へ錬丹依頼が来るという説明は莫問の発言範囲に留め、頻度や依頼者を補完しない。","祖師殿に真武剣が祀られ掌門即位時だけ開くという説明は莫問が師父から聞いた情報であり、本人も未見とする。","玄火教各人物の悪行と異名は莫棄の伝聞を含み、客観的確定や教団全体の一律評価へ広げない。","各門派が得意とする武学は莫問の入門向け概説であり、唯一の武学体系や絶対的分類へ固定しない。","天龍幇が関外の民を害しているという説明は莫問の現在認識であり、被害規模や事件の全容を補完しない。"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30504867937,"artifact_id":8744925085,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:b2126f2b153caa6538d8ef1b16ede8bbedf6e883f8643beaada831749e119223","head_sha":"22943291ded9fe88b444b5a6ffe369ecbf7605f2"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-51-wave-01"},"next_release":{"candidate_scene":["5230_6"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[182],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-50","release_id":"yuwen-mowen-train-50-r1","pr":207,"merge_sha":"da31a1ea4f663fd2d0442317cf2f457722799103"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":69,"unique_reviewed_rows":69,"fix_keys":18,"unique_fix_rows":18,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":18,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_51.json","merge_result":{"pr":208,"merge_sha":"44ce0a73edc2ca73b2ce41e9cafcd232c00a6d65"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-52",
+  "branch": "agent/yuwen-mowen-train-52",
+  "draft_pr": 209,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 209,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 182,
+    "pair_applied_keys": 1395,
+    "project_applied_keys": 1771,
+    "produced_by_pr": 208,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-51-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_51.json",
+      "pr": 208,
+      "validated_head": "5660fabcb306cd14506c8a1544824c57386bba9d"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 20,
+    "unique_fix_rows": 20,
+    "new_pair_keys": 9,
+    "new_project_keys": 9,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 11,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 183,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5230_6",
+        "5234_1",
+        "5237_2",
+        "5237_3",
+        "5238_1",
+        "5240_1",
+        "5240_4"
+      ],
+      "reviewed_rows": 54,
+      "reviewed_keys": 54,
+      "unique_rows": 54,
+      "fix_keys": 20,
+      "unique_fix_rows": 20,
+      "new_pair_keys": 9,
+      "new_project_keys": 9,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 11,
+      "keep_keys": 34,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch40.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch59.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch60.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch61.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch97.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH183_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 37,
+        "unowned_kept": 8,
+        "new_keys": 9,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5237_2_Dlgs_Index2_Text",
+        "5238_1_Dlgs_Index0_Text",
+        "5238_1_Dlgs_Index3_Text",
+        "5238_1_Dlgs_Index4_Text",
+        "5238_1_Dlgs_Index5_Text",
+        "5240_1_Dlgs_Index0_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5237_2_Dlgs_Index2_Text",
+          "decision": "keep",
+          "note": "「前因後果」と「問心無愧」は定着した成語。現訳は『始まりから終わりまで』『己の心に恥じない』として、莫問の侠義の教えと対句的な流れを保っている。特定典籍の引用には昇格しない。"
+        },
+        {
+          "key": "5238_1_Dlgs_Index0_Text",
+          "decision": "fix",
+          "note": "「幸不辱命」は任を果たして期待に背かなかったことを告げる定型表現。対外報告として「幸い、ご期待に背かずに済みました」とする。"
+        },
+        {
+          "key": "5238_1_Dlgs_Index3_Text",
+          "decision": "fix",
+          "note": "「繩之以法」は法に照らして処罰する成語だが、討ち取った山賊について村娘が述べる場面では「成敗」が自然で、武侠の行為結果を保つ。"
+        },
+        {
+          "key": "5238_1_Dlgs_Index4_Text",
+          "decision": "fix",
+          "note": "「為民除害」は民のため害を除くという侠義的な定型句。像を残して「民の害を除く」とし、現代行政語へ平坦化しない。"
+        },
+        {
+          "key": "5238_1_Dlgs_Index5_Text",
+          "decision": "fix",
+          "note": "「地主之誼」は土地の者として客をもてなす務め。字面を残さず、村長が酒席へ招く自然な「村の者として、もてなす」へ移す。"
+        },
+        {
+          "key": "5240_1_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「順藤摸瓜」は手がかりを辿って黒幕へ至る成語。現訳の「手がかりを辿る」で任務報告の機能を保ち、蔓と瓜の字面は持ち込まない。"
+        }
+      ],
+      "fact_doubts": [
+        "莫離が清霄の一人息子で長年病床にあるという説明は莫問の発言範囲に留め、病名・予後・事情を補完しない。",
+        "山賊の武功と人数に関する判断は村人の証言から莫問が行った推理であり、客観的確定として強めない。",
+        "民女を繰り返しさらう人物の存在は山賊の発言と噂に基づくため、黒幕の正体や被害規模を補完しない。",
+        "清河村周辺で短期的に同種事件は起きないという莫問の見通しを、将来の客観的保証へ変えない。",
+        "日常任務・緊急任務・門派貢献の説明はこの時点の莫問による入門者向け概説であり、例外のない制度定義へ広げない。"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30506264279,
+        "artifact_id": 8745438548,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:0a20d5609fe2e37ce1a7a5fe00309df20cda46f52dc3b0a5c46139425e3ddddb",
+        "head_sha": "5ecb30c1770c3e02e59df39a859513054c7c87b1"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-52-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5244_3"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      183
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-51",
+    "release_id": "yuwen-mowen-train-51-r1",
+    "pr": 208,
+    "merge_sha": "44ce0a73edc2ca73b2ce41e9cafcd232c00a6d65"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 20,
+    "unique_fix_rows": 20,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 20,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed"
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_52.json"
+}
