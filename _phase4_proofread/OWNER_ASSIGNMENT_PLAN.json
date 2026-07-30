@@ -2,17 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5522_1_5531_7_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch105.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5535_2_5572_9_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch106.json",
       "values": {
-        "5531_4_Dlgs_Index7_Text": "19102 - 副将-徐海 $@$全部、おれのせいだ……",
-        "5531_4_Dlgs_Index21_Text": "19102 - 副将-徐海 $@$……おれはもう……長くない……",
-        "5531_4_Dlgs_Index23_Text": "19102 - 副将-徐海 $@$だが、もう取り返しがつかない……おれは……"
+        "5535_2_Dlgs_Index2_Text": "19103 - 黄宗政 $@$今後、わしの力が必要なことがあれば、遠慮なく訪ねてくるがいい。",
+        "5551_2_Dlgs_Index8_Text": "1 - 宇文逸 $@$叔父さんは酒好きだけど、本当にいい人なんだ。友達を連れて帰るたび、いつも自分で腕を振るってくれて……",
+        "5572_6_Dlgs_Index1_Text": "17115 - 瑶姫 $@$ゴホッ、ゴホッ……平気よ。小雪ちゃんたちが間に合ってくれて助かったわ～"
       },
       "fix_keys": [
-        "5531_4_Dlgs_Index7_Text",
-        "5531_4_Dlgs_Index21_Text",
-        "5531_4_Dlgs_Index23_Text"
+        "5535_2_Dlgs_Index2_Text",
+        "5551_2_Dlgs_Index8_Text",
+        "5572_6_Dlgs_Index1_Text"
       ]
     }
   ]
