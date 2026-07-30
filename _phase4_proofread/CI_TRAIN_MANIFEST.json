@@ -1,1 +1,241 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-57","branch":"agent/yuwen-mowen-train-57","draft_pr":214,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":214,"merge_sha":"2275ca8eac53aba4b0341e7a78c54dd2a5018e4b"},"base_checkpoint":{"batch":187,"pair_applied_keys":1404,"project_applied_keys":1780,"produced_by_pr":213,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-56-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_56.json","pr":213,"validated_head":"17b873fe90bebc56205cbc498f28a3c241149a77"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":40,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_only_bundles":0},"bundles":[{"batch":188,"review_status":"complete","apply_status":"verified","scene_groups":["5358_5","5359_3","5359_4","5359_5","5370_1"],"reviewed_rows":40,"reviewed_keys":40,"unique_rows":40,"fix_keys":1,"unique_fix_rows":1,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":39,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH188_2026-07-30.md","ownership_summary":{"existing_keys":37,"unowned_kept":3,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["少林七十二绝技","禅宗伏魔功","阿弥陀佛","与人方便与己方便","不见不散","坐以待毙"],"allusion_review_resolved":[{"key":"5358_5_Dlgs_Index5_Text","decision":"武功体系名として原語維持","note":"「少林七十二绝技」は少林の武功体系を指す固有名。技名・武功名の規則に従い、日本語字形の「少林七十二絶技」を保持する。"},{"key":"5358_5_Dlgs_Index5_Text","decision":"武功名として原語維持","note":"「禅宗伏魔功」は慧空が修めた武功名。古典句として読み下さず、既訳の「禅宗伏魔功」を保持する。"},{"key":"5358_5_Dlgs_Index6_Text","decision":"仏教の定型念仏","note":"「阿弥陀佛」は慧空が謙遜や謝意の前に唱える定型句。既定の日本語形「南無阿弥陀仏」を保持し、5358_5のIndex17・Index24も同じ機能として扱う。"},{"key":"5358_5_Dlgs_Index15_Text","decision":"定着した諺","note":"「与人方便与己方便」は人に便宜を図れば自分にも返るという定着した諺。宇文逸が相互扶助を勧める場面では「困ったときはお互いさま」が機能と温度を保つため保持する。"},{"key":"5358_5_Dlgs_Index22_Text","decision":"定着した約束表現","note":"「不见不散」は会うまで待つという約束の定型表現。慧平の「必ず落ち合おう」と宇文逸の「約束ですよ」は連続発話として自然で、字面の反復より場面機能を保っている。"},{"key":"5359_5_Dlgs_Index0_Text","decision":"定着した成語","note":"「坐以待毙」は何もせず死を待つ意の成語。現訳の「座して死を待つ」は像と切迫を保ち、莫問の危機判断として自然なため保持する。"}],"fact_doubts":[{"scope":"hearsay_about_skill","keys":["5358_5_Dlgs_Index5_Text"],"note":"慧空が少林七十二絶技を幼少から修め、禅宗伏魔功を化境まで極めたという評価は莫問が以前から聞いていた評判に基づく。慧空の客観的な到達度として補強しない。"},{"scope":"speaker_inference","keys":["5358_5_Dlgs_Index11_Text","5358_5_Dlgs_Index12_Text"],"note":"城内の宿がすべて満室らしいという判断は、丘掌柜の説明を受けた莫問の推測。全宿の実在状況を確定した事実へ強めない。"},{"scope":"speaker_report_and_plan","keys":["5358_5_Dlgs_Index19_Text","5358_5_Dlgs_Index20_Text","5358_5_Dlgs_Index21_Text","5358_5_Dlgs_Index22_Text","5358_5_Dlgs_Index23_Text"],"note":"慧平と慧空が名剣山荘・品剣大会へ向かうこと、翌日に武当一行と同行することは慧平の発言とその場の合意に限定する。道中や大会参加条件を補完しない。"},{"scope":"unresolved_attack","keys":["5359_3_Dlgs_Index4_Text","5359_3_Dlgs_Index7_Text","5359_4_Dlgs_Index0_Text","5359_5_Dlgs_Index0_Text","5359_5_Dlgs_Index1_Text"],"note":"姑蘇入り後の異変、戸外の物音、迷煙は当夜に莫問が察知した危険であり、このpacketでは実行者と目的が未解決。既知の敵や直前の手配者へ結びつけない。"},{"scope":"timeline_gap","keys":["5370_1_Dlgs_Index0_Text","5370_1_Dlgs_Index1_Text","5370_1_Dlgs_Index2_Text"],"note":"5370_1は夜襲場面の後に品剣大会が始まる結節。間の解決過程や移動を台詞へ補わず、欧陽荘主の登場と着席指示だけを保持する。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30513303813,"artifact_id":8747926235,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:6812da531fcec0642c1249e957136d86f666c9edfb03fb7ae2164c16730d872c","head_sha":"5323256ec7133c9f5ad91310ae7d6a16f9e65caf"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-57-wave-01"},"next_release":{"candidate_scene":["5388_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[188],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-56","release_id":"yuwen-mowen-train-56-r1","pr":213,"merge_sha":"33c02d7d4aa3bf2a8aa483404d3756d9b47664d8"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":1,"unique_fix_rows":1,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":1,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":39,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN57_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_57.json","merge_result":{"pr":214,"merge_sha":"2275ca8eac53aba4b0341e7a78c54dd2a5018e4b"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-58",
+  "branch": "agent/yuwen-mowen-train-58",
+  "draft_pr": 215,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 215,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 188,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "produced_by_pr": 214,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-57-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_57.json",
+      "pr": 214,
+      "validated_head": "3dbd47d08f87efd2c423ea51c87f802740c208c0"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 57,
+    "reviewed_keys": 57,
+    "unique_reviewed_rows": 57,
+    "fix_keys": 5,
+    "unique_fix_rows": 5,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 5,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 189,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5388_1",
+        "5389_2",
+        "5389_4",
+        "5452_1",
+        "5444_2",
+        "5446_1",
+        "5501_2",
+        "5502_5",
+        "5502_6"
+      ],
+      "reviewed_rows": 57,
+      "reviewed_keys": 57,
+      "unique_rows": 57,
+      "fix_keys": 5,
+      "unique_fix_rows": 5,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 5,
+      "keep_keys": 52,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch6.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch7.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH189_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 48,
+        "unowned_kept": 9,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "一时的输赢",
+        "事不宜迟",
+        "得不偿失",
+        "危机重重",
+        "四通八达"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5389_2_Dlgs_Index3_Text",
+          "decision": "通常会話の圧縮表現",
+          "note": "「一时的输赢」は一時の勝敗を指す通常表現で、特定典籍の引用ではない。現訳の「目先の勝敗」は莫問の諭しとして自然で、意味と重みを保つ。"
+        },
+        {
+          "key": "5446_1_Dlgs_Index5_Text",
+          "decision": "定着した成語",
+          "note": "「事不宜迟」は事を遅らせるべきでない意の成語。宇文逸の出立判断では「なら、すぐ出発しましょう」が会話機能と速度を保つ。"
+        },
+        {
+          "key": "5501_2_Dlgs_Index6_Text",
+          "decision": "定着した成語",
+          "note": "「得不偿失」は得るものより失うものが大きい意。瑶姫の反論では「よほど割に合わない」が柔らかな挑発口調と機能を保つ。"
+        },
+        {
+          "key": "5502_5_Dlgs_Index3_Text",
+          "decision": "定着した四字表現",
+          "note": "「危机重重」は危険が幾重にも続く意。莫問の分析として「この先は危険が続くだろう」は誇張せず警戒の機能を保つ。"
+        },
+        {
+          "key": "5502_6_Dlgs_Index2_Text",
+          "decision": "定着した成語",
+          "note": "「四通八达」は水路が四方へ通じる意。現訳の「各地へ通じている」は地理説明として自然で、航路の広がりを保持する。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "speaker_threat",
+          "keys": [
+            "5388_1_Dlgs_Index1_Text",
+            "5388_1_Dlgs_Index2_Text"
+          ],
+          "note": "次の一刀では手加減を制御できないという方闊海の発言は試合中の威嚇。客観的な殺意、事故の必然性、実際の力量へ一般化しない。"
+        },
+        {
+          "scope": "speaker_observation_about_skill",
+          "keys": [
+            "5389_4_Dlgs_Index3_Text"
+          ],
+          "note": "方闊海が功力を強行上昇させる秘術を持つという情報は莫問の観察と認識に基づく。秘術の名称・仕組み・客観的性能を補わない。"
+        },
+        {
+          "scope": "injury_assessment",
+          "keys": [
+            "5452_1_Dlgs_Index3_Text",
+            "5452_1_Dlgs_Index4_Text",
+            "5444_2_Dlgs_Index0_Text"
+          ],
+          "note": "宇文逸の負傷は清虚が内勁の反動を指摘し、後に宇文逸が起きる流れで示される。重症度、治療内容、回復時間を台詞外から確定しない。"
+        },
+        {
+          "scope": "unresolved_pursuers_and_motive",
+          "keys": [
+            "5501_2_Dlgs_Index1_Text",
+            "5501_2_Dlgs_Index2_Text",
+            "5501_2_Dlgs_Index3_Text",
+            "5502_5_Dlgs_Index0_Text",
+            "5502_5_Dlgs_Index1_Text",
+            "5502_5_Dlgs_Index2_Text",
+            "5502_5_Dlgs_Index3_Text"
+          ],
+          "note": "尾行者の正体、悪人谷との関係、行踪を漏らした人物と目的は一行の観察・質問・推測に留まる。「黒幕」や既知の敵へ確定しない。"
+        },
+        {
+          "scope": "reported_route_knowledge",
+          "keys": [
+            "5446_1_Dlgs_Index4_Text",
+            "5502_6_Dlgs_Index1_Text",
+            "5502_6_Dlgs_Index2_Text",
+            "5502_6_Dlgs_Index3_Text",
+            "5502_6_Dlgs_Index5_Text",
+            "5502_6_Dlgs_Index6_Text"
+          ],
+          "note": "峋谷関・千陵渡・幽雲沢の位置と航路は莫問、欧陽雪、瑶姫の知識や伝聞として提示される。地理正本を越える詳細や航路の確実性を補完しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30514543142,
+        "artifact_id": 8748364757,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:7f79caa86d087b9f96b2e4ad93b67441dacb6ba09eb0ddcf751bc4377708b780",
+        "head_sha": "a7dc8dbc25620f4dce46977af5df6f385fe20d96"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-58-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5449_2"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      189
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-57",
+    "release_id": "yuwen-mowen-train-57-r1",
+    "pr": 214,
+    "merge_sha": "2275ca8eac53aba4b0341e7a78c54dd2a5018e4b"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 57,
+    "unique_reviewed_rows": 57,
+    "fix_keys": 5,
+    "unique_fix_rows": 5,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 5,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 52,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN58_WAVE01_2026-07-30.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_58.json"
+}
