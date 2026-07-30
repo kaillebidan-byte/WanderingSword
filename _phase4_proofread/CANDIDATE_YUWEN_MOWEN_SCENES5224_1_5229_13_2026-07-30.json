@@ -1,0 +1,772 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5224_1",
+    "5224_2",
+    "5227_1",
+    "5227_2",
+    "5227_3",
+    "5227_5",
+    "5229_1",
+    "5229_2",
+    "5229_3",
+    "5229_4",
+    "5229_6",
+    "5229_9",
+    "5229_10",
+    "5229_11",
+    "5229_12",
+    "5229_13"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30504867937,
+    "artifact_id": 8744925085,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:b2126f2b153caa6538d8ef1b16ede8bbedf6e883f8643beaada831749e119223",
+    "head_sha": "22943291ded9fe88b444b5a6ffe369ecbf7605f2"
+  },
+  "scene_context": {
+    "timeline": "武当施設案内の後半。宇文逸が道玄の錬丹術について莫問と話し、天柱峰・祖師殿と清霄への挨拶を経る。清霄の訓戒後、試剣台で莫棄・元啓を紹介され、各門派と武学の基礎説明、莫問からの剣の贈与、武当剣法と心法の初伝まで進む。",
+    "branch_note": "5224_1・5224_2は前束から続く施設案内、5227_1は清霄面会後、5227_2・5227_3は同門紹介、5227_5以降は初伝の一連。5229系は番号順に1・2・3・4・6・9・10・11・12・13として読み、artifactの文字列順へ並べ替えない。次の5230_6は自由行動後の別導線として分離する。"
+  },
+  "rows": [
+    {
+      "key": "5224_1_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师叔他，好像特别醉心炼丹之术。",
+      "ja": "1 - 宇文逸 $@$師叔は、どうやら錬丹術に特に熱心なようです。"
+    },
+    {
+      "key": "5224_1_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$那是自然，道玄师叔江湖人称<Y>妙手丹仙</>……就连宫中也时常人来请师叔炼丹。",
+      "ja": "5002 - 莫問 $@$それも当然だ。道玄師叔は江湖で<Y>妙手丹仙</>と呼ばれている……宮中からも、たびたび師叔に錬丹を頼む者が来るほどだ。"
+    },
+    {
+      "key": "5224_1_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好厉害！",
+      "ja": "1 - 宇文逸 $@$すごい！"
+    },
+    {
+      "key": "5224_1_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$好了，接下来你可要打起精神了。",
+      "ja": "5002 - 莫問 $@$さて、次は気を引き締めるんだ。"
+    },
+    {
+      "key": "5224_2_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$这里便是清霄师伯的天柱峰，供奉历代祖师牌位的<Y>祖师殿</>就在此地。",
+      "ja": "5002 - 莫問 $@$ここが清霄師伯の天柱峰だ。歴代祖師の位牌を祀る<Y>祖師殿</>もここにある。"
+    },
+    {
+      "key": "5224_2_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$听师父说，里面还供奉着三丰祖师的随身佩剑——真武剑！",
+      "ja": "5002 - 莫問 $@$師父の話では、中には三豊祖師の愛剣である真武剣も祀られているとか！"
+    },
+    {
+      "key": "5224_2_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$不过我也从未亲眼见过，祖师殿向来只在历代<Y>掌门即位</>之时才会开启……",
+      "ja": "5002 - 莫問 $@$だが、わたしもまだこの目で見たことはない。祖師殿は、歴代の<Y>掌門が即位</>する時にしか開かれない……"
+    },
+    {
+      "key": "5224_2_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$好了，<Y>清霄师伯</>就在前方，你也去拜会一下吧。",
+      "ja": "5002 - 莫問 $@$さあ、<Y>清霄師伯</>はこの先におられる。師弟も挨拶してくるといい。"
+    },
+    {
+      "key": "5224_2_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可是……好吧，我这就去。",
+      "ja": "1 - 宇文逸 $@$しかし……分かりました、すぐに行きます。"
+    },
+    {
+      "key": "5227_1_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$观师弟你一脸心有余悸，想必是受到了师伯的教诲……",
+      "ja": "5002 - 莫問 $@$その顔を見るに、まだ肝を冷やしているようだな。師伯から教えを受けたのだろう……"
+    },
+    {
+      "key": "5227_1_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可不是……好一顿训诫呢。",
+      "ja": "1 - 宇文逸 $@$ええ、それはもう……さんざんお叱りを受けました。"
+    },
+    {
+      "key": "5227_1_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$师弟无需忧心，师伯善恶分明……你只需恭谨以待，他必不会过于为难自家师侄的。",
+      "ja": "5002 - 莫問 $@$師弟、案ずるな。師伯は善悪の別に厳しい方だ……礼を失わず接していれば、自分の甥弟子をそうひどく困らせはしないさ。"
+    },
+    {
+      "key": "5227_1_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……多谢师兄提点。",
+      "ja": "1 - 宇文逸 $@$……師兄、ご忠告ありがとうございます。"
+    },
+    {
+      "key": "5227_1_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$好了，如今武当的情况你也差不多熟悉了，接下来可以开始传授你一些入门的武学了。",
+      "ja": "5002 - 莫問 $@$さて、武当のことも一通り分かっただろう。次はいよいよ、入門の武学を教えよう。"
+    },
+    {
+      "key": "5227_1_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$真的吗！我现在就能开始学武功了？！",
+      "ja": "1 - 宇文逸 $@$本当ですか！今から武術を学べるのですか？！"
+    },
+    {
+      "key": "5227_1_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$呵呵，当然是真的，我们现在就去<Y>试剑台</>吧。",
+      "ja": "5002 - 莫問 $@$ふふ、もちろん本当だ。さあ、<Y>試剣台</>へ行こう。"
+    },
+    {
+      "key": "5227_1_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好的，那我们快走吧！",
+      "ja": "1 - 宇文逸 $@$はい、急ぎましょう！"
+    },
+    {
+      "key": "5227_2_Dlgs_Index1_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$你今天怎么有空过来……咦，你身后不是我们新来的小师弟吗！",
+      "ja": "5012 - 莫棄 $@$今日はどうしてここへ……あれ、後ろにいるのは新入りの小師弟じゃないか！"
+    },
+    {
+      "key": "5227_2_Dlgs_Index2_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$小师弟你好呀，刚才在正殿的时候我就想找你聊天来着……哎呀呀，离近了看果真是一表人才，如花似玉啊……",
+      "ja": "5012 - 莫棄 $@$小師弟、よっ。さっき正殿で声をかけようと思ってたんだが……いやはや、近くで見ると本当に一表人才、花のような美しさじゃないか……"
+    },
+    {
+      "key": "5227_2_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$呃，这位师兄，如花似玉好像不是这么用的……",
+      "ja": "1 - 宇文逸 $@$ええと、師兄、花のように美しいというのは、そういう使い方ではないような……"
+    },
+    {
+      "key": "5227_2_Dlgs_Index4_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$哈哈哈！不要在意这些细节嘛！！",
+      "ja": "5012 - 莫棄 $@$ハハハ！細かいことは気にするなよ！！"
+    },
+    {
+      "key": "5227_2_Dlgs_Index5_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$咳……",
+      "ja": "5002 - 莫問 $@$コホン……"
+    },
+    {
+      "key": "5227_2_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$宇文师弟，你面前这位是你三师兄莫弃，也是清霄师伯的弟子，他身旁是道妙长老的弟子元启。",
+      "ja": "5002 - 莫問 $@$宇文師弟、こちらが三師兄の莫棄。清霄師伯の弟子だ。その隣は、道妙長老の弟子・元啓だ。"
+    },
+    {
+      "key": "5227_3_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$原来是莫弃师兄和元启师兄，见过两位师兄！",
+      "ja": "1 - 宇文逸 $@$莫棄師兄と元啓師兄でしたか。お二人とも、よろしくお願いします！"
+    },
+    {
+      "key": "5227_3_Dlgs_Index1_Text",
+      "speaker": "元启",
+      "zh": "5008 - 元启 $@$宇文师弟不用多礼！",
+      "ja": "5008 - 元啓 $@$宇文師弟、そう堅苦しくするな！"
+    },
+    {
+      "key": "5227_3_Dlgs_Index2_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$哈哈，对对对都是师兄弟，大家不用这么多礼……你是叫宇文逸对吧，那我以后就叫你小逸怎么样！",
+      "ja": "5012 - 莫棄 $@$はは、そうそう、みんな師兄弟なんだからそんなに堅苦しくするな……お前は宇文逸だな、じゃあこれから小逸と呼んでいいか！"
+    },
+    {
+      "key": "5227_3_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$当然没问题！",
+      "ja": "1 - 宇文逸 $@$もちろんです！"
+    },
+    {
+      "key": "5227_3_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$好了，我今天带宇文师弟过来是传授他入门武学的，你们就不要围在这里了，都去各自练剑吧。",
+      "ja": "5002 - 莫問 $@$さて、今日は宇文師弟に入門の武学を授けるために連れてきたんだ。お前たちはいつまでもここに集まっていないで、各自、剣の稽古へ戻れ。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$在教导武学之前，我先大致为师弟介绍一下武林各派的情况。",
+      "ja": "5002 - 莫問 $@$武学を教える前に、まず武林の各門派について大まかに説明しておこう。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$当今武林以少林、武当为首，其次便是人数众多的丐帮、隶属朝廷的六扇门和以铸剑之术闻名天下的名剑山庄等等。",
+      "ja": "5002 - 莫問 $@$今の武林は少林と武当を筆頭に、その次に門弟の多い丐幇、朝廷に属する六扇門、それに鋳剣の術で天下に名高い名剣山荘などがある。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$还有一些门派，比如南疆的五仙教、西域的神鹰门和关外的玄火教，他们多行事诡秘，正邪难辨……以后如果遇到了一定要小心。",
+      "ja": "5002 - 莫問 $@$ほかにも南疆の五仙教、西域の神鷹門、関外の玄火教などがある。そうした門派は行いが謎めいており、正邪の見分けもつきにくい……今後出会ったなら、くれぐれも用心するんだ。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可是师兄，之前在碗子山，就是一位玄火教的女侠帮我打败了钻山豹……",
+      "ja": "1 - 宇文逸 $@$しかし師兄、以前碗子山で、玄火教の女侠が私を助けて鑽山豹を倒してくれたのですが……"
+    },
+    {
+      "key": "5227_5_Dlgs_Index5_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$小逸你可不要轻易被魔教的人给骗了，他们可没一个善茬！",
+      "ja": "5012 - 莫棄 $@$小逸、魔教の者に簡単に騙されてはいけないよ。彼らは一人として善人ではない！"
+    },
+    {
+      "key": "5227_5_Dlgs_Index6_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$且不提教主玄离，光是他座下两大护法、四大使者手上就不知有多少人命！",
+      "ja": "5012 - 莫棄 $@$教主の玄離は言うまでもなく、その配下の二大護法、四大使者の手にはどれほどの命が奪われたか分からない！"
+    },
+    {
+      "key": "5227_5_Dlgs_Index7_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$据说那玄阴护法方阔海，就是因为灭了关外的黄沙帮满门才被人叫做血屠的！",
+      "ja": "5012 - 莫棄 $@$あの玄陰護法の方闊海は、関外の黄沙幇を皆殺しにしたからこそ血屠と呼ばれているそうだ！"
+    },
+    {
+      "key": "5227_5_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……原来那家伙也是个心狠手辣之辈？！",
+      "ja": "1 - 宇文逸 $@$……あいつも、そんな容赦のない奴だったのか？！"
+    },
+    {
+      "key": "5227_5_Dlgs_Index9_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$善恶从心……师弟你才刚入门，以后行走江湖见得多了自然就能分辨。",
+      "ja": "5002 - 莫問 $@$善悪は心に発するもの……師弟は入門したばかりだ。これから江湖を歩き、多くを見聞きすれば、自然と見分けられるようになる。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我明白了，多谢两位师兄提醒！",
+      "ja": "1 - 宇文逸 $@$分かりました。お二人とも、ありがとうございます！"
+    },
+    {
+      "key": "5227_5_Dlgs_Index11_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$嗯，那我们接着说……刚才提到的这些门派，每一个都有其各自最为擅长的武学。",
+      "ja": "5002 - 莫問 $@$ああ、では話を続けよう……今挙げた門派には、それぞれ得意とする武学がある。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index12_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$比如少林不喜杀孽，多以拳法应敌，丐帮因青竹杖是帮主信物，所以门下弟子多选棍法，玄火教尤擅刀法，神鹰门主暗器……",
+      "ja": "5002 - 莫問 $@$例えば少林は殺生を忌み、拳法で敵に当たることが多い。丐幇では青竹杖が幇主の証であるため、門下の多くが棍法を選ぶ。玄火教は刀法に長け、神鷹門は暗器を主とする……"
+    },
+    {
+      "key": "5227_5_Dlgs_Index13_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$……而我们武当，则是以<Y>剑法</>闻名。",
+      "ja": "5002 - 莫問 $@$……そして我ら武当は、<Y>剣法</>で名を馳せている。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index14_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$当然，除了师父和清霄师伯外，道妙师叔的太极拳和道微师叔的玄虚刀法同样不容小觑。",
+      "ja": "5002 - 莫問 $@$もちろん、師父と清霄師伯のほかにも、道妙師叔の太極拳や道微師叔の玄虚刀法は侮れぬ。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index15_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$不过于你目前而言，这些绝学仍稍显深奥。",
+      "ja": "5002 - 莫問 $@$だが、今の師弟には、どれもまだ難しすぎる。"
+    },
+    {
+      "key": "5227_5_Dlgs_Index16_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$你若有兴趣，此后可以先去找<Y>道妙师叔学习拳法和刀法的入门招式</>，由浅而深，循序渐进。",
+      "ja": "5002 - 莫問 $@$興味があるなら、まずは<Y>道妙師叔のもとで拳法と刀法の入門技を学ぶ</>といい。基礎から順を追って修めていくんだ。"
+    },
+    {
+      "key": "5229_1_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我明白了，多谢师兄指点！",
+      "ja": "1 - 宇文逸 $@$分かりました。ありがとうございます、師兄！"
+    },
+    {
+      "key": "5229_1_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$嗯，相关的情况今天就先说到这里……因为师父和我修的都是剑法，今天我便先教你基础的<Y>武当剑法</>吧。",
+      "ja": "5002 - 莫問 $@$ああ、門派の話は今日はここまでにしよう……師父もわたしも剣法を修めている。今日はまず、基礎の<Y>武当剣法</>を教えよう。"
+    },
+    {
+      "key": "5229_1_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$对了，我看师弟似乎没有趁手的武器……",
+      "ja": "5002 - 莫問 $@$そういえば、師弟はまだ手になじむ武器を持っていないようだな……"
+    },
+    {
+      "key": "5229_1_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$这把剑是我当初正式入门时师父所赠，现在把它送给你，算是贺你入门吧！",
+      "ja": "5002 - 莫問 $@$この剣は、わたしが正式に入門した時、師父から頂いたものだ。今度はわたしから師弟に贈ろう。入門祝いとして受け取ってくれ。"
+    },
+    {
+      "key": "5229_2_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好锋利的剑，多谢师兄！",
+      "ja": "1 - 宇文逸 $@$すごい……よく切れそうな剣ですね。ありがとうございます、師兄！"
+    },
+    {
+      "key": "5229_2_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$你喜欢就好。",
+      "ja": "5002 - 莫問 $@$気に入ってくれれば、それでいい。"
+    },
+    {
+      "key": "5229_2_Dlgs_Index2_Text",
+      "speaker": "莫弃",
+      "zh": "5012 - 莫弃 $@$啊！大师兄你偏心，我入门的时候你都没有送过我东西！",
+      "ja": "5012 - 莫棄 $@$ああ！大師兄はひいきだ！俺が入門した時は何もくれなかったのに！"
+    },
+    {
+      "key": "5229_3_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$你入门时清霄师伯早就备好一切，哪里需要我再锦上添花。",
+      "ja": "5002 - 莫問 $@$お前が入門した時には、清霄師伯がとっくに一式用意してくださっていただろう。わたしまで何か贈る必要はなかったさ。"
+    },
+    {
+      "key": "5229_3_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$再说近来天龙帮接连残害了不少关外的百姓……",
+      "ja": "5002 - 莫問 $@$それに近頃、天龍幇は関外の民を次々と手にかけている……"
+    },
+    {
+      "key": "5229_3_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$师父因此无暇他顾，将宇文师弟交托于我，我自然需要多照顾他几分……",
+      "ja": "5002 - 莫問 $@$師父はその件で手が離せず、宇文師弟をわたしに託された。なら、わたしが少しくらい面倒を見るのは当然だ……"
+    },
+    {
+      "key": "5229_3_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（原来天龙帮的事已经这么严重了吗……）",
+      "ja": "1 - 宇文逸 $@$（まさか天龍幇の件がここまで深刻だったとは……）"
+    },
+    {
+      "key": "5229_4_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$……好了，接下来我先演示一边武当剑法，师弟请看好了。",
+      "ja": "5002 - 莫問 $@$……さて、まずは武当剣法を一度演じてみせよう。師弟、よく見ておくんだ。"
+    },
+    {
+      "key": "5229_4_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好的！",
+      "ja": "1 - 宇文逸 $@$分かりました！"
+    },
+    {
+      "key": "5229_6_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$师弟你也来试试吧。",
+      "ja": "5002 - 莫問 $@$師弟も試してみなさい。"
+    },
+    {
+      "key": "5229_6_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好！",
+      "ja": "1 - 宇文逸 $@$分かりました！"
+    },
+    {
+      "key": "5229_9_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$还有这里，手臂抬高……",
+      "ja": "5002 - 莫問 $@$それからここ、腕を高く上げて……"
+    },
+    {
+      "key": "5229_9_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$原来是这样，师兄我明白了！",
+      "ja": "1 - 宇文逸 $@$なるほど、師兄、分かりました！"
+    },
+    {
+      "key": "5229_10_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$嗯，师弟再试一次吧。",
+      "ja": "5002 - 莫問 $@$うむ、師弟、もう一度試してみなさい。"
+    },
+    {
+      "key": "5229_10_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好的！",
+      "ja": "1 - 宇文逸 $@$分かりました！"
+    },
+    {
+      "key": "5229_11_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师兄，你看我这次练得怎么样？！",
+      "ja": "1 - 宇文逸 $@$師兄、今回の私の稽古はどうでしたか？！"
+    },
+    {
+      "key": "5229_11_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$很不错，稍加点拨便能领悟其中精要……接下来我再教你武当心法的口诀，有心法相辅相成，剑招方能更显威力。",
+      "ja": "5002 - 莫問 $@$なかなかいい。少し手ほどきしただけで、その要を悟るとは……次は武当心法の口訣を教えよう。心法を合わせてこそ、剣招もいっそう威力を増す。"
+    },
+    {
+      "key": "5229_12_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$气敛于内，剑以意行，劲凝臂指……",
+      "ja": "5002 - 莫問 $@$気は内に収め、剣は意をもって行い、勁は腕指に凝らす……"
+    },
+    {
+      "key": "5229_12_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$剑以意行，劲凝臂指……",
+      "ja": "1 - 宇文逸 $@$剣は意をもって行い、勁は腕指に凝らす……"
+    },
+    {
+      "key": "5229_13_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师兄，我好像已经学会了！！",
+      "ja": "1 - 宇文逸 $@$師兄、もう覚えたようです！！"
+    },
+    {
+      "key": "5229_13_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5002 - 莫问 $@$嗯，师弟你学得很快。",
+      "ja": "5002 - 莫問 $@$うむ、師弟は覚えが早いな。"
+    }
+  ],
+  "candidate_questions": [
+    "施設案内から武学初伝へ移る莫問の兄弟子常体が、命令的または過剰敬語へ振れていないか",
+    "莫棄の誇張した軽口と宇文逸の素直な返しを、説明文や均一な丁寧体へ平坦化していないか",
+    "門派・武学・剣の由来・心法口訣を、話者の説明範囲を越えた設定断定や現代語へ置き換えていないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "妙手丹仙",
+      "心有余悸",
+      "一表人才・如花似玉",
+      "锦上添花",
+      "循序渐进",
+      "气敛于内，剑以意行，劲凝臂指"
+    ],
+    "fact_doubts": [
+      "宮中から道玄へ錬丹依頼が来るという説明は莫問の発言範囲に留め、頻度や依頼者を補完しない",
+      "祖師殿に真武剣が祀られ掌門即位時だけ開くという説明は莫問が師父から聞いた情報であり、本人も未見とする",
+      "玄火教各人物の悪行と異名は莫棄の伝聞を含み、客観的確定や教団全体の一律評価へ広げない",
+      "各門派が得意とする武学は莫問の入門向け概説であり、唯一の武学体系や絶対的分類へ固定しない",
+      "天龍幇が関外の民を害しているという説明は莫問の現在認識であり、被害規模や事件の全容を補完しない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 69,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json",
+        "keys": [
+          "5224_1_Dlgs_Index1_Text",
+          "5224_1_Dlgs_Index3_Text",
+          "5224_2_Dlgs_Index0_Text",
+          "5224_2_Dlgs_Index2_Text",
+          "5224_2_Dlgs_Index3_Text",
+          "5227_1_Dlgs_Index0_Text",
+          "5227_1_Dlgs_Index2_Text",
+          "5227_1_Dlgs_Index4_Text",
+          "5227_1_Dlgs_Index6_Text",
+          "5227_2_Dlgs_Index6_Text",
+          "5227_3_Dlgs_Index4_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json",
+        "keys": [
+          "5227_5_Dlgs_Index0_Text",
+          "5227_5_Dlgs_Index11_Text",
+          "5227_5_Dlgs_Index12_Text",
+          "5227_5_Dlgs_Index13_Text",
+          "5227_5_Dlgs_Index14_Text",
+          "5227_5_Dlgs_Index15_Text",
+          "5227_5_Dlgs_Index16_Text",
+          "5227_5_Dlgs_Index1_Text",
+          "5227_5_Dlgs_Index2_Text",
+          "5227_5_Dlgs_Index9_Text",
+          "5229_11_Dlgs_Index1_Text",
+          "5229_13_Dlgs_Index1_Text",
+          "5229_1_Dlgs_Index1_Text",
+          "5229_1_Dlgs_Index2_Text",
+          "5229_1_Dlgs_Index3_Text",
+          "5229_2_Dlgs_Index1_Text",
+          "5229_4_Dlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch56.json",
+        "keys": [
+          "5227_3_Dlgs_Index0_Text",
+          "5227_3_Dlgs_Index3_Text",
+          "5227_5_Dlgs_Index10_Text",
+          "5227_5_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch57.json",
+        "keys": [
+          "5229_1_Dlgs_Index0_Text",
+          "5229_2_Dlgs_Index0_Text",
+          "5229_3_Dlgs_Index0_Text",
+          "5229_3_Dlgs_Index1_Text",
+          "5229_3_Dlgs_Index2_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "5224_1_Dlgs_Index0_Text",
+      "5224_1_Dlgs_Index2_Text",
+      "5224_2_Dlgs_Index1_Text",
+      "5224_2_Dlgs_Index4_Text",
+      "5227_1_Dlgs_Index1_Text",
+      "5227_1_Dlgs_Index3_Text",
+      "5227_1_Dlgs_Index5_Text",
+      "5227_1_Dlgs_Index7_Text",
+      "5227_2_Dlgs_Index1_Text",
+      "5227_2_Dlgs_Index2_Text",
+      "5227_2_Dlgs_Index3_Text",
+      "5227_2_Dlgs_Index4_Text",
+      "5227_2_Dlgs_Index5_Text",
+      "5227_3_Dlgs_Index1_Text",
+      "5227_3_Dlgs_Index2_Text",
+      "5227_5_Dlgs_Index4_Text",
+      "5227_5_Dlgs_Index5_Text",
+      "5227_5_Dlgs_Index6_Text",
+      "5227_5_Dlgs_Index7_Text",
+      "5229_10_Dlgs_Index0_Text",
+      "5229_10_Dlgs_Index1_Text",
+      "5229_11_Dlgs_Index0_Text",
+      "5229_12_Dlgs_Index0_Text",
+      "5229_12_Dlgs_Index1_Text",
+      "5229_13_Dlgs_Index0_Text",
+      "5229_2_Dlgs_Index2_Text",
+      "5229_3_Dlgs_Index3_Text",
+      "5229_4_Dlgs_Index1_Text",
+      "5229_6_Dlgs_Index0_Text",
+      "5229_6_Dlgs_Index1_Text",
+      "5229_9_Dlgs_Index0_Text",
+      "5229_9_Dlgs_Index1_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/元啓.md",
+        "digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5224_1_Dlgs_Index0_Text",
+          "5224_1_Dlgs_Index2_Text",
+          "5224_2_Dlgs_Index4_Text",
+          "5227_1_Dlgs_Index1_Text",
+          "5227_1_Dlgs_Index3_Text",
+          "5227_1_Dlgs_Index5_Text",
+          "5227_1_Dlgs_Index7_Text",
+          "5227_2_Dlgs_Index3_Text",
+          "5227_3_Dlgs_Index0_Text",
+          "5227_3_Dlgs_Index3_Text",
+          "5227_5_Dlgs_Index4_Text",
+          "5227_5_Dlgs_Index8_Text",
+          "5227_5_Dlgs_Index10_Text",
+          "5229_1_Dlgs_Index0_Text",
+          "5229_2_Dlgs_Index0_Text",
+          "5229_3_Dlgs_Index3_Text",
+          "5229_4_Dlgs_Index1_Text",
+          "5229_6_Dlgs_Index1_Text",
+          "5229_9_Dlgs_Index1_Text",
+          "5229_10_Dlgs_Index1_Text",
+          "5229_11_Dlgs_Index0_Text",
+          "5229_12_Dlgs_Index1_Text",
+          "5229_13_Dlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5224_1_Dlgs_Index1_Text",
+          "5224_1_Dlgs_Index3_Text",
+          "5224_2_Dlgs_Index0_Text",
+          "5224_2_Dlgs_Index1_Text",
+          "5224_2_Dlgs_Index2_Text",
+          "5224_2_Dlgs_Index3_Text",
+          "5227_1_Dlgs_Index0_Text",
+          "5227_1_Dlgs_Index2_Text",
+          "5227_1_Dlgs_Index4_Text",
+          "5227_1_Dlgs_Index6_Text",
+          "5227_2_Dlgs_Index5_Text",
+          "5227_2_Dlgs_Index6_Text",
+          "5227_3_Dlgs_Index4_Text",
+          "5227_5_Dlgs_Index0_Text",
+          "5227_5_Dlgs_Index1_Text",
+          "5227_5_Dlgs_Index2_Text",
+          "5227_5_Dlgs_Index9_Text",
+          "5227_5_Dlgs_Index11_Text",
+          "5227_5_Dlgs_Index12_Text",
+          "5227_5_Dlgs_Index13_Text",
+          "5227_5_Dlgs_Index14_Text",
+          "5227_5_Dlgs_Index15_Text",
+          "5227_5_Dlgs_Index16_Text",
+          "5229_1_Dlgs_Index1_Text",
+          "5229_1_Dlgs_Index2_Text",
+          "5229_1_Dlgs_Index3_Text",
+          "5229_2_Dlgs_Index1_Text",
+          "5229_3_Dlgs_Index0_Text",
+          "5229_3_Dlgs_Index1_Text",
+          "5229_3_Dlgs_Index2_Text",
+          "5229_4_Dlgs_Index0_Text",
+          "5229_6_Dlgs_Index0_Text",
+          "5229_9_Dlgs_Index0_Text",
+          "5229_10_Dlgs_Index0_Text",
+          "5229_11_Dlgs_Index1_Text",
+          "5229_12_Dlgs_Index0_Text",
+          "5229_13_Dlgs_Index1_Text"
+        ]
+      },
+      {
+        "path": "10_人物/元啓.md",
+        "digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+        "document_type": "persona",
+        "name": "元啓",
+        "aliases": [
+          "元啓",
+          "元启"
+        ],
+        "evidence_keys": [
+          "5227_3_Dlgs_Index1_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "莫弃"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:b265b88188541d26b4ea79a76c44f5d67015689f1940cb7193b16f35b7cf667f"
+  }
+}

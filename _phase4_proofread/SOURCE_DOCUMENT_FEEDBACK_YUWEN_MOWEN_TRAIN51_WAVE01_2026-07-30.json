@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5224_1_Dlgs_Index0_Text",
+        "5224_2_Dlgs_Index4_Text",
+        "5227_1_Dlgs_Index1_Text",
+        "5227_1_Dlgs_Index3_Text",
+        "5227_1_Dlgs_Index5_Text",
+        "5227_2_Dlgs_Index3_Text",
+        "5229_11_Dlgs_Index0_Text",
+        "5229_13_Dlgs_Index0_Text"
+      ],
+      "reason": "入門後の宇文逸は師兄・師伯へ自然な敬体を保ちつつ、驚き、気まずさ、習得の喜びでは短句と素直な問いを使う。現行資料の武当平時M1b、問いかけ、敬意の規則と整合し、改訂は不要。",
+      "scope": {
+        "scenes": [
+          "5224_1",
+          "5224_2",
+          "5227_1",
+          "5227_2",
+          "5227_3",
+          "5227_5",
+          "5229_1",
+          "5229_2",
+          "5229_3",
+          "5229_4",
+          "5229_6",
+          "5229_9",
+          "5229_10",
+          "5229_11",
+          "5229_12",
+          "5229_13"
+        ],
+        "counterpart": "莫問・清霄・莫棄・元啓",
+        "mode": "武当入門直後の施設案内・同門紹介・武学初伝"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5224_1_Dlgs_Index3_Text",
+        "5224_2_Dlgs_Index3_Text",
+        "5227_1_Dlgs_Index2_Text",
+        "5227_3_Dlgs_Index4_Text",
+        "5227_5_Dlgs_Index0_Text",
+        "5227_5_Dlgs_Index9_Text",
+        "5229_1_Dlgs_Index3_Text",
+        "5229_3_Dlgs_Index2_Text",
+        "5229_6_Dlgs_Index0_Text",
+        "5229_12_Dlgs_Index0_Text"
+      ],
+      "reason": "宇文師弟へ情報と次の行動を順序立て、師伯・師叔への敬意と弟弟子への柔らかな常体を分離し、剣の贈与や指導を恩着せがましく語らない。現行資料の入門直後の兄弟子モードに整合し、反例や新規規則はない。",
+      "scope": {
+        "scenes": [
+          "5224_1",
+          "5224_2",
+          "5227_1",
+          "5227_2",
+          "5227_3",
+          "5227_5",
+          "5229_1",
+          "5229_2",
+          "5229_3",
+          "5229_4",
+          "5229_6",
+          "5229_9",
+          "5229_10",
+          "5229_11",
+          "5229_12",
+          "5229_13"
+        ],
+        "counterpart": "宇文逸・莫棄・元啓",
+        "timeline": "武当入門直後の案内・教導・世話"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元啓.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5227_3_Dlgs_Index1_Text"
+      ],
+      "reason": "宇文師弟という向きを保ち、後輩へ礼を解く柔らかな常体を用いる一行は、現行資料の生真面目で謙虚な兄弟子モードと整合する。単独一行から新規規則を作らない。",
+      "scope": {
+        "scene": "5227_3",
+        "counterpart": "宇文逸",
+        "mode": "新入りの弟弟子への初対面挨拶"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+      "after_digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-51",
+  "wave_id": "yuwen-mowen-train-51-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN51_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5224_1_5229_13_2026-07-30.json",
+      "manifest_digest": "sha256:b265b88188541d26b4ea79a76c44f5d67015689f1940cb7193b16f35b7cf667f"
+    }
+  ]
+}
