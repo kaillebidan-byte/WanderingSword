@@ -1,0 +1,333 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-57",
+  "wave_id": "yuwen-mowen-train-57-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30513303813,
+    "artifact_id": 8747926235,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:6812da531fcec0642c1249e957136d86f666c9edfb03fb7ae2164c16730d872c",
+    "head_sha": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train57-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_5_5370_1_2026-07-30.json",
+      "scene_groups": [
+        "5358_5",
+        "5359_3",
+        "5359_4",
+        "5359_5",
+        "5370_1"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5359_5_Dlgs_Index1_Text",
+          "before": "5015 - 莫問 $@$（声を潜めて）わたしが外を見てくる。師弟は皆を起こしてくれ！",
+          "after": "5015 - 莫問 $@$（声を潜めて）わたしが外を見てくる。急いで皆を起こしてくれ！",
+          "reason": "meaning/voice: 「你赶快叫醒他们」は宇文逸へ、急いで全員を起こすよう命じる危機時の指示。現訳では「赶快」の緊迫が落ち、原文にない呼称「師弟」が主題として加わっているため、莫問の危機判断に合う短い命令へ戻す。"
+        }
+      ],
+      "keeps": [
+        "5358_5_Dlgs_Index0_Text",
+        "5358_5_Dlgs_Index1_Text",
+        "5358_5_Dlgs_Index2_Text",
+        "5358_5_Dlgs_Index3_Text",
+        "5358_5_Dlgs_Index4_Text",
+        "5358_5_Dlgs_Index5_Text",
+        "5358_5_Dlgs_Index6_Text",
+        "5358_5_Dlgs_Index7_Text",
+        "5358_5_Dlgs_Index8_Text",
+        "5358_5_Dlgs_Index9_Text",
+        "5358_5_Dlgs_Index10_Text",
+        "5358_5_Dlgs_Index11_Text",
+        "5358_5_Dlgs_Index12_Text",
+        "5358_5_Dlgs_Index13_Text",
+        "5358_5_Dlgs_Index14_Text",
+        "5358_5_Dlgs_Index15_Text",
+        "5358_5_Dlgs_Index16_Text",
+        "5358_5_Dlgs_Index17_Text",
+        "5358_5_Dlgs_Index18_Text",
+        "5358_5_Dlgs_Index19_Text",
+        "5358_5_Dlgs_Index20_Text",
+        "5358_5_Dlgs_Index21_Text",
+        "5358_5_Dlgs_Index22_Text",
+        "5358_5_Dlgs_Index23_Text",
+        "5358_5_Dlgs_Index24_Text",
+        "5359_3_Dlgs_Index0_Text",
+        "5359_3_Dlgs_Index1_Text",
+        "5359_3_Dlgs_Index2_Text",
+        "5359_3_Dlgs_Index3_Text",
+        "5359_3_Dlgs_Index4_Text",
+        "5359_3_Dlgs_Index5_Text",
+        "5359_3_Dlgs_Index7_Text",
+        "5359_4_Dlgs_Index0_Text",
+        "5359_4_Dlgs_Index1_Text",
+        "5359_5_Dlgs_Index0_Text",
+        "5359_5_Dlgs_Index2_Text",
+        "5370_1_Dlgs_Index0_Text",
+        "5370_1_Dlgs_Index1_Text",
+        "5370_1_Dlgs_Index2_Text"
+      ],
+      "allusion_review_candidates": [
+        "少林七十二绝技",
+        "禅宗伏魔功",
+        "阿弥陀佛",
+        "与人方便与己方便",
+        "不见不散",
+        "坐以待毙"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5358_5_Dlgs_Index5_Text",
+          "decision": "武功体系名として原語維持",
+          "note": "「少林七十二绝技」は少林の武功体系を指す固有名。技名・武功名の規則に従い、日本語字形の「少林七十二絶技」を保持する。"
+        },
+        {
+          "key": "5358_5_Dlgs_Index5_Text",
+          "decision": "武功名として原語維持",
+          "note": "「禅宗伏魔功」は慧空が修めた武功名。古典句として読み下さず、既訳の「禅宗伏魔功」を保持する。"
+        },
+        {
+          "key": "5358_5_Dlgs_Index6_Text",
+          "decision": "仏教の定型念仏",
+          "note": "「阿弥陀佛」は慧空が謙遜や謝意の前に唱える定型句。既定の日本語形「南無阿弥陀仏」を保持し、5358_5のIndex17・Index24も同じ機能として扱う。"
+        },
+        {
+          "key": "5358_5_Dlgs_Index15_Text",
+          "decision": "定着した諺",
+          "note": "「与人方便与己方便」は人に便宜を図れば自分にも返るという定着した諺。宇文逸が相互扶助を勧める場面では「困ったときはお互いさま」が機能と温度を保つため保持する。"
+        },
+        {
+          "key": "5358_5_Dlgs_Index22_Text",
+          "decision": "定着した約束表現",
+          "note": "「不见不散」は会うまで待つという約束の定型表現。慧平の「必ず落ち合おう」と宇文逸の「約束ですよ」は連続発話として自然で、字面の反復より場面機能を保っている。"
+        },
+        {
+          "key": "5359_5_Dlgs_Index0_Text",
+          "decision": "定着した成語",
+          "note": "「坐以待毙」は何もせず死を待つ意の成語。現訳の「座して死を待つ」は像と切迫を保ち、莫問の危機判断として自然なため保持する。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "hearsay_about_skill",
+          "keys": [
+            "5358_5_Dlgs_Index5_Text"
+          ],
+          "note": "慧空が少林七十二絶技を幼少から修め、禅宗伏魔功を化境まで極めたという評価は莫問が以前から聞いていた評判に基づく。慧空の客観的な到達度として補強しない。"
+        },
+        {
+          "scope": "speaker_inference",
+          "keys": [
+            "5358_5_Dlgs_Index11_Text",
+            "5358_5_Dlgs_Index12_Text"
+          ],
+          "note": "城内の宿がすべて満室らしいという判断は、丘掌柜の説明を受けた莫問の推測。全宿の実在状況を確定した事実へ強めない。"
+        },
+        {
+          "scope": "speaker_report_and_plan",
+          "keys": [
+            "5358_5_Dlgs_Index19_Text",
+            "5358_5_Dlgs_Index20_Text",
+            "5358_5_Dlgs_Index21_Text",
+            "5358_5_Dlgs_Index22_Text",
+            "5358_5_Dlgs_Index23_Text"
+          ],
+          "note": "慧平と慧空が名剣山荘・品剣大会へ向かうこと、翌日に武当一行と同行することは慧平の発言とその場の合意に限定する。道中や大会参加条件を補完しない。"
+        },
+        {
+          "scope": "unresolved_attack",
+          "keys": [
+            "5359_3_Dlgs_Index4_Text",
+            "5359_3_Dlgs_Index7_Text",
+            "5359_4_Dlgs_Index0_Text",
+            "5359_5_Dlgs_Index0_Text",
+            "5359_5_Dlgs_Index1_Text"
+          ],
+          "note": "姑蘇入り後の異変、戸外の物音、迷煙は当夜に莫問が察知した危険であり、このpacketでは実行者と目的が未解決。既知の敵や直前の手配者へ結びつけない。"
+        },
+        {
+          "scope": "timeline_gap",
+          "keys": [
+            "5370_1_Dlgs_Index0_Text",
+            "5370_1_Dlgs_Index1_Text",
+            "5370_1_Dlgs_Index2_Text"
+          ],
+          "note": "5370_1は夜襲場面の後に品剣大会が始まる結節。間の解決過程や移動を台詞へ補わず、欧陽荘主の登場と着席指示だけを保持する。"
+        }
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:35cdcaef3ac8d4b1b3990994561ab8b5633070309ec33cea796f238d73043102",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/慧平.md",
+            "digest": "sha256:847acbb0e4f2e81d48ca44f57ad208e4caf8a27689bb6ee251825082c39c8214",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/慧空.md",
+            "digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/慧平.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5358_5_Dlgs_Index0_Text",
+            "5358_5_Dlgs_Index3_Text",
+            "5358_5_Dlgs_Index4_Text",
+            "5358_5_Dlgs_Index8_Text",
+            "5358_5_Dlgs_Index9_Text",
+            "5358_5_Dlgs_Index18_Text",
+            "5358_5_Dlgs_Index19_Text",
+            "5358_5_Dlgs_Index21_Text",
+            "5358_5_Dlgs_Index22_Text"
+          ],
+          "reason": "莫問との再会を喜ぶ快活さ、師兄を砕けた口調で紹介する親しさ、空室がない状況への率直な不満、同行を即座に決める勢いは、現行資料の明るく気のいい若僧像と整合する。",
+          "scope": {
+            "relationship": "莫問・宇文逸・慧空との旅先の交流",
+            "timeline": "姑蘇の迎仙楼・品剣大会前夜"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5358_5_Dlgs_Index1_Text",
+            "5358_5_Dlgs_Index2_Text",
+            "5358_5_Dlgs_Index5_Text",
+            "5358_5_Dlgs_Index10_Text",
+            "5358_5_Dlgs_Index11_Text",
+            "5358_5_Dlgs_Index12_Text",
+            "5359_3_Dlgs_Index0_Text",
+            "5359_3_Dlgs_Index3_Text",
+            "5359_3_Dlgs_Index4_Text",
+            "5359_3_Dlgs_Index5_Text",
+            "5359_3_Dlgs_Index7_Text",
+            "5359_4_Dlgs_Index0_Text",
+            "5359_5_Dlgs_Index0_Text",
+            "5359_5_Dlgs_Index1_Text",
+            "5370_1_Dlgs_Index0_Text",
+            "5370_1_Dlgs_Index1_Text"
+          ],
+          "reason": "少林僧への折り目正しい敬体、部屋を融通する世話、同門の安全を負う兄弟子としての夜警、異変察知後の短い判断と指示は、現行資料の対外礼・世話・危機判断モードで説明できる。訳文一行の緊迫修正だけで資料改訂は不要。",
+          "scope": {
+            "relationship": "少林僧への対外折衝と宇文逸ら武当同門への指揮",
+            "timeline": "姑蘇到着後・迎仙楼の夜から品剣大会開幕"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/慧空.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5358_5_Dlgs_Index6_Text",
+            "5358_5_Dlgs_Index7_Text",
+            "5358_5_Dlgs_Index13_Text",
+            "5358_5_Dlgs_Index14_Text",
+            "5358_5_Dlgs_Index17_Text",
+            "5358_5_Dlgs_Index24_Text"
+          ],
+          "reason": "称賛への謙遜、無塵剣を立てる返礼、武当一行の窮屈を案じて辞退する慎重さ、念仏を伴う謝意は、現行資料の生真面目で謙虚な若僧像と整合する。",
+          "scope": {
+            "relationship": "莫問・宇文逸ら武当一行への初対面の礼",
+            "timeline": "姑蘇の迎仙楼・相部屋の申し出"
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5358_5_Dlgs_Index15_Text",
+            "5358_5_Dlgs_Index16_Text",
+            "5358_5_Dlgs_Index20_Text",
+            "5358_5_Dlgs_Index23_Text",
+            "5359_3_Dlgs_Index1_Text",
+            "5359_3_Dlgs_Index2_Text",
+            "5359_4_Dlgs_Index1_Text",
+            "5359_5_Dlgs_Index2_Text",
+            "5370_1_Dlgs_Index2_Text"
+          ],
+          "reason": "少林僧へ相互扶助を勧める自然な敬体、翌日の同行を喜ぶ明るさ、莫問へ事情を尋ねる同門敬語、危機時の短い服命は、現行資料の対外・武当平時・緊張時の切替と整合する。",
+          "scope": {
+            "relationship": "少林僧への対外礼と莫問師兄への応答",
+            "timeline": "姑蘇の迎仙楼・品剣大会前夜から開幕"
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/慧平.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5358_5_Dlgs_Index0_Text",
+        "5358_5_Dlgs_Index3_Text",
+        "5358_5_Dlgs_Index4_Text",
+        "5358_5_Dlgs_Index8_Text",
+        "5358_5_Dlgs_Index9_Text",
+        "5358_5_Dlgs_Index18_Text",
+        "5358_5_Dlgs_Index19_Text",
+        "5358_5_Dlgs_Index21_Text",
+        "5358_5_Dlgs_Index22_Text"
+      ],
+      "reason": "莫問との再会を喜ぶ快活さ、師兄を砕けた口調で紹介する親しさ、空室がない状況への率直な不満、同行を即座に決める勢いは、現行資料の明るく気のいい若僧像と整合する。",
+      "scope": {
+        "relationship": "莫問・宇文逸・慧空との旅先の交流",
+        "timeline": "姑蘇の迎仙楼・品剣大会前夜"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:847acbb0e4f2e81d48ca44f57ad208e4caf8a27689bb6ee251825082c39c8214",
+      "after_digest": "sha256:847acbb0e4f2e81d48ca44f57ad208e4caf8a27689bb6ee251825082c39c8214",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5358_5_Dlgs_Index1_Text",
+        "5358_5_Dlgs_Index2_Text",
+        "5358_5_Dlgs_Index5_Text",
+        "5358_5_Dlgs_Index10_Text",
+        "5358_5_Dlgs_Index11_Text",
+        "5358_5_Dlgs_Index12_Text",
+        "5359_3_Dlgs_Index0_Text",
+        "5359_3_Dlgs_Index3_Text",
+        "5359_3_Dlgs_Index4_Text",
+        "5359_3_Dlgs_Index5_Text",
+        "5359_3_Dlgs_Index7_Text",
+        "5359_4_Dlgs_Index0_Text",
+        "5359_5_Dlgs_Index0_Text",
+        "5359_5_Dlgs_Index1_Text",
+        "5370_1_Dlgs_Index0_Text",
+        "5370_1_Dlgs_Index1_Text"
+      ],
+      "reason": "少林僧への折り目正しい敬体、部屋を融通する世話、同門の安全を負う兄弟子としての夜警、異変察知後の短い判断と指示は、現行資料の対外礼・世話・危機判断モードで説明できる。訳文一行の緊迫修正だけで資料改訂は不要。",
+      "scope": {
+        "relationship": "少林僧への対外折衝と宇文逸ら武当同門への指揮",
+        "timeline": "姑蘇到着後・迎仙楼の夜から品剣大会開幕"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/慧空.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5358_5_Dlgs_Index6_Text",
+        "5358_5_Dlgs_Index7_Text",
+        "5358_5_Dlgs_Index13_Text",
+        "5358_5_Dlgs_Index14_Text",
+        "5358_5_Dlgs_Index17_Text",
+        "5358_5_Dlgs_Index24_Text"
+      ],
+      "reason": "称賛への謙遜、無塵剣を立てる返礼、武当一行の窮屈を案じて辞退する慎重さ、念仏を伴う謝意は、現行資料の生真面目で謙虚な若僧像と整合する。",
+      "scope": {
+        "relationship": "莫問・宇文逸ら武当一行への初対面の礼",
+        "timeline": "姑蘇の迎仙楼・相部屋の申し出"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+      "after_digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5358_5_Dlgs_Index15_Text",
+        "5358_5_Dlgs_Index16_Text",
+        "5358_5_Dlgs_Index20_Text",
+        "5358_5_Dlgs_Index23_Text",
+        "5359_3_Dlgs_Index1_Text",
+        "5359_3_Dlgs_Index2_Text",
+        "5359_4_Dlgs_Index1_Text",
+        "5359_5_Dlgs_Index2_Text",
+        "5370_1_Dlgs_Index2_Text"
+      ],
+      "reason": "少林僧へ相互扶助を勧める自然な敬体、翌日の同行を喜ぶ明るさ、莫問へ事情を尋ねる同門敬語、危機時の短い服命は、現行資料の対外・武当平時・緊張時の切替と整合する。",
+      "scope": {
+        "relationship": "少林僧への対外礼と莫問師兄への応答",
+        "timeline": "姑蘇の迎仙楼・品剣大会前夜から開幕"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-57",
+  "wave_id": "yuwen-mowen-train-57-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN57_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_5_5370_1_2026-07-30.json",
+      "manifest_digest": "sha256:35cdcaef3ac8d4b1b3990994561ab8b5633070309ec33cea796f238d73043102"
+    }
+  ]
+}

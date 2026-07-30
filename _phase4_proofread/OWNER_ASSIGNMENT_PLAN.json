@@ -2,15 +2,13 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch101.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_5_5370_1_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch102.json",
       "values": {
-        "5353_5_Dlgs_Index0_Text": "5015 - 莫問 $@$先ほどの袖裡乾坤、影も形も捉えられぬ妙技……並の使い手ではあるまい。差し支えなければ、お名前を伺いたい。",
-        "5353_5_Dlgs_Index2_Text": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、師匠の俺を知らねえのか？"
+        "5359_5_Dlgs_Index1_Text": "5015 - 莫問 $@$（声を潜めて）わたしが外を見てくる。急いで皆を起こしてくれ！"
       },
       "fix_keys": [
-        "5353_5_Dlgs_Index0_Text",
-        "5353_5_Dlgs_Index2_Text"
+        "5359_5_Dlgs_Index1_Text"
       ]
     }
   ]
