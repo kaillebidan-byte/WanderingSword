@@ -1,1 +1,87 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-56","branch":"agent/yuwen-mowen-train-56","draft_pr":213,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":213,"merge_sha":"33c02d7d4aa3bf2a8aa483404d3756d9b47664d8"},"base_checkpoint":{"batch":186,"pair_applied_keys":1404,"project_applied_keys":1780,"produced_by_pr":212,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-55-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_55.json","pr":212,"validated_head":"47b34313b6413e11e578f3db9328dc2326c0bdd1"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":62,"reviewed_keys":62,"unique_reviewed_rows":62,"fix_keys":2,"unique_fix_rows":2,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":2,"keep_only_bundles":0},"bundles":[{"batch":187,"review_status":"complete","apply_status":"verified","scene_groups":["5352_1","5352_3","5353_5","5357_1","5357_2","5358_1"],"reviewed_rows":62,"reviewed_keys":62,"unique_rows":62,"fix_keys":2,"unique_fix_rows":2,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":2,"keep_keys":60,"fix_files":["_phase4_proofread/fixes_cross_register_dubiao_roadside_humiliation_20260724.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch5.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH187_2026-07-30.md","ownership_summary":{"existing_keys":51,"unowned_kept":11,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["袖里乾坤","士可杀不可辱","放马过来","阎罗殿","既来之则安之","无坚不摧"],"allusion_review_resolved":[{"key":"5353_5_Dlgs_Index0_Text","decision":"技名として原語維持","note":"「袖里乾坤」は杜彪の暗器技を指す技名。特定典籍の引用として読み下さず、既訳の「袖裡乾坤」を保持する。"},{"key":"5353_5_Dlgs_Index16_Text","decision":"定着した格言","note":"「士可杀不可辱」は命より名誉を重んじる定着格言。特定出典の直引用へ過剰同定せず、「士は殺されても辱めは受けぬ」で格調と反抗を保つ。"},{"key":"5353_5_Dlgs_Index17_Text","decision":"定着した挑発表現","note":"「放马过来」は相手へ攻撃を促す定着表現。現訳の「やれるものなら、かかってこい」で挑発機能と勢いを保つ。"},{"key":"5353_5_Dlgs_Index19_Text","decision":"仏教・民間信仰の定着語","note":"「阎罗殿」は死後の裁きの場を指す定着語。引用句ではなく、現訳の「閻羅殿」を保持する。"},{"key":"5358_1_Dlgs_Index10_Text","decision":"古典由来の定着成語","note":"「既来之则安之」は『論語』季氏篇に由来するが、ここでは宿へ来た以上ひとまず落ち着くという成語機能。現訳は場面に合わせて「ここまで来たのだ。ひとまず休ませてもらおう」と保持する。"},{"key":"5352_3_Dlgs_Index7_Text","decision":"定着した成語","note":"「无坚不摧」は何ものも破れないほど鋭いという誇張成語。莫棄の伝聞と誇張として「斬れぬものなし」を保持し、無塵の客観性能へ一般化しない。"}],"fact_doubts":[{"scope":"speaker_inference","keys":["5352_1_Dlgs_Index1_Text","5352_1_Dlgs_Index2_Text"],"note":"笛で毒蛇を操る手段を五仙教と見るのは莫問の推測で、小彤本人を疑うのは宇文逸の反応に留まる。実行者を確定しない。"},{"scope":"hearsay_and_exaggeration","keys":["5352_3_Dlgs_Index7_Text","5352_3_Dlgs_Index9_Text","5352_3_Dlgs_Index11_Text","5352_3_Dlgs_Index12_Text"],"note":"無塵の鋳造法と絶対的な切れ味は莫棄の伝聞と誇張。莫問は普通の兵刃より少し鋭い程度へ抑えており、客観設定へ一本化しない。"},{"scope":"speaker_identification","keys":["5353_5_Dlgs_Index0_Text","5353_5_Dlgs_Index2_Text","5353_5_Dlgs_Index6_Text"],"note":"杜彪が千手怪で悪人谷四大悪人の一人、夜哭鬼の師匠であるという情報は、莫問の識別と杜彪本人の発言に基づく。場面外の来歴を補わない。"},{"scope":"unresolved_benefactor","keys":["5357_1_Dlgs_Index5_Text","5357_1_Dlgs_Index6_Text","5357_2_Dlgs_Index2_Text","5358_1_Dlgs_Index2_Text","5358_1_Dlgs_Index8_Text","5358_1_Dlgs_Index9_Text","5358_1_Dlgs_Index10_Text"],"note":"船頭と丘掌柜が示す手配者の正体・目的は未確定。悪意がないという評価も当人たちの説明と莫問の暫定判断に留め、善意や罠へ断定しない。"},{"scope":"merchant_hearsay","keys":["5358_1_Dlgs_Index4_Text","5358_1_Dlgs_Index5_Text","5358_1_Dlgs_Index6_Text","5358_1_Dlgs_Index7_Text"],"note":"灯会祭が二日後で、灯謎の最高賞が郭大家の新作琴譜『楓橋水雲』だという情報は丘掌柜の伝聞として保持する。琴譜の価値や来歴を補完しない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30511937043,"artifact_id":8747445861,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:76717c3b57953c5aab447be20c153baa85839e73a8d9d5f393bf526efb9ada60","head_sha":"bd27afce75956fe289e6cdefcbb514e67f8aa90b"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-56-wave-01"},"next_release":{"candidate_scene":["5358_5"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[187],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-55","release_id":"yuwen-mowen-train-55-r1","pr":212,"merge_sha":"fe58b8b1c9dd0696e34f50a769c1f3c8091b52c9"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":62,"unique_reviewed_rows":62,"fix_keys":2,"unique_fix_rows":2,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":2,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":60,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN56_WAVE01_2026-07-30.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_56.json","merge_result":{"pr":213,"merge_sha":"33c02d7d4aa3bf2a8aa483404d3756d9b47664d8"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-57",
+  "branch": "agent/yuwen-mowen-train-57",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 187,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "produced_by_pr": 213,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-56-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_56.json",
+      "pr": 213,
+      "validated_head": "17b873fe90bebc56205cbc498f28a3c241149a77"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-57-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5358_5",
+      "5359_3",
+      "5359_4",
+      "5359_5",
+      "5370_1"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-56",
+    "release_id": "yuwen-mowen-train-56-r1",
+    "pr": 213,
+    "merge_sha": "33c02d7d4aa3bf2a8aa483404d3756d9b47664d8"
+  }
+}
