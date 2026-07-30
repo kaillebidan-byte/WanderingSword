@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5449_2_Dlgs_Index0_Text",
+        "5455_1_Dlgs_Index5_Text",
+        "5450_3_Dlgs_Index8_Text",
+        "5504_3_Dlgs_Index0_Text",
+        "5504_3_Dlgs_Index1_Text",
+        "5504_3_Dlgs_Index7_Text",
+        "5504_3_Dlgs_Index8_Text",
+        "5504_3_Dlgs_Index11_Text",
+        "5504_3_Dlgs_Index12_Text",
+        "5506_3_Dlgs_Index2_Text",
+        "5508_13_Dlgs_Index0_Text",
+        "5508_13_Dlgs_Index2_Text",
+        "5508_13_Dlgs_Index3_Text",
+        "5508_13_Dlgs_Index9_Text",
+        "5509_4_Dlgs_Index0_Text"
+      ],
+      "reason": "門内大比後の兄弟子への折り目正しい敬体、清虚への短い服命、危機時の推測と決断、瑶姫との軽口、欧陽雪の案を立てる応答は、現行資料の武当平時・緊張・親密・対外モードの切替と整合する。",
+      "scope": {
+        "relationship": "武当の師父・師兄、欧陽雪、瑶姫との同行",
+        "timeline": "門内大比後と、幽雲沢から峋谷関へ至る別時系列の二ブロック"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5449_2_Dlgs_Index2_Text",
+        "5455_1_Dlgs_Index3_Text",
+        "5450_3_Dlgs_Index0_Text",
+        "5450_3_Dlgs_Index2_Text",
+        "5450_3_Dlgs_Index5_Text",
+        "5450_3_Dlgs_Index6_Text",
+        "5450_3_Dlgs_Index7_Text",
+        "5504_3_Dlgs_Index2_Text",
+        "5504_3_Dlgs_Index3_Text",
+        "5506_3_Dlgs_Index0_Text",
+        "5506_3_Dlgs_Index1_Text",
+        "5508_13_Dlgs_Index4_Text",
+        "5508_13_Dlgs_Index5_Text",
+        "5509_4_Dlgs_Index3_Text"
+      ],
+      "reason": "門内大比の公的宣告、清虚への端正な服命、侠義を擁護する重い断定、杜彪・追手・徐海への観察と即時指揮、将軍府での慎重な策は、現行資料の礼・同門期の兄弟子・謀士・危機判断モードで説明できる。",
+      "scope": {
+        "relationship": "清虚への弟子礼と、宇文逸ら同行者への判断・指揮",
+        "timeline": "門内大比後・名剣山荘行き前と、幽雲沢から峋谷関への任務中"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5449_2_Dlgs_Index3_Text",
+        "5455_1_Dlgs_Index0_Text",
+        "5455_1_Dlgs_Index1_Text",
+        "5455_1_Dlgs_Index2_Text",
+        "5455_1_Dlgs_Index4_Text"
+      ],
+      "reason": "大比の決着を穏やかに見届け、問児へ三人を託し、逸児だけを残して言い含める順序は、現行資料の慈愛ある古風な師モードと訓戒・任務時の呼称規則に整合する。",
+      "scope": {
+        "relationship": "武当掌門から莫問・宇文逸ら弟子への指示",
+        "timeline": "門内大比後・名剣山荘出発前"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元鳴.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5450_3_Dlgs_Index1_Text"
+      ],
+      "reason": "文頭の「ふん」で不満を先に出し、宇文逸を身の程知らずと責める直情的な発話は、現行資料の負けん気・不満・対下の罵りモードと整合する。",
+      "scope": {
+        "relationship": "杜彪戦後に宇文逸を責める同門会話",
+        "timeline": "名剣山荘行き前の姑蘇"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "after_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5504_3_Dlgs_Index9_Text",
+        "5504_3_Dlgs_Index10_Text",
+        "5508_13_Dlgs_Index1_Text",
+        "5508_13_Dlgs_Index10_Text",
+        "5509_4_Dlgs_Index1_Text",
+        "5509_4_Dlgs_Index2_Text"
+      ],
+      "reason": "宇文逸をからかいながら実務上の船頭探しへ戻す声、通行証をめぐる柔らかな軽口、小雪ちゃん・雪ちゃんと呼ぶ親しさ、将軍の状態を推し量る言いさしは、現行資料の任務中・挑発モードと、柔らかな語尾のまま会話の主導権を握る方針に整合する。",
+      "scope": {
+        "relationship": "宇文逸・欧陽雪・莫問との同行任務",
+        "timeline": "幽雲沢から峋谷関の将軍府献書失敗まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-59",
+  "wave_id": "yuwen-mowen-train-59-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN59_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5449_2_5509_4_2026-07-30.json",
+      "manifest_digest": "sha256:8a5764b48afd2638ebc591623eec51d7d47df0db91ba0f85846fc3ddb17788dd"
+    }
+  ]
+}

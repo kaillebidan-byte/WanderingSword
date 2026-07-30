@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-59-r1",
+  "train_id": "yuwen-mowen-train-59",
+  "pr": 216,
+  "ci_head": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9",
+  "asset_head": "39556e9201b2f2d44de5f0a45560a8a7ace41e40",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH190_2026-07-30.md",
+  "counts": {
+    "batch": 190,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30517114013,
+    "workflow": "Release train orchestrator",
+    "head_sha": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第190束は門内大比後・名剣山荘行き前の過去時系列と、幽雲沢から峋谷関の献書失敗までの現行時系列を分離した7場面51行。",
+    "実変更5件、意図的保持46件。人物資料五件はいずれもkeep。",
+    "低収率challengeでKEEP46行を全件再監査し、追加FIX0件。",
+    "次候補5522_1はtrain-59統合前にpreparationを開始しない。"
+  ]
+}

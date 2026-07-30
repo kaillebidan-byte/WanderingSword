@@ -2,21 +2,21 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5388_1_5502_6_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch103.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5449_2_5509_4_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch104.json",
       "values": {
-        "5389_2_Dlgs_Index2_Text": "5015 - 莫問 $@$……明日の試合は、無理をしなくていい。もう十分よくやった。",
-        "5389_4_Dlgs_Index2_Text": "5015 - 莫問 $@$……もう十分よくやった。",
-        "5444_2_Dlgs_Index2_Text": "1 - 宇文逸 $@$はい、大師兄……あ、そうだ。欧陽姑娘と瑶姫は？",
-        "5446_1_Dlgs_Index2_Text": "17005 - 欧陽雪 $@$瑶姫殿は公子をからかっているだけです。わたしたちも、今着いたところですから……",
-        "5502_5_Dlgs_Index3_Text": "5015 - 莫問 $@$そうだ。背後にいる者の狙いが何であれ、この先は危険が続くだろう。いっそう慎重に動く必要がある。"
+        "5455_1_Dlgs_Index3_Text": "5015 - 莫問 $@$承知いたしました。",
+        "5450_3_Dlgs_Index2_Text": "5015 - 莫問 $@$武当の弟子として、侠義を貫いたことに何の非もない。",
+        "5508_13_Dlgs_Index1_Text": "17115 - 瑶姫 $@$まさか。たかが城壁一つで、あなたほどの武当の高弟を止められるものかしら～",
+        "5508_13_Dlgs_Index4_Text": "5015 - 莫問 $@$試してみよう。ただし、こちらの用向きをそのまま明かすわけにはいかない。",
+        "5509_4_Dlgs_Index3_Text": "5015 - 莫問 $@$そうだ。傷の具合は、まだ楽観できそうにない……士気への影響を恐れ、やむなく伏せているのかもしれない。"
       },
       "fix_keys": [
-        "5389_2_Dlgs_Index2_Text",
-        "5389_4_Dlgs_Index2_Text",
-        "5444_2_Dlgs_Index2_Text",
-        "5446_1_Dlgs_Index2_Text",
-        "5502_5_Dlgs_Index3_Text"
+        "5455_1_Dlgs_Index3_Text",
+        "5450_3_Dlgs_Index2_Text",
+        "5508_13_Dlgs_Index1_Text",
+        "5508_13_Dlgs_Index4_Text",
+        "5509_4_Dlgs_Index3_Text"
       ]
     }
   ]
