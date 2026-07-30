@@ -2,19 +2,15 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_2_5347_1_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch100.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5352_1_5358_1_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch101.json",
       "values": {
-        "5331_2_Dlgs_Index0_Text": "1 - 宇文逸 $@$大師兄、師父から、門内大比の準備をしておくよう伝言を預かりました……",
-        "5331_2_Dlgs_Index7_Text": "5015 - 莫問 $@$わたしは二年前に一度参加している。今回、師父から大比の手配を命じられたのも、まだ参加していない師弟たちへ機会を譲れということだろう……",
-        "5342_2_Dlgs_Index0_Text": "1 - 宇文逸 $@$……元鳴師兄、お見事でした。この一戦は私の負けです。",
-        "5345_1_Dlgs_Index4_Text": "5015 - 莫問 $@$弟子、承知いたしました。"
+        "5353_5_Dlgs_Index0_Text": "5015 - 莫問 $@$先ほどの袖裡乾坤、影も形も捉えられぬ妙技……並の使い手ではあるまい。差し支えなければ、お名前を伺いたい。",
+        "5353_5_Dlgs_Index2_Text": "17000 - 杜彪 $@$なんだ？　俺の弟子、夜哭鬼を殺しておいて、師匠の俺を知らねえのか？"
       },
       "fix_keys": [
-        "5331_2_Dlgs_Index0_Text",
-        "5331_2_Dlgs_Index7_Text",
-        "5342_2_Dlgs_Index0_Text",
-        "5345_1_Dlgs_Index4_Text"
+        "5353_5_Dlgs_Index0_Text",
+        "5353_5_Dlgs_Index2_Text"
       ]
     }
   ]
