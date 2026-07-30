@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "24221_2_Dlgs_Index1_Text",
+        "24221_5_Dlgs_Index1_Text",
+        "24223_3_Dlgs_Index3_Text",
+        "24223_3_Dlgs_Index5_Text",
+        "24232_3_Dlgs_Index3_Text",
+        "24232_3_Dlgs_Index5_Text",
+        "24232_3_Dlgs_Index7_Text",
+        "24341_2_Dlgs_Index4_Text",
+        "32001_5_Dlgs_Index1_Text",
+        "32004_1_Dlgs_Index8_Text"
+      ],
+      "reason": "離反・敵対後も宇文逸が「師兄／大師兄」と呼び、敬体を保ちながら処断を拒み、何度でも止めると告げる。後日の助力や稽古でも師兄呼称と自然な敬体へ戻るため、現行資料の離反後・再会・再同行分岐の規則と整合する。分岐を直列化する新規主張は不要。",
+      "scope": {
+        "scenes": [
+          "24221_2",
+          "24221_5",
+          "24223_3",
+          "24232_3",
+          "24341_2",
+          "32001_5",
+          "32004_1"
+        ],
+        "counterpart": "莫問",
+        "timeline": "天山側への離反・決戦分岐から後日の関係回復まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "22020_8_Dlgs_Index0_Text",
+        "24221_2_Dlgs_Index0_Text",
+        "24223_3_Dlgs_Index1_Text",
+        "24232_3_Dlgs_Index0_Text",
+        "24341_2_Dlgs_Index2_Text",
+        "24341_2_Dlgs_Index3_Text",
+        "32001_2_Dlgs_Index1_Text",
+        "32001_5_Dlgs_Index0_Text",
+        "32004_1_Dlgs_Index2_Text",
+        "32004_1_Dlgs_Index9_Text",
+        "32007_1_Dlgs_Index2_Text"
+      ],
+      "reason": "離反・敵対期は呼称を省いて冷えた断定と死の受容を示し、後日の助力では借りを返すと距離を残す。一方、再同行後の稽古・碁では「師弟」と兄弟子の常体へ戻る。現行資料の敵対・再会・再同行を分岐別に扱う規則で説明でき、資料改訂は要らない。",
+      "scope": {
+        "scenes": [
+          "22020_8",
+          "24221_2",
+          "24223_3",
+          "24232_3",
+          "24341_2",
+          "32001_2",
+          "32001_5",
+          "32004_1",
+          "32007_1"
+        ],
+        "counterpart": "宇文逸",
+        "modes": [
+          "離反・敵対・諦観",
+          "借りを返す助力",
+          "再同行後の教導と軽口"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "after_digest": "sha256:404ae141fa9f79f6e4535b78978b4d0e870b646b99043b33ff0abe9eb9d53401",
+      "changed": false
+    },
+    {
+      "target": "10_人物/無名.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "22020_8_Dlgs_Index2_Text",
+        "22020_8_Dlgs_Index3_Text"
+      ],
+      "reason": "「呵呵」で驚きを嘲り、続けて宇文逸を次の標的として脅す発話は、現行資料の低温の含み笑い、情報を小出しにして酷薄な脅しへ移る声の核に整合する。訳文側の「はは」を修正すれば足り、資料側の変更は不要。",
+      "scope": {
+        "scene": "22020_8",
+        "counterpart": "宇文逸・莫問",
+        "mode": "正体露見後の嘲弄と脅し"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:20eacdecea2859c33ae90895488e361edea39fd1edca855b325f348715fc2749",
+      "after_digest": "sha256:20eacdecea2859c33ae90895488e361edea39fd1edca855b325f348715fc2749",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-49",
+  "wave_id": "yuwen-mowen-train-49-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN49_WAVE01_2026-07-30.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES22020_8_32007_1_2026-07-30.json",
+      "manifest_digest": "sha256:7e557695d5f68735d842243ec960cdb4fe7b0d55e779db87cdf41adb055e413c"
+    }
+  ]
+}
