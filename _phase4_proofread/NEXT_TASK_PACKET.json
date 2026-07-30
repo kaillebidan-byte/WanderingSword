@@ -1,97 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-63-quality-audit",
+  "task_id": "post-train63-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 193,
+    "batch": 194,
     "pair_applied_keys": 1407,
     "project_applied_keys": 1783,
-    "produced_by_pr": 219,
-    "release_id": "yuwen-mowen-train-62-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_62.json"
+    "produced_by_pr": 220,
+    "release_id": "yuwen-mowen-train-63-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_63.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5585_4",
-    "5586_3",
-    "5586_5",
-    "5603_1",
-    "5610_2",
-    "5611_8"
+    "5637_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-63-wave-01",
-    "packet_id": "yuwen-mowen-train63-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 194
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30562590785,
-    "artifact_id": 8767523023,
-    "artifact_digest": "sha256:c5397147b048764b76d16b4d52e980fc51926fec13417495a79e2a834cd799fe",
-    "artifact_head": "39a116c5ba1e1c99b7770803d48317cb85bc7f8a",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30564568561,
+    "artifact_id": 8768301659,
+    "artifact_digest": "sha256:161146fb71cf089a156f06d006a626ac2a8221cffc0100c70708e8cc6d5a2edb",
+    "artifact_head": "28b2ca94cdf0e8a594f323eee87fec620cc1c60f",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactのrun・ID・digest・headを照合し、preparationで意味境界を決める。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-63",
     "release_id": "yuwen-mowen-train-63-r1",
     "pr": 220,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-63統合前に5637_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-63",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 194,
+    "planned_batch": 195,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:9ac15357b8c5a1b594a71e9920d2022c55983f4883db7c7690aeed0083cc0d65"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 43,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5585_4",
-      "5586_3",
-      "5586_5",
-      "5603_1",
-      "5610_2",
-      "5611_8"
-    ],
-    "grouping_decision": "起点5585_4の総攻撃前倒しの急報から、洪飛との遭遇、東側山道での残党戦と玄火教への警戒、山道突破、5611_8の山頂異変を受けた再出発まで、6場面43行で不風山急行の意味単位を閉じた。5637_1以降の抜け道調査は含めない。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 2,
-    "new_project_keys": 0,
-    "fix_keys": 2
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN63_WAVE01_2026-07-31.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
