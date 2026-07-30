@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-57-r1",
+  "train_id": "yuwen-mowen-train-57",
+  "pr": 214,
+  "ci_head": "a7dc8dbc25620f4dce46977af5df6f385fe20d96",
+  "asset_head": "3dbd47d08f87efd2c423ea51c87f802740c208c0",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH188_2026-07-30.md",
+  "counts": {
+    "batch": 188,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30514543142,
+    "workflow": "Release train orchestrator",
+    "head_sha": "a7dc8dbc25620f4dce46977af5df6f385fe20d96",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第188束は迎仙楼での少林僧との再会・部屋の融通・夜間の迷煙対応・品剣大会開幕までの5場面40行。",
+    "実変更1件、意図的保持39件。人物資料四件はいずれもkeep。",
+    "低収率challengeでKEEP39行を全件再監査し、追加FIX0件。",
+    "次候補5388_1はtrain-57統合前にpreparationを開始しない。"
+  ]
+}
