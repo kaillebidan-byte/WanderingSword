@@ -4,9 +4,9 @@
   "train_id": "yuwen-mowen-train-53",
   "branch": "agent/yuwen-mowen-train-53",
   "draft_pr": 210,
-  "status": "ready_for_public_ci",
+  "status": "verified",
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "translation_stage": "translation_frozen",
     "pr": 210,
     "merge_sha": null
@@ -57,7 +57,7 @@
     {
       "batch": 184,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "5244_3",
         "5245_1",
@@ -175,22 +175,15 @@
   "single_pr_finalization": true,
   "private_stage": {
     "stage": "translation_frozen",
-    "status": "complete",
-    "transport_status": "ready_for_public_ci",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
     "wave_id": "yuwen-mowen-train-53-wave-01"
   },
   "next_release": {
     "candidate_scene": [
-      "5244_3",
-      "5245_1",
-      "5274_1",
-      "5278_1",
-      "5291_1",
-      "5292_3",
-      "5293_6",
-      "5293_7"
+      "5296_7"
     ],
-    "reservation_status": "encoded",
+    "reservation_status": "reserved_only",
     "reservation_schema": 6,
     "formal_batches": [
       184
@@ -224,5 +217,6 @@
       "finding_keys": 0,
       "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN53_WAVE01_2026-07-30.md"
     }
-  }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_53.json"
 }
