@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-50-r1",
+  "train_id": "yuwen-mowen-train-50",
+  "pr": 207,
+  "ci_head": "22943291ded9fe88b444b5a6ffe369ecbf7605f2",
+  "asset_head": "73f2fec20e158d1d1d5810c237c173a4b6f79ef5",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH181_2026-07-30.md",
+  "counts": {
+    "batch": 181,
+    "pair_applied_keys": 1382,
+    "project_applied_keys": 1758,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30504867937,
+    "workflow": "Release train orchestrator",
+    "head_sha": "22943291ded9fe88b444b5a6ffe369ecbf7605f2",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "第181束は5203_4・5203_6・5203_7・5203_14・5211_4・5211_5・5212_1・5214_6・5215_1・5215_2・5217_2・5220_1・5222_1・5222_3の60行。",
+    "実変更17件、意図的保持43件。人物資料3件はkeep。",
+    "次候補5224_1はtrain-50統合前にpreparationを開始しない。"
+  ]
+}
