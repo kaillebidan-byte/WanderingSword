@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-51",
   "branch": "agent/yuwen-mowen-train-51",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 208,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 208,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,131 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
-    "new_pair_keys": 0,
-    "new_project_keys": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 69,
+    "reviewed_keys": 69,
+    "unique_reviewed_rows": 69,
+    "fix_keys": 18,
+    "unique_fix_rows": 18,
+    "new_pair_keys": 13,
+    "new_project_keys": 13,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 5,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 182,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5224_1",
+        "5224_2",
+        "5227_1",
+        "5227_2",
+        "5227_3",
+        "5227_5",
+        "5229_1",
+        "5229_2",
+        "5229_3",
+        "5229_4",
+        "5229_6",
+        "5229_9",
+        "5229_10",
+        "5229_11",
+        "5229_12",
+        "5229_13"
+      ],
+      "reviewed_rows": 69,
+      "reviewed_keys": 69,
+      "unique_rows": 69,
+      "fix_keys": 18,
+      "unique_fix_rows": 18,
+      "new_pair_keys": 13,
+      "new_project_keys": 13,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 5,
+      "keep_keys": 51,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch1.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch2.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch57.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch96.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH182_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 37,
+        "unowned_kept": 19,
+        "new_keys": 13,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "5224_1_Dlgs_Index1_Text",
+        "5227_1_Dlgs_Index0_Text",
+        "5227_2_Dlgs_Index2_Text",
+        "5229_3_Dlgs_Index0_Text",
+        "5227_5_Dlgs_Index16_Text",
+        "5229_12_Dlgs_Index0_Text"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5224_1_Dlgs_Index1_Text",
+          "decision": "keep",
+          "note": "「妙手丹仙」は道玄の作中称号。典籍引用ではなく固有の異名としてタグと漢字を保持する。"
+        },
+        {
+          "key": "5227_1_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「心有余悸」は恐怖の余韻が残る意の定着成語。現訳の「まだ肝を冷やしている」で場面機能を保ち、特定典籍の引用へ昇格しない。"
+        },
+        {
+          "key": "5227_2_Dlgs_Index2_Text",
+          "decision": "fix",
+          "note": "「一表人才」「如花似玉」は定着成語。後者を男性へ誤用する莫棄の冗談が次行の突っ込みの核なので、原文混入を除き「なかなかの男前、花も恥じらう美しさ」として笑いを保持する。"
+        },
+        {
+          "key": "5229_3_Dlgs_Index0_Text",
+          "decision": "keep",
+          "note": "「锦上添花」は十分なものへさらに花を添える意の定着成語。現訳は『さらに贈る必要はない』という機能を自然に保っており、字面の直訳へ戻さない。"
+        },
+        {
+          "key": "5227_5_Dlgs_Index16_Text",
+          "decision": "keep",
+          "note": "「循序渐进」は順序を追って進む意の定着成語。現訳の「基礎から順を追って修めていく」で教導の機能と武学語感を保つ。"
+        },
+        {
+          "key": "5229_12_Dlgs_Index0_Text",
+          "decision": "fix",
+          "note": "「气敛于内，剑以意行，劲凝臂指」は特定典籍の引用とは確認できず、作品内の心法口訣として扱う。三句の文言調と反復を保ち、日本語として通る「剣は意に従い、勁は腕と指に凝らす」へ整える。"
+        }
+      ],
+      "fact_doubts": [
+        "宮中から道玄へ錬丹依頼が来るという説明は莫問の発言範囲に留め、頻度や依頼者を補完しない。",
+        "祖師殿に真武剣が祀られ掌門即位時だけ開くという説明は莫問が師父から聞いた情報であり、本人も未見とする。",
+        "玄火教各人物の悪行と異名は莫棄の伝聞を含み、客観的確定や教団全体の一律評価へ広げない。",
+        "各門派が得意とする武学は莫問の入門向け概説であり、唯一の武学体系や絶対的分類へ固定しない。",
+        "天龍幇が関外の民を害しているという説明は莫問の現在認識であり、被害規模や事件の全容を補完しない。"
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30504867937,
+        "artifact_id": 8744925085,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:b2126f2b153caa6538d8ef1b16ede8bbedf6e883f8643beaada831749e119223",
+        "head_sha": "22943291ded9fe88b444b5a6ffe369ecbf7605f2"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-51-wave-01"
   },
   "next_release": {
@@ -84,15 +187,31 @@
       "5229_12",
       "5229_13"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      182
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-50",
     "release_id": "yuwen-mowen-train-50-r1",
     "pr": 207,
     "merge_sha": "da31a1ea4f663fd2d0442317cf2f457722799103"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 69,
+    "unique_reviewed_rows": 69,
+    "fix_keys": 18,
+    "unique_fix_rows": 18,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 18,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed"
   }
 }
