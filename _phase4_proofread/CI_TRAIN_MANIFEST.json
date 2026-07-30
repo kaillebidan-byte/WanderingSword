@@ -1,1 +1,222 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-52","branch":"agent/yuwen-mowen-train-52","draft_pr":209,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":209,"merge_sha":"5c6dca4aec7e769887956d5e362be4b6b75671b1"},"base_checkpoint":{"batch":182,"pair_applied_keys":1395,"project_applied_keys":1771,"produced_by_pr":208,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-51-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_51.json","pr":208,"validated_head":"5660fabcb306cd14506c8a1544824c57386bba9d"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":54,"reviewed_keys":54,"unique_reviewed_rows":54,"fix_keys":20,"unique_fix_rows":20,"new_pair_keys":9,"new_project_keys":9,"cross_register_keys":0,"existing_owner_updates":11,"keep_only_bundles":0},"bundles":[{"batch":183,"review_status":"complete","apply_status":"verified","scene_groups":["5230_6","5234_1","5237_2","5237_3","5238_1","5240_1","5240_4"],"reviewed_rows":54,"reviewed_keys":54,"unique_rows":54,"fix_keys":20,"unique_fix_rows":20,"new_pair_keys":9,"new_project_keys":9,"cross_register_keys":0,"existing_owner_updates":11,"keep_keys":34,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch3.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch40.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch59.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch60.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch61.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch97.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH183_2026-07-30.md","ownership_summary":{"existing_keys":37,"unowned_kept":8,"new_keys":9,"cross_register_keys":0},"allusion_review_candidates":["5237_2_Dlgs_Index2_Text","5238_1_Dlgs_Index0_Text","5238_1_Dlgs_Index3_Text","5238_1_Dlgs_Index4_Text","5238_1_Dlgs_Index5_Text","5240_1_Dlgs_Index0_Text"],"allusion_review_resolved":[{"key":"5237_2_Dlgs_Index2_Text","decision":"keep","note":"「前因後果」と「問心無愧」は定着した成語。現訳は『始まりから終わりまで』『己の心に恥じない』として、莫問の侠義の教えと対句的な流れを保っている。特定典籍の引用には昇格しない。"},{"key":"5238_1_Dlgs_Index0_Text","decision":"fix","note":"「幸不辱命」は任を果たして期待に背かなかったことを告げる定型表現。対外報告として「幸い、ご期待に背かずに済みました」とする。"},{"key":"5238_1_Dlgs_Index3_Text","decision":"fix","note":"「繩之以法」は法に照らして処罰する成語だが、討ち取った山賊について村娘が述べる場面では「成敗」が自然で、武侠の行為結果を保つ。"},{"key":"5238_1_Dlgs_Index4_Text","decision":"fix","note":"「為民除害」は民のため害を除くという侠義的な定型句。像を残して「民の害を除く」とし、現代行政語へ平坦化しない。"},{"key":"5238_1_Dlgs_Index5_Text","decision":"fix","note":"「地主之誼」は土地の者として客をもてなす務め。字面を残さず、村長が酒席へ招く自然な「村の者として、もてなす」へ移す。"},{"key":"5240_1_Dlgs_Index0_Text","decision":"keep","note":"「順藤摸瓜」は手がかりを辿って黒幕へ至る成語。現訳の「手がかりを辿る」で任務報告の機能を保ち、蔓と瓜の字面は持ち込まない。"}],"fact_doubts":["莫離が清霄の一人息子で長年病床にあるという説明は莫問の発言範囲に留め、病名・予後・事情を補完しない。","山賊の武功と人数に関する判断は村人の証言から莫問が行った推理であり、客観的確定として強めない。","民女を繰り返しさらう人物の存在は山賊の発言と噂に基づくため、黒幕の正体や被害規模を補完しない。","清河村周辺で短期的に同種事件は起きないという莫問の見通しを、将来の客観的保証へ変えない。","日常任務・緊急任務・門派貢献の説明はこの時点の莫問による入門者向け概説であり、例外のない制度定義へ広げない。"],"source_artifact":{"workflow":"Release train orchestrator","run_id":30506264279,"artifact_id":8745438548,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:0a20d5609fe2e37ce1a7a5fe00309df20cda46f52dc3b0a5c46139425e3ddddb","head_sha":"5ecb30c1770c3e02e59df39a859513054c7c87b1"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-52-wave-01"},"next_release":{"candidate_scene":["5244_3"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[183],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-51","release_id":"yuwen-mowen-train-51-r1","pr":208,"merge_sha":"44ce0a73edc2ca73b2ce41e9cafcd232c00a6d65"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":54,"unique_reviewed_rows":54,"fix_keys":20,"unique_fix_rows":20,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":20,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_52.json","merge_result":{"pr":209,"merge_sha":"5c6dca4aec7e769887956d5e362be4b6b75671b1"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-53",
+  "branch": "agent/yuwen-mowen-train-53",
+  "draft_pr": 210,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 210,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 183,
+    "pair_applied_keys": 1404,
+    "project_applied_keys": 1780,
+    "produced_by_pr": 209,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-52-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_52.json",
+      "pr": 209,
+      "validated_head": "3e06fc1f6a3299229c351d5dc79a66e7d9d9d229"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 50,
+    "reviewed_keys": 50,
+    "unique_reviewed_rows": 50,
+    "fix_keys": 5,
+    "unique_fix_rows": 5,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 5,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 184,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5244_3",
+        "5245_1",
+        "5274_1",
+        "5278_1",
+        "5291_1",
+        "5292_3",
+        "5293_6",
+        "5293_7"
+      ],
+      "reviewed_rows": 50,
+      "reviewed_keys": 50,
+      "unique_rows": 50,
+      "fix_keys": 5,
+      "unique_fix_rows": 5,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 5,
+      "keep_keys": 45,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch41.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch42.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch43.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH184_2026-07-30.md",
+      "ownership_summary": {
+        "existing_keys": 47,
+        "unowned_kept": 3,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "以备不时之需",
+        "无头苍蝇",
+        "打草惊蛇",
+        "公门・公道"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5244_3_Dlgs_Index3_Text",
+          "decision": "定着した成語・通常慣用句",
+          "note": "「以备不时之需」は特定典籍の引用として扱わず、「いざという時の備え」と場面機能を保つ。"
+        },
+        {
+          "key": "5278_1_Dlgs_Index7_Text",
+          "decision": "定着した比喩",
+          "note": "「无头苍蝇」は無方向に探し回る比喩。現訳の「闇雲に探し回る」で像と機能を保つ。"
+        },
+        {
+          "key": "5291_1_Dlgs_Index6_Text",
+          "decision": "定着した成語",
+          "note": "「打草惊蛇」は相手に警戒される危険を示す。現訳の「相手に気取られる」で危機判断を保つ。"
+        },
+        {
+          "key": "5293_6_Dlgs_Index4_Text",
+          "decision": "侠義語彙・通常漢語文",
+          "note": "「公门／公道」は官憲と正義の対置であり、特定典籍引用ではない。「官憲」「公道」を保つ。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "speaker_report",
+          "keys": [
+            "5244_3_Dlgs_Index1_Text"
+          ],
+          "note": "平康城が不穏という情報は莫問の伝聞に留め、原因や被害範囲を補完しない。"
+        },
+        {
+          "scope": "speaker_report",
+          "keys": [
+            "5274_1_Dlgs_Index1_Text",
+            "5274_1_Dlgs_Index2_Text"
+          ],
+          "note": "平康城での危険は宇文逸の体験報告であり、事件全体の客観的確定へ強めない。"
+        },
+        {
+          "scope": "speaker_inference",
+          "keys": [
+            "5291_1_Dlgs_Index2_Text"
+          ],
+          "note": "十八人の側室が全員さらわれたという発言は宇文逸の推測として保持する。"
+        },
+        {
+          "scope": "speaker_inference",
+          "keys": [
+            "5291_1_Dlgs_Index3_Text",
+            "5291_1_Dlgs_Index4_Text"
+          ],
+          "note": "泣き声が捕らわれた娘のものだという判断は一行内の推測に留める。"
+        },
+        {
+          "scope": "speaker_claim",
+          "keys": [
+            "5293_6_Dlgs_Index1_Text"
+          ],
+          "note": "絶無心の官憲権限と武当への責任追及は当人の威圧的主張として保持し、法的権限を補完しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30507815929,
+        "artifact_id": 8745999255,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:12e4c8b326f01b0b4dfb6a50ec6d97db28a285e81e4839fc25daf56c31a2d7d1",
+        "head_sha": "a1e892bec4ab7dc551bf6fa4ddc5dfb4057943ef"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-53-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5296_7"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      184
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-52",
+    "release_id": "yuwen-mowen-train-52-r1",
+    "pr": 209,
+    "merge_sha": "5c6dca4aec7e769887956d5e362be4b6b75671b1"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 50,
+    "unique_reviewed_rows": 50,
+    "fix_keys": 5,
+    "unique_fix_rows": 5,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 5,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 45,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN53_WAVE01_2026-07-30.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_53.json"
+}
