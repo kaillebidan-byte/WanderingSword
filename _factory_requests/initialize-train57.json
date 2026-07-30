@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-57",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30513303813,
+    "artifact_id": 8747926235,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:6812da531fcec0642c1249e957136d86f666c9edfb03fb7ae2164c16730d872c",
+    "artifact_head": "5323256ec7133c9f5ad91310ae7d6a16f9e65caf"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5358_5",
+      "5359_3",
+      "5359_4",
+      "5359_5",
+      "5370_1"
+    ],
+    "unique_reviewed_rows": 40,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "迎仙楼で少林僧と再会して相部屋を申し出る。夜、莫問が異変と迷煙を察知し、宇文逸へ仲間を起こすよう命じる。後続の品剣大会開幕で一行が席へ戻るまで。",
+    "branch_note": "5358_5から5359_5は宿泊と夜襲の連続場面。5370_1は夜襲後の移動を経た品剣大会開幕の短い結節で、次の5388_1から方闊海戦へ入るためここで閉じる。",
+    "seal_attestation": "少林僧との再会、部屋の融通、名剣山荘への同行約束、夜警と迷煙への対応、品剣大会開始時の着席までを40行で閉じ、方闊海戦とその勝敗分岐は次束へ分ける。",
+    "candidate_questions": [
+      "莫問の慧空・慧平への対外敬語と同門への常体が場面ごとに自然か",
+      "宇文逸の少林僧への勧めと莫問への応答が親しさと礼を両立しているか",
+      "夜警から迷煙察知までの莫問の大師兄としての責任感と命令口調が一貫するか",
+      "慧平の快活な口語と慧空の僧侶らしい慎重な敬体が発話として自然か",
+      "品剣大会開始時の号令が直前の危機場面と混同されず時系列に沿っているか"
+    ],
+    "allusion_candidates": [
+      "少林七十二绝技",
+      "禅宗伏魔功",
+      "阿弥陀佛",
+      "与人方便与己方便",
+      "不见不散",
+      "坐以待毙"
+    ],
+    "fact_doubts": [
+      "慧空が少林七十二絶技と禅宗伏魔功を極めたという評価は莫問の伝聞であり客観設定へ一般化しない",
+      "城内の宿が満室という判断は丘掌柜の説明を受けた莫問の推測に留める",
+      "少林僧も名剣山荘と品剣大会へ向かうことは慧平の発言に基づく",
+      "姑蘇入り後の異変、戸外の物音、迷煙は当夜の人物認識として扱い実行者をこのpacketで確定しない",
+      "5370_1は夜襲後の品剣大会開始場面であり間の出来事を補完しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5358_5_5370_1_2026-07-30.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN57_WAVE01_2026-07-30.md"
+  }
+}
