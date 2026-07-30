@@ -19,13 +19,13 @@
     "5583_2"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-62-wave-01",
     "packet_id": "yuwen-mowen-train62-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 193
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -38,16 +38,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-61",
-    "release_id": "yuwen-mowen-train-61-r1",
-    "pr": 218,
-    "status": "merged",
-    "merge_sha": "e6795078505470e7a8771b6b3e819af366b7da26"
+    "train_id": "yuwen-mowen-train-62",
+    "release_id": "yuwen-mowen-train-62-r1",
+    "pr": 219,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -63,5 +61,35 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:d9cc7e22ed777d10ad4a1ab66e395331caa908d505142a277fb3fcd4f8afb0c6"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 45,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5581_5",
+      "5581_7",
+      "5581_8",
+      "5583_1",
+      "5583_2"
+    ],
+    "grouping_decision": "起点5581_5の瑶姫との別れから、復命先の二分岐、清虚への任務報告、遼城の真相を伏せた理由の説明、5583_2の宿で休む指示と師父の出発まで、5場面45行で帰還報告と真相説明の意味単位を閉じた。5585_4以降の翌朝の急報と不風山総攻撃は含めない。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 3,
+    "new_project_keys": 1,
+    "fix_keys": 4
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN62_WAVE01_2026-07-31.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }
