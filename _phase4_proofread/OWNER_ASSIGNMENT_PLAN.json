@@ -2,21 +2,17 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5449_2_5509_4_2026-07-30.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch104.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5522_1_5531_7_2026-07-30.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260730_batch105.json",
       "values": {
-        "5455_1_Dlgs_Index3_Text": "5015 - 莫問 $@$承知いたしました。",
-        "5450_3_Dlgs_Index2_Text": "5015 - 莫問 $@$武当の弟子として、侠義を貫いたことに何の非もない。",
-        "5508_13_Dlgs_Index1_Text": "17115 - 瑶姫 $@$まさか。たかが城壁一つで、あなたほどの武当の高弟を止められるものかしら～",
-        "5508_13_Dlgs_Index4_Text": "5015 - 莫問 $@$試してみよう。ただし、こちらの用向きをそのまま明かすわけにはいかない。",
-        "5509_4_Dlgs_Index3_Text": "5015 - 莫問 $@$そうだ。傷の具合は、まだ楽観できそうにない……士気への影響を恐れ、やむなく伏せているのかもしれない。"
+        "5531_4_Dlgs_Index7_Text": "19102 - 副将-徐海 $@$全部、おれのせいだ……",
+        "5531_4_Dlgs_Index21_Text": "19102 - 副将-徐海 $@$……おれはもう……長くない……",
+        "5531_4_Dlgs_Index23_Text": "19102 - 副将-徐海 $@$だが、もう取り返しがつかない……おれは……"
       },
       "fix_keys": [
-        "5455_1_Dlgs_Index3_Text",
-        "5450_3_Dlgs_Index2_Text",
-        "5508_13_Dlgs_Index1_Text",
-        "5508_13_Dlgs_Index4_Text",
-        "5509_4_Dlgs_Index3_Text"
+        "5531_4_Dlgs_Index7_Text",
+        "5531_4_Dlgs_Index21_Text",
+        "5531_4_Dlgs_Index23_Text"
       ]
     }
   ]

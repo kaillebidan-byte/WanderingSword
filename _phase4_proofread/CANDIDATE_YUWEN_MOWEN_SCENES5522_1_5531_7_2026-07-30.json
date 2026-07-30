@@ -1,0 +1,744 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5522_1",
+    "5523_1",
+    "5525_3",
+    "5525_6",
+    "5528_7",
+    "5531_3",
+    "5531_4",
+    "5531_7"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30517114013,
+    "artifact_id": 8749318444,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:0de6465b7a48c1f04a4378ff74fcb1768df3c560f9d71cf36edba189f99c30fc",
+    "head_sha": "fc8d3b9401bee2797bef5db9a81bf719a02df0a9"
+  },
+  "scene_context": {
+    "timeline": "峋谷関で将軍府へ侵入した一行が徐海・天龍幇の策と対峙し、徐海の負傷・娘の正体判明・最期の悔恨を経て黄将軍へ報告する直前まで。",
+    "branch_note": "将軍府での包囲から書斎探索、夜襲下の徐海捜索、黒白無常戦、徐海の娘が清河村の蘭児と判明する場面、帰還判断までを連続して読む。次の黄将軍への正式報告と峋谷関離脱は次束へ分離する。"
+  },
+  "rows": [
+    {
+      "key": "5522_1_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可恶，他们人太多了。",
+      "ja": "1 - 宇文逸 $@$くそ、数が多すぎる。"
+    },
+    {
+      "key": "5522_1_Dlgs_Index1_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$宇文公子，我们不能继续硬拼了……",
+      "ja": "17005 - 欧陽雪 $@$宇文公子、これ以上無理に戦うのは……"
+    },
+    {
+      "key": "5522_1_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$不错，师弟，我们得赶紧找机会离开。",
+      "ja": "5015 - 莫問 $@$そうだ、師弟。隙を見て離脱しよう。"
+    },
+    {
+      "key": "5522_1_Dlgs_Index3_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$放肆！你们这些小贼，将军府岂是你们想来就来、想走就走的地方！",
+      "ja": "19102 - 副将-徐海 $@$無礼者め！　小賊ども、将軍府を好き勝手に出入りできると思うな！"
+    },
+    {
+      "key": "5522_1_Dlgs_Index4_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$给我把他们拿下！",
+      "ja": "19102 - 副将-徐海 $@$こいつらを捕らえろ！"
+    },
+    {
+      "key": "5522_1_Dlgs_Index5_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$口气倒不小～那就要看看，你到底有没有本事拿下我们了！",
+      "ja": "17115 - 瑶姫 $@$大きく出たわね～　なら、私たちを捕らえるだけの腕があるか、見せてもらいましょう！"
+    },
+    {
+      "key": "5522_1_Dlgs_Index6_Text",
+      "speaker": "黄宗政",
+      "zh": "19103 - 黄宗政 $@$都住手！咳咳……",
+      "ja": "19103 - 黄宗政 $@$全員、手を止めろ！　ゴホッ、ゴホッ……"
+    },
+    {
+      "key": "5523_1_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这里应该就是书房了吧？",
+      "ja": "1 - 宇文逸 $@$ここが書斎だよな？"
+    },
+    {
+      "key": "5523_1_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$灯还亮着，证明里面有人。",
+      "ja": "5015 - 莫問 $@$まだ灯りがついている。中に誰かいるな。"
+    },
+    {
+      "key": "5523_1_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$啊，那我们进去看看吧，说不定里面的人就是将军呢！",
+      "ja": "1 - 宇文逸 $@$なら、入ってみましょう。中にいるのが将軍かもしれません！"
+    },
+    {
+      "key": "5525_3_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$城外已经打起来了，我们……",
+      "ja": "1 - 宇文逸 $@$城外ではもう戦いが始まっています。私たちは……"
+    },
+    {
+      "key": "5525_3_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，城外的战斗绝非一人之力所能改变。",
+      "ja": "5015 - 莫問 $@$師弟、城外の戦いは一人の力でどうにかできるものではない。"
+    },
+    {
+      "key": "5525_3_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$我们还是尽快按照黄将军的吩咐，找到徐海要紧！",
+      "ja": "5015 - 莫問 $@$まずは黄将軍に言われたとおり、急いで徐海を探すんだ！"
+    },
+    {
+      "key": "5525_3_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯，我明白。",
+      "ja": "1 - 宇文逸 $@$はい、分かりました。"
+    },
+    {
+      "key": "5525_3_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$不过刚才那士兵说徐海就在城西的医馆，也不知道医馆到底在哪……",
+      "ja": "1 - 宇文逸 $@$ただ、さっきの兵士は徐海が城西の医館にいると言っていました。肝心の医館がどこにあるのか……"
+    },
+    {
+      "key": "5525_6_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$那徐海没来医馆，不会是假装受伤的吧？",
+      "ja": "1 - 宇文逸 $@$徐海が医館へ来ていないなら、怪我を装ったんじゃないですか？"
+    },
+    {
+      "key": "5525_6_Dlgs_Index1_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$很有可能哦～天龙帮千方百计要挟他，不外乎就是为了这座峋谷关……",
+      "ja": "17115 - 瑶姫 $@$十分あり得るわね～　天龍幇があの男をあの手この手で脅すのも、この峋谷関を手に入れるためでしょう……"
+    },
+    {
+      "key": "5525_6_Dlgs_Index2_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$这次夜袭事发突然，他又恰好从战场脱身，绝非偶然～",
+      "ja": "17115 - 瑶姫 $@$夜襲が起きたその時に、都合よく戦場を離れていた。偶然とは思えないわね～"
+    },
+    {
+      "key": "5525_6_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$此人如今受制于天龙帮，为免再生其它变故，我们必须尽快找到他。",
+      "ja": "5015 - 莫問 $@$徐海は今、天龍幇の言いなりだ。これ以上事態がこじれる前に、急いで見つけよう。"
+    },
+    {
+      "key": "5525_6_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$嗯，那我们先去<Y>城东</>他家里看看吧。",
+      "ja": "1 - 宇文逸 $@$分かりました。まずは<Y>城東</>にある徐海の家へ行ってみましょう。"
+    },
+    {
+      "key": "5528_7_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$等等，曹煜天你站住——",
+      "ja": "1 - 宇文逸 $@$待て、曹煜天！"
+    },
+    {
+      "key": "5528_7_Dlgs_Index1_Text",
+      "speaker": "白无常",
+      "zh": "19107 - 白无常 $@$小家伙，你现在的对手，可是我们。",
+      "ja": "19107 - 白無常 $@$小僧ォ、今のお前の相手は――この白と黒だよ。"
+    },
+    {
+      "key": "5528_7_Dlgs_Index2_Text",
+      "speaker": "黑无常",
+      "zh": "19106 - 黑无常 $@$桀桀，不小心点，会丧命的。",
+      "ja": "19106 - 黒無常 $@$ケヒヒィ……油断すりゃ、命を落とすぞォ。"
+    },
+    {
+      "key": "5528_7_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可恶！",
+      "ja": "1 - 宇文逸 $@$くそっ！"
+    },
+    {
+      "key": "5528_7_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟！这两人气息内敛，绝非易于之辈！",
+      "ja": "5015 - 莫問 $@$師弟！　二人とも気配を深く隠している。侮れる相手ではない！"
+    },
+    {
+      "key": "5528_7_Dlgs_Index5_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$我们得小心应对！",
+      "ja": "5015 - 莫問 $@$油断するな！"
+    },
+    {
+      "key": "5528_7_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我知道了！",
+      "ja": "1 - 宇文逸 $@$分かりました！"
+    },
+    {
+      "key": "5531_3_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，穷寇莫追……",
+      "ja": "5015 - 莫問 $@$師弟、逃げる敵を深追いするな……"
+    },
+    {
+      "key": "5531_3_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$我们还是先看看徐副将的伤势吧。",
+      "ja": "5015 - 莫問 $@$まずは徐副将の傷の具合を見よう。"
+    },
+    {
+      "key": "5531_3_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$哦对！徐副将……",
+      "ja": "1 - 宇文逸 $@$ああ、そうだ！徐副将……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……徐副将，你怎么样了？",
+      "ja": "1 - 宇文逸 $@$……徐副将、大丈夫ですか？"
+    },
+    {
+      "key": "5531_4_Dlgs_Index1_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$……咳、咳咳……",
+      "ja": "19102 - 副将-徐海 $@$……ごほっ、ごほっ……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$啊，你伤得好重，我们送你去医馆吧？",
+      "ja": "1 - 宇文逸 $@$ひどい傷だ……医館へ運びましょうか？"
+    },
+    {
+      "key": "5531_4_Dlgs_Index3_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$不……不用了……",
+      "ja": "19102 - 副将-徐海 $@$い、いや……いい……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index4_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$……我女儿……她、她到底……",
+      "ja": "19102 - 副将-徐海 $@$……娘は……あの子は、いったい……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你女儿确实早就不在天龙帮手里了……",
+      "ja": "1 - 宇文逸 $@$娘さんは、もう天龍幇の手にはいません……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$她被人掳到中原不久，就投河了，我们也不清楚她现在到底……",
+      "ja": "1 - 宇文逸 $@$中原へさらわれて間もなく、川へ身を投げたそうです。その後どうなったのか、私たちにも……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index7_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$都怪我……",
+      "ja": "19102 - 副将-徐海 $@$全ておれのせいだ……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index8_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$……是我没有保护好她……",
+      "ja": "19102 - 副将-徐海 $@$……おれが守ってやれなかった……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index9_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$咳咳，少侠……",
+      "ja": "19102 - 副将-徐海 $@$ごほっ……少侠……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index10_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$……少侠我求你！无论是死是活，求你帮我找到她，带她回家……",
+      "ja": "19102 - 副将-徐海 $@$……少侠、頼む！　生きていようと死んでいようと、娘を見つけて……家へ連れ帰ってくれ……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index11_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$她自小戴的镯子上……雕有兰花……",
+      "ja": "19102 - 副将-徐海 $@$幼いころから着けていた腕輪に……蘭の花が彫ってある……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index12_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$兰花？",
+      "ja": "5015 - 莫問 $@$蘭の花？"
+    },
+    {
+      "key": "5531_4_Dlgs_Index13_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，之前清河村的兰儿姑娘送你的玉镯上，是不是就有兰花图案？",
+      "ja": "5015 - 莫問 $@$師弟、清河村の蘭児姑娘からもらった玉の腕輪……あれにも蘭の花が彫られていなかったか？"
+    },
+    {
+      "key": "5531_4_Dlgs_Index14_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$对啊！师兄你说得对……",
+      "ja": "1 - 宇文逸 $@$そうだ！　師兄の言うとおりだ……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index15_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（拿出雕兰玉镯）徐副将你快看看，是不是这个玉镯？",
+      "ja": "1 - 宇文逸 $@$（蘭の彫られた玉の腕輪を取り出す）徐副将、これを見てください。この腕輪ですか？"
+    },
+    {
+      "key": "5531_4_Dlgs_Index16_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$（接过玉镯）……是……是，这个就是她的镯子……",
+      "ja": "19102 - 副将-徐海 $@$（玉の腕輪を受け取る）……そうだ……これだ。娘の腕輪だ……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index17_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$真的是她？没想到居然这么巧！",
+      "ja": "1 - 宇文逸 $@$本当に蘭児姑娘だったのか？　まさか、こんな偶然が……！"
+    },
+    {
+      "key": "5531_4_Dlgs_Index18_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$我女儿她、她……咳咳……",
+      "ja": "19102 - 副将-徐海 $@$娘は……あの子は……ごほっ……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index19_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$徐副将你别担心，送我玉镯的姑娘现在很好……她现在就在平康城南边的清河村。",
+      "ja": "1 - 宇文逸 $@$徐副将、安心してください。腕輪をくれた蘭児姑娘は無事です……今は平康城の南、清河村にいます。"
+    },
+    {
+      "key": "5531_4_Dlgs_Index20_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$等你养好伤，把她接回来，你们就能团聚了。",
+      "ja": "1 - 宇文逸 $@$傷を治して迎えに行けば、また一緒に暮らせます。"
+    },
+    {
+      "key": "5531_4_Dlgs_Index21_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$……我已经……没多少时间了……",
+      "ja": "19102 - 副将-徐海 $@$……おれにはもう……時間があまりない……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index22_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$知道她平安……我就放心了……",
+      "ja": "19102 - 副将-徐海 $@$あの子が無事だと分かって……安心した……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index23_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$只可惜，错已铸成……我……",
+      "ja": "19102 - 副将-徐海 $@$だが、犯した過ちは消えない……おれは……"
+    },
+    {
+      "key": "5531_4_Dlgs_Index24_Text",
+      "speaker": "副将-徐海",
+      "zh": "19102 - 副将-徐海 $@$……愧对将军……",
+      "ja": "19102 - 副将-徐海 $@$……将軍に……顔向けできぬ……"
+    },
+    {
+      "key": "5531_7_Dlgs_Index0_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$宇文公子，我们还是先<Y>回将军府</>，把徐副将的事禀告黄将军吧。",
+      "ja": "17005 - 欧陽雪 $@$宇文公子、まず<Y>将軍府へ戻り</>、徐副将の件を黄将軍へ報告しましょう。"
+    },
+    {
+      "key": "5531_7_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$还有兰儿姑娘……",
+      "ja": "5015 - 莫問 $@$蘭児姑娘のこともある……"
+    },
+    {
+      "key": "5531_7_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$如今想来，当初在清河村以及平康城那些事情，很可能也并非单纯的掳人，而是天龙帮在寻人。",
+      "ja": "5015 - 莫問 $@$今思えば、清河村や平康城の一件も、単なる人さらいではなく、天龍幇が誰かを捜していた可能性が高い。"
+    },
+    {
+      "key": "5531_7_Dlgs_Index3_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$这么说当初在碗子山，那郭焘还是骗了我呢～",
+      "ja": "17115 - 瑶姫 $@$だとすると、碗子山で郭燾は私を騙していたのね～"
+    },
+    {
+      "key": "5531_7_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$如果是这样，那兰儿姑娘的处境其实很危险啊……",
+      "ja": "1 - 宇文逸 $@$それなら、蘭児姑娘は今も危険な立場にいる……"
+    },
+    {
+      "key": "5531_7_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我们赶紧回去找<Y>黄将军</>吧。",
+      "ja": "1 - 宇文逸 $@$急いで<Y>黄将軍</>へ報告しよう。"
+    }
+  ],
+  "candidate_questions": [
+    "宇文逸・莫問・欧陽雪・瑶姬が戦闘、探索、負傷者への対応、身元判明で声と敬度を適切に切り替えているか",
+    "徐海の娘の消息、天龍幇の目的、徐海の負傷と死期について、発言・推測以上の事実を足していないか",
+    "黒白無常の過剰演出と莫問の警告が、場面の脅威を保ちつつ原意を逸脱していないか",
+    "徐海の息切れ・咳・言いさし・最期の悔恨を、整いすぎた説明文へ平坦化していないか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "穷寇莫追",
+      "想来就来，想走就走",
+      "千方百计",
+      "绝非易于之辈",
+      "错已铸成"
+    ],
+    "fact_doubts": [
+      "徐海が負傷を装ったという宇文逸・瑶姬の推測と、天龍幇の言いなりだという莫問の判断を客観事実へ確定しない",
+      "夜襲と徐海の戦場離脱の関係、曹煜天・黒白無常の役割を台詞外から補完しない",
+      "蘭児が徐海の娘であることは腕輪と徐海の認識で確定するが、過去の拉致全体の目的は莫問らの推測に留める",
+      "徐海の傷勢・残り時間・死亡を、この会話で明示された範囲を越えて具体化しない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 61,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_cross_register_huangzongzheng_5522_1_20260725.json",
+        "keys": [
+          "5522_1_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_cross_register_xuhai_5522_1_20260725.json",
+        "keys": [
+          "5522_1_Dlgs_Index3_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch7.json",
+        "keys": [
+          "5522_1_Dlgs_Index0_Text",
+          "5522_1_Dlgs_Index2_Text",
+          "5522_1_Dlgs_Index5_Text",
+          "5523_1_Dlgs_Index0_Text",
+          "5523_1_Dlgs_Index1_Text",
+          "5523_1_Dlgs_Index2_Text",
+          "5525_3_Dlgs_Index0_Text",
+          "5525_3_Dlgs_Index2_Text",
+          "5525_3_Dlgs_Index3_Text",
+          "5525_3_Dlgs_Index4_Text",
+          "5525_6_Dlgs_Index0_Text",
+          "5525_6_Dlgs_Index1_Text",
+          "5525_6_Dlgs_Index2_Text",
+          "5525_6_Dlgs_Index3_Text",
+          "5525_6_Dlgs_Index4_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch8.json",
+        "keys": [
+          "5528_7_Dlgs_Index0_Text",
+          "5528_7_Dlgs_Index1_Text",
+          "5528_7_Dlgs_Index2_Text",
+          "5528_7_Dlgs_Index4_Text",
+          "5528_7_Dlgs_Index5_Text",
+          "5531_3_Dlgs_Index0_Text",
+          "5531_4_Dlgs_Index0_Text",
+          "5531_4_Dlgs_Index10_Text",
+          "5531_4_Dlgs_Index11_Text",
+          "5531_4_Dlgs_Index13_Text",
+          "5531_4_Dlgs_Index14_Text",
+          "5531_4_Dlgs_Index15_Text",
+          "5531_4_Dlgs_Index16_Text",
+          "5531_4_Dlgs_Index17_Text",
+          "5531_4_Dlgs_Index18_Text",
+          "5531_4_Dlgs_Index19_Text",
+          "5531_4_Dlgs_Index1_Text",
+          "5531_4_Dlgs_Index20_Text",
+          "5531_4_Dlgs_Index22_Text",
+          "5531_4_Dlgs_Index23_Text",
+          "5531_4_Dlgs_Index24_Text",
+          "5531_4_Dlgs_Index2_Text",
+          "5531_4_Dlgs_Index3_Text",
+          "5531_4_Dlgs_Index4_Text",
+          "5531_4_Dlgs_Index5_Text",
+          "5531_4_Dlgs_Index6_Text",
+          "5531_4_Dlgs_Index9_Text",
+          "5531_7_Dlgs_Index0_Text",
+          "5531_7_Dlgs_Index1_Text",
+          "5531_7_Dlgs_Index2_Text",
+          "5531_7_Dlgs_Index3_Text",
+          "5531_7_Dlgs_Index4_Text",
+          "5531_7_Dlgs_Index5_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260725_batch71.json",
+        "keys": [
+          "5525_3_Dlgs_Index1_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "5522_1_Dlgs_Index1_Text",
+      "5522_1_Dlgs_Index4_Text",
+      "5528_7_Dlgs_Index3_Text",
+      "5528_7_Dlgs_Index6_Text",
+      "5531_3_Dlgs_Index1_Text",
+      "5531_3_Dlgs_Index2_Text",
+      "5531_4_Dlgs_Index12_Text",
+      "5531_4_Dlgs_Index21_Text",
+      "5531_4_Dlgs_Index7_Text",
+      "5531_4_Dlgs_Index8_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/副将-徐海.md",
+        "digest": "sha256:68dc157f29b4357af382f510a1f037a0bf72251d5b4cf1bf9e85bd66094518dd",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/瑶姬.md",
+        "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/黄宗政.md",
+        "digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5522_1_Dlgs_Index0_Text",
+          "5523_1_Dlgs_Index0_Text",
+          "5523_1_Dlgs_Index2_Text",
+          "5525_3_Dlgs_Index0_Text",
+          "5525_3_Dlgs_Index3_Text",
+          "5525_3_Dlgs_Index4_Text",
+          "5525_6_Dlgs_Index0_Text",
+          "5525_6_Dlgs_Index4_Text",
+          "5528_7_Dlgs_Index0_Text",
+          "5528_7_Dlgs_Index3_Text",
+          "5528_7_Dlgs_Index6_Text",
+          "5531_3_Dlgs_Index2_Text",
+          "5531_4_Dlgs_Index0_Text",
+          "5531_4_Dlgs_Index2_Text",
+          "5531_4_Dlgs_Index5_Text",
+          "5531_4_Dlgs_Index6_Text",
+          "5531_4_Dlgs_Index14_Text",
+          "5531_4_Dlgs_Index15_Text",
+          "5531_4_Dlgs_Index17_Text",
+          "5531_4_Dlgs_Index19_Text",
+          "5531_4_Dlgs_Index20_Text",
+          "5531_7_Dlgs_Index4_Text",
+          "5531_7_Dlgs_Index5_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5522_1_Dlgs_Index2_Text",
+          "5523_1_Dlgs_Index1_Text",
+          "5525_3_Dlgs_Index1_Text",
+          "5525_3_Dlgs_Index2_Text",
+          "5525_6_Dlgs_Index3_Text",
+          "5528_7_Dlgs_Index4_Text",
+          "5528_7_Dlgs_Index5_Text",
+          "5531_3_Dlgs_Index0_Text",
+          "5531_3_Dlgs_Index1_Text",
+          "5531_4_Dlgs_Index12_Text",
+          "5531_4_Dlgs_Index13_Text",
+          "5531_7_Dlgs_Index1_Text",
+          "5531_7_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "10_人物/副将-徐海.md",
+        "digest": "sha256:68dc157f29b4357af382f510a1f037a0bf72251d5b4cf1bf9e85bd66094518dd",
+        "document_type": "persona",
+        "name": "副将-徐海",
+        "aliases": [
+          "副将-徐海",
+          "徐海"
+        ],
+        "evidence_keys": [
+          "5522_1_Dlgs_Index3_Text",
+          "5522_1_Dlgs_Index4_Text",
+          "5531_4_Dlgs_Index1_Text",
+          "5531_4_Dlgs_Index3_Text",
+          "5531_4_Dlgs_Index4_Text",
+          "5531_4_Dlgs_Index7_Text",
+          "5531_4_Dlgs_Index8_Text",
+          "5531_4_Dlgs_Index9_Text",
+          "5531_4_Dlgs_Index10_Text",
+          "5531_4_Dlgs_Index11_Text",
+          "5531_4_Dlgs_Index16_Text",
+          "5531_4_Dlgs_Index18_Text",
+          "5531_4_Dlgs_Index21_Text",
+          "5531_4_Dlgs_Index22_Text",
+          "5531_4_Dlgs_Index23_Text",
+          "5531_4_Dlgs_Index24_Text"
+        ]
+      },
+      {
+        "path": "10_人物/瑶姬.md",
+        "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+        "document_type": "persona",
+        "name": "瑶姬",
+        "aliases": [
+          "瑶姬",
+          "玄女"
+        ],
+        "evidence_keys": [
+          "5522_1_Dlgs_Index5_Text",
+          "5525_6_Dlgs_Index1_Text",
+          "5525_6_Dlgs_Index2_Text",
+          "5531_7_Dlgs_Index3_Text"
+        ]
+      },
+      {
+        "path": "10_人物/黄宗政.md",
+        "digest": "sha256:8b5a82e3ad2b4fcf5b83598026c30becce4d6f0abba8be4d6a9a96a9aa58a8fe",
+        "document_type": "persona",
+        "name": "黄宗政",
+        "aliases": [
+          "黄宗政",
+          "黄将軍"
+        ],
+        "evidence_keys": [
+          "5522_1_Dlgs_Index6_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "欧阳雪",
+      "白无常",
+      "黑无常"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:1540ada244be081f0c687334bec2f33dbdb6ffd8362decc10288c773bfb45117"
+  }
+}
