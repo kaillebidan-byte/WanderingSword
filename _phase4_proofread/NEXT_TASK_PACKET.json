@@ -1,105 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-72-quality-audit",
+  "task_id": "post-train72-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 202,
+    "batch": 203,
     "pair_applied_keys": 1407,
     "project_applied_keys": 1783,
-    "produced_by_pr": 228,
-    "release_id": "yuwen-mowen-train-71-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_71.json"
+    "produced_by_pr": 229,
+    "release_id": "yuwen-mowen-train-72-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_72.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "9016_1",
-    "9150_3",
-    "9150_4",
-    "9154_2",
-    "9209_2",
-    "9210_1",
-    "9223_6",
-    "9228_2",
-    "9229_2",
-    "9230_2"
+    "9231_3"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-72-wave-01",
-    "packet_id": "yuwen-mowen-train72-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 203
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30629731498,
-    "artifact_id": 8792850539,
-    "artifact_digest": "sha256:a895b8fa3865a36941b706a8052692a3fc5120eb4e88de403d0e944df9cf8f35",
-    "artifact_head": "3878187410d9c9553cffcf297023d00b9e6af600",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30643106147,
+    "artifact_id": 8798304823,
+    "artifact_digest": "sha256:90ab4f1d5654f6aaa51063ee6c4e9c19ee88c8877fcb98210f21be08aa6fa784",
+    "artifact_head": "b3b3b68c7356cd0a595d60154545607197781acc",
+    "freshness_rule": "統合後の次cycle開始時にmainとartifact metadataを再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-72",
     "release_id": "yuwen-mowen-train-72-r1",
     "pr": 229,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-72統合前に9231_3のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-72",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 203,
+    "planned_batch": 204,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:324b0d2ff8c1ae8494af571c734af56d6bcdec676a7b0bfced674b47c4488e4d"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 55,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "9016_1",
-      "9150_3",
-      "9150_4",
-      "9154_2",
-      "9209_2",
-      "9210_1",
-      "9223_6",
-      "9228_2",
-      "9229_2",
-      "9230_2"
-    ],
-    "grouping_decision": "十場面55行で、莫問の救出拒否と再同行、師弟呼称の復帰、蒼鷹追跡後の判断、悪人谷残党との共闘開始までが分岐別に閉じる。無名登場後の真相対立を混ぜない。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 4,
-    "new_project_keys": 0,
-    "fix_keys": 4
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN72_WAVE01_2026-08-01.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
