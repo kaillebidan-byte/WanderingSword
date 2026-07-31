@@ -1,97 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-65-quality-audit",
+  "task_id": "post-train65-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 195,
+    "batch": 196,
     "pair_applied_keys": 1407,
     "project_applied_keys": 1783,
-    "produced_by_pr": 221,
-    "release_id": "yuwen-mowen-train-64-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json"
+    "produced_by_pr": 222,
+    "release_id": "yuwen-mowen-train-65-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_65.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5654_1",
-    "5654_4",
-    "5654_6",
-    "5654_7",
-    "5654_8",
-    "5654_12"
+    "5756_2"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-65-wave-01",
-    "packet_id": "yuwen-mowen-train65-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 196
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30566778812,
-    "artifact_id": 8769163876,
-    "artifact_digest": "sha256:df7ba5cdae6446511f97383bf99b5e2798a470d5a48253afd8e0550d4116434e",
-    "artifact_head": "9ba605a779a8c4c71c70dd9441b197325f9ef18c",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30595915009,
+    "artifact_id": 8780107384,
+    "artifact_digest": "sha256:f513505d420b4230efb7ff5379d67f824d30c20db501a935c282b7ac4894e509",
+    "artifact_head": "ef0995ca2033cbc870250ec13ef6446eba46e36d",
+    "freshness_rule": "統合後の次cycle開始時に保存artifactと最新mainを再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-65",
     "release_id": "yuwen-mowen-train-65-r1",
     "pr": 222,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-65統合前に5756_2のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-65",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 196,
+    "planned_batch": 197,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:c7787481cd991353e8afb646dfef794026a26e0fd8ebab9f11d4770a753b8943"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 44,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5654_1",
-      "5654_4",
-      "5654_6",
-      "5654_7",
-      "5654_8",
-      "5654_12"
-    ],
-    "grouping_decision": "六場面44行で、曹煜天の暴走、莫問の負傷、第三者の介入と偽風雲訣の開示、一行の離脱までが完結する。40行以上60行以下で閉じるため延長は使わない。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 8,
-    "new_project_keys": 0,
-    "fix_keys": 8
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN65_WAVE01_2026-07-31.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
