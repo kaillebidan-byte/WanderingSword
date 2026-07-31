@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/円悟.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "22010_7_Dlgs_Index0_Text"
+      ],
+      "reason": "六派の異議を確認して方針を定め、老衲として弟子へ休憩所の手配を命じる一行は、円悟の硬質な老僧registerと公的取りまとめの声に整合する。新しい規則や反例は生じない。",
+      "scope": {
+        "scene_groups": [
+          "22010_7"
+        ],
+        "modes": [
+          "六派共議後の公的取りまとめ"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:86c7a79e1545cf2b56f77b6b5209111952ca900d1a01c24e2f8c9991b9bf8033",
+      "after_digest": "sha256:86c7a79e1545cf2b56f77b6b5209111952ca900d1a01c24e2f8c9991b9bf8033",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "22010_7_Dlgs_Index1_Text",
+        "22010_7_Dlgs_Index2_Text",
+        "22010_7_Dlgs_Index3_Text",
+        "22010_7_Dlgs_Index4_Text",
+        "22025_1_Dlgs_Index0_Text",
+        "22025_1_Dlgs_Index1_Text",
+        "22025_1_Dlgs_Index2_Text",
+        "22025_1_Dlgs_Index3_Text",
+        "22025_1_Dlgs_Index4_Text",
+        "22029_5_Dlgs_Index1_Text",
+        "22029_5_Dlgs_Index3_Text",
+        "22029_5_Dlgs_Index5_Text",
+        "22031_1_Dlgs_Index0_Text",
+        "22031_1_Dlgs_Index1_Text",
+        "22031_1_Dlgs_Index2_Text",
+        "22031_1_Dlgs_Index3_Text",
+        "22125_1_Dlgs_Index0_Text",
+        "22125_1_Dlgs_Index1_Text",
+        "22125_1_Dlgs_Index2_Text",
+        "22125_1_Dlgs_Index3_Text",
+        "22125_1_Dlgs_Index4_Text",
+        "24057_1_Dlgs_Index0_Text",
+        "24057_1_Dlgs_Index2_Text",
+        "24057_1_Dlgs_Index5_Text",
+        "24057_1_Dlgs_Index13_Text",
+        "24057_1_Dlgs_Index14_Text",
+        "24057_1_Dlgs_Index16_Text",
+        "24057_1_Dlgs_Index18_Text",
+        "24058_1_Dlgs_Index0_Text",
+        "24058_1_Dlgs_Index2_Text",
+        "24058_1_Dlgs_Index5_Text",
+        "24058_1_Dlgs_Index13_Text",
+        "24058_1_Dlgs_Index14_Text",
+        "24058_1_Dlgs_Index16_Text",
+        "24058_1_Dlgs_Index18_Text"
+      ],
+      "reason": "心内語では推測と疑問を常体で積み、清霄へは師伯呼称と自然な敬体を保ち、戦時会議では対外の折り目正しさ、欧陽雪へは親密な呼称へ切り替える。莫問離反後も師兄と呼ぶ既存の関係段階も一次資料と整合する。今回の修正は他話者の意味・構文上の欠陥で、宇文逸資料の反例ではない。",
+      "scope": {
+        "scene_groups": [
+          "22010_7",
+          "22025_1",
+          "22029_5",
+          "22031_1",
+          "22125_1",
+          "24057_1",
+          "24058_1"
+        ],
+        "modes": [
+          "M1b",
+          "M4",
+          "M5",
+          "M7",
+          "莫問離反後の師兄呼称"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清霄道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "22029_5_Dlgs_Index0_Text",
+        "22029_5_Dlgs_Index2_Text",
+        "22029_5_Dlgs_Index4_Text",
+        "22029_5_Dlgs_Index6_Text",
+        "22029_5_Dlgs_Index7_Text",
+        "22029_5_Dlgs_Index8_Text",
+        "22029_5_Dlgs_Index9_Text"
+      ],
+      "reason": "莫問の関与を即座に推し量り、天山滅門に対する武当の責任を引き受け、逸児を若い世代の仇討ちから退けて自ら出る流れは、清霄の責任優先と不器用な保護に整合する。二行のFIXは日本語構文と意味強度の修復で、人物資料の主張を改める反例ではない。",
+      "scope": {
+        "scene_groups": [
+          "22029_5"
+        ],
+        "modes": [
+          "責任の引受け",
+          "不器用な保護",
+          "後期の逸児呼称"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "after_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-76",
+  "wave_id": "yuwen-mowen-train-76-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN76_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES22010_7_24058_1_2026-08-01.json",
+      "manifest_digest": "sha256:cec980a1dac82285b0fb7ad8452cbbf89be78756bf361cf9606ff28c485def23"
+    }
+  ]
+}
