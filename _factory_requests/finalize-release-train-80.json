@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-80",
+  "pr": 237,
+  "orchestrator_run_id": 30668426155,
+  "artifact_name": "release-finalization-inputs-237",
+  "ci_head": "bcdaef9989461437bf686a49414fc749812ae76c",
+  "asset_head": "3e6c2014000b044ae0eec52952a6d74314e91bbb",
+  "apply_changed": true,
+  "date": "2026-08-01",
+  "notes": [
+    "40行を監査し、FIX 8件・KEEP 32件を確定した。",
+    "完全preflight、Relation、Cross、Apply、pak一回再生成、未適用差分0件を確認した。",
+    "ゲームフォルダへの配置とゲーム内確認は行っていない。"
+  ],
+  "next_scene": "9247_1",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30668426155,
+    "artifact_id": 8807875827,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+    "artifact_head": "bcdaef9989461437bf686a49414fc749812ae76c",
+    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+  }
+}
