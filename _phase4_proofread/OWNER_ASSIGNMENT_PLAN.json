@@ -2,17 +2,15 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9234_6_9245_3_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch119.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9247_1_20516_3_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch120.json",
       "values": {
-        "9236_6_Dlgs_Index4_Text": "7502 - 李元興 $@$青竹杖は丐幇の信物です。ここは私が、青竹杖と烏長老のご遺体を丐幇へお届けしましょう。",
-        "9238_6_Dlgs_Index4_Text": "7502 - 李元興 $@$青竹杖は丐幇の信物です。ここは私が、青竹杖と烏長老のご遺体を丐幇へお届けしましょう。",
-        "9236_6_Dlgs_Index6_Text": "7502 - 李元興 $@$沙権賈らはすでに死に、玄火教もひとまず退いた。まず何事もないだろう。それに私とて、武芸は不得手でも、鶏一羽すら縛れぬような書生ではない。宇文兄弟は円覚方丈と少林へ行き、しばし休むといい。"
+        "9279_1_Dlgs_Index6_Text": "11509 - 冷無情 $@$六扇門と廠衛、双方が動いたのは、万全を期すためにすぎん。",
+        "20516_3_Dlgs_Index0_Text": "1 - 宇文逸 $@$弟子宇文逸、清霄師伯とお二方の師兄にご挨拶申し上げます。"
       },
       "fix_keys": [
-        "9236_6_Dlgs_Index4_Text",
-        "9238_6_Dlgs_Index4_Text",
-        "9236_6_Dlgs_Index6_Text"
+        "9279_1_Dlgs_Index6_Text",
+        "20516_3_Dlgs_Index0_Text"
       ]
     }
   ]

@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9247_1_Dlgs_Index1_Text",
+        "9247_1_Dlgs_Index2_Text",
+        "9247_1_Dlgs_Index3_Text",
+        "9250_1_Dlgs_Index0_Text",
+        "9250_1_Dlgs_Index1_Text",
+        "9261_1_Dlgs_Index0_Text",
+        "9261_1_Dlgs_Index1_Text",
+        "9261_1_Dlgs_Index4_Text",
+        "9262_1_Dlgs_Index0_Text",
+        "9262_1_Dlgs_Index1_Text",
+        "9262_1_Dlgs_Index4_Text",
+        "9262_1_Dlgs_Index6_Text",
+        "9267_1_Dlgs_Index0_Text",
+        "9267_1_Dlgs_Index3_Text",
+        "9273_1_Dlgs_Index0_Text",
+        "9273_1_Dlgs_Index2_Text",
+        "9279_1_Dlgs_Index0_Text",
+        "9279_1_Dlgs_Index2_Text",
+        "9279_1_Dlgs_Index7_Text",
+        "20515_4_Dlgs_Index0_Text",
+        "20515_4_Dlgs_Index2_Text",
+        "20516_3_Dlgs_Index0_Text",
+        "20516_3_Dlgs_Index2_Text"
+      ],
+      "reason": "少林異変での切迫した短句、莫問への師兄呼称と心配、師叔・師伯への自然な敬体、正式挨拶のM1aが場面ごとに切り替わる。見過ごされていたのは20516_3の定型挨拶訳だけで、現行資料のモード設計自体は一次資料と整合する。",
+      "scope": {
+        "scene_groups": [
+          "9247_1",
+          "9250_1",
+          "9261_1",
+          "9262_1",
+          "9267_1",
+          "9273_1",
+          "9279_1",
+          "20515_4",
+          "20516_3"
+        ],
+        "modes": [
+          "M1a",
+          "M1b",
+          "M1c",
+          "M4"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/道妙.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9261_1_Dlgs_Index2_Text",
+        "9261_1_Dlgs_Index3_Text",
+        "9262_1_Dlgs_Index2_Text",
+        "9262_1_Dlgs_Index3_Text"
+      ],
+      "reason": "二つの平康分岐で、短い嘆きと「わしら」「おらなんだ」による沈着な老道registerが同じ機能で保たれる。現行資料の自称・語尾・面倒見の良さに反例はない。",
+      "scope": {
+        "scene_groups": [
+          "9261_1",
+          "9262_1"
+        ],
+        "mode": "襲撃後の現状報告"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:02c36bd5a6016480d9c0814c32bbdfa2be8e6418a762c6f96578a1b958fcf3c9",
+      "after_digest": "sha256:02c36bd5a6016480d9c0814c32bbdfa2be8e6418a762c6f96578a1b958fcf3c9",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9261_1_Dlgs_Index5_Text",
+        "9261_1_Dlgs_Index6_Text",
+        "9262_1_Dlgs_Index5_Text",
+        "9267_1_Dlgs_Index1_Text",
+        "9273_1_Dlgs_Index1_Text",
+        "9279_1_Dlgs_Index4_Text"
+      ],
+      "reason": "平康分岐では矛盾を即座に拾って六扇門へ問いを渡し、樊城では目上へ敬体、総舵では弟弟子へ常体で次の行動を示す。観察から判断へ移る現行資料の兄弟子・謀士モードと整合する。",
+      "scope": {
+        "scene_groups": [
+          "9261_1",
+          "9262_1",
+          "9267_1",
+          "9273_1",
+          "9279_1"
+        ],
+        "mode": "再同行中の調査・判断"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/道微.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9267_1_Dlgs_Index2_Text"
+      ],
+      "reason": "守備隊の介入と殷門主の調査を簡潔に伝える一行で、武当の道長としての端的な現状報告に収まる。短い一例から人物資料を拡張する根拠はない。",
+      "scope": {
+        "scene_groups": [
+          "9267_1"
+        ],
+        "mode": "樊城分舵の現状報告"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:cc59aed1b25ef6306ac0c6e6b93730f35b17c99c4a0a1563ad68ff3dace23b49",
+      "after_digest": "sha256:cc59aed1b25ef6306ac0c6e6b93730f35b17c99c4a0a1563ad68ff3dace23b49",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清霄道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "20515_4_Dlgs_Index1_Text"
+      ],
+      "reason": "莫問を案じる宇文逸へ、調査状況を示したうえで過度な心配を戒め、目前の任務へ戻す。不器用な保護を命令と短い断定で示す現行資料に合う。",
+      "scope": {
+        "scene_groups": [
+          "20515_4"
+        ],
+        "mode": "後進への保護と任務集中の指示"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "after_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元啓.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "20516_3_Dlgs_Index1_Text"
+      ],
+      "reason": "自分の名で非を認め、師弟へ負担をかけたことを率直に詫びる。現行資料の自省・温かさと完成例に直接一致し、反例はない。",
+      "scope": {
+        "scene_groups": [
+          "20516_3"
+        ],
+        "mode": "同門の弟弟子への謝罪"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+      "after_digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-75",
+  "wave_id": "yuwen-mowen-train-75-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN75_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9247_1_20516_3_2026-08-01.json",
+      "manifest_digest": "sha256:00581efad9479ec84dca718bf93d763cc8f82574eafc3ed5db4e80798cb1dac8"
+    }
+  ]
+}
