@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-75",
+  "pr": 232,
+  "orchestrator_run_id": 30660076941,
+  "artifact_name": "release-finalization-inputs-232",
+  "ci_head": "12110cc2bddd57ac7689093b27db1a3336981d48",
+  "asset_head": "647e8fe3583f284ffc4f17e0e69d451cfae09ef0",
+  "apply_changed": true,
+  "next_scene": "22010_7",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30660076941,
+    "artifact_id": 8804810641,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:80377dd38e78c3357ac1aecbf0c5e83f24951dbf72253fef87b5604cd4f56670",
+    "artifact_head": "12110cc2bddd57ac7689093b27db1a3336981d48",
+    "freshness_rule": "統合後の次cycle開始時に最新mainとRelation一次資料を再確認する。"
+  }
+}
