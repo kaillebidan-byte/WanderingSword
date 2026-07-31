@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-69",
+  "pr": 226,
+  "orchestrator_run_id": 30601107348,
+  "artifact_name": "release-finalization-inputs-226",
+  "ci_head": "e7500d2883fbbe58f7ac1cbbb7fd08dc2daf8b95",
+  "asset_head": "26b7c597576efdba6719e92fc2db93bf90bbd08d",
+  "apply_changed": true,
+  "date": "2026-07-31",
+  "next_scene": "6002_5",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30601107348,
+    "artifact_id": 8781931983,
+    "artifact_digest": "sha256:7498579f617b9bf1581b27ab2aa0526c9940a0a22a2b0f3c0eab445265697ba2",
+    "artifact_head": "e7500d2883fbbe58f7ac1cbbb7fd08dc2daf8b95",
+    "freshness_rule": "統合後の次cycle開始時にmainとartifact metadataを再確認する。"
+  },
+  "notes": [
+    "完全preflight、Relation、Cross、Apply、pak再生成、未適用差分0件を確認した。",
+    "第200束は67行を監査し、5件を修正、62件を意図的に保持した。",
+    "ゲームフォルダへの配置は行わず、verified_not_deployed・game_verified: not_startedを維持する。"
+  ]
+}
