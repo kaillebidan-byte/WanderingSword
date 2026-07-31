@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-66",
   "branch": "agent/yuwen-mowen-train-66",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 223,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 223,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,156 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 4,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 197,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5756_2",
+        "5756_5",
+        "5781_1",
+        "5781_10",
+        "5784_4",
+        "5784_8",
+        "5784_9"
+      ],
+      "reviewed_rows": 54,
+      "reviewed_keys": 54,
+      "unique_rows": 54,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 4,
+      "keep_keys": 50,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch12_reserved_5784_9.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch12.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH197_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 54,
+        "unowned_kept": 0,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "四海之内皆兄弟",
+        "事半功倍",
+        "数十年如一日",
+        "交口称赞",
+        "赞不绝口",
+        "侠骨"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5784_9_Dlgs_Index8_Text",
+          "decision": "特定典籍の直接引用",
+          "note": "「四海之内皆兄弟」は『論語』顔淵の「四海之内、皆兄弟也」にほぼ一致する著名句。伯父の言葉を程鈺が引用する場面なので、定着した読み下し「四海の内、皆兄弟なり」を採用する。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index10_Text",
+          "decision": "定着した成語",
+          "note": "「事半功倍」は少ない労力で大きな成果を得る意の定着成語。莫問が程堡主へ頼れば人捜しが効率化すると説明する機能を、現訳「ずっと早く進む」が自然に保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index5_Text",
+          "decision": "定着した継続表現",
+          "note": "「数十年如一日」は長年変わらず続ける意の定着表現。特定典籍の引用として発声されておらず、現訳「数十年変わらず」で機能を保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index9_Text",
+          "decision": "定着した称賛の成語",
+          "note": "「交口称赞」は口をそろえて称える意の成語。現訳の像を維持し、修正は正邪両道が掛かる節の境界だけに限定する。"
+        },
+        {
+          "key": "5781_10_Dlgs_Index0_Text",
+          "decision": "定着した称賛の成語",
+          "note": "「赞不绝口」は絶えず褒める意の成語。現訳「絶賛しています」が場面機能を保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index4_Text",
+          "decision": "武侠の人物評価語",
+          "note": "「侠骨」は侠義を備えた気骨を表す武侠語彙で、この行では特定典籍の引用ではない。現訳「侠気に厚く」を維持する。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "cheng_deming_reputation_is_mowen_exposition",
+          "keys": [
+            "5781_1_Dlgs_Index2_Text",
+            "5781_1_Dlgs_Index3_Text",
+            "5781_1_Dlgs_Index4_Text",
+            "5781_1_Dlgs_Index5_Text",
+            "5781_1_Dlgs_Index6_Text",
+            "5781_1_Dlgs_Index8_Text",
+            "5781_1_Dlgs_Index9_Text",
+            "5781_1_Dlgs_Index10_Text"
+          ],
+          "note": "程家堡と程徳明の経歴・評判は莫問の説明で、援助と江湖の評判には「据说」も含まれる。この場面では莫問が把握した情報として扱い、正邪を問わず援助する固定方針などへ強めない。"
+        },
+        {
+          "scope": "cheng_yu_father_and_xuanhuo_relationship",
+          "keys": [
+            "5784_9_Dlgs_Index4_Text",
+            "5784_9_Dlgs_Index6_Text",
+            "5784_9_Dlgs_Index7_Text",
+            "5784_9_Dlgs_Index8_Text"
+          ],
+          "note": "程鈺が述べるのは、父が帰宅直後に玄火教の大侠と相談へ行ったことだけ。宇文逸は親密さを疑問として尋ね、程鈺は伯父の格言で応じる。正式な同盟、父の思想、玄火教の善悪を客観事実として補わない。"
+        },
+        {
+          "scope": "cheng_yu_uncle_worry_and_greeter_choice",
+          "keys": [
+            "5784_9_Dlgs_Index1_Text",
+            "5784_9_Dlgs_Index2_Text",
+            "5784_9_Dlgs_Index3_Text",
+            "5784_9_Dlgs_Index4_Text"
+          ],
+          "note": "宇文逸の問いと程鈺の返答から、伯父が程鈺一人の迎えを案じていたことは読めるが、その理由や程鈺の能力評価までは説明されない。軽口以上の家族設定を足さない。"
+        },
+        {
+          "scope": "four_seas_quote_is_reported_speech",
+          "keys": [
+            "5784_9_Dlgs_Index8_Text"
+          ],
+          "note": "「四海之内皆兄弟」は程鈺が伯父の常日頃の言葉として伝える引用。作品世界の客観的な正邪観や程家堡全体の方針へ一般化しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30595915009,
+        "artifact_id": 8780107384,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:f513505d420b4230efb7ff5379d67f824d30c20db501a935c282b7ac4894e509",
+        "head_sha": "ef0995ca2033cbc870250ec13ef6446eba46e36d"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-66-wave-01"
   },
   "next_release": {
@@ -75,15 +203,39 @@
       "5784_8",
       "5784_9"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      197
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-65",
     "release_id": "yuwen-mowen-train-65-r1",
     "pr": 222,
     "merge_sha": "80cd51c9bb16723d6d5cde505109ffbc809956cd"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 4,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 50,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN66_WAVE01_2026-07-31.md"
+    }
   }
 }

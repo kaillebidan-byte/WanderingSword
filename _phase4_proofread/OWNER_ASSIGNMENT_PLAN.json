@@ -2,27 +2,19 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_1_5654_12_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch110.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch111.json",
       "values": {
-        "5654_1_Dlgs_Index2_Text": "45350 - 曹煜天 $@$くそっ！　無名の仕業だ……無名、貴様、俺を騙したな！！　ぐああああ――！！！",
-        "5654_7_Dlgs_Index1_Text": "1 - 宇文逸 $@$ですが、あなたは妙な人ですね。曹煜天が風雲訣を持っていると知っていたのに、なぜ以前は私に襲いかかったんです？",
-        "5654_7_Dlgs_Index4_Text": "5015 - 莫問 $@$閣下のお話では……これは風雲訣ではないと！？",
-        "5654_7_Dlgs_Index6_Text": "5015 - 莫問 $@$そのことは、曹煜天本人でさえ確かではなかったはずです。失礼ながら、閣下はどうしてご存じなのです？",
-        "5654_7_Dlgs_Index7_Text": "19403 - ？？？ $@$ふふ、知っていて当然だ。この偽の風雲訣を曹煜天へ直々に渡したのは、この私だからな。",
-        "5654_8_Dlgs_Index0_Text": "1 - 宇文逸 $@$それを……そんなあっさり壊したのか！？",
-        "5654_8_Dlgs_Index7_Text": "19403 - ？？？ $@$風雲訣の噂が中原へ流れなければ……円覚の禿坊主が陣取っていようと、各派が六扇門などという朝廷の犬に易々と従うものか。",
-        "5654_8_Dlgs_Index10_Text": "5015 - 莫問 $@$他派に私心があったとしても、我ら武当が秘笈目当てでここへ来たなど、断じてあり得ない！"
+        "5781_1_Dlgs_Index9_Text": "5015 - 莫問 $@$江湖の者が助けを求めてくれば、力を尽くして応じるそうだ。だから誰もが口をそろえて称え、正邪両道とも程堡主には一目置いている。",
+        "5781_10_Dlgs_Index2_Text": "1 - 宇文逸 $@$兄弟なのに、どうしてここまで評判が違うんでしょう。あの程二爺は、あまり好かれていないようですが……",
+        "5784_9_Dlgs_Index4_Text": "16002 - 程鈺 $@$（頭をかいて）本当は、さっき伯父が父を呼んだんです。でも父は家に戻るなり、玄火教の大侠と相談に行ってしまって……",
+        "5784_9_Dlgs_Index8_Text": "16002 - 程鈺 $@$伯父はいつも、「四海の内、皆兄弟なり。正邪の別など、あまり気にするな」って言っています……"
       },
       "fix_keys": [
-        "5654_1_Dlgs_Index2_Text",
-        "5654_7_Dlgs_Index1_Text",
-        "5654_7_Dlgs_Index4_Text",
-        "5654_7_Dlgs_Index6_Text",
-        "5654_7_Dlgs_Index7_Text",
-        "5654_8_Dlgs_Index0_Text",
-        "5654_8_Dlgs_Index7_Text",
-        "5654_8_Dlgs_Index10_Text"
+        "5781_1_Dlgs_Index9_Text",
+        "5781_10_Dlgs_Index2_Text",
+        "5784_9_Dlgs_Index4_Text",
+        "5784_9_Dlgs_Index8_Text"
       ]
     }
   ]
