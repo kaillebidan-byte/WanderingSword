@@ -1,1 +1,95 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-80","branch":"agent/yuwen-mowen-train-80","draft_pr":237,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":237,"merge_sha":"dee19812149e901b6d057cdd48a23e980e5731fb"},"base_checkpoint":{"batch":210,"pair_applied_keys":1434,"project_applied_keys":1810,"produced_by_pr":236,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-79-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_79.json","pr":236,"validated_head":"8791555a0f2305edb7c913e96054f1b2d925684b"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":40,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":2,"new_project_keys":2,"cross_register_keys":0,"existing_owner_updates":6,"keep_only_bundles":0},"bundles":[{"batch":211,"review_status":"complete","apply_status":"verified","scene_groups":["6057_12","6081_9","6116_3"],"reviewed_rows":40,"reviewed_keys":40,"unique_rows":40,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":2,"new_project_keys":2,"cross_register_keys":0,"existing_owner_updates":6,"keep_keys":32,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch17.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch125.json","_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH211_2026-08-01.md","ownership_summary":{"existing_keys":37,"unowned_kept":1,"new_keys":2,"cross_register_keys":0},"allusion_review_candidates":["尽灭满门，以慰天山冤魂","拜帖","鸡犬不留","命不久矣"],"allusion_review_resolved":[{"key":"6116_3_Dlgs_Index0_Text","decision":"作品内の擬古的な果たし状文","note":"「尽灭满门，以慰天山冤魂」は特定典籍の引用と断定せず、天山の怨魂を慰めるため一門を滅ぼすという果たし状の文言調として扱う。現訳の朔日・怨魂・「慰めん」が格と像を保つためKEEP。"},{"key":"6116_3_Dlgs_Index3_Text","decision":"儀礼語の文脈転用","note":"「拜帖」は本来の訪問・名乗りの帖という儀礼機能を踏まえつつ、各派へ期日と殲滅を告げる場面では挑戦状・果たし状として機能する。現訳「果たし状」をKEEP。"},{"key":"6116_3_Dlgs_Index5_Text","decision":"定着した成語","note":"「鸡犬不留」は鶏や犬すら残さないほど皆殺しにする成語。現訳は鶏犬の像と殲滅の強度を保つためKEEP。"},{"key":"6116_3_Dlgs_Index7_Text","decision":"定着した文言的表現","note":"「命不久矣」は余命が長くないという通常の文言表現で、特定引用ではない。現訳「余命幾ばくもない」が清虚の古風な声を保つためKEEP。"}],"fact_doubts":[{"scope":"mowen_qingxiao_side_and_warning","keys":["6057_12_Dlgs_Index0_Text","6057_12_Dlgs_Index3_Text","6057_12_Dlgs_Index4_Text","6057_12_Dlgs_Index5_Text","6057_12_Dlgs_Index6_Text"],"note":"莫問は清霄側へ戻り邪教勢力を討ったと報告する一方、宇文逸を宇文師弟と呼んで来るべきではなかったと警告する。清霄は宇文逸を武当の叛徒として誅殺対象に含める。莫問の呼称と清霄の敵認定を同一認識へ均さない。"},{"scope":"fulongzi_poison_and_departure_inference","keys":["6081_9_Dlgs_Index1_Text","6081_9_Dlgs_Index5_Text","6081_9_Dlgs_Index6_Text","6081_9_Dlgs_Index7_Text","6081_9_Dlgs_Index8_Text","6081_9_Dlgs_Index9_Text","6081_9_Dlgs_Index10_Text"],"note":"江小彤は金蛇蠱を自分にも解けず伏龍子は死ぬと確信している。宇文逸は戦傷と蠱毒から死亡可能性を推測し、伏龍子と莫問が混乱に乗じて離れたと考える段階であり、死亡・同行を客観事実として確定しない。"},{"scope":"challenge_letter_and_massacre_report","keys":["6116_3_Dlgs_Index0_Text","6116_3_Dlgs_Index1_Text","6116_3_Dlgs_Index3_Text","6116_3_Dlgs_Index4_Text","6116_3_Dlgs_Index5_Text"],"note":"宇文逸は文面を莫問の筆跡と認識し、清虚は天山派名義の同じ果たし状が各派へ届き、悪人谷がすでに殲滅されたと報告する。文面、宇文逸の筆跡認識、清虚の報告を区別する。"},{"scope":"qingxu_inference_and_last_request","keys":["6116_3_Dlgs_Index7_Text","6116_3_Dlgs_Index8_Text","6116_3_Dlgs_Index9_Text","6116_3_Dlgs_Index10_Text","6116_3_Dlgs_Index12_Text","6116_3_Dlgs_Index13_Text","6116_3_Dlgs_Index16_Text","6116_3_Dlgs_Index18_Text","6116_3_Dlgs_Index19_Text","6116_3_Dlgs_Index20_Text","6116_3_Dlgs_Index21_Text","6116_3_Dlgs_Index22_Text"],"note":"清虚は伏龍子の死期が近くても莫問が復讐を捨てないと推測し、各派が弱った現状では風雲訣を修めた宇文逸だけが止められると判断する。莫問の将来の後悔を案じる師の見立てであり、客観的な未来として断定しない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30667194067,"artifact_id":8807422974,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:423a8a0819b36cba949ef34bc002cad64f3f8a14c402848a4dffc29b3702afd9","head_sha":"3877f96a1687fe8eb38cdac9d10cad9c92d49302"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-80-wave-01"},"next_release":{"candidate_scene":["9247_1"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[211],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-79","release_id":"yuwen-mowen-train-79-r1","pr":236,"merge_sha":"e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":8,"unique_fix_rows":8,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":8,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json","merge_result":{"pr":237,"merge_sha":"dee19812149e901b6d057cdd48a23e980e5731fb"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-81",
+  "branch": "agent/yuwen-mowen-train-81",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 211,
+    "pair_applied_keys": 1436,
+    "project_applied_keys": 1812,
+    "produced_by_pr": 237,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-80-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json",
+      "pr": 237,
+      "validated_head": "3e6c2014000b044ae0eec52952a6d74314e91bbb"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-81-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "13297_2_Dlgs",
+      "12406_OptionDlgs3_Index0_Text",
+      "12406_RequestDlgs_Index0_Text",
+      "12409_FinishingDlgs_Index8_Text",
+      "12436_RequestDlgs_Index0_Text",
+      "14201_FinishingDlgs_Index2_Text",
+      "20004_FinishingDlgs_Index3_Text",
+      "22576_FinishingDlgs_Index1_Text",
+      "23021_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index3_Text",
+      "5944_RequestDlgs_Index1_Text",
+      "6252_FinishingDlgs_Index0_Text"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-80",
+    "release_id": "yuwen-mowen-train-80-r1",
+    "pr": 237,
+    "merge_sha": "dee19812149e901b6d057cdd48a23e980e5731fb"
+  }
+}

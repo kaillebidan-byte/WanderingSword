@@ -1,0 +1,189 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "13297_2_Dlgs"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30668426155,
+    "artifact_id": 8807875827,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+    "head_sha": "bcdaef9989461437bf686a49414fc749812ae76c"
+  },
+  "scene_context": {
+    "timeline": "宇文逸と莫問の関係を直接言及する補助会話・任務報告・回想の未監査末尾。早期の師兄弟関係、贈礼、修行、失踪、天山事件認識までを、主線sceneから独立したexplicit-reference補遺として扱う。",
+    "branch_note": "程鈺帰還時、宇文逸が莫問と共同で程鈺の行方を捜していたと告げ、程鈺が故郷と仇の死を語る2行。CG表の通常会話として独立させる。"
+  },
+  "rows": [
+    {
+      "key": "13297_2_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$程钰？！你怎么会回来这里？这段时间我和莫问师兄一直在打听你的下落，但始终没有音信。",
+      "ja": "1 - 宇文逸 $@$程鈺！？　どうしてここへ戻ってきたんだ？　このところ、莫問師兄とずっと行方を捜していたが、何の音沙汰もなかった。"
+    },
+    {
+      "key": "13297_2_Dlgs_Index1_Text",
+      "speaker": "程钰",
+      "zh": "9507 - 程钰 $@$我来……凭吊一番生我养我的地方，没想到我的仇人就这样死了，他甚至等不到我亲自来取他性命。",
+      "ja": "9507 - 程鈺 $@$僕は……僕を生み育てた場所を弔いに来た。まさか僕の仇が、こんな風に死んでしまうとは。この手で命を奪うのを待つことさえ、できなかった……。"
+    }
+  ],
+  "candidate_questions": [
+    "宇文逸が莫問と共同で程鈺を捜していた事実が自然に伝わるか",
+    "程鈺の故郷への弔意と自ら仇を討てなかった無念が主客を崩さず発声しているか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [],
+    "fact_doubts": [
+      "宇文逸と莫問は程鈺の行方を調べていたが、この場まで消息を得ていなかった",
+      "程鈺は故郷を弔うため戻り、仇が自分の手にかからず死んだことへ無念を抱いている"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 2,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch29.json",
+        "keys": [
+          "13297_2_Dlgs_Index0_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "13297_2_Dlgs_Index1_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "current_pair_persona"
+      },
+      {
+        "path": "10_人物/程鈺.md",
+        "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "13297_2_Dlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "10_人物/程鈺.md",
+        "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+        "document_type": "persona",
+        "name": "程鈺",
+        "aliases": [
+          "程鈺",
+          "程钰"
+        ],
+        "evidence_keys": [
+          "13297_2_Dlgs_Index1_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:ab87d58baf4df99450fb16538d7cf8b063de6638d0a1f10f3656aad6d1ad71ec"
+  }
+}

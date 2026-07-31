@@ -1,1 +1,161 @@
-{"schema_version":2,"contract":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","train_id":"yuwen-mowen-train-80","stage":"translation_frozen","mode":"wave_v2","cycle_control":{"status":"target_reached","private_completion_target":"ready_for_public_ci","public_completion_target":"awaiting_private_merge","post_public_completion_target":"merged","continuation_required":false,"stop_reason":null,"exact_next_action":null,"last_safe_checkpoint":"merged","execution_mode":"always_public_full_pipeline","cycle_start_visibility":"public","mode_locked_for_cycle":true,"normal_completion_target":"merged"},"ownership_policy":{"schema_version":1,"required_for_new_candidates":true,"snapshot_command":"python _tools/check_candidate_ownership.py --write <candidate paths>","pre_public_check":"python _tools/check_private_release_preflight.py --with-tests --repository-visibility public","legacy_candidate_paths":["_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json","_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json"]},"wave":{"wave_id":"yuwen-mowen-train-80-wave-01","queue_status":"sealed","seal_reason":"unique_reviewed_rows_threshold","seal_attestation":"敵陣再会5行、伏龍子と莫問の行方をめぐる小声の推測12行、天山派の果たし状と清虚の最後の依頼23行を独立した意味単位として保ち、合計40行で標準下限を満たす。60行超の延長は行わない。","packets":[{"packet_id":"yuwen-mowen-train80-packet-01","scene_groups":["6057_12","6081_9","6116_3"],"status":"encoded","preparation_record":{"candidate_packet":"_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6057_12_6116_3_2026-08-01.json","context_record":"_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN80_WAVE01_2026-08-01.md","quality_audit_context_digest":"sha256:0bab8486caae1cf16c22a7e69b416d0214834f6e0f530ae748eb60e41f74fbfc"},"audit_record":{"status":"complete","record":"_phase4_proofread/AUDIT_YUWEN_MOWEN_TRAIN80_WAVE01_2026-08-01.md","decision_record":"_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN80_WAVE01_2026-08-01.json"},"review_record":{"status":"complete","record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH211_2026-08-01.md","apply_status":"verified"},"formal_batch":211,"source_document_target_count":5,"source_document_feedback_record":{"status":"complete","record":"_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN80_WAVE01_2026-08-01.json"}}],"encoding_summary":{"bundle_count":1,"reviewed_rows":40,"reviewed_keys":40,"unique_reviewed_rows":40,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":2,"new_project_keys":2,"cross_register_keys":0,"existing_owner_updates":6,"keep_only_bundles":0}},"transport":{"status":"merged","history":[{"status":"not_ready","translation_stage":"private_preparation"},{"status":"ready_for_public_ci","translation_stage":"translation_frozen","pr":237},{"status":"in_public_ci","translation_stage":"translation_frozen","pr":237},{"status":"verified","translation_stage":"translation_frozen","pr":237,"release_id":"yuwen-mowen-train-80-r1"},{"status":"awaiting_private_merge","translation_stage":"translation_frozen","pr":237,"release_id":"yuwen-mowen-train-80-r1"},{"status":"merged","translation_stage":"translation_frozen","pr":237,"merge_sha":"dee19812149e901b6d057cdd48a23e980e5731fb"}],"pr":237,"merge_sha":"dee19812149e901b6d057cdd48a23e980e5731fb"},"permissions":{"translation_judgment_allowed":false,"fix_writes_allowed":false,"encoding_writes_allowed":false,"throughput_metrics_visible":true,"metrics_frozen":false},"history":[{"stage":"private_preparation","status":"complete"},{"stage":"private_quality_audit","status":"complete"},{"stage":"private_encoding","status":"complete"},{"stage":"translation_frozen","status":"active"}],"replenishment_reason":null,"source_artifact":{"workflow":"Release train orchestrator","run_id":30667194067,"artifact_id":8807422974,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:423a8a0819b36cba949ef34bc002cad64f3f8a14c402848a4dffc29b3702afd9","head_sha":"3877f96a1687fe8eb38cdac9d10cad9c92d49302"},"previous_release":{"train_id":"yuwen-mowen-train-79","release_id":"yuwen-mowen-train-79-r1","pr":236,"merge_sha":"e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"},"institutional_baseline":{"pr":152,"merge_sha":"0df5ecb699b29a587f121baef8e68259606e1267","status":"merged","scope":"live consumer認証付き終端契約"},"verified_result":{"release_id":"yuwen-mowen-train-80-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json","ci_head":"bcdaef9989461437bf686a49414fc749812ae76c","asset_head":"3e6c2014000b044ae0eec52952a6d74314e91bbb","pending_fixes":0}}
+{
+  "schema_version": 2,
+  "contract": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
+  "train_id": "yuwen-mowen-train-81",
+  "stage": "private_quality_audit",
+  "mode": "wave_v2",
+  "cycle_control": {
+    "status": "running",
+    "private_completion_target": "ready_for_public_ci",
+    "public_completion_target": "awaiting_private_merge",
+    "post_public_completion_target": "merged",
+    "continuation_required": true,
+    "stop_reason": null,
+    "exact_next_action": "explicit-reference tailの2candidateをquality auditする",
+    "last_safe_checkpoint": "private_quality_audit",
+    "execution_mode": "always_public_full_pipeline",
+    "cycle_start_visibility": "public",
+    "mode_locked_for_cycle": true,
+    "normal_completion_target": "merged"
+  },
+  "ownership_policy": {
+    "schema_version": 1,
+    "required_for_new_candidates": true,
+    "snapshot_command": "python _tools/check_candidate_ownership.py --write <candidate paths>",
+    "pre_public_check": "python _tools/check_private_release_preflight.py --with-tests --repository-visibility public",
+    "legacy_candidate_paths": [
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5581_7_5581_8_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_1_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENE5583_2_2026-07-26.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5585_4_5586_3_5586_5_2026-07-26.json"
+    ]
+  },
+  "wave": {
+    "wave_id": "yuwen-mowen-train-81-wave-01",
+    "queue_status": "sealed",
+    "seal_reason": "scope_exhausted",
+    "seal_attestation": "現Relation artifactのexplicit_reference全keyから第206〜211束candidateの既監査keyを除いた残件14行を、target/namespace別の2packetですべて収録する。隣接する未監査explicit_reference行は存在せず、通常40行下限を満たせない最終scopeである。",
+    "packets": [
+      {
+        "packet_id": "yuwen-mowen-train81-tail-01",
+        "scene_groups": [
+          "13297_2_Dlgs"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_CG_13297_2_2026-08-01.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN81_TAIL_CG_2026-08-01.md",
+          "quality_audit_context_digest": "sha256:ab87d58baf4df99450fb16538d7cf8b063de6638d0a1f10f3656aad6d1ad71ec"
+        },
+        "audit_record": null,
+        "review_record": null,
+        "formal_batch": null,
+        "source_document_target_count": 2
+      },
+      {
+        "packet_id": "yuwen-mowen-train81-tail-02",
+        "scene_groups": [
+          "12406_OptionDlgs3_Index0_Text",
+          "12406_RequestDlgs_Index0_Text",
+          "12409_FinishingDlgs_Index8_Text",
+          "12436_RequestDlgs_Index0_Text",
+          "14201_FinishingDlgs_Index2_Text",
+          "20004_FinishingDlgs_Index3_Text",
+          "22576_FinishingDlgs_Index1_Text",
+          "23021_FinishingDlgs_Index0_Text",
+          "5371_FinishingDlgs_Index0_Text",
+          "5371_FinishingDlgs_Index3_Text",
+          "5944_RequestDlgs_Index1_Text",
+          "6252_FinishingDlgs_Index0_Text"
+        ],
+        "status": "prepared",
+        "preparation_record": {
+          "candidate_packet": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_QUESTS_12406_6252_2026-08-01.json",
+          "context_record": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN81_TAIL_QUESTS_2026-08-01.md",
+          "quality_audit_context_digest": "sha256:0885b1374ab8b9600c530c77f9678a9e4b47f239c33f7e7cafadd9d9f71276de"
+        },
+        "audit_record": null,
+        "review_record": null,
+        "formal_batch": null,
+        "source_document_target_count": 2
+      }
+    ]
+  },
+  "transport": {
+    "status": "not_ready",
+    "history": [
+      {
+        "status": "not_ready",
+        "translation_stage": "private_preparation"
+      }
+    ],
+    "pr": null,
+    "merge_sha": null
+  },
+  "permissions": {
+    "translation_judgment_allowed": true,
+    "fix_writes_allowed": false,
+    "encoding_writes_allowed": false,
+    "throughput_metrics_visible": false,
+    "metrics_frozen": true
+  },
+  "history": [
+    {
+      "stage": "private_preparation",
+      "status": "complete"
+    },
+    {
+      "stage": "private_quality_audit",
+      "status": "active"
+    }
+  ],
+  "replenishment_reason": null,
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30668426155,
+    "artifact_id": 8807875827,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+    "head_sha": "bcdaef9989461437bf686a49414fc749812ae76c"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-80",
+    "release_id": "yuwen-mowen-train-80-r1",
+    "pr": 237,
+    "merge_sha": "dee19812149e901b6d057cdd48a23e980e5731fb"
+  },
+  "institutional_baseline": {
+    "pr": 152,
+    "merge_sha": "0df5ecb699b29a587f121baef8e68259606e1267",
+    "status": "merged",
+    "scope": "live consumer認証付き終端契約"
+  },
+  "tail_exhaustion": {
+    "status": "verified",
+    "reviewed_candidate_paths": [
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9247_1_20516_3_2026-08-01.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES22010_7_24058_1_2026-08-01.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32025_1_5303_1_2026-08-01.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5689_1_6008_2_2026-08-01.json",
+      "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6057_12_6116_3_2026-08-01.json"
+    ],
+    "residual_rows": 14,
+    "residual_families": [
+      "13297_2_Dlgs",
+      "12406_OptionDlgs3_Index0_Text",
+      "12406_RequestDlgs_Index0_Text",
+      "12409_FinishingDlgs_Index8_Text",
+      "12436_RequestDlgs_Index0_Text",
+      "14201_FinishingDlgs_Index2_Text",
+      "20004_FinishingDlgs_Index3_Text",
+      "22576_FinishingDlgs_Index1_Text",
+      "23021_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index3_Text",
+      "5944_RequestDlgs_Index1_Text",
+      "6252_FinishingDlgs_Index0_Text"
+    ]
+  }
+}
