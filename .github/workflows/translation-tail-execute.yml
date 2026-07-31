@@ -88,6 +88,9 @@ jobs:
         run: |
           python _tools/pair_tail_quality_context.py --execution-result /tmp/pair-tail-result.json --write --output /tmp/pair-tail-context.json
 
+      - name: Seal standard restart handoff
+        run: python _tools/ensure_pair_tail_handoff_restart.py
+
       - name: Validate quality-audit station
         run: |
           python _tools/check_state_json_integrity.py
@@ -98,6 +101,7 @@ jobs:
           python _tools/check_next_task_packet.py
           python _tools/check_autonomous_cycle.py
           python _tools/check_operational_docs_consistency.py
+          python _tools/check_release_transport_state.py
           python _tools/translation_factory_controller.py --repository-visibility "${{ steps.visibility.outputs.value }}" --output /tmp/tail-next-order.json
           python - <<'PY'
           import json
@@ -105,6 +109,7 @@ jobs:
           if order.get('action')!='translation_quality_audit': raise SystemExit(order)
           PY
           python _tools/test_pair_tail_flow.py
+          python _tools/test_ensure_pair_tail_handoff_restart.py
           git diff --check
 
       - name: Commit generated tail station

@@ -8,8 +8,10 @@ on:
       - "_phase4_proofread/PAIR_TAIL_FLOW_CONTRACT.json"
       - "_tools/pair_tail_*.py"
       - "_tools/refresh_pair_tail_release_candidate.py"
+      - "_tools/ensure_pair_tail_handoff_restart.py"
       - "_tools/test_pair_tail_flow.py"
       - "_tools/test_refresh_pair_tail_release_candidate.py"
+      - "_tools/test_ensure_pair_tail_handoff_restart.py"
       - ".github/workflows/translation-tail-*.yml"
       - ".github/workflows/pair-tail-contract-tests.yml"
 
@@ -41,11 +43,13 @@ jobs:
             _tools/pair_tail_encoding_pipeline.py \
             _tools/pair_tail_release_finalizer.py \
             _tools/pair_tail_post_merge.py \
-            _tools/refresh_pair_tail_release_candidate.py
+            _tools/refresh_pair_tail_release_candidate.py \
+            _tools/ensure_pair_tail_handoff_restart.py
       - name: Run tail regressions
         run: |
           python _tools/test_pair_tail_flow.py
           python _tools/test_refresh_pair_tail_release_candidate.py
+          python _tools/test_ensure_pair_tail_handoff_restart.py
           python _tools/test_translation_factory_controller.py
           python _tools/check_state_json_integrity.py
           git diff --check
