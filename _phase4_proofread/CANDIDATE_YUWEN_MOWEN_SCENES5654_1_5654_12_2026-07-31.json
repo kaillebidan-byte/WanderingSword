@@ -1,0 +1,573 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5654_1",
+    "5654_4",
+    "5654_6",
+    "5654_7",
+    "5654_8",
+    "5654_12"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30566778812,
+    "artifact_id": 8769163876,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:df7ba5cdae6446511f97383bf99b5e2798a470d5a48253afd8e0550d4116434e",
+    "head_sha": "9ba605a779a8c4c71c70dd9441b197325f9ef18c"
+  },
+  "scene_context": {
+    "timeline": "曹煜天の内力暴走が走火入魔として確定し、莫問が宇文逸たちを逃がそうとして負傷する。正体不明の老練な人物が介入し、曹煜天へ渡した風雲訣が改竄された偽物だと明かし、各派の秘笈への思惑と清虚の隠し事を示唆して去る。一行はその場を離脱する。",
+    "branch_note": "5654_1の走火入魔確定から、5654_4の莫問の足止め、5654_6〜5654_8の第三者介入・偽風雲訣の開示・各派への挑発、5654_12の離脱までを一つの崩壊と介入の局面として閉じる。次の5756_*は別の時系列・局面なので含めない。"
+  },
+  "rows": [
+    {
+      "key": "5654_1_Dlgs_Index0_Text",
+      "speaker": "曹煜天",
+      "zh": "45350 - 曹煜天 $@$呃啊啊啊啊——！",
+      "ja": "45350 - 曹煜天 $@$ぐあああああ――！"
+    },
+    {
+      "key": "5654_1_Dlgs_Index1_Text",
+      "speaker": "曹煜天",
+      "zh": "45350 - 曹煜天 $@$我的内力……怎么会！！！",
+      "ja": "45350 - 曹煜天 $@$俺の内力が……なぜだ！！！"
+    },
+    {
+      "key": "5654_1_Dlgs_Index2_Text",
+      "speaker": "曹煜天",
+      "zh": "45350 - 曹煜天 $@$可恶！一定是无名……无名你骗我！！啊啊啊啊——！！！",
+      "ja": "45350 - 曹煜天 $@$くそっ！　無名……無名、貴様、俺を騙したな！！　ぐああああ――！！！"
+    },
+    {
+      "key": "5654_1_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……他这是怎么了？！",
+      "ja": "1 - 宇文逸 $@$……どうしたんだ！？"
+    },
+    {
+      "key": "5654_1_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$真气倒冲，经脉逆转……他已经神志不清，确实是走火入魔无疑了！",
+      "ja": "5015 - 莫問 $@$真気の逆流、経脈の逆転……正気も失っている。間違いなく走火入魔だ！"
+    },
+    {
+      "key": "5654_4_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……师弟，快带欧阳姑娘离开，我来拖住他！",
+      "ja": "5015 - 莫問 $@$……師弟、欧陽姑娘を連れて逃げろ。ここは私が食い止める！"
+    },
+    {
+      "key": "5654_4_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$不，不要……",
+      "ja": "1 - 宇文逸 $@$いや……だめだ……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$咳咳……",
+      "ja": "5015 - 莫問 $@$ごほっ、ごほっ……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师兄，你没事吧！",
+      "ja": "1 - 宇文逸 $@$師兄！　大丈夫ですか！"
+    },
+    {
+      "key": "5654_6_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$没事，咳咳……",
+      "ja": "5015 - 莫問 $@$大丈夫だ……ごほっ……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……还要多谢前辈出手相救。",
+      "ja": "5015 - 莫問 $@$……先輩、お救いいただき感謝します。"
+    },
+    {
+      "key": "5654_6_Dlgs_Index4_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$哼，真是太弱了……",
+      "ja": "19403 - ？？？ $@$ふん、あまりに弱い……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index5_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$区区一个曹煜天都能把你逼成这样……没了玉华子，武当果然已经成不了什么气候了……",
+      "ja": "19403 - ？？？ $@$たかが曹煜天一人に、そこまで追い詰められるとは……玉華子を失った武当も、落ちたものだ……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$……咳咳，曹煜天身怀风云诀，我的确不是他的对手……",
+      "ja": "5015 - 莫問 $@$……ごほっ。曹煜天は風雲訣を修めていた。私では敵わなかった……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index7_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$但武当内武功远胜于我的人不在少数，师父师伯的剑法更是威震武林……阁下此言未免有失偏颇了。",
+      "ja": "5015 - 莫問 $@$だが、武当には私など及びもつかぬ使い手が幾人もいる。師父と師伯の剣法は武林にその名を轟かせている……閣下の評は、いささか偏っているのでは？"
+    },
+    {
+      "key": "5654_6_Dlgs_Index8_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$哼，就武当现在的那几个平庸之辈？让他们一起上，我也不放在眼里！",
+      "ja": "19403 - ？？？ $@$ふん、今の武当にいる凡庸な連中か？　束になって来ようと眼中にない！"
+    },
+    {
+      "key": "5654_6_Dlgs_Index9_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$而且你说风云诀……呵呵……",
+      "ja": "19403 - ？？？ $@$それに、風雲訣だと……ふふ……"
+    },
+    {
+      "key": "5654_6_Dlgs_Index10_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$……是指这个吗？",
+      "ja": "19403 - ？？？ $@$……これのことか？"
+    },
+    {
+      "key": "5654_7_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$啊……这就是风云诀吗？",
+      "ja": "1 - 宇文逸 $@$あれが……風雲訣？"
+    },
+    {
+      "key": "5654_7_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$不过你这人真是奇怪，明明知道风云诀就在曹煜天身上，为什么之前还要找我打打杀杀的？",
+      "ja": "1 - 宇文逸 $@$ですが、あなたは妙な人ですね。曹煜天が風雲訣を持っていると知っていたのに、なぜ以前は私を殺そうとしたんです？"
+    },
+    {
+      "key": "5654_7_Dlgs_Index2_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$连你也认为这是风云诀吗？",
+      "ja": "19403 - ？？？ $@$お前まで、これが風雲訣だと思うのか？"
+    },
+    {
+      "key": "5654_7_Dlgs_Index3_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$呵呵，看来还真是什么都不知道啊……有趣。",
+      "ja": "19403 - ？？？ $@$ふふ……やはり何も知らぬか。面白い……"
+    },
+    {
+      "key": "5654_7_Dlgs_Index4_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$听阁下的意思，这本难道不是风云诀吗？！",
+      "ja": "5015 - 莫問 $@$その言い方……これは風雲訣ではないのか！？"
+    },
+    {
+      "key": "5654_7_Dlgs_Index5_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$没错，这本不过篡改过的赝品罢了，威力尚不及真正风云诀的十之一二。",
+      "ja": "19403 - ？？？ $@$そうだ。これは手を加えた偽物にすぎん。本物の一、二割にも及ばぬ。"
+    },
+    {
+      "key": "5654_7_Dlgs_Index6_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$这种事情，连曹煜天本人恐怕都不确定，敢问阁下是如何得知的？",
+      "ja": "5015 - 莫問 $@$そのことは、曹煜天本人でさえ確かではなかったはずです。敢えて伺いますが、閣下はどうしてご存じなのです？"
+    },
+    {
+      "key": "5654_7_Dlgs_Index7_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$呵呵，我当然知道……因为这假的风云诀，正是我亲手交到他手中的。",
+      "ja": "19403 - ？？？ $@$ふふ、知っていて当然だ。この偽の風雲訣を曹煜天へ直々に渡したのは、儂なのだからな。"
+    },
+    {
+      "key": "5654_7_Dlgs_Index8_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$唉，本打算用它来引出一些故人……",
+      "ja": "19403 - ？？？ $@$まったく。これで旧知を誘い出すつもりだったのだが……"
+    },
+    {
+      "key": "5654_7_Dlgs_Index9_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$好在虽然该来的没来，但此番布置也不算白费，至少让我见到了个意外之喜……",
+      "ja": "19403 - ？？？ $@$目当ては現れなかったが、仕込みも無駄ではなかった。思わぬ拾い物があったのでな……"
+    },
+    {
+      "key": "5654_8_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……你就这么把它毁了？！",
+      "ja": "1 - 宇文逸 $@$それを……壊したのか！？"
+    },
+    {
+      "key": "5654_8_Dlgs_Index1_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$毁了又如何？",
+      "ja": "19403 - ？？？ $@$壊して何が悪い？"
+    },
+    {
+      "key": "5654_8_Dlgs_Index2_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$即便不是真的，我也不准备将它留给外面那群道貌岸然的家伙。",
+      "ja": "19403 - ？？？ $@$偽物だろうと、外にいるあの偽善者どもへくれてやる気はない。"
+    },
+    {
+      "key": "5654_8_Dlgs_Index3_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$呵呵，不觉得他们为一本假秘笈费尽心机、丑态毕露的样子格外有趣吗？",
+      "ja": "19403 - ？？？ $@$ふふ……偽の秘笈一冊のためにあれこれ策を巡らせ、醜態を晒す。実に愉快ではないか？"
+    },
+    {
+      "key": "5654_8_Dlgs_Index4_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$只不过任凭他们费尽心机，也永远不会得偿所愿……",
+      "ja": "19403 - ？？？ $@$どれだけ足掻こうと、奴らの望みは永遠に叶わぬ……"
+    },
+    {
+      "key": "5654_8_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$什么，各派不是来铲除天龙帮，阻止曹煜天阴谋的吗？！",
+      "ja": "1 - 宇文逸 $@$各派は天龍幇を討ち、曹煜天の企みを止めるために来たのではないのですか！？"
+    },
+    {
+      "key": "5654_8_Dlgs_Index6_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$哼，你这小子，也不知是真蠢还是装傻。",
+      "ja": "19403 - ？？？ $@$ふん、小僧。本当に愚かなのか、それともとぼけているのか……"
+    },
+    {
+      "key": "5654_8_Dlgs_Index7_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$要不是有人把风云诀的消息散布到中原……即便有圆觉那秃驴坐镇，武林各派又岂会轻易就响应六扇门那种朝廷走狗的号召？",
+      "ja": "19403 - ？？？ $@$風雲訣の噂が中原へ流れなければ……円覚の禿が陣取っていようと、各派が六扇門などという朝廷の犬に易々と従うものか。"
+    },
+    {
+      "key": "5654_8_Dlgs_Index8_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$说到底，还不都是想借机来夺这秘笈？",
+      "ja": "19403 - ？？？ $@$結局は皆、この機に秘笈を奪おうとしているだけではないか？"
+    },
+    {
+      "key": "5654_8_Dlgs_Index9_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$简直一派胡言！",
+      "ja": "5015 - 莫問 $@$戯言を！"
+    },
+    {
+      "key": "5654_8_Dlgs_Index10_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$就算其它门派有私心，可我们武当来此绝不可能是因为什么秘笈！",
+      "ja": "5015 - 莫問 $@$他派に私心があったとしても、武当まで秘笈目当てで来たはずがない！"
+    },
+    {
+      "key": "5654_8_Dlgs_Index11_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$呵呵，你真以为武当里有几个好人？",
+      "ja": "19403 - ？？？ $@$ふふ……武当に善人が何人いると思っている？"
+    },
+    {
+      "key": "5654_8_Dlgs_Index12_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$就单说那清虚，都不知瞒了你们多少事情……",
+      "ja": "19403 - ？？？ $@$清虚一人とっても、お前たちにどれほど隠し事をしていることか……"
+    },
+    {
+      "key": "5654_8_Dlgs_Index13_Text",
+      "speaker": "？？？",
+      "zh": "19403 - ？？？ $@$罢了，现在说这些你定然不信……我会再来找你的。",
+      "ja": "19403 - ？？？ $@$まあいい。今は何を言っても信じまい……いずれ、またお前を訪ねよう。"
+    },
+    {
+      "key": "5654_12_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$师弟，快带上欧阳姑娘……我们赶紧离开！",
+      "ja": "5015 - 莫問 $@$師弟、欧陽姑娘を連れて……急いで離れるぞ！"
+    },
+    {
+      "key": "5654_12_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$好！",
+      "ja": "1 - 宇文逸 $@$分かりました！"
+    }
+  ],
+  "candidate_questions": [
+    "負傷しながら武当を擁護する莫問の硬さと礼節を両立できているか",
+    "正体不明の人物の老練で嘲弄的な口調を、正体を先取りせず保てているか",
+    "宇文逸の驚きと反発が場面ごとに自然につながっているか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "走火入魔",
+      "不放在眼里",
+      "道貌岸然",
+      "费尽心机",
+      "得偿所愿",
+      "一派胡言"
+    ],
+    "fact_doubts": [
+      "風雲訣が改竄された偽物で本物の一、二割にも及ばないという説明は、正体不明の人物の自己申告として扱う",
+      "各派が秘笈目当てで六扇門に応じたという説明は、正体不明の人物の敵意ある解釈として扱う",
+      "清虚が多くの事実を隠しているという示唆は、この場面では未確認情報として保つ",
+      "無名が曹煜天を騙したという叫びは、走火入魔中の曹煜天の認識であり客観事実へ確定しない"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 44,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch11.json",
+        "keys": [
+          "5654_1_Dlgs_Index0_Text",
+          "5654_1_Dlgs_Index1_Text",
+          "5654_1_Dlgs_Index2_Text",
+          "5654_1_Dlgs_Index3_Text",
+          "5654_1_Dlgs_Index4_Text",
+          "5654_4_Dlgs_Index0_Text",
+          "5654_4_Dlgs_Index1_Text",
+          "5654_6_Dlgs_Index0_Text",
+          "5654_6_Dlgs_Index10_Text",
+          "5654_6_Dlgs_Index1_Text",
+          "5654_6_Dlgs_Index2_Text",
+          "5654_6_Dlgs_Index3_Text",
+          "5654_6_Dlgs_Index4_Text",
+          "5654_6_Dlgs_Index5_Text",
+          "5654_6_Dlgs_Index6_Text",
+          "5654_6_Dlgs_Index7_Text",
+          "5654_6_Dlgs_Index8_Text",
+          "5654_6_Dlgs_Index9_Text",
+          "5654_7_Dlgs_Index0_Text",
+          "5654_7_Dlgs_Index1_Text",
+          "5654_7_Dlgs_Index2_Text",
+          "5654_7_Dlgs_Index3_Text",
+          "5654_7_Dlgs_Index4_Text",
+          "5654_7_Dlgs_Index5_Text",
+          "5654_7_Dlgs_Index6_Text",
+          "5654_7_Dlgs_Index7_Text",
+          "5654_7_Dlgs_Index8_Text",
+          "5654_7_Dlgs_Index9_Text",
+          "5654_8_Dlgs_Index0_Text",
+          "5654_8_Dlgs_Index10_Text",
+          "5654_8_Dlgs_Index11_Text",
+          "5654_8_Dlgs_Index12_Text",
+          "5654_8_Dlgs_Index13_Text",
+          "5654_8_Dlgs_Index1_Text",
+          "5654_8_Dlgs_Index2_Text",
+          "5654_8_Dlgs_Index3_Text",
+          "5654_8_Dlgs_Index4_Text",
+          "5654_8_Dlgs_Index5_Text",
+          "5654_8_Dlgs_Index6_Text",
+          "5654_8_Dlgs_Index7_Text",
+          "5654_8_Dlgs_Index8_Text",
+          "5654_8_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch12_historical_5654_12.json",
+        "keys": [
+          "5654_12_Dlgs_Index0_Text",
+          "5654_12_Dlgs_Index1_Text"
+        ]
+      }
+    ],
+    "unowned": [],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/曹煜天.md",
+        "digest": "sha256:e78efb7b259f70923532a0e186d267321c14520c9d709ab63dd3e23d1e0b5054",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/？？？.md",
+        "digest": "sha256:1496c4fd9f139bea8d49c5cfb57c5518d648933bbdc0f676da9ded737d35af65",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/曹煜天.md",
+        "digest": "sha256:e78efb7b259f70923532a0e186d267321c14520c9d709ab63dd3e23d1e0b5054",
+        "document_type": "persona",
+        "name": "曹煜天",
+        "aliases": [
+          "曹煜天"
+        ],
+        "evidence_keys": [
+          "5654_1_Dlgs_Index0_Text",
+          "5654_1_Dlgs_Index1_Text",
+          "5654_1_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5654_1_Dlgs_Index3_Text",
+          "5654_4_Dlgs_Index1_Text",
+          "5654_6_Dlgs_Index1_Text",
+          "5654_7_Dlgs_Index0_Text",
+          "5654_7_Dlgs_Index1_Text",
+          "5654_8_Dlgs_Index0_Text",
+          "5654_8_Dlgs_Index5_Text",
+          "5654_12_Dlgs_Index1_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5654_1_Dlgs_Index4_Text",
+          "5654_4_Dlgs_Index0_Text",
+          "5654_6_Dlgs_Index0_Text",
+          "5654_6_Dlgs_Index2_Text",
+          "5654_6_Dlgs_Index3_Text",
+          "5654_6_Dlgs_Index6_Text",
+          "5654_6_Dlgs_Index7_Text",
+          "5654_7_Dlgs_Index4_Text",
+          "5654_7_Dlgs_Index6_Text",
+          "5654_8_Dlgs_Index9_Text",
+          "5654_8_Dlgs_Index10_Text",
+          "5654_12_Dlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "10_人物/？？？.md",
+        "digest": "sha256:1496c4fd9f139bea8d49c5cfb57c5518d648933bbdc0f676da9ded737d35af65",
+        "document_type": "persona",
+        "name": "？？？",
+        "aliases": [
+          "？？？",
+          "???",
+          "正体不明"
+        ],
+        "evidence_keys": [
+          "5654_6_Dlgs_Index4_Text",
+          "5654_6_Dlgs_Index5_Text",
+          "5654_6_Dlgs_Index8_Text",
+          "5654_6_Dlgs_Index9_Text",
+          "5654_6_Dlgs_Index10_Text",
+          "5654_7_Dlgs_Index2_Text",
+          "5654_7_Dlgs_Index3_Text",
+          "5654_7_Dlgs_Index5_Text",
+          "5654_7_Dlgs_Index7_Text",
+          "5654_7_Dlgs_Index8_Text",
+          "5654_7_Dlgs_Index9_Text",
+          "5654_8_Dlgs_Index1_Text",
+          "5654_8_Dlgs_Index2_Text",
+          "5654_8_Dlgs_Index3_Text",
+          "5654_8_Dlgs_Index4_Text",
+          "5654_8_Dlgs_Index6_Text",
+          "5654_8_Dlgs_Index7_Text",
+          "5654_8_Dlgs_Index8_Text",
+          "5654_8_Dlgs_Index11_Text",
+          "5654_8_Dlgs_Index12_Text",
+          "5654_8_Dlgs_Index13_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:c7787481cd991353e8afb646dfef794026a26e0fd8ebab9f11d4770a753b8943"
+  }
+}

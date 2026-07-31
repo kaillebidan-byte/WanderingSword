@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-65-r1",
+  "train_id": "yuwen-mowen-train-65",
+  "pr": 222,
+  "ci_head": "ef0995ca2033cbc870250ec13ef6446eba46e36d",
+  "asset_head": "97a851472312cdeac9b4a5740b1a1ad0426efaf7",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH196_2026-07-31.md",
+  "counts": {
+    "batch": 196,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30595915009,
+    "workflow": "Release train orchestrator",
+    "head_sha": "ef0995ca2033cbc870250ec13ef6446eba46e36d",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "完全preflight、Relation、Cross、Apply、pak再生成、未適用差分0件をorchestrator run 30595915009で確認した。",
+    "ゲームフォルダへの配置は行わず、verified_not_deployedとgame_verified:not_startedを維持する。"
+  ]
+}

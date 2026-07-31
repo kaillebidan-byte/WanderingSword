@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/曹煜天.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5654_1_Dlgs_Index0_Text",
+        "5654_1_Dlgs_Index1_Text",
+        "5654_1_Dlgs_Index2_Text"
+      ],
+      "reason": "内力の崩壊に怒鳴り、無名へ責任を帰しながら絶叫する三行は、現行資料の傲岸・激昂・罵倒優先の敵役像と整合する。帰責の脱落を訳文で補えば足り、人物規則の変更は要らない。",
+      "scope": {
+        "relationship": "無名への敵意と、その場にいる宇文逸・莫問らの前での暴走",
+        "timeline": "風雲訣を名乗る力が崩壊し、走火入魔が顕在化した直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:e78efb7b259f70923532a0e186d267321c14520c9d709ab63dd3e23d1e0b5054",
+      "after_digest": "sha256:e78efb7b259f70923532a0e186d267321c14520c9d709ab63dd3e23d1e0b5054",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5654_1_Dlgs_Index3_Text",
+        "5654_4_Dlgs_Index1_Text",
+        "5654_6_Dlgs_Index1_Text",
+        "5654_7_Dlgs_Index0_Text",
+        "5654_7_Dlgs_Index1_Text",
+        "5654_8_Dlgs_Index0_Text",
+        "5654_8_Dlgs_Index5_Text",
+        "5654_12_Dlgs_Index1_Text"
+      ],
+      "reason": "曹煜天への驚き、莫問を案じる短句、正体不明の前輩へ礼を保った問い返し、秘笈破壊と各派の動機への率直な反発は、現行資料の探究心、武当・師兄への敬意、対外M4の問いかけに整合する。二行の意味回復で足りる。",
+      "scope": {
+        "relationship": "莫問への師兄敬意、正体不明の前輩への対外応答",
+        "timeline": "曹煜天の走火入魔から偽風雲訣の開示、一行の離脱まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5654_1_Dlgs_Index4_Text",
+        "5654_4_Dlgs_Index0_Text",
+        "5654_6_Dlgs_Index0_Text",
+        "5654_6_Dlgs_Index2_Text",
+        "5654_6_Dlgs_Index3_Text",
+        "5654_6_Dlgs_Index6_Text",
+        "5654_6_Dlgs_Index7_Text",
+        "5654_7_Dlgs_Index4_Text",
+        "5654_7_Dlgs_Index6_Text",
+        "5654_8_Dlgs_Index9_Text",
+        "5654_8_Dlgs_Index10_Text",
+        "5654_12_Dlgs_Index0_Text"
+      ],
+      "reason": "師弟を逃がす保護判断、負傷を押して前輩へ礼を述べる姿勢、症状から走火入魔を断定する観察、武当を擁護する強い反論、最後の離脱指揮は、現行資料の兄弟子・危機判断・対外礼節に整合する。敬意軸と主語を訳文で整えればよい。",
+      "scope": {
+        "relationship": "宇文逸への兄弟子指揮、正体不明の前輩への礼と武当擁護",
+        "timeline": "曹煜天の暴走確定から第三者介入後の離脱まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/？？？.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5654_6_Dlgs_Index4_Text",
+        "5654_6_Dlgs_Index5_Text",
+        "5654_6_Dlgs_Index8_Text",
+        "5654_6_Dlgs_Index9_Text",
+        "5654_6_Dlgs_Index10_Text",
+        "5654_7_Dlgs_Index2_Text",
+        "5654_7_Dlgs_Index3_Text",
+        "5654_7_Dlgs_Index5_Text",
+        "5654_7_Dlgs_Index7_Text",
+        "5654_7_Dlgs_Index8_Text",
+        "5654_7_Dlgs_Index9_Text",
+        "5654_8_Dlgs_Index1_Text",
+        "5654_8_Dlgs_Index2_Text",
+        "5654_8_Dlgs_Index3_Text",
+        "5654_8_Dlgs_Index4_Text",
+        "5654_8_Dlgs_Index6_Text",
+        "5654_8_Dlgs_Index7_Text",
+        "5654_8_Dlgs_Index8_Text",
+        "5654_8_Dlgs_Index11_Text",
+        "5654_8_Dlgs_Index12_Text",
+        "5654_8_Dlgs_Index13_Text"
+      ],
+      "reason": "武当を嘲り、偽の風雲訣を仕込んだと含みを持って明かし、各派と清虚を挑発して去る声は、現行資料の正体秘匿と高圧モードに収まる。原文にない年齢自称「儂」だけを訳文から除けば、資料側の一般規則に反例はない。",
+      "scope": {
+        "relationship": "宇文逸・莫問への嘲弄と情報開示",
+        "timeline": "曹煜天を退けてから再訪を予告して立ち去るまでの当該場面のみ"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:1496c4fd9f139bea8d49c5cfb57c5518d648933bbdc0f676da9ded737d35af65",
+      "after_digest": "sha256:1496c4fd9f139bea8d49c5cfb57c5518d648933bbdc0f676da9ded737d35af65",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-65",
+  "wave_id": "yuwen-mowen-train-65-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN65_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_1_5654_12_2026-07-31.json",
+      "manifest_digest": "sha256:c7787481cd991353e8afb646dfef794026a26e0fd8ebab9f11d4770a753b8943"
+    }
+  ]
+}
