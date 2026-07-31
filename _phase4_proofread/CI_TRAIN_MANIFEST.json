@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-69",
   "branch": "agent/yuwen-mowen-train-69",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 226,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 226,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,167 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 67,
+    "reviewed_keys": 67,
+    "unique_reviewed_rows": 67,
+    "fix_keys": 5,
+    "unique_fix_rows": 5,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 5,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 200,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5825_1",
+        "5828_1",
+        "5829_5",
+        "5831_3",
+        "5831_4",
+        "5897_6",
+        "5923_2",
+        "5926_2",
+        "5926_3",
+        "5928_1",
+        "5928_2",
+        "5928_6",
+        "5928_7"
+      ],
+      "reviewed_rows": 67,
+      "reviewed_keys": 67,
+      "unique_rows": 67,
+      "fix_keys": 5,
+      "unique_fix_rows": 5,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 5,
+      "keep_keys": 62,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch14.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch15.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH200_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 64,
+        "unowned_kept": 3,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "欺世盗名",
+        "入土为安",
+        "人云亦云",
+        "去见阎王",
+        "算账",
+        "罄竹难书"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5825_1_Dlgs_Index1_Text",
+          "decision": "定着した人物非難の成語",
+          "note": "「欺世盗名」は世を欺いて虚名を得るという非難。現訳「世間を欺いて名を売った」が機能を保つ。"
+        },
+        {
+          "key": "5825_1_Dlgs_Index2_Text",
+          "decision": "定着した埋葬・死後安寧の表現",
+          "note": "「入土为安」は埋葬されて初めて安らぐという慣用。現訳「土に還してやる」が像と町人の口調を保つ。"
+        },
+        {
+          "key": "5825_1_Dlgs_Index8_Text",
+          "decision": "定着した追随・付和雷同の成語",
+          "note": "「人云亦云」は他人の言葉へそのまま追随すること。現訳「周りの声に流される」が莫問の人間観として機能を保つ。"
+        },
+        {
+          "key": "5926_2_Dlgs_Index2_Text",
+          "decision": "俗な死の脅し",
+          "note": "「去见阎王」は閻魔に会わせる、すなわち殺すという俗な脅し。現訳「閻魔様のところへ送ってやった」が包閔の粗野な声を保つ。"
+        },
+        {
+          "key": "5926_2_Dlgs_Index4_Text",
+          "decision": "定着した報復・決着の比喩",
+          "note": "「算账」は勘定をつけることから報復・決着を示す。現訳「償わせる」が江大哥の分も含めた断罪を保つ。"
+        },
+        {
+          "key": "5926_3_Dlgs_Index3_Text",
+          "decision": "竹簡像を持つ定着成語",
+          "note": "「罄竹难书」は竹簡を使い尽くしても罪状を書き尽くせないという像を持つ。現訳は量の説明へ散文化しているため、竹簡像を訳文へ戻す。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "cheng_deming_burial_and_succession_are_rumor",
+          "keys": [
+            "5825_1_Dlgs_Index0_Text",
+            "5825_1_Dlgs_Index4_Text",
+            "5825_1_Dlgs_Index5_Text"
+          ],
+          "note": "程徳明が乱葬場へ運ばれたこと、程万清が関与したこと、堡主交代の裏事情はいずれも町人の伝聞・言いさし・推測。この場面だけで客観事実へ固定しない。"
+        },
+        {
+          "scope": "chengyu_mother_premonition_is_chengyu_inference",
+          "keys": [
+            "5829_5_Dlgs_Index2_Text",
+            "5829_5_Dlgs_Index3_Text"
+          ],
+          "note": "母の指示は手紙を宇文逸へ渡すことまで。母が事件を予知していたという結論は程鈺の推測であり、母の知識・計画を確定しない。"
+        },
+        {
+          "scope": "chengyu_departure_reason_is_inference",
+          "keys": [
+            "5831_3_Dlgs_Index0_Text",
+            "5831_3_Dlgs_Index1_Text",
+            "5831_4_Dlgs_Index0_Text",
+            "5831_4_Dlgs_Index2_Text"
+          ],
+          "note": "程鈺が自ら離れたことは高確度推測だが、清霄の発言が直接原因か、どこへ向かったかは未確定。別分岐の弟子入り後情報で補完しない。"
+        },
+        {
+          "scope": "mowen_tianshan_history_is_not_yet_disclosed",
+          "keys": [
+            "5926_3_Dlgs_Index2_Text"
+          ],
+          "note": "莫問は天山を言いさしてから悪人谷への一般断罪へ切り替える。後続で明かされる出生・復讐・離反事情をこの時点の訳文へ補わない。"
+        },
+        {
+          "scope": "wu_elder_current_fate_is_unknown",
+          "keys": [
+            "5928_2_Dlgs_Index2_Text",
+            "5928_2_Dlgs_Index4_Text",
+            "5928_2_Dlgs_Index5_Text",
+            "5928_7_Dlgs_Index1_Text",
+            "5928_7_Dlgs_Index3_Text",
+            "5928_7_Dlgs_Index4_Text"
+          ],
+          "note": "瑶姫が離れた時点では烏長老は無事だったという発言に限られ、現在の生死は不明。別人物の殺害発言や分岐を混ぜて確定しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30599694651,
+        "artifact_id": 8781435253,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:4c068b3030454675e6712c59ea04460bcb1d447c3ac76b8e2b30db88fb191753",
+        "head_sha": "9b8fc99bfd4351b312ad884a9f65148428600c4d"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-69-wave-01"
   },
   "next_release": {
@@ -81,15 +220,39 @@
       "5928_6",
       "5928_7"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      200
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-68",
     "release_id": "yuwen-mowen-train-68-r1",
     "pr": 225,
     "merge_sha": "2160b32977fd5e01418200fc48fe8dd3ccf73838"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 67,
+    "unique_reviewed_rows": 67,
+    "fix_keys": 5,
+    "unique_fix_rows": 5,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 5,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 62,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN69_WAVE01_2026-07-31.md"
+    }
   }
 }

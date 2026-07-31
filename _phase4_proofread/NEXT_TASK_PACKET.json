@@ -27,13 +27,13 @@
     "5928_7"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-69-wave-01",
     "packet_id": "yuwen-mowen-train69-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 200
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -46,16 +46,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-68",
-    "release_id": "yuwen-mowen-train-68-r1",
-    "pr": 225,
-    "status": "merged",
-    "merge_sha": "2160b32977fd5e01418200fc48fe8dd3ccf73838"
+    "train_id": "yuwen-mowen-train-69",
+    "release_id": "yuwen-mowen-train-69-r1",
+    "pr": 226,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -71,5 +69,46 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:c81c6806fbd7173146822487ae3e2df63cc6bf291dd13e7143fb1c77904f0104"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 67,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5825_1",
+      "5828_1",
+      "5829_5",
+      "5831_3",
+      "5831_4",
+      "5897_6",
+      "5923_2",
+      "5926_2",
+      "5926_3",
+      "5928_1",
+      "5928_2",
+      "5928_6",
+      "5928_7"
+    ],
+    "grouping_decision": "十三場面67行で、程家堡事件後の評価、程鈺の入門後・離山分岐、丐幇分舵での悪人谷戦、瑶姫の警告と救人優先までが完結する。60行を超えるが、二つの短い隣接意味単位を5928系の判断転換まで閉じるためcomplete_semantic_unit延長を使用する。",
+    "exception": {
+      "reason_code": "complete_semantic_unit",
+      "detail": "十三場面67行で、程家堡事件後の評価、程鈺の入門後・離山分岐、丐幇分舵での悪人谷戦、瑶姫の警告と救人優先までが完結する。60行を超えるが、二つの短い隣接意味単位を5928系の判断転換まで閉じるためcomplete_semantic_unit延長を使用する。"
+    }
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 5,
+    "new_project_keys": 0,
+    "fix_keys": 5
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN69_WAVE01_2026-07-31.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

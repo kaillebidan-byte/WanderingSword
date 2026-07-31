@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5825_1_Dlgs_Index6_Text",
+        "5825_1_Dlgs_Index7_Text",
+        "5828_1_Dlgs_Index0_Text",
+        "5829_5_Dlgs_Index0_Text",
+        "5829_5_Dlgs_Index4_Text",
+        "5831_3_Dlgs_Index1_Text",
+        "5831_4_Dlgs_Index0_Text",
+        "5831_4_Dlgs_Index4_Text",
+        "5897_6_Dlgs_Index2_Text",
+        "5923_2_Dlgs_Index0_Text",
+        "5923_2_Dlgs_Index2_Text",
+        "5926_2_Dlgs_Index0_Text",
+        "5926_2_Dlgs_Index3_Text",
+        "5926_2_Dlgs_Index4_Text",
+        "5926_3_Dlgs_Index4_Text",
+        "5928_1_Dlgs_Index0_Text",
+        "5928_1_Dlgs_Index2_Text",
+        "5928_2_Dlgs_Index0_Text",
+        "5928_2_Dlgs_Index6_Text",
+        "5928_6_Dlgs_Index0_Text",
+        "5928_7_Dlgs_Index5_Text"
+      ],
+      "reason": "程堡主を悪く言う町人への義憤、程鈺への温かな常体、師父・師兄への敬体、悪人谷と瑶姫への戦闘語気がM3・M1b・M6の切替に整合する。全員性を弱めた一行と人物外の意味差分だけを訳文で直せばよい。",
+      "scope": {
+        "relationship": "程鈺への兄弟子、清虚・莫問への師門敬意、悪人谷・瑶姫への敵対",
+        "timeline": "程家堡事件後から丐幇分舵で烏長老救出を優先するまで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5825_1_Dlgs_Index8_Text",
+        "5828_1_Dlgs_Index1_Text",
+        "5829_5_Dlgs_Index6_Text",
+        "5831_3_Dlgs_Index0_Text",
+        "5831_4_Dlgs_Index2_Text",
+        "5831_4_Dlgs_Index3_Text",
+        "5897_6_Dlgs_Index1_Text",
+        "5923_2_Dlgs_Index1_Text",
+        "5926_2_Dlgs_Index9_Text",
+        "5926_3_Dlgs_Index2_Text",
+        "5926_3_Dlgs_Index3_Text",
+        "5928_1_Dlgs_Index1_Text",
+        "5928_2_Dlgs_Index7_Text",
+        "5928_6_Dlgs_Index1_Text",
+        "5928_7_Dlgs_Index6_Text"
+      ],
+      "reason": "世評への冷静な観察、程鈺への世話と自立尊重、任務中の簡潔な案内、悪人谷への天山由来の怒り、瑶姫より救人を優先する判断が、観察→指示→危機判断と後期因縁の切替に整合する。罄竹难书の像を訳文で戻せば足りる。",
+      "scope": {
+        "relationship": "宇文逸・程鈺への兄弟子指導と悪人谷への敵対",
+        "timeline": "程家堡事件後から丐幇分舵の戦闘・救人判断まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程鈺.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5829_5_Dlgs_Index1_Text",
+        "5829_5_Dlgs_Index2_Text",
+        "5829_5_Dlgs_Index3_Text",
+        "5829_5_Dlgs_Index5_Text",
+        "5829_5_Dlgs_Index7_Text"
+      ],
+      "reason": "弟子入り後の宇文師兄・師兄呼称、母の手紙をめぐる推測、修行して母の名誉を回復する決意が現行資料の時系列と声に整合する。推測の断定化と名誉回復語だけを訳文で補正する。",
+      "scope": {
+        "relationship": "弟子入り後の宇文逸・莫問への師弟関係",
+        "timeline": "母の手紙を宇文逸へ渡し、修行決意を述べる分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "after_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5897_6_Dlgs_Index0_Text"
+      ],
+      "reason": "問児・逸児と呼び、二人へ任務を委ねる一行は、慈愛ある訓導と「そなたら二人で行くがよい」という現行の訓戒・任務モードに一致する。",
+      "scope": {
+        "relationship": "莫問・宇文逸への掌門・師父としての任務指示",
+        "timeline": "丐幇関連任務の出発前"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/包閔.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5926_2_Dlgs_Index1_Text",
+        "5926_2_Dlgs_Index2_Text",
+        "5926_2_Dlgs_Index5_Text"
+      ],
+      "reason": "悪態、小僧呼び、閻魔への俗な脅し、死を挑発する粗野な常体が現行資料の手下格と一致する。訳文の強度も保たれている。",
+      "scope": {
+        "relationship": "宇文逸への嘲弄と殺害予告",
+        "timeline": "丐幇分舵で烏長老殺害後に対峙する場面"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8f502a1d9d13f0f49c110a00f6b1a73a4343d7da1375504b0a508a09e8ecca51",
+      "after_digest": "sha256:8f502a1d9d13f0f49c110a00f6b1a73a4343d7da1375504b0a508a09e8ecca51",
+      "changed": false
+    },
+    {
+      "target": "10_人物/杜彪.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5926_2_Dlgs_Index6_Text",
+        "5926_2_Dlgs_Index7_Text",
+        "5926_2_Dlgs_Index8_Text"
+      ],
+      "reason": "手下を制止し、親分の命令と利用価値を優先して撤退する短い指揮は、命令形・残忍さ・合理的な悪役判断に整合する。",
+      "scope": {
+        "relationship": "包閔への指揮と宇文逸への利用価値判断",
+        "timeline": "丐幇分舵の戦闘中、撤退を決める場面"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "after_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/沙権賈.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5926_3_Dlgs_Index0_Text",
+        "5926_3_Dlgs_Index1_Text"
+      ],
+      "reason": "食い下がる相手を威圧しつつ、親分の命令より目前の損害を優先しかける粗野な脅しが現行資料の荒くれ・損切り判断に整合する。",
+      "scope": {
+        "relationship": "宇文逸・莫問への撤退前の威圧",
+        "timeline": "悪人谷一行が離脱を試みる場面"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "after_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5928_2_Dlgs_Index1_Text",
+        "5928_2_Dlgs_Index2_Text",
+        "5928_2_Dlgs_Index3_Text",
+        "5928_2_Dlgs_Index4_Text",
+        "5928_2_Dlgs_Index5_Text",
+        "5928_7_Dlgs_Index0_Text",
+        "5928_7_Dlgs_Index1_Text",
+        "5928_7_Dlgs_Index2_Text",
+        "5928_7_Dlgs_Index3_Text",
+        "5928_7_Dlgs_Index4_Text"
+      ],
+      "reason": "柔らかな語尾と長音を保ちながら、青竹杖を優先し、烏長老の生死で相手を焦らす任務中・挑発モードが現行資料に一致する。二分岐とも軽い笑いと婉曲な脅しを保持している。",
+      "scope": {
+        "relationship": "宇文逸・莫問への挑発と情報誘導",
+        "timeline": "青竹杖を奪取し、烏長老の安否を示唆する分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-69",
+  "wave_id": "yuwen-mowen-train-69-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN69_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5825_1_5928_7_2026-07-31.json",
+      "manifest_digest": "sha256:c81c6806fbd7173146822487ae3e2df63cc6bf291dd13e7143fb1c77904f0104"
+    }
+  ]
+}
