@@ -19,13 +19,13 @@
     "9245_3"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-74-wave-01",
     "packet_id": "yuwen-mowen-train74-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 205
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -38,16 +38,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-73",
-    "release_id": "yuwen-mowen-train-73-r1",
-    "pr": 230,
-    "status": "merged",
-    "merge_sha": "4c38470e917cf84f1073214c69710fdd3037efa6"
+    "train_id": "yuwen-mowen-train-74",
+    "release_id": "yuwen-mowen-train-74-r1",
+    "pr": 231,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -63,5 +61,35 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:6858cc266a90171df069c665e01a0cf86e6fcb0b2ddaae1d3507e19d1f9fa471"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 46,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "9234_6",
+      "9236_6",
+      "9238_6",
+      "9245_1",
+      "9245_3"
+    ],
+    "grouping_decision": "三つの少林招待分岐と、到着後の《風雲訣》説明・師兄退出までの五場面46行で意味単位が完結する。9261_1は場所・事件・同行者が切り替わるため含めない。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 3,
+    "new_project_keys": 0,
+    "fix_keys": 3
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN74_WAVE01_2026-08-01.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/円覚.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9234_6_Dlgs_Index0_Text",
+        "9234_6_Dlgs_Index3_Text",
+        "9234_6_Dlgs_Index4_Text",
+        "9234_6_Dlgs_Index7_Text",
+        "9236_6_Dlgs_Index0_Text",
+        "9238_6_Dlgs_Index10_Text"
+      ],
+      "reason": "南無阿弥陀仏、老衲、施主、清茶への招き、因縁を説く「客となるのもご縁」、烏長老への静かな嘆きが連続する。現行資料の慈悲深く荘重な老僧、仏理を穏やかに示す声と整合する。",
+      "scope": {
+        "relationship": "宇文逸・莫問・同行者への少林方丈としての招待と配慮",
+        "timeline": "9234_6〜9238_6の残党戦直後三分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+      "after_digest": "sha256:c98164c217f38e679ead100de9c8270286d544621782fde87dba87fd35e4f7a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9234_6_Dlgs_Index1_Text",
+        "9234_6_Dlgs_Index5_Text",
+        "9236_6_Dlgs_Index5_Text",
+        "9236_6_Dlgs_Index7_Text",
+        "9245_1_Dlgs_Index1_Text",
+        "9245_1_Dlgs_Index9_Text",
+        "9245_1_Dlgs_Index11_Text",
+        "9245_1_Dlgs_Index12_Text",
+        "9245_3_Dlgs_Index1_Text"
+      ],
+      "reason": "莫問へ師兄呼称と敬体を保ち、李元興の単独行を案じ、玄火教の狙いを問い、《風雲訣》の修得経緯を理知的に説明しつつ隠していたことをためらいながら詫びる。現行資料の探究心、相手別の礼、再同行後も師兄呼称を維持する規則と整合する。",
+      "scope": {
+        "relationship": "莫問への弟弟子としての相談・説明・謝罪、李元興への義兄弟的な気遣い",
+        "timeline": "9234_6〜9245_3の少林招待から翌朝前"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9234_6_Dlgs_Index2_Text",
+        "9234_6_Dlgs_Index6_Text",
+        "9245_1_Dlgs_Index0_Text",
+        "9245_1_Dlgs_Index4_Text",
+        "9245_1_Dlgs_Index6_Text",
+        "9245_1_Dlgs_Index7_Text",
+        "9245_1_Dlgs_Index8_Text",
+        "9245_1_Dlgs_Index14_Text",
+        "9245_1_Dlgs_Index15_Text",
+        "9245_3_Dlgs_Index0_Text"
+      ],
+      "reason": "方丈への礼を保ちつつ遺体送付の責任を述べ、宇文逸へは師弟呼称の常体で考えを促し、《風雲訣》を静かに問い、説明を受けると上達の理由を結んで受容する。現行資料の再同行後に戻る兄弟子の判断・教導registerと整合する。",
+      "scope": {
+        "relationship": "宇文逸への兄弟子としての問いと受容、円覚方丈への対外的な礼",
+        "timeline": "9234_6〜9245_3の少林招待・滞在分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/荀杳杳.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9238_6_Dlgs_Index6_Text"
+      ],
+      "reason": "「くすくす」と含み笑いを置き、元興兄さん・五兄さんという身内呼称で護送を軽く請け負う。現行資料の含み・からかいモードと身内への素直な情の境界に整合する。一行だけから新しい恒常規則を追加しない。",
+      "scope": {
+        "relationship": "李元興と燕未還への身内的な軽口と護送協力",
+        "timeline": "9238_6の少林招待分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "after_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-74",
+  "wave_id": "yuwen-mowen-train-74-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN74_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9234_6_9245_3_2026-08-01.json",
+      "manifest_digest": "sha256:6858cc266a90171df069c665e01a0cf86e6fcb0b2ddaae1d3507e19d1f9fa471"
+    }
+  ]
+}
