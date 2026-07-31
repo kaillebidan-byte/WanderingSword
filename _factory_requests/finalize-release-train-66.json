@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-66",
+  "pr": 223,
+  "orchestrator_run_id": 30597537770,
+  "ci_head": "5517c9d2053f6319823d0e6024edfe043c09a40d",
+  "asset_head": "cea7b8e2cbbf08ad2244f90f883554830f231775",
+  "apply_changed": true,
+  "date": "2026-07-31",
+  "next_scene": "5786_3",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30597537770,
+    "artifact_id": 8780700978,
+    "artifact_digest": "sha256:8610053e82b13185a4078cb0de5bca82c052413827c0646bd8c4f1881fa5b197",
+    "artifact_head": "5517c9d2053f6319823d0e6024edfe043c09a40d",
+    "freshness_rule": "統合後の次cycle開始時にmainとartifact metadataを再確認する。"
+  },
+  "notes": [
+    "完全preflight、Relation、Cross、Apply、pak再生成、未適用差分0件を確認した。",
+    "第197束は54行を監査し、4件を修正、50件を意図的に保持した。",
+    "ゲームフォルダへの配置は行わず、verified_not_deployed・game_verified: not_startedを維持する。"
+  ]
+}
