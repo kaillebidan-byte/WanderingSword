@@ -1,1 +1,85 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-79","branch":"agent/yuwen-mowen-train-79","draft_pr":236,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":236,"merge_sha":"e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"},"base_checkpoint":{"batch":209,"pair_applied_keys":1433,"project_applied_keys":1809,"produced_by_pr":235,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-78-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_78.json","pr":235,"validated_head":"e451bc1c92c5c2d6d643572cbaa99297068d69bb"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":45,"reviewed_keys":45,"unique_reviewed_rows":45,"fix_keys":7,"unique_fix_rows":7,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":6,"keep_only_bundles":0},"bundles":[{"batch":210,"review_status":"complete","apply_status":"verified","scene_groups":["5689_1","6003_4","6003_6","6008_2"],"reviewed_rows":45,"reviewed_keys":45,"unique_rows":45,"fix_keys":7,"unique_fix_rows":7,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":6,"keep_keys":38,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch124.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH210_2026-08-01.md","ownership_summary":{"existing_keys":38,"unowned_kept":6,"new_keys":1,"cross_register_keys":0},"allusion_review_candidates":["欺师灭祖","百口莫辩","杏林高手","以实力为尊"],"allusion_review_resolved":[{"key":"6003_4_Dlgs_Index2_Text","decision":"定着した成語・師門上の重罪表現","note":"「欺师灭祖」は特定典籍の引用としてではなく、師を欺き祖師・師門に背く重罪を列挙する成語として機能する。現訳の強度を保持する。"},{"key":"6008_2_Dlgs_Index7_Text","decision":"定着した成語","note":"「百口莫辩」は何を言っても疑いを晴らせない状態。現訳「何を言っても疑いを晴らせず」が機能を保つためKEEP。"},{"key":"6008_2_Dlgs_Index17_Text","decision":"医者を称える定着した文化語","note":"「杏林高手」は名医を指す文化語で、特定引用として読ませる場面ではない。現訳「名医たち」を保持し、後半の不自然な反語だけを修正する。"},{"key":"6008_2_Dlgs_Index12_Text","decision":"魔門の力本位を示す通常の教義表現","note":"「以实力为尊」は特定古典の引用ではなく、力を尊ぶという瑶姫の論理。現訳「力こそすべて」を保持し、「奈何不了你」の意味だけを修正する。"}],"fact_doubts":[{"scope":"revenge_aftermath_subjective_guilt","keys":["5689_1_Dlgs_Index0_Text","5689_1_Dlgs_Index2_Text","5689_1_Dlgs_Index4_Text"],"note":"二人の子供から見れば宇文逸たちが両親の仇に映るという宇文逸の主観的な罪悪感である。復讐の客観的善悪を訳文で確定しない。"},{"scope":"qingxu_injury_and_false_accusation","keys":["6003_4_Dlgs_Index0_Text","6003_4_Dlgs_Index2_Text","6003_4_Dlgs_Index8_Text","6003_4_Dlgs_Index10_Text"],"note":"清虚は重傷で昏睡し、莫問が宇文逸へ罪を着せた。莫棄は大師兄の公表を信じて追及している時点であり、莫棄の告発を客観事実として確定しない。"},{"scope":"ouyang_report_and_concern","keys":["6003_6_Dlgs_Index1_Text","6003_6_Dlgs_Index2_Text","6003_6_Dlgs_Index3_Text"],"note":"欧陽雪は武当弟子から告発内容を聞き、宇文逸を心配して捜しに来た。告発を信じて責めている場面へ変えず、言いよどみを保持する。"},{"scope":"qingxu_rescue_opportunity","keys":["6008_2_Dlgs_Index13_Text","6008_2_Dlgs_Index14_Text","6008_2_Dlgs_Index15_Text","6008_2_Dlgs_Index17_Text","6008_2_Dlgs_Index18_Text"],"note":"清虚が生存していることを瑶姫は潔白証明の機会と捉え、江小彤が救命法の存在を示唆する段階。治療成功や具体的手段はまだ確定していない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30665631234,"artifact_id":8806860605,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:f4aedc869bfb1c9b6fc67896b5b8bdce56cd822cc721b36d059c41dd850d41ef","head_sha":"154c78b6e469ebee550848aae0ae72b6e334d829"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-79-wave-01"},"next_release":{"candidate_scene":["6057_12"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[210],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-78","release_id":"yuwen-mowen-train-78-r1","pr":235,"merge_sha":"f4c92c238fd9b06ebba89d8ec39d23086bc1dc39"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":45,"unique_reviewed_rows":45,"fix_keys":7,"unique_fix_rows":7,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":7,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_79.json","merge_result":{"pr":236,"merge_sha":"e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-80",
+  "branch": "agent/yuwen-mowen-train-80",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 210,
+    "pair_applied_keys": 1434,
+    "project_applied_keys": 1810,
+    "produced_by_pr": 236,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-79-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_79.json",
+      "pr": 236,
+      "validated_head": "8791555a0f2305edb7c913e96054f1b2d925684b"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-80-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "6057_12",
+      "6081_9",
+      "6116_3"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-79",
+    "release_id": "yuwen-mowen-train-79-r1",
+    "pr": 236,
+    "merge_sha": "e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"
+  }
+}
