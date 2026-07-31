@@ -2,33 +2,21 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32025_1_5303_1_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch122.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch123.json",
       "values": {
-        "32025_1_Dlgs_Index0_Text": "1 - 宇文逸 $@$……うん、雪児の料理は相変わらずうまいな。",
-        "32025_1_Dlgs_Index3_Text": "17005 - 欧陽雪 $@$あの二人が、数皿の小料理に免じて剣を収めるはずなど……段姑娘？",
-        "32025_1_Dlgs_Index5_Text": "19706 - 段朝晨 $@$（首を振る）違う。美味しい。",
-        "32025_1_Dlgs_Index7_Text": "19706 - 段朝晨 $@$これ……持ち帰っても、いい？",
-        "5203_11_Dlgs_Index9_Text": "5024 - 元鳴 $@$言って聞かぬなら、痛い目を見るだけだ！　今日はこの元鳴様の恐ろしさを思い知らせてやる！",
-        "5227_4_Dlgs_Index4_Text": "5012 - 莫棄 $@$もちろんだ。大師兄、安心して任せてくれ！",
-        "5229_14_Dlgs_Index0_Text": "5012 - 莫棄 $@$小逸、まさかこんなに早く覚えるとは！　やっぱり大した天賦だ。清虚掌門が目をかけるのも無理はないな！",
-        "5229_14_Dlgs_Index2_Text": "5012 - 莫棄 $@$へへ、ぼーっとしてないで！　もう覚えたなら、早く俺と<Y>手合わせ</>して、技を身体に馴染ませようぜ！",
-        "5230_3_Dlgs_Index2_Text": "5031 - 元風 $@$実は、清河村の村長から救援の書状が届きました。最近、村の近くに山賊がたびたび現れ、村人たちはすっかり怯えているそうです。",
-        "5230_3_Dlgs_Index4_Text": "5031 - 元風 $@$道通長老は、この件をただ事ではないと見て、大師兄に直々に出向いてほしいとのことです。",
-        "5298_1_Dlgs_Index6_Text": "5003 - 清虚道長 $@$……以暴制暴は、やはり正道とは言えぬ。"
+        "5341_2_Dlgs_Index0_Text": "5024 - 元鳴 $@$きっとお前は卑怯な手を使ったんだ！　こんなに早く腕を上げるなど、こっそり邪功でも修めたに違いない……",
+        "5341_4_Dlgs_Index2_Text": "5015 - 莫問 $@$今回の大比の<Y>首位</>は、この二人で決まる！",
+        "5343_4_Dlgs_Index0_Text": "1 - 宇文逸 $@$師父、何とかご期待に応えられました！",
+        "5586_3_Dlgs_Index1_Text": "17112 - 洪飛 $@$この小僧め、そんな大声を出してどうする……",
+        "5586_3_Dlgs_Index7_Text": "17112 - 洪飛 $@$小僧、お前の後ろにいるやつ、どこかで見覚えがあるな。誰だ……？"
       },
       "fix_keys": [
-        "32025_1_Dlgs_Index0_Text",
-        "32025_1_Dlgs_Index3_Text",
-        "32025_1_Dlgs_Index5_Text",
-        "32025_1_Dlgs_Index7_Text",
-        "5203_11_Dlgs_Index9_Text",
-        "5227_4_Dlgs_Index4_Text",
-        "5229_14_Dlgs_Index0_Text",
-        "5229_14_Dlgs_Index2_Text",
-        "5230_3_Dlgs_Index2_Text",
-        "5230_3_Dlgs_Index4_Text",
-        "5298_1_Dlgs_Index6_Text"
+        "5341_2_Dlgs_Index0_Text",
+        "5341_4_Dlgs_Index2_Text",
+        "5343_4_Dlgs_Index0_Text",
+        "5586_3_Dlgs_Index1_Text",
+        "5586_3_Dlgs_Index7_Text"
       ]
     }
   ]

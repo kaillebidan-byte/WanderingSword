@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5331_1_Dlgs_Index0_Text",
+        "5331_1_Dlgs_Index2_Text",
+        "5331_1_Dlgs_Index4_Text",
+        "5331_1_Dlgs_Index8_Text",
+        "5331_1_Dlgs_Index9_Text",
+        "5343_4_Dlgs_Index2_Text",
+        "5343_4_Dlgs_Index5_Text",
+        "5343_4_Dlgs_Index6_Text"
+      ],
+      "reason": "品剣大会の意図を推し量り、復讐心を抱く弟子へ条件を示し、門内大比後に若い弟子たちを慈愛と一門の威厳をもって称える。現行資料の師モード、古風な慈愛、道義と判断の順序に整合し、今回の訳文修正は資料の反例ではない。",
+      "scope": {
+        "scene_groups": [
+          "5331_1",
+          "5343_4"
+        ],
+        "modes": [
+          "平時の師弟",
+          "訓戒・任務"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+      "after_digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5331_1_Dlgs_Index3_Text",
+        "5331_1_Dlgs_Index7_Text",
+        "5331_1_Dlgs_Index10_Text",
+        "5343_4_Dlgs_Index0_Text",
+        "5343_4_Dlgs_Index3_Text",
+        "5343_4_Dlgs_Index7_Text",
+        "5360_10_Dlgs_Index2_Text",
+        "5360_10_Dlgs_Index3_Text",
+        "5360_10_Dlgs_Index6_Text",
+        "5586_3_Dlgs_Index0_Text",
+        "5586_3_Dlgs_Index8_Text"
+      ],
+      "reason": "師父への敬体と素直な感情、正式報告、莫棄救出での責任感、対外の洪老先輩への礼、莫問を大師兄として紹介する呼称が、現行資料のM1b・M4と師兄関係の時系列に整合する。5343_4の一行は硬い現訳だけを自然な報告へ直す。",
+      "scope": {
+        "scene_groups": [
+          "5331_1",
+          "5343_4",
+          "5360_10",
+          "5586_3"
+        ],
+        "modes": [
+          "M1b",
+          "M4"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元鳴.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5341_2_Dlgs_Index0_Text"
+      ],
+      "reason": "敗北を認めず宇文逸を不正と邪功で責める一行は、現行資料の対下・罵りモードと負けん気を直接裏づける。誤りは「ズル」「邪悪な技」と平板化した現訳側にある。",
+      "scope": {
+        "scene_groups": [
+          "5341_2"
+        ],
+        "modes": [
+          "対下・罵り"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "after_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5341_2_Dlgs_Index1_Text",
+        "5341_2_Dlgs_Index2_Text",
+        "5341_2_Dlgs_Index3_Text",
+        "5341_4_Dlgs_Index0_Text",
+        "5341_4_Dlgs_Index1_Text",
+        "5341_4_Dlgs_Index2_Text"
+      ],
+      "reason": "元鳴を短く遮り、全員が見た勝敗を根拠に宇文師弟の勝ちを裁定し、掌門らの前で節度を求め、決勝を端的に告知する。兄弟子として礼・観察・判断の順に話す現行資料と整合する。",
+      "scope": {
+        "scene_groups": [
+          "5341_2",
+          "5341_4"
+        ],
+        "modes": [
+          "同門・裁定",
+          "兄弟子の指揮"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/慧空.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5360_10_Dlgs_Index0_Text",
+        "5360_10_Dlgs_Index1_Text",
+        "5360_10_Dlgs_Index5_Text",
+        "5360_10_Dlgs_Index7_Text",
+        "5360_10_Dlgs_Index8_Text"
+      ],
+      "reason": "毒を受けた状況でも宇文逸を案じ、施主呼称と丁寧体を保ち、自分と師弟の療傷後に追うと約する。現行資料の謙虚で生真面目な若い僧、優しさ、莫問道長呼称に整合する。",
+      "scope": {
+        "scene_groups": [
+          "5360_10"
+        ],
+        "modes": [
+          "警告・気遣い"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+      "after_digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+      "changed": false
+    },
+    {
+      "target": "10_人物/洪飛.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5586_3_Dlgs_Index1_Text",
+        "5586_3_Dlgs_Index2_Text",
+        "5586_3_Dlgs_Index4_Text",
+        "5586_3_Dlgs_Index6_Text",
+        "5586_3_Dlgs_Index7_Text"
+      ],
+      "reason": "宇文逸を小僧と呼び、悪態を親しみで包み、欧陽雪のもてなしを砕けた口調で喜び、莫問へ見覚えを示す。現行資料の飄々とした老乞食の砕けモードに整合し、二行の不自然さだけを訳文側で直す。",
+      "scope": {
+        "scene_groups": [
+          "5586_3"
+        ],
+        "modes": [
+          "砕けモード"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+      "after_digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-78",
+  "wave_id": "yuwen-mowen-train-78-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN78_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
+      "manifest_digest": "sha256:ce38478550cfd45b88ddc004054b75d15665b7e568adac79f5f455305c46b682"
+    }
+  ]
+}
