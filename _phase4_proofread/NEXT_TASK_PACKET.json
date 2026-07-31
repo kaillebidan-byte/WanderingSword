@@ -21,13 +21,13 @@
     "24058_1"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-76-wave-01",
     "packet_id": "yuwen-mowen-train76-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 207
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -40,16 +40,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-75",
-    "release_id": "yuwen-mowen-train-75-r1",
-    "pr": 232,
-    "status": "merged",
-    "merge_sha": "79cb4a4ad53fe2110eeeee10e8f45ec8390ca796"
+    "train_id": "yuwen-mowen-train-76",
+    "release_id": "yuwen-mowen-train-76-r1",
+    "pr": 233,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -65,5 +63,40 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:cec980a1dac82285b0fb7ad8452cbbf89be78756bf361cf9606ff28c485def23"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 70,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "22010_7",
+      "22025_1",
+      "22029_5",
+      "22031_1",
+      "22125_1",
+      "24057_1",
+      "24058_1"
+    ],
+    "grouping_decision": "前半五場面30行だけでは品質波の下限40行に届かない。直後の関係進展として、莫問の挑戦状を受け宇文逸が天山行きを引き受ける二分岐40行まで含めると、親子関係の判明から対決決意までの意味単位が完結するため、70行のcomplete_semantic_unitとして封印する。",
+    "exception": {
+      "reason_code": "complete_semantic_unit",
+      "detail": "前半五場面30行だけでは品質波の下限40行に届かない。直後の関係進展として、莫問の挑戦状を受け宇文逸が天山行きを引き受ける二分岐40行まで含めると、親子関係の判明から対決決意までの意味単位が完結するため、70行のcomplete_semantic_unitとして封印する。"
+    }
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 0,
+    "new_project_keys": 12,
+    "fix_keys": 12
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN76_WAVE01_2026-08-01.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }
