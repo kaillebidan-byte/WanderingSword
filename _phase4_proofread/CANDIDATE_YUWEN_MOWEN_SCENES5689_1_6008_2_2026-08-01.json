@@ -1,0 +1,559 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5689_1",
+    "6003_4",
+    "6003_6",
+    "6008_2"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30665631234,
+    "artifact_id": 8806860605,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:f4aedc869bfb1c9b6fc67896b5b8bdce56cd822cc721b36d059c41dd850d41ef",
+    "head_sha": "154c78b6e469ebee550848aae0ae72b6e334d829"
+  },
+  "scene_context": {
+    "timeline": "復讐を果たした直後に宇文逸が報復の虚しさと莫問・欧陽雪への懸念を抱く内省を前置きとし、その後、莫問に罪を着せられた宇文逸が莫棄の追及、欧陽雪の合流、瑶姫の打開策提示を経て清虚救済と潔白証明を考える転落直後を別小単位として扱う。",
+    "branch_note": "5689_1の9行で復讐後の内省が完結する。6003_4から6008_2の36行は、莫棄の追及、欧陽雪の合流、宇文逸の無力感、瑶姫と江小彤による救済策の提示まで続く。二つを一つの連続事件として混同せず、合計45行で閉じる。"
+  },
+  "rows": [
+    {
+      "key": "5689_1_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（希望那些钱能帮他们过得好一点吧……）",
+      "ja": "1 - 宇文逸 $@$（あの金が彼らの助けになれば良いのだが……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（唉……）",
+      "ja": "1 - 宇文逸 $@$（ああ……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（……在那两个孩子眼中，我们才是杀了他们父母的恶人吧……）",
+      "ja": "1 - 宇文逸 $@$（……あの二人の子供の目には、私たちが彼らの両親を殺した悪人に見えているのだろうな……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（不知道为什么……）",
+      "ja": "1 - 宇文逸 $@$（なぜだか分からないが……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（虽然成功帮叔叔，小姜，二虎还有秋月他们报了仇，但我却一点也没有想象中的开心……）",
+      "ja": "1 - 宇文逸 $@$（叔父さん、小姜、二虎、そして秋月たちの仇を討つことはできたのに、想像していたような喜びは全くない……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（对了，今天好像一直都没看到莫问师兄，也不知道他的伤怎么样了……）",
+      "ja": "1 - 宇文逸 $@$（そういえば、今日は莫問師兄の姿を見ていない。傷はどうなったんだろう……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（不知道是不是我的错觉……总感觉那个带面具的怪人，对莫问师兄有些不一样……）",
+      "ja": "1 - 宇文逸 $@$（気のせいだろうか……あの仮面の男は、莫問師兄に対してだけ、どこか様子が違ったような……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（还有欧阳姑娘……唉……）",
+      "ja": "1 - 宇文逸 $@$（それに欧陽姑娘も……ああ……）"
+    },
+    {
+      "key": "5689_1_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（等回了武当，还是尽快找道玄师叔拿些丹药，也好早点去名剑山庄探望她……）",
+      "ja": "1 - 宇文逸 $@$（武当に戻ったら、すぐに道玄師叔から丹薬をもらって、早く名剣山荘へ彼女を見舞いに行こう……）"
+    },
+    {
+      "key": "6003_4_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你听我说，师父是被莫问师兄刺伤的，不是我……",
+      "ja": "1 - 宇文逸 $@$聞いてくれ。師父を刺したのは莫問師兄だ。私じゃない……"
+    },
+    {
+      "key": "6003_4_Dlgs_Index1_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$呸！事到如今，还有什么好装的？！",
+      "ja": "5029 - 莫棄 $@$ぺっ！　今さら、何を白々しい真似してやがる！"
+    },
+    {
+      "key": "6003_4_Dlgs_Index2_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$就在刚才，大师兄已经将你的罪行全部公之于众！勾结魔教，谋害少林方丈，欺师灭祖……",
+      "ja": "5029 - 莫棄 $@$たった今、大師兄が、お前の罪をすべて皆の前で明らかにした！　魔教と結び、少林方丈を謀殺し、師を欺き祖師に背いた……"
+    },
+    {
+      "key": "6003_4_Dlgs_Index3_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$桩桩件件都是罪大恶极！",
+      "ja": "5029 - 莫棄 $@$どれ一つ取っても、許しがたい大罪だ！"
+    },
+    {
+      "key": "6003_4_Dlgs_Index4_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$劝你还是赶紧放下兵器，跟我回去认罪吧！！",
+      "ja": "5029 - 莫棄 $@$今すぐ武器を捨てろ。俺と戻って罪を認めろ！"
+    },
+    {
+      "key": "6003_4_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$请你一定要相信我！我怎么可能伤害师父……对了，师父！",
+      "ja": "1 - 宇文逸 $@$頼む、私を信じてくれ！　私が師父を傷つけるはずがない……そうだ、師父！"
+    },
+    {
+      "key": "6003_4_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你让我见见师父吧，师父他肯定能证明我的清白……",
+      "ja": "1 - 宇文逸 $@$師父に会わせてくれ。師父なら、きっと私の潔白を証明してくださる……"
+    },
+    {
+      "key": "6003_4_Dlgs_Index8_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$住口！掌门师叔被你害得命悬一线，如今昏迷不醒，你还在这里鬼话连篇！",
+      "ja": "5029 - 莫棄 $@$黙れ！　掌門師叔はお前のせいで生死の境をさまよい、今も意識が戻らない。それでもまだ、そんなでたらめを！"
+    },
+    {
+      "key": "6003_4_Dlgs_Index9_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$真是不知悔改！！",
+      "ja": "5029 - 莫棄 $@$どこまで悔い改めないつもりだ！"
+    },
+    {
+      "key": "6003_4_Dlgs_Index10_Text",
+      "speaker": "莫弃",
+      "zh": "5029 - 莫弃 $@$我今天一定要抓你回去师叔的床前磕头认罪不可！！！",
+      "ja": "5029 - 莫棄 $@$今日こそお前を捕らえ、師叔の枕元で額をつかせて、罪を認めさせる！"
+    },
+    {
+      "key": "6003_6_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$雪儿？你怎么……",
+      "ja": "1 - 宇文逸 $@$雪児？　どうして君がここに……"
+    },
+    {
+      "key": "6003_6_Dlgs_Index1_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$我听武当的弟子前来传信，说……说你勾结玄火教欺师灭祖，重伤清虚道长……",
+      "ja": "17005 - 欧陽雪 $@$武当の弟子が知らせに来たの。あなたが玄火教と結託し、師門に背いて、清虚道長に重傷を負わせたと……"
+    },
+    {
+      "key": "6003_6_Dlgs_Index2_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$各派的人已经开始配合武当派搜山，要拿你回去问罪……",
+      "ja": "17005 - 欧陽雪 $@$もう各派が武当に協力して山狩りを始め、あなたを捕らえて罪を問おうとしているわ……"
+    },
+    {
+      "key": "6003_6_Dlgs_Index3_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$我实在放心不下，这才寻了过来……",
+      "ja": "17005 - 欧陽雪 $@$どうしても心配で……それで、あなたを捜しに来たの……"
+    },
+    {
+      "key": "6003_6_Dlgs_Index4_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$什么？！",
+      "ja": "1 - 宇文逸 $@$何だって！？"
+    },
+    {
+      "key": "6003_6_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我怎么可能伤害师父！明明是莫问师兄……",
+      "ja": "1 - 宇文逸 $@$私が師父を傷つけるはずがない！　やったのは莫問師兄で……"
+    },
+    {
+      "key": "6003_6_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$怎么会这样……",
+      "ja": "1 - 宇文逸 $@$どうして、こんなことに……"
+    },
+    {
+      "key": "6003_6_Dlgs_Index7_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$唉，这就是我刚才不让你回去的原因。",
+      "ja": "17115 - 瑶姫 $@$……だから、さっき戻らせなかったのよ。"
+    },
+    {
+      "key": "6008_2_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（苦笑）我现在除了担心，还能做些什么呢？",
+      "ja": "1 - 宇文逸 $@$（苦笑）今の私に、心配する以外に何ができるんだ？"
+    },
+    {
+      "key": "6008_2_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$雪儿身上的五仙蛊早就有发作的迹象了，这一路上我却完全没有察觉。",
+      "ja": "1 - 宇文逸 $@$雪児の五仙蠱は、とっくに発作の兆しを見せていた。それなのに、この道中、私はまるで気づかなかった。"
+    },
+    {
+      "key": "6008_2_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$每一次都是这样，每一次都只能看着身边的人受伤甚至死去……",
+      "ja": "1 - 宇文逸 $@$いつもそうだ。いつも、そばにいる人が傷つき……時には死んでいくのを、見ていることしかできない……"
+    },
+    {
+      "key": "6008_2_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$而我却什么也做不了。",
+      "ja": "1 - 宇文逸 $@$それなのに、私は何もできない。"
+    },
+    {
+      "key": "6008_2_Dlgs_Index5_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我之前以为是我太弱了……",
+      "ja": "1 - 宇文逸 $@$以前は、ただ自分が弱いからだと思っていた……"
+    },
+    {
+      "key": "6008_2_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可现在哪怕面对清霄师伯，我也有一战之力了，又有什么用呢？",
+      "ja": "1 - 宇文逸 $@$だが今は、清霄師伯を相手にしても戦える。それでも……何の役に立つ？"
+    },
+    {
+      "key": "6008_2_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$圆觉大师、师父、还有雪儿……我还是和过去一样，只能看着重要的人一个个倒在我面前，而我不但百口莫辩……",
+      "ja": "1 - 宇文逸 $@$円覚大師、師父、そして雪児……今も昔と変わらない。大切な人が一人、また一人と目の前に倒れていくのを見ているだけだ。そればかりか、何を言っても疑いを晴らせず……"
+    },
+    {
+      "key": "6008_2_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$甚至连莫问师兄为什么会变成这样都想不明白！",
+      "ja": "1 - 宇文逸 $@$莫問師兄が、なぜこんなふうに変わってしまったのかさえ分からない！"
+    },
+    {
+      "key": "6008_2_Dlgs_Index9_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$……那就继续变强吧。",
+      "ja": "17115 - 瑶姫 $@$……なら、もっと強くなればいい。"
+    },
+    {
+      "key": "6008_2_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$继续变强？",
+      "ja": "1 - 宇文逸 $@$もっと、強く……？"
+    },
+    {
+      "key": "6008_2_Dlgs_Index11_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$没错，你之所以感到无力，归根究底还是因为你还不够强。",
+      "ja": "17115 - 瑶姫 $@$そう。あなたが無力だと感じるのは、結局、まだ強さが足りないからよ。"
+    },
+    {
+      "key": "6008_2_Dlgs_Index12_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$我们魔门之中就向来以实力为尊……只要强大到无可匹敌，再厉害的敌人，再多的阴谋算计也奈何不了你了。",
+      "ja": "17115 - 瑶姫 $@$わたしたち魔門は、昔から力こそすべて……誰にも敵わないほど強くなれば、どんな強敵も、どれほどの謀略も、あなたには届かないわ。"
+    },
+    {
+      "key": "6008_2_Dlgs_Index13_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$而且……现在的情况或许还不算最糟也说不定～",
+      "ja": "17115 - 瑶姫 $@$それに……今が最悪とは限らないわよ〜"
+    },
+    {
+      "key": "6008_2_Dlgs_Index14_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$还记得那个莫弃的话吗？清虚目前只是重伤昏迷，虽然不知道莫问为什么会留下这么一个后患……",
+      "ja": "17115 - 瑶姫 $@$莫棄の言葉を覚えている？　清虚は今、重傷で昏睡しているだけ。莫問がなぜ、そんな禍根を残したのかは分からないけれど……"
+    },
+    {
+      "key": "6008_2_Dlgs_Index15_Text",
+      "speaker": "瑶姬",
+      "zh": "17115 - 瑶姬 $@$不过这也正好给了你自证清白的机会，不是吗？",
+      "ja": "17115 - 瑶姫 $@$でも、それはあなたが潔白を証明する機会でもあるでしょう？"
+    },
+    {
+      "key": "6008_2_Dlgs_Index16_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$你的意思我明白，可师父当时伤得那么重，至今也没有听说任何醒来的消息……",
+      "ja": "1 - 宇文逸 $@$言いたいことは分かる。だが、師父はあれほど深い傷を負った。今も目を覚ましたという知らせはない……"
+    },
+    {
+      "key": "6008_2_Dlgs_Index17_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$如果真有办法救他，少林那么多杏林高手、还有道妙师叔他们又怎么会一直束手无策……",
+      "ja": "1 - 宇文逸 $@$本当に師父を救う方法があるのなら、少林の名医たちや道妙師叔たちが、どうして今まで手の施しようもないままなんだ……"
+    },
+    {
+      "key": "6008_2_Dlgs_Index18_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$嘻嘻！他们没办法，不代表我也没办法呀！",
+      "ja": "8500 - 江小彤 $@$えへへ！　あの人たちに方法がないからって、わたしにもないとは限らないよ！"
+    }
+  ],
+  "candidate_questions": [
+    "復讐後の宇文逸の罪悪感と莫問・欧陽雪への懸念が内心語として保たれているか",
+    "莫棄の激昂と師門語彙、宇文逸の無実訴えが人物関係どおりか",
+    "欧陽雪の心配と宇文逸への呼称、瑶姫の力を尊ぶ誘導が発声に合うか",
+    "宇文逸の無力感から清虚救済と潔白証明へ向かう転換が時系列どおりか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "欺师灭祖",
+      "百口莫辩",
+      "杏林高手",
+      "以实力为尊"
+    ],
+    "fact_doubts": [
+      "5689_1では復讐対象の子供たちから見れば宇文逸側が親の仇に見えるという宇文逸の主観である",
+      "6003_4時点で清虚は重傷昏睡し、莫問が宇文逸へ罪を着せ、莫棄は莫問の告発を信じている",
+      "6003_6では欧陽雪が武当の知らせを受け、宇文逸を心配して捜しに来ている",
+      "6008_2では雪児の五仙蠱が発作し、江小彤が清虚を救う方法を示唆する"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 45,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json",
+        "keys": [
+          "6003_4_Dlgs_Index0_Text",
+          "6003_4_Dlgs_Index10_Text",
+          "6003_4_Dlgs_Index1_Text",
+          "6003_4_Dlgs_Index2_Text",
+          "6003_4_Dlgs_Index3_Text",
+          "6003_4_Dlgs_Index4_Text",
+          "6003_4_Dlgs_Index6_Text",
+          "6003_4_Dlgs_Index7_Text",
+          "6003_4_Dlgs_Index8_Text",
+          "6003_4_Dlgs_Index9_Text",
+          "6003_6_Dlgs_Index0_Text",
+          "6003_6_Dlgs_Index1_Text",
+          "6003_6_Dlgs_Index2_Text",
+          "6003_6_Dlgs_Index3_Text",
+          "6003_6_Dlgs_Index4_Text",
+          "6003_6_Dlgs_Index5_Text",
+          "6003_6_Dlgs_Index6_Text",
+          "6003_6_Dlgs_Index7_Text",
+          "6008_2_Dlgs_Index0_Text",
+          "6008_2_Dlgs_Index10_Text",
+          "6008_2_Dlgs_Index11_Text",
+          "6008_2_Dlgs_Index12_Text",
+          "6008_2_Dlgs_Index13_Text",
+          "6008_2_Dlgs_Index14_Text",
+          "6008_2_Dlgs_Index15_Text",
+          "6008_2_Dlgs_Index16_Text",
+          "6008_2_Dlgs_Index17_Text",
+          "6008_2_Dlgs_Index18_Text",
+          "6008_2_Dlgs_Index1_Text",
+          "6008_2_Dlgs_Index2_Text",
+          "6008_2_Dlgs_Index3_Text",
+          "6008_2_Dlgs_Index5_Text",
+          "6008_2_Dlgs_Index6_Text",
+          "6008_2_Dlgs_Index7_Text",
+          "6008_2_Dlgs_Index8_Text",
+          "6008_2_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json",
+        "keys": [
+          "5689_1_Dlgs_Index5_Text",
+          "5689_1_Dlgs_Index6_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "5689_1_Dlgs_Index0_Text",
+      "5689_1_Dlgs_Index1_Text",
+      "5689_1_Dlgs_Index2_Text",
+      "5689_1_Dlgs_Index3_Text",
+      "5689_1_Dlgs_Index4_Text",
+      "5689_1_Dlgs_Index7_Text",
+      "5689_1_Dlgs_Index8_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "current_pair_persona"
+      },
+      {
+        "path": "10_人物/瑶姬.md",
+        "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/江小彤.md",
+        "digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5689_1_Dlgs_Index0_Text",
+          "5689_1_Dlgs_Index1_Text",
+          "5689_1_Dlgs_Index2_Text",
+          "5689_1_Dlgs_Index3_Text",
+          "5689_1_Dlgs_Index4_Text",
+          "5689_1_Dlgs_Index5_Text",
+          "5689_1_Dlgs_Index6_Text",
+          "5689_1_Dlgs_Index7_Text",
+          "5689_1_Dlgs_Index8_Text",
+          "6003_4_Dlgs_Index0_Text",
+          "6003_4_Dlgs_Index6_Text",
+          "6003_4_Dlgs_Index7_Text",
+          "6003_6_Dlgs_Index0_Text",
+          "6003_6_Dlgs_Index4_Text",
+          "6003_6_Dlgs_Index5_Text",
+          "6003_6_Dlgs_Index6_Text",
+          "6008_2_Dlgs_Index0_Text",
+          "6008_2_Dlgs_Index1_Text",
+          "6008_2_Dlgs_Index2_Text",
+          "6008_2_Dlgs_Index3_Text",
+          "6008_2_Dlgs_Index5_Text",
+          "6008_2_Dlgs_Index6_Text",
+          "6008_2_Dlgs_Index7_Text",
+          "6008_2_Dlgs_Index8_Text",
+          "6008_2_Dlgs_Index10_Text",
+          "6008_2_Dlgs_Index16_Text",
+          "6008_2_Dlgs_Index17_Text"
+        ]
+      },
+      {
+        "path": "10_人物/瑶姬.md",
+        "digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+        "document_type": "persona",
+        "name": "瑶姬",
+        "aliases": [
+          "瑶姬",
+          "玄女"
+        ],
+        "evidence_keys": [
+          "6003_6_Dlgs_Index7_Text",
+          "6008_2_Dlgs_Index9_Text",
+          "6008_2_Dlgs_Index11_Text",
+          "6008_2_Dlgs_Index12_Text",
+          "6008_2_Dlgs_Index13_Text",
+          "6008_2_Dlgs_Index14_Text",
+          "6008_2_Dlgs_Index15_Text"
+        ]
+      },
+      {
+        "path": "10_人物/江小彤.md",
+        "digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+        "document_type": "persona",
+        "name": "江小彤",
+        "aliases": [
+          "江小彤"
+        ],
+        "evidence_keys": [
+          "6008_2_Dlgs_Index18_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "莫弃",
+      "欧阳雪"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:a5da16f12b6afa9b6950eae6021b7edf06e3e334dbbbb835fc7c1ddb2694accf"
+  }
+}
