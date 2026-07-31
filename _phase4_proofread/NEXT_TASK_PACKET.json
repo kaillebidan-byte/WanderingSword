@@ -20,13 +20,13 @@
     "5654_12"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-65-wave-01",
     "packet_id": "yuwen-mowen-train65-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 196
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -39,16 +39,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-64",
-    "release_id": "yuwen-mowen-train-64-r1",
-    "pr": 221,
-    "status": "merged",
-    "merge_sha": "1d3560e1168b34707c0ff3a5033456bbbae2f8db"
+    "train_id": "yuwen-mowen-train-65",
+    "release_id": "yuwen-mowen-train-65-r1",
+    "pr": 222,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -64,5 +62,36 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:c7787481cd991353e8afb646dfef794026a26e0fd8ebab9f11d4770a753b8943"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 44,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5654_1",
+      "5654_4",
+      "5654_6",
+      "5654_7",
+      "5654_8",
+      "5654_12"
+    ],
+    "grouping_decision": "六場面44行で、曹煜天の暴走、莫問の負傷、第三者の介入と偽風雲訣の開示、一行の離脱までが完結する。40行以上60行以下で閉じるため延長は使わない。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 8,
+    "new_project_keys": 0,
+    "fix_keys": 8
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN65_WAVE01_2026-07-31.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }
