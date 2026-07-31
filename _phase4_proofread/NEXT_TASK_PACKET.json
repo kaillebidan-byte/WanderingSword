@@ -1,102 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-76-quality-audit",
+  "task_id": "post-train76-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 206,
-    "pair_applied_keys": 1408,
-    "project_applied_keys": 1784,
-    "produced_by_pr": 232,
-    "release_id": "yuwen-mowen-train-75-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_75.json"
+    "batch": 207,
+    "pair_applied_keys": 1420,
+    "project_applied_keys": 1796,
+    "produced_by_pr": 233,
+    "release_id": "yuwen-mowen-train-76-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_76.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "22010_7",
-    "22025_1",
-    "22029_5",
-    "22031_1",
-    "22125_1",
-    "24057_1",
-    "24058_1"
+    "32025_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-76-wave-01",
-    "packet_id": "yuwen-mowen-train76-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 207
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
-    "artifact_run": 30660076941,
-    "artifact_id": 8804810641,
+    "artifact_run": 30661903642,
+    "artifact_id": 8805486190,
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_digest": "sha256:80377dd38e78c3357ac1aecbf0c5e83f24951dbf72253fef87b5604cd4f56670",
-    "artifact_head": "12110cc2bddd57ac7689093b27db1a3336981d48",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_digest": "sha256:648adb72a9423b5125287c26cd451c7a5a032988a6d33c97e5bd992753411e19",
+    "artifact_head": "a78fbd7b3ac7c8a9cac1305a1f924e0bf2a32caf",
+    "freshness_rule": "統合後の次cycle開始時に最新mainとRelation一次資料を再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-76",
     "release_id": "yuwen-mowen-train-76-r1",
     "pr": 233,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-76統合前に32025_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-76",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 207,
+    "planned_batch": 208,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:cec980a1dac82285b0fb7ad8452cbbf89be78756bf361cf9606ff28c485def23"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 70,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "22010_7",
-      "22025_1",
-      "22029_5",
-      "22031_1",
-      "22125_1",
-      "24057_1",
-      "24058_1"
-    ],
-    "grouping_decision": "前半五場面30行だけでは品質波の下限40行に届かない。直後の関係進展として、莫問の挑戦状を受け宇文逸が天山行きを引き受ける二分岐40行まで含めると、親子関係の判明から対決決意までの意味単位が完結するため、70行のcomplete_semantic_unitとして封印する。",
-    "exception": {
-      "reason_code": "complete_semantic_unit",
-      "detail": "前半五場面30行だけでは品質波の下限40行に届かない。直後の関係進展として、莫問の挑戦状を受け宇文逸が天山行きを引き受ける二分岐40行まで含めると、親子関係の判明から対決決意までの意味単位が完結するため、70行のcomplete_semantic_unitとして封印する。"
-    }
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 0,
-    "new_project_keys": 12,
-    "fix_keys": 12
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN76_WAVE01_2026-08-01.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
