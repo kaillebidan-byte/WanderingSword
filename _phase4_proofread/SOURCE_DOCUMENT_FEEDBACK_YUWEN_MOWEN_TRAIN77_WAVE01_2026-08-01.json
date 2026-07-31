@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "32025_1_Dlgs_Index0_Text",
+        "32025_1_Dlgs_Index2_Text",
+        "5203_8_Dlgs_Index0_Text",
+        "5203_11_Dlgs_Index2_Text",
+        "5203_11_Dlgs_Index5_Text",
+        "5203_11_Dlgs_Index6_Text",
+        "5203_11_Dlgs_Index7_Text",
+        "5229_14_Dlgs_Index1_Text",
+        "5229_14_Dlgs_Index3_Text",
+        "5298_1_Dlgs_Index0_Text",
+        "5298_1_Dlgs_Index1_Text",
+        "5298_1_Dlgs_Index10_Text",
+        "5303_1_Dlgs_Index0_Text",
+        "5303_1_Dlgs_Index1_Text",
+        "5303_1_Dlgs_Index2_Text",
+        "5303_1_Dlgs_Index3_Text",
+        "5303_1_Dlgs_Index4_Text",
+        "5303_1_Dlgs_Index5_Text",
+        "5303_1_Dlgs_Index6_Text",
+        "5303_1_Dlgs_Index7_Text"
+      ],
+      "reason": "雪児との後日談では親密な常体、入門前は莫問兄さん、入門後は莫問師兄、師門報告では弟子register、夜の独白では心内語へ切り替わる。32025_1冒頭の過剰に改まった訳だけを修正すれば、現行資料の時系列・モード設計は一次資料と整合する。",
+      "scope": {
+        "scene_groups": [
+          "32025_1",
+          "5203_8",
+          "5203_11",
+          "5227_4",
+          "5229_14",
+          "5230_3",
+          "5298_1",
+          "5303_1"
+        ],
+        "modes": [
+          "M1a",
+          "M1b",
+          "M5",
+          "M7"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/段朝晨.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "32025_1_Dlgs_Index5_Text",
+        "32025_1_Dlgs_Index7_Text"
+      ],
+      "reason": "原文は「没有，好吃」「我可以……把它带回去吗」と短く途切れ、現行資料が核とする片言・寡黙・素朴な常体を直接裏づける。誤りは滑らかな敬体へ均した現訳側にある。",
+      "scope": {
+        "scene_groups": [
+          "32025_1"
+        ],
+        "modes": [
+          "片言・寡黙"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:638042f6a51dd46d024ce35e74eacba745254f8800406b3bc0f54c538969e235",
+      "after_digest": "sha256:638042f6a51dd46d024ce35e74eacba745254f8800406b3bc0f54c538969e235",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元鳴.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5203_11_Dlgs_Index0_Text",
+        "5203_11_Dlgs_Index1_Text",
+        "5203_11_Dlgs_Index3_Text",
+        "5203_11_Dlgs_Index4_Text",
+        "5203_11_Dlgs_Index8_Text",
+        "5203_11_Dlgs_Index9_Text"
+      ],
+      "reason": "宇文逸を世間知らず・青二才と見下し、脅し、元鳴道爺と自称する一連は、現行資料の対下・罵りモードと尊大な俺口調を裏づける。末尾の成語と自称を平板化した現訳だけを修正する。",
+      "scope": {
+        "scene_groups": [
+          "5203_11"
+        ],
+        "modes": [
+          "対下・罵り"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "after_digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元啓.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5227_4_Dlgs_Index0_Text"
+      ],
+      "reason": "大師兄への短い応答は、対上の礼を保つ若い武当弟子という現行資料と矛盾しない。単独一行から規則を追加しない。",
+      "scope": {
+        "scene_groups": [
+          "5227_4"
+        ],
+        "modes": [
+          "対上"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+      "after_digest": "sha256:bce31b1370f8611397e0faa3dc8115559fcd53fa18ea0034e7ce3e82536a0abc",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5227_4_Dlgs_Index3_Text",
+        "5230_3_Dlgs_Index1_Text",
+        "5230_3_Dlgs_Index5_Text",
+        "5230_3_Dlgs_Index6_Text"
+      ],
+      "reason": "入門直後の宇文師弟呼称、莫棄へ手加減を命じる兄弟子の常体、緊急任務への即断、宇文逸を初任務へ同行させる教導は、現行資料の兄弟子・危機判断・世話の順序と一致する。",
+      "scope": {
+        "scene_groups": [
+          "5227_4",
+          "5230_3"
+        ],
+        "modes": [
+          "入門直後の兄弟子",
+          "謀士・危機判断",
+          "案内・教導"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/元風.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5230_3_Dlgs_Index0_Text",
+        "5230_3_Dlgs_Index2_Text",
+        "5230_3_Dlgs_Index3_Text",
+        "5230_3_Dlgs_Index4_Text"
+      ],
+      "reason": "大師兄へ緊急任務を順序立てて報告し、村・六扇門管轄・道通長老の判断を示す場面は、門中の雑務を担う世話焼きという現行資料と整合する。後輩への気安い常体を目上への報告へ遡及適用しない。",
+      "scope": {
+        "scene_groups": [
+          "5230_3"
+        ],
+        "modes": [
+          "対上の任務報告"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:3222d7665e32d79f17576e1b4396a700a01737af50eaa0c066d839282287de6e",
+      "after_digest": "sha256:3222d7665e32d79f17576e1b4396a700a01737af50eaa0c066d839282287de6e",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "revise",
+      "operation": "replace_exact",
+      "evidence_keys": [
+        "5298_1_Dlgs_Index2_Text",
+        "5298_1_Dlgs_Index5_Text",
+        "5298_1_Dlgs_Index6_Text",
+        "5298_1_Dlgs_Index9_Text"
+      ],
+      "reason": "現行資料の声の核と道義判断は一次資料に合うが、完成例の「始终」を時間範囲の「終始」とした一行だけが原文機能と日本語の発声に反する。訳文修正と同じ高確度判断で、完成例を「やはり正道とは言えぬ」へ置換する。",
+      "scope": {
+        "scene_groups": [
+          "5298_1"
+        ],
+        "section": "完成例（宇文逸ペアの高確度監査済み方針）/対外",
+        "claim": "以暴制暴の道義判断"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+      "changed": true
+    },
+    {
+      "target": "10_人物/清霄道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5298_1_Dlgs_Index3_Text",
+        "5298_1_Dlgs_Index4_Text",
+        "5298_1_Dlgs_Index7_Text",
+        "5298_1_Dlgs_Index8_Text"
+      ],
+      "reason": "悪党を即断し、六扇門の小細工を嫌い、掌門師弟の迂遠さを叱って懲奸除悪を説く一連は、現行資料の剛直な老夫・正邪の裁定・短い強語と一致する。",
+      "scope": {
+        "scene_groups": [
+          "5298_1"
+        ],
+        "modes": [
+          "正邪裁定",
+          "叱責"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "after_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "changed": false
+    }
+  ],
+  "changed_documents": [
+    "10_人物/清虚道長.md"
+  ],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-77",
+  "wave_id": "yuwen-mowen-train-77-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN77_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32025_1_5303_1_2026-08-01.json",
+      "manifest_digest": "sha256:35d66382d458ebdeadc7fe4ef15846fd3c756e1a52ebf06cc778ba7c2479825e"
+    }
+  ]
+}
