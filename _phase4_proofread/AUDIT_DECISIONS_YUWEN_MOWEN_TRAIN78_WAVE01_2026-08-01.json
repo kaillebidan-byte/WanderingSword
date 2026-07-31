@@ -1,0 +1,136 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-78",
+  "wave_id": "yuwen-mowen-train-78-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30663804764,
+    "artifact_id": 8806187365,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:64ab80dea580407d598ac77199425ce644179a8d68ca047456971e0b5cc88de2",
+    "head_sha": "1e8d17584ebb08187863fef41f2295db29bbfa9e"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train78-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
+      "scene_groups": ["5331_1", "5341_2", "5341_4", "5343_4", "5360_10", "5586_3"],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5341_2_Dlgs_Index0_Text",
+          "before": "5024 - 元鳴 $@$きっとお前はズルをしたんだ！こんなに早く上達するなんて、こっそり邪悪な技でも練習したに違いない……",
+          "after": "5024 - 元鳴 $@$きっとお前は卑怯な手を使ったんだ！　こんなに早く腕を上げるなど、こっそり邪功でも修めたに違いない……",
+          "reason": "meaning/voice: 「作弊」は不正・卑怯な手段、「邪功」は武侠語彙としての邪功。現訳の幼い「ズル」と説明的な「邪悪な技」は、元鳴の尊大な罵りと用語の強度を弱めるため、荒い告発と漢語へ戻す。"
+        },
+        {
+          "key": "5341_4_Dlgs_Index2_Text",
+          "before": "5015 - 莫問 $@$今回の大会の<Y>首位</>は、この二人で決まる！",
+          "after": "5015 - 莫問 $@$今回の大比の<Y>首位</>は、この二人で決まる！",
+          "reason": "meaning/terminology: 直前から続く門内大比の決勝告知であり、「此次大比」を一般的な「大会」へ薄めず、場面内の正式呼称「大比」を保持する。"
+        },
+        {
+          "key": "5343_4_Dlgs_Index0_Text",
+          "before": "1 - 宇文逸 $@$師父、弟子はご期待に応えてまいりました！",
+          "after": "1 - 宇文逸 $@$師父、何とかご期待に応えられました！",
+          "reason": "voice/meaning: 「幸不辱命」は任を果たし期待を裏切らずに済んだという謙虚な報告。現訳の「弟子はご期待に応えてまいりました」は硬く不自然なので、師父への礼を保つ自然なM1bへ戻す。"
+        },
+        {
+          "key": "5586_3_Dlgs_Index1_Text",
+          "before": "17112 - 洪飛 $@$この小僧め、そんな大声出してどうする……",
+          "after": "17112 - 洪飛 $@$この小僧め、そんな大声を出してどうする……",
+          "reason": "voice/grammar: 洪飛の親しみを含む悪態「臭小子」は「この小僧め」で保てているが、「そんな大声出して」は助詞欠落で発声が引っかかる。砕けた調子を崩さず自然な口語へ直す。"
+        },
+        {
+          "key": "5586_3_Dlgs_Index7_Text",
+          "before": "17112 - 洪飛 $@$小僧、お前の後ろにいる者、どこかで見覚えがあるな。誰だ……？",
+          "after": "17112 - 洪飛 $@$小僧、お前の後ろにいるやつ、どこかで見覚えがあるな。誰だ……？",
+          "reason": "voice: 普段の洪飛は飄々とした老乞食の砕けモード。「後ろにいる者」は公的で硬く、直前の「小僧」と噛み合わないため、意味を変えず「やつ」へ戻す。"
+        }
+      ],
+      "keeps": [
+        "5331_1_Dlgs_Index0_Text", "5331_1_Dlgs_Index1_Text", "5331_1_Dlgs_Index2_Text", "5331_1_Dlgs_Index3_Text", "5331_1_Dlgs_Index4_Text", "5331_1_Dlgs_Index5_Text", "5331_1_Dlgs_Index6_Text", "5331_1_Dlgs_Index7_Text", "5331_1_Dlgs_Index8_Text", "5331_1_Dlgs_Index9_Text", "5331_1_Dlgs_Index10_Text",
+        "5341_2_Dlgs_Index1_Text", "5341_2_Dlgs_Index2_Text", "5341_2_Dlgs_Index3_Text",
+        "5341_4_Dlgs_Index0_Text", "5341_4_Dlgs_Index1_Text",
+        "5343_4_Dlgs_Index1_Text", "5343_4_Dlgs_Index2_Text", "5343_4_Dlgs_Index3_Text", "5343_4_Dlgs_Index4_Text", "5343_4_Dlgs_Index5_Text", "5343_4_Dlgs_Index6_Text", "5343_4_Dlgs_Index7_Text", "5343_4_Dlgs_Index8_Text",
+        "5360_10_Dlgs_Index0_Text", "5360_10_Dlgs_Index1_Text", "5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index5_Text", "5360_10_Dlgs_Index6_Text", "5360_10_Dlgs_Index7_Text", "5360_10_Dlgs_Index8_Text",
+        "5586_3_Dlgs_Index0_Text", "5586_3_Dlgs_Index2_Text", "5586_3_Dlgs_Index3_Text", "5586_3_Dlgs_Index4_Text", "5586_3_Dlgs_Index5_Text", "5586_3_Dlgs_Index6_Text", "5586_3_Dlgs_Index8_Text"
+      ],
+      "allusion_review_candidates": ["湛卢", "翘楚", "垂之千古", "邪功"],
+      "allusion_review_resolved": [
+        {"key": "5331_1_Dlgs_Index0_Text", "decision": "古剣の固有名", "note": "「湛卢」は引用句ではなく古剣名。日本語字形「湛盧」を保持し、招待状の格を崩さない。"},
+        {"key": "5343_4_Dlgs_Index5_Text", "decision": "若い世代の俊英を指す定着語", "note": "「翘楚」は特定典籍の引用として扱わず、門派の若き優れた弟子を指す「若き俊英」が機能と格を保つためKEEP。"},
+        {"key": "5343_4_Dlgs_Index6_Text", "decision": "後世まで名を伝える擬古的表現", "note": "「垂之千古」は特定引用と断定せず、武当の名が後世へ残るという反語の重みを現訳が保つためKEEP。"},
+        {"key": "5341_2_Dlgs_Index0_Text", "decision": "武侠の定着用語", "note": "「邪功」は特定典故ではなく邪道の武功を指す用語。説明的な「邪悪な技」から「邪功」へ修正する。"}
+      ],
+      "fact_doubts": [
+        {"scope": "mowen_tournament_role", "keys": ["5341_2_Dlgs_Index1_Text", "5341_2_Dlgs_Index2_Text", "5341_4_Dlgs_Index0_Text", "5343_4_Dlgs_Index3_Text"], "note": "莫問は門内大比へ出場せず、勝敗裁定と決勝告知を担う。宇文逸の「師兄が出ていたら」は仮定であり、参加済みの事実へ変えない。"},
+        {"scope": "moqi_rescue_and_mowen_absence", "keys": ["5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index6_Text", "5360_10_Dlgs_Index8_Text"], "note": "莫棄は杜彪に連れ去られ、莫問はまだ戻っていない。宇文逸は先に追い、戻った莫問へ伝言を頼む時点として保持する。"},
+        {"scope": "mowen_introduction_stage", "keys": ["5586_3_Dlgs_Index7_Text", "5586_3_Dlgs_Index8_Text"], "note": "洪飛へ莫問を「我的大师兄」と紹介する段階。宇文逸から莫問への大師兄呼称を保持し、後期の離反・敵対関係を遡及しない。"}
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:ce38478550cfd45b88ddc004054b75d15665b7e568adac79f5f455305c46b682",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {"path": ".agents/skills/zhja-game-translation-codex/SKILL.md", "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md", "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md", "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md", "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef", "status": "reviewed"},
+          {"path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md", "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab", "status": "reviewed"},
+          {"path": "10_人物/宇文逸.md", "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153", "status": "reviewed"},
+          {"path": "10_人物/莫問.md", "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4", "status": "reviewed"},
+          {"path": "10_人物/清虚道長.md", "digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39", "status": "reviewed"},
+          {"path": "10_人物/元鳴.md", "digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919", "status": "reviewed"},
+          {"path": "10_人物/慧空.md", "digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81", "status": "reviewed"},
+          {"path": "10_人物/洪飛.md", "digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d", "status": "reviewed"}
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/清虚道長.md", "document_type": "persona", "decision": "keep",
+          "evidence_keys": ["5331_1_Dlgs_Index0_Text", "5331_1_Dlgs_Index2_Text", "5331_1_Dlgs_Index4_Text", "5331_1_Dlgs_Index8_Text", "5331_1_Dlgs_Index9_Text", "5343_4_Dlgs_Index2_Text", "5343_4_Dlgs_Index5_Text", "5343_4_Dlgs_Index6_Text"],
+          "reason": "品剣大会の意図を推し量り、復讐心を抱く弟子へ条件を示し、門内大比後に若い弟子たちを慈愛と一門の威厳をもって称える。現行資料の師モード、古風な慈愛、道義と判断の順序に整合し、今回の訳文修正は資料の反例ではない。",
+          "scope": {"scene_groups": ["5331_1", "5343_4"], "modes": ["平時の師弟", "訓戒・任務"]}, "confidence": "high", "operation": "none"
+        },
+        {
+          "target": "10_人物/宇文逸.md", "document_type": "persona", "decision": "keep",
+          "evidence_keys": ["5331_1_Dlgs_Index3_Text", "5331_1_Dlgs_Index7_Text", "5331_1_Dlgs_Index10_Text", "5343_4_Dlgs_Index0_Text", "5343_4_Dlgs_Index3_Text", "5343_4_Dlgs_Index7_Text", "5360_10_Dlgs_Index2_Text", "5360_10_Dlgs_Index3_Text", "5360_10_Dlgs_Index6_Text", "5586_3_Dlgs_Index0_Text", "5586_3_Dlgs_Index8_Text"],
+          "reason": "師父への敬体と素直な感情、正式報告、莫棄救出での責任感、対外の洪老先輩への礼、莫問を大師兄として紹介する呼称が、現行資料のM1b・M4と師兄関係の時系列に整合する。5343_4の一行は硬い現訳だけを自然な報告へ直す。",
+          "scope": {"scene_groups": ["5331_1", "5343_4", "5360_10", "5586_3"], "modes": ["M1b", "M4"]}, "confidence": "high", "operation": "none"
+        },
+        {
+          "target": "10_人物/元鳴.md", "document_type": "persona", "decision": "keep",
+          "evidence_keys": ["5341_2_Dlgs_Index0_Text"],
+          "reason": "敗北を認めず宇文逸を不正と邪功で責める一行は、現行資料の対下・罵りモードと負けん気を直接裏づける。誤りは「ズル」「邪悪な技」と平板化した現訳側にある。",
+          "scope": {"scene_groups": ["5341_2"], "modes": ["対下・罵り"]}, "confidence": "high", "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md", "document_type": "persona", "decision": "keep",
+          "evidence_keys": ["5341_2_Dlgs_Index1_Text", "5341_2_Dlgs_Index2_Text", "5341_2_Dlgs_Index3_Text", "5341_4_Dlgs_Index0_Text", "5341_4_Dlgs_Index1_Text", "5341_4_Dlgs_Index2_Text"],
+          "reason": "元鳴を短く遮り、全員が見た勝敗を根拠に宇文師弟の勝ちを裁定し、掌門らの前で節度を求め、決勝を端的に告知する。兄弟子として礼・観察・判断の順に話す現行資料と整合する。",
+          "scope": {"scene_groups": ["5341_2", "5341_4"], "modes": ["同門・裁定", "兄弟子の指揮"]}, "confidence": "high", "operation": "none"
+        },
+        {
+          "target": "10_人物/慧空.md", "document_type": "persona", "decision": "keep",
+          "evidence_keys": ["5360_10_Dlgs_Index0_Text", "5360_10_Dlgs_Index1_Text", "5360_10_Dlgs_Index5_Text", "5360_10_Dlgs_Index7_Text", "5360_10_Dlgs_Index8_Text"],
+          "reason": "毒を受けた状況でも宇文逸を案じ、施主呼称と丁寧体を保ち、自分と師弟の療傷後に追うと約する。現行資料の謙虚で生真面目な若い僧、優しさ、莫問道長呼称に整合する。",
+          "scope": {"scene_groups": ["5360_10"], "modes": ["警告・気遣い"]}, "confidence": "high", "operation": "none"
+        },
+        {
+          "target": "10_人物/洪飛.md", "document_type": "persona", "decision": "keep",
+          "evidence_keys": ["5586_3_Dlgs_Index1_Text", "5586_3_Dlgs_Index2_Text", "5586_3_Dlgs_Index4_Text", "5586_3_Dlgs_Index6_Text", "5586_3_Dlgs_Index7_Text"],
+          "reason": "宇文逸を小僧と呼び、悪態を親しみで包み、欧陽雪のもてなしを砕けた口調で喜び、莫問へ見覚えを示す。現行資料の飄々とした老乞食の砕けモードに整合し、二行の不自然さだけを訳文側で直す。",
+          "scope": {"scene_groups": ["5586_3"], "modes": ["砕けモード"]}, "confidence": "high", "operation": "none"
+        }
+      ]
+    }
+  ]
+}
