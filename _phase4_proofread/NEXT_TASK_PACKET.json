@@ -1,1 +1,57 @@
-{"schema_version":6,"status":"ready","task_id":"post-train67-minimal-wave-reservation","based_on_checkpoint":{"batch":198,"pair_applied_keys":1407,"project_applied_keys":1783,"produced_by_pr":224,"release_id":"yuwen-mowen-train-67-r1","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_67.json"},"current_pair":"宇文逸↔莫問","scene_groups":["5807_1"],"reservation":{"status":"reserved_only","wave_id":null,"packet_id":null,"preparation_started":false,"quality_audit_started":false,"encoding_started":false,"formal_batch":null},"source":{"artifact_workflow":"Release train orchestrator","artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","artifact_run":30598602893,"artifact_id":8781063928,"artifact_digest":"sha256:5204255f4cb701cfda0e55a7d7d52ca01b6f30d1124653a7860f170378164106","artifact_head":"50f197d85757aa077d7fd374ddfbbcfc2edc3daa","freshness_rule":"統合後の次cycle開始時にmainとartifact metadataを再確認する。"},"release_candidate":{"train_id":"yuwen-mowen-train-67","release_id":"yuwen-mowen-train-67-r1","pr":224,"status":"merged","merge_sha":"dc882f8b994f46ed082a21ebc9a08cc0ae9beb69"},"do_not_do":["minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない","新cycleのexecution modeをCURRENT_WORKとPRIVATE_STAGE_STATEへlockする前にpreparationを開始しない","ゲームフォルダへ配置しない"],"ci_train":{"phase":"phase1_wave","train_id":"yuwen-mowen-train-67","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","planned_batch":199,"post_merge_state_pr_required":false,"single_pr_finalization":true}}
+{
+  "schema_version": 6,
+  "status": "ready",
+  "task_id": "post-train68-minimal-wave-reservation",
+  "based_on_checkpoint": {
+    "batch": 199,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 225,
+    "release_id": "yuwen-mowen-train-68-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_68.json"
+  },
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5825_1"
+  ],
+  "reservation": {
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
+  },
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_run": 30599694651,
+    "artifact_id": 8781435253,
+    "artifact_digest": "sha256:4c068b3030454675e6712c59ea04460bcb1d447c3ac76b8e2b30db88fb191753",
+    "artifact_head": "9b8fc99bfd4351b312ad884a9f65148428600c4d",
+    "freshness_rule": "統合後の次cycle開始時にmainとartifact metadataを再確認する。"
+  },
+  "release_candidate": {
+    "train_id": "yuwen-mowen-train-68",
+    "release_id": "yuwen-mowen-train-68-r1",
+    "pr": 225,
+    "status": "verified",
+    "merge_sha": null
+  },
+  "do_not_do": [
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-68統合前に5825_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
+    "ゲームフォルダへ配置しない"
+  ],
+  "ci_train": {
+    "phase": "phase1_wave",
+    "train_id": "yuwen-mowen-train-68",
+    "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "planned_batch": 200,
+    "post_merge_state_pr_required": false,
+    "single_pr_finalization": true
+  }
+}
