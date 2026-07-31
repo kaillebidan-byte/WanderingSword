@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-77",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30661903642,
+    "artifact_id": 8805486190,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:648adb72a9423b5125287c26cd451c7a5a032988a6d33c97e5bd992753411e19",
+    "artifact_head": "a78fbd7b3ac7c8a9cac1305a1f924e0bf2a32caf"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "32025_1",
+      "5203_8",
+      "5203_11",
+      "5227_4",
+      "5229_14",
+      "5230_3",
+      "5298_1",
+      "5303_1"
+    ],
+    "unique_reviewed_rows": 55,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "32025_1は峋谷関同行後の後日談分岐。5203_8〜5303_1は武当入門前の山門見学から入門直後、初の師門任務報告後の夜まで。二時系列を別小単位として監査し、後日談の知識を初期場面へ遡及しない。",
+    "branch_note": "32025_1は欧陽雪・段朝晨との食事中に莫問を回想する独立場面。5203_8〜5303_1は莫問大哥から莫問師兄への呼称転換、教導、初任務、感謝へ進む連続場面。32025_1と初期武当場面を直列の一事件として合成しない。",
+    "seal_attestation": "予約候補32025_1は9行の独立した後日談で単独では40行下限に届かない。Relation一次資料で直後に並ぶ未処理の武当入門初期場面5203_8〜5303_1は46行で、莫問への呼称転換と兄弟子関係の形成から初任務後の感謝まで意味単位が完結する。両小単位を明示的に分離して55行waveとして封印する。",
+    "candidate_questions": [
+      "32025_1の『调剂』は料理の像を残しつつ、瑶姫と莫問の仲裁機能として訳せているか。",
+      "5203_8〜5203_11の『莫问大哥』と5227_4以降の『莫问师兄』を、入門前後の時系列どおり保持できているか。",
+      "5227_4の『下马威』『手下的轻重』と5229_14の『爱才之心』が意味と人物声を自然に保っているか。",
+      "5230_3〜5298_1の初師門任務で、莫問の兄弟子としての指揮と宇文逸の弟子registerが適切か。",
+      "5303_1の『没有父母』を、後年の伏龍子との血縁判明を遡及せず、その時点の宇文逸の理解として訳せているか。"
+    ],
+    "allusion_candidates": [
+      "调剂",
+      "下马威",
+      "手下的轻重",
+      "爱才之心",
+      "人心惶惶",
+      "鸡鸣狗盗",
+      "以暴制暴",
+      "畏首畏尾",
+      "惩奸除恶"
+    ],
+    "fact_doubts": [
+      "32025_1は後日談の回想で、5203_8〜5303_1の武当入門初期とは別時系列。",
+      "5203_8〜5203_11は入門前で莫問大哥、5227_4以降は入門後で莫問師兄。",
+      "5298_1の李天宝殺害と六扇門の計画への影響は宇文逸の報告であり、清虚と清霄の評価を客観事実へ合成しない。",
+      "5303_1の両親不在認識は伏龍子が実父と判明する前の知識状態。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32025_1_5303_1_2026-08-01.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN77_WAVE01_2026-08-01.md"
+  }
+}
