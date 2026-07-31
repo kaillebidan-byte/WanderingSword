@@ -15,7 +15,9 @@ on:
       - "_tools/final_response_policy.py"
       - "_tools/sanitize_final_response_read_order.py"
       - "_tools/reconcile_merged_cycle.py"
+      - "_tools/pair_tail_post_merge.py"
       - "_tools/test_reconcile_merged_cycle.py"
+      - "_tools/test_pair_tail_flow.py"
       - "_tools/test_final_response_policy.py"
   workflow_dispatch:
 
@@ -56,6 +58,7 @@ jobs:
       - name: Run reconciler and response-policy regressions
         run: |
           python _tools/test_reconcile_merged_cycle.py
+          python _tools/test_pair_tail_flow.py
           python _tools/test_final_response_policy.py
 
       - name: Reconcile active merged translation PR
@@ -75,6 +78,9 @@ jobs:
           fi
           python _tools/reconcile_merged_cycle.py "${args[@]}"
 
+      - name: Seal merged pair completion checkpoint
+        run: python _tools/pair_tail_post_merge.py --write
+
       - name: Sanitize routine final-response read order
         run: python _tools/sanitize_final_response_read_order.py --write
 
@@ -87,8 +93,9 @@ jobs:
             _phase4_proofread/PRIVATE_STAGE_STATE.json \
             _phase4_proofread/CI_TRAIN_MANIFEST.json \
             _phase4_proofread/NEXT_TASK_PACKET.json \
-            _phase4_proofread/CURRENT_HANDOFF.md; then
-            echo "No merged state or final-response read-order reconciliation required."
+            _phase4_proofread/CURRENT_HANDOFF.md \
+            _phase4_proofread/audit_status.json; then
+            echo "No merged state, pair completion, or final-response read-order reconciliation required."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -98,7 +105,8 @@ jobs:
             _phase4_proofread/PRIVATE_STAGE_STATE.json \
             _phase4_proofread/CI_TRAIN_MANIFEST.json \
             _phase4_proofread/NEXT_TASK_PACKET.json \
-            _phase4_proofread/CURRENT_HANDOFF.md
-          git commit -m "制度: merge状態と最終応答読書順を確定"
+            _phase4_proofread/CURRENT_HANDOFF.md \
+            _phase4_proofread/audit_status.json
+          git commit -m "制度: merge状態・pair完了・最終応答読書順を確定"
           git pull --rebase origin main
           git push origin HEAD:main
