@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5689_1_Dlgs_Index0_Text",
+        "5689_1_Dlgs_Index2_Text",
+        "5689_1_Dlgs_Index4_Text",
+        "5689_1_Dlgs_Index5_Text",
+        "5689_1_Dlgs_Index6_Text",
+        "6003_4_Dlgs_Index0_Text",
+        "6003_4_Dlgs_Index6_Text",
+        "6003_4_Dlgs_Index7_Text",
+        "6003_6_Dlgs_Index0_Text",
+        "6003_6_Dlgs_Index5_Text",
+        "6008_2_Dlgs_Index0_Text",
+        "6008_2_Dlgs_Index2_Text",
+        "6008_2_Dlgs_Index6_Text",
+        "6008_2_Dlgs_Index7_Text",
+        "6008_2_Dlgs_Index17_Text"
+      ],
+      "reason": "復讐後の心内語、師父への動揺した訴え、雪児への親密呼称、無力感を整理しながら吐露する長台詞が、現行資料のM7・M1c・M5と発話優先順位に整合する。今回の修正は意味と自然な発声を戻すもので、資料の反例ではない。",
+      "scope": {
+        "scene_groups": [
+          "5689_1",
+          "6003_4",
+          "6003_6",
+          "6008_2"
+        ],
+        "modes": [
+          "M7",
+          "M1c",
+          "M5"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6003_6_Dlgs_Index7_Text",
+        "6008_2_Dlgs_Index9_Text",
+        "6008_2_Dlgs_Index11_Text",
+        "6008_2_Dlgs_Index12_Text",
+        "6008_2_Dlgs_Index13_Text",
+        "6008_2_Dlgs_Index14_Text",
+        "6008_2_Dlgs_Index15_Text"
+      ],
+      "reason": "宇文逸を戻らせず、無力感へ力本位の論理を差し込み、清虚生存を潔白証明の機会として示す。柔らかな「〜の／〜わ」と会話主導を両立する現行資料に整合し、二行は意味の精度だけを修正する。",
+      "scope": {
+        "scene_groups": [
+          "6003_6",
+          "6008_2"
+        ],
+        "modes": [
+          "任務中・誘導"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    },
+    {
+      "target": "10_人物/江小彤.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6008_2_Dlgs_Index18_Text"
+      ],
+      "reason": "「えへへ」と笑い、大人の名医にもできないことを自分ならできるかもしれないと直截に言う一行は、無邪気な子供モードと地の一人称「あたし」を裏づける。誤りは一人称と説明調を平坦化した現訳側にある。",
+      "scope": {
+        "scene_groups": [
+          "6008_2"
+        ],
+        "modes": [
+          "無邪気な子供モード"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+      "after_digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-79",
+  "wave_id": "yuwen-mowen-train-79-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN79_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5689_1_6008_2_2026-08-01.json",
+      "manifest_digest": "sha256:a5da16f12b6afa9b6950eae6021b7edf06e3e334dbbbb835fc7c1ddb2694accf"
+    }
+  ]
+}

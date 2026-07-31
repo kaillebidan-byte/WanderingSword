@@ -2,21 +2,25 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch123.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5689_1_6008_2_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch124.json",
       "values": {
-        "5341_2_Dlgs_Index0_Text": "5024 - 元鳴 $@$きっとお前は卑怯な手を使ったんだ！　こんなに早く腕を上げるなど、こっそり邪功でも修めたに違いない……",
-        "5341_4_Dlgs_Index2_Text": "5015 - 莫問 $@$今回の大比の<Y>首位</>は、この二人で決まる！",
-        "5343_4_Dlgs_Index0_Text": "1 - 宇文逸 $@$師父、何とかご期待に応えられました！",
-        "5586_3_Dlgs_Index1_Text": "17112 - 洪飛 $@$この小僧め、そんな大声を出してどうする……",
-        "5586_3_Dlgs_Index7_Text": "17112 - 洪飛 $@$小僧、お前の後ろにいるやつ、どこかで見覚えがあるな。誰だ……？"
+        "5689_1_Dlgs_Index0_Text": "1 - 宇文逸 $@$（あの金で、少しでも暮らしが楽になればいいが……）",
+        "5689_1_Dlgs_Index6_Text": "1 - 宇文逸 $@$（気のせいだろうか……あの仮面の怪人は、莫問師兄にだけ、どこか態度が違ったような……）",
+        "6003_6_Dlgs_Index1_Text": "17005 - 欧陽雪 $@$武当の弟子が知らせに来たの。あなたが……あなたが玄火教と結託し、師門に背いて、清虚道長に重傷を負わせたと……",
+        "6008_2_Dlgs_Index12_Text": "17115 - 瑶姫 $@$わたしたち魔門は、昔から力こそすべて……誰にも敵わないほど強くなれば、どんな強敵も、どれほど策を弄されても、あなたをどうすることもできないわ。",
+        "6008_2_Dlgs_Index13_Text": "17115 - 瑶姫 $@$それに……今の状況も、まだ最悪ってわけじゃないかもしれないわよ〜",
+        "6008_2_Dlgs_Index17_Text": "1 - 宇文逸 $@$本当に師父を救う方法があるのなら、少林の名医たちや道妙師叔たちが、どうして今まで手の施しようもなかったんだ……",
+        "6008_2_Dlgs_Index18_Text": "8500 - 江小彤 $@$えへへ！　あの人たちにできないからって、あたしにもできないとは限らないよ！"
       },
       "fix_keys": [
-        "5341_2_Dlgs_Index0_Text",
-        "5341_4_Dlgs_Index2_Text",
-        "5343_4_Dlgs_Index0_Text",
-        "5586_3_Dlgs_Index1_Text",
-        "5586_3_Dlgs_Index7_Text"
+        "5689_1_Dlgs_Index0_Text",
+        "5689_1_Dlgs_Index6_Text",
+        "6003_6_Dlgs_Index1_Text",
+        "6008_2_Dlgs_Index12_Text",
+        "6008_2_Dlgs_Index13_Text",
+        "6008_2_Dlgs_Index17_Text",
+        "6008_2_Dlgs_Index18_Text"
       ]
     }
   ]
