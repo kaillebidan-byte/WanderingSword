@@ -1,0 +1,118 @@
+name: Translation pair tail executor
+
+on:
+  push:
+    branches:
+      - "agent/yuwen-mowen-train-*"
+    paths:
+      - "_tail_requests/initialize-*.json"
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - "_tail_requests/initialize-*.json"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: translation-pair-tail-execute-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  execute:
+    if: ${{ github.actor != 'github-actions[bot]' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout tail request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve one tail request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t requests < <(find _tail_requests -maxdepth 1 -type f -name 'initialize-*.json' -print | sort)
+          if [[ "${#requests[@]}" -ne 1 ]]; then
+            echo "expected one tail initialization request, found ${#requests[@]}" >&2
+            exit 1
+          fi
+          python - "${requests[0]}" >> "$GITHUB_OUTPUT" <<'PY'
+          import json, sys
+          from pathlib import Path
+          path=Path(sys.argv[1]); value=json.loads(path.read_text(encoding='utf-8')); source=value.get('source',{})
+          if value.get('contract_id')!='pair-tail-exhaustion-request-v1': raise SystemExit('tail request contract mismatch')
+          print(f'request={path.as_posix()}')
+          print(f'run_id={source["artifact_run"]}')
+          print(f'artifact_name={source["artifact_name"]}')
+          print(f'artifact_file={source["artifact_file"]}')
+          PY
+
+      - name: Resolve repository visibility
+        id: visibility
+        run: |
+          visibility="$(gh api "repos/${GITHUB_REPOSITORY}" --jq .visibility)"
+          case "$visibility" in private|public) ;; *) exit 1 ;; esac
+          echo "value=$visibility" >> "$GITHUB_OUTPUT"
+
+      - name: Download reserved Relation artifact
+        run: |
+          rm -rf /tmp/pair-tail-artifact && mkdir -p /tmp/pair-tail-artifact
+          gh run download "${{ steps.request.outputs.run_id }}" --repo "${GITHUB_REPOSITORY}" --name "${{ steps.request.outputs.artifact_name }}" --dir /tmp/pair-tail-artifact
+          test -f "/tmp/pair-tail-artifact/${{ steps.request.outputs.artifact_file }}"
+
+      - name: Initialize exact residual wave
+        run: |
+          branch_name="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          python _tools/pair_tail_initializer.py \
+            --request "${{ steps.request.outputs.request }}" \
+            --artifact-json "/tmp/pair-tail-artifact/${{ steps.request.outputs.artifact_file }}" \
+            --repository-visibility "${{ steps.visibility.outputs.value }}" \
+            --base-commit "${GITHUB_SHA}" \
+            --branch-name "$branch_name" \
+            --write \
+            --output /tmp/pair-tail-result.json
+
+      - name: Inject target-separated quality context
+        run: |
+          python _tools/pair_tail_quality_context.py --execution-result /tmp/pair-tail-result.json --write --output /tmp/pair-tail-context.json
+
+      - name: Validate quality-audit station
+        run: |
+          python _tools/check_state_json_integrity.py
+          python _tools/check_project_scope_lock.py --repository "${GITHUB_REPOSITORY}"
+          python _tools/check_operation_mode.py --repository-visibility "${{ steps.visibility.outputs.value }}"
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_autonomous_cycle.py
+          python _tools/check_operational_docs_consistency.py
+          python _tools/translation_factory_controller.py --repository-visibility "${{ steps.visibility.outputs.value }}" --output /tmp/tail-next-order.json
+          python - <<'PY'
+          import json
+          order=json.load(open('/tmp/tail-next-order.json',encoding='utf-8'))
+          if order.get('action')!='translation_quality_audit': raise SystemExit(order)
+          PY
+          python _tools/test_pair_tail_flow.py
+          git diff --check
+
+      - name: Commit generated tail station
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm "${{ steps.request.outputs.request }}"
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "状態: explicit-reference tailをquality auditへ搬送 [tail-initialize]"
+          git push origin "HEAD:${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"

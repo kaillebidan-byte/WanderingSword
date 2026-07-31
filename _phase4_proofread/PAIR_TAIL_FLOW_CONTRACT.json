@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "contract_id": "pair-tail-exhaustion-flow-v1",
+  "current_pair": "宇文逸↔莫問",
+  "purpose": "Relation explicit_referenceの未監査差集合が通常wave下限未満になった場合だけ、target/namespace別packetで残件を完走し、重複予約を作らずpair完了checkpointへ遷移する。",
+  "source_of_truth": {
+    "artifact_kind": "explicit_reference",
+    "coverage": "reviewed candidate row keys",
+    "tail": "artifact explicit_reference keys minus reviewed candidate keys"
+  },
+  "requirements": [
+    "tail requestのselected keysが機械計算した差集合と完全一致する",
+    "既監査reservationをtail対象として再利用しない",
+    "targetとnamespaceが異なる行を同一candidateへ混在させない",
+    "通常40〜80行factoryを変更しない",
+    "tail releaseはschema_change early releaseとして記録する",
+    "finalization後は実sceneを予約せずpair_completion checkpointを記録する",
+    "merge後はpaused checkpointとexact_next_actionを固定する"
+  ],
+  "request_root": "_tail_requests",
+  "initializer": "_tools/pair_tail_initializer.py",
+  "quality_context": "_tools/pair_tail_quality_context.py",
+  "encoding": "_tools/pair_tail_encoding_pipeline.py",
+  "finalizer": "_tools/pair_tail_release_finalizer.py",
+  "post_merge": "_tools/pair_tail_post_merge.py",
+  "workflows": [
+    ".github/workflows/translation-tail-execute.yml",
+    ".github/workflows/translation-tail-encode.yml",
+    ".github/workflows/translation-tail-finalize.yml",
+    ".github/workflows/translation-tail-post-merge.yml"
+  ],
+  "forbidden": [
+    "underfilled wave without exact residual proof",
+    "mixed target or namespace candidate",
+    "duplicate reviewed key",
+    "synthetic translation row",
+    "ordinary release reservation after pair exhaustion",
+    "game folder deployment"
+  ]
+}
