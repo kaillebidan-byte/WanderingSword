@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "contract_id": "release-finalization-request-v1",
+  "operation": "finalize_release_state",
+  "executor": "fixed_release_finalizer",
+  "branch": "agent/yuwen-mowen-train-78",
+  "pr": 235,
+  "orchestrator_run_id": 30665631234,
+  "artifact_name": "release-finalization-inputs-235",
+  "ci_head": "154c78b6e469ebee550848aae0ae72b6e334d829",
+  "asset_head": "e451bc1c92c5c2d6d643572cbaa99297068d69bb",
+  "apply_changed": true,
+  "next_scene": "5689_1",
+  "next_source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30665631234,
+    "artifact_id": 8806860605,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:f4aedc869bfb1c9b6fc67896b5b8bdce56cd822cc721b36d059c41dd850d41ef",
+    "artifact_head": "154c78b6e469ebee550848aae0ae72b6e334d829",
+    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+  }
+}
