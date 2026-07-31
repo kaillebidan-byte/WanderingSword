@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-72",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30629731498,
+    "artifact_id": 8792850539,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:a895b8fa3865a36941b706a8052692a3fc5120eb4e88de403d0e944df9cf8f35",
+    "artifact_head": "3878187410d9c9553cffcf297023d00b9e6af600"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "9016_1",
+      "9150_3",
+      "9150_4",
+      "9154_2",
+      "9209_2",
+      "9210_1",
+      "9223_6",
+      "9228_2",
+      "9229_2",
+      "9230_2"
+    ],
+    "unique_reviewed_rows": 55,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "莫問救出局面から、救出拒否／再同行の分岐、蒼鷹追跡後の帰路、悪人谷残党との共闘開始まで。",
+    "branch_note": "9150_4の帰還拒否と9154_2以後の再同行を直列合成しない。9228_2・9229_2・9230_2は同行者構成の異なる戦闘開始分岐として保持し、無名が現れる9231_3は次cycleへ分離する。",
+    "seal_attestation": "十場面55行で、莫問の救出拒否と再同行、師弟呼称の復帰、蒼鷹追跡後の判断、悪人谷残党との共闘開始までが分岐別に閉じる。無名登場後の真相対立を混ぜない。",
+    "candidate_questions": [
+      "9016_1の五仙教・小彤・娜烏に関する推論強度が原文どおりか。",
+      "9150_3〜9150_4で宇文逸の救出意思と莫問の帰還拒否が関係段階に合うか。",
+      "9154_2以後の再同行分岐で莫問の師弟呼称と兄弟子registerが適切に戻っているか。",
+      "9209_2〜9223_6の危機判断・指揮・気遣いが断定過剰または弱化していないか。",
+      "9228_2〜9230_2の同行者構成別分岐で、断罪・共闘・敵側の粗野な声を混同していないか。"
+    ],
+    "allusion_candidates": [
+      "负隅顽抗",
+      "恶贯满盈",
+      "新仇旧怨，一并清算",
+      "头掉也就碗大个疤",
+      "见阎王"
+    ],
+    "fact_doubts": [
+      "9016_1で蛇を操った人物が小彤だという宇文逸の判断は、その場の推論として扱う。",
+      "9150_4の戻れないという発言は莫問本人の自己判断であり、客観的不可能性として一般化しない。",
+      "9150_4の救出拒否と9154_2以後の再同行は別分岐として扱う。",
+      "9209_2で蒼鷹が混乱に乗じて出城するという判断は莫問の推測である。",
+      "9210_1の程家の死者・誤解は当該分岐の知識状態として扱う。",
+      "9228_2・9229_2・9230_2の同行者と発話者構成を直列合成しない。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9016_1_9230_2_2026-08-01.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN72_WAVE01_2026-08-01.md"
+  }
+}
