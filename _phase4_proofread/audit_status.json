@@ -1,6 +1,6 @@
 {
   "schema_version": 5,
-  "updated_at": "2026-07-31",
+  "updated_at": "2026-08-01",
   "principle": "初回校正の完走、ペルソナ確定、関係性マップ記載は、最終的な正当性や品質保証を意味しない。原文・現訳・前後文を一次資料として再監査する。",
   "stages": {
     "initial_pass": "キャラ単位の初回校正を一巡した状態。品質保証ではない。",
@@ -113,6 +113,7 @@
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH200_2026-07-31.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH201_2026-07-31.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH202_2026-07-31.md",
+        "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH203_2026-08-01.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH20_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH21_2026-07-23.md",
         "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH22_2026-07-23.md",
@@ -360,8 +361,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch202_complete_next_scenes_pending",
-      "build_verified": "batch202_complete",
+      "translation_reaudited": "batch203_complete_next_scenes_pending",
+      "build_verified": "batch203_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
