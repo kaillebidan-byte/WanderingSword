@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-70",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30601107348,
+    "artifact_id": 8781931983,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:7498579f617b9bf1581b27ab2aa0526c9940a0a22a2b0f3c0eab445265697ba2",
+    "artifact_head": "e7500d2883fbbe58f7ac1cbbb7fd08dc2daf8b95"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "6002_5",
+      "6064_6",
+      "6151_2",
+      "6151_3"
+    ],
+    "unique_reviewed_rows": 63,
+    "semantic_extension": {
+      "used": true,
+      "reason": "complete_semantic_unit"
+    },
+    "timeline": "丐幇分舵事件後。莫問が本来は自分に属する物を取り戻す行動に出たのち、無名が伏龍子であり莫問の父であること、天山派滅亡と風雲訣をめぐる旧事が開示される。後日、宇文逸が残篇を莫問へ返し復讐停止を求めるが、莫問は各派殲滅を正当化し、最後に師兄呼称を拒絶するまで。",
+    "branch_note": "6002_5と6064_6は莫問の離反と出自開示へ続く局面、6151_2〜6151_3は清虚死後に残篇を返す後続対峙。発話時点を直列に保ち、6064_6で開示された情報をそれ以前の認識へ遡及させない。6155_1以後の決戦・勝敗・生死分岐は次cycleへ分離する。",
+    "seal_attestation": "四場面63行で、莫問の奪取行為、伏龍子の正体と父子関係の開示、天山派旧事、残篇返還、復讐継続の論理、師兄関係の明示的拒絶までが閉じる。60行を超えるが、6151_3末尾の関係断絶まで切らずに読む必要があるためcomplete_semantic_unit延長を使用する。",
+    "candidate_questions": [
+      "宇文逸の驚愕と心内語が、無名＝伏龍子、莫問との父子関係、風雲訣の由来を段階的に理解する流れを保っているか。",
+      "伏龍子の告発と清虚の推理が、誰の発言・認識かを保ち、天山派滅亡の因果を訳文側で過剰に確定または補完していないか。",
+      "莫問が宇文逸の残篇返還を拒まず受け止めつつ、復讐から予防的な各派殲滅へ論理を切り替える冷えた声が保たれているか。",
+      "宇文逸が清虚の死と遺志を伝えて説得する敬体、莫問が師兄呼称を拒絶する関係断絶の強度が時系列に沿っているか。",
+      "風雲訣、残篇、天山派、玉華、巫芸、無名、伏龍子などの固有関係と、制御トークン・話者IDが保持されているか。"
+    ],
+    "allusion_candidates": [
+      "6064_6の『尸骨未寒』『报仇雪恨』『赶尽杀绝』『从长计议』は定着成語として像・強度・時間感覚を確認する。",
+      "6151_3の『物归原主』『罪魁祸首』『冠冕堂皇』『迎刃而解』『生杀予夺』は莫問の論理と文体段差を確認する。",
+      "6064_6の『践行酒』は餞別の酒を指す語として誤読がないか確認する。"
+    ],
+    "fact_doubts": [
+      "6064_6で天山派生存者殺害、玉華の毒、悪人谷誘導を語るのは伏龍子の告発と清虚の推理。発話主体を消して作品世界の一般説明へ変えない。",
+      "莫問が伏龍子の息子であることはこの開示局面で宇文逸が初めて理解する。前段場面の知識状態へ遡及させない。",
+      "6151_3で莫問が語る『那些人迟早会来杀我』は将来への予測と自己正当化であり、確定した未来事実へ強めない。",
+      "6151_3の『那人的遗愿』の指示対象や各派殲滅の範囲を、後続分岐の情報で説明し足さない。",
+      "清虚の死、莫問との関係断絶、後続の勝敗・生死は分岐依存。6155_1以後の結果をこの束へ混入しない。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6002_5_6151_3_2026-07-31.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN70_WAVE01_2026-07-31.md"
+  }
+}
