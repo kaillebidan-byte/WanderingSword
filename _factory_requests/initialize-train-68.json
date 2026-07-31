@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-68",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30598602893,
+    "artifact_id": 8781063928,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:5204255f4cb701cfda0e55a7d7d52ca01b6f30d1124653a7860f170378164106",
+    "artifact_head": "50f197d85757aa077d7fd374ddfbbcfc2edc3daa"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5807_1",
+      "5809_11",
+      "5809_2",
+      "5810_7",
+      "5810_9",
+      "5811_2",
+      "5811_3",
+      "5821_1"
+    ],
+    "unique_reviewed_rows": 53,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "一線天峡谷で蒼鷹を追跡した後。蒼鷹討伐後の瑶姫をめぐる葛藤、程家堡への帰還、程鈺の絶望と武当での救済方針、分岐ごとの帰山判断を経て、程鈺を伴い武当正殿へ到着するまで。",
+    "branch_note": "5809_11と5809_2、5811_2と5811_3は分岐差分を含む。重複台詞を一つの直列場面として合成せず、各分岐で宇文逸の応答、程鈺救済の有無、帰山経路を個別に保つ。5821_1で程鈺を武当へ連れ帰った経路の到着と正殿前の待機までが閉じる。",
+    "seal_attestation": "八場面53行で、蒼鷹追跡の決着、瑶姫への葛藤、程鈺の救済判断、武当帰還、正殿到着までが完結する。40行以上60行以下の標準範囲で閉じるため延長は使わない。",
+    "candidate_questions": [
+      "蒼鷹討伐後、宇文逸の瑶姫への迷いと莫問の条件付き問いかけが、分岐ごとの感情差を保っているか。",
+      "程鈺の母・父・程家に関する悲嘆が本人の認識として残り、客観事実へ確定されていないか。",
+      "莫問が程鈺を叱咤しつつ救済策を示す兄弟子・指導者の声と、受入れ可否を師父・師伯へ委ねる境界が保たれているか。",
+      "5809_11と5809_2、5811_2と5811_3の分岐台詞を直列合成せず、それぞれの知識状態と行動選択を維持しているか。",
+      "師弟、莫問大侠、宇文少侠、清虚道長などの呼称と、武当帰還後の程鈺への距離が時系列に沿っているか。"
+    ],
+    "allusion_candidates": [
+      "5809_11_Dlgs_Index1_Textの『江湖险恶』とIndex7の『言不由衷』は定着表現として語気を確認する。",
+      "5810_7_Dlgs_Index3_Textの『尸骨未寒』とIndex12の『三天打渔两天晒网』は定着成語・比喩として像と強度を確認する。",
+      "5809系の『伏诛』、5811系の『已成定局』、5821_1の対外・師門語彙は文体段差を確認する。"
+    ],
+    "fact_doubts": [
+      "5809_11と5809_2で語られる瑶姫の真意、欺瞞、殺意は条件付きの会話と人物判断を含む。作品世界の確定事実へ一般化しない。",
+      "5810_7の程鈺が父に望まれていなかった、母が疑われているという発言は喪失直後の本人認識。父子関係や母の潔白をこの場面だけで断定しない。",
+      "5810_7で莫問が約束するのは程鈺を武当へ連れていくところまでで、清虚・清霄が受け入れることや正式入門は未確定。",
+      "5811_2と5811_3の程家堡と玄火教の関係、程鈺救済、娜烏への連絡は分岐依存。別分岐の事実や行動を相互に補完しない。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5807_1_5821_1_2026-07-31.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN68_WAVE01_2026-07-31.md"
+  }
+}
