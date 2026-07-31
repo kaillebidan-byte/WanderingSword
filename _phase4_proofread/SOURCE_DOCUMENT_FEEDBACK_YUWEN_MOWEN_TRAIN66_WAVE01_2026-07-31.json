@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5756_2_Dlgs_Index0_Text",
+        "5756_2_Dlgs_Index1_Text",
+        "5756_2_Dlgs_Index5_Text",
+        "5756_5_Dlgs_Index2_Text",
+        "5781_1_Dlgs_Index0_Text",
+        "5781_1_Dlgs_Index1_Text",
+        "5781_1_Dlgs_Index7_Text",
+        "5781_1_Dlgs_Index11_Text",
+        "5781_10_Dlgs_Index0_Text",
+        "5781_10_Dlgs_Index1_Text",
+        "5781_10_Dlgs_Index2_Text",
+        "5781_10_Dlgs_Index5_Text",
+        "5784_4_Dlgs_Index1_Text",
+        "5784_8_Dlgs_Index2_Text",
+        "5784_8_Dlgs_Index11_Text",
+        "5784_8_Dlgs_Index12_Text",
+        "5784_9_Dlgs_Index2_Text",
+        "5784_9_Dlgs_Index6_Text"
+      ],
+      "reason": "莫問へは師兄呼称と自然な敬体を保ち、天水城の説明には率直な好奇心を示す。程鈺との初対面では相手の安全を確かめつつ常体で警戒し、事情を聞く。現行資料の武当M1bと後輩M3の切替に整合し、一行の語気を弱めれば足りる。",
+      "scope": {
+        "relationship": "莫問への師兄敬意、弟子入り前の程鈺への年長者としての対等・警戒",
+        "timeline": "品剣大会後、天水城到着から程鈺との初対面まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5756_2_Dlgs_Index2_Text",
+        "5756_2_Dlgs_Index3_Text",
+        "5756_2_Dlgs_Index4_Text",
+        "5756_5_Dlgs_Index0_Text",
+        "5756_5_Dlgs_Index1_Text",
+        "5781_1_Dlgs_Index2_Text",
+        "5781_1_Dlgs_Index3_Text",
+        "5781_1_Dlgs_Index4_Text",
+        "5781_1_Dlgs_Index5_Text",
+        "5781_1_Dlgs_Index6_Text",
+        "5781_1_Dlgs_Index8_Text",
+        "5781_1_Dlgs_Index9_Text",
+        "5781_1_Dlgs_Index10_Text",
+        "5781_10_Dlgs_Index3_Text",
+        "5781_10_Dlgs_Index4_Text",
+        "5784_4_Dlgs_Index0_Text",
+        "5784_8_Dlgs_Index5_Text",
+        "5784_9_Dlgs_Index10_Text"
+      ],
+      "reason": "調査内容を伏せる抑制、旅支度の指示、程家堡を順序立てて説明する観察力、宇文逸を制する短い忠告、程鈺への年長者らしい注意と程少侠への対外礼が、現行資料の兄弟子・危機判断・対外モードに整合する。意味の節境界を一行直せば足りる。",
+      "scope": {
+        "relationship": "宇文逸への兄弟子としての教導、弟子入り前の程鈺への年長者・対外応答",
+        "timeline": "品剣大会後、天水城への出立から程家堡へ案内されるまで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程鈺.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5784_8_Dlgs_Index0_Text",
+        "5784_8_Dlgs_Index1_Text",
+        "5784_8_Dlgs_Index3_Text",
+        "5784_8_Dlgs_Index4_Text",
+        "5784_8_Dlgs_Index6_Text",
+        "5784_8_Dlgs_Index7_Text",
+        "5784_8_Dlgs_Index8_Text",
+        "5784_8_Dlgs_Index9_Text",
+        "5784_8_Dlgs_Index10_Text",
+        "5784_8_Dlgs_Index13_Text",
+        "5784_9_Dlgs_Index0_Text",
+        "5784_9_Dlgs_Index1_Text",
+        "5784_9_Dlgs_Index3_Text",
+        "5784_9_Dlgs_Index4_Text",
+        "5784_9_Dlgs_Index7_Text",
+        "5784_9_Dlgs_Index8_Text",
+        "5784_9_Dlgs_Index11_Text",
+        "5784_9_Dlgs_Index12_Text"
+      ],
+      "reason": "息切れ、謝罪、莫問への憧れ、名乗り忘れ、前のめりな案内、家族事情を素直に説明する声は、現行資料の明るく実直で感情が先に走る弟子入り前モードと一致する。時間語の脱落と引用句の文体だけを訳文で整えればよい。",
+      "scope": {
+        "relationship": "弟子入り前の莫問大侠・宇文逸との初対面",
+        "timeline": "暴れ馬を追って二人へ遭遇し、程家堡へ案内するまで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "after_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-66",
+  "wave_id": "yuwen-mowen-train-66-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN66_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-31.json",
+      "manifest_digest": "sha256:3196b3fdcaea68c9ec0164e7802952db1a1b760d3d93e266882256b47156216d"
+    }
+  ]
+}

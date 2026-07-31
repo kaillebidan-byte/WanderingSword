@@ -1,1 +1,236 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-65","branch":"agent/yuwen-mowen-train-65","draft_pr":222,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":222,"merge_sha":"80cd51c9bb16723d6d5cde505109ffbc809956cd"},"base_checkpoint":{"batch":195,"pair_applied_keys":1407,"project_applied_keys":1783,"produced_by_pr":221,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-64-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json","pr":221,"validated_head":"d4fcc7de93d8b620bc102ae78cfc801bd760b811"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":44,"reviewed_keys":44,"unique_reviewed_rows":44,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_only_bundles":0},"bundles":[{"batch":196,"review_status":"complete","apply_status":"verified","scene_groups":["5654_1","5654_4","5654_6","5654_7","5654_8","5654_12"],"reviewed_rows":44,"reviewed_keys":44,"unique_rows":44,"fix_keys":8,"unique_fix_rows":8,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":8,"keep_keys":36,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch11.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH196_2026-07-31.md","ownership_summary":{"existing_keys":44,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["走火入魔","成不了什么气候","不放在眼里","意外之喜","道貌岸然","费尽心机","丑态毕露","得偿所愿","一派胡言"],"allusion_review_resolved":[{"key":"5654_1_Dlgs_Index4_Text","decision":"武侠・道家語として定着した術語","note":"「走火入魔」は修練中の真気逆流や精神錯乱を表す武侠の定着術語。特定典籍の引用ではなく、莫問が症状を診断する語として現訳の漢字語を維持する。"},{"key":"5654_6_Dlgs_Index5_Text","decision":"定着した成語的表現","note":"「成不了什么气候」は大成せず物にならない意の口語的成句。玉華子を失った武当への嘲弄として、現訳「落ちたものだ」が機能と侮蔑を保つ。"},{"key":"5654_6_Dlgs_Index8_Text","decision":"定着した軽視の慣用句","note":"「不放在眼里」は相手を問題にしない意の定着表現。現訳「眼中にない」は像と尊大さを保つ。"},{"key":"5654_7_Dlgs_Index9_Text","decision":"定着した予想外の収穫表現","note":"「意外之喜」は思いがけない喜び・収穫の意。正体不明の人物が宇文逸らを値踏みする含みとして、現訳「思わぬ拾い物」が人物を目的物のように扱う嘲弄を保つ。"},{"key":"5654_8_Dlgs_Index2_Text","decision":"定着した偽善批判の成語","note":"「道貌岸然」は道徳家らしく取り澄ます偽善を罵る定着成語。正体不明の人物の敵意ある評価として現訳「偽善者ども」を維持し、各派の客観的性質にはしない。"},{"key":"5654_8_Dlgs_Index3_Text","decision":"定着した策謀・苦心の成語","note":"「费尽心机」はあらゆる策を費やす意の定着成語。現訳「あれこれ策を巡らせ」が、各派を嘲る文脈で策謀性を保つ。"},{"key":"5654_8_Dlgs_Index3_Text","decision":"定着した醜態露呈の成語","note":"「丑态毕露」は醜い姿をすべてさらす意の定着成語。現訳「醜態を晒す」が像と侮蔑を保つ。"},{"key":"5654_8_Dlgs_Index4_Text","decision":"定着した願望成就の成語","note":"「得偿所愿」は望みどおりになる意の定着成語。否定構文の現訳「望みは永遠に叶わぬ」が機能を保つ。"},{"key":"5654_8_Dlgs_Index9_Text","decision":"定着した強い否定の成句","note":"「一派胡言」は全面的なでたらめだと退ける定着表現。負傷中の莫問が武当を擁護する短い反駁として、現訳「戯言を！」を維持する。"}],"fact_doubts":[{"scope":"cao_blames_wuming_during_qigong_deviation","keys":["5654_1_Dlgs_Index1_Text","5654_1_Dlgs_Index2_Text","5654_1_Dlgs_Index3_Text","5654_1_Dlgs_Index4_Text"],"note":"莫問は真気逆流・経脈逆転・意識混濁から走火入魔と判断する。一方、原因を無名の欺きへ帰すのは暴走中の曹煜天の認識であり、無名の客観的な加害事実として確定しない。"},{"scope":"fake_fengyunjue_authenticity_and_authorship_claim","keys":["5654_7_Dlgs_Index4_Text","5654_7_Dlgs_Index5_Text","5654_7_Dlgs_Index6_Text","5654_7_Dlgs_Index7_Text"],"note":"本が改竄された偽物で本物の一、二割にも及ばず、自分が曹煜天へ渡したという説明は正体不明の人物の自己申告。莫問も根拠を問いただしており、この場面だけで真偽・作成者・目的を客観事実へ固定しない。"},{"scope":"unknown_speaker_identity_and_intended_old_acquaintances","keys":["5654_7_Dlgs_Index7_Text","5654_7_Dlgs_Index8_Text","5654_7_Dlgs_Index9_Text","5654_8_Dlgs_Index13_Text"],"note":"話者は偽秘笈で旧知を誘い出したと述べ、宇文逸らを思わぬ収穫とみなして再訪を予告する。旧知、収穫の対象、話者の年齢・正体は未確定のため、訳文や人物資料で先取りしない。"},{"scope":"sect_motives_are_hostile_interpretation","keys":["5654_8_Dlgs_Index2_Text","5654_8_Dlgs_Index3_Text","5654_8_Dlgs_Index4_Text","5654_8_Dlgs_Index5_Text","5654_8_Dlgs_Index6_Text","5654_8_Dlgs_Index7_Text","5654_8_Dlgs_Index8_Text","5654_8_Dlgs_Index9_Text","5654_8_Dlgs_Index10_Text"],"note":"各派が六扇門へ応じたのは秘笈目当てだという説明は正体不明の人物の冷笑的解釈。宇文逸は天龍幇討伐を目的と理解し、莫問も少なくとも武当について強く否定する。全勢力の動機を解消しない。"},{"scope":"qingxu_hidden_matters_claim","keys":["5654_8_Dlgs_Index10_Text","5654_8_Dlgs_Index11_Text","5654_8_Dlgs_Index12_Text","5654_8_Dlgs_Index13_Text"],"note":"清虚が宇文逸たちへ多くの事実を隠しているという発言は、正体不明の人物が武当を揺さぶるための示唆。この場面では内容も真偽も示されず、清虚の設定事実として資料へ取り込まない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30566778812,"artifact_id":8769163876,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:df7ba5cdae6446511f97383bf99b5e2798a470d5a48253afd8e0550d4116434e","head_sha":"9ba605a779a8c4c71c70dd9441b197325f9ef18c"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-65-wave-01"},"next_release":{"candidate_scene":["5756_2"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[196],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-64","release_id":"yuwen-mowen-train-64-r1","pr":221,"merge_sha":"1d3560e1168b34707c0ff3a5033456bbbae2f8db"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":44,"unique_reviewed_rows":44,"fix_keys":8,"unique_fix_rows":8,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":8,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_65.json","merge_result":{"pr":222,"merge_sha":"80cd51c9bb16723d6d5cde505109ffbc809956cd"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-66",
+  "branch": "agent/yuwen-mowen-train-66",
+  "draft_pr": 223,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 223,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 196,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 222,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-65-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_65.json",
+      "pr": 222,
+      "validated_head": "97a851472312cdeac9b4a5740b1a1ad0426efaf7"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 54,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 4,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 197,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "5756_2",
+        "5756_5",
+        "5781_1",
+        "5781_10",
+        "5784_4",
+        "5784_8",
+        "5784_9"
+      ],
+      "reviewed_rows": 54,
+      "reviewed_keys": 54,
+      "unique_rows": 54,
+      "fix_keys": 4,
+      "unique_fix_rows": 4,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 4,
+      "keep_keys": 50,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch12_reserved_5784_9.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260726_batch12.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH197_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 54,
+        "unowned_kept": 0,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "四海之内皆兄弟",
+        "事半功倍",
+        "数十年如一日",
+        "交口称赞",
+        "赞不绝口",
+        "侠骨"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5784_9_Dlgs_Index8_Text",
+          "decision": "特定典籍の直接引用",
+          "note": "「四海之内皆兄弟」は『論語』顔淵の「四海之内、皆兄弟也」にほぼ一致する著名句。伯父の言葉を程鈺が引用する場面なので、定着した読み下し「四海の内、皆兄弟なり」を採用する。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index10_Text",
+          "decision": "定着した成語",
+          "note": "「事半功倍」は少ない労力で大きな成果を得る意の定着成語。莫問が程堡主へ頼れば人捜しが効率化すると説明する機能を、現訳「ずっと早く進む」が自然に保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index5_Text",
+          "decision": "定着した継続表現",
+          "note": "「数十年如一日」は長年変わらず続ける意の定着表現。特定典籍の引用として発声されておらず、現訳「数十年変わらず」で機能を保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index9_Text",
+          "decision": "定着した称賛の成語",
+          "note": "「交口称赞」は口をそろえて称える意の成語。現訳の像を維持し、修正は正邪両道が掛かる節の境界だけに限定する。"
+        },
+        {
+          "key": "5781_10_Dlgs_Index0_Text",
+          "decision": "定着した称賛の成語",
+          "note": "「赞不绝口」は絶えず褒める意の成語。現訳「絶賛しています」が場面機能を保つ。"
+        },
+        {
+          "key": "5781_1_Dlgs_Index4_Text",
+          "decision": "武侠の人物評価語",
+          "note": "「侠骨」は侠義を備えた気骨を表す武侠語彙で、この行では特定典籍の引用ではない。現訳「侠気に厚く」を維持する。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "cheng_deming_reputation_is_mowen_exposition",
+          "keys": [
+            "5781_1_Dlgs_Index2_Text",
+            "5781_1_Dlgs_Index3_Text",
+            "5781_1_Dlgs_Index4_Text",
+            "5781_1_Dlgs_Index5_Text",
+            "5781_1_Dlgs_Index6_Text",
+            "5781_1_Dlgs_Index8_Text",
+            "5781_1_Dlgs_Index9_Text",
+            "5781_1_Dlgs_Index10_Text"
+          ],
+          "note": "程家堡と程徳明の経歴・評判は莫問の説明で、援助と江湖の評判には「据说」も含まれる。この場面では莫問が把握した情報として扱い、正邪を問わず援助する固定方針などへ強めない。"
+        },
+        {
+          "scope": "cheng_yu_father_and_xuanhuo_relationship",
+          "keys": [
+            "5784_9_Dlgs_Index4_Text",
+            "5784_9_Dlgs_Index6_Text",
+            "5784_9_Dlgs_Index7_Text",
+            "5784_9_Dlgs_Index8_Text"
+          ],
+          "note": "程鈺が述べるのは、父が帰宅直後に玄火教の大侠と相談へ行ったことだけ。宇文逸は親密さを疑問として尋ね、程鈺は伯父の格言で応じる。正式な同盟、父の思想、玄火教の善悪を客観事実として補わない。"
+        },
+        {
+          "scope": "cheng_yu_uncle_worry_and_greeter_choice",
+          "keys": [
+            "5784_9_Dlgs_Index1_Text",
+            "5784_9_Dlgs_Index2_Text",
+            "5784_9_Dlgs_Index3_Text",
+            "5784_9_Dlgs_Index4_Text"
+          ],
+          "note": "宇文逸の問いと程鈺の返答から、伯父が程鈺一人の迎えを案じていたことは読めるが、その理由や程鈺の能力評価までは説明されない。軽口以上の家族設定を足さない。"
+        },
+        {
+          "scope": "four_seas_quote_is_reported_speech",
+          "keys": [
+            "5784_9_Dlgs_Index8_Text"
+          ],
+          "note": "「四海之内皆兄弟」は程鈺が伯父の常日頃の言葉として伝える引用。作品世界の客観的な正邪観や程家堡全体の方針へ一般化しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30595915009,
+        "artifact_id": 8780107384,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:f513505d420b4230efb7ff5379d67f824d30c20db501a935c282b7ac4894e509",
+        "head_sha": "ef0995ca2033cbc870250ec13ef6446eba46e36d"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-66-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "5786_3"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      197
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-65",
+    "release_id": "yuwen-mowen-train-65-r1",
+    "pr": 222,
+    "merge_sha": "80cd51c9bb16723d6d5cde505109ffbc809956cd"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 54,
+    "unique_reviewed_rows": 54,
+    "fix_keys": 4,
+    "unique_fix_rows": 4,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 4,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 50,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN66_WAVE01_2026-07-31.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_66.json"
+}
