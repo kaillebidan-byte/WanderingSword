@@ -20,13 +20,13 @@
     "5586_3"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-78-wave-01",
     "packet_id": "yuwen-mowen-train78-packet-01",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": 209
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -39,16 +39,14 @@
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
-    "train_id": "yuwen-mowen-train-77",
-    "release_id": "yuwen-mowen-train-77-r1",
-    "pr": 234,
-    "status": "merged",
-    "merge_sha": "0bc7f6fa2edfef2c1bfb319aa43ef3c3860396e3"
+    "train_id": "yuwen-mowen-train-78",
+    "release_id": "yuwen-mowen-train-78-r1",
+    "pr": 235,
+    "status": "ready_for_public_ci"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
-    "別API・別workflow・別triggerを考案しない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -64,5 +62,36 @@
     "candidate_schema": 3,
     "audit_decision_schema": 2,
     "manifest_digest": "sha256:ce38478550cfd45b88ddc004054b75d15665b7e568adac79f5f455305c46b682"
+  },
+  "batch_planning": {
+    "mode": "semantic_wave",
+    "reviewed_rows": 44,
+    "target_rows": {
+      "min": 40,
+      "max": 60
+    },
+    "hard_max": 80,
+    "adjacent_candidates_checked": [
+      "5331_1",
+      "5341_2",
+      "5341_4",
+      "5343_4",
+      "5360_10",
+      "5586_3"
+    ],
+    "grouping_decision": "門内大比27行、救出判断8行、再会導入9行をそれぞれ独立した意味単位として保ち、合計44行で下限を満たす。60行超の延長は行わない。",
+    "exception": null
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 2,
+    "new_project_keys": 3,
+    "fix_keys": 5
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN78_WAVE01_2026-08-01.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }
