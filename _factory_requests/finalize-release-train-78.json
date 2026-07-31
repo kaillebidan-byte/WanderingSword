@@ -10,6 +10,12 @@
   "ci_head": "154c78b6e469ebee550848aae0ae72b6e334d829",
   "asset_head": "e451bc1c92c5c2d6d643572cbaa99297068d69bb",
   "apply_changed": true,
+  "date": "2026-08-01",
+  "notes": [
+    "完全preflight、Relation、Cross、Apply、pak一回再生成、未適用差分0件を確認した。",
+    "44行を監査し、FIX 5件・KEEP 39件を確定した。",
+    "人物資料6件はkeepで、ゲームフォルダへの配置とゲーム内確認は行っていない。"
+  ],
   "next_scene": "5689_1",
   "next_source": {
     "artifact_workflow": "Release train orchestrator",
