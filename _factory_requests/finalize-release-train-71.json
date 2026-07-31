@@ -19,7 +19,8 @@
     "artifact_run": 30629731498,
     "artifact_id": 8792850539,
     "artifact_digest": "sha256:a895b8fa3865a36941b706a8052692a3fc5120eb4e88de403d0e944df9cf8f35",
-    "artifact_head": "3878187410d9c9553cffcf297023d00b9e6af600"
+    "artifact_head": "3878187410d9c9553cffcf297023d00b9e6af600",
+    "freshness_rule": "統合後の次cycle開始時にmainとartifact metadataを再確認する。"
   },
   "notes": [
     "完全preflight、Relation、Cross、Apply、pak再生成、未適用差分0件を確認した。",
