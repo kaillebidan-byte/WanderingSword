@@ -6,6 +6,7 @@
   "branch": "agent/yuwen-mowen-train-66",
   "pr": 223,
   "orchestrator_run_id": 30597537770,
+  "artifact_name": "release-finalization-inputs-223",
   "ci_head": "5517c9d2053f6319823d0e6024edfe043c09a40d",
   "asset_head": "cea7b8e2cbbf08ad2244f90f883554830f231775",
   "apply_changed": true,
