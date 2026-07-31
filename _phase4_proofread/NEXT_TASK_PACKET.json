@@ -1,95 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-74-quality-audit",
+  "task_id": "post-train74-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 204,
+    "batch": 205,
     "pair_applied_keys": 1407,
     "project_applied_keys": 1783,
-    "produced_by_pr": 230,
-    "release_id": "yuwen-mowen-train-73-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_73.json"
+    "produced_by_pr": 231,
+    "release_id": "yuwen-mowen-train-74-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_74.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "9234_6",
-    "9236_6",
-    "9238_6",
-    "9245_1",
-    "9245_3"
+    "9261_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-74-wave-01",
-    "packet_id": "yuwen-mowen-train74-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 205
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30656638354,
-    "artifact_id": 8803515920,
-    "artifact_digest": "sha256:26da381bbd86c365b8ca17083b52126c91ba1cfa7d39f68711921abc0e5e5a0b",
-    "artifact_head": "3766798ba016c9b3b738feb0016d66dddbb1836a",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30658392194,
+    "artifact_id": 8804206593,
+    "artifact_digest": "sha256:222ba51bbac7ee5568786f20bb1efcecfadefb7b84acab40e1e549cba99f5342",
+    "artifact_head": "6a49d3a345f98c942b47a4eba7a81374469c53d0",
+    "freshness_rule": "統合後の次cycle開始時に最新mainとRelation一次資料を再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-74",
     "release_id": "yuwen-mowen-train-74-r1",
     "pr": 231,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-74統合前に9261_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-74",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 205,
+    "planned_batch": 206,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:6858cc266a90171df069c665e01a0cf86e6fcb0b2ddaae1d3507e19d1f9fa471"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 46,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "9234_6",
-      "9236_6",
-      "9238_6",
-      "9245_1",
-      "9245_3"
-    ],
-    "grouping_decision": "三つの少林招待分岐と、到着後の《風雲訣》説明・師兄退出までの五場面46行で意味単位が完結する。9261_1は場所・事件・同行者が切り替わるため含めない。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 3,
-    "new_project_keys": 0,
-    "fix_keys": 3
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN74_WAVE01_2026-08-01.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
