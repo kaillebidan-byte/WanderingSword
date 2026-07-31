@@ -2,29 +2,21 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5807_1_5821_1_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch113.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5825_1_5928_7_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch114.json",
       "values": {
-        "5809_11_Dlgs_Index7_Text": "5015 - 莫問 $@$どんな事情があろうと、彼女は師弟の信頼を利用し、欺いた。命まで奪うつもりだったことに変わりはない……",
-        "5809_2_Dlgs_Index1_Text": "5015 - 莫問 $@$どんな事情があろうと、彼女は師弟の信頼を利用し、欺いた。命まで奪うつもりだったことに変わりはない……",
-        "5809_11_Dlgs_Index11_Text": "5015 - 莫問 $@$蒼鷹は討ち取った。だが、急いで戻ってすべてを説明しなければ、程家堡は本当に玄火教の手に落ちかねない。",
-        "5809_2_Dlgs_Index5_Text": "5015 - 莫問 $@$蒼鷹は討ち取った。だが、急いで戻ってすべてを説明しなければ、程家堡は本当に玄火教の手に落ちかねない。",
-        "5810_7_Dlgs_Index8_Text": "5015 - 莫問 $@$本当に母親を信じるなら、まず武を磨け。十分に強くなってから戻り、真相を突き止め、母親の汚名をそそぐんだ……",
-        "5810_7_Dlgs_Index9_Text": "5015 - 莫問 $@$十分に強くなるまでは、何もできない。",
-        "5811_2_Dlgs_Index2_Text": "5015 - 莫問 $@$程家堡が玄火教へ加わることが決まった以上、早く武当へ戻り、師父に事情を報告するのがよいだろう。",
-        "5811_3_Dlgs_Index2_Text": "5015 - 莫問 $@$師弟、娜烏姑娘へ連絡する手立てはあるか……程家堡が玄火教へ加わることが決まった以上、わたしたちも山へ戻るべきだ。",
-        "5821_1_Dlgs_Index1_Text": "5015 - 莫問 $@$……程鈺、ここで少し待っていてくれ。わたしと師弟で、師父に事情を申し上げてくる。"
+        "5825_1_Dlgs_Index7_Text": "1 - 宇文逸 $@$程堡主はあれだけ人のために尽くし、この人たちは誰もが程堡主の恩を受けていたのに……亡くなったばかりだというのに、よくここまで悪く言えるな！",
+        "5829_5_Dlgs_Index3_Text": "16002 - 程鈺 $@$母さんは、きっと前から何かを予感していたんだと思います。そうでなければ、どうして急にあんなことを……",
+        "5829_5_Dlgs_Index5_Text": "16002 - 程鈺 $@$はい、分かっています！　しっかり修行して、一日も早く母さんの汚名をそそぎます！",
+        "5897_6_Dlgs_Index3_Text": "5029 - 莫棄 $@$掌門師叔、俺もいる。小逸たちと一緒に行かせてもらえないか？",
+        "5926_3_Dlgs_Index3_Text": "5015 - 莫問 $@$長年、悪事の限りを尽くしてきた貴様らだ。その罪状、竹簡を尽くしても書ききれぬ！　今こそ命で償え！"
       },
       "fix_keys": [
-        "5809_11_Dlgs_Index7_Text",
-        "5809_2_Dlgs_Index1_Text",
-        "5809_11_Dlgs_Index11_Text",
-        "5809_2_Dlgs_Index5_Text",
-        "5810_7_Dlgs_Index8_Text",
-        "5810_7_Dlgs_Index9_Text",
-        "5811_2_Dlgs_Index2_Text",
-        "5811_3_Dlgs_Index2_Text",
-        "5821_1_Dlgs_Index1_Text"
+        "5825_1_Dlgs_Index7_Text",
+        "5829_5_Dlgs_Index3_Text",
+        "5829_5_Dlgs_Index5_Text",
+        "5897_6_Dlgs_Index3_Text",
+        "5926_3_Dlgs_Index3_Text"
       ]
     }
   ]
