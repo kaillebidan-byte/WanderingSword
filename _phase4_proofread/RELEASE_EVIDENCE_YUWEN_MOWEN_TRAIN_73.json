@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-73-r1",
+  "train_id": "yuwen-mowen-train-73",
+  "pr": 230,
+  "ci_head": "3766798ba016c9b3b738feb0016d66dddbb1836a",
+  "asset_head": "fe47155b03a7efed63f63646e311a60e66bd2f6b",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH204_2026-08-01.md",
+  "counts": {
+    "batch": 204,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30656638354,
+    "workflow": "Release train orchestrator",
+    "head_sha": "3766798ba016c9b3b738feb0016d66dddbb1836a",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "orchestrator run 30656638354で完全preflight、Relation、Cross、Applyを同一CI HEADから成功させた。",
+    "4修正を適用し、未適用差分0件、locres・pak・LFS・lint・回帰・packaged outputを検証した。",
+    "buildはverified_not_deployed、game verificationはnot_startedのまま保持する。"
+  ]
+}

@@ -2,19 +2,19 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9016_1_9230_2_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch117.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch118.json",
       "values": {
-        "9150_4_Dlgs_Index3_Text": "1 - 宇文逸 $@$ですが、無名は風雲訣のために天山一門を滅ぼし、円覚大師にまで毒手を伸ばした。無名こそ師兄の仇ではありませんか！",
-        "9229_2_Dlgs_Index8_Text": "17003 - 包閔 $@$首が飛んでも、残るのは椀ほどの傷一つだ！今日こそ、てめえと刺し違えてやる！",
-        "9230_2_Dlgs_Index7_Text": "17003 - 包閔 $@$首が飛んでも、残るのは椀ほどの傷一つだ！今日こそ、てめえらと刺し違えてやる！",
-        "9230_2_Dlgs_Index8_Text": "5015 - 莫問 $@$師弟、皆、共にこの悪党どもを討ち果たそう！"
+        "9231_3_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたというのか——",
+        "9232_3_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたというのか——",
+        "9233_4_Dlgs_Index0_Text": "9500 - 無名 $@$宗師の境地……いや、すでに天人合一の域へ迫っている……まさか、貴様はすでに修めたというのか——",
+        "9233_2_Dlgs_Index4_Text": "17004 - 沙権賈 $@$殺すなり斬るなり……やってみろ！"
       },
       "fix_keys": [
-        "9150_4_Dlgs_Index3_Text",
-        "9229_2_Dlgs_Index8_Text",
-        "9230_2_Dlgs_Index7_Text",
-        "9230_2_Dlgs_Index8_Text"
+        "9231_3_Dlgs_Index0_Text",
+        "9232_3_Dlgs_Index0_Text",
+        "9233_4_Dlgs_Index0_Text",
+        "9233_2_Dlgs_Index4_Text"
       ]
     }
   ]

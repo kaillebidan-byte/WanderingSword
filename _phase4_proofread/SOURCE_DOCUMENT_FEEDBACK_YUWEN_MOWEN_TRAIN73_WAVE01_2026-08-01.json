@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/無名.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9231_3_Dlgs_Index0_Text",
+        "9231_3_Dlgs_Index2_Text",
+        "9231_3_Dlgs_Index6_Text",
+        "9231_3_Dlgs_Index9_Text",
+        "9231_3_Dlgs_Index10_Text",
+        "9231_3_Dlgs_Index11_Text",
+        "9233_4_Dlgs_Index6_Text",
+        "9233_4_Dlgs_Index7_Text"
+      ],
+      "reason": "宇文逸の力量を見抜きかけて推測を止め、低い含み笑い、部下を自ら処分する酷薄さ、莫問の知識不足を突く情報の小出し、潜伏者を手駒として評価する態度が連続する。現行資料の老獪な黒幕、低温の嘲弄、情報を小出しにして相手を動かす規則と整合する。",
+      "scope": {
+        "relationship": "宇文逸・莫問への正体露見後の挑発、燕未還・荀杳杳への手駒評価",
+        "timeline": "9231_3〜9233_4の無名登場分岐"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:20eacdecea2859c33ae90895488e361edea39fd1edca855b325f348715fc2749",
+      "after_digest": "sha256:20eacdecea2859c33ae90895488e361edea39fd1edca855b325f348715fc2749",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9231_3_Dlgs_Index3_Text",
+        "9231_3_Dlgs_Index5_Text",
+        "9232_3_Dlgs_Index3_Text",
+        "9232_3_Dlgs_Index6_Text",
+        "9233_2_Dlgs_Index1_Text",
+        "9233_4_Dlgs_Index3_Text",
+        "9233_4_Dlgs_Index9_Text"
+      ],
+      "reason": "正体を知らない時点では遼城の仮面の男として問い、無名と判明した後は仇討ちの目的を詰問し、残党には短い断罪を向ける。現行資料の探究的な問いと敵対時のM6を分岐・知識状態に応じて切り替える規則と一致する。",
+      "scope": {
+        "relationship": "無名への正体確認と敵対、悪人谷残党への断罪",
+        "timeline": "9231_3〜9233_4の残党戦後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9231_3_Dlgs_Index4_Text",
+        "9231_3_Dlgs_Index8_Text",
+        "9231_3_Dlgs_Index12_Text",
+        "9231_3_Dlgs_Index13_Text",
+        "9233_2_Dlgs_Index5_Text",
+        "9233_4_Dlgs_Index12_Text",
+        "9233_4_Dlgs_Index16_Text",
+        "9233_4_Dlgs_Index17_Text"
+      ],
+      "reason": "無名の正体を端的に告げ、甘言を拒み、「黙れ」「不倶戴天」と真相説明より敵認定と行動を優先する。残党の処断にも即答するため、現行資料の離反・復讐・敵対モードの記述と直接整合する。",
+      "scope": {
+        "relationship": "無名への仇敵認定と心理的挑発の拒否、沙権賈の処断",
+        "timeline": "9231_3〜9233_4の正体露見直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/杜彪.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9233_2_Dlgs_Index0_Text"
+      ],
+      "reason": "敗北直後の短い苦鳴は不利な局面での動揺として現行資料と矛盾しない。一行だけから新しい恒常モードや語尾規則を追加しない。",
+      "scope": {
+        "relationship": "宇文逸・莫問らに敗れた直後",
+        "timeline": "9233_2の残党戦決着"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "after_digest": "sha256:00a1a14b7c195fa4230c852ee7f2c19b80f38a028b937ca25929b02d34a013a1",
+      "changed": false
+    },
+    {
+      "target": "10_人物/沙権賈.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9233_2_Dlgs_Index2_Text",
+        "9233_2_Dlgs_Index3_Text",
+        "9233_2_Dlgs_Index4_Text"
+      ],
+      "reason": "敗北への悪態、自分ほどの者が意外な所で敗れたという粗野な自負、殺害を挑発する居直りが連続する。訳文一行の修正はこの人物声を戻すもので、現行資料の荒くれ・居直りの太さを反証しない。",
+      "scope": {
+        "relationship": "宇文逸・莫問らへの敗北後の反抗",
+        "timeline": "9233_2の処断直前"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "after_digest": "sha256:475b7fbdd16e752d0bc53cf6c18711a8aefa2466da83fa6a0adf043f55017526",
+      "changed": false
+    },
+    {
+      "target": "10_人物/荀杳杳.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "9233_4_Dlgs_Index5_Text"
+      ],
+      "reason": "見慣れているのに見知らぬという逆説を、言いさしと柔らかな終助詞で包む一行は、現行資料の儚さと含みを保つ発話に整合する。短い仮面評から別の対無名モードを一般化しない。",
+      "scope": {
+        "relationship": "無名の仮面を見た旧悪人谷潜伏者としての含み",
+        "timeline": "9233_4の無名登場直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "after_digest": "sha256:d7291843499677d3952161ecb6bbe67b95a6b918e58d363591dc1d991b3f223e",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-73",
+  "wave_id": "yuwen-mowen-train-73-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN73_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-08-01.json",
+      "manifest_digest": "sha256:65705dfed135f20baadc200a020a28c42670a97d6d348f8ada1d1388502d6dc6"
+    }
+  ]
+}
