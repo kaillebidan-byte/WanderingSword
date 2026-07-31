@@ -1,25 +1,18 @@
-# 現在の申し送り
+# 現在の引継ぎ
 
-> 再開指示: `現状把握して作業の続きを`
->
-> 実visibility、open PR、ActionsはGitHub metadataを毎回取得し、この文書の固定値より優先する。
+- active train: `yuwen-mowen-train-73`
+- branch: `agent/yuwen-mowen-train-73`
+- stage: `private_quality_audit`
+- transport: `not_ready`
+- wave: `yuwen-mowen-train-73-wave-01` / 1 packet / 53 unique rows
+- candidate: `_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-08-01.json`
+- previous release: `yuwen-mowen-train-72` / PR #229 / `bf5774441cb436921727251a95c4b6c9a0b83b87`
 
-## 現在地
+## exact next action
 
-- translation PR #229: merged
-- train: `yuwen-mowen-train-72`
-- verified checkpoint: 第203束 / pair 1407 / project 1783
-- transport: `merged`
-- cycle: `target_reached / merged`
-- 次候補: `9231_3`（schema v6 minimal reservation）
+`_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-08-01.json`を読み、KEEP/FIX・人物性・事実・典故だけを監査する。
+GitHub API、branch、workflow、owner、正式束、encoding、CI、mergeはこのstationでは操作しない。
 
-## 次の作業
+## quality audit資料還流
 
-cycle開始時visibilityからmodeを選び、CURRENT_WORKとPRIVATE_STAGE_STATEへlockした後、予約候補のpreparationを開始する。
-
-## 禁止
-
-- merged済みPRのphase2やmergeを再実行しない。
-- mode lock前に翻訳準備、判断、owner書込みを開始しない。
-- minimal reservationへprivate preparation詳細を先書きしない。
-- ゲームフォルダへ配置しない。
+candidateの一次資料だけで典故・事実疑義を先に立て、その後に`quality_audit_context.required_documents`を照合する。全人物資料targetへ`keep/revise/create/unresolved`を記録し、人物資料を直接編集しない。
