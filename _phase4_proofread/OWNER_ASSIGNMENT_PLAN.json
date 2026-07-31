@@ -2,25 +2,27 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5689_1_6008_2_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch124.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6057_12_6116_3_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch125.json",
       "values": {
-        "5689_1_Dlgs_Index0_Text": "1 - 宇文逸 $@$（あの金で、少しでも暮らしが楽になればいいが……）",
-        "5689_1_Dlgs_Index6_Text": "1 - 宇文逸 $@$（気のせいだろうか……あの仮面の怪人は、莫問師兄にだけ、どこか態度が違ったような……）",
-        "6003_6_Dlgs_Index1_Text": "17005 - 欧陽雪 $@$武当の弟子が知らせに来たの。あなたが……あなたが玄火教と結託し、師門に背いて、清虚道長に重傷を負わせたと……",
-        "6008_2_Dlgs_Index12_Text": "17115 - 瑶姫 $@$わたしたち魔門は、昔から力こそすべて……誰にも敵わないほど強くなれば、どんな強敵も、どれほど策を弄されても、あなたをどうすることもできないわ。",
-        "6008_2_Dlgs_Index13_Text": "17115 - 瑶姫 $@$それに……今の状況も、まだ最悪ってわけじゃないかもしれないわよ〜",
-        "6008_2_Dlgs_Index17_Text": "1 - 宇文逸 $@$本当に師父を救う方法があるのなら、少林の名医たちや道妙師叔たちが、どうして今まで手の施しようもなかったんだ……",
-        "6008_2_Dlgs_Index18_Text": "8500 - 江小彤 $@$えへへ！　あの人たちにできないからって、あたしにもできないとは限らないよ！"
+        "6057_12_Dlgs_Index3_Text": "5015 - 莫問 $@$来るべきではなかった……",
+        "6057_12_Dlgs_Index4_Text": "5006 - 清霄道長 $@$ふん、莫問。お前たち、ちょうどよいところへ来た！",
+        "6057_12_Dlgs_Index6_Text": "5006 - 清霄道長 $@$まとめて誅殺せよ！　手加減は無用！！",
+        "6081_9_Dlgs_Index5_Text": "8500 - 江小彤 $@$（小声で）金蛇の赤ちゃんは、母さんがあたしに遺してくれた蠱王だよ。普通の蠱毒とは比べものにならないし、五仙教でも、これまでに育てられたのはたった一匹だけなんだから！",
+        "6081_9_Dlgs_Index8_Text": "1 - 宇文逸 $@$（小声で）もしかすると、本当にもう……",
+        "6081_9_Dlgs_Index9_Text": "1 - 宇文逸 $@$（小声で）そういえば、あの時、玄火教や淵兵との戦いが始まってから、あの男も莫問師兄も見かけていない……二人とも、騒ぎに乗じて立ち去ったのだろうか？",
+        "6116_3_Dlgs_Index8_Text": "5003 - 清虚道長 $@$先の葬龍谷の一戦……黄将軍が折よく救援に駆けつけてくれたとはいえ、ごほ、ごほ……",
+        "6116_3_Dlgs_Index16_Text": "5003 - 清虚道長 $@$……そなたに、最後の頼みがある……"
       },
       "fix_keys": [
-        "5689_1_Dlgs_Index0_Text",
-        "5689_1_Dlgs_Index6_Text",
-        "6003_6_Dlgs_Index1_Text",
-        "6008_2_Dlgs_Index12_Text",
-        "6008_2_Dlgs_Index13_Text",
-        "6008_2_Dlgs_Index17_Text",
-        "6008_2_Dlgs_Index18_Text"
+        "6057_12_Dlgs_Index3_Text",
+        "6057_12_Dlgs_Index4_Text",
+        "6057_12_Dlgs_Index6_Text",
+        "6081_9_Dlgs_Index5_Text",
+        "6081_9_Dlgs_Index8_Text",
+        "6081_9_Dlgs_Index9_Text",
+        "6116_3_Dlgs_Index8_Text",
+        "6116_3_Dlgs_Index16_Text"
       ]
     }
   ]
