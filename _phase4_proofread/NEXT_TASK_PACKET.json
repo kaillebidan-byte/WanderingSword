@@ -1,93 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-79-quality-audit",
+  "task_id": "post-train79-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 209,
-    "pair_applied_keys": 1433,
-    "project_applied_keys": 1809,
-    "produced_by_pr": 235,
-    "release_id": "yuwen-mowen-train-78-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_78.json"
+    "batch": 210,
+    "pair_applied_keys": 1434,
+    "project_applied_keys": 1810,
+    "produced_by_pr": 236,
+    "release_id": "yuwen-mowen-train-79-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_79.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "5689_1",
-    "6003_4",
-    "6003_6",
-    "6008_2"
+    "6057_12"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-79-wave-01",
-    "packet_id": "yuwen-mowen-train79-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 210
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
-    "artifact_run": 30665631234,
-    "artifact_id": 8806860605,
+    "artifact_run": 30667194067,
+    "artifact_id": 8807422974,
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_digest": "sha256:f4aedc869bfb1c9b6fc67896b5b8bdce56cd822cc721b36d059c41dd850d41ef",
-    "artifact_head": "154c78b6e469ebee550848aae0ae72b6e334d829",
+    "artifact_digest": "sha256:423a8a0819b36cba949ef34bc002cad64f3f8a14c402848a4dffc29b3702afd9",
+    "artifact_head": "3877f96a1687fe8eb38cdac9d10cad9c92d49302",
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-79",
     "release_id": "yuwen-mowen-train-79-r1",
     "pr": 236,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-79統合前に6057_12のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-79",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 210,
+    "planned_batch": 211,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:a5da16f12b6afa9b6950eae6021b7edf06e3e334dbbbb835fc7c1ddb2694accf"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 45,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "5689_1",
-      "6003_4",
-      "6003_6",
-      "6008_2"
-    ],
-    "grouping_decision": "復讐後の内省9行と、冤罪発覚から清虚救済策提示までの36行を独立した意味単位として保ち、合計45行で下限を満たす。60行超の延長は行わない。",
-    "exception": null
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 6,
-    "new_project_keys": 1,
-    "fix_keys": 7
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN79_WAVE01_2026-08-01.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
