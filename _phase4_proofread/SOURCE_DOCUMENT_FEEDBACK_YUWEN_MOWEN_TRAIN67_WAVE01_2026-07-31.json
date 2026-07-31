@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/程徳明.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5786_3_Dlgs_Index0_Text",
+        "5786_3_Dlgs_Index3_Text",
+        "5786_3_Dlgs_Index4_Text",
+        "5786_3_Dlgs_Index6_Text"
+      ],
+      "reason": "鈺児を案じ、賢甥へ親愛を示しつつ、無塵剣の来訪を豪快に称える四行は、現行資料の親愛モードと賓客へのもてなしに整合する。賓客への敬語を訳文で補正すれば足り、人物規則の変更は要らない。",
+      "scope": {
+        "relationship": "宇文逸・莫問を清虚の賢甥・賓客として迎える",
+        "timeline": "程家堡到着直後の寿宴前挨拶"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:f63f1fe900702eba52a4fcd48e704e23eadd8a16e15dce649566a720bc5bd917",
+      "after_digest": "sha256:f63f1fe900702eba52a4fcd48e704e23eadd8a16e15dce649566a720bc5bd917",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5786_3_Dlgs_Index1_Text",
+        "5786_3_Dlgs_Index2_Text",
+        "5786_3_Dlgs_Index5_Text",
+        "5786_3_Dlgs_Index7_Text",
+        "5786_15_Dlgs_Index1_Text",
+        "5786_15_Dlgs_Index4_Text",
+        "5789_2_Dlgs_Index1_Text",
+        "5789_2_Dlgs_Index2_Text",
+        "5789_4_Dlgs_Index2_Text",
+        "5790_10_Dlgs_Index2_Text",
+        "5790_11_Dlgs_Index1_Text",
+        "5790_11_Dlgs_Index2_Text",
+        "5800_1_Dlgs_Index0_Text",
+        "5800_1_Dlgs_Index2_Text",
+        "5801_2_Dlgs_Index1_Text",
+        "5803_2_Dlgs_Index9_Text",
+        "5805_3_Dlgs_Index1_Text",
+        "5805_4_Dlgs_Index0_Text",
+        "5805_4_Dlgs_Index1_Text"
+      ],
+      "reason": "程徳明への謙譲、宇文逸への兄弟子の常体、蒼鷹出現後の制止・観察・追跡指揮が連続し、現行資料の礼→後進への指示→危機判断という思考順序に整合する。四行の意味・敬語調整で足りる。",
+      "scope": {
+        "relationship": "程徳明への対外礼節と宇文逸への兄弟子指揮",
+        "timeline": "寿宴前挨拶から蒼鷹の逃走先を推測するまで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5786_3_Dlgs_Index8_Text",
+        "5786_3_Dlgs_Index9_Text",
+        "5786_15_Dlgs_Index0_Text",
+        "5786_15_Dlgs_Index2_Text",
+        "5786_15_Dlgs_Index3_Text",
+        "5786_15_Dlgs_Index5_Text",
+        "5789_2_Dlgs_Index0_Text",
+        "5789_2_Dlgs_Index3_Text",
+        "5789_4_Dlgs_Index1_Text",
+        "5790_10_Dlgs_Index1_Text",
+        "5790_11_Dlgs_Index0_Text",
+        "5790_11_Dlgs_Index3_Text",
+        "5800_1_Dlgs_Index1_Text",
+        "5801_2_Dlgs_Index0_Text",
+        "5803_2_Dlgs_Index3_Text",
+        "5803_2_Dlgs_Index4_Text",
+        "5803_2_Dlgs_Index8_Text",
+        "5805_3_Dlgs_Index0_Text",
+        "5805_4_Dlgs_Index2_Text"
+      ],
+      "reason": "程徳明への正式な名乗りと祝辞、師兄への敬体、程家の内情への率直な疑問、蒼鷹への怒りと短句は、現行資料のM4・M1b・M6の切替に整合する。名乗りの情報追加と寿賀句を訳文で直せばよい。",
+      "scope": {
+        "relationship": "程徳明への対外儀礼、莫問への師兄敬意、蒼鷹への敵対",
+        "timeline": "寿宴前挨拶から蒼鷹追跡まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程万清.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5789_4_Dlgs_Index0_Text"
+      ],
+      "reason": "賓客二人へ宴席を案内する一行は、対外で堡主の格を保つ威厳モードに収まる。人物資料を改訂するだけの反例や追加根拠はない。",
+      "scope": {
+        "relationship": "宇文逸・莫問への賓客案内",
+        "timeline": "寿宴開始直前"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8d1bd8432269b2b2e917f7fb48a22f67865b1e1866a9752ec57c50c70bcbfae6",
+      "after_digest": "sha256:8d1bd8432269b2b2e917f7fb48a22f67865b1e1866a9752ec57c50c70bcbfae6",
+      "changed": false
+    },
+    {
+      "target": "10_人物/十三鷹之蒼鷹.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5790_10_Dlgs_Index0_Text",
+        "5790_11_Dlgs_Index4_Text",
+        "5790_11_Dlgs_Index5_Text",
+        "5803_2_Dlgs_Index0_Text",
+        "5803_2_Dlgs_Index1_Text",
+        "5803_2_Dlgs_Index2_Text",
+        "5803_2_Dlgs_Index5_Text",
+        "5803_2_Dlgs_Index6_Text",
+        "5803_2_Dlgs_Index7_Text"
+      ],
+      "reason": "含み笑い、高笑い、金で動く開き直り、相手を小僧と見下す嘲弄、依頼を侠義へすり替える自己正当化は、現行資料の貪欲で抜け目ない刺客像に整合する。過剰な事実追加一行だけを訳文で抑えれば足りる。",
+      "scope": {
+        "relationship": "宇文逸・莫問への嘲弄と逃走前の自己弁護",
+        "timeline": "程家堡寿宴への乱入から城壁での対峙まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d42530e206f3ec50321230cc2766d55518b9ea246e6c79028c6658ee33f534ff",
+      "after_digest": "sha256:d42530e206f3ec50321230cc2766d55518b9ea246e6c79028c6658ee33f534ff",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-67",
+  "wave_id": "yuwen-mowen-train-67-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN67_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_3_5805_4_2026-07-31.json",
+      "manifest_digest": "sha256:53a69ee598c574bfb0c1c565385e4f542186e29c0e3ea23da33061d49989b51e"
+    }
+  ]
+}
