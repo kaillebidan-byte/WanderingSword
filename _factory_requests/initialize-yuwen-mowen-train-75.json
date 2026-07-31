@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-75",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30658392194,
+    "artifact_id": 8804206593,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:222ba51bbac7ee5568786f20bb1efcecfadefb7b84acab40e1e549cba99f5342",
+    "artifact_head": "6a49d3a345f98c942b47a4eba7a81374469c53d0"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "9247_1",
+      "9250_1",
+      "9261_1",
+      "9262_1",
+      "9267_1",
+      "9273_1",
+      "9279_1",
+      "20515_4",
+      "20516_3"
+    ],
+    "unique_reviewed_rows": 43,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "少林の方丈室で莫問と瑶姫の交戦を目撃し、円覚襲撃後に莫問の消息を案じる局面から、平康・樊城・丐幇総舵の各分岐で襲撃後の状況を調べ、陳長老殺害の背後を推測するまで。末尾は後日、清霄師伯と元啓師兄へ莫問の行方を尋ね、なお消息不明であることを確認する二場面。",
+    "branch_note": "9247_1と9250_1は少林異変と莫問不在の前段。9261_1と9262_1は平康分舵の同行者・聞き手が異なる分岐、9267_1は樊城分舵、9273_1は総舵、9279_1は陳長老事件として別々に保持する。20515_4と20516_3は後日の消息確認であり、莫問が同行する9261_1〜9279_1と同一時点へ合成しない。",
+    "seal_attestation": "少林異変の前段5行、丐幇各拠点の調査5場面32行、後日の消息確認2場面6行で計43行。予約候補9261_1を含み、分岐差・人物の知識状態・莫問の在不在を監査できる意味単位として閉じる。",
+    "candidate_questions": [
+      "平康・樊城・総舵・陳長老事件の分岐差と同行者差を合成していないか",
+      "莫問の冷静な推理と宇文逸の師門敬体・動揺が場面ごとに自然に切り替わっているか",
+      "少林での不在、丐幇調査への同行、後日の消息不明を同一時点として平坦化していないか",
+      "大開殺戒・万無一失・杳無音信などの強度や像を説明語へ痩せさせていないか"
+    ],
+    "allusion_candidates": [
+      "大开杀戒",
+      "万无一失",
+      "杳无音信"
+    ],
+    "fact_doubts": [
+      "9261_1と9262_1は平康分舵の分岐差を保持し、絶無心の発言と宇文逸の問いを同一会話へ合成しない",
+      "9267_1の樊城、9273_1の総舵、9279_1の陳長老事件は別地点・別局面として扱う",
+      "玄火教が丐幇掌握を狙うという説明と六扇門・廠衛の関与は、莫問または冷無情の推測・見立てとして扱う",
+      "道妙が述べる生存者なしは到着時の観察報告であり、襲撃全体の経緯や犯人を確定しない",
+      "9247_1・9250_1と20515_4・20516_3の莫問不在は、莫問が同行する9261_1〜9279_1と同一時点へ直列合成しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9247_1_20516_3_2026-08-01.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN75_WAVE01_2026-08-01.md"
+  }
+}
