@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-67",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30597537770,
+    "artifact_id": 8780700978,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:8610053e82b13185a4078cb0de5bca82c052413827c0646bd8c4f1881fa5b197",
+    "artifact_head": "5517c9d2053f6319823d0e6024edfe043c09a40d"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5786_3",
+      "5786_15",
+      "5789_2",
+      "5789_4",
+      "5790_10",
+      "5790_11",
+      "5800_1",
+      "5801_2",
+      "5803_2",
+      "5805_3",
+      "5805_4"
+    ],
+    "unique_reviewed_rows": 52,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "天水城・程家堡到着後。程徳明への挨拶と賀礼、寿宴への参加、蒼鷹の出現と追跡、城壁での対峙、蒼鷹が逃走した後に一線天峡谷を捜索先として定めるまで。",
+    "branch_note": "程家堡寿宴から蒼鷹追跡へ移る連続場面。5786_3で対外儀礼、5786_15から5789_4で宴前後の師弟会話、5790_10以降で蒼鷹を発見して追跡し、5805_4で城内追跡を終えて次の捜索地点を確定する。",
+    "seal_attestation": "十一場面52行で、程家堡での正式な挨拶、寿宴、蒼鷹の出現、城内・城壁での追跡、逃走先を一線天峡谷へ絞るところまでが完結する。40行以上60行以下の標準範囲で閉じるため延長は使わない。",
+    "candidate_questions": [
+      "程徳明への対外儀礼で、莫問と宇文逸の謙譲・敬称・敬体が役割に応じて自然に分かれているか。",
+      "宇文逸が蒼鷹を認めた後の怒りと、莫問が逸る師弟を制する冷静さが、場面の緊張を保った声になっているか。",
+      "程二爺、程堡主、賢甥、少侠、師弟などの呼称が、話者・相手・関係段階に沿っているか。",
+      "蒼鷹の罵倒、嘲笑、依頼人に関する示唆が、原文以上に事実や犯人を確定していないか。",
+      "追跡場面の短句、低声、制御タグ、動作の勢いを説明文へ平坦化していないか。"
+    ],
+    "allusion_candidates": [
+      "5786_3_Dlgs_Index4_Textの『蓬荜生辉』は定着成語としての比喩と儀礼調を確認する。",
+      "5786_3_Dlgs_Index9_Textの『寿比南山』は寿賀の定型句としての荘重さを確認する。",
+      "5790_11_Dlgs_Index2_Textの『静观其变』と5803_2_Dlgs_Index2_Textの『自取灭亡』は定着成語として場面の強度を確認する。"
+    ],
+    "fact_doubts": [
+      "5803_2_Dlgs_Index5_TextからIndex8までの江吟風の人命、程徳明と弟妹の関係、依頼人が程二爺である可能性は蒼鷹の主張と宇文逸の推測であり、客観事実へ確定しない。",
+      "5803_2_Dlgs_Index4_Textの『程堡主まで』は宇文逸が蒼鷹の加害を確信している発言で、程徳明の死亡や被害内容をこの場面だけで補わない。"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_3_5805_4_2026-07-31.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN67_WAVE01_2026-07-31.md"
+  }
+}
