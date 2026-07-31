@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-66",
+  "wave_id": "yuwen-mowen-train-66-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30595915009,
+    "artifact_id": 8780107384,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:f513505d420b4230efb7ff5379d67f824d30c20db501a935c282b7ac4894e509",
+    "head_sha": "ef0995ca2033cbc870250ec13ef6446eba46e36d"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train66-packet-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5756_2_5784_9_2026-07-31.json",
+      "scene_groups": ["5756_2", "5756_5", "5781_1", "5781_10", "5784_4", "5784_8", "5784_9"],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5781_1_Dlgs_Index9_Text",
+          "before": "5015 - 莫問 $@$江湖の者が助けを求めれば、正邪を問わず力を貸すそうだ。だから誰もが口をそろえて称え、正邪両道とも程堡主には一目置いている。",
+          "after": "5015 - 莫問 $@$江湖の者が助けを求めてくれば、力を尽くして応じるそうだ。だから誰もが口をそろえて称え、正邪両道とも程堡主には一目置いている。",
+          "reason": "meaning/fact: 「但凡求到面前，他都会尽力相帮」は、江湖の者が助けを求めて来れば力を尽くして応じるという説明。「无论正邪两道」は後段で正邪両道とも程堡主に一目置くことへ掛かり、程徳明が善悪を問わず必ず援助するという客観的方針までは確定しない。節の境界を戻し、莫問の伝聞説明を保つ。"
+        },
+        {
+          "key": "5781_10_Dlgs_Index2_Text",
+          "before": "1 - 宇文逸 $@$兄弟なのに、どうしてここまで評判が違うんでしょう。あの程二爺は、ずいぶん嫌われているようですが……",
+          "after": "1 - 宇文逸 $@$兄弟なのに、どうしてここまで評判が違うんでしょう。あの程二爺は、あまり好かれていないようですが……",
+          "reason": "meaning/voice: 「不太受人待见」は、あまり好かれず歓迎されていない程度の表現。現訳の「ずいぶん嫌われている」は敵意を強めすぎるため、「あまり好かれていない」とし、莫問へ率直に疑問を向ける宇文逸の声を保つ。"
+        },
+        {
+          "key": "5784_9_Dlgs_Index4_Text",
+          "before": "16002 - 程鈺 $@$（頭をかいて）本当は伯父が父を呼んだんです。でも父は家に戻るなり、玄火教の大侠と相談に行ってしまって……",
+          "after": "16002 - 程鈺 $@$（頭をかいて）本当は、さっき伯父が父を呼んだんです。でも父は家に戻るなり、玄火教の大侠と相談に行ってしまって……",
+          "reason": "meaning/timeline: 「刚才」が落ちており、伯父が直前に迎え役として父を呼んだことと、父が帰宅直後に玄火教の人物へ会いに行った時間関係が弱まっている。「さっき」を戻し、程鈺の説明以上の関係は補わない。"
+        },
+        {
+          "key": "5784_9_Dlgs_Index8_Text",
+          "before": "16002 - 程鈺 $@$伯父はいつも、「四海の内、皆兄弟。正邪の違いなど気にしすぎるな」って言っています……",
+          "after": "16002 - 程鈺 $@$伯父はいつも、「四海の内、皆兄弟なり。正邪の別など、あまり気にするな」って言っています……",
+          "reason": "allusion/voice: 「四海之内皆兄弟」は『論語』顔淵の著名句にほぼ一致する直接引用。定着した読み下し「四海の内、皆兄弟なり」を保ちつつ、程鈺が伯父の言葉を素直に伝える「って言っています」は残す。「不用太在意」も「あまり気にするな」と過不足なく戻す。"
+        }
+      ],
+      "keeps": [
+        "5756_2_Dlgs_Index0_Text", "5756_2_Dlgs_Index1_Text", "5756_2_Dlgs_Index2_Text", "5756_2_Dlgs_Index3_Text", "5756_2_Dlgs_Index4_Text", "5756_2_Dlgs_Index5_Text",
+        "5756_5_Dlgs_Index0_Text", "5756_5_Dlgs_Index1_Text", "5756_5_Dlgs_Index2_Text",
+        "5781_1_Dlgs_Index0_Text", "5781_1_Dlgs_Index1_Text", "5781_1_Dlgs_Index2_Text", "5781_1_Dlgs_Index3_Text", "5781_1_Dlgs_Index4_Text", "5781_1_Dlgs_Index5_Text", "5781_1_Dlgs_Index6_Text", "5781_1_Dlgs_Index7_Text", "5781_1_Dlgs_Index8_Text", "5781_1_Dlgs_Index10_Text", "5781_1_Dlgs_Index11_Text",
+        "5781_10_Dlgs_Index0_Text", "5781_10_Dlgs_Index1_Text", "5781_10_Dlgs_Index3_Text", "5781_10_Dlgs_Index4_Text", "5781_10_Dlgs_Index5_Text",
+        "5784_4_Dlgs_Index0_Text", "5784_4_Dlgs_Index1_Text",
+        "5784_8_Dlgs_Index0_Text", "5784_8_Dlgs_Index1_Text", "5784_8_Dlgs_Index2_Text", "5784_8_Dlgs_Index3_Text", "5784_8_Dlgs_Index4_Text", "5784_8_Dlgs_Index5_Text", "5784_8_Dlgs_Index6_Text", "5784_8_Dlgs_Index7_Text", "5784_8_Dlgs_Index8_Text", "5784_8_Dlgs_Index9_Text", "5784_8_Dlgs_Index10_Text", "5784_8_Dlgs_Index11_Text", "5784_8_Dlgs_Index12_Text", "5784_8_Dlgs_Index13_Text",
+        "5784_9_Dlgs_Index0_Text", "5784_9_Dlgs_Index1_Text", "5784_9_Dlgs_Index2_Text", "5784_9_Dlgs_Index3_Text", "5784_9_Dlgs_Index6_Text", "5784_9_Dlgs_Index7_Text", "5784_9_Dlgs_Index10_Text", "5784_9_Dlgs_Index11_Text", "5784_9_Dlgs_Index12_Text"
+      ],
+      "allusion_review_candidates": ["四海之内皆兄弟", "事半功倍", "数十年如一日", "交口称赞", "赞不绝口", "侠骨"],
+      "allusion_review_resolved": [
+        {"key": "5784_9_Dlgs_Index8_Text", "decision": "特定典籍の直接引用", "note": "「四海之内皆兄弟」は『論語』顔淵の「四海之内、皆兄弟也」にほぼ一致する著名句。伯父の言葉を程鈺が引用する場面なので、定着した読み下し「四海の内、皆兄弟なり」を採用する。"},
+        {"key": "5781_1_Dlgs_Index10_Text", "decision": "定着した成語", "note": "「事半功倍」は少ない労力で大きな成果を得る意の定着成語。莫問が程堡主へ頼れば人捜しが効率化すると説明する機能を、現訳「ずっと早く進む」が自然に保つ。"},
+        {"key": "5781_1_Dlgs_Index5_Text", "decision": "定着した継続表現", "note": "「数十年如一日」は長年変わらず続ける意の定着表現。特定典籍の引用として発声されておらず、現訳「数十年変わらず」で機能を保つ。"},
+        {"key": "5781_1_Dlgs_Index9_Text", "decision": "定着した称賛の成語", "note": "「交口称赞」は口をそろえて称える意の成語。現訳の像を維持し、修正は正邪両道が掛かる節の境界だけに限定する。"},
+        {"key": "5781_10_Dlgs_Index0_Text", "decision": "定着した称賛の成語", "note": "「赞不绝口」は絶えず褒める意の成語。現訳「絶賛しています」が場面機能を保つ。"},
+        {"key": "5781_1_Dlgs_Index4_Text", "decision": "武侠の人物評価語", "note": "「侠骨」は侠義を備えた気骨を表す武侠語彙で、この行では特定典籍の引用ではない。現訳「侠気に厚く」を維持する。"}
+      ],
+      "fact_doubts": [
+        {"scope": "cheng_deming_reputation_is_mowen_exposition", "keys": ["5781_1_Dlgs_Index2_Text", "5781_1_Dlgs_Index3_Text", "5781_1_Dlgs_Index4_Text", "5781_1_Dlgs_Index5_Text", "5781_1_Dlgs_Index6_Text", "5781_1_Dlgs_Index8_Text", "5781_1_Dlgs_Index9_Text", "5781_1_Dlgs_Index10_Text"], "note": "程家堡と程徳明の経歴・評判は莫問の説明で、援助と江湖の評判には「据说」も含まれる。この場面では莫問が把握した情報として扱い、正邪を問わず援助する固定方針などへ強めない。"},
+        {"scope": "cheng_yu_father_and_xuanhuo_relationship", "keys": ["5784_9_Dlgs_Index4_Text", "5784_9_Dlgs_Index6_Text", "5784_9_Dlgs_Index7_Text", "5784_9_Dlgs_Index8_Text"], "note": "程鈺が述べるのは、父が帰宅直後に玄火教の大侠と相談へ行ったことだけ。宇文逸は親密さを疑問として尋ね、程鈺は伯父の格言で応じる。正式な同盟、父の思想、玄火教の善悪を客観事実として補わない。"},
+        {"scope": "cheng_yu_uncle_worry_and_greeter_choice", "keys": ["5784_9_Dlgs_Index1_Text", "5784_9_Dlgs_Index2_Text", "5784_9_Dlgs_Index3_Text", "5784_9_Dlgs_Index4_Text"], "note": "宇文逸の問いと程鈺の返答から、伯父が程鈺一人の迎えを案じていたことは読めるが、その理由や程鈺の能力評価までは説明されない。軽口以上の家族設定を足さない。"},
+        {"scope": "four_seas_quote_is_reported_speech", "keys": ["5784_9_Dlgs_Index8_Text"], "note": "「四海之内皆兄弟」は程鈺が伯父の常日頃の言葉として伝える引用。作品世界の客観的な正邪観や程家堡全体の方針へ一般化しない。"}
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:3196b3fdcaea68c9ec0164e7802952db1a1b760d3d93e266882256b47156216d",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {"path": ".agents/skills/zhja-game-translation-codex/SKILL.md", "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md", "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md", "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md", "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md", "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md", "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917", "status": "reviewed"},
+          {"path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md", "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef", "status": "reviewed"},
+          {"path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md", "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab", "status": "reviewed"},
+          {"path": "10_人物/宇文逸.md", "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153", "status": "reviewed"},
+          {"path": "10_人物/莫問.md", "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4", "status": "reviewed"},
+          {"path": "10_人物/程鈺.md", "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df", "status": "reviewed"}
+        ]
+      },
+      "source_document_decisions": [
+        {"target": "10_人物/宇文逸.md", "document_type": "persona", "decision": "keep", "evidence_keys": ["5756_2_Dlgs_Index0_Text", "5756_2_Dlgs_Index1_Text", "5756_2_Dlgs_Index5_Text", "5756_5_Dlgs_Index2_Text", "5781_1_Dlgs_Index0_Text", "5781_1_Dlgs_Index1_Text", "5781_1_Dlgs_Index7_Text", "5781_1_Dlgs_Index11_Text", "5781_10_Dlgs_Index0_Text", "5781_10_Dlgs_Index1_Text", "5781_10_Dlgs_Index2_Text", "5781_10_Dlgs_Index5_Text", "5784_4_Dlgs_Index1_Text", "5784_8_Dlgs_Index2_Text", "5784_8_Dlgs_Index11_Text", "5784_8_Dlgs_Index12_Text", "5784_9_Dlgs_Index2_Text", "5784_9_Dlgs_Index6_Text"], "reason": "莫問へは師兄呼称と自然な敬体を保ち、天水城の説明には率直な好奇心を示す。程鈺との初対面では相手の安全を確かめつつ常体で警戒し、事情を聞く。現行資料の武当M1bと後輩M3の切替に整合し、一行の語気を弱めれば足りる。", "scope": {"relationship": "莫問への師兄敬意、弟子入り前の程鈺への年長者としての対等・警戒", "timeline": "品剣大会後、天水城到着から程鈺との初対面まで"}, "confidence": "high", "operation": "none"},
+        {"target": "10_人物/莫問.md", "document_type": "persona", "decision": "keep", "evidence_keys": ["5756_2_Dlgs_Index2_Text", "5756_2_Dlgs_Index3_Text", "5756_2_Dlgs_Index4_Text", "5756_5_Dlgs_Index0_Text", "5756_5_Dlgs_Index1_Text", "5781_1_Dlgs_Index2_Text", "5781_1_Dlgs_Index3_Text", "5781_1_Dlgs_Index4_Text", "5781_1_Dlgs_Index5_Text", "5781_1_Dlgs_Index6_Text", "5781_1_Dlgs_Index8_Text", "5781_1_Dlgs_Index9_Text", "5781_1_Dlgs_Index10_Text", "5781_10_Dlgs_Index3_Text", "5781_10_Dlgs_Index4_Text", "5784_4_Dlgs_Index0_Text", "5784_8_Dlgs_Index5_Text", "5784_9_Dlgs_Index10_Text"], "reason": "調査内容を伏せる抑制、旅支度の指示、程家堡を順序立てて説明する観察力、宇文逸を制する短い忠告、程鈺への年長者らしい注意と程少侠への対外礼が、現行資料の兄弟子・危機判断・対外モードに整合する。意味の節境界を一行直せば足りる。", "scope": {"relationship": "宇文逸への兄弟子としての教導、弟子入り前の程鈺への年長者・対外応答", "timeline": "品剣大会後、天水城への出立から程家堡へ案内されるまで"}, "confidence": "high", "operation": "none"},
+        {"target": "10_人物/程鈺.md", "document_type": "persona", "decision": "keep", "evidence_keys": ["5784_8_Dlgs_Index0_Text", "5784_8_Dlgs_Index1_Text", "5784_8_Dlgs_Index3_Text", "5784_8_Dlgs_Index4_Text", "5784_8_Dlgs_Index6_Text", "5784_8_Dlgs_Index7_Text", "5784_8_Dlgs_Index8_Text", "5784_8_Dlgs_Index9_Text", "5784_8_Dlgs_Index10_Text", "5784_8_Dlgs_Index13_Text", "5784_9_Dlgs_Index0_Text", "5784_9_Dlgs_Index1_Text", "5784_9_Dlgs_Index3_Text", "5784_9_Dlgs_Index4_Text", "5784_9_Dlgs_Index7_Text", "5784_9_Dlgs_Index8_Text", "5784_9_Dlgs_Index11_Text", "5784_9_Dlgs_Index12_Text"], "reason": "息切れ、謝罪、莫問への憧れ、名乗り忘れ、前のめりな案内、家族事情を素直に説明する声は、現行資料の明るく実直で感情が先に走る弟子入り前モードと一致する。時間語の脱落と引用句の文体だけを訳文で整えればよい。", "scope": {"relationship": "弟子入り前の莫問大侠・宇文逸との初対面", "timeline": "暴れ馬を追って二人へ遭遇し、程家堡へ案内するまで"}, "confidence": "high", "operation": "none"}
+      ]
+    }
+  ]
+}
