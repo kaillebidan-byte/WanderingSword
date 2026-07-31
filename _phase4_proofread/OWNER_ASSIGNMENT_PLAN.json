@@ -2,27 +2,23 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6057_12_6116_3_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch125.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_CG_13297_2_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch126.json",
       "values": {
-        "6057_12_Dlgs_Index3_Text": "5015 - 莫問 $@$来るべきではなかった……",
-        "6057_12_Dlgs_Index4_Text": "5006 - 清霄道長 $@$ふん、莫問。お前たち、ちょうどよいところへ来た！",
-        "6057_12_Dlgs_Index6_Text": "5006 - 清霄道長 $@$まとめて誅殺せよ！　手加減は無用！！",
-        "6081_9_Dlgs_Index5_Text": "8500 - 江小彤 $@$（小声で）金蛇の赤ちゃんは、母さんがあたしに遺してくれた蠱王だよ。普通の蠱毒とは比べものにならないし、五仙教でも、これまでに育てられたのはたった一匹だけなんだから！",
-        "6081_9_Dlgs_Index8_Text": "1 - 宇文逸 $@$（小声で）もしかすると、本当にもう……",
-        "6081_9_Dlgs_Index9_Text": "1 - 宇文逸 $@$（小声で）そういえば、あの時、玄火教や淵兵との戦いが始まってから、あの男も莫問師兄も見かけていない……二人とも、騒ぎに乗じて立ち去ったのだろうか？",
-        "6116_3_Dlgs_Index8_Text": "5003 - 清虚道長 $@$先の葬龍谷の一戦……黄将軍が折よく救援に駆けつけてくれたとはいえ、ごほ、ごほ……",
-        "6116_3_Dlgs_Index16_Text": "5003 - 清虚道長 $@$……そなたに、最後の頼みがある……"
+        "13297_2_Dlgs_Index1_Text": "9507 - 程鈺 $@$僕は……僕を生み育てた場所を弔いに来た。まさか僕の仇が、こんなふうに死んでしまうとは。僕がこの手で命を奪いに来るまで、待つことすらできなかった……"
       },
       "fix_keys": [
-        "6057_12_Dlgs_Index3_Text",
-        "6057_12_Dlgs_Index4_Text",
-        "6057_12_Dlgs_Index6_Text",
-        "6081_9_Dlgs_Index5_Text",
-        "6081_9_Dlgs_Index8_Text",
-        "6081_9_Dlgs_Index9_Text",
-        "6116_3_Dlgs_Index8_Text",
-        "6116_3_Dlgs_Index16_Text"
+        "13297_2_Dlgs_Index1_Text"
+      ]
+    },
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_QUESTS_12406_6252_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch126_2.json",
+      "values": {
+        "5371_FinishingDlgs_Index0_Text": "5015 - 莫問 $@$宇文師弟！　まだどこか具合の悪いところはないか？"
+      },
+      "fix_keys": [
+        "5371_FinishingDlgs_Index0_Text"
       ]
     }
   ]

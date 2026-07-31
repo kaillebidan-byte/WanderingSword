@@ -1,0 +1,291 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "12406_OptionDlgs3_Index0_Text",
+    "12406_RequestDlgs_Index0_Text",
+    "12409_FinishingDlgs_Index8_Text",
+    "12436_RequestDlgs_Index0_Text",
+    "14201_FinishingDlgs_Index2_Text",
+    "20004_FinishingDlgs_Index3_Text",
+    "22576_FinishingDlgs_Index1_Text",
+    "23021_FinishingDlgs_Index0_Text",
+    "5371_FinishingDlgs_Index0_Text",
+    "5371_FinishingDlgs_Index3_Text",
+    "5944_RequestDlgs_Index1_Text",
+    "6252_FinishingDlgs_Index0_Text"
+  ],
+  "source": {
+    "target": "Quests任务表",
+    "namespace": "Quests"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30668426155,
+    "artifact_id": 8807875827,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+    "head_sha": "bcdaef9989461437bf686a49414fc749812ae76c"
+  },
+  "scene_context": {
+    "timeline": "宇文逸と莫問の関係を直接言及する補助会話・任務報告・回想の未監査末尾。早期の師兄弟関係、贈礼、修行、失踪、天山事件認識までを、主線sceneから独立したexplicit-reference補遺として扱う。",
+    "branch_note": "贈礼選択、修行報告、莫問の追跡・失踪、天山事件認識、師兄弟の気遣いを含むQuests補助文12行。各任務の時系列を一つの連続場面へ合成しない。"
+  },
+  "rows": [
+    {
+      "key": "12406_OptionDlgs3_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（莫弃师兄言之凿凿，想来莫问师兄一定很中意那块棋盘……）",
+      "ja": "1 - 宇文逸 $@$（莫棄師兄が断言していたのだから、莫問師兄はその碁盤をとても気に入っているに違いない……）"
+    },
+    {
+      "key": "12406_RequestDlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（不过剑、茶还有棋盘……究竟找那种谢礼送给莫问师兄比较好呢？）",
+      "ja": "1 - 宇文逸 $@$（しかし、剣、茶、そして碁盤……莫問師兄に贈るお礼の品として、どれが良いのだろうか？）"
+    },
+    {
+      "key": "12409_FinishingDlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（莫问师兄寻找的，应该就是此人口中的青玉棋盘吧……）",
+      "ja": "1 - 宇文逸 $@$（莫問師兄が探しているのは、この男が言っている青玉棋盤だろうな……）"
+    },
+    {
+      "key": "12436_RequestDlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师父，最近好像都没怎么见到莫问师兄？",
+      "ja": "1 - 宇文逸 $@$師父、最近莫問師兄をあまり見かけないのですが？"
+    },
+    {
+      "key": "14201_FinishingDlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$莫问师兄已将《武当心法》与《武当剑法》教授给弟子了。",
+      "ja": "1 - 宇文逸 $@$莫問師兄には、すでに《武当心法》と《武当剣法》を教えていただきました。"
+    },
+    {
+      "key": "20004_FinishingDlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$而圆觉方丈遇刺之时，莫问师兄追蹑玄火教护法瑶姬而去，至今尚未回来……",
+      "ja": "1 - 宇文逸 $@$円覚方丈が刺客に襲われたとき、莫問師兄は玄火教の護法・瑶姫を追って行き、それきり戻っていません……"
+    },
+    {
+      "key": "22576_FinishingDlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这段时日，各派皆不曾恢复元气，莫问师兄的去向自也无从调查……",
+      "ja": "1 - 宇文逸 $@$このところ各派はまだ立て直せておらず、莫問師兄の行方も調べようがない……"
+    },
+    {
+      "key": "23021_FinishingDlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$……天山惨案圆觉方丈已尽书于那卷竹简当中，只是未曾想到，那名婴童竟是莫问师兄……",
+      "ja": "1 - 宇文逸 $@$……天山の惨案については、円覚方丈があの竹簡にすべて書き残していた。まさか、あの赤子が莫問師兄だったとは……"
+    },
+    {
+      "key": "5371_FinishingDlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$宇文师弟！身体可还有哪里不适？",
+      "ja": "5015 - 莫問 $@$宇文師弟！体の具合はもう大丈夫か？"
+    },
+    {
+      "key": "5371_FinishingDlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$不过宇文师弟，你那晚实在太冲动了……",
+      "ja": "5015 - 莫問 $@$しかし宇文師弟、あの夜はあまりにも無謀だったな……"
+    },
+    {
+      "key": "5944_RequestDlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$是莫问师兄！和他交手的好像是……瑶姬？！",
+      "ja": "1 - 宇文逸 $@$莫問師兄だ！　戦っている相手は……瑶姫！？"
+    },
+    {
+      "key": "6252_FinishingDlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师父，莫问师兄他真的没事吗……",
+      "ja": "1 - 宇文逸 $@$師父……莫問師兄は、本当に大丈夫なんですか……？"
+    }
+  ],
+  "candidate_questions": [
+    "贈礼候補と碁盤への推測が宇文逸の内心語として自然か",
+    "莫問から受けた武当修行、失踪、天山事件の認識が各時点の事実として区別されているか",
+    "莫問の宇文師弟呼称と負傷への気遣い、宇文逸の師兄への懸念が関係段階に合うか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "言之凿凿",
+      "追蹑"
+    ],
+    "fact_doubts": [
+      "贈礼選択では莫棄の断言を根拠に莫問が青玉棋盤を好むと宇文逸が推測している",
+      "宇文逸は莫問から武当心法と武当剣法を教わったと師父へ報告している",
+      "円覚襲撃後、莫問は瑶姫を追って戻らず、後の時点でも各派が弱っていて行方を調べられない",
+      "天山惨案の赤子が莫問だったという認識は円覚の竹簡を読んだ後の宇文逸の理解である"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "Quests任务表",
+    "namespace": "Quests",
+    "row_count": 12,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch20.json",
+        "keys": [
+          "20004_FinishingDlgs_Index3_Text",
+          "22576_FinishingDlgs_Index1_Text",
+          "23021_FinishingDlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch29.json",
+        "keys": [
+          "14201_FinishingDlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch36.json",
+        "keys": [
+          "5944_RequestDlgs_Index1_Text",
+          "6252_FinishingDlgs_Index0_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "12406_OptionDlgs3_Index0_Text",
+      "12406_RequestDlgs_Index0_Text",
+      "12409_FinishingDlgs_Index8_Text",
+      "12436_RequestDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index3_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "12406_OptionDlgs3_Index0_Text",
+          "12406_RequestDlgs_Index0_Text",
+          "12409_FinishingDlgs_Index8_Text",
+          "12436_RequestDlgs_Index0_Text",
+          "14201_FinishingDlgs_Index2_Text",
+          "20004_FinishingDlgs_Index3_Text",
+          "22576_FinishingDlgs_Index1_Text",
+          "23021_FinishingDlgs_Index0_Text",
+          "5944_RequestDlgs_Index1_Text",
+          "6252_FinishingDlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5371_FinishingDlgs_Index0_Text",
+          "5371_FinishingDlgs_Index3_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:0885b1374ab8b9600c530c77f9678a9e4b47f239c33f7e7cafadd9d9f71276de"
+  }
+}

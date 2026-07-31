@@ -1,0 +1,362 @@
+{
+  "schema_version": 2,
+  "train_id": "yuwen-mowen-train-81",
+  "wave_id": "yuwen-mowen-train-81-wave-01",
+  "stage": "private_quality_audit",
+  "status": "complete",
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30668426155,
+    "artifact_id": 8807875827,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+    "head_sha": "bcdaef9989461437bf686a49414fc749812ae76c"
+  },
+  "decisions": [
+    {
+      "packet_id": "yuwen-mowen-train81-tail-01",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_CG_13297_2_2026-08-01.json",
+      "scene_groups": [
+        "13297_2_Dlgs"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "13297_2_Dlgs_Index1_Text",
+          "before": "9507 - 程鈺 $@$僕は……僕を生み育てた場所を弔いに来た。まさか僕の仇が、こんな風に死んでしまうとは。この手で命を奪うのを待つことさえ、できなかった……。",
+          "after": "9507 - 程鈺 $@$僕は……僕を生み育てた場所を弔いに来た。まさか僕の仇が、こんなふうに死んでしまうとは。僕がこの手で命を奪いに来るまで、待つことすらできなかった……",
+          "reason": "meaning/voice: 原文は仇が程鈺自身に討たれる時まで生きていなかったという無念。現訳は『命を奪うのを待つ』の主体が崩れ、程鈺が行為を待てなかったようにも読めるため、仇を主語とする待機関係を明確にし、感情が先に走る言いさしを保つ。"
+        }
+      ],
+      "keeps": [
+        "13297_2_Dlgs_Index0_Text"
+      ],
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        {
+          "scope": "chengyu_return_and_revenge",
+          "keys": [
+            "13297_2_Dlgs_Index0_Text",
+            "13297_2_Dlgs_Index1_Text"
+          ],
+          "note": "宇文逸と莫問が程鈺の行方を尋ねていた事実と、程鈺が故郷を弔い自ら仇を討てなかったことへの無念を分離する。仇の死因や善悪は補完しない。"
+        }
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:ab87d58baf4df99450fb16538d7cf8b063de6638d0a1f10f3656aad6d1ad71ec",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/程鈺.md",
+            "digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "13297_2_Dlgs_Index0_Text"
+          ],
+          "reason": "程鈺の帰還へ驚き、莫問と共に行方を捜していた事実を先に伝える一行は、後輩へ親身に接するM3と、莫問を師兄と認識する関係段階に整合する。現訳に人物資料の反例はない。",
+          "scope": {
+            "scene_groups": [
+              "13297_2_Dlgs"
+            ],
+            "modes": [
+              "M3"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/程鈺.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "13297_2_Dlgs_Index1_Text"
+          ],
+          "reason": "故郷を弔う目的を述べた直後、仇を自ら討てなかった無念へ感情が先に走る。『僕は……』の言いさしと基調一人称は現行資料に整合し、修正対象は現訳の主客関係だけである。",
+          "scope": {
+            "scene_groups": [
+              "13297_2_Dlgs"
+            ],
+            "modes": [
+              "家族の喪失・拒絶感",
+              "決意・復讐の無念"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    },
+    {
+      "packet_id": "yuwen-mowen-train81-tail-02",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_QUESTS_12406_6252_2026-08-01.json",
+      "scene_groups": [
+        "12406_OptionDlgs3_Index0_Text",
+        "12406_RequestDlgs_Index0_Text",
+        "12409_FinishingDlgs_Index8_Text",
+        "12436_RequestDlgs_Index0_Text",
+        "14201_FinishingDlgs_Index2_Text",
+        "20004_FinishingDlgs_Index3_Text",
+        "22576_FinishingDlgs_Index1_Text",
+        "23021_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index3_Text",
+        "5944_RequestDlgs_Index1_Text",
+        "6252_FinishingDlgs_Index0_Text"
+      ],
+      "status": "audited",
+      "fixes": [
+        {
+          "key": "5371_FinishingDlgs_Index0_Text",
+          "before": "5015 - 莫問 $@$宇文師弟！体の具合はもう大丈夫か？",
+          "after": "5015 - 莫問 $@$宇文師弟！　まだどこか具合の悪いところはないか？",
+          "reason": "meaning/voice: 原文は身体にまだ不調箇所が残っていないかを具体的に確かめる問い。現訳の『もう大丈夫か』は状態を総括する問いへ弱めているため、兄弟子が傷を観察して世話する声のまま、不調の残存を尋ねる機能を戻す。"
+        }
+      ],
+      "keeps": [
+        "12406_OptionDlgs3_Index0_Text",
+        "12406_RequestDlgs_Index0_Text",
+        "12409_FinishingDlgs_Index8_Text",
+        "12436_RequestDlgs_Index0_Text",
+        "14201_FinishingDlgs_Index2_Text",
+        "20004_FinishingDlgs_Index3_Text",
+        "22576_FinishingDlgs_Index1_Text",
+        "23021_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index3_Text",
+        "5944_RequestDlgs_Index1_Text",
+        "6252_FinishingDlgs_Index0_Text"
+      ],
+      "allusion_review_candidates": [
+        "言之凿凿",
+        "追蹑"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "12406_OptionDlgs3_Index0_Text",
+          "decision": "定着した成語",
+          "note": "『言之凿凿』は言葉を確かな事実のように言い切る機能。現訳の『断言していた』が、莫棄の発言を根拠に宇文逸が推測する構造を保つためKEEP。"
+        },
+        {
+          "key": "20004_FinishingDlgs_Index3_Text",
+          "decision": "通常の追跡動作語",
+          "note": "『追蹑』は足取りを追って追跡する意味で、特定典籍の引用ではない。現訳『追って行き』が瑶姫を追跡した事実を保つためKEEP。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "gift_selection",
+          "keys": [
+            "12406_OptionDlgs3_Index0_Text",
+            "12406_RequestDlgs_Index0_Text",
+            "12409_FinishingDlgs_Index8_Text"
+          ],
+          "note": "莫棄の断言を受け、宇文逸が莫問の好みと青玉棋盤を推測する補助任務。莫問本人が好みを断言した事実へ変えない。"
+        },
+        {
+          "scope": "training_and_absence",
+          "keys": [
+            "12436_RequestDlgs_Index0_Text",
+            "14201_FinishingDlgs_Index2_Text",
+            "20004_FinishingDlgs_Index3_Text",
+            "22576_FinishingDlgs_Index1_Text"
+          ],
+          "note": "宇文逸が莫問から武当功法を教わった報告と、円覚襲撃後に莫問が瑶姫を追って失踪した時系列は別任務。連続した一場面へ合成しない。"
+        },
+        {
+          "scope": "tian_shan_identity_and_brotherly_care",
+          "keys": [
+            "23021_FinishingDlgs_Index0_Text",
+            "5371_FinishingDlgs_Index0_Text",
+            "5371_FinishingDlgs_Index3_Text",
+            "5944_RequestDlgs_Index1_Text",
+            "6252_FinishingDlgs_Index0_Text"
+          ],
+          "note": "天山惨案の赤子が莫問だったという宇文逸の理解は竹簡読後。負傷への気遣いと瑶姫との戦闘目撃、莫問の安否確認は別時点として扱う。"
+        }
+      ],
+      "reading_attestation": {
+        "contract_id": "quality-audit-source-feedback-v1",
+        "manifest_digest": "sha256:0885b1374ab8b9600c530c77f9678a9e4b47f239c33f7e7cafadd9d9f71276de",
+        "primary_evidence_reviewed": true,
+        "doubt_gates_completed_before_reference_crosscheck": true,
+        "documents": [
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+            "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+            "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+            "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+            "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+            "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+            "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+            "status": "reviewed"
+          },
+          {
+            "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+            "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+            "status": "reviewed"
+          },
+          {
+            "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+            "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/宇文逸.md",
+            "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+            "status": "reviewed"
+          },
+          {
+            "path": "10_人物/莫問.md",
+            "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+            "status": "reviewed"
+          }
+        ]
+      },
+      "source_document_decisions": [
+        {
+          "target": "10_人物/宇文逸.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "12406_OptionDlgs3_Index0_Text",
+            "12406_RequestDlgs_Index0_Text",
+            "12409_FinishingDlgs_Index8_Text",
+            "12436_RequestDlgs_Index0_Text",
+            "14201_FinishingDlgs_Index2_Text",
+            "20004_FinishingDlgs_Index3_Text",
+            "22576_FinishingDlgs_Index1_Text",
+            "23021_FinishingDlgs_Index0_Text",
+            "5944_RequestDlgs_Index1_Text",
+            "6252_FinishingDlgs_Index0_Text"
+          ],
+          "reason": "贈礼を迷うM7、師父へのM1b報告、莫問失踪と天山出自を整理する長い認識、戦闘時の驚きと安否へのM1cの懸念が、現行資料の多モード性と師兄呼称の維持に整合する。今回の保持・修正は資料の反例ではない。",
+          "scope": {
+            "scene_groups": [
+              "12406_OptionDlgs3_Index0_Text",
+              "12406_RequestDlgs_Index0_Text",
+              "12409_FinishingDlgs_Index8_Text",
+              "12436_RequestDlgs_Index0_Text",
+              "14201_FinishingDlgs_Index2_Text",
+              "20004_FinishingDlgs_Index3_Text",
+              "22576_FinishingDlgs_Index1_Text",
+              "23021_FinishingDlgs_Index0_Text",
+              "5944_RequestDlgs_Index1_Text",
+              "6252_FinishingDlgs_Index0_Text"
+            ],
+            "modes": [
+              "M7",
+              "M1b",
+              "M1c"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        },
+        {
+          "target": "10_人物/莫問.md",
+          "document_type": "persona",
+          "decision": "keep",
+          "evidence_keys": [
+            "5371_FinishingDlgs_Index0_Text",
+            "5371_FinishingDlgs_Index3_Text"
+          ],
+          "reason": "宇文師弟と呼び、負傷の残存を具体的に尋ねた後、夜の無謀さを短く戒める二行は、入門直後の兄弟子による世話・気遣いと教導に整合する。修正対象は一行の意味の具体性で、人物資料の反例ではない。",
+          "scope": {
+            "scene_groups": [
+              "5371_FinishingDlgs_Index0_Text",
+              "5371_FinishingDlgs_Index3_Text"
+            ],
+            "modes": [
+              "入門直後の兄弟子",
+              "世話・気遣い"
+            ]
+          },
+          "confidence": "high",
+          "operation": "none"
+        }
+      ]
+    }
+  ]
+}
