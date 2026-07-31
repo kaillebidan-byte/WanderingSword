@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-74-r1",
+  "train_id": "yuwen-mowen-train-74",
+  "pr": 231,
+  "ci_head": "6a49d3a345f98c942b47a4eba7a81374469c53d0",
+  "asset_head": "706e22f827dfb6b037bfba90f6943dbfc9316ff9",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH205_2026-08-01.md",
+  "counts": {
+    "batch": 205,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30658392194,
+    "workflow": "Release train orchestrator",
+    "head_sha": "6a49d3a345f98c942b47a4eba7a81374469c53d0",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "完全preflight、Relation、Cross、Apply、pak再生成、未適用差分0件を確認済み。",
+    "buildはverified_not_deployed、game verificationはnot_startedを維持する。",
+    "9261_1はminimal reservationとしてのみ登録し、train-74統合前にpreparationを開始しない。"
+  ]
+}

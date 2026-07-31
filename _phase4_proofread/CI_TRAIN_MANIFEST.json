@@ -1,1 +1,230 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-73","branch":"agent/yuwen-mowen-train-73","draft_pr":230,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":230,"merge_sha":"4c38470e917cf84f1073214c69710fdd3037efa6"},"base_checkpoint":{"batch":203,"pair_applied_keys":1407,"project_applied_keys":1783,"produced_by_pr":229,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-72-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_72.json","pr":229,"validated_head":"9d7dd50b0db73b0874bb6934ea9b64ce5893d607"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":53,"reviewed_keys":53,"unique_reviewed_rows":53,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":4,"keep_only_bundles":0},"bundles":[{"batch":204,"review_status":"complete","apply_status":"verified","scene_groups":["9231_3","9232_3","9233_2","9233_4"],"reviewed_rows":53,"reviewed_keys":53,"unique_rows":53,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":4,"keep_keys":49,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch28.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch29.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch30.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch31.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH204_2026-08-01.md","ownership_summary":{"existing_keys":53,"unowned_kept":0,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["天人合一","不共戴天","负隅顽抗","阴沟里翻船","要杀要剐"],"allusion_review_resolved":[{"key":"9231_3_Dlgs_Index0_Text","decision":"道家・武侠で定着した境地語","note":"「天人合一」は修行境地を示す定着語。説明的に散文化せず漢語を保持し、無名の未完の推測だけ日本語の反語として整える。9232_3・9233_4の重複分岐も同判断。"},{"key":"9231_3_Dlgs_Index13_Text","decision":"不倶戴天の仇敵を表す定着成語","note":"「不共戴天」は同じ天の下に生きられないほどの仇敵関係。現訳「不倶戴天の敵」が強度と敵認定を保つため維持する。9232_3・9233_4の重複分岐も同判断。"},{"key":"9233_2_Dlgs_Index1_Text","decision":"追い詰められてなお抵抗する定着成語","note":"「负隅顽抗」は地勢を頼みに頑強に抵抗する意から、追い詰められた無駄な抵抗を表す。現訳は場面機能を自然な日本語で保持する。"},{"key":"9233_2_Dlgs_Index3_Text","decision":"思わぬ小所で失敗する俗諺的比喩","note":"「阴沟里翻船」は力量ある者が意外な場所でしくじる比喩。現訳「こんなところで足をすくわれる」が自負と不意の敗北を保つため維持する。"},{"key":"9233_2_Dlgs_Index4_Text","decision":"処断を恐れず挑発する定型句","note":"「要杀要剐」は殺す・斬るを並べた居直り。一般的な「何なり」へ薄めず、粗野な並列と「动手吧」の挑戦を訳文へ戻す。"}],"fact_doubts":[{"scope":"wuming_unfinished_cultivation_inference","keys":["9231_3_Dlgs_Index0_Text","9231_3_Dlgs_Index1_Text","9232_3_Dlgs_Index0_Text","9232_3_Dlgs_Index1_Text","9233_4_Dlgs_Index0_Text","9233_4_Dlgs_Index1_Text"],"note":"無名は宇文逸が何かを修めたと推測しかけ、続く心内語で内力が風雲訣だけではないと見直す。修得した武功名や確定結論はこの場面にないため補わない。"},{"scope":"identity_of_deceiver_remains_wuming_provocation","keys":["9231_3_Dlgs_Index8_Text","9231_3_Dlgs_Index10_Text","9231_3_Dlgs_Index11_Text","9231_3_Dlgs_Index13_Text","9232_3_Dlgs_Index9_Text","9232_3_Dlgs_Index11_Text","9232_3_Dlgs_Index12_Text","9232_3_Dlgs_Index14_Text","9233_4_Dlgs_Index12_Text","9233_4_Dlgs_Index14_Text","9233_4_Dlgs_Index15_Text","9233_4_Dlgs_Index17_Text"],"note":"誰が莫問を騙しているかという無名の発言は、烏天瘤から真相を聞けていない点を突く心理的挑発。清虚・烏天瘤・無名の誰の主張が真実かをこの場面だけで確定しない。"},{"scope":"wuming_reveal_parties_are_branch_specific","keys":["9231_3_Dlgs_Index3_Text","9232_3_Dlgs_Index5_Text","9233_4_Dlgs_Index4_Text","9233_4_Dlgs_Index5_Text","9233_4_Dlgs_Index8_Text"],"note":"9231_3、9232_3、9233_4は同型の無名登場だが、李元興・燕未還・荀杳杳の同席と発話が異なる分岐。三者を一つの同席場面へ合成しない。"},{"scope":"remnant_execution_is_branch_scoped","keys":["9233_2_Dlgs_Index0_Text","9233_2_Dlgs_Index1_Text","9233_2_Dlgs_Index2_Text","9233_2_Dlgs_Index3_Text","9233_2_Dlgs_Index4_Text","9233_2_Dlgs_Index5_Text"],"note":"杜彪・沙権賈の敗北と莫問の処断は無名登場と同局面の一分岐。全同行者分岐で同じ順序・同じ発話が必ず起きるとは一般化しない。"},{"scope":"wuming_claim_to_remove_subordinates_is_his_statement","keys":["9231_3_Dlgs_Index6_Text","9232_3_Dlgs_Index7_Text","9233_4_Dlgs_Index10_Text"],"note":"部下を自ら始末するつもりだったというのは無名自身の発言。黒幕の酷薄さは示すが、実行済みの客観事実や事前計画の全容として強めない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30643106147,"artifact_id":8798304823,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:90ab4f1d5654f6aaa51063ee6c4e9c19ee88c8877fcb98210f21be08aa6fa784","head_sha":"b3b3b68c7356cd0a595d60154545607197781acc"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-73-wave-01"},"next_release":{"candidate_scene":["9234_6"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[204],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-72","release_id":"yuwen-mowen-train-72-r1","pr":229,"merge_sha":"bf5774441cb436921727251a95c4b6c9a0b83b87"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":53,"unique_reviewed_rows":53,"fix_keys":4,"unique_fix_rows":4,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":4,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":49,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN73_WAVE01_2026-08-01.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_73.json","merge_result":{"pr":230,"merge_sha":"4c38470e917cf84f1073214c69710fdd3037efa6"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-74",
+  "branch": "agent/yuwen-mowen-train-74",
+  "draft_pr": 231,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 231,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 204,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 230,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-73-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_73.json",
+      "pr": 230,
+      "validated_head": "fe47155b03a7efed63f63646e311a60e66bd2f6b"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 46,
+    "reviewed_keys": 46,
+    "unique_reviewed_rows": 46,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 3,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 205,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "9234_6",
+        "9236_6",
+        "9238_6",
+        "9245_1",
+        "9245_3"
+      ],
+      "reviewed_rows": 46,
+      "reviewed_keys": 46,
+      "unique_rows": 46,
+      "fix_keys": 3,
+      "unique_fix_rows": 3,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 3,
+      "keep_keys": 43,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch33.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch34.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH205_2026-08-01.md",
+      "ownership_summary": {
+        "existing_keys": 46,
+        "unowned_kept": 0,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "阿弥陀佛",
+        "天人合一",
+        "客即是缘",
+        "五灵心经",
+        "风云诀",
+        "手无缚鸡之力"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "9234_6_Dlgs_Index0_Text",
+          "decision": "仏教定型句と道家・武侠の境地語",
+          "note": "「阿弥陀佛」は円覚の口頭禅として「南無阿弥陀仏」を保持する。「天人合一」は修行境地を示す定着語で、9236_6・9238_6の重複分岐も同判断。"
+        },
+        {
+          "key": "9234_6_Dlgs_Index7_Text",
+          "decision": "因縁を説く仏教的な作中格言",
+          "note": "「客即是缘」は特定経典の引用と断定せず、客との出会いも縁であるという円覚の場面機能を「客となるのもご縁」で保持する。9236_6・9238_6の重複分岐も同判断。"
+        },
+        {
+          "key": "9245_1_Dlgs_Index9_Text",
+          "decision": "作品内の秘伝書名と武功名",
+          "note": "「五灵心经」「风云诀」は説明的に訳さず、確定名《五霊心経》《風雲訣》を保持する。"
+        },
+        {
+          "key": "9236_6_Dlgs_Index6_Text",
+          "decision": "非力さを鶏一羽で表す定着表現",
+          "note": "「手无缚鸡之力」は鶏一羽も縛れないほど非力という像が、文弱な書生ではないという李元興の控えめな自負を担うため修正訳へ戻す。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "branch_specific_body_and_staff_transport",
+          "keys": [
+            "9234_6_Dlgs_Index2_Text",
+            "9234_6_Dlgs_Index4_Text",
+            "9236_6_Dlgs_Index2_Text",
+            "9236_6_Dlgs_Index4_Text",
+            "9238_6_Dlgs_Index2_Text",
+            "9238_6_Dlgs_Index4_Text",
+            "9238_6_Dlgs_Index6_Text",
+            "9238_6_Dlgs_Index7_Text"
+          ],
+          "note": "烏長老の死亡は三分岐で共有される。青竹杖の奪還は9236_6・9238_6だけで、遺体と杖を送る者、燕未還・荀杳杳の護送参加は分岐固有。三つを合成しない。"
+        },
+        {
+          "scope": "mowen_knowledge_about_fengyun_jue",
+          "keys": [
+            "9245_1_Dlgs_Index6_Text",
+            "9245_1_Dlgs_Index7_Text",
+            "9245_1_Dlgs_Index8_Text"
+          ],
+          "note": "天山派滅亡後に《風雲訣》を修得した者はいないという説明は「据我所知」で限定された莫問の知識。作品世界の全知的事実へ強めない。"
+        },
+        {
+          "scope": "yuwen_account_of_cultivation_origin",
+          "keys": [
+            "9245_1_Dlgs_Index9_Text",
+            "9245_1_Dlgs_Index10_Text",
+            "9245_1_Dlgs_Index12_Text"
+          ],
+          "note": "《五霊心経》残篇から一端を会得し、不風山戦後に《風雲訣》と知った経緯は宇文逸本人の説明。江大哥に関わるため伏せていたという事情も他の分岐へ一般化しない。"
+        },
+        {
+          "scope": "wuming_mastery_is_yuwen_assessment",
+          "keys": [
+            "9245_1_Dlgs_Index11_Text"
+          ],
+          "note": "無名の《風雲訣》造詣が自分より深いというのは宇文逸の戦闘時判断。無名の修得経路や客観的な力量順位は確定しない。"
+        },
+        {
+          "scope": "xuanhuo_purpose_is_yuwen_inference",
+          "keys": [
+            "9245_1_Dlgs_Index1_Text",
+            "9245_1_Dlgs_Index2_Text"
+          ],
+          "note": "玄火教が中原大派を堂々と襲ったのは初めてという整理と、目的が青竹杖だけらしいという見立ては宇文逸の認識・推測。「似乎」の不確実性を保持する。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30656638354,
+        "artifact_id": 8803515920,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:26da381bbd86c365b8ca17083b52126c91ba1cfa7d39f68711921abc0e5e5a0b",
+        "head_sha": "3766798ba016c9b3b738feb0016d66dddbb1836a"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-74-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "9261_1"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      205
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-73",
+    "release_id": "yuwen-mowen-train-73-r1",
+    "pr": 230,
+    "merge_sha": "4c38470e917cf84f1073214c69710fdd3037efa6"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 46,
+    "unique_reviewed_rows": 46,
+    "fix_keys": 3,
+    "unique_fix_rows": 3,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 3,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 43,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN74_WAVE01_2026-08-01.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_74.json"
+}
