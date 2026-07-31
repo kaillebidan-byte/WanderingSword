@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-67",
   "branch": "agent/yuwen-mowen-train-67",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 224,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 224,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -41,28 +41,166 @@
   ],
   "release_trigger": null,
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
+    "bundle_count": 1,
+    "reviewed_rows": 52,
+    "reviewed_keys": 52,
+    "unique_reviewed_rows": 52,
+    "fix_keys": 8,
+    "unique_fix_rows": 8,
     "new_pair_keys": 0,
     "new_project_keys": 0,
     "cross_register_keys": 0,
-    "existing_owner_updates": 0,
+    "existing_owner_updates": 8,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 198,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "5786_3",
+        "5786_15",
+        "5789_2",
+        "5789_4",
+        "5790_10",
+        "5790_11",
+        "5800_1",
+        "5801_2",
+        "5803_2",
+        "5805_3",
+        "5805_4"
+      ],
+      "reviewed_rows": 52,
+      "reviewed_keys": 52,
+      "unique_rows": 52,
+      "fix_keys": 8,
+      "unique_fix_rows": 8,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 8,
+      "keep_keys": 44,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch13.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH198_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 50,
+        "unowned_kept": 2,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "蓬荜生辉",
+        "寿比南山",
+        "谬赞",
+        "愧不敢当",
+        "化成灰我都认识",
+        "静观其变",
+        "自取灭亡",
+        "为武林除一害"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "5786_3_Dlgs_Index4_Text",
+          "decision": "定着した賓客歓迎の成語",
+          "note": "「蓬荜生辉」は高名な客の来訪で粗末な住まいまで輝くという定着成語。特定典籍の直接引用としてではなく、程徳明のもてなしと謙譲を担う儀礼表現として扱う。"
+        },
+        {
+          "key": "5786_3_Dlgs_Index9_Text",
+          "decision": "古典由来の定着した寿賀句",
+          "note": "「寿比南山」は『詩経』小雅「天保」の南山長寿像に連なる定着祝辞。宇文逸が賀礼を渡す正式場面なので、南山の比喩を保つ。"
+        },
+        {
+          "key": "5786_3_Dlgs_Index5_Text",
+          "decision": "定着した謙譲応答",
+          "note": "「谬赞」「愧不敢当」は褒めすぎを辞退する定型的な謙譲表現。現訳の「身に余るお言葉」「若輩の身には、とても……」が機能と言いさしを保つ。"
+        },
+        {
+          "key": "5790_11_Dlgs_Index0_Text",
+          "decision": "通常の口語的誇張",
+          "note": "「化成灰我都认识」は強い記憶と憎悪を示す口語的誇張で、特定典故ではない。現訳「灰になっても分かります」を維持する。"
+        },
+        {
+          "key": "5790_11_Dlgs_Index2_Text",
+          "decision": "定着した状況観察の成語",
+          "note": "「静观其变」は成り行きを冷静に見極める定着表現。莫問の危機判断として「静観しよう」を維持し、前半の「人多嘴杂」だけを意味修正する。"
+        },
+        {
+          "key": "5803_2_Dlgs_Index2_Text",
+          "decision": "定着した自滅の成語",
+          "note": "「自取灭亡」は自ら滅びを招く意の定着成語。蒼鷹の戦闘前の嘲弄として、現訳「自分から死にに来たか」が声と強度を保つ。"
+        },
+        {
+          "key": "5803_2_Dlgs_Index7_Text",
+          "decision": "武林の定型的な自己正当化",
+          "note": "「为武林除了一害」は武林の害を除いたと称する侠義的レトリック。蒼鷹の自己正当化であり、客観的評価にはしない。現訳を維持する。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "cheng_family_tension_is_yuwen_observation",
+          "keys": [
+            "5786_15_Dlgs_Index0_Text",
+            "5786_15_Dlgs_Index1_Text"
+          ],
+          "note": "程万清の人柄と城内評判は宇文逸の観察で、莫問も家事として論評を避ける。程家兄弟の善悪や家庭事情をこの会話から確定しない。"
+        },
+        {
+          "scope": "cangying_accusations_are_self_justification",
+          "keys": [
+            "5803_2_Dlgs_Index5_Text",
+            "5803_2_Dlgs_Index6_Text",
+            "5803_2_Dlgs_Index7_Text"
+          ],
+          "note": "江吟風の人命、程徳明の恩知らず、弟の妻との関係は、金を受けて動いた蒼鷹が自分を正当化するために述べる告発。この場面だけで客観事実へ固定しない。"
+        },
+        {
+          "scope": "cheng_wanqing_as_client_is_inference",
+          "keys": [
+            "5803_2_Dlgs_Index0_Text",
+            "5803_2_Dlgs_Index7_Text",
+            "5803_2_Dlgs_Index8_Text"
+          ],
+          "note": "蒼鷹は金を受けたことと苦主を助けたことを述べるが、程万清を名指ししない。程二爺が依頼人かという宇文逸の言いさしは推測であり、犯人確定へ進めない。"
+        },
+        {
+          "scope": "cheng_deming_harm_status_is_yuwen_belief",
+          "keys": [
+            "5803_2_Dlgs_Index4_Text"
+          ],
+          "note": "宇文逸は蒼鷹が程堡主を害したと確信して責めるが、被害内容や生死はこの一行では確定しない。「傷つけた」の保守的表現を維持する。"
+        },
+        {
+          "scope": "cangying_hiding_place_is_mowen_inference",
+          "keys": [
+            "5805_4_Dlgs_Index0_Text",
+            "5805_4_Dlgs_Index1_Text"
+          ],
+          "note": "負傷、逃走距離、潜伏、行き先は莫問が痕跡から組み立てる高確度推論。「应该」「很可能」を訳文で断定へ変えない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30597537770,
+        "artifact_id": 8780700978,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:8610053e82b13185a4078cb0de5bca82c052413827c0646bd8c4f1881fa5b197",
+        "head_sha": "5517c9d2053f6319823d0e6024edfe043c09a40d"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-67-wave-01"
   },
   "next_release": {
@@ -79,15 +217,31 @@
       "5805_3",
       "5805_4"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      198
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-66",
     "release_id": "yuwen-mowen-train-66-r1",
     "pr": 223,
     "merge_sha": "eb640033c15b08d1ce549f067926088a4b15a5b6"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 52,
+    "unique_reviewed_rows": 52,
+    "fix_keys": 8,
+    "unique_fix_rows": 8,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 8,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed"
   }
 }
