@@ -1,96 +1,57 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-70-quality-audit",
+  "task_id": "post-train70-minimal-wave-reservation",
   "based_on_checkpoint": {
-    "batch": 200,
+    "batch": 201,
     "pair_applied_keys": 1407,
     "project_applied_keys": 1783,
-    "produced_by_pr": 226,
-    "release_id": "yuwen-mowen-train-69-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_69.json"
+    "produced_by_pr": 227,
+    "release_id": "yuwen-mowen-train-70-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_70.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "6002_5",
-    "6064_6",
-    "6151_2",
-    "6151_3"
+    "6155_1"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-70-wave-01",
-    "packet_id": "yuwen-mowen-train70-packet-01",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": 201
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_run": 30601107348,
-    "artifact_id": 8781931983,
-    "artifact_digest": "sha256:7498579f617b9bf1581b27ab2aa0526c9940a0a22a2b0f3c0eab445265697ba2",
-    "artifact_head": "e7500d2883fbbe58f7ac1cbbb7fd08dc2daf8b95",
-    "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
+    "artifact_run": 30628360400,
+    "artifact_id": 8792319775,
+    "artifact_digest": "sha256:f259691bbdbb5f8c4c486e42958509b0b06902325f71fbeb32d21c0e18444c6a",
+    "artifact_head": "d020cc38e72927b219106f5a4bd8f78404a30b06",
+    "freshness_rule": "統合後の次cycle開始時にmainとartifact metadataを再確認する。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-70",
     "release_id": "yuwen-mowen-train-70-r1",
     "pr": 227,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "minimal reservationへfocus key・voice question・FACT_DOUBT・owner snapshot・batch planningを戻さない",
+    "yuwen-mowen-train-70統合前に6155_1のpreparationを開始しない",
+    "translation freeze後に翻訳判断、fix追加、owner変更、正式束追加を行わない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-70",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 201,
+    "planned_batch": 202,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "manifest_digest": "sha256:d5f12f8b57da1c5adfdc867a8c56d956b37f763696e99dc9472f4ab4bbfda665"
-  },
-  "batch_planning": {
-    "mode": "semantic_wave",
-    "reviewed_rows": 63,
-    "target_rows": {
-      "min": 40,
-      "max": 60
-    },
-    "hard_max": 80,
-    "adjacent_candidates_checked": [
-      "6002_5",
-      "6064_6",
-      "6151_2",
-      "6151_3"
-    ],
-    "grouping_decision": "四場面63行で、莫問の奪取行為、伏龍子の正体と父子関係の開示、天山派旧事、残篇返還、復讐継続の論理、師兄関係の明示的拒絶までが閉じる。60行を超えるが、6151_3末尾の関係断絶まで切らずに読む必要があるためcomplete_semantic_unit延長を使用する。",
-    "exception": {
-      "reason_code": "complete_semantic_unit",
-      "detail": "四場面63行で、莫問の奪取行為、伏龍子の正体と父子関係の開示、天山派旧事、残篇返還、復讐継続の論理、師兄関係の明示的拒絶までが閉じる。60行を超えるが、6151_3末尾の関係断絶まで切らずに読む必要があるためcomplete_semantic_unit延長を使用する。"
-    }
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 6,
-    "new_project_keys": 0,
-    "fix_keys": 6
-  },
-  "source_document_feedback": {
-    "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN70_WAVE01_2026-07-31.json",
-    "changed_documents": [],
-    "unresolved_documents": []
   }
 }
