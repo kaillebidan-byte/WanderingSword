@@ -1,1 +1,89 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-75","branch":"agent/yuwen-mowen-train-75","draft_pr":232,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":232,"merge_sha":"79cb4a4ad53fe2110eeeee10e8f45ec8390ca796"},"base_checkpoint":{"batch":205,"pair_applied_keys":1407,"project_applied_keys":1783,"produced_by_pr":231,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-74-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_74.json","pr":231,"validated_head":"706e22f827dfb6b037bfba90f6943dbfc9316ff9"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":43,"reviewed_keys":43,"unique_reviewed_rows":43,"fix_keys":2,"unique_fix_rows":2,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":1,"keep_only_bundles":0},"bundles":[{"batch":206,"review_status":"complete","apply_status":"verified","scene_groups":["9247_1","9250_1","9261_1","9262_1","9267_1","9273_1","9279_1","20515_4","20516_3"],"reviewed_rows":43,"reviewed_keys":43,"unique_rows":43,"fix_keys":2,"unique_fix_rows":2,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":1,"keep_keys":41,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch41.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch120.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH206_2026-08-01.md","ownership_summary":{"existing_keys":30,"unowned_kept":12,"new_keys":1,"cross_register_keys":0},"allusion_review_candidates":["大开杀戒","万无一失","杳无音信"],"allusion_review_resolved":[{"key":"9261_1_Dlgs_Index5_Text","decision":"殺戒を大きく開くという定着した強調表現","note":"玄火教が顧みず大規模な殺戮に及んだ矛盾を問う語。現訳「人目もはばからず殺戮に及んだ」は強度と場面機能を保つ。9262_1の重複分岐も同判断。"},{"key":"9279_1_Dlgs_Index6_Text","decision":"万に一つも失敗がないことを表す定着成語","note":"「万一を潰す」は日本語の像が不自然なため、「万全を期す」へ修正して六扇門と廠衛の二重手配の目的を保つ。"},{"key":"20516_3_Dlgs_Index2_Text","decision":"消息がまったくないことを表す定着成語","note":"現訳「今も消息がつかめず」は日本語の会話として自然に機能を保ち、莫問の状態を勝手に補わない。"}],"fact_doubts":[{"scope":"branch_specific_beggar_gang_investigations","keys":["9261_1_Dlgs_Index0_Text","9261_1_Dlgs_Index7_Text","9261_1_Dlgs_Index8_Text","9262_1_Dlgs_Index0_Text","9262_1_Dlgs_Index6_Text","9267_1_Dlgs_Index0_Text","9267_1_Dlgs_Index2_Text","9273_1_Dlgs_Index0_Text","9279_1_Dlgs_Index0_Text"],"note":"平康二分岐、樊城、総舵、陳長老事件は同行者・聞き手・地点・局面が異なる。絶無心の返答と宇文逸の問いを一つの会話へ合成しない。"},{"scope":"mowen_inference_about_xuanhuo_and_six_doors","keys":["9261_1_Dlgs_Index5_Text","9261_1_Dlgs_Index6_Text","9262_1_Dlgs_Index5_Text","9262_1_Dlgs_Index6_Text"],"note":"玄火教が長老を介して丐幇掌握を狙うという前提と、殺戮との矛盾、六扇門が情報を持つ可能性は莫問の推理・問いである。客観事実へ強めない。"},{"scope":"leng_wuqing_court_assessment_and_poison_uncertainty","keys":["9279_1_Dlgs_Index1_Text","9279_1_Dlgs_Index3_Text","9279_1_Dlgs_Index5_Text","9279_1_Dlgs_Index6_Text","9279_1_Dlgs_Index8_Text"],"note":"廠衛都督童安と朝廷の意図は冷無情が死士の手口と情勢から導いた見立て。毒の出所は本人も判断不能としており、同一勢力の仕業と確定しない。"},{"scope":"dao_miao_survivor_report","keys":["9261_1_Dlgs_Index2_Text","9261_1_Dlgs_Index3_Text","9262_1_Dlgs_Index2_Text","9262_1_Dlgs_Index3_Text"],"note":"生存者がいないというのは道妙らが到着した時点の観察報告。襲撃の全経緯、犯人、他地点の被害まで補わない。"},{"scope":"mowen_presence_and_absence_chronology","keys":["9247_1_Dlgs_Index1_Text","9250_1_Dlgs_Index1_Text","9261_1_Dlgs_Index5_Text","9279_1_Dlgs_Index4_Text","20515_4_Dlgs_Index0_Text","20516_3_Dlgs_Index2_Text"],"note":"少林で瑶姫と交戦後に不在となる局面、丐幇調査へ同行する分岐、後日なお消息不明の場面は時系列または分岐が異なる。同一の直線的経過へ合成しない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30658392194,"artifact_id":8804206593,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:222ba51bbac7ee5568786f20bb1efcecfadefb7b84acab40e1e549cba99f5342","head_sha":"6a49d3a345f98c942b47a4eba7a81374469c53d0"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-75-wave-01"},"next_release":{"candidate_scene":["22010_7"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[206],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-74","release_id":"yuwen-mowen-train-74-r1","pr":231,"merge_sha":"7d8656ada815c3023105d81689a041efed36aa10"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":43,"unique_reviewed_rows":43,"fix_keys":2,"unique_fix_rows":2,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":2,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":41,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN75_WAVE01_2026-08-01.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_75.json","merge_result":{"pr":232,"merge_sha":"79cb4a4ad53fe2110eeeee10e8f45ec8390ca796"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-76",
+  "branch": "agent/yuwen-mowen-train-76",
+  "draft_pr": null,
+  "status": "accumulating",
+  "transport": {
+    "status": "not_ready",
+    "translation_stage": "private_quality_audit",
+    "pr": null,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 206,
+    "pair_applied_keys": 1408,
+    "project_applied_keys": 1784,
+    "produced_by_pr": 232,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-75-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_75.json",
+      "pr": 232,
+      "validated_head": "647e8fe3583f284ffc4f17e0e69d451cfae09ef0"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 0,
+    "reviewed_rows": 0,
+    "reviewed_keys": 0,
+    "unique_reviewed_rows": 0,
+    "fix_keys": 0,
+    "unique_fix_rows": 0,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 0,
+    "keep_only_bundles": 0
+  },
+  "bundles": [],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "private_quality_audit",
+    "status": "active",
+    "transport_status": "not_ready",
+    "wave_id": "yuwen-mowen-train-76-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "22010_7",
+      "22025_1",
+      "22029_5",
+      "22031_1",
+      "22125_1",
+      "24057_1",
+      "24058_1"
+    ],
+    "reservation_status": "quality_audit_active",
+    "reservation_schema": 6,
+    "formal_batches": [],
+    "current_private_stage": "private_quality_audit"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-75",
+    "release_id": "yuwen-mowen-train-75-r1",
+    "pr": 232,
+    "merge_sha": "79cb4a4ad53fe2110eeeee10e8f45ec8390ca796"
+  }
+}
