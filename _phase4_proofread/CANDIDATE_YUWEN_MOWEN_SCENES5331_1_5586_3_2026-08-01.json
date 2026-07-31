@@ -1,0 +1,637 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "5331_1",
+    "5341_2",
+    "5341_4",
+    "5343_4",
+    "5360_10",
+    "5586_3"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30663804764,
+    "artifact_id": 8806187365,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:64ab80dea580407d598ac77199425ce644179a8d68ca047456971e0b5cc88de2",
+    "head_sha": "1e8d17584ebb08187863fef41f2295db29bbfa9e"
+  },
+  "scene_context": {
+    "timeline": "品剣大会への参加者を決める武当門内大比の発端・裁定・結果を主単位とし、その後の莫棄救出判断と洪飛への莫問紹介を別小単位として扱う。",
+    "branch_note": "5331_1〜5343_4の27行で門内大比が完結する。単独では40行下限に届かないため、莫問との関係表現を含む5360_10の8行と5586_3の9行を混同せず併載し、44行で閉じる。"
+  },
+  "rows": [
+    {
+      "key": "5331_1_Dlgs_Index0_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……唔……恭请天下英雄，于下月初七驾临鄙庄，共品“湛卢”。",
+      "ja": "5003 - 清虚道長 $@$……ふむ……『天下の英雄を謹んでお招き申し上げる。来月初七、当荘へご来駕いただき、共に《湛盧》をご品評願いたい』"
+    },
+    {
+      "key": "5331_1_Dlgs_Index1_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$竟是古剑湛卢，没想到名剑山庄居然拿出此等宝剑。",
+      "ja": "5003 - 清虚道長 $@$なんと、古剣・湛盧とは……名剣山荘が、かような宝剣を持ち出すとは思わなんだ。"
+    },
+    {
+      "key": "5331_1_Dlgs_Index2_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$看来你们之前带回的消息果然没错，这次品剑大会，很可能是六扇门为了对付天龙帮而设……",
+      "ja": "5003 - 清虚道長 $@$どうやら、そなたらが先に持ち帰った知らせに間違いはなかったようじゃ。今度の品剣大会は、六扇門が天龍幇に対抗するために設けたものやもしれぬ……"
+    },
+    {
+      "key": "5331_1_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$对付天龙帮？！",
+      "ja": "1 - 宇文逸 $@$天龍幇に対抗するためですか！？"
+    },
+    {
+      "key": "5331_1_Dlgs_Index4_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$不错，据为师所知，六扇门近来派了不少密探前往峋谷关，应该是探听到了什么有用的消息，这才如此急切。",
+      "ja": "5003 - 清虚道長 $@$いかにも。儂の知るかぎり、六扇門は近ごろ多くの密偵を峋谷関へ送り込んでおる。おそらく何か有用な知らせを掴んだのであろう。それで、これほど事を急いでおるのじゃ。"
+    },
+    {
+      "key": "5331_1_Dlgs_Index5_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$甚至不惜联合名剑山庄，以重宝相邀……",
+      "ja": "5003 - 清虚道長 $@$名剣山荘と手を結び、重宝をもって各派を招くことまで厭わぬとは……"
+    },
+    {
+      "key": "5331_1_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$原来是这样……",
+      "ja": "1 - 宇文逸 $@$そうだったんですね……"
+    },
+    {
+      "key": "5331_1_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$那师父，我也可以参加品剑大会吗？我早就想找天龙帮报仇了！",
+      "ja": "1 - 宇文逸 $@$では師父、私も品剣大会に参加してよいですか？　ずっと、天龍幇に仇を討ちたいと思っていたんです！"
+    },
+    {
+      "key": "5331_1_Dlgs_Index8_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$葬龙谷的事你至今仍未释怀吗……也罢，你去帮为师通知<Y>问儿</>，安排明日的门内大比，按照惯例选出前往名剑山庄的人选吧。",
+      "ja": "5003 - 清虚道長 $@$葬龍谷のことが、いまだ胸から離れぬか……よかろう。儂に代わって<Y>問児</>へ伝え、明日の門内大比を取り仕切らせるのじゃ。慣例どおり、名剣山荘へ赴く者を選ばせよ。"
+    },
+    {
+      "key": "5331_1_Dlgs_Index9_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$只要你能在大比中取得前三的名次，为师自然允你前往。",
+      "ja": "5003 - 清虚道長 $@$大比で三位以内に入れたなら、そなたが赴くことを許そう。"
+    },
+    {
+      "key": "5331_1_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$太好了，我这就去通知莫问师兄！",
+      "ja": "1 - 宇文逸 $@$やった！　すぐ莫問師兄に知らせてきます！"
+    },
+    {
+      "key": "5341_2_Dlgs_Index0_Text",
+      "speaker": "元鸣",
+      "zh": "5024 - 元鸣 $@$一定是你小子作弊了！进步这么快，说不定偷偷练了什么邪功……",
+      "ja": "5024 - 元鳴 $@$きっとお前はズルをしたんだ！こんなに早く上達するなんて、こっそり邪悪な技でも練習したに違いない……"
+    },
+    {
+      "key": "5341_2_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$（打断）元鸣师弟！",
+      "ja": "5015 - 莫問 $@$（遮って）元鳴師弟！"
+    },
+    {
+      "key": "5341_2_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$方才这一战，在场所有人都看得清清楚楚，是宇文师弟胜了。",
+      "ja": "5015 - 莫問 $@$今の戦い、ここにいる皆がはっきり見ていた。宇文師弟の勝ちだ。"
+    },
+    {
+      "key": "5341_2_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$在掌门和诸位师叔师伯的面前……元鸣师弟可莫要失了分寸才好。",
+      "ja": "5015 - 莫問 $@$掌門と師叔・師伯の皆さまの前だ……元鳴師弟、分をわきまえよ。"
+    },
+    {
+      "key": "5341_4_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$这一场，宇文逸胜！",
+      "ja": "5015 - 莫問 $@$この一戦、勝者は宇文逸！"
+    },
+    {
+      "key": "5341_4_Dlgs_Index1_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$接下来是决赛的最后一战——<Y>宇文逸</>对<Y>莫弃</>。",
+      "ja": "5015 - 莫問 $@$次は決勝の最終戦——<Y>宇文逸</>対<Y>莫棄</>。"
+    },
+    {
+      "key": "5341_4_Dlgs_Index2_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$此次大比的<Y>榜首</>，将在两人间决出！",
+      "ja": "5015 - 莫問 $@$今回の大会の<Y>首位</>は、この二人で決まる！"
+    },
+    {
+      "key": "5343_4_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$师父，弟子幸不辱命！",
+      "ja": "1 - 宇文逸 $@$師父、弟子はご期待に応えてまいりました！"
+    },
+    {
+      "key": "5343_4_Dlgs_Index1_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$好，好！",
+      "ja": "5003 - 清虚道長 $@$よし、よし！"
+    },
+    {
+      "key": "5343_4_Dlgs_Index2_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$你短短时日便能习得如此功力，来日成就必不可估量！",
+      "ja": "5003 - 清虚道長 $@$これほどの功力をわずかの間に身につけるとは……そなたの行く末、計り知れぬものがあるぞ！"
+    },
+    {
+      "key": "5343_4_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$哈哈，还要多亏莫问师兄没参加，不然我这点功夫根本就不够看了。",
+      "ja": "1 - 宇文逸 $@$ははっ。莫問師兄が参加しなかったからこそです。師兄が出ていたら、私の腕などまるで通じなかったでしょう。"
+    },
+    {
+      "key": "5343_4_Dlgs_Index4_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$呵呵，你师兄也好，你也好……还有你们……",
+      "ja": "5003 - 清虚道長 $@$ふふ、そなたの師兄も、そなたも……そして、皆もじゃ……"
+    },
+    {
+      "key": "5343_4_Dlgs_Index5_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$今天站在这试剑台上的每一个人，无不是我派年轻一辈的翘楚。",
+      "ja": "5003 - 清虚道長 $@$今日この試剣台に立つ者は、いずれも我が派の若き俊英じゃ。"
+    },
+    {
+      "key": "5343_4_Dlgs_Index6_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$只要有你们，又何愁我武当不能垂之千古啊！",
+      "ja": "5003 - 清虚道長 $@$そなたらがおる限り、我が武当の名が後世に残らぬはずがあろうか！"
+    },
+    {
+      "key": "5343_4_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$请师父放心，弟子等人定当秉承我派侠义之风，不负您的期望！",
+      "ja": "1 - 宇文逸 $@$師父、ご安心ください。弟子一同、必ず我が派の侠義を受け継ぎ、ご期待に背きません！"
+    },
+    {
+      "key": "5343_4_Dlgs_Index8_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$呵呵，好，为师当初果然没有看错人！",
+      "ja": "5003 - 清虚道長 $@$ふふ、よし……やはり、儂の目に狂いはなかったわ！"
+    },
+    {
+      "key": "5360_10_Dlgs_Index0_Text",
+      "speaker": "慧空",
+      "zh": "5509 - 慧空 $@$那杜彪功力在我们之上，如今我和师弟中毒，你一人追上去恐怕不是他的对手。",
+      "ja": "5509 - 慧空 $@$杜彪の功力は、わたしたちを上回っています。今は小僧も師弟も毒を受けていますし、施主お一人で追っても、まず敵わないでしょう。"
+    },
+    {
+      "key": "5360_10_Dlgs_Index1_Text",
+      "speaker": "慧空",
+      "zh": "5509 - 慧空 $@$而且听他刚才的意思，恶人谷的谷主<Y>无名</>很可能也在附近，施主千万不要冲动！",
+      "ja": "5509 - 慧空 $@$それに、先ほどの男の口ぶりでは、悪人谷の谷主<Y>無名</>も近くにいるかもしれません。施主、どうか早まらないでください！"
+    },
+    {
+      "key": "5360_10_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可是莫弃师兄在他手中，如果我现在不追，万一出了什么事……",
+      "ja": "1 - 宇文逸 $@$ですが、莫棄師兄は奴に捕らわれています。今追わなければ、もしものことがあったら……"
+    },
+    {
+      "key": "5360_10_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我一定没办法原谅自己！",
+      "ja": "1 - 宇文逸 $@$そんなことになれば、自分を許せません！"
+    },
+    {
+      "key": "5360_10_Dlgs_Index5_Text",
+      "speaker": "慧空",
+      "zh": "5509 - 慧空 $@$既如此，请施主小心为上。",
+      "ja": "5509 - 慧空 $@$それでは、施主、どうかくれぐれもお気をつけください。"
+    },
+    {
+      "key": "5360_10_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$我明白，我会沿途留下记号……若是莫问师兄回来，还请两位大师帮忙传达一声。",
+      "ja": "1 - 宇文逸 $@$分かりました。道中に目印を残しておきます……莫問師兄が戻ったら、私が先に追ったと伝えてください。"
+    },
+    {
+      "key": "5360_10_Dlgs_Index7_Text",
+      "speaker": "慧空",
+      "zh": "5509 - 慧空 $@$施主请放心。",
+      "ja": "5509 - 慧空 $@$施主、ご安心ください。"
+    },
+    {
+      "key": "5360_10_Dlgs_Index8_Text",
+      "speaker": "慧空",
+      "zh": "5509 - 慧空 $@$即便莫问道长未归，待我和师弟稍作疗伤之后，也会尽快前去寻你。",
+      "ja": "5509 - 慧空 $@$莫問道長がお戻りにならなくても、小僧と師弟も、少し手当てを済ませしだい、できるだけ早く施主を追います。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$洪老前辈，没想到在这里也能遇到您！？",
+      "ja": "1 - 宇文逸 $@$洪老先輩、まさかここでまたお会いできるとは思いませんでした！"
+    },
+    {
+      "key": "5586_3_Dlgs_Index1_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$臭小子，嚷这么大声做什么……",
+      "ja": "17112 - 洪飛 $@$この小僧め、そんな大声出してどうする……"
+    },
+    {
+      "key": "5586_3_Dlgs_Index2_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$……是这丫头告诉了你我的身份吧？",
+      "ja": "17112 - 洪飛 $@$……この嬢ちゃんが、わしの身分を教えたのだろう？"
+    },
+    {
+      "key": "5586_3_Dlgs_Index3_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$前辈见谅，我是见您与公子投缘，便多提了几句。",
+      "ja": "17005 - 欧陽雪 $@$先輩、お許しください。公子と気が合うご様子でしたので、つい少しお話ししてしまいました。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index4_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$哈哈，这小子确实合我的眼缘……前些时候还要多谢你这小丫头的款待了。",
+      "ja": "17112 - 洪飛 $@$ははっ、この小僧は確かに気に入った……この前は嬢ちゃんにも世話になったな。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index5_Text",
+      "speaker": "欧阳雪",
+      "zh": "17005 - 欧阳雪 $@$几杯薄酒不成敬意，前辈不嫌弃就好。",
+      "ja": "17005 - 欧陽雪 $@$粗酒を数杯お出ししただけで、おもてなしにもなりません。先輩のお気に召したなら何よりです。"
+    },
+    {
+      "key": "5586_3_Dlgs_Index6_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$不嫌弃不嫌弃……嗯？",
+      "ja": "17112 - 洪飛 $@$気に入ったとも、気に入ったとも……ん？"
+    },
+    {
+      "key": "5586_3_Dlgs_Index7_Text",
+      "speaker": "洪飞",
+      "zh": "17112 - 洪飞 $@$小子，你身后这位看起来有些眼熟啊，他是……？",
+      "ja": "17112 - 洪飛 $@$小僧、お前の後ろにいる者、どこかで見覚えがあるな。誰だ……？"
+    },
+    {
+      "key": "5586_3_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$啊对，还没给洪老前辈你介绍呢，这是我的大师兄莫问……",
+      "ja": "1 - 宇文逸 $@$あ、そうでした。洪老先輩にはまだ紹介していませんね。こちらは私の大師兄、莫問です……"
+    }
+  ],
+  "candidate_questions": [
+    "門内大比での莫問の裁定口調と宇文逸の師弟registerを保てているか",
+    "清虚の古風な師父口調と宇文逸の復讐心の強度を保てているか",
+    "莫棄救出時の宇文逸の責任感と莫問への伝言が時系列どおりか",
+    "洪飛への紹介で莫問を大師兄と呼ぶ関係段階を保てているか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "湛卢",
+      "翘楚",
+      "垂之千古",
+      "邪功"
+    ],
+    "fact_doubts": [
+      "莫問は門内大比へ参加しておらず裁定役として描かれている",
+      "5360_10では莫棄が連れ去られ、莫問はその場に戻っていない",
+      "5586_3は洪飛へ莫問を大師兄として紹介する段階である"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 44,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_cross_register_hongfei_ouyang_20260726.json",
+        "keys": [
+          "5586_3_Dlgs_Index3_Text",
+          "5586_3_Dlgs_Index5_Text",
+          "5586_3_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index7_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_cross_register_huikong_chase_warning_20260724.json",
+        "keys": [
+          "5360_10_Dlgs_Index0_Text",
+          "5360_10_Dlgs_Index1_Text",
+          "5360_10_Dlgs_Index5_Text",
+          "5360_10_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_cross_register_qingxu_swordmeet_20260724.json",
+        "keys": [
+          "5331_1_Dlgs_Index0_Text",
+          "5331_1_Dlgs_Index1_Text",
+          "5331_1_Dlgs_Index2_Text",
+          "5331_1_Dlgs_Index4_Text",
+          "5331_1_Dlgs_Index5_Text",
+          "5331_1_Dlgs_Index8_Text",
+          "5331_1_Dlgs_Index9_Text",
+          "5343_4_Dlgs_Index4_Text",
+          "5343_4_Dlgs_Index5_Text",
+          "5343_4_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch10.json",
+        "keys": [
+          "5586_3_Dlgs_Index4_Text",
+          "5586_3_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch34.json",
+        "keys": [
+          "5331_1_Dlgs_Index10_Text",
+          "5331_1_Dlgs_Index3_Text",
+          "5331_1_Dlgs_Index7_Text",
+          "5343_4_Dlgs_Index0_Text",
+          "5343_4_Dlgs_Index3_Text",
+          "5343_4_Dlgs_Index7_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json",
+        "keys": [
+          "5360_10_Dlgs_Index2_Text",
+          "5360_10_Dlgs_Index3_Text",
+          "5360_10_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch52.json",
+        "keys": [
+          "5341_2_Dlgs_Index3_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260729_batch81.json",
+        "keys": [
+          "5586_3_Dlgs_Index2_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "5331_1_Dlgs_Index6_Text",
+      "5341_2_Dlgs_Index0_Text",
+      "5341_2_Dlgs_Index1_Text",
+      "5341_2_Dlgs_Index2_Text",
+      "5341_4_Dlgs_Index0_Text",
+      "5341_4_Dlgs_Index1_Text",
+      "5341_4_Dlgs_Index2_Text",
+      "5343_4_Dlgs_Index1_Text",
+      "5343_4_Dlgs_Index2_Text",
+      "5343_4_Dlgs_Index8_Text",
+      "5360_10_Dlgs_Index7_Text",
+      "5586_3_Dlgs_Index0_Text",
+      "5586_3_Dlgs_Index1_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/清虚道長.md",
+        "digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/元鳴.md",
+        "digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/慧空.md",
+        "digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/洪飛.md",
+        "digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/清虚道長.md",
+        "digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+        "document_type": "persona",
+        "name": "清虚道長",
+        "aliases": [
+          "清虚道長",
+          "清虚",
+          "清虚道长"
+        ],
+        "evidence_keys": [
+          "5331_1_Dlgs_Index0_Text",
+          "5331_1_Dlgs_Index1_Text",
+          "5331_1_Dlgs_Index2_Text",
+          "5331_1_Dlgs_Index4_Text",
+          "5331_1_Dlgs_Index5_Text",
+          "5331_1_Dlgs_Index8_Text",
+          "5331_1_Dlgs_Index9_Text",
+          "5343_4_Dlgs_Index1_Text",
+          "5343_4_Dlgs_Index2_Text",
+          "5343_4_Dlgs_Index4_Text",
+          "5343_4_Dlgs_Index5_Text",
+          "5343_4_Dlgs_Index6_Text",
+          "5343_4_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "5331_1_Dlgs_Index3_Text",
+          "5331_1_Dlgs_Index6_Text",
+          "5331_1_Dlgs_Index7_Text",
+          "5331_1_Dlgs_Index10_Text",
+          "5343_4_Dlgs_Index0_Text",
+          "5343_4_Dlgs_Index3_Text",
+          "5343_4_Dlgs_Index7_Text",
+          "5360_10_Dlgs_Index2_Text",
+          "5360_10_Dlgs_Index3_Text",
+          "5360_10_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index0_Text",
+          "5586_3_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "10_人物/元鳴.md",
+        "digest": "sha256:a38c6d5cdcabefe19ebc3f98a3de77195ce0645b4af0249a4ce2fca62671f919",
+        "document_type": "persona",
+        "name": "元鳴",
+        "aliases": [
+          "元鳴",
+          "元鸣"
+        ],
+        "evidence_keys": [
+          "5341_2_Dlgs_Index0_Text"
+        ]
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "5341_2_Dlgs_Index1_Text",
+          "5341_2_Dlgs_Index2_Text",
+          "5341_2_Dlgs_Index3_Text",
+          "5341_4_Dlgs_Index0_Text",
+          "5341_4_Dlgs_Index1_Text",
+          "5341_4_Dlgs_Index2_Text"
+        ]
+      },
+      {
+        "path": "10_人物/慧空.md",
+        "digest": "sha256:1331a294d69a20ac76d8055511fb3a057778c97ec05ec7cd8b917a65e38cca81",
+        "document_type": "persona",
+        "name": "慧空",
+        "aliases": [
+          "慧空"
+        ],
+        "evidence_keys": [
+          "5360_10_Dlgs_Index0_Text",
+          "5360_10_Dlgs_Index1_Text",
+          "5360_10_Dlgs_Index5_Text",
+          "5360_10_Dlgs_Index7_Text",
+          "5360_10_Dlgs_Index8_Text"
+        ]
+      },
+      {
+        "path": "10_人物/洪飛.md",
+        "digest": "sha256:6762127833c2714044356f28e368a9a3bbee049cb6c5637bcc68f4ae82eb277d",
+        "document_type": "persona",
+        "name": "洪飛",
+        "aliases": [
+          "洪飛",
+          "洪飞",
+          "洪老前輩"
+        ],
+        "evidence_keys": [
+          "5586_3_Dlgs_Index1_Text",
+          "5586_3_Dlgs_Index2_Text",
+          "5586_3_Dlgs_Index4_Text",
+          "5586_3_Dlgs_Index6_Text",
+          "5586_3_Dlgs_Index7_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "欧阳雪"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:ce38478550cfd45b88ddc004054b75d15665b7e568adac79f5f455305c46b682"
+  }
+}
