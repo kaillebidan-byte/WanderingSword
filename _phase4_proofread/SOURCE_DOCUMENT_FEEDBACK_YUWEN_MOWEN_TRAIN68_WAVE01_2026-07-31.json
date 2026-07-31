@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5807_1_Dlgs_Index0_Text",
+        "5807_1_Dlgs_Index2_Text",
+        "5809_11_Dlgs_Index0_Text",
+        "5809_11_Dlgs_Index1_Text",
+        "5809_11_Dlgs_Index2_Text",
+        "5809_11_Dlgs_Index3_Text",
+        "5809_11_Dlgs_Index4_Text",
+        "5809_11_Dlgs_Index12_Text",
+        "5809_2_Dlgs_Index3_Text",
+        "5809_2_Dlgs_Index6_Text",
+        "5810_7_Dlgs_Index0_Text",
+        "5810_9_Dlgs_Index1_Text",
+        "5811_2_Dlgs_Index3_Text",
+        "5811_2_Dlgs_Index4_Text",
+        "5811_3_Dlgs_Index3_Text",
+        "5821_1_Dlgs_Index4_Text"
+      ],
+      "reason": "蒼鷹追跡の短句、瑶姫への迷いを師兄へ敬体で明かす場面、程鈺を案じて常体で支える場面、分岐ごとの帰還判断は、現行資料のM6・M1b・M3と、分岐を直列合成しない規則に整合する。一次資料から人物規則を改訂すべき反例はない。",
+      "scope": {
+        "relationship": "莫問への師兄敬意、程鈺への後輩的な気遣い、蒼鷹への追跡",
+        "timeline": "一線天峡谷の追跡から程鈺を伴う武当帰還まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5807_1_Dlgs_Index1_Text",
+        "5809_11_Dlgs_Index6_Text",
+        "5809_11_Dlgs_Index7_Text",
+        "5809_11_Dlgs_Index8_Text",
+        "5809_11_Dlgs_Index10_Text",
+        "5809_11_Dlgs_Index11_Text",
+        "5809_2_Dlgs_Index0_Text",
+        "5809_2_Dlgs_Index1_Text",
+        "5809_2_Dlgs_Index2_Text",
+        "5809_2_Dlgs_Index4_Text",
+        "5809_2_Dlgs_Index5_Text",
+        "5810_7_Dlgs_Index7_Text",
+        "5810_7_Dlgs_Index8_Text",
+        "5810_7_Dlgs_Index9_Text",
+        "5810_7_Dlgs_Index15_Text",
+        "5810_9_Dlgs_Index0_Text",
+        "5811_2_Dlgs_Index1_Text",
+        "5811_2_Dlgs_Index2_Text",
+        "5811_2_Dlgs_Index6_Text",
+        "5811_3_Dlgs_Index1_Text",
+        "5811_3_Dlgs_Index2_Text",
+        "5821_1_Dlgs_Index0_Text",
+        "5821_1_Dlgs_Index1_Text",
+        "5821_1_Dlgs_Index3_Text"
+      ],
+      "reason": "宇文逸の迷いへ条件を整理して問い、程鈺には泣くことを止めて具体的な修行の道筋を示し、受入れ判断を師父・師伯へ委ねる発話は、現行資料の観察→後進への指示→行動提示という兄弟子・指導者の思考順序に整合する。意味・時制・行為敬語の修正で足りる。",
+      "scope": {
+        "relationship": "宇文逸への兄弟子の問いと指揮、程鈺への厳しい救済・案内",
+        "timeline": "蒼鷹討伐後から武当正殿到着までの分岐群"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/程鈺.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "5810_7_Dlgs_Index1_Text",
+        "5810_7_Dlgs_Index2_Text",
+        "5810_7_Dlgs_Index3_Text",
+        "5810_7_Dlgs_Index4_Text",
+        "5810_7_Dlgs_Index5_Text",
+        "5810_7_Dlgs_Index10_Text",
+        "5810_7_Dlgs_Index11_Text",
+        "5810_7_Dlgs_Index12_Text",
+        "5810_7_Dlgs_Index13_Text",
+        "5810_7_Dlgs_Index14_Text",
+        "5810_7_Dlgs_Index16_Text",
+        "5821_1_Dlgs_Index2_Text",
+        "5821_1_Dlgs_Index5_Text"
+      ],
+      "reason": "母の死と父から拒絶されたという受け止めを泣き声・言いさしで語り、道筋を示されると武を学ぶ決意へ切り替わり、武当到着後も清虚に受け入れられるか不安を残す。現行資料が5810_7・5821_1を根拠に記す声と時系列に一致する。",
+      "scope": {
+        "relationship": "弟子入り前の莫問大侠・宇文少侠への嘆願と信頼",
+        "timeline": "程家堡崩壊直後から武当で受入れを待つ段階まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "after_digest": "sha256:b3611677c1d42830dc604ffc23db74f963a850ed297e4ca1836fd30a6c8184df",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-68",
+  "wave_id": "yuwen-mowen-train-68-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN68_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5807_1_5821_1_2026-07-31.json",
+      "manifest_digest": "sha256:fc039ae4755bf907683a584c56c135ea91d45ba2a35f6b58156d6bbbd8ceaebf"
+    }
+  ]
+}

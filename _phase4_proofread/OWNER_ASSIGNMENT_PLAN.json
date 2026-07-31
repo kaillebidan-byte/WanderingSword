@@ -2,27 +2,29 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5786_3_5805_4_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch112.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5807_1_5821_1_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch113.json",
       "values": {
-        "5786_3_Dlgs_Index1_Text": "5015 - 莫問 $@$程堡主、どうかお気遣いなく。程少侠が迎えてくださったおかげで、道中も滞りなく参れました。",
-        "5786_3_Dlgs_Index2_Text": "5015 - 莫問 $@$師父は要事を抱えておられ、わたしたち二人が名代として参りました……出立の折、程堡主へくれぐれもお詫び申し上げるよう仰せつかっております。",
-        "5786_3_Dlgs_Index4_Text": "16000 - 程徳明 $@$武当の無塵剣に直々にお越しいただけるとは、我が程家堡も光栄の至りだ！",
-        "5786_3_Dlgs_Index8_Text": "1 - 宇文逸 $@$宇文逸と申します。程堡主にご挨拶申し上げます。",
-        "5786_3_Dlgs_Index9_Text": "1 - 宇文逸 $@$師父よりお預かりした祝いの品です。程堡主が南山のごとく長寿であられますよう、お祈り申し上げます……",
-        "5790_11_Dlgs_Index2_Text": "5015 - 莫問 $@$（声を潜めて）だが今は各派が集まり、人目も口も多い……まずは静観しよう。",
-        "5803_2_Dlgs_Index6_Text": "10025 - 十三鷹之蒼鷹 $@$……恩知らずなうえ、弟の女房とただならぬ仲だったそうじゃないか。",
-        "5805_4_Dlgs_Index0_Text": "5015 - 莫問 $@$奴は手傷を負っている。そう遠くへは行けまい。近くに潜んでいる可能性が高い。"
+        "5809_11_Dlgs_Index7_Text": "5015 - 莫問 $@$どんな事情があろうと、彼女は師弟の信頼を利用し、欺いた。命まで奪うつもりだったことに変わりはない……",
+        "5809_2_Dlgs_Index1_Text": "5015 - 莫問 $@$どんな事情があろうと、彼女は師弟の信頼を利用し、欺いた。命まで奪うつもりだったことに変わりはない……",
+        "5809_11_Dlgs_Index11_Text": "5015 - 莫問 $@$蒼鷹は討ち取った。だが、急いで戻ってすべてを説明しなければ、程家堡は本当に玄火教の手に落ちかねない。",
+        "5809_2_Dlgs_Index5_Text": "5015 - 莫問 $@$蒼鷹は討ち取った。だが、急いで戻ってすべてを説明しなければ、程家堡は本当に玄火教の手に落ちかねない。",
+        "5810_7_Dlgs_Index8_Text": "5015 - 莫問 $@$本当に母親を信じるなら、まず武を磨け。十分に強くなってから戻り、真相を突き止め、母親の汚名をそそぐんだ……",
+        "5810_7_Dlgs_Index9_Text": "5015 - 莫問 $@$十分に強くなるまでは、何もできない。",
+        "5811_2_Dlgs_Index2_Text": "5015 - 莫問 $@$程家堡が玄火教へ加わることが決まった以上、早く武当へ戻り、師父に事情を報告するのがよいだろう。",
+        "5811_3_Dlgs_Index2_Text": "5015 - 莫問 $@$師弟、娜烏姑娘へ連絡する手立てはあるか……程家堡が玄火教へ加わることが決まった以上、わたしたちも山へ戻るべきだ。",
+        "5821_1_Dlgs_Index1_Text": "5015 - 莫問 $@$……程鈺、ここで少し待っていてくれ。わたしと師弟で、師父に事情を申し上げてくる。"
       },
       "fix_keys": [
-        "5786_3_Dlgs_Index1_Text",
-        "5786_3_Dlgs_Index2_Text",
-        "5786_3_Dlgs_Index4_Text",
-        "5786_3_Dlgs_Index8_Text",
-        "5786_3_Dlgs_Index9_Text",
-        "5790_11_Dlgs_Index2_Text",
-        "5803_2_Dlgs_Index6_Text",
-        "5805_4_Dlgs_Index0_Text"
+        "5809_11_Dlgs_Index7_Text",
+        "5809_2_Dlgs_Index1_Text",
+        "5809_11_Dlgs_Index11_Text",
+        "5809_2_Dlgs_Index5_Text",
+        "5810_7_Dlgs_Index8_Text",
+        "5810_7_Dlgs_Index9_Text",
+        "5811_2_Dlgs_Index2_Text",
+        "5811_3_Dlgs_Index2_Text",
+        "5821_1_Dlgs_Index1_Text"
       ]
     }
   ]
