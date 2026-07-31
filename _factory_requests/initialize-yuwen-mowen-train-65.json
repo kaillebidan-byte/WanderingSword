@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-65",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30566778812,
+    "artifact_id": 8769163876,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:df7ba5cdae6446511f97383bf99b5e2798a470d5a48253afd8e0550d4116434e",
+    "artifact_head": "9ba605a779a8c4c71c70dd9441b197325f9ef18c"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5654_1",
+      "5654_4",
+      "5654_6",
+      "5654_7",
+      "5654_8",
+      "5654_12"
+    ],
+    "unique_reviewed_rows": 44,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "曹煜天の内力暴走が走火入魔として確定し、莫問が宇文逸たちを逃がそうとして負傷する。正体不明の老練な人物が介入し、曹煜天へ渡した風雲訣が改竄された偽物だと明かし、各派の秘笈への思惑と清虚の隠し事を示唆して去る。一行はその場を離脱する。",
+    "branch_note": "5654_1の走火入魔確定から、5654_4の莫問の足止め、5654_6〜5654_8の第三者介入・偽風雲訣の開示・各派への挑発、5654_12の離脱までを一つの崩壊と介入の局面として閉じる。次の5756_*は別の時系列・局面なので含めない。",
+    "seal_attestation": "六場面44行で、曹煜天の暴走、莫問の負傷、第三者の介入と偽風雲訣の開示、一行の離脱までが完結する。40行以上60行以下で閉じるため延長は使わない。",
+    "candidate_questions": [
+      "負傷しながら武当を擁護する莫問の硬さと礼節を両立できているか",
+      "正体不明の人物の老練で嘲弄的な口調を、正体を先取りせず保てているか",
+      "宇文逸の驚きと反発が場面ごとに自然につながっているか"
+    ],
+    "allusion_candidates": [
+      "走火入魔",
+      "不放在眼里",
+      "道貌岸然",
+      "费尽心机",
+      "得偿所愿",
+      "一派胡言"
+    ],
+    "fact_doubts": [
+      "風雲訣が改竄された偽物で本物の一、二割にも及ばないという説明は、正体不明の人物の自己申告として扱う",
+      "各派が秘笈目当てで六扇門に応じたという説明は、正体不明の人物の敵意ある解釈として扱う",
+      "清虚が多くの事実を隠しているという示唆は、この場面では未確認情報として保つ",
+      "無名が曹煜天を騙したという叫びは、走火入魔中の曹煜天の認識であり客観事実へ確定しない"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_1_5654_12_2026-07-31.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN65_WAVE01_2026-07-31.md"
+  }
+}
