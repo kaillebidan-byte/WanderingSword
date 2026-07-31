@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "contract_id": "pair-tail-exhaustion-request-v1",
+  "operation": "initialize_pair_tail",
+  "executor": "pair_tail_initializer",
+  "branch": "agent/yuwen-mowen-train-81",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30668426155,
+    "artifact_id": 8807875827,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+    "artifact_head": "bcdaef9989461437bf686a49414fc749812ae76c"
+  },
+  "reviewed_candidate_paths": [
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9247_1_20516_3_2026-08-01.json",
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES22010_7_24058_1_2026-08-01.json",
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES32025_1_5303_1_2026-08-01.json",
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5689_1_6008_2_2026-08-01.json",
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6057_12_6116_3_2026-08-01.json"
+  ],
+  "seal_attestation": "現Relation artifactのexplicit_reference全keyから第206〜211束candidateの既監査keyを除いた残件14行を、target/namespace別の2packetですべて収録する。隣接する未監査explicit_reference行は存在せず、通常40行下限を満たせない最終scopeである。",
+  "timeline": "宇文逸と莫問の関係を直接言及する補助会話・任務報告・回想の未監査末尾。早期の師兄弟関係、贈礼、修行、失踪、天山事件認識までを、主線sceneから独立したexplicit-reference補遺として扱う。",
+  "packet_groups": [
+    {
+      "target": "CG表",
+      "namespace": "QuestDlgs",
+      "families": [
+        "13297_2_Dlgs"
+      ],
+      "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_CG_13297_2_2026-08-01.json",
+      "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN81_TAIL_CG_2026-08-01.md",
+      "branch_note": "程鈺帰還時、宇文逸が莫問と共同で程鈺の行方を捜していたと告げ、程鈺が故郷と仇の死を語る2行。CG表の通常会話として独立させる。",
+      "candidate_questions": [
+        "宇文逸が莫問と共同で程鈺を捜していた事実が自然に伝わるか",
+        "程鈺の故郷への弔意と自ら仇を討てなかった無念が主客を崩さず発声しているか"
+      ],
+      "allusion_candidates": [],
+      "fact_doubts": [
+        "宇文逸と莫問は程鈺の行方を調べていたが、この場まで消息を得ていなかった",
+        "程鈺は故郷を弔うため戻り、仇が自分の手にかからず死んだことへ無念を抱いている"
+      ]
+    },
+    {
+      "target": "Quests任务表",
+      "namespace": "Quests",
+      "families": [
+        "12406_OptionDlgs3_Index0_Text",
+        "12406_RequestDlgs_Index0_Text",
+        "12409_FinishingDlgs_Index8_Text",
+        "12436_RequestDlgs_Index0_Text",
+        "14201_FinishingDlgs_Index2_Text",
+        "20004_FinishingDlgs_Index3_Text",
+        "22576_FinishingDlgs_Index1_Text",
+        "23021_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index3_Text",
+        "5944_RequestDlgs_Index1_Text",
+        "6252_FinishingDlgs_Index0_Text"
+      ],
+      "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_QUESTS_12406_6252_2026-08-01.json",
+      "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN81_TAIL_QUESTS_2026-08-01.md",
+      "branch_note": "贈礼選択、修行報告、莫問の追跡・失踪、天山事件認識、師兄弟の気遣いを含むQuests補助文12行。各任務の時系列を一つの連続場面へ合成しない。",
+      "candidate_questions": [
+        "贈礼候補と碁盤への推測が宇文逸の内心語として自然か",
+        "莫問から受けた武当修行、失踪、天山事件の認識が各時点の事実として区別されているか",
+        "莫問の宇文師弟呼称と負傷への気遣い、宇文逸の師兄への懸念が関係段階に合うか"
+      ],
+      "allusion_candidates": [
+        "言之凿凿",
+        "追蹑"
+      ],
+      "fact_doubts": [
+        "贈礼選択では莫棄の断言を根拠に莫問が青玉棋盤を好むと宇文逸が推測している",
+        "宇文逸は莫問から武当心法と武当剣法を教わったと師父へ報告している",
+        "円覚襲撃後、莫問は瑶姫を追って戻らず、後の時点でも各派が弱っていて行方を調べられない",
+        "天山惨案の赤子が莫問だったという認識は円覚の竹簡を読んだ後の宇文逸の理解である"
+      ]
+    }
+  ]
+}
