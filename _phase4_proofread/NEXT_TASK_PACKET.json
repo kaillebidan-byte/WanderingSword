@@ -27,13 +27,16 @@
     "6252_FinishingDlgs_Index0_Text"
   ],
   "reservation": {
-    "status": "quality_audit_active",
+    "status": "encoded",
     "wave_id": "yuwen-mowen-train-81-wave-01",
     "packet_id": "yuwen-mowen-train-81-wave-01-tail",
     "preparation_started": true,
     "quality_audit_started": true,
-    "encoding_started": false,
-    "formal_batch": null
+    "encoding_started": true,
+    "formal_batch": [
+      212,
+      213
+    ]
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
@@ -53,15 +56,15 @@
     "merge_sha": "dee19812149e901b6d057cdd48a23e980e5731fb"
   },
   "do_not_do": [
-    "quality auditではKEEP/FIX・人物性・事実・典故の判断だけを記録する",
-    "private_encodingへ遷移するまでfix JSON・owner・正式束を書かない",
+    "translation_frozen中にKEEP/FIX判断を再開しない",
+    "release orchestrator以外の一時CIを作らない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-81",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 212,
+    "planned_batch": 213,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
   },
@@ -84,5 +87,71 @@
         "manifest_digest": "sha256:0885b1374ab8b9600c530c77f9678a9e4b47f239c33f7e7cafadd9d9f71276de"
       }
     ]
+  },
+  "scene_flow": [
+    {
+      "scene": "13297_2_Dlgs",
+      "focus_keys": [
+        "13297_2_Dlgs_Index0_Text",
+        "13297_2_Dlgs_Index1_Text"
+      ]
+    },
+    {
+      "scene": "12406_OptionDlgs3_Index0_Text / 12406_RequestDlgs_Index0_Text / 12409_FinishingDlgs_Index8_Text / 12436_RequestDlgs_Index0_Text / 14201_FinishingDlgs_Index2_Text / 20004_FinishingDlgs_Index3_Text / 22576_FinishingDlgs_Index1_Text / 23021_FinishingDlgs_Index0_Text / 5371_FinishingDlgs_Index0_Text / 5371_FinishingDlgs_Index3_Text / 5944_RequestDlgs_Index1_Text / 6252_FinishingDlgs_Index0_Text",
+      "focus_keys": [
+        "12406_OptionDlgs3_Index0_Text",
+        "12406_RequestDlgs_Index0_Text",
+        "12409_FinishingDlgs_Index8_Text",
+        "12436_RequestDlgs_Index0_Text",
+        "14201_FinishingDlgs_Index2_Text",
+        "20004_FinishingDlgs_Index3_Text",
+        "22576_FinishingDlgs_Index1_Text",
+        "23021_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index3_Text",
+        "5944_RequestDlgs_Index1_Text",
+        "6252_FinishingDlgs_Index0_Text"
+      ]
+    }
+  ],
+  "batch_planning": {
+    "mode": "detail_packet",
+    "reviewed_rows": 14,
+    "target_rows": {
+      "min": 15,
+      "max": 30
+    },
+    "adjacent_candidates_checked": [
+      "13297_2_Dlgs",
+      "12406_OptionDlgs3_Index0_Text",
+      "12406_RequestDlgs_Index0_Text",
+      "12409_FinishingDlgs_Index8_Text",
+      "12436_RequestDlgs_Index0_Text",
+      "14201_FinishingDlgs_Index2_Text",
+      "20004_FinishingDlgs_Index3_Text",
+      "22576_FinishingDlgs_Index1_Text",
+      "23021_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index0_Text",
+      "5371_FinishingDlgs_Index3_Text",
+      "5944_RequestDlgs_Index1_Text",
+      "6252_FinishingDlgs_Index0_Text"
+    ],
+    "grouping_decision": "現Relation artifactのexplicit_reference全keyから第206〜211束candidateの既監査keyを除いた残件14行を、target/namespace別の2packetですべて収録する。隣接する未監査explicit_reference行は存在せず、通常40行下限を満たせない最終scopeである。",
+    "exception": {
+      "reason_code": "no_adjacent_in_scope_scene",
+      "detail": "現Relation artifactのexplicit_reference全keyから第206〜211束candidateの既監査keyを除いた残件14行を、target/namespace別の2packetですべて収録する。隣接する未監査explicit_reference行は存在せず、通常40行下限を満たせない最終scopeである。"
+    }
+  },
+  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
+  "owner_assignment_counts": {
+    "existing_owner_updates": 0,
+    "new_project_keys": 2,
+    "fix_keys": 2
+  },
+  "source_document_feedback": {
+    "status": "complete",
+    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN81_WAVE01_2026-08-01.json",
+    "changed_documents": [],
+    "unresolved_documents": []
   }
 }

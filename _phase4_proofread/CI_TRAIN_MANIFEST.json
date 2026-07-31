@@ -3,12 +3,12 @@
   "phase": "phase1_wave",
   "train_id": "yuwen-mowen-train-81",
   "branch": "agent/yuwen-mowen-train-81",
-  "draft_pr": null,
-  "status": "accumulating",
+  "draft_pr": 239,
+  "status": "ready_for_public_ci",
   "transport": {
-    "status": "not_ready",
-    "translation_stage": "private_quality_audit",
-    "pr": null,
+    "status": "ready_for_public_ci",
+    "translation_stage": "translation_frozen",
+    "pr": 239,
     "merge_sha": null
   },
   "base_checkpoint": {
@@ -39,30 +39,179 @@
     "security_or_visibility",
     "urgent_build_verification"
   ],
-  "release_trigger": null,
+  "release_trigger": {
+    "reason": "schema_change",
+    "detail": "explicit_reference tail exhaustion replaces an ordinary next-scene reservation with a pair-completion checkpoint"
+  },
   "totals": {
-    "bundle_count": 0,
-    "reviewed_rows": 0,
-    "reviewed_keys": 0,
-    "unique_reviewed_rows": 0,
-    "fix_keys": 0,
-    "unique_fix_rows": 0,
-    "new_pair_keys": 0,
-    "new_project_keys": 0,
+    "bundle_count": 2,
+    "reviewed_rows": 14,
+    "reviewed_keys": 14,
+    "unique_reviewed_rows": 14,
+    "fix_keys": 2,
+    "unique_fix_rows": 2,
+    "new_pair_keys": 2,
+    "new_project_keys": 2,
     "cross_register_keys": 0,
     "existing_owner_updates": 0,
     "keep_only_bundles": 0
   },
-  "bundles": [],
+  "bundles": [
+    {
+      "batch": 212,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "13297_2_Dlgs"
+      ],
+      "reviewed_rows": 2,
+      "reviewed_keys": 2,
+      "unique_rows": 2,
+      "fix_keys": 1,
+      "unique_fix_rows": 1,
+      "new_pair_keys": 1,
+      "new_project_keys": 1,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 0,
+      "keep_keys": 1,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch126.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH212_2026-08-01.md",
+      "ownership_summary": {
+        "existing_keys": 1,
+        "unowned_kept": 0,
+        "new_keys": 1,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [],
+      "allusion_review_resolved": [],
+      "fact_doubts": [
+        {
+          "scope": "chengyu_return_and_revenge",
+          "keys": [
+            "13297_2_Dlgs_Index0_Text",
+            "13297_2_Dlgs_Index1_Text"
+          ],
+          "note": "宇文逸と莫問が程鈺の行方を尋ねていた事実と、程鈺が故郷を弔い自ら仇を討てなかったことへの無念を分離する。仇の死因や善悪は補完しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30668426155,
+        "artifact_id": 8807875827,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+        "head_sha": "bcdaef9989461437bf686a49414fc749812ae76c"
+      }
+    },
+    {
+      "batch": 213,
+      "review_status": "complete",
+      "apply_status": "pending",
+      "scene_groups": [
+        "12406_OptionDlgs3_Index0_Text",
+        "12406_RequestDlgs_Index0_Text",
+        "12409_FinishingDlgs_Index8_Text",
+        "12436_RequestDlgs_Index0_Text",
+        "14201_FinishingDlgs_Index2_Text",
+        "20004_FinishingDlgs_Index3_Text",
+        "22576_FinishingDlgs_Index1_Text",
+        "23021_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index0_Text",
+        "5371_FinishingDlgs_Index3_Text",
+        "5944_RequestDlgs_Index1_Text",
+        "6252_FinishingDlgs_Index0_Text"
+      ],
+      "reviewed_rows": 12,
+      "reviewed_keys": 12,
+      "unique_rows": 12,
+      "fix_keys": 1,
+      "unique_fix_rows": 1,
+      "new_pair_keys": 1,
+      "new_project_keys": 1,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 0,
+      "keep_keys": 11,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch126_2.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH213_2026-08-01.md",
+      "ownership_summary": {
+        "existing_keys": 6,
+        "unowned_kept": 5,
+        "new_keys": 1,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "言之凿凿",
+        "追蹑"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "12406_OptionDlgs3_Index0_Text",
+          "decision": "定着した成語",
+          "note": "『言之凿凿』は言葉を確かな事実のように言い切る機能。現訳の『断言していた』が、莫棄の発言を根拠に宇文逸が推測する構造を保つためKEEP。"
+        },
+        {
+          "key": "20004_FinishingDlgs_Index3_Text",
+          "decision": "通常の追跡動作語",
+          "note": "『追蹑』は足取りを追って追跡する意味で、特定典籍の引用ではない。現訳『追って行き』が瑶姫を追跡した事実を保つためKEEP。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "gift_selection",
+          "keys": [
+            "12406_OptionDlgs3_Index0_Text",
+            "12406_RequestDlgs_Index0_Text",
+            "12409_FinishingDlgs_Index8_Text"
+          ],
+          "note": "莫棄の断言を受け、宇文逸が莫問の好みと青玉棋盤を推測する補助任務。莫問本人が好みを断言した事実へ変えない。"
+        },
+        {
+          "scope": "training_and_absence",
+          "keys": [
+            "12436_RequestDlgs_Index0_Text",
+            "14201_FinishingDlgs_Index2_Text",
+            "20004_FinishingDlgs_Index3_Text",
+            "22576_FinishingDlgs_Index1_Text"
+          ],
+          "note": "宇文逸が莫問から武当功法を教わった報告と、円覚襲撃後に莫問が瑶姫を追って失踪した時系列は別任務。連続した一場面へ合成しない。"
+        },
+        {
+          "scope": "tian_shan_identity_and_brotherly_care",
+          "keys": [
+            "23021_FinishingDlgs_Index0_Text",
+            "5371_FinishingDlgs_Index0_Text",
+            "5371_FinishingDlgs_Index3_Text",
+            "5944_RequestDlgs_Index1_Text",
+            "6252_FinishingDlgs_Index0_Text"
+          ],
+          "note": "天山惨案の赤子が莫問だったという宇文逸の理解は竹簡読後。負傷への気遣いと瑶姫との戦闘目撃、莫問の安否確認は別時点として扱う。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30668426155,
+        "artifact_id": 8807875827,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
+        "head_sha": "bcdaef9989461437bf686a49414fc749812ae76c"
+      }
+    }
+  ],
   "tracking_issue": null,
   "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
   "finalization_phase": "phase2",
   "post_merge_state_pr_required": false,
   "single_pr_finalization": true,
   "private_stage": {
-    "stage": "private_quality_audit",
-    "status": "active",
-    "transport_status": "not_ready",
+    "stage": "translation_frozen",
+    "status": "complete",
+    "transport_status": "ready_for_public_ci",
     "wave_id": "yuwen-mowen-train-81-wave-01"
   },
   "next_release": {
@@ -81,15 +230,40 @@
       "5944_RequestDlgs_Index1_Text",
       "6252_FinishingDlgs_Index0_Text"
     ],
-    "reservation_status": "quality_audit_active",
+    "reservation_status": "encoded",
     "reservation_schema": 6,
-    "formal_batches": [],
-    "current_private_stage": "private_quality_audit"
+    "formal_batches": [
+      212,
+      213
+    ],
+    "current_private_stage": "translation_frozen"
   },
   "previous_release": {
     "train_id": "yuwen-mowen-train-80",
     "release_id": "yuwen-mowen-train-80-r1",
     "pr": 237,
     "merge_sha": "dee19812149e901b6d057cdd48a23e980e5731fb"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 14,
+    "unique_reviewed_rows": 14,
+    "fix_keys": 2,
+    "unique_fix_rows": 2,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 2,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 12,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN81_WAVE01_2026-08-01.md"
+    }
   }
 }
