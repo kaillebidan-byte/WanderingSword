@@ -2,14 +2,14 @@
   "schema_version": 2,
   "generated_by": "_tools/apply_owner_assignment_v2.py",
   "plan": "_phase4_proofread/OWNER_ASSIGNMENT_PLAN.json",
-  "plan_digest": "sha256:ae52cb436fc805d15ca49aae91167ec27f8da944dcb77f1c40e7c6d032c371bd",
+  "plan_digest": "sha256:dd503d09a1428e49acdc26612a706e34c5896f31e994b95cdb7ad6704140990f",
   "candidate_digests": {
-    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9016_1_9230_2_2026-08-01.json": "sha256:70c871f09152dd58c906d0bd3d832826fa988c65d7014a94a34abb121703111b"
+    "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-08-01.json": "sha256:cb338dfd538f1ac2218f2686c9bca7b96921f95b22202f2b8109ac7d38a1c049"
   },
   "state_file_digests": {
-    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:61554eb294ec68efffdb535fc4fed459cf7007f7f1b25794ac3486bbe705b92a",
-    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:05ea084d8f59d6a4ab24271a4c9782a942e5daf213870da850b971ced0f5f342",
-    "_phase4_proofread/CURRENT_WORK.json": "sha256:f6c65ee2f4568e493e9d8ccc99d8473bf5186d08c32aaf74262874f4b2e9f9ce"
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "sha256:6820548288064e9a9bb17d063eeacb0d545a467f39dcfcf52f9eb3cf7c7a888d",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "sha256:f5c1cdc1efac233b36daed1b3b8a2916e161402a93bcab6dac25e4f4f78ef158",
+    "_phase4_proofread/CURRENT_WORK.json": "sha256:009565c049fc6eee2346cf6a6eed1a5f2effaa187d7e43da9457787de46c955c"
   },
   "counts": {
     "existing_owner_updates": 4,
@@ -18,17 +18,19 @@
   },
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9016_1_9230_2_2026-08-01.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch117.json",
-      "candidate_rows": 55,
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES9231_3_9233_4_2026-08-01.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch118.json",
+      "candidate_rows": 53,
       "fix_keys": 4,
-      "existing_keys": 52,
-      "unowned_keys": 3,
+      "existing_keys": 53,
+      "unowned_keys": 0,
       "new_keys": 0,
-      "unowned_kept": 3,
+      "unowned_kept": 0,
       "fix_files": [
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch23.json",
-        "_phase4_proofread/fixes_relation_yuwen_mowen_20260727_batch27.json"
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch28.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch29.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch30.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260728_batch31.json"
       ],
       "existing_owner_updates": 4
     }
@@ -52,7 +54,7 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_04.json",
       "count": 32,
-      "digest": "sha256:b77b685ac040fafd5e53fc18b0cbd450817df588ce57ba6ffd3322bc72a5591c"
+      "digest": "sha256:d4fa83ebb0a0be6bce0bbdbaed4e85c7e371cb3f8cf57866e41c588a53b80774"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_05.json",
@@ -62,12 +64,12 @@
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_06.json",
       "count": 32,
-      "digest": "sha256:0698c39749c3ab917f5ee615b20a9671aa8b1852f7bbbb756093f8559d00cdfe"
+      "digest": "sha256:cc1186079366422d682eea37a753ca6a7512778fac0760c2019e9ee2b6c353f1"
     },
     {
       "path": "_phase4_proofread/OWNER_ASSIGNMENT_OWNER_DIGESTS_07.json",
-      "count": 8,
-      "digest": "sha256:cd852fc280abc5d485e4548e1e9f9c805c32b36cbf3615e8878f5aea09f0a062"
+      "count": 9,
+      "digest": "sha256:6c50eba48bd640e90e1cde224890f77410df9a1a44112615846b3b81a494d5f2"
     }
   ],
   "post_feedback_state_attestation": {
@@ -77,7 +79,7 @@
       "_phase4_proofread/PRIVATE_STAGE_STATE.json"
     ],
     "feedback_records": [
-      "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN72_WAVE01_2026-08-01.json"
+      "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN73_WAVE01_2026-08-01.json"
     ]
   }
 }
