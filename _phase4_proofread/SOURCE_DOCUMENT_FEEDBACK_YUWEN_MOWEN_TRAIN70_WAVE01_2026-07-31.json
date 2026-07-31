@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6002_5_Dlgs_Index1_Text",
+        "6064_6_Dlgs_Index0_Text",
+        "6064_6_Dlgs_Index1_Text",
+        "6064_6_Dlgs_Index2_Text",
+        "6151_2_Dlgs_Index1_Text",
+        "6151_2_Dlgs_Index2_Text",
+        "6151_3_Dlgs_Index1_Text",
+        "6151_3_Dlgs_Index2_Text",
+        "6151_3_Dlgs_Index5_Text",
+        "6151_3_Dlgs_Index6_Text",
+        "6151_3_Dlgs_Index9_Text",
+        "6151_3_Dlgs_Index10_Text",
+        "6151_3_Dlgs_Index11_Text",
+        "6151_3_Dlgs_Index18_Text",
+        "6151_3_Dlgs_Index22_Text"
+      ],
+      "reason": "正体開示への段階的な心内語、清虚の死を伝える言いさし、離反後も師兄呼称と敬体を保つ説得が、M7・M1cおよび莫問離反後の現行規則に一致する。訳文差分は所有表現や他話者の声であり、宇文逸資料の改訂は不要。",
+      "scope": {
+        "relationship": "離反した莫問への弟弟子としての敬意と説得、清虚への師弟感情",
+        "timeline": "莫問の奪取・出自開示から残篇返還と師兄呼称拒絶まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6002_5_Dlgs_Index2_Text",
+        "6064_6_Dlgs_Index11_Text",
+        "6151_2_Dlgs_Index0_Text",
+        "6151_3_Dlgs_Index0_Text",
+        "6151_3_Dlgs_Index3_Text",
+        "6151_3_Dlgs_Index4_Text",
+        "6151_3_Dlgs_Index8_Text",
+        "6151_3_Dlgs_Index12_Text",
+        "6151_3_Dlgs_Index14_Text",
+        "6151_3_Dlgs_Index15_Text",
+        "6151_3_Dlgs_Index16_Text",
+        "6151_3_Dlgs_Index17_Text",
+        "6151_3_Dlgs_Index19_Text",
+        "6151_3_Dlgs_Index20_Text",
+        "6151_3_Dlgs_Index21_Text",
+        "6151_3_Dlgs_Index23_Text"
+      ],
+      "reason": "6002_5から呼称を省いて冷えた断定へ移り、6151_3では宇文逸の返還を受けても復讐論理を崩さず、力への自負から師兄呼称を拒絶する。現行資料が明示する離反・関係断絶段階と一致する。",
+      "scope": {
+        "relationship": "宇文逸との同門関係を自ら断つ離反後の対峙",
+        "timeline": "風雲訣奪取から各派殲滅の正当化と師兄呼称拒絶まで"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6064_6_Dlgs_Index3_Text",
+        "6064_6_Dlgs_Index4_Text",
+        "6064_6_Dlgs_Index5_Text",
+        "6064_6_Dlgs_Index17_Text",
+        "6064_6_Dlgs_Index18_Text",
+        "6064_6_Dlgs_Index25_Text",
+        "6064_6_Dlgs_Index26_Text",
+        "6064_6_Dlgs_Index27_Text",
+        "6064_6_Dlgs_Index29_Text",
+        "6064_6_Dlgs_Index30_Text",
+        "6064_6_Dlgs_Index31_Text",
+        "6064_6_Dlgs_Index33_Text"
+      ],
+      "reason": "病中の咳と言いさしを保ちながら、伏龍子へ一門の長として因果を整理し問い詰める対外モードは現行資料に整合する。孤立した「わし／わしら」三行を「儂／儂ら」へ訳文修正すれば足りる。",
+      "scope": {
+        "relationship": "伏龍子との旧知・対外対峙、玉華をめぐる師門の因果確認",
+        "timeline": "伏龍子の正体と天山旧事が開示される病中の対話"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "after_digest": "sha256:986a8d09353e9c682c2d618e11485d041cbf3ce73e657c378a677155134488b4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/伏龍子.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6064_6_Dlgs_Index6_Text",
+        "6064_6_Dlgs_Index7_Text",
+        "6064_6_Dlgs_Index8_Text",
+        "6064_6_Dlgs_Index9_Text",
+        "6064_6_Dlgs_Index10_Text",
+        "6064_6_Dlgs_Index12_Text",
+        "6064_6_Dlgs_Index13_Text",
+        "6064_6_Dlgs_Index14_Text",
+        "6064_6_Dlgs_Index15_Text",
+        "6064_6_Dlgs_Index16_Text",
+        "6064_6_Dlgs_Index19_Text",
+        "6064_6_Dlgs_Index20_Text",
+        "6064_6_Dlgs_Index21_Text",
+        "6064_6_Dlgs_Index22_Text",
+        "6064_6_Dlgs_Index23_Text",
+        "6064_6_Dlgs_Index24_Text",
+        "6064_6_Dlgs_Index28_Text",
+        "6064_6_Dlgs_Index32_Text"
+      ],
+      "reason": "儂自称、高笑い、名門正派への断罪、被害→真相発見→告発→復讐の情報順が現行資料に一致する。本人の告発と清虚の推理も分離されている。「满门」の範囲だけを一門へ修正する。",
+      "scope": {
+        "relationship": "清虚・三派への復讐者、莫問の父としての告白",
+        "timeline": "天山決戦後の生還、玉華への報復、遼城で息子に会うまでの告白"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:1a6530525b147ba5869d07c1eb92046926361e5e348d0a418c6dc7e2b88739f2",
+      "after_digest": "sha256:1a6530525b147ba5869d07c1eb92046926361e5e348d0a418c6dc7e2b88739f2",
+      "changed": false
+    },
+    {
+      "target": "10_人物/江小彤.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6064_6_Dlgs_Index34_Text",
+        "6064_6_Dlgs_Index35_Text"
+      ],
+      "reason": "父母への加害を知った瞬間、子供の直截な口調のまま「殺す」「仇を討つ」と振り切れる二行は、無邪気から殺意へ切り替わる現行資料に一致する。",
+      "scope": {
+        "relationship": "父母の仇と認識した伏龍子への殺意",
+        "timeline": "伏龍子の告白直後"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+      "after_digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-70",
+  "wave_id": "yuwen-mowen-train-70-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN70_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6002_5_6151_3_2026-07-31.json",
+      "manifest_digest": "sha256:d5f12f8b57da1c5adfdc867a8c56d956b37f763696e99dc9472f4ab4bbfda665"
+    }
+  ]
+}

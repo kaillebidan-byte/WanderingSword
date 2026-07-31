@@ -2,21 +2,23 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5825_1_5928_7_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch114.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6002_5_6151_3_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch115.json",
       "values": {
-        "5825_1_Dlgs_Index7_Text": "1 - 宇文逸 $@$程堡主はあれだけ人のために尽くし、この人たちは誰もが程堡主の恩を受けていたのに……亡くなったばかりだというのに、よくここまで悪く言えるな！",
-        "5829_5_Dlgs_Index3_Text": "16002 - 程鈺 $@$母さんは、きっと前から何かを予感していたんだと思います。そうでなければ、どうして急にあんなことを……",
-        "5829_5_Dlgs_Index5_Text": "16002 - 程鈺 $@$はい、分かっています！　しっかり修行して、一日も早く母さんの汚名をそそぎます！",
-        "5897_6_Dlgs_Index3_Text": "5029 - 莫棄 $@$掌門師叔、俺もいる。小逸たちと一緒に行かせてもらえないか？",
-        "5926_3_Dlgs_Index3_Text": "5015 - 莫問 $@$長年、悪事の限りを尽くしてきた貴様らだ。その罪状、竹簡を尽くしても書ききれぬ！　今こそ命で償え！"
+        "6002_5_Dlgs_Index2_Text": "5015 - 莫問 $@$……本来、わたしに属するはずの物を取り戻しているだけだ。",
+        "6064_6_Dlgs_Index5_Text": "5003 - 清虚道長 $@$儂らは、てっきりそなたがもう……",
+        "6064_6_Dlgs_Index7_Text": "9506 - 伏龍子 $@$この儂が正道のため、天絶との決戦に身を投じたというのに！　死んだと思われて間もないうちに、一門は皆殺しにされた！",
+        "6064_6_Dlgs_Index17_Text": "5003 - 清虚道長 $@$ごほ、ごほ……ならば、復讐する機会はとうにあったのに今まで待ったのは……儂らの手にある風雲訣を取り戻すためか。",
+        "6064_6_Dlgs_Index31_Text": "5003 - 清虚道長 $@$そして、儂が関外へ赴いたことで、そなたに江師弟を見つける機会を与えてしまった。",
+        "6151_3_Dlgs_Index21_Text": "45311 - 莫問 $@$何より……今のわたしには、生殺与奪の権を握るだけの力がある！"
       },
       "fix_keys": [
-        "5825_1_Dlgs_Index7_Text",
-        "5829_5_Dlgs_Index3_Text",
-        "5829_5_Dlgs_Index5_Text",
-        "5897_6_Dlgs_Index3_Text",
-        "5926_3_Dlgs_Index3_Text"
+        "6002_5_Dlgs_Index2_Text",
+        "6064_6_Dlgs_Index5_Text",
+        "6064_6_Dlgs_Index7_Text",
+        "6064_6_Dlgs_Index17_Text",
+        "6064_6_Dlgs_Index31_Text",
+        "6151_3_Dlgs_Index21_Text"
       ]
     }
   ]

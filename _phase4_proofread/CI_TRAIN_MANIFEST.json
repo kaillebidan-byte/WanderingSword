@@ -1,1 +1,288 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-69","branch":"agent/yuwen-mowen-train-69","draft_pr":226,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":226,"merge_sha":"d2b9bcaa0751455d2aede6ace9003fb4003d5ace"},"base_checkpoint":{"batch":199,"pair_applied_keys":1407,"project_applied_keys":1783,"produced_by_pr":225,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-68-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_68.json","pr":225,"validated_head":"2b7d767f9061b72aad414d5d218f1d12fd1a150a"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":67,"reviewed_keys":67,"unique_reviewed_rows":67,"fix_keys":5,"unique_fix_rows":5,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":5,"keep_only_bundles":0},"bundles":[{"batch":200,"review_status":"complete","apply_status":"verified","scene_groups":["5825_1","5828_1","5829_5","5831_3","5831_4","5897_6","5923_2","5926_2","5926_3","5928_1","5928_2","5928_6","5928_7"],"reviewed_rows":67,"reviewed_keys":67,"unique_rows":67,"fix_keys":5,"unique_fix_rows":5,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":5,"keep_keys":62,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch14.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch15.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH200_2026-07-31.md","ownership_summary":{"existing_keys":64,"unowned_kept":3,"new_keys":0,"cross_register_keys":0},"allusion_review_candidates":["欺世盗名","入土为安","人云亦云","去见阎王","算账","罄竹难书"],"allusion_review_resolved":[{"key":"5825_1_Dlgs_Index1_Text","decision":"定着した人物非難の成語","note":"「欺世盗名」は世を欺いて虚名を得るという非難。現訳「世間を欺いて名を売った」が機能を保つ。"},{"key":"5825_1_Dlgs_Index2_Text","decision":"定着した埋葬・死後安寧の表現","note":"「入土为安」は埋葬されて初めて安らぐという慣用。現訳「土に還してやる」が像と町人の口調を保つ。"},{"key":"5825_1_Dlgs_Index8_Text","decision":"定着した追随・付和雷同の成語","note":"「人云亦云」は他人の言葉へそのまま追随すること。現訳「周りの声に流される」が莫問の人間観として機能を保つ。"},{"key":"5926_2_Dlgs_Index2_Text","decision":"俗な死の脅し","note":"「去见阎王」は閻魔に会わせる、すなわち殺すという俗な脅し。現訳「閻魔様のところへ送ってやった」が包閔の粗野な声を保つ。"},{"key":"5926_2_Dlgs_Index4_Text","decision":"定着した報復・決着の比喩","note":"「算账」は勘定をつけることから報復・決着を示す。現訳「償わせる」が江大哥の分も含めた断罪を保つ。"},{"key":"5926_3_Dlgs_Index3_Text","decision":"竹簡像を持つ定着成語","note":"「罄竹难书」は竹簡を使い尽くしても罪状を書き尽くせないという像を持つ。現訳は量の説明へ散文化しているため、竹簡像を訳文へ戻す。"}],"fact_doubts":[{"scope":"cheng_deming_burial_and_succession_are_rumor","keys":["5825_1_Dlgs_Index0_Text","5825_1_Dlgs_Index4_Text","5825_1_Dlgs_Index5_Text"],"note":"程徳明が乱葬場へ運ばれたこと、程万清が関与したこと、堡主交代の裏事情はいずれも町人の伝聞・言いさし・推測。この場面だけで客観事実へ固定しない。"},{"scope":"chengyu_mother_premonition_is_chengyu_inference","keys":["5829_5_Dlgs_Index2_Text","5829_5_Dlgs_Index3_Text"],"note":"母の指示は手紙を宇文逸へ渡すことまで。母が事件を予知していたという結論は程鈺の推測であり、母の知識・計画を確定しない。"},{"scope":"chengyu_departure_reason_is_inference","keys":["5831_3_Dlgs_Index0_Text","5831_3_Dlgs_Index1_Text","5831_4_Dlgs_Index0_Text","5831_4_Dlgs_Index2_Text"],"note":"程鈺が自ら離れたことは高確度推測だが、清霄の発言が直接原因か、どこへ向かったかは未確定。別分岐の弟子入り後情報で補完しない。"},{"scope":"mowen_tianshan_history_is_not_yet_disclosed","keys":["5926_3_Dlgs_Index2_Text"],"note":"莫問は天山を言いさしてから悪人谷への一般断罪へ切り替える。後続で明かされる出生・復讐・離反事情をこの時点の訳文へ補わない。"},{"scope":"wu_elder_current_fate_is_unknown","keys":["5928_2_Dlgs_Index2_Text","5928_2_Dlgs_Index4_Text","5928_2_Dlgs_Index5_Text","5928_7_Dlgs_Index1_Text","5928_7_Dlgs_Index3_Text","5928_7_Dlgs_Index4_Text"],"note":"瑶姫が離れた時点では烏長老は無事だったという発言に限られ、現在の生死は不明。別人物の殺害発言や分岐を混ぜて確定しない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30599694651,"artifact_id":8781435253,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:4c068b3030454675e6712c59ea04460bcb1d447c3ac76b8e2b30db88fb191753","head_sha":"9b8fc99bfd4351b312ad884a9f65148428600c4d"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-69-wave-01"},"next_release":{"candidate_scene":["6002_5"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[200],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-68","release_id":"yuwen-mowen-train-68-r1","pr":225,"merge_sha":"2160b32977fd5e01418200fc48fe8dd3ccf73838"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":67,"unique_reviewed_rows":67,"fix_keys":5,"unique_fix_rows":5,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":5,"low_yield_detected":true,"release_decision":"quality_passed","challenge_pass":{"status":"complete","scope":"all_initial_keep_unique_rows","reviewed_candidate_keep_rows":62,"findings_unique_rows":0,"finding_keys":0,"record":"_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN69_WAVE01_2026-07-31.md"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_69.json","merge_result":{"pr":226,"merge_sha":"d2b9bcaa0751455d2aede6ace9003fb4003d5ace"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-70",
+  "branch": "agent/yuwen-mowen-train-70",
+  "draft_pr": 227,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 227,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 200,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 226,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-69-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_69.json",
+      "pr": 226,
+      "validated_head": "26b7c597576efdba6719e92fc2db93bf90bbd08d"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 63,
+    "reviewed_keys": 63,
+    "unique_reviewed_rows": 63,
+    "fix_keys": 6,
+    "unique_fix_rows": 6,
+    "new_pair_keys": 0,
+    "new_project_keys": 0,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 6,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 201,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "6002_5",
+        "6064_6",
+        "6151_2",
+        "6151_3"
+      ],
+      "reviewed_rows": 63,
+      "reviewed_keys": 63,
+      "unique_rows": 63,
+      "fix_keys": 6,
+      "unique_fix_rows": 6,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 6,
+      "keep_keys": 57,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch17.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch21.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH201_2026-07-31.md",
+      "ownership_summary": {
+        "existing_keys": 63,
+        "unowned_kept": 0,
+        "new_keys": 0,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "尸骨未寒",
+        "报仇雪恨",
+        "赶尽杀绝",
+        "从长计议",
+        "物归原主",
+        "罪魁祸首",
+        "冠冕堂皇",
+        "迎刃而解",
+        "生杀予夺",
+        "践行酒"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "6064_6_Dlgs_Index7_Text",
+          "decision": "死後間もない時間を示す定着成語",
+          "note": "「尸骨未寒」は死者の骨もまだ冷えぬほど間もないこと。伏龍子は生存していたため、現訳の「死んだと思われて間もないうちに」が発話上の時間感覚を保つ。修正対象は「满门」の範囲だけとする。"
+        },
+        {
+          "key": "6064_6_Dlgs_Index8_Text",
+          "decision": "雪辱を伴う復讐の定着表現",
+          "note": "「报仇雪恨」は仇を討ち恨みをそそぐこと。現訳「仇を討とうとする」が日本語の場面機能を保つ。"
+        },
+        {
+          "key": "6064_6_Dlgs_Index13_Text",
+          "decision": "残らず滅ぼす定着表現",
+          "note": "「赶尽杀绝」は逃げ道を断って皆殺しにすること。現訳「皆殺しにしなかった」が否定形の意味を保つ。"
+        },
+        {
+          "key": "6064_6_Dlgs_Index30_Text",
+          "decision": "長期的に策を練る成語",
+          "note": "「从长计议」は急がず長期的に計画すること。現訳「腰を据えて策を練り」が機能と清虚の推理口調を保つ。"
+        },
+        {
+          "key": "6151_3_Dlgs_Index1_Text",
+          "decision": "本来の所有者へ返す成語",
+          "note": "「物归原主」は物を元の持ち主へ返すこと。莫問本人への「お返しすべきでした」で関係と機能が明確なため維持する。"
+        },
+        {
+          "key": "6151_3_Dlgs_Index6_Text",
+          "decision": "災いの主因となった者を示す成語",
+          "note": "「罪魁祸首」は最大の元凶。現訳「元凶たち」が複数主体と意味を保つ。"
+        },
+        {
+          "key": "6151_3_Dlgs_Index17_Text",
+          "decision": "立派に見せかけた口実を示す成語",
+          "note": "「冠冕堂皇」は外見だけ立派でもっともらしいこと。現訳「もっともらしい大義名分」が莫問の冷笑と機能を保つ。"
+        },
+        {
+          "key": "6151_3_Dlgs_Index20_Text",
+          "decision": "刃を当てれば割れるように解決する成語",
+          "note": "「迎刃而解」は問題がたちどころに解けること。現訳「たちどころに片づく」が莫問の断定と結果の容易さを保つため維持する。"
+        },
+        {
+          "key": "6151_3_Dlgs_Index21_Text",
+          "decision": "生死・処遇を意のままにする定着表現",
+          "note": "「生杀予夺」は人の生死や処遇を掌握すること。現訳は「生殺与奪を握る」と不自然なため、「生殺与奪の権を握る」へ修正する。"
+        },
+        {
+          "key": "6064_6_Dlgs_Index21_Text",
+          "decision": "出立前に贈る餞別の酒",
+          "note": "「践行酒」は文脈上、決戦前夜の餞の酒。現訳「餞の酒」が意味を保ち、誤って修行・実践の酒としていない。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "wuming_fulongzi_reference_conflict_remains_unresolved",
+          "keys": [
+            "6064_6_Dlgs_Index0_Text",
+            "6064_6_Dlgs_Index8_Text"
+          ],
+          "note": "宇文逸は無名＝伏龍子と理解する一方、伏龍子は無名を捜して復讐しようとしたと語る。同一場面の指示対象矛盾を訳文側で解消せず、それぞれの話者発言として保持する。"
+        },
+        {
+          "scope": "fulongzi_history_is_claim_and_admission",
+          "keys": [
+            "6064_6_Dlgs_Index7_Text",
+            "6064_6_Dlgs_Index8_Text",
+            "6064_6_Dlgs_Index9_Text",
+            "6064_6_Dlgs_Index10_Text",
+            "6064_6_Dlgs_Index12_Text",
+            "6064_6_Dlgs_Index13_Text",
+            "6064_6_Dlgs_Index14_Text",
+            "6064_6_Dlgs_Index15_Text",
+            "6064_6_Dlgs_Index16_Text",
+            "6064_6_Dlgs_Index19_Text",
+            "6064_6_Dlgs_Index20_Text",
+            "6064_6_Dlgs_Index21_Text",
+            "6064_6_Dlgs_Index22_Text",
+            "6064_6_Dlgs_Index23_Text",
+            "6064_6_Dlgs_Index24_Text",
+            "6064_6_Dlgs_Index28_Text",
+            "6064_6_Dlgs_Index32_Text"
+          ],
+          "note": "天山派滅亡、三派、玉華、江吟風・巫芸、偽の風雲訣、息子に関する情報は伏龍子本人の告発・肯定・告白。発話主体を消して客観ナレーションへ変えない。"
+        },
+        {
+          "scope": "qingxu_causal_chain_is_inference_until_confirmed",
+          "keys": [
+            "6064_6_Dlgs_Index17_Text",
+            "6064_6_Dlgs_Index18_Text",
+            "6064_6_Dlgs_Index26_Text",
+            "6064_6_Dlgs_Index27_Text",
+            "6064_6_Dlgs_Index29_Text",
+            "6064_6_Dlgs_Index30_Text",
+            "6064_6_Dlgs_Index31_Text",
+            "6064_6_Dlgs_Index33_Text"
+          ],
+          "note": "復讐開始時期、玉華の死、江師弟らへの襲撃、偽秘籍の策、不風山撤退を結ぶのは清虚の推理。伏龍子が明示的に認めた範囲と、清虚が整理している因果を分ける。"
+        },
+        {
+          "scope": "mowen_future_persecution_is_prediction_and_self_justification",
+          "keys": [
+            "6151_3_Dlgs_Index16_Text",
+            "6151_3_Dlgs_Index17_Text",
+            "6151_3_Dlgs_Index19_Text",
+            "6151_3_Dlgs_Index20_Text",
+            "6151_3_Dlgs_Index21_Text",
+            "6151_3_Dlgs_Index23_Text"
+          ],
+          "note": "風雲訣と自身が存在する限り各派が殺しに来るというのは莫問の将来予測と自己正当化。確定した未来事実へ強めず、力への自負と関係断絶の発話として保つ。"
+        },
+        {
+          "scope": "qingxu_death_and_later_battle_outcomes_are_branch_bound",
+          "keys": [
+            "6151_3_Dlgs_Index6_Text",
+            "6151_3_Dlgs_Index8_Text",
+            "6151_3_Dlgs_Index9_Text",
+            "6151_3_Dlgs_Index10_Text",
+            "6151_3_Dlgs_Index11_Text",
+            "6151_3_Dlgs_Index12_Text",
+            "6151_3_Dlgs_Index22_Text",
+            "6151_3_Dlgs_Index23_Text"
+          ],
+          "note": "清虚の死はこの分岐の対話内で伝えられる事実だが、6155_1以後の勝敗・生死・再同行分岐は未収録。後続結果をこの束の訳文や人物資料判断へ混入しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30601107348,
+        "artifact_id": 8781931983,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:7498579f617b9bf1581b27ab2aa0526c9940a0a22a2b0f3c0eab445265697ba2",
+        "head_sha": "e7500d2883fbbe58f7ac1cbbb7fd08dc2daf8b95"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-70-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "6155_1"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      201
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-69",
+    "release_id": "yuwen-mowen-train-69-r1",
+    "pr": 226,
+    "merge_sha": "d2b9bcaa0751455d2aede6ace9003fb4003d5ace"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 63,
+    "unique_reviewed_rows": 63,
+    "fix_keys": 6,
+    "unique_fix_rows": 6,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 6,
+    "low_yield_detected": true,
+    "release_decision": "quality_passed",
+    "challenge_pass": {
+      "status": "complete",
+      "scope": "all_initial_keep_unique_rows",
+      "reviewed_candidate_keep_rows": 57,
+      "findings_unique_rows": 0,
+      "finding_keys": 0,
+      "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN70_WAVE01_2026-07-31.md"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_70.json"
+}
