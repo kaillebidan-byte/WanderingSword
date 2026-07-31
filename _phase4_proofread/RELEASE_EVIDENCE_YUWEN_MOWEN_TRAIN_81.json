@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-81-r1",
+  "train_id": "yuwen-mowen-train-81",
+  "pr": 239,
+  "ci_head": "4a3edefc1ac22f3c850b07147044c817f467a5e2",
+  "asset_head": "c986d79afb4b53b4cca856ae02a2329560b1e654",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH213_2026-08-01.md",
+  "counts": {
+    "batch": 213,
+    "pair_applied_keys": 1438,
+    "project_applied_keys": 1814,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30671825695,
+    "workflow": "Release train orchestrator",
+    "head_sha": "4a3edefc1ac22f3c850b07147044c817f467a5e2",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "explicit-reference残件14行をtarget/namespace別2packetで監査し、FIX 2件・KEEP 12件を確定した。",
+    "完全preflight、Relation、Cross、Apply、pak一回再生成、未適用差分0件を確認した。",
+    "現Relation artifactのexplicit-reference未監査残件は0行となり、通常sceneを再予約せずpair completion checkpointへ遷移する。",
+    "ゲームフォルダへの配置とゲーム内確認は行っていない。"
+  ]
+}

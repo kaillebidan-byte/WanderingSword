@@ -1,156 +1,64 @@
 {
   "schema_version": 6,
   "status": "ready",
-  "task_id": "yuwen-mowen-train-81-tail-quality-audit",
+  "task_id": "post-yuwen-mowen-train-81-pair-complete",
   "based_on_checkpoint": {
-    "batch": 211,
-    "pair_applied_keys": 1436,
-    "project_applied_keys": 1812,
-    "produced_by_pr": 237,
-    "release_id": "yuwen-mowen-train-80-r1",
-    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json"
+    "batch": 213,
+    "pair_applied_keys": 1438,
+    "project_applied_keys": 1814,
+    "produced_by_pr": 239,
+    "release_id": "yuwen-mowen-train-81-r1",
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json"
   },
   "current_pair": "宇文逸↔莫問",
   "scene_groups": [
-    "13297_2_Dlgs",
-    "12406_OptionDlgs3_Index0_Text",
-    "12406_RequestDlgs_Index0_Text",
-    "12409_FinishingDlgs_Index8_Text",
-    "12436_RequestDlgs_Index0_Text",
-    "14201_FinishingDlgs_Index2_Text",
-    "20004_FinishingDlgs_Index3_Text",
-    "22576_FinishingDlgs_Index1_Text",
-    "23021_FinishingDlgs_Index0_Text",
-    "5371_FinishingDlgs_Index0_Text",
-    "5371_FinishingDlgs_Index3_Text",
-    "5944_RequestDlgs_Index1_Text",
-    "6252_FinishingDlgs_Index0_Text"
+    "__PAIR_COMPLETE__"
   ],
   "reservation": {
-    "status": "encoded",
-    "wave_id": "yuwen-mowen-train-81-wave-01",
-    "packet_id": "yuwen-mowen-train-81-wave-01-tail",
-    "preparation_started": true,
-    "quality_audit_started": true,
-    "encoding_started": true,
-    "formal_batch": [
-      212,
-      213
-    ]
+    "status": "reserved_only",
+    "wave_id": null,
+    "packet_id": null,
+    "preparation_started": false,
+    "quality_audit_started": false,
+    "encoding_started": false,
+    "formal_batch": null
   },
   "source": {
     "artifact_workflow": "Release train orchestrator",
-    "artifact_run": 30668426155,
-    "artifact_id": 8807875827,
+    "artifact_run": 30671825695,
+    "artifact_id": 8809061781,
     "artifact_name": "relation-audit-evidence",
     "artifact_file": "yuwen_mowen.json",
-    "artifact_digest": "sha256:396c05f9a53b3785bcb6fe2741786421edba6d82d83ce164d0f32ff7b7351539",
-    "artifact_head": "bcdaef9989461437bf686a49414fc749812ae76c",
+    "artifact_digest": "sha256:12906ac8c0bdfd468f8e7b4267dbc256b723c81d548d28c597ba82921959185d",
+    "artifact_head": "4a3edefc1ac22f3c850b07147044c817f467a5e2",
     "freshness_rule": "quality audit中は保存済みcandidateを一次資料とし、encoding前にsource stale検査を行う。"
   },
   "release_candidate": {
     "train_id": "yuwen-mowen-train-81",
     "release_id": "yuwen-mowen-train-81-r1",
     "pr": 239,
-    "status": "ready_for_public_ci"
+    "status": "verified",
+    "merge_sha": null
   },
   "do_not_do": [
-    "translation_frozen中にKEEP/FIX判断を再開しない",
-    "release orchestrator以外の一時CIを作らない",
+    "pair completionを通常scene reservationへ戻さない",
+    "同じexplicit_reference行を再監査しない",
+    "phase2成功前にtranslation PRをmergeしない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
     "phase": "phase1_wave",
     "train_id": "yuwen-mowen-train-81",
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
-    "planned_batch": 213,
+    "planned_batch": 214,
     "post_merge_state_pr_required": false,
     "single_pr_finalization": true
   },
-  "tail_exhaustion": {
-    "status": "verified",
-    "residual_rows": 14,
-    "packet_count": 2
-  },
-  "quality_audit_source_feedback": {
-    "contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
-    "candidate_schema": 3,
-    "audit_decision_schema": 2,
-    "candidate_manifests": [
-      {
-        "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_CG_13297_2_2026-08-01.json",
-        "manifest_digest": "sha256:ab87d58baf4df99450fb16538d7cf8b063de6638d0a1f10f3656aad6d1ad71ec"
-      },
-      {
-        "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_TAIL_QUESTS_12406_6252_2026-08-01.json",
-        "manifest_digest": "sha256:0885b1374ab8b9600c530c77f9678a9e4b47f239c33f7e7cafadd9d9f71276de"
-      }
-    ]
-  },
-  "scene_flow": [
-    {
-      "scene": "13297_2_Dlgs",
-      "focus_keys": [
-        "13297_2_Dlgs_Index0_Text",
-        "13297_2_Dlgs_Index1_Text"
-      ]
-    },
-    {
-      "scene": "12406_OptionDlgs3_Index0_Text / 12406_RequestDlgs_Index0_Text / 12409_FinishingDlgs_Index8_Text / 12436_RequestDlgs_Index0_Text / 14201_FinishingDlgs_Index2_Text / 20004_FinishingDlgs_Index3_Text / 22576_FinishingDlgs_Index1_Text / 23021_FinishingDlgs_Index0_Text / 5371_FinishingDlgs_Index0_Text / 5371_FinishingDlgs_Index3_Text / 5944_RequestDlgs_Index1_Text / 6252_FinishingDlgs_Index0_Text",
-      "focus_keys": [
-        "12406_OptionDlgs3_Index0_Text",
-        "12406_RequestDlgs_Index0_Text",
-        "12409_FinishingDlgs_Index8_Text",
-        "12436_RequestDlgs_Index0_Text",
-        "14201_FinishingDlgs_Index2_Text",
-        "20004_FinishingDlgs_Index3_Text",
-        "22576_FinishingDlgs_Index1_Text",
-        "23021_FinishingDlgs_Index0_Text",
-        "5371_FinishingDlgs_Index0_Text",
-        "5371_FinishingDlgs_Index3_Text",
-        "5944_RequestDlgs_Index1_Text",
-        "6252_FinishingDlgs_Index0_Text"
-      ]
-    }
-  ],
-  "batch_planning": {
-    "mode": "detail_packet",
-    "reviewed_rows": 14,
-    "target_rows": {
-      "min": 15,
-      "max": 30
-    },
-    "adjacent_candidates_checked": [
-      "13297_2_Dlgs",
-      "12406_OptionDlgs3_Index0_Text",
-      "12406_RequestDlgs_Index0_Text",
-      "12409_FinishingDlgs_Index8_Text",
-      "12436_RequestDlgs_Index0_Text",
-      "14201_FinishingDlgs_Index2_Text",
-      "20004_FinishingDlgs_Index3_Text",
-      "22576_FinishingDlgs_Index1_Text",
-      "23021_FinishingDlgs_Index0_Text",
-      "5371_FinishingDlgs_Index0_Text",
-      "5371_FinishingDlgs_Index3_Text",
-      "5944_RequestDlgs_Index1_Text",
-      "6252_FinishingDlgs_Index0_Text"
-    ],
-    "grouping_decision": "現Relation artifactのexplicit_reference全keyから第206〜211束candidateの既監査keyを除いた残件14行を、target/namespace別の2packetですべて収録する。隣接する未監査explicit_reference行は存在せず、通常40行下限を満たせない最終scopeである。",
-    "exception": {
-      "reason_code": "no_adjacent_in_scope_scene",
-      "detail": "現Relation artifactのexplicit_reference全keyから第206〜211束candidateの既監査keyを除いた残件14行を、target/namespace別の2packetですべて収録する。隣接する未監査explicit_reference行は存在せず、通常40行下限を満たせない最終scopeである。"
-    }
-  },
-  "owner_assignment_result": "_phase4_proofread/OWNER_ASSIGNMENT_RESULT.json",
-  "owner_assignment_counts": {
-    "existing_owner_updates": 0,
-    "new_project_keys": 2,
-    "fix_keys": 2
-  },
-  "source_document_feedback": {
+  "pair_completion": {
     "status": "complete",
-    "record": "_phase4_proofread/SOURCE_DOCUMENT_FEEDBACK_YUWEN_MOWEN_TRAIN81_WAVE01_2026-08-01.json",
-    "changed_documents": [],
-    "unresolved_documents": []
+    "pair": "宇文逸↔莫問",
+    "reason": "explicit_reference_tail_exhausted",
+    "remaining_explicit_reference_rows": 0,
+    "transition": "post_merge_pair_completion_checkpoint"
   }
 }

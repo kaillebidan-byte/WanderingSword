@@ -4,32 +4,32 @@
   "repository": "kaillebidan-byte/WanderingSword",
   "base_branch": "main",
   "translation_base_commit": "dee19812149e901b6d057cdd48a23e980e5731fb",
-  "state_base_commit": "7f2e5fdda63981242df77e016665ae8f254030c3",
+  "state_base_commit": "c986d79afb4b53b4cca856ae02a2329560b1e654",
   "current_cluster": "wudang_core",
   "current_pair": "宇文逸↔莫問",
   "stage": "translation_reaudit_in_progress",
   "status": "verified",
-  "last_completed_batch": 211,
-  "last_reviewed_batch": 211,
-  "pair_applied_keys": 1436,
-  "project_applied_keys": 1812,
+  "last_completed_batch": 213,
+  "last_reviewed_batch": 213,
+  "pair_applied_keys": 1438,
+  "project_applied_keys": 1814,
   "build_status": "verified_not_deployed",
   "game_verified": "not_started",
   "last_merged_translation_pr": 237,
   "checkpoint": {
     "status": "verified",
-    "batch": 211,
-    "pair_applied_keys": 1436,
-    "project_applied_keys": 1812,
-    "produced_by_pr": 237,
+    "batch": 213,
+    "pair_applied_keys": 1438,
+    "project_applied_keys": 1814,
+    "produced_by_pr": 239,
     "release_identity": {
       "kind": "pr_release_v2",
-      "release_id": "yuwen-mowen-train-80-r1",
-      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json",
-      "pr": 237,
-      "validated_head": "3e6c2014000b044ae0eec52952a6d74314e91bbb"
+      "release_id": "yuwen-mowen-train-81-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json",
+      "pr": 239,
+      "validated_head": "c986d79afb4b53b4cca856ae02a2329560b1e654"
     },
-    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH211_2026-08-01.md"
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH213_2026-08-01.md"
   },
   "operation_mode": {
     "declared_state": "translation_frozen",
@@ -113,22 +113,10 @@
   },
   "immediate_next": {
     "scene_groups": [
-      "13297_2_Dlgs",
-      "12406_OptionDlgs3_Index0_Text",
-      "12406_RequestDlgs_Index0_Text",
-      "12409_FinishingDlgs_Index8_Text",
-      "12436_RequestDlgs_Index0_Text",
-      "14201_FinishingDlgs_Index2_Text",
-      "20004_FinishingDlgs_Index3_Text",
-      "22576_FinishingDlgs_Index1_Text",
-      "23021_FinishingDlgs_Index0_Text",
-      "5371_FinishingDlgs_Index0_Text",
-      "5371_FinishingDlgs_Index3_Text",
-      "5944_RequestDlgs_Index1_Text",
-      "6252_FinishingDlgs_Index0_Text"
+      "__PAIR_COMPLETE__"
     ],
-    "task": "release-ci labelでRelease train orchestratorを起動する。",
-    "boundary": "翻訳判断は凍結済み。Relation・Cross・Apply・phase2だけを実行する。",
+    "task": "PR #239のfinalize-release phase2と未解決review thread 0件を確認し、検証済みHEADをsquash統合する。",
+    "boundary": "統合後は宇文逸↔莫問pair completion checkpointへ遷移し、実sceneを予約しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
@@ -163,8 +151,8 @@
     "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
     "train_id": "yuwen-mowen-train-81",
     "branch": "agent/yuwen-mowen-train-81",
-    "status": "ready_for_public_ci",
-    "transport_status": "ready_for_public_ci",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
     "base_checkpoint_batch": 211,
     "thresholds": {
       "bundle_count": 4,
@@ -190,11 +178,11 @@
     },
     "private_stage": {
       "stage": "translation_frozen",
-      "status": "complete",
-      "transport_status": "ready_for_public_ci",
+      "status": "verified",
+      "transport_status": "awaiting_private_merge",
       "wave_id": "yuwen-mowen-train-81-wave-01",
       "cycle_status": "running",
-      "cycle_checkpoint": "ready_for_public_ci"
+      "cycle_checkpoint": "awaiting_private_merge"
     },
     "tracking_issue": null,
     "draft_pr": 239,
@@ -206,7 +194,31 @@
       "release_id": "yuwen-mowen-train-80-r1",
       "pr": 237,
       "merge_sha": "dee19812149e901b6d057cdd48a23e980e5731fb"
+    },
+    "applied_result": {
+      "orchestrator_run": 30671825695,
+      "asset_head": "c986d79afb4b53b4cca856ae02a2329560b1e654",
+      "pair_applied_keys": 1438,
+      "project_applied_keys": 1814,
+      "pending_fixes": 0,
+      "checkpoint_status": "verified"
+    },
+    "verified_result": {
+      "release_id": "yuwen-mowen-train-81-r1",
+      "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json",
+      "record_index_synced": true,
+      "pair_applied_keys": 1438,
+      "project_applied_keys": 1814,
+      "pending_fixes": 0
+    },
+    "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json",
+    "pair_completion": {
+      "status": "complete",
+      "pair": "宇文逸↔莫問",
+      "reason": "explicit_reference_tail_exhausted",
+      "remaining_explicit_reference_rows": 0,
+      "transition": "post_merge_pair_completion_checkpoint"
     }
   },
-  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json"
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json"
 }

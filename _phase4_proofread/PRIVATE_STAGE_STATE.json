@@ -11,8 +11,8 @@
     "post_public_completion_target": "merged",
     "continuation_required": true,
     "stop_reason": null,
-    "exact_next_action": "release-ci labelで固定release trainを起動する",
-    "last_safe_checkpoint": "ready_for_public_ci",
+    "exact_next_action": "PR #239のfinalize-release phase2とreview thread 0件を確認し、検証済みHEADをsquash mergeする",
+    "last_safe_checkpoint": "awaiting_private_merge",
     "execution_mode": "always_public_full_pipeline",
     "cycle_start_visibility": "public",
     "mode_locked_for_cycle": true,
@@ -55,7 +55,7 @@
         "review_record": {
           "status": "complete",
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH212_2026-08-01.md",
-          "apply_status": "pending"
+          "apply_status": "verified"
         },
         "formal_batch": 212,
         "source_document_target_count": 2,
@@ -94,7 +94,7 @@
         "review_record": {
           "status": "complete",
           "record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH213_2026-08-01.md",
-          "apply_status": "pending"
+          "apply_status": "verified"
         },
         "formal_batch": 213,
         "source_document_target_count": 2,
@@ -119,7 +119,7 @@
     }
   },
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "history": [
       {
         "status": "not_ready",
@@ -129,6 +129,23 @@
         "status": "ready_for_public_ci",
         "translation_stage": "translation_frozen",
         "pr": 239
+      },
+      {
+        "status": "in_public_ci",
+        "translation_stage": "translation_frozen",
+        "pr": 239
+      },
+      {
+        "status": "verified",
+        "translation_stage": "translation_frozen",
+        "pr": 239,
+        "release_id": "yuwen-mowen-train-81-r1"
+      },
+      {
+        "status": "awaiting_private_merge",
+        "translation_stage": "translation_frozen",
+        "pr": 239,
+        "release_id": "yuwen-mowen-train-81-r1"
       }
     ],
     "pr": 239,
@@ -207,5 +224,19 @@
       "5944_RequestDlgs_Index1_Text",
       "6252_FinishingDlgs_Index0_Text"
     ]
+  },
+  "verified_result": {
+    "release_id": "yuwen-mowen-train-81-r1",
+    "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json",
+    "ci_head": "4a3edefc1ac22f3c850b07147044c817f467a5e2",
+    "asset_head": "c986d79afb4b53b4cca856ae02a2329560b1e654",
+    "pending_fixes": 0
+  },
+  "pair_completion": {
+    "status": "complete",
+    "pair": "宇文逸↔莫問",
+    "reason": "explicit_reference_tail_exhausted",
+    "remaining_explicit_reference_rows": 0,
+    "transition": "post_merge_pair_completion_checkpoint"
   }
 }

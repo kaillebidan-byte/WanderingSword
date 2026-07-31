@@ -4,9 +4,9 @@
   "train_id": "yuwen-mowen-train-81",
   "branch": "agent/yuwen-mowen-train-81",
   "draft_pr": 239,
-  "status": "ready_for_public_ci",
+  "status": "verified",
   "transport": {
-    "status": "ready_for_public_ci",
+    "status": "awaiting_private_merge",
     "translation_stage": "translation_frozen",
     "pr": 239,
     "merge_sha": null
@@ -60,7 +60,7 @@
     {
       "batch": 212,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "13297_2_Dlgs"
       ],
@@ -109,7 +109,7 @@
     {
       "batch": 213,
       "review_status": "complete",
-      "apply_status": "pending",
+      "apply_status": "verified",
       "scene_groups": [
         "12406_OptionDlgs3_Index0_Text",
         "12406_RequestDlgs_Index0_Text",
@@ -210,27 +210,15 @@
   "single_pr_finalization": true,
   "private_stage": {
     "stage": "translation_frozen",
-    "status": "complete",
-    "transport_status": "ready_for_public_ci",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
     "wave_id": "yuwen-mowen-train-81-wave-01"
   },
   "next_release": {
     "candidate_scene": [
-      "13297_2_Dlgs",
-      "12406_OptionDlgs3_Index0_Text",
-      "12406_RequestDlgs_Index0_Text",
-      "12409_FinishingDlgs_Index8_Text",
-      "12436_RequestDlgs_Index0_Text",
-      "14201_FinishingDlgs_Index2_Text",
-      "20004_FinishingDlgs_Index3_Text",
-      "22576_FinishingDlgs_Index1_Text",
-      "23021_FinishingDlgs_Index0_Text",
-      "5371_FinishingDlgs_Index0_Text",
-      "5371_FinishingDlgs_Index3_Text",
-      "5944_RequestDlgs_Index1_Text",
-      "6252_FinishingDlgs_Index0_Text"
+      "__PAIR_COMPLETE__"
     ],
-    "reservation_status": "encoded",
+    "reservation_status": "pair_complete_pending_merge",
     "reservation_schema": 6,
     "formal_batches": [
       212,
@@ -265,5 +253,13 @@
       "finding_keys": 0,
       "record": "_phase4_proofread/QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN81_WAVE01_2026-08-01.md"
     }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_81.json",
+  "pair_completion": {
+    "status": "complete",
+    "pair": "宇文逸↔莫問",
+    "reason": "explicit_reference_tail_exhausted",
+    "remaining_explicit_reference_rows": 0,
+    "transition": "post_merge_pair_completion_checkpoint"
   }
 }
