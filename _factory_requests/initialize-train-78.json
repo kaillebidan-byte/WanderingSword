@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "contract_id": "translation-factory-request-v1",
+  "operation": "initialize_with_semantic_boundary",
+  "executor": "fixed_cycle_initializer",
+  "expected_controller_action": "initialize_next_cycle_from_reservation",
+  "branch": "agent/yuwen-mowen-train-78",
+  "source": {
+    "artifact_workflow": "Release train orchestrator",
+    "artifact_run": 30663804764,
+    "artifact_id": 8806187365,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "artifact_digest": "sha256:64ab80dea580407d598ac77199425ce644179a8d68ca047456971e0b5cc88de2",
+    "artifact_head": "1e8d17584ebb08187863fef41f2295db29bbfa9e"
+  },
+  "semantic_boundary": {
+    "scene_groups": [
+      "5331_1",
+      "5341_2",
+      "5341_4",
+      "5343_4",
+      "5360_10",
+      "5586_3"
+    ],
+    "unique_reviewed_rows": 44,
+    "semantic_extension": {
+      "used": false,
+      "reason": null
+    },
+    "timeline": "品剣大会への参加者を決める武当門内大比の発端・裁定・結果を主単位とし、その後の莫棄救出判断と洪飛への莫問紹介を別小単位として扱う。",
+    "branch_note": "5331_1〜5343_4の27行で門内大比が完結する。単独では40行下限に届かないため、莫問との関係表現を含む5360_10の8行と5586_3の9行を混同せず併載し、44行で閉じる。",
+    "seal_attestation": "門内大比27行、救出判断8行、再会導入9行をそれぞれ独立した意味単位として保ち、合計44行で下限を満たす。60行超の延長は行わない。",
+    "candidate_questions": [
+      "門内大比での莫問の裁定口調と宇文逸の師弟registerを保てているか",
+      "清虚の古風な師父口調と宇文逸の復讐心の強度を保てているか",
+      "莫棄救出時の宇文逸の責任感と莫問への伝言が時系列どおりか",
+      "洪飛への紹介で莫問を大師兄と呼ぶ関係段階を保てているか"
+    ],
+    "allusion_candidates": [
+      "湛卢",
+      "翘楚",
+      "垂之千古",
+      "邪功"
+    ],
+    "fact_doubts": [
+      "莫問は門内大比へ参加しておらず裁定役として描かれている",
+      "5360_10では莫棄が連れ去られ、莫問はその場に戻っていない",
+      "5586_3は洪飛へ莫問を大師兄として紹介する段階である"
+    ]
+  },
+  "output": {
+    "candidate_path": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5331_1_5586_3_2026-08-01.json",
+    "preparation_path": "_phase4_proofread/PREPARATION_YUWEN_MOWEN_TRAIN78_WAVE01_2026-08-01.md"
+  }
+}
