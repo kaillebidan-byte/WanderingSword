@@ -2,23 +2,21 @@
   "schema_version": 1,
   "packets": [
     {
-      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6002_5_6151_3_2026-07-31.json",
-      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch115.json",
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6155_1_6229_1_2026-07-31.json",
+      "new_owner_file": "_phase4_proofread/fixes_relation_yuwen_mowen_20260731_batch116.json",
       "values": {
-        "6002_5_Dlgs_Index2_Text": "5015 - 莫問 $@$……本来、わたしに属するはずの物を取り戻しているだけだ。",
-        "6064_6_Dlgs_Index5_Text": "5003 - 清虚道長 $@$儂らは、てっきりそなたがもう……",
-        "6064_6_Dlgs_Index7_Text": "9506 - 伏龍子 $@$この儂が正道のため、天絶との決戦に身を投じたというのに！　死んだと思われて間もないうちに、一門は皆殺しにされた！",
-        "6064_6_Dlgs_Index17_Text": "5003 - 清虚道長 $@$ごほ、ごほ……ならば、復讐する機会はとうにあったのに今まで待ったのは……儂らの手にある風雲訣を取り戻すためか。",
-        "6064_6_Dlgs_Index31_Text": "5003 - 清虚道長 $@$そして、儂が関外へ赴いたことで、そなたに江師弟を見つける機会を与えてしまった。",
-        "6151_3_Dlgs_Index21_Text": "45311 - 莫問 $@$何より……今のわたしには、生殺与奪の権を握るだけの力がある！"
+        "6155_3_Dlgs_Index5_Text": "45311 - 莫問 $@$時には……あいつが本当に妬ましくなる。",
+        "6206_3_Dlgs_Index4_Text": "45311 - 莫問 $@$実は……こうなるのも、悪くない……",
+        "6213_1_Dlgs_Index7_Text": "45311 - 莫問 $@$まずは、お前が何より大切にしている武当から――その手始めに、お前からだ……",
+        "6229_1_Dlgs_Index3_Text": "45311 - 莫問 $@$だが、残念だったな……結局、お前の負けだ。",
+        "6229_1_Dlgs_Index5_Text": "45311 - 莫問 $@$今日の己の無力さを、一生かけて悔やむがいい！"
       },
       "fix_keys": [
-        "6002_5_Dlgs_Index2_Text",
-        "6064_6_Dlgs_Index5_Text",
-        "6064_6_Dlgs_Index7_Text",
-        "6064_6_Dlgs_Index17_Text",
-        "6064_6_Dlgs_Index31_Text",
-        "6151_3_Dlgs_Index21_Text"
+        "6155_3_Dlgs_Index5_Text",
+        "6206_3_Dlgs_Index4_Text",
+        "6213_1_Dlgs_Index7_Text",
+        "6229_1_Dlgs_Index3_Text",
+        "6229_1_Dlgs_Index5_Text"
       ]
     }
   ]

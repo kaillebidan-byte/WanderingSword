@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "verified",
+  "release_id": "yuwen-mowen-train-71-r1",
+  "train_id": "yuwen-mowen-train-71",
+  "pr": 228,
+  "ci_head": "3878187410d9c9553cffcf297023d00b9e6af600",
+  "asset_head": "c3e99169a710c3e1a49015ddd157776de339bf4d",
+  "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH202_2026-07-31.md",
+  "counts": {
+    "batch": 202,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "pending_fixes": 0
+  },
+  "orchestrator": {
+    "id": 30629731498,
+    "workflow": "Release train orchestrator",
+    "head_sha": "3878187410d9c9553cffcf297023d00b9e6af600",
+    "event": "pull_request",
+    "conclusion": "success"
+  },
+  "lineage": {
+    "mode": "branch_ancestor",
+    "merge_sha": null
+  },
+  "notes": [
+    "完全preflight、Relation、Cross、Apply、pak再生成、未適用差分0件を確認した。",
+    "第202束は65行を監査し、5件を修正、60件を意図的に保持した。",
+    "ゲームフォルダへの配置は行わず、verified_not_deployed・game_verified: not_startedを維持する。"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6158_5_Dlgs_Index2_Text",
+        "6158_5_Dlgs_Index3_Text",
+        "6158_5_Dlgs_Index4_Text",
+        "6158_5_Dlgs_Index5_Text",
+        "6198_3_Dlgs_Index2_Text",
+        "6198_3_Dlgs_Index3_Text",
+        "6198_3_Dlgs_Index5_Text",
+        "6198_3_Dlgs_Index6_Text",
+        "6198_3_Dlgs_Index7_Text",
+        "6198_3_Dlgs_Index8_Text",
+        "6206_3_Dlgs_Index0_Text",
+        "6206_3_Dlgs_Index1_Text",
+        "6214_4_Dlgs_Index2_Text",
+        "6214_4_Dlgs_Index3_Text",
+        "6214_4_Dlgs_Index5_Text",
+        "6214_4_Dlgs_Index6_Text",
+        "6214_4_Dlgs_Index7_Text"
+      ],
+      "reason": "莫問が関係を断った後も師兄呼称と敬体を保ち、処断を拒みつつ何度でも止めると断じる。現行資料の敵対・決戦分岐における敬体、兄弟子認識、処断拒否に整合する。",
+      "scope": {
+        "relationship": "離反・敵対後の莫問への師兄認識と処断拒否",
+        "timeline": "6155_1〜6229_1の決戦分岐群"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6155_1_Dlgs_Index1_Text",
+        "6155_1_Dlgs_Index2_Text",
+        "6155_1_Dlgs_Index3_Text",
+        "6155_3_Dlgs_Index5_Text",
+        "6155_3_Dlgs_Index6_Text",
+        "6155_3_Dlgs_Index7_Text",
+        "6155_3_Dlgs_Index8_Text",
+        "6155_3_Dlgs_Index9_Text",
+        "6158_5_Dlgs_Index0_Text",
+        "6158_5_Dlgs_Index1_Text",
+        "6171_5_Dlgs_Index0_Text",
+        "6171_5_Dlgs_Index1_Text",
+        "6171_5_Dlgs_Index2_Text",
+        "6171_5_Dlgs_Index5_Text",
+        "6198_3_Dlgs_Index0_Text",
+        "6198_3_Dlgs_Index1_Text",
+        "6206_3_Dlgs_Index3_Text",
+        "6206_3_Dlgs_Index4_Text",
+        "6206_3_Dlgs_Index5_Text",
+        "6206_3_Dlgs_Index6_Text",
+        "6206_3_Dlgs_Index7_Text",
+        "6229_1_Dlgs_Index1_Text",
+        "6229_1_Dlgs_Index2_Text",
+        "6229_1_Dlgs_Index3_Text",
+        "6229_1_Dlgs_Index4_Text",
+        "6229_1_Dlgs_Index5_Text"
+      ],
+      "reason": "宇文逸への呼称を省き「お前」で距離を切り、嘲り、嫉妬、脅し、敗北受容、死への安堵を分岐別に切り替える。現行資料の敵対・決戦分岐の記述に整合し、今回の差分は訳文の強度と意味順だけで足りる。",
+      "scope": {
+        "relationship": "宇文逸との敵対決戦、処断要求、敗北・死亡分岐",
+        "timeline": "6155_1〜6229_1の分岐別終局"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/瑶姬.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6213_1_Dlgs_Index8_Text"
+      ],
+      "reason": "「快住手」は目前の殺害を止める緊急介入の一言であり、既存の任務中・挑発モードを反証する一般的な口調規則にはならない。一次資料一行だけから新モードを追加せず現行資料を維持する。",
+      "scope": {
+        "relationship": "宇文逸と莫問の決戦への緊急介入",
+        "timeline": "6213_1分岐の介入時点"
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "after_digest": "sha256:6212b6b67a1e462aa42781a96bcc8f05f9d62c58e279c67c85d465b5a879ff6c",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-71",
+  "wave_id": "yuwen-mowen-train-71-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN71_WAVE01_2026-07-31.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6155_1_6229_1_2026-07-31.json",
+      "manifest_digest": "sha256:c210c7a09526cecd8e8e696950a66cfcc5cfc4c25480056e29774a215b41b0d3"
+    }
+  ]
+}
