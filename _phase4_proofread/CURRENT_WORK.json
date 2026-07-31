@@ -1,1 +1,207 @@
-{"schema_version":8,"updated_at":"2026-07-31","repository":"kaillebidan-byte/WanderingSword","base_branch":"main","translation_base_commit":"1d3560e1168b34707c0ff3a5033456bbbae2f8db","state_base_commit":"1d3560e1168b34707c0ff3a5033456bbbae2f8db","current_cluster":"wudang_core","current_pair":"宇文逸↔莫問","stage":"translation_reaudit_in_progress","status":"verified","last_completed_batch":195,"last_reviewed_batch":195,"pair_applied_keys":1407,"project_applied_keys":1783,"build_status":"verified_not_deployed","game_verified":"not_started","last_merged_translation_pr":221,"checkpoint":{"status":"verified","batch":195,"pair_applied_keys":1407,"project_applied_keys":1783,"produced_by_pr":221,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-64-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json","pr":221,"validated_head":"d4fcc7de93d8b620bc102ae78cfc801bd760b811"},"applied_record":"_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH195_2026-07-31.md"},"operation_mode":{"declared_state":"translation_frozen","protocol":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md","cycle_protocol":"_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md","actual_visibility_source":"github_repository_metadata","visibility_change_actor":"none","public_translation_forbidden":false,"deep_failure_returns_private":false,"draft_train_pr_allowed_while_private":true,"train_release_requires_manifest_ready":true,"single_pr_finalization":true,"post_merge_state_pr_required":false,"normal_private_completion_target":"ready_for_public_ci","normal_public_completion_target":"awaiting_private_merge","post_public_completion_target":"merged","stage_boundaries_are_conversational_stops":false,"phrases":{"request_public":"公開CI窓を開いてください。","confirm_public":"公開した","request_private":"privateへ戻してください。","confirm_private":"privateに戻した"},"public_ci_exit_checks":["relation_audit_success","cross_register_success","apply_curated_fixes_success","zero_pending_fixes","release_evidence_verified","single_pr_state_finalized","verified_checkpoint","zero_unresolved_review_threads","translation_pr_squash_merged"],"open_pr_only_after_ready":true,"execution_mode":"always_public_full_pipeline","cycle_start_visibility":"public","mode_locked_for_cycle":true,"visibility_change_required":false,"visibility_change_requests_forbidden":true,"stage_permissions_are_authoritative":true,"normal_cycle_completion_target":"merged"},"pr_continuity":{"open_prs_require_triage":true,"triage_states":["active","superseded","abandoned","unrelated"],"known_superseded":[{"pr":38,"superseded_by":39},{"pr":74,"superseded_by":76},{"pr":75,"superseded_by":76}],"replacement_rule":"置換PRを作った時点で旧PRへ置換先をコメントし、旧PRを閉じる。"},"session_bootstrap":{"protocol":"_phase4_proofread/SESSION_BOOTSTRAP.md","trigger_phrase":"現状把握して作業の続きを","same_project_repository_known":true,"ask_repository_again":false,"resume_work_in_same_response":true,"resume_until_cycle_target":true,"status_only_when_explicitly_requested":true,"open_pr_triage_required":true,"bot_action_required_is_not_failure":true,"merge_requires_verified_checkpoint":true,"next_task_packet_required":true,"next_task_packet":"_phase4_proofread/NEXT_TASK_PACKET.json"},"immediate_next":{"scene_groups":["5654_1"],"task":"PR #221のmerge確定済み。次cycle開始時visibilityからexecution modeを選び、予約候補のpreparationを開始する。","boundary":"新cycleのexecution modeをCURRENT_WORKとPRIVATE_STAGE_STATEへlockするまで、翻訳準備・判断・owner書込みを開始しない。","packet":"_phase4_proofread/NEXT_TASK_PACKET.json"},"mandatory_read_order":["README.md","AGENTS.md","_phase4_proofread/PROJECT_SCOPE_LOCK.json","_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json","_phase4_proofread/EXECUTION_MODES.json","_phase4_proofread/FINAL_RESPONSE_POLICY.json","_phase4_proofread/SESSION_BOOTSTRAP.md","_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md","_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json","_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md","_phase4_proofread/PRIVATE_STAGE_STATE.json","_phase4_proofread/TRANSLATION_QUALITY_GATE.md","_phase4_proofread/PUBLIC_CI_WINDOW.md","_phase4_proofread/CI_TRAIN_PHASE1.md","_phase4_proofread/CI_TRAIN_PHASE2.md","_phase4_proofread/CI_TRAIN_MANIFEST.json","_phase4_proofread/CURRENT_WORK.json","_phase4_proofread/CURRENT_HANDOFF.md","_phase4_proofread/NEXT_TASK_PACKET.json","_phase4_proofread/COLD_START_ACCEPTANCE.md","_phase4_proofread/audit_status.json","_phase4_proofread/RUNBOOK_人物ペア再監査.md"],"ci_train":{"phase":"phase1_wave","policy":"_phase4_proofread/CI_TRAIN_PHASE2.md","quality_policy":"_phase4_proofread/TRANSLATION_QUALITY_GATE.md","private_stage_policy":"_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md","manifest":"_phase4_proofread/CI_TRAIN_MANIFEST.json","train_id":"yuwen-mowen-train-64","branch":"agent/yuwen-mowen-train-64","status":"verified","transport_status":"merged","base_checkpoint_batch":194,"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"totals":{"bundle_count":1,"reviewed_rows":54,"reviewed_keys":54,"unique_reviewed_rows":54,"fix_keys":4,"unique_fix_rows":4,"new_pair_keys":0,"new_project_keys":0,"cross_register_keys":0,"existing_owner_updates":4,"keep_only_bundles":0},"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-64-wave-01","cycle_status":"target_reached","cycle_checkpoint":"merged"},"tracking_issue":null,"draft_pr":221,"finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"previous_release":{"train_id":"yuwen-mowen-train-63","release_id":"yuwen-mowen-train-63-r1","pr":220,"merge_sha":"58d7b58d57bd67ea0cbcca9168d4cd5bca4a885b"},"applied_result":{"orchestrator_run":30566778812,"asset_head":"d4fcc7de93d8b620bc102ae78cfc801bd760b811","pair_applied_keys":1407,"project_applied_keys":1783,"pending_fixes":0,"checkpoint_status":"verified"},"verified_result":{"release_id":"yuwen-mowen-train-64-r1","release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json","record_index_synced":true,"pair_applied_keys":1407,"project_applied_keys":1783,"pending_fixes":0},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json","merge_result":{"pr":221,"merge_sha":"1d3560e1168b34707c0ff3a5033456bbbae2f8db"}},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json"}
+{
+  "schema_version": 8,
+  "updated_at": "2026-07-31",
+  "repository": "kaillebidan-byte/WanderingSword",
+  "base_branch": "main",
+  "translation_base_commit": "1d3560e1168b34707c0ff3a5033456bbbae2f8db",
+  "state_base_commit": "771263bb3a73c1578146c7fd24f2416b8ade38bb",
+  "current_cluster": "wudang_core",
+  "current_pair": "宇文逸↔莫問",
+  "stage": "translation_reaudit_in_progress",
+  "status": "verified",
+  "last_completed_batch": 195,
+  "last_reviewed_batch": 195,
+  "pair_applied_keys": 1407,
+  "project_applied_keys": 1783,
+  "build_status": "verified_not_deployed",
+  "game_verified": "not_started",
+  "last_merged_translation_pr": 221,
+  "checkpoint": {
+    "status": "verified",
+    "batch": 195,
+    "pair_applied_keys": 1407,
+    "project_applied_keys": 1783,
+    "produced_by_pr": 221,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-64-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json",
+      "pr": 221,
+      "validated_head": "d4fcc7de93d8b620bc102ae78cfc801bd760b811"
+    },
+    "applied_record": "_phase4_proofread/APPLIED_FIXES_YUWEN_MOWEN_BATCH195_2026-07-31.md"
+  },
+  "operation_mode": {
+    "declared_state": "private_translation_work",
+    "protocol": "_phase4_proofread/PUBLIC_CI_WINDOW.md",
+    "cycle_protocol": "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
+    "actual_visibility_source": "github_repository_metadata",
+    "visibility_change_actor": "none",
+    "public_translation_forbidden": false,
+    "deep_failure_returns_private": false,
+    "draft_train_pr_allowed_while_private": true,
+    "train_release_requires_manifest_ready": true,
+    "single_pr_finalization": true,
+    "post_merge_state_pr_required": false,
+    "normal_private_completion_target": "ready_for_public_ci",
+    "normal_public_completion_target": "awaiting_private_merge",
+    "post_public_completion_target": "merged",
+    "stage_boundaries_are_conversational_stops": false,
+    "phrases": {
+      "request_public": "公開CI窓を開いてください。",
+      "confirm_public": "公開した",
+      "request_private": "privateへ戻してください。",
+      "confirm_private": "privateに戻した"
+    },
+    "public_ci_exit_checks": [
+      "relation_audit_success",
+      "cross_register_success",
+      "apply_curated_fixes_success",
+      "zero_pending_fixes",
+      "release_evidence_verified",
+      "single_pr_state_finalized",
+      "verified_checkpoint",
+      "zero_unresolved_review_threads",
+      "translation_pr_squash_merged"
+    ],
+    "open_pr_only_after_ready": true,
+    "execution_mode": "always_public_full_pipeline",
+    "cycle_start_visibility": "public",
+    "mode_locked_for_cycle": true,
+    "visibility_change_required": false,
+    "visibility_change_requests_forbidden": true,
+    "stage_permissions_are_authoritative": true,
+    "normal_cycle_completion_target": "merged"
+  },
+  "pr_continuity": {
+    "open_prs_require_triage": true,
+    "triage_states": [
+      "active",
+      "superseded",
+      "abandoned",
+      "unrelated"
+    ],
+    "known_superseded": [
+      {
+        "pr": 38,
+        "superseded_by": 39
+      },
+      {
+        "pr": 74,
+        "superseded_by": 76
+      },
+      {
+        "pr": 75,
+        "superseded_by": 76
+      }
+    ],
+    "replacement_rule": "置換PRを作った時点で旧PRへ置換先をコメントし、旧PRを閉じる。"
+  },
+  "session_bootstrap": {
+    "protocol": "_phase4_proofread/SESSION_BOOTSTRAP.md",
+    "trigger_phrase": "現状把握して作業の続きを",
+    "same_project_repository_known": true,
+    "ask_repository_again": false,
+    "resume_work_in_same_response": true,
+    "resume_until_cycle_target": true,
+    "status_only_when_explicitly_requested": true,
+    "open_pr_triage_required": true,
+    "bot_action_required_is_not_failure": true,
+    "merge_requires_verified_checkpoint": true,
+    "next_task_packet_required": true,
+    "next_task_packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
+  },
+  "immediate_next": {
+    "scene_groups": [
+      "5654_1",
+      "5654_4",
+      "5654_6",
+      "5654_7",
+      "5654_8",
+      "5654_12"
+    ],
+    "task": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES5654_1_5654_12_2026-07-31.jsonをtranslation_quality_audit stationでKEEP/FIX監査する。",
+    "boundary": "quality auditでは翻訳判断だけを記録し、fix・owner・正式束・CI操作を行わない。",
+    "packet": "_phase4_proofread/NEXT_TASK_PACKET.json",
+    "source_feedback_contract": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "quality_audit_context_digest": "sha256:c7787481cd991353e8afb646dfef794026a26e0fd8ebab9f11d4770a753b8943"
+  },
+  "mandatory_read_order": [
+    "README.md",
+    "AGENTS.md",
+    "_phase4_proofread/PROJECT_SCOPE_LOCK.json",
+    "_phase4_proofread/VISIBILITY_PREFLIGHT_CONTRACT.json",
+    "_phase4_proofread/EXECUTION_MODES.json",
+    "_phase4_proofread/FINAL_RESPONSE_POLICY.json",
+    "_phase4_proofread/SESSION_BOOTSTRAP.md",
+    "_phase4_proofread/AUTONOMOUS_VISIBILITY_CYCLE.md",
+    "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.json",
+    "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+    "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
+    "_phase4_proofread/PUBLIC_CI_WINDOW.md",
+    "_phase4_proofread/CI_TRAIN_PHASE1.md",
+    "_phase4_proofread/CI_TRAIN_PHASE2.md",
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "_phase4_proofread/CURRENT_WORK.json",
+    "_phase4_proofread/CURRENT_HANDOFF.md",
+    "_phase4_proofread/NEXT_TASK_PACKET.json",
+    "_phase4_proofread/COLD_START_ACCEPTANCE.md",
+    "_phase4_proofread/audit_status.json",
+    "_phase4_proofread/RUNBOOK_人物ペア再監査.md"
+  ],
+  "ci_train": {
+    "phase": "phase1_wave",
+    "policy": "_phase4_proofread/CI_TRAIN_PHASE2.md",
+    "quality_policy": "_phase4_proofread/TRANSLATION_QUALITY_GATE.md",
+    "private_stage_policy": "_phase4_proofread/PRIVATE_TRANSLATION_STAGES.md",
+    "manifest": "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "train_id": "yuwen-mowen-train-65",
+    "branch": "agent/yuwen-mowen-train-65",
+    "status": "accumulating",
+    "transport_status": "not_ready",
+    "base_checkpoint_batch": 195,
+    "thresholds": {
+      "bundle_count": 4,
+      "reviewed_rows": 40,
+      "fix_keys": 20
+    },
+    "caps": {
+      "bundle_count": 6,
+      "reviewed_rows": 80
+    },
+    "totals": {
+      "bundle_count": 0,
+      "reviewed_rows": 0,
+      "reviewed_keys": 0,
+      "unique_reviewed_rows": 0,
+      "fix_keys": 0,
+      "unique_fix_rows": 0,
+      "new_pair_keys": 0,
+      "new_project_keys": 0,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 0,
+      "keep_only_bundles": 0
+    },
+    "private_stage": {
+      "stage": "private_quality_audit",
+      "status": "active",
+      "transport_status": "not_ready",
+      "wave_id": "yuwen-mowen-train-65-wave-01",
+      "cycle_status": "running",
+      "cycle_checkpoint": "private_quality_audit"
+    },
+    "tracking_issue": null,
+    "draft_pr": null,
+    "finalization_phase": "phase2",
+    "post_merge_state_pr_required": false,
+    "single_pr_finalization": true,
+    "previous_release": {
+      "train_id": "yuwen-mowen-train-64",
+      "release_id": "yuwen-mowen-train-64-r1",
+      "pr": 221,
+      "merge_sha": "1d3560e1168b34707c0ff3a5033456bbbae2f8db"
+    }
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_64.json"
+}
