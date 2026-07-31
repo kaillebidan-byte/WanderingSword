@@ -1,0 +1,92 @@
+name: Translation pair tail finalization
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - "_tail_requests/finalize-*.json"
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: translation-pair-tail-finalization-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    if: ${{ github.actor != 'github-actions[bot]' && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve tail finalization request
+        id: request
+        run: |
+          python - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          from pathlib import Path
+          paths=sorted(Path('_tail_requests').glob('finalize-*.json'))
+          if len(paths)!=1: raise SystemExit(f'expected one tail finalization request, found {len(paths)}')
+          path=paths[0]; value=json.loads(path.read_text(encoding='utf-8'))
+          if value.get('branch')!='${{ github.head_ref }}': raise SystemExit('request branch mismatch')
+          if value.get('pair_completion',{}).get('status')!='complete': raise SystemExit('pair completion missing')
+          print(f'request={path.as_posix()}'); print(f'run_id={value["orchestrator_run_id"]}'); print(f'artifact_name={value["artifact_name"]}')
+          PY
+
+      - name: Download fixed finalization inputs
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.request.outputs.artifact_name }}
+          path: /tmp/pair-tail-finalization
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.request.outputs.run_id }}
+
+      - name: Execute tail finalizer
+        run: |
+          python _tools/pair_tail_release_finalizer.py \
+            --request "${{ steps.request.outputs.request }}" \
+            --artifact-json /tmp/pair-tail-finalization/finalization-inputs.json \
+            --branch-name "${{ github.head_ref }}" \
+            --write --output /tmp/pair-tail-finalization-result.json
+          git rm "${{ steps.request.outputs.request }}"
+
+      - name: Validate phase2-ready pair completion
+        run: |
+          python _tools/check_state_json_integrity.py
+          python _tools/check_release_evidence.py --verify-git-lineage
+          python _tools/check_handoff_consistency_v2.py --require-verified
+          python _tools/check_ci_train_manifest_v2.py
+          python _tools/check_private_translation_stage.py
+          python _tools/check_autonomous_cycle.py
+          python _tools/check_next_task_packet.py
+          python _tools/check_batch_planning.py
+          python _tools/check_translation_quality_gate.py
+          python _tools/translation_factory_controller.py --repository-visibility public --output /tmp/tail-phase2-order.json
+          python - <<'PY'
+          import json
+          order=json.load(open('/tmp/tail-phase2-order.json',encoding='utf-8'))
+          if order.get('action')!='verify_phase2_and_merge': raise SystemExit(order)
+          PY
+          python _tools/test_pair_tail_flow.py
+          git diff --check
+
+      - name: Commit phase2-ready pair completion
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "状態: tail releaseとpair completionを確定 [tail-finalize]"
+          git push origin "HEAD:${GITHUB_HEAD_REF}"

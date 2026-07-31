@@ -1,0 +1,115 @@
+name: Translation pair tail encoding
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - "_phase4_proofread/TAIL_AUDIT_DECISIONS_*.json"
+      - "_phase4_proofread/QUALITY_CHALLENGE_*.md"
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: translation-pair-tail-encoding-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  encode:
+    if: ${{ github.actor != 'github-actions[bot]' && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve tail audit outputs
+        id: inputs
+        run: |
+          python - >> "$GITHUB_OUTPUT" <<'PY'
+          import json,re
+          from pathlib import Path
+          p4=Path('_phase4_proofread'); current=json.loads((p4/'CURRENT_WORK.json').read_text(encoding='utf-8')); train=current['ci_train']['train_id']
+          audits=[]
+          for path in sorted(p4.glob('TAIL_AUDIT_DECISIONS_*.json')):
+              value=json.loads(path.read_text(encoding='utf-8'))
+              if value.get('train_id')==train and value.get('status')=='complete': audits.append(path)
+          if len(audits)!=1: raise SystemExit(f'expected one tail audit for {train}, found {len(audits)}')
+          audit=audits[0]; m=re.search(r'_TRAIN(\d+)_WAVE(\d+)_(\d{4})-(\d{2})-(\d{2})\.json$',audit.name)
+          if not m: raise SystemExit(f'invalid tail audit filename: {audit.name}')
+          train_no,wave_no,year,month,day=m.groups(); challenge=p4/f'QUALITY_CHALLENGE_YUWEN_MOWEN_TRAIN{train_no}_WAVE{int(wave_no):02d}_{year}-{month}-{day}.md'
+          if not challenge.is_file(): raise SystemExit(f'missing challenge record: {challenge}')
+          max_batch=0
+          for path in p4.glob('fixes_relation_yuwen_mowen_*_batch*.json'):
+              mm=re.search(r'_batch(\d+)\.json$',path.name)
+              if mm: max_batch=max(max_batch,int(mm.group(1)))
+          owner=p4/f'fixes_relation_yuwen_mowen_{year}{month}{day}_batch{max_batch+1}.json'
+          feedback=p4/audit.name.replace('TAIL_AUDIT_DECISIONS_','SOURCE_DOCUMENT_FEEDBACK_')
+          print(f'audit={audit.as_posix()}'); print(f'challenge={challenge.as_posix()}'); print(f'owner={owner.as_posix()}'); print(f'feedback={feedback.as_posix()}')
+          PY
+
+      - name: Validate reading and persona decisions
+        run: python _tools/check_quality_audit_source_feedback.py --audit "${{ steps.inputs.outputs.audit }}"
+
+      - name: Encode exact tail decisions
+        run: |
+          python _tools/pair_tail_encoding_pipeline.py \
+            --audit "${{ steps.inputs.outputs.audit }}" \
+            --pr-number "${{ github.event.pull_request.number }}" \
+            --new-owner-file "${{ steps.inputs.outputs.owner }}" \
+            --challenge-record "${{ steps.inputs.outputs.challenge }}" \
+            --write --output /tmp/pair-tail-encoding.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path('_phase4_proofread/NEXT_TASK_PACKET.json'); value=json.loads(path.read_text(encoding='utf-8'))
+          formal=value.get('reservation',{}).get('formal_batch')
+          batches=formal if isinstance(formal,list) else [formal]
+          if not batches or any(not isinstance(item,int) or item<=0 for item in batches): raise SystemExit('tail formal batches are invalid')
+          value.setdefault('ci_train',{})['planned_batch']=max(batches)
+          path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Apply recorded persona feedback
+        run: |
+          python _tools/source_document_feedback.py --audit "${{ steps.inputs.outputs.audit }}" --apply --record "${{ steps.inputs.outputs.feedback }}"
+          python _tools/refresh_owner_assignment_state_digests.py
+
+      - name: Validate frozen tail release
+        run: |
+          python _tools/check_state_json_integrity.py
+          python _tools/check_project_scope_lock.py --repository "${GITHUB_REPOSITORY}"
+          python _tools/check_operation_mode.py --repository-visibility public
+          python _tools/check_private_translation_stage.py
+          python _tools/check_ci_train_manifest_v2.py --require-ready
+          python _tools/check_batch_planning.py
+          python _tools/check_translation_quality_gate.py
+          python _tools/check_owner_assignment_result.py
+          python _tools/source_document_feedback.py --verify-record --record "${{ steps.inputs.outputs.feedback }}"
+          python _tools/translation_factory_controller.py --repository-visibility public --output /tmp/tail-release-order.json
+          python - <<'PY'
+          import json
+          order=json.load(open('/tmp/tail-release-order.json',encoding='utf-8'))
+          if order.get('action') not in {'run_release_preflight','run_release_train'}: raise SystemExit(order)
+          PY
+          python _tools/test_pair_tail_flow.py
+          python _tools/test_fixed_encoding_pipeline.py
+          git diff --check
+
+      - name: Commit frozen tail release
+        run: |
+          if [[ -z "$(git status --porcelain -- _phase4_proofread 10_人物)" ]]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _phase4_proofread 10_人物
+          git diff --cached --check
+          git commit -m "翻訳: explicit-reference tail監査を収録 [tail-encoding]"
+          git push origin "HEAD:${GITHUB_HEAD_REF}"

@@ -1,0 +1,60 @@
+name: Translation pair tail post-merge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_phase4_proofread/CURRENT_WORK.json"
+      - "_phase4_proofread/PRIVATE_STAGE_STATE.json"
+      - "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+      - "_phase4_proofread/NEXT_TASK_PACKET.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: translation-pair-tail-post-merge-main
+  cancel-in-progress: false
+
+jobs:
+  seal:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Seal merged pair completion when ready
+        run: python _tools/pair_tail_post_merge.py --write
+
+      - name: Validate completion checkpoint
+        run: |
+          if [[ -z "$(git status --porcelain -- _phase4_proofread)" ]]; then exit 0; fi
+          python _tools/check_state_json_integrity.py
+          python _tools/translation_factory_controller.py --repository-visibility public --output /tmp/pair-complete-order.json
+          python - <<'PY'
+          import json
+          order=json.load(open('/tmp/pair-complete-order.json',encoding='utf-8'))
+          if order.get('action')!='resume_recorded_checkpoint': raise SystemExit(order)
+          PY
+          python _tools/test_pair_tail_flow.py
+          git diff --check
+
+      - name: Commit pair completion checkpoint
+        run: |
+          if [[ -z "$(git status --porcelain -- _phase4_proofread)" ]]; then
+            echo "NOOP: no merged pair completion to seal"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "状態: explicit-reference pair完了checkpointを確定"
+          git push origin HEAD:main
