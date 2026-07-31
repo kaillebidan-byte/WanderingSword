@@ -77,6 +77,7 @@ jobs:
           value.setdefault('ci_train',{})['planned_batch']=max(batches)
           path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
+          python _tools/refresh_pair_tail_release_candidate.py
 
       - name: Apply recorded persona feedback
         run: |
@@ -101,6 +102,7 @@ jobs:
           if order.get('action') not in {'run_release_preflight','run_release_train'}: raise SystemExit(order)
           PY
           python _tools/test_pair_tail_flow.py
+          python _tools/test_refresh_pair_tail_release_candidate.py
           python _tools/test_fixed_encoding_pipeline.py
           git diff --check
 
