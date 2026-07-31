@@ -370,8 +370,8 @@
       "evidence_inventory": "complete",
       "persona_reviewed": "in_progress",
       "relation_reviewed": "in_progress",
-      "translation_reaudited": "batch213_complete_next_scenes_pending",
-      "build_verified": "batch213_complete",
+      "translation_reaudited": "high_confidence_pass_complete",
+      "build_verified": "high_confidence_pass_complete",
       "game_verified": "not_started",
       "evidence": {
         "raw_blocks": 285,
@@ -393,7 +393,13 @@
         "案内・教導・世話・危機判断を同じ語尾へ均さない",
         "人物口調の監査でも鋳剣、無堅不摧、望塵莫及などの意味誤りを同時に確認する",
         "宇文師弟固定、温情、諦観は義兄弟化・離反・敵対・再会・終盤分岐まで検証後に確定する"
-      ]
+      ],
+      "residual_candidates": "none_in_explicit_reference_artifact",
+      "pair_completion_checkpoint": {
+        "batch": 213,
+        "release_id": "yuwen-mowen-train-81-r1",
+        "reason": "explicit_reference_tail_exhausted"
+      }
     }
   },
   "current": {
