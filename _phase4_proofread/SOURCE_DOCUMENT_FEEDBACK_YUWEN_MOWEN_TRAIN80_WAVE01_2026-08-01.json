@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "contract_id": "quality-audit-source-feedback-v1",
+  "status": "applied",
+  "decisions": [
+    {
+      "target": "10_人物/莫問.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6057_12_Dlgs_Index0_Text",
+        "6057_12_Dlgs_Index3_Text"
+      ],
+      "reason": "清霄への端正な報告の途中で宇文逸を認め「宇文師弟」と呼び、続けて来るべきではなかったと短く警告する。離反後も分岐・局面によって師弟呼称が戻るという現行資料の関係段階と、未練を説明せず言いさしで示す声に整合する。",
+      "scope": {
+        "scene_groups": [
+          "6057_12"
+        ],
+        "modes": [
+          "離反後の再会・師弟呼称復帰"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "after_digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清霄道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6057_12_Dlgs_Index4_Text",
+        "6057_12_Dlgs_Index5_Text",
+        "6057_12_Dlgs_Index6_Text"
+      ],
+      "reason": "莫問らの到着を好機と見て、集団へ武当の叛徒を含む全対象の誅殺を命じる。正邪を即断し、重い常体と強語で号令する現行資料の盟主・敵対モードに整合し、修正は複数性と命令強度を訳文へ戻すものに限る。",
+      "scope": {
+        "scene_groups": [
+          "6057_12"
+        ],
+        "modes": [
+          "敵対・集団号令"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "after_digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+      "changed": false
+    },
+    {
+      "target": "10_人物/江小彤.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6081_9_Dlgs_Index0_Text",
+        "6081_9_Dlgs_Index1_Text",
+        "6081_9_Dlgs_Index4_Text",
+        "6081_9_Dlgs_Index5_Text",
+        "6081_9_Dlgs_Index6_Text"
+      ],
+      "reason": "宇文兄ちゃんを子供らしくからかい、母から遺された金蛇の赤ちゃんを誇り、伏龍子の死を仇討ちとして明るく言い切る。無邪気な子供声のまま殺意を向ける落差と一人称「あたし」が現行資料に整合する。",
+      "scope": {
+        "scene_groups": [
+          "6081_9"
+        ],
+        "modes": [
+          "無邪気な子供モード",
+          "殺意モード"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+      "after_digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+      "changed": false
+    },
+    {
+      "target": "10_人物/宇文逸.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6081_9_Dlgs_Index2_Text",
+        "6081_9_Dlgs_Index3_Text",
+        "6081_9_Dlgs_Index7_Text",
+        "6081_9_Dlgs_Index8_Text",
+        "6081_9_Dlgs_Index9_Text",
+        "6081_9_Dlgs_Index10_Text",
+        "6116_3_Dlgs_Index0_Text",
+        "6116_3_Dlgs_Index1_Text",
+        "6116_3_Dlgs_Index6_Text",
+        "6116_3_Dlgs_Index14_Text"
+      ],
+      "reason": "伏龍子の負傷と蠱毒を順に整理しつつ死亡可能性を推測し、離反後も莫問を師兄と呼んで安否を案じる。果たし状の擬古文を読み、師父の依頼には短くためらう。現行資料の理知的な整理、師兄呼称、M1cの動揺に整合する。",
+      "scope": {
+        "scene_groups": [
+          "6081_9",
+          "6116_3"
+        ],
+        "modes": [
+          "M1c",
+          "M3",
+          "離反後の師兄関係"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "after_digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+      "changed": false
+    },
+    {
+      "target": "10_人物/清虚道長.md",
+      "document_type": "persona",
+      "decision": "keep",
+      "operation": null,
+      "evidence_keys": [
+        "6116_3_Dlgs_Index2_Text",
+        "6116_3_Dlgs_Index3_Text",
+        "6116_3_Dlgs_Index4_Text",
+        "6116_3_Dlgs_Index5_Text",
+        "6116_3_Dlgs_Index7_Text",
+        "6116_3_Dlgs_Index8_Text",
+        "6116_3_Dlgs_Index9_Text",
+        "6116_3_Dlgs_Index10_Text",
+        "6116_3_Dlgs_Index11_Text",
+        "6116_3_Dlgs_Index12_Text",
+        "6116_3_Dlgs_Index13_Text",
+        "6116_3_Dlgs_Index15_Text",
+        "6116_3_Dlgs_Index16_Text",
+        "6116_3_Dlgs_Index17_Text",
+        "6116_3_Dlgs_Index18_Text",
+        "6116_3_Dlgs_Index19_Text",
+        "6116_3_Dlgs_Index20_Text",
+        "6116_3_Dlgs_Index21_Text",
+        "6116_3_Dlgs_Index22_Text"
+      ],
+      "reason": "咳で途切れながら各派の危機を説明し、莫問を問児と呼んで復讐後の悔恨を案じ、最後に逸児へ阻止を託す。師として鎮め、道義を示し、判断を委ねる現行資料の病床・慈愛モードに整合し、「为师」の表面訳だけを除く。",
+      "scope": {
+        "scene_groups": [
+          "6116_3"
+        ],
+        "modes": [
+          "病床・感情",
+          "最後の託宣"
+        ]
+      },
+      "confidence": "high",
+      "before_digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+      "after_digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+      "changed": false
+    }
+  ],
+  "changed_documents": [],
+  "unresolved_documents": [],
+  "train_id": "yuwen-mowen-train-80",
+  "wave_id": "yuwen-mowen-train-80-wave-01",
+  "audit": "_phase4_proofread/AUDIT_DECISIONS_YUWEN_MOWEN_TRAIN80_WAVE01_2026-08-01.json",
+  "candidate_manifests": [
+    {
+      "candidate": "_phase4_proofread/CANDIDATE_YUWEN_MOWEN_SCENES6057_12_6116_3_2026-08-01.json",
+      "manifest_digest": "sha256:0bab8486caae1cf16c22a7e69b416d0214834f6e0f530ae748eb60e41f74fbfc"
+    }
+  ]
+}

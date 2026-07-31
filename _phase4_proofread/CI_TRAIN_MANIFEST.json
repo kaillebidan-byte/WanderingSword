@@ -1,1 +1,225 @@
-{"schema_version":2,"phase":"phase1_wave","train_id":"yuwen-mowen-train-79","branch":"agent/yuwen-mowen-train-79","draft_pr":236,"status":"verified","transport":{"status":"merged","translation_stage":"translation_frozen","pr":236,"merge_sha":"e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"},"base_checkpoint":{"batch":209,"pair_applied_keys":1433,"project_applied_keys":1809,"produced_by_pr":235,"release_identity":{"kind":"pr_release_v2","release_id":"yuwen-mowen-train-78-r1","evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_78.json","pr":235,"validated_head":"e451bc1c92c5c2d6d643572cbaa99297068d69bb"}},"thresholds":{"bundle_count":4,"reviewed_rows":40,"fix_keys":20},"caps":{"bundle_count":6,"reviewed_rows":80},"allowed_early_release_reasons":["workflow_change","schema_change","security_or_visibility","urgent_build_verification"],"release_trigger":null,"totals":{"bundle_count":1,"reviewed_rows":45,"reviewed_keys":45,"unique_reviewed_rows":45,"fix_keys":7,"unique_fix_rows":7,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":6,"keep_only_bundles":0},"bundles":[{"batch":210,"review_status":"complete","apply_status":"verified","scene_groups":["5689_1","6003_4","6003_6","6008_2"],"reviewed_rows":45,"reviewed_keys":45,"unique_rows":45,"fix_keys":7,"unique_fix_rows":7,"new_pair_keys":1,"new_project_keys":1,"cross_register_keys":0,"existing_owner_updates":6,"keep_keys":38,"fix_files":["_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch16.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260724_batch35.json","_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch124.json"],"review_record":"_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH210_2026-08-01.md","ownership_summary":{"existing_keys":38,"unowned_kept":6,"new_keys":1,"cross_register_keys":0},"allusion_review_candidates":["欺师灭祖","百口莫辩","杏林高手","以实力为尊"],"allusion_review_resolved":[{"key":"6003_4_Dlgs_Index2_Text","decision":"定着した成語・師門上の重罪表現","note":"「欺师灭祖」は特定典籍の引用としてではなく、師を欺き祖師・師門に背く重罪を列挙する成語として機能する。現訳の強度を保持する。"},{"key":"6008_2_Dlgs_Index7_Text","decision":"定着した成語","note":"「百口莫辩」は何を言っても疑いを晴らせない状態。現訳「何を言っても疑いを晴らせず」が機能を保つためKEEP。"},{"key":"6008_2_Dlgs_Index17_Text","decision":"医者を称える定着した文化語","note":"「杏林高手」は名医を指す文化語で、特定引用として読ませる場面ではない。現訳「名医たち」を保持し、後半の不自然な反語だけを修正する。"},{"key":"6008_2_Dlgs_Index12_Text","decision":"魔門の力本位を示す通常の教義表現","note":"「以实力为尊」は特定古典の引用ではなく、力を尊ぶという瑶姫の論理。現訳「力こそすべて」を保持し、「奈何不了你」の意味だけを修正する。"}],"fact_doubts":[{"scope":"revenge_aftermath_subjective_guilt","keys":["5689_1_Dlgs_Index0_Text","5689_1_Dlgs_Index2_Text","5689_1_Dlgs_Index4_Text"],"note":"二人の子供から見れば宇文逸たちが両親の仇に映るという宇文逸の主観的な罪悪感である。復讐の客観的善悪を訳文で確定しない。"},{"scope":"qingxu_injury_and_false_accusation","keys":["6003_4_Dlgs_Index0_Text","6003_4_Dlgs_Index2_Text","6003_4_Dlgs_Index8_Text","6003_4_Dlgs_Index10_Text"],"note":"清虚は重傷で昏睡し、莫問が宇文逸へ罪を着せた。莫棄は大師兄の公表を信じて追及している時点であり、莫棄の告発を客観事実として確定しない。"},{"scope":"ouyang_report_and_concern","keys":["6003_6_Dlgs_Index1_Text","6003_6_Dlgs_Index2_Text","6003_6_Dlgs_Index3_Text"],"note":"欧陽雪は武当弟子から告発内容を聞き、宇文逸を心配して捜しに来た。告発を信じて責めている場面へ変えず、言いよどみを保持する。"},{"scope":"qingxu_rescue_opportunity","keys":["6008_2_Dlgs_Index13_Text","6008_2_Dlgs_Index14_Text","6008_2_Dlgs_Index15_Text","6008_2_Dlgs_Index17_Text","6008_2_Dlgs_Index18_Text"],"note":"清虚が生存していることを瑶姫は潔白証明の機会と捉え、江小彤が救命法の存在を示唆する段階。治療成功や具体的手段はまだ確定していない。"}],"source_artifact":{"workflow":"Release train orchestrator","run_id":30665631234,"artifact_id":8806860605,"artifact_name":"relation-audit-evidence","artifact_file":"yuwen_mowen.json","digest":"sha256:f4aedc869bfb1c9b6fc67896b5b8bdce56cd822cc721b36d059c41dd850d41ef","head_sha":"154c78b6e469ebee550848aae0ae72b6e334d829"}}],"tracking_issue":null,"tracking_mode":"quality_and_private_stage_verified_in_public_pr","finalization_phase":"phase2","post_merge_state_pr_required":false,"single_pr_finalization":true,"private_stage":{"stage":"translation_frozen","status":"verified","transport_status":"merged","wave_id":"yuwen-mowen-train-79-wave-01"},"next_release":{"candidate_scene":["6057_12"],"reservation_status":"reserved_only","reservation_schema":6,"formal_batches":[210],"current_private_stage":"translation_frozen"},"previous_release":{"train_id":"yuwen-mowen-train-78","release_id":"yuwen-mowen-train-78-r1","pr":235,"merge_sha":"f4c92c238fd9b06ebba89d8ec39d23086bc1dc39"},"quality_gate":{"schema_version":1,"primary_objective":"repair_substantive_translation_defects","throughput_metrics_role":"transport_only","low_yield_threshold_percent":15,"reviewed_keys":45,"unique_reviewed_rows":45,"fix_keys":7,"unique_fix_rows":7,"keep_only_bundles":0,"pre_challenge_unique_fix_rows":7,"low_yield_detected":false,"release_decision":"quality_passed"},"release_evidence":"_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_79.json","merge_result":{"pr":236,"merge_sha":"e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"}}
+{
+  "schema_version": 2,
+  "phase": "phase1_wave",
+  "train_id": "yuwen-mowen-train-80",
+  "branch": "agent/yuwen-mowen-train-80",
+  "draft_pr": 237,
+  "status": "verified",
+  "transport": {
+    "status": "awaiting_private_merge",
+    "translation_stage": "translation_frozen",
+    "pr": 237,
+    "merge_sha": null
+  },
+  "base_checkpoint": {
+    "batch": 210,
+    "pair_applied_keys": 1434,
+    "project_applied_keys": 1810,
+    "produced_by_pr": 236,
+    "release_identity": {
+      "kind": "pr_release_v2",
+      "release_id": "yuwen-mowen-train-79-r1",
+      "evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_79.json",
+      "pr": 236,
+      "validated_head": "8791555a0f2305edb7c913e96054f1b2d925684b"
+    }
+  },
+  "thresholds": {
+    "bundle_count": 4,
+    "reviewed_rows": 40,
+    "fix_keys": 20
+  },
+  "caps": {
+    "bundle_count": 6,
+    "reviewed_rows": 80
+  },
+  "allowed_early_release_reasons": [
+    "workflow_change",
+    "schema_change",
+    "security_or_visibility",
+    "urgent_build_verification"
+  ],
+  "release_trigger": null,
+  "totals": {
+    "bundle_count": 1,
+    "reviewed_rows": 40,
+    "reviewed_keys": 40,
+    "unique_reviewed_rows": 40,
+    "fix_keys": 8,
+    "unique_fix_rows": 8,
+    "new_pair_keys": 2,
+    "new_project_keys": 2,
+    "cross_register_keys": 0,
+    "existing_owner_updates": 6,
+    "keep_only_bundles": 0
+  },
+  "bundles": [
+    {
+      "batch": 211,
+      "review_status": "complete",
+      "apply_status": "verified",
+      "scene_groups": [
+        "6057_12",
+        "6081_9",
+        "6116_3"
+      ],
+      "reviewed_rows": 40,
+      "reviewed_keys": 40,
+      "unique_rows": 40,
+      "fix_keys": 8,
+      "unique_fix_rows": 8,
+      "new_pair_keys": 2,
+      "new_project_keys": 2,
+      "cross_register_keys": 0,
+      "existing_owner_updates": 6,
+      "keep_keys": 32,
+      "fix_files": [
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch17.json",
+        "_phase4_proofread/fixes_relation_yuwen_mowen_20260801_batch125.json",
+        "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json"
+      ],
+      "review_record": "_phase4_proofread/REVIEW_YUWEN_MOWEN_BATCH211_2026-08-01.md",
+      "ownership_summary": {
+        "existing_keys": 37,
+        "unowned_kept": 1,
+        "new_keys": 2,
+        "cross_register_keys": 0
+      },
+      "allusion_review_candidates": [
+        "尽灭满门，以慰天山冤魂",
+        "拜帖",
+        "鸡犬不留",
+        "命不久矣"
+      ],
+      "allusion_review_resolved": [
+        {
+          "key": "6116_3_Dlgs_Index0_Text",
+          "decision": "作品内の擬古的な果たし状文",
+          "note": "「尽灭满门，以慰天山冤魂」は特定典籍の引用と断定せず、天山の怨魂を慰めるため一門を滅ぼすという果たし状の文言調として扱う。現訳の朔日・怨魂・「慰めん」が格と像を保つためKEEP。"
+        },
+        {
+          "key": "6116_3_Dlgs_Index3_Text",
+          "decision": "儀礼語の文脈転用",
+          "note": "「拜帖」は本来の訪問・名乗りの帖という儀礼機能を踏まえつつ、各派へ期日と殲滅を告げる場面では挑戦状・果たし状として機能する。現訳「果たし状」をKEEP。"
+        },
+        {
+          "key": "6116_3_Dlgs_Index5_Text",
+          "decision": "定着した成語",
+          "note": "「鸡犬不留」は鶏や犬すら残さないほど皆殺しにする成語。現訳は鶏犬の像と殲滅の強度を保つためKEEP。"
+        },
+        {
+          "key": "6116_3_Dlgs_Index7_Text",
+          "decision": "定着した文言的表現",
+          "note": "「命不久矣」は余命が長くないという通常の文言表現で、特定引用ではない。現訳「余命幾ばくもない」が清虚の古風な声を保つためKEEP。"
+        }
+      ],
+      "fact_doubts": [
+        {
+          "scope": "mowen_qingxiao_side_and_warning",
+          "keys": [
+            "6057_12_Dlgs_Index0_Text",
+            "6057_12_Dlgs_Index3_Text",
+            "6057_12_Dlgs_Index4_Text",
+            "6057_12_Dlgs_Index5_Text",
+            "6057_12_Dlgs_Index6_Text"
+          ],
+          "note": "莫問は清霄側へ戻り邪教勢力を討ったと報告する一方、宇文逸を宇文師弟と呼んで来るべきではなかったと警告する。清霄は宇文逸を武当の叛徒として誅殺対象に含める。莫問の呼称と清霄の敵認定を同一認識へ均さない。"
+        },
+        {
+          "scope": "fulongzi_poison_and_departure_inference",
+          "keys": [
+            "6081_9_Dlgs_Index1_Text",
+            "6081_9_Dlgs_Index5_Text",
+            "6081_9_Dlgs_Index6_Text",
+            "6081_9_Dlgs_Index7_Text",
+            "6081_9_Dlgs_Index8_Text",
+            "6081_9_Dlgs_Index9_Text",
+            "6081_9_Dlgs_Index10_Text"
+          ],
+          "note": "江小彤は金蛇蠱を自分にも解けず伏龍子は死ぬと確信している。宇文逸は戦傷と蠱毒から死亡可能性を推測し、伏龍子と莫問が混乱に乗じて離れたと考える段階であり、死亡・同行を客観事実として確定しない。"
+        },
+        {
+          "scope": "challenge_letter_and_massacre_report",
+          "keys": [
+            "6116_3_Dlgs_Index0_Text",
+            "6116_3_Dlgs_Index1_Text",
+            "6116_3_Dlgs_Index3_Text",
+            "6116_3_Dlgs_Index4_Text",
+            "6116_3_Dlgs_Index5_Text"
+          ],
+          "note": "宇文逸は文面を莫問の筆跡と認識し、清虚は天山派名義の同じ果たし状が各派へ届き、悪人谷がすでに殲滅されたと報告する。文面、宇文逸の筆跡認識、清虚の報告を区別する。"
+        },
+        {
+          "scope": "qingxu_inference_and_last_request",
+          "keys": [
+            "6116_3_Dlgs_Index7_Text",
+            "6116_3_Dlgs_Index8_Text",
+            "6116_3_Dlgs_Index9_Text",
+            "6116_3_Dlgs_Index10_Text",
+            "6116_3_Dlgs_Index12_Text",
+            "6116_3_Dlgs_Index13_Text",
+            "6116_3_Dlgs_Index16_Text",
+            "6116_3_Dlgs_Index18_Text",
+            "6116_3_Dlgs_Index19_Text",
+            "6116_3_Dlgs_Index20_Text",
+            "6116_3_Dlgs_Index21_Text",
+            "6116_3_Dlgs_Index22_Text"
+          ],
+          "note": "清虚は伏龍子の死期が近くても莫問が復讐を捨てないと推測し、各派が弱った現状では風雲訣を修めた宇文逸だけが止められると判断する。莫問の将来の後悔を案じる師の見立てであり、客観的な未来として断定しない。"
+        }
+      ],
+      "source_artifact": {
+        "workflow": "Release train orchestrator",
+        "run_id": 30667194067,
+        "artifact_id": 8807422974,
+        "artifact_name": "relation-audit-evidence",
+        "artifact_file": "yuwen_mowen.json",
+        "digest": "sha256:423a8a0819b36cba949ef34bc002cad64f3f8a14c402848a4dffc29b3702afd9",
+        "head_sha": "3877f96a1687fe8eb38cdac9d10cad9c92d49302"
+      }
+    }
+  ],
+  "tracking_issue": null,
+  "tracking_mode": "quality_and_private_stage_verified_in_public_pr",
+  "finalization_phase": "phase2",
+  "post_merge_state_pr_required": false,
+  "single_pr_finalization": true,
+  "private_stage": {
+    "stage": "translation_frozen",
+    "status": "verified",
+    "transport_status": "awaiting_private_merge",
+    "wave_id": "yuwen-mowen-train-80-wave-01"
+  },
+  "next_release": {
+    "candidate_scene": [
+      "9247_1"
+    ],
+    "reservation_status": "reserved_only",
+    "reservation_schema": 6,
+    "formal_batches": [
+      211
+    ],
+    "current_private_stage": "translation_frozen"
+  },
+  "previous_release": {
+    "train_id": "yuwen-mowen-train-79",
+    "release_id": "yuwen-mowen-train-79-r1",
+    "pr": 236,
+    "merge_sha": "e65a3ae9d0b18e2a842e3a85b29cf6a77e5a05f0"
+  },
+  "quality_gate": {
+    "schema_version": 1,
+    "primary_objective": "repair_substantive_translation_defects",
+    "throughput_metrics_role": "transport_only",
+    "low_yield_threshold_percent": 15,
+    "reviewed_keys": 40,
+    "unique_reviewed_rows": 40,
+    "fix_keys": 8,
+    "unique_fix_rows": 8,
+    "keep_only_bundles": 0,
+    "pre_challenge_unique_fix_rows": 8,
+    "low_yield_detected": false,
+    "release_decision": "quality_passed"
+  },
+  "release_evidence": "_phase4_proofread/RELEASE_EVIDENCE_YUWEN_MOWEN_TRAIN_80.json"
+}

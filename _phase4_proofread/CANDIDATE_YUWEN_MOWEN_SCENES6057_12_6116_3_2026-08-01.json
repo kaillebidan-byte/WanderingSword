@@ -1,0 +1,562 @@
+{
+  "schema_version": 3,
+  "stage": "private_preparation",
+  "status": "prepared_without_translation_judgment",
+  "current_pair": "宇文逸↔莫問",
+  "scene_groups": [
+    "6057_12",
+    "6081_9",
+    "6116_3"
+  ],
+  "source": {
+    "target": "CG表",
+    "namespace": "QuestDlgs"
+  },
+  "source_artifact": {
+    "workflow": "Release train orchestrator",
+    "run_id": 30667194067,
+    "artifact_id": 8807422974,
+    "artifact_name": "relation-audit-evidence",
+    "artifact_file": "yuwen_mowen.json",
+    "digest": "sha256:423a8a0819b36cba949ef34bc002cad64f3f8a14c402848a4dffc29b3702afd9",
+    "head_sha": "3877f96a1687fe8eb38cdac9d10cad9c92d49302"
+  },
+  "scene_context": {
+    "timeline": "莫問が清霄の陣へ戻って宇文逸と再会し、清霄が敵味方をまとめて誅殺せよと命じる局面を起点とする。続いて宇文逸と江小彤が伏龍子の金蛇蠱と莫問の行方を小声で推測し、その後、武当へ届いた天山派名義の果たし状を前に、清虚が宇文逸へ莫問を止める最後の願いを託す終盤の連続局面として扱う。",
+    "branch_note": "6057_12の5行は敵陣での再会と即時戦闘命令、6081_9の12行は伏龍子の余命と莫問の離脱に関する小声の推測、6116_3の23行は果たし状・各派への脅威・清虚の最後の依頼までで完結する。三小単位を混同せず、合計40行で閉じる。"
+  },
+  "rows": [
+    {
+      "key": "6057_12_Dlgs_Index0_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$清霄师伯，之前的邪教妖人已尽数斩杀……宇文师弟？",
+      "ja": "5015 - 莫問 $@$清霄師伯、先ほどの邪教の者どもはすべて討ちました……宇文師弟？"
+    },
+    {
+      "key": "6057_12_Dlgs_Index3_Text",
+      "speaker": "莫问",
+      "zh": "5015 - 莫问 $@$你不该来的……",
+      "ja": "5015 - 莫問 $@$……来るべきではなかった。"
+    },
+    {
+      "key": "6057_12_Dlgs_Index4_Text",
+      "speaker": "清霄道长",
+      "zh": "5006 - 清霄道长 $@$哼，莫问你们来得正好！",
+      "ja": "5006 - 清霄道長 $@$ふん、莫問、よく来た！"
+    },
+    {
+      "key": "6057_12_Dlgs_Index5_Text",
+      "speaker": "清霄道长",
+      "zh": "5006 - 清霄道长 $@$所有人听着！此地妖邪，包括那武当叛徒在内……",
+      "ja": "5006 - 清霄道長 $@$皆の者、聞け！この地の妖邪、あの武当の叛徒も含め……"
+    },
+    {
+      "key": "6057_12_Dlgs_Index6_Text",
+      "speaker": "清霄道长",
+      "zh": "5006 - 清霄道长 $@$一并诛杀！不必留手！！",
+      "ja": "5006 - 清霄道長 $@$一掃せよ！手加減は無用！！"
+    },
+    {
+      "key": "6081_9_Dlgs_Index0_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$（低声）宇文哥哥你好笨啊，金蛇宝宝可是蛊王，哪里还有第二只一样的！",
+      "ja": "8500 - 江小彤 $@$（小声で）宇文兄ちゃん、ほんとにお馬鹿なんだから。金蛇の赤ちゃんは蠱王なんだよ？　同じのがもう一匹いるわけないでしょ！"
+    },
+    {
+      "key": "6081_9_Dlgs_Index1_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$（低声）不过没关系！反正他也活不了多久了，我也算是报仇了！",
+      "ja": "8500 - 江小彤 $@$（小声で）でも平気！　どうせあいつも、もう長くは生きられないし。これであたしも仇を討てたってこと！"
+    },
+    {
+      "key": "6081_9_Dlgs_Index2_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）什么！？",
+      "ja": "1 - 宇文逸 $@$（小声で）何だって！？"
+    },
+    {
+      "key": "6081_9_Dlgs_Index3_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）小彤你说他活不了多久了？",
+      "ja": "1 - 宇文逸 $@$（小声で）小彤、長くは生きられないって……どういうことだ？"
+    },
+    {
+      "key": "6081_9_Dlgs_Index4_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$（低声）对呀，之前在葬龙谷的时候，我不是让金蛇宝宝咬了他吗！",
+      "ja": "8500 - 江小彤 $@$（小声で）そうだよ。前に葬龍谷で、金蛇の赤ちゃんにあいつを噛ませたじゃない！"
+    },
+    {
+      "key": "6081_9_Dlgs_Index5_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$（低声）金蛇宝宝可是娘留给我的蛊王，不是其它寻常蛊毒能比的，我们五仙教这么多年也就养成了一只！",
+      "ja": "8500 - 江小彤 $@$（小声で）金蛇の赤ちゃんは、母さんがあたしに遺してくれた蠱王だよ。普通の蠱毒とは比べものにならないし、五仙教でも何年もかけて育ったのは、たった一匹だけ！"
+    },
+    {
+      "key": "6081_9_Dlgs_Index6_Text",
+      "speaker": "江小彤",
+      "zh": "8500 - 江小彤 $@$（低声）而且蛊王已经被他自己打死了，现在他身上的金蛇蛊连我都没办法化解，就算他武功再高也只有死路一条了！",
+      "ja": "8500 - 江小彤 $@$（小声で）その蠱王もあいつ自身が殺しちゃった。今、あいつの身体に残ってる金蛇蠱は、あたしにも解けないの。どれだけ武功が高くても、待ってるのは死だけだよ！"
+    },
+    {
+      "key": "6081_9_Dlgs_Index7_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）……先是与各派掌门一战，后又中了师兄一剑……再加上小彤的蛊毒……",
+      "ja": "1 - 宇文逸 $@$（小声で）……各派の掌門と戦い、師兄の一剣まで受けた。そのうえ、小彤の蠱毒も……"
+    },
+    {
+      "key": "6081_9_Dlgs_Index8_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）说不定他真的已经……",
+      "ja": "1 - 宇文逸 $@$（小声で）まさか、本当にもう……"
+    },
+    {
+      "key": "6081_9_Dlgs_Index9_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）这么说来，当时和玄火教还有渊兵打起来后，好像就没看到他和莫问师兄……他们应该是趁乱离开了吧？",
+      "ja": "1 - 宇文逸 $@$（小声で）そういえば、玄火教と淵兵が戦い始めてから、あの男も莫問師兄も見ていない……騒ぎに紛れて、二人で立ち去ったのか？"
+    },
+    {
+      "key": "6081_9_Dlgs_Index10_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$（低声）也不知道师兄现在怎么样了……",
+      "ja": "1 - 宇文逸 $@$（小声で）莫問師兄……今、どうしているんだろう……"
+    },
+    {
+      "key": "6081_9_Dlgs_Index11_Text",
+      "speaker": "玄火力士",
+      "zh": "45251 - 玄火力士 $@$什么声音……",
+      "ja": "45251 - 玄火力士 $@$……何の音だ？"
+    },
+    {
+      "key": "6116_3_Dlgs_Index0_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$“……下月初一……尽灭满门，以慰天山冤魂……”",
+      "ja": "1 - 宇文逸 $@$「……来月朔日……一門ことごとく滅ぼし、もって天山の怨魂を慰めん……」"
+    },
+    {
+      "key": "6116_3_Dlgs_Index1_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$这……这是莫问师兄的笔迹？！",
+      "ja": "1 - 宇文逸 $@$こ、これは……莫問師兄の筆跡！？"
+    },
+    {
+      "key": "6116_3_Dlgs_Index2_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$不错，咳咳……",
+      "ja": "5003 - 清虚道長 $@$その通りじゃ……ごほ、ごほ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index3_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$近来不止是我们……少林、丐帮等各派全都收到了同样的 “拜帖” ……",
+      "ja": "5003 - 清虚道長 $@$近ごろ、これが届いたのは我らだけではない……少林、丐幇をはじめ、各派にも同じ「果たし状」が届いておる……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index4_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……而最早收到此帖的恶人谷……",
+      "ja": "5003 - 清虚道長 $@$……その果たし状を最初に受け取った悪人谷は……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index5_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$半个月前就已经鸡犬不留了，咳咳……",
+      "ja": "5003 - 清虚道長 $@$半月前、すでに鶏犬一匹さえ残らず滅ぼされた……ごほ、ごほ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index6_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$怎么会……",
+      "ja": "1 - 宇文逸 $@$そんな……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index7_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$如今问儿以天山派的名义下帖……咳咳，说明即便伏龙子当真命不久矣，问儿他也同样不打算放下当年的仇怨啊……",
+      "ja": "5003 - 清虚道長 $@$いま問児は天山派の名で果たし状を送りつけておる……ごほ、ごほ。たとえ伏龍子が本当に余命幾ばくもないとしても、問児もまた、かつての仇を捨てるつもりはないのじゃろう……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index8_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$此前葬龙谷一战……虽有黄将军的及时援助，咳咳……",
+      "ja": "5003 - 清虚道長 $@$先の葬龍谷の一戦……黄将軍が間に合ってくれたとはいえ、ごほ、ごほ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index9_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$可各派依然伤亡惨重，师兄也受伤未愈……",
+      "ja": "5003 - 清虚道長 $@$各派はなお多数の死傷者を出し、師兄も傷が癒えておらぬ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index10_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……若他们此时真要寻仇，江湖上根本无人能与之抗衡……",
+      "ja": "5003 - 清虚道長 $@$……もし彼らが今、本気で仇討ちに出れば、江湖に抗える者はおらぬ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index11_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$咳咳咳咳……",
+      "ja": "5003 - 清虚道長 $@$ごほ、ごほ、ごほ、ごほ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index12_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……如今唯一有可能拯救武当、拯救各派的……",
+      "ja": "5003 - 清虚道長 $@$……いま武当を、そして各派を救える者は……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index13_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$就只有……只有同样练成风云诀的逸儿你了！",
+      "ja": "5003 - 清虚道長 $@$同じく風雲訣を修めた逸児……そなたしかおらぬ！"
+    },
+    {
+      "key": "6116_3_Dlgs_Index14_Text",
+      "speaker": "宇文逸",
+      "zh": "1 - 宇文逸 $@$可是我……",
+      "ja": "1 - 宇文逸 $@$ですが、私は……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index15_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$咳咳咳，逸儿……",
+      "ja": "5003 - 清虚道長 $@$ごほ、ごほ、ごほ……逸児……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index16_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……为师只求你最后一件事……",
+      "ja": "5003 - 清虚道長 $@$……師として、そなたに最後の頼みがある……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index17_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$求你……咳咳……",
+      "ja": "5003 - 清虚道長 $@$頼む……ごほ、ごほ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index18_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……去找到他们，找到问儿……阻止他……",
+      "ja": "5003 - 清虚道長 $@$……彼らを探し、問児を見つけ……止めてくれ……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index19_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$在他做出……让自己……",
+      "ja": "5003 - 清虚道長 $@$あの子が……自ら……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index20_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$后悔的事之前……",
+      "ja": "5003 - 清虚道長 $@$悔いることをしてしまう前に……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index21_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$……阻止……",
+      "ja": "5003 - 清虚道長 $@$……あの子を……"
+    },
+    {
+      "key": "6116_3_Dlgs_Index22_Text",
+      "speaker": "清虚道长",
+      "zh": "5003 - 清虚道长 $@$他……",
+      "ja": "5003 - 清虚道長 $@$止めてくれ……"
+    }
+  ],
+  "candidate_questions": [
+    "6057_12で莫問の宇文師弟呼称と『来るべきではなかった』の距離感が離反後の関係段階に合うか",
+    "6081_9で江小彤の子供らしい殺意、金蛇蠱の説明、宇文逸の推測と莫問への懸念が保たれているか",
+    "6116_3の果たし状・天山の怨魂・悪人谷殲滅が事実と文体の強度を保っているか",
+    "清虚の病状、問児への慈愛、宇文逸へ託す最後の願いが息切れと言いさしを壊さず発声しているか"
+  ],
+  "unresolved_gates": {
+    "allusion_candidates": [
+      "尽灭满门，以慰天山冤魂",
+      "拜帖",
+      "鸡犬不留",
+      "命不久矣"
+    ],
+    "fact_doubts": [
+      "6057_12では莫問が清霄側として現れ、宇文逸へ来るべきではなかったと告げる一方、清霄は宇文逸を含む妖邪の皆殺しを命じている",
+      "6081_9では江小彤が伏龍子へ金蛇蠱を仕込み、蠱王が死んだため本人にも解毒できず、宇文逸は伏龍子と莫問が混乱に乗じて離れたと推測している",
+      "6116_3の果たし状は莫問の筆跡で天山派名義、悪人谷はすでに殲滅され、他派にも同文が届いている",
+      "清虚は伏龍子の死期が近くても莫問が復讐を捨てないと推測し、風雲訣を修めた宇文逸へ阻止を託している"
+    ]
+  },
+  "forbidden_outputs": [
+    "fix_or_keep_decision",
+    "fix_json_write",
+    "new_owner_assignment",
+    "formal_bundle_completion",
+    "throughput_metrics",
+    "source_document_decision",
+    "source_document_write"
+  ],
+  "ownership_snapshot": {
+    "schema_version": 1,
+    "generated_from": "all_fixes_glob",
+    "fix_glob": "_phase4_proofread/fixes_*.json",
+    "target": "CG表",
+    "namespace": "QuestDlgs",
+    "row_count": 40,
+    "existing": [
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch17.json",
+        "keys": [
+          "6057_12_Dlgs_Index0_Text",
+          "6057_12_Dlgs_Index3_Text",
+          "6081_9_Dlgs_Index0_Text",
+          "6081_9_Dlgs_Index10_Text",
+          "6081_9_Dlgs_Index11_Text",
+          "6081_9_Dlgs_Index1_Text",
+          "6081_9_Dlgs_Index2_Text",
+          "6081_9_Dlgs_Index3_Text",
+          "6081_9_Dlgs_Index4_Text",
+          "6081_9_Dlgs_Index5_Text",
+          "6081_9_Dlgs_Index6_Text",
+          "6081_9_Dlgs_Index7_Text",
+          "6081_9_Dlgs_Index8_Text",
+          "6081_9_Dlgs_Index9_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_mowen_20260723_batch18.json",
+        "keys": [
+          "6116_3_Dlgs_Index0_Text",
+          "6116_3_Dlgs_Index14_Text",
+          "6116_3_Dlgs_Index1_Text",
+          "6116_3_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "_phase4_proofread/fixes_relation_yuwen_qingxu_20260723_batch3.json",
+        "keys": [
+          "6116_3_Dlgs_Index10_Text",
+          "6116_3_Dlgs_Index11_Text",
+          "6116_3_Dlgs_Index12_Text",
+          "6116_3_Dlgs_Index13_Text",
+          "6116_3_Dlgs_Index15_Text",
+          "6116_3_Dlgs_Index16_Text",
+          "6116_3_Dlgs_Index17_Text",
+          "6116_3_Dlgs_Index18_Text",
+          "6116_3_Dlgs_Index19_Text",
+          "6116_3_Dlgs_Index20_Text",
+          "6116_3_Dlgs_Index21_Text",
+          "6116_3_Dlgs_Index22_Text",
+          "6116_3_Dlgs_Index2_Text",
+          "6116_3_Dlgs_Index3_Text",
+          "6116_3_Dlgs_Index4_Text",
+          "6116_3_Dlgs_Index5_Text",
+          "6116_3_Dlgs_Index7_Text",
+          "6116_3_Dlgs_Index8_Text",
+          "6116_3_Dlgs_Index9_Text"
+        ]
+      }
+    ],
+    "unowned": [
+      "6057_12_Dlgs_Index4_Text",
+      "6057_12_Dlgs_Index5_Text",
+      "6057_12_Dlgs_Index6_Text"
+    ],
+    "duplicates": []
+  },
+  "quality_audit_context": {
+    "contract_id": "quality-audit-source-feedback-v1",
+    "contract_path": "_phase4_proofread/QUALITY_AUDIT_SOURCE_FEEDBACK_CONTRACT.json",
+    "reading_order": [
+      "primary_evidence",
+      "independent_allusion_and_fact_gates",
+      "source_document_crosscheck"
+    ],
+    "alias_resolution": {
+      "canonical_name_precedes_alias": true,
+      "current_pair_preferred_for_ambiguous_alias": true,
+      "unused_alias_collisions_are_non_blocking": true,
+      "used_alias_ambiguity_fails_closed": true
+    },
+    "primary_evidence": {
+      "candidate_rows": true,
+      "scene_context": true,
+      "source_artifact": true
+    },
+    "required_documents": [
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/SKILL.md",
+        "digest": "sha256:46ad6f5075579dd27ac4839147853798da3b95f4f094f9bb30d7c79f940852cd",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/03_style_guide.md",
+        "digest": "sha256:3d2a2a1ebdceb2b45c4f31d25abe1daffbb4eab544fb7e6b4c3cbc9de03604de",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/04_persona.md",
+        "digest": "sha256:77aea1ef8798cf537fc03e03e5ab32749f1edfb747c6caee68adec6acaab1e45",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/05_terminology.md",
+        "digest": "sha256:50ec5fcaa928bb62fc82d2c9ef4e0a20ae32585bef5bc4edf79a28c88e50e900",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/06_qa.md",
+        "digest": "sha256:87ec74a6401d10a6b4c85c8230d9cdc1ef8bff326d93f8b86f9d4e8cb0d188d6",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/08_pair_reaudit.md",
+        "digest": "sha256:a1b993d29e34efe753d13cce59796056b521971871f7f6612a5b0465992b8917",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": ".agents/skills/zhja-game-translation-codex/references/10_register_axes.md",
+        "digest": "sha256:3d4e6261474aea14539876fcb1d17a88add21513b77c7f1c77b42951a034b0ef",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "_phase4_proofread/RUNBOOK_人物ペア再監査.md",
+        "digest": "sha256:363b04582c4a8798fe0f2db1cd51fba7ebefa9d1a7e3a6208c28f1eb65a250ab",
+        "role": "translation_quality_rule"
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/清霄道長.md",
+        "digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/江小彤.md",
+        "digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+        "role": "speaker_persona"
+      },
+      {
+        "path": "10_人物/清虚道長.md",
+        "digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+        "role": "speaker_persona"
+      }
+    ],
+    "source_document_targets": [
+      {
+        "path": "10_人物/莫問.md",
+        "digest": "sha256:339055c96a4b676c43091058d686679aa14c7d01b342c136f285b515a421a4a4",
+        "document_type": "persona",
+        "name": "莫問",
+        "aliases": [
+          "莫問",
+          "莫问"
+        ],
+        "evidence_keys": [
+          "6057_12_Dlgs_Index0_Text",
+          "6057_12_Dlgs_Index3_Text"
+        ]
+      },
+      {
+        "path": "10_人物/清霄道長.md",
+        "digest": "sha256:a3115998ecab1bfcd54eb441834e1693f26441abd004fbe91cc0d7be38eb7eb8",
+        "document_type": "persona",
+        "name": "清霄道長",
+        "aliases": [
+          "清霄道長",
+          "清霄",
+          "清霄道长"
+        ],
+        "evidence_keys": [
+          "6057_12_Dlgs_Index4_Text",
+          "6057_12_Dlgs_Index5_Text",
+          "6057_12_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "10_人物/江小彤.md",
+        "digest": "sha256:d4d7a499dbf90c77a3ebb0c874914ea5009421bf0095d780b7124adeff8a97a0",
+        "document_type": "persona",
+        "name": "江小彤",
+        "aliases": [
+          "江小彤"
+        ],
+        "evidence_keys": [
+          "6081_9_Dlgs_Index0_Text",
+          "6081_9_Dlgs_Index1_Text",
+          "6081_9_Dlgs_Index4_Text",
+          "6081_9_Dlgs_Index5_Text",
+          "6081_9_Dlgs_Index6_Text"
+        ]
+      },
+      {
+        "path": "10_人物/宇文逸.md",
+        "digest": "sha256:6cf9b54872a8044e6621aa53bb2922383ea13591753390f7f96757fca983f153",
+        "document_type": "persona",
+        "name": "宇文逸",
+        "aliases": [
+          "宇文逸",
+          "主人公",
+          "逸"
+        ],
+        "evidence_keys": [
+          "6081_9_Dlgs_Index2_Text",
+          "6081_9_Dlgs_Index3_Text",
+          "6081_9_Dlgs_Index7_Text",
+          "6081_9_Dlgs_Index8_Text",
+          "6081_9_Dlgs_Index9_Text",
+          "6081_9_Dlgs_Index10_Text",
+          "6116_3_Dlgs_Index0_Text",
+          "6116_3_Dlgs_Index1_Text",
+          "6116_3_Dlgs_Index6_Text",
+          "6116_3_Dlgs_Index14_Text"
+        ]
+      },
+      {
+        "path": "10_人物/清虚道長.md",
+        "digest": "sha256:8f35ebdfdcb4f6e4177784955da2c6521316b2c0d0758bacdebbe796e9438b39",
+        "document_type": "persona",
+        "name": "清虚道長",
+        "aliases": [
+          "清虚道長",
+          "清虚",
+          "清虚道长"
+        ],
+        "evidence_keys": [
+          "6116_3_Dlgs_Index2_Text",
+          "6116_3_Dlgs_Index3_Text",
+          "6116_3_Dlgs_Index4_Text",
+          "6116_3_Dlgs_Index5_Text",
+          "6116_3_Dlgs_Index7_Text",
+          "6116_3_Dlgs_Index8_Text",
+          "6116_3_Dlgs_Index9_Text",
+          "6116_3_Dlgs_Index10_Text",
+          "6116_3_Dlgs_Index11_Text",
+          "6116_3_Dlgs_Index12_Text",
+          "6116_3_Dlgs_Index13_Text",
+          "6116_3_Dlgs_Index15_Text",
+          "6116_3_Dlgs_Index16_Text",
+          "6116_3_Dlgs_Index17_Text",
+          "6116_3_Dlgs_Index18_Text",
+          "6116_3_Dlgs_Index19_Text",
+          "6116_3_Dlgs_Index20_Text",
+          "6116_3_Dlgs_Index21_Text",
+          "6116_3_Dlgs_Index22_Text"
+        ]
+      }
+    ],
+    "unresolved_speakers": [
+      "玄火力士"
+    ],
+    "source_feedback_required": true,
+    "manifest_digest": "sha256:0bab8486caae1cf16c22a7e69b416d0214834f6e0f530ae748eb60e41f74fbfc"
+  }
+}
