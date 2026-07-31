@@ -47,16 +47,16 @@ class PairTailFlowTests(unittest.TestCase):
             ]
         }
 
-    def fixture(self):
+    def fixture(self, *, include_non_explicit: bool = False):
         temporary = tempfile.TemporaryDirectory()
         root = Path(temporary.name)
         p4 = root / "_phase4_proofread"
         p4.mkdir()
+        rows = [{"key": "reviewed_Dlgs_Index0_Text"}]
+        if include_non_explicit:
+            rows.append({"key": "ordinary_Dlgs_Index0_Text"})
         candidate = p4 / "CANDIDATE_REVIEWED.json"
-        candidate.write_text(
-            json.dumps({"rows": [{"key": "reviewed_Dlgs_Index0_Text"}]}),
-            encoding="utf-8",
-        )
+        candidate.write_text(json.dumps({"rows": rows}), encoding="utf-8")
         return temporary, root, candidate.relative_to(root).as_posix()
 
     def packets(self):
@@ -73,6 +73,12 @@ class PairTailFlowTests(unittest.TestCase):
         self.assertEqual(packets[0][1][0]["namespace"], "QuestDlgs")
         self.assertEqual(packets[1][1][0]["namespace"], "Quests")
 
+    def test_non_explicit_reviewed_rows_do_not_pollute_coverage(self):
+        temporary, root, candidate = self.fixture(include_non_explicit=True)
+        self.addCleanup(temporary.cleanup)
+        packets = validate_exact_tail(self.artifact(), root, [candidate], self.packets())
+        self.assertEqual(sum(len(rows) for _, rows in packets), 2)
+
     def test_omitted_residual_key_fails_closed(self):
         temporary, root, candidate = self.fixture()
         self.addCleanup(temporary.cleanup)
@@ -85,14 +91,6 @@ class PairTailFlowTests(unittest.TestCase):
         packets = [{"target": "CG表", "namespace": "QuestDlgs", "families": ["tail_Dlgs", "tail_RequestDlgs_Index0_Text"]}]
         with self.assertRaisesRegex(TailError, "target/namespace mismatch"):
             validate_exact_tail(self.artifact(), root, [candidate], packets)
-
-    def test_reviewed_key_outside_artifact_fails_closed(self):
-        temporary, root, candidate = self.fixture()
-        self.addCleanup(temporary.cleanup)
-        path = root / candidate
-        path.write_text(json.dumps({"rows": [{"key": "unknown"}]}), encoding="utf-8")
-        with self.assertRaisesRegex(TailError, "outside current"):
-            validate_exact_tail(self.artifact(), root, [candidate], self.packets())
 
     def test_registered_files_exist(self):
         required = [

@@ -67,6 +67,16 @@ jobs:
             --new-owner-file "${{ steps.inputs.outputs.owner }}" \
             --challenge-record "${{ steps.inputs.outputs.challenge }}" \
             --write --output /tmp/pair-tail-encoding.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path('_phase4_proofread/NEXT_TASK_PACKET.json'); value=json.loads(path.read_text(encoding='utf-8'))
+          formal=value.get('reservation',{}).get('formal_batch')
+          batches=formal if isinstance(formal,list) else [formal]
+          if not batches or any(not isinstance(item,int) or item<=0 for item in batches): raise SystemExit('tail formal batches are invalid')
+          value.setdefault('ci_train',{})['planned_batch']=max(batches)
+          path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
 
       - name: Apply recorded persona feedback
         run: |

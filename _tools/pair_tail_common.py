@@ -133,10 +133,8 @@ def compute_tail(
 ) -> tuple[dict[str, dict[str, str]], set[str]]:
     explicit = explicit_reference_rows(artifact)
     reviewed = reviewed_keys(root, candidate_paths)
-    unknown = reviewed - set(explicit)
-    if unknown:
-        raise TailError(f"reviewed candidates contain keys outside current explicit_reference artifact: {sorted(unknown)}")
-    return {key: row for key, row in explicit.items() if key not in reviewed}, reviewed
+    coverage = reviewed & set(explicit)
+    return {key: row for key, row in explicit.items() if key not in coverage}, coverage
 
 
 def selected_packet_rows(
@@ -183,7 +181,7 @@ def validate_exact_tail(
     candidate_paths: list[str],
     packet_groups: list[dict[str, Any]],
 ) -> list[tuple[dict[str, Any], list[dict[str, str]]]]:
-    tail, reviewed = compute_tail(artifact, root, candidate_paths)
+    tail, _ = compute_tail(artifact, root, candidate_paths)
     packets = selected_packet_rows(artifact, packet_groups)
     selected = {row["key"] for _, rows in packets for row in rows}
     if selected != set(tail):
