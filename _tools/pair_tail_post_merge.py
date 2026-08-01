@@ -6,10 +6,85 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from typing import Any
 
 from pair_tail_common import P4, SENTINEL_SCENE, TailError, load_object, write_json, write_text
 
 EXACT_NEXT = "宇文逸↔莫問の完了checkpointを確認し、次人物ペアの証拠inventoryをbootstrapする"
+INVENTORY_STATUS = "inventory_ready"
+INVENTORY_CHECKPOINT = "pair_inventory_ready"
+
+
+def _transition_identity(value: Any) -> tuple[Any, ...] | None:
+    if not isinstance(value, dict):
+        return None
+    return (
+        value.get("status"),
+        value.get("previous_pair"),
+        value.get("next_pair"),
+        value.get("relation_id"),
+        value.get("inventory_record"),
+        value.get("translation_started"),
+    )
+
+
+def downstream_inventory_ready(
+    current: dict[str, Any],
+    state: dict[str, Any],
+    manifest: dict[str, Any],
+    packet: dict[str, Any],
+) -> bool:
+    """Return True for a consistent later checkpoint; reject partial markers.
+
+    The pair-completion sealer is a lower checkpoint than pair inventory.  Once
+    inventory has been generated, this function makes the transition monotonic
+    and prevents a later post-merge event from restoring the older checkpoint.
+    """
+    control = state.get("cycle_control", {})
+    transitions = (
+        current.get("next_pair_inventory"),
+        state.get("pair_transition"),
+        manifest.get("pair_transition"),
+        packet.get("next_pair_inventory"),
+    )
+    identities = tuple(_transition_identity(value) for value in transitions)
+    marker_present = any(
+        (
+            identity is not None and identity[0] == INVENTORY_STATUS
+            for identity in identities
+        )
+    ) or any(
+        (
+            control.get("stop_reason") == "pair_inventory_bootstrapped",
+            control.get("last_safe_checkpoint") == INVENTORY_CHECKPOINT,
+        )
+    )
+    if not marker_present:
+        return False
+
+    expected_control = (
+        control.get("status"),
+        control.get("stop_reason"),
+        control.get("last_safe_checkpoint"),
+    )
+    if expected_control != (
+        "paused",
+        "pair_inventory_bootstrapped",
+        INVENTORY_CHECKPOINT,
+    ):
+        raise TailError("downstream pair inventory checkpoint control is inconsistent")
+    if any(identity is None for identity in identities):
+        raise TailError("downstream pair inventory checkpoint authority is missing")
+    first = identities[0]
+    if any(identity != first for identity in identities[1:]):
+        raise TailError("downstream pair inventory checkpoint authorities disagree")
+    if first[0] != INVENTORY_STATUS:
+        raise TailError("downstream pair inventory checkpoint status is invalid")
+    if not all(isinstance(value, str) and value for value in first[1:5]):
+        raise TailError("downstream pair inventory checkpoint identity is incomplete")
+    if first[5] is not False:
+        raise TailError("downstream pair inventory checkpoint must precede translation")
+    return True
 
 
 def seal(p4: Path = P4) -> bool:
@@ -18,6 +93,10 @@ def seal(p4: Path = P4) -> bool:
     manifest = load_object(p4 / "CI_TRAIN_MANIFEST.json")
     packet = load_object(p4 / "NEXT_TASK_PACKET.json")
     audit = load_object(p4 / "audit_status.json")
+
+    if downstream_inventory_ready(current, state, manifest, packet):
+        return False
+
     completion = packet.get("pair_completion")
     if not isinstance(completion, dict) or completion.get("status") != "complete":
         return False
@@ -133,9 +212,13 @@ def main() -> int:
         p4 = args.root / "_phase4_proofread"
         if not args.write:
             current = load_object(p4 / "CURRENT_WORK.json")
+            state = load_object(p4 / "PRIVATE_STAGE_STATE.json")
+            manifest = load_object(p4 / "CI_TRAIN_MANIFEST.json")
             packet = load_object(p4 / "NEXT_TASK_PACKET.json")
+            downstream = downstream_inventory_ready(current, state, manifest, packet)
             ready = (
-                packet.get("pair_completion", {}).get("status") == "complete"
+                not downstream
+                and packet.get("pair_completion", {}).get("status") == "complete"
                 and current.get("ci_train", {}).get("transport_status") == "merged"
             )
             print(json.dumps({"status": "ready" if ready else "noop"}, ensure_ascii=False))
@@ -144,7 +227,7 @@ def main() -> int:
     except (OSError, json.JSONDecodeError, ValueError, TailError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    print("OK: pair completion checkpoint sealed" if changed else "NOOP: pair completion is not ready or already sealed")
+    print("OK: pair completion checkpoint sealed" if changed else "NOOP: pair completion is not ready, already sealed, or superseded")
     return 0
 
 
