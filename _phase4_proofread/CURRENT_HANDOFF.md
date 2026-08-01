@@ -6,23 +6,21 @@
 
 ## 現在地
 
-- PR #239: merged
-- completed translation pair: `宇文逸↔莫問`
+- translation PR #239: merged
+- train: `yuwen-mowen-train-81`
 - verified checkpoint: 第213束 / pair 1438 / project 1814
 - transport: `merged`
-- cycle: `paused / pair_inventory_ready`
-- next pair: `宇文逸↔莫棄`
-- relation inventory: `_phase4_proofread/PAIR_INVENTORY_YUWEN_MOQI_2026-08-01.json`
-- evidence: 129 unique blocks / 750 rows
-- translation preparation: `not_started`
+- cycle: `paused / merged_pair_complete`
+- 宇文逸↔莫問 explicit-reference residual: 0行
+- pair completion: `complete`
 
 ## exact next action
 
-宇文逸↔莫棄のinventory checkpointを確認し、factoryのpair namespaceとbranch/output命名を一般化して最初のsemantic waveを予約する。
+宇文逸↔莫問の完了checkpointを確認し、次人物ペアの証拠inventoryをbootstrapする。
 
 ## 禁止
 
-- 完了済みpairを通常scene reservationへ戻さない。
-- factory一般化前に新pairの翻訳準備、判断、owner書込みを開始しない。
-- inventory抽出結果だけで人物資料を確定しない。
+- pair completionを通常scene reservationへ戻さない。
+- 同じexplicit-reference行を再監査しない。
+- 次人物ペアの正本確定前に翻訳準備、判断、owner書込みを開始しない。
 - ゲームフォルダへ配置しない。

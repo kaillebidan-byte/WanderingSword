@@ -115,8 +115,8 @@
     "scene_groups": [
       "__PAIR_COMPLETE__"
     ],
-    "task": "宇文逸↔莫棄のinventory checkpointを確認し、factoryのpair namespaceとbranch/output命名を一般化して最初のsemantic waveを予約する。",
-    "boundary": "factory一般化と新pair reservationが完了するまで、翻訳準備・判断・owner書込みを開始しない。",
+    "task": "宇文逸↔莫問の完了checkpointを確認し、次人物ペアの証拠inventoryをbootstrapする。",
+    "boundary": "次人物ペアの正本とRelation evidenceを確定するまで、翻訳準備・判断・owner書込みを開始しない。",
     "packet": "_phase4_proofread/NEXT_TASK_PACKET.json"
   },
   "mandatory_read_order": [
