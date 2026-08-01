@@ -9,19 +9,19 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  count-body-characters:
+  inspect-body-structure:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: temp/phase2-body-char-count-20260801
-      - name: Count text fields in phase 2 source
+      - name: Inspect string fields in phase 2 source
         shell: bash
         run: |
-          python - <<'PY' | tee _phase4_proofread/temp_phase2_body_count.txt
+          python - <<'PY'
           import collections
           import json
           import pathlib
@@ -29,82 +29,67 @@ jobs:
 
           path = pathlib.Path('_phase4_proofread/by_character.json')
           data = json.loads(path.read_text(encoding='utf-8'))
+          kana = re.compile(r'[\u3040-\u30ff]')
+          cjk = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
+          latin = re.compile(r'[A-Za-z]')
 
-          records = []
+          stats = collections.defaultdict(lambda: collections.Counter())
+          signatures = collections.Counter()
+          root_samples = []
+          max_depth = 0
+          scalar_paths = collections.Counter()
+
+          def add_stat(key, value):
+              s = stats[str(key)]
+              s['values'] += 1
+              s['chars'] += len(value)
+              s['non_ws'] += len(re.sub(r'\s+', '', value))
+              s['kana'] += len(kana.findall(value))
+              s['cjk'] += len(cjk.findall(value))
+              s['latin'] += len(latin.findall(value))
+
           def walk(obj, trail=()):
+              global max_depth
+              max_depth = max(max_depth, len(trail))
               if isinstance(obj, dict):
-                  if isinstance(obj.get('text'), str):
-                      records.append((trail, obj))
+                  signatures[tuple(sorted(map(str, obj.keys())))] += 1
                   for key, value in obj.items():
+                      if isinstance(value, str):
+                          add_stat(key, value)
+                          scalar_paths['/'.join((trail + (str(key),))[-4:])] += 1
                       walk(value, trail + (str(key),))
               elif isinstance(obj, list):
                   for i, value in enumerate(obj):
-                      walk(value, trail + (str(i),))
+                      walk(value, trail + (f'[{i}]',))
+
           walk(data)
 
-          def chars(items):
-              return sum(len(d['text']) for _, d in items)
-          def non_ws(items):
-              return sum(len(re.sub(r'\s+', '', d['text'])) for _, d in items)
-
-          by_hash = {}
-          missing_hash = []
-          hash_dupes = collections.Counter()
-          for trail, d in records:
-              h = d.get('hash_diag_composite')
-              if isinstance(h, str) and h:
-                  hash_dupes[h] += 1
-                  by_hash.setdefault(h, (trail, d))
-              else:
-                  missing_hash.append((trail, d))
-          unique_canonical = list(by_hash.values()) + missing_hash
-
-          exact_text = {}
-          for trail, d in records:
-              exact_text.setdefault(d['text'], (trail, d))
-          unique_exact = list(exact_text.values())
-
-          kana_re = re.compile(r'[\u3040-\u30ff]')
-          cjk_re = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
-          latin_re = re.compile(r'[A-Za-z]')
-          texts = [d['text'] for _, d in unique_canonical]
-
-          print('PHASE2_BODY_COUNT_BEGIN')
-          print('source_path=', path.as_posix(), sep='')
+          print('PHASE2_STRUCTURE_BEGIN')
           print('source_bytes=', path.stat().st_size, sep='')
           print('root_type=', type(data).__name__, sep='')
-          print('raw_text_records=', len(records), sep='')
-          print('raw_chars_including_whitespace=', chars(records), sep='')
-          print('raw_chars_excluding_whitespace=', non_ws(records), sep='')
-          print('records_with_hash=', len(records) - len(missing_hash), sep='')
-          print('records_without_hash=', len(missing_hash), sep='')
-          print('unique_hashes=', len(by_hash), sep='')
-          print('duplicate_hash_records=', sum(n - 1 for n in hash_dupes.values() if n > 1), sep='')
-          print('canonical_records=', len(unique_canonical), sep='')
-          print('canonical_chars_including_whitespace=', chars(unique_canonical), sep='')
-          print('canonical_chars_excluding_whitespace=', non_ws(unique_canonical), sep='')
-          print('unique_exact_texts=', len(unique_exact), sep='')
-          print('unique_exact_chars_including_whitespace=', chars(unique_exact), sep='')
-          print('kana_chars=', sum(len(kana_re.findall(t)) for t in texts), sep='')
-          print('cjk_chars=', sum(len(cjk_re.findall(t)) for t in texts), sep='')
-          print('latin_chars=', sum(len(latin_re.findall(t)) for t in texts), sep='')
-          if records:
-              print('sample_record_keys=', ','.join(sorted(records[0][1].keys())), sep='')
-              print('sample_trail=', '/'.join(records[0][0]), sep='')
-          candidate_names = sorted({k for _, d in records for k in d if any(x in k.lower() for x in ('primary','secondary','tertiary','quaternary','chapter','scene','area'))})
-          print('candidate_hierarchy_fields=', ','.join(candidate_names), sep='')
-          for name in candidate_names:
-              counts = collections.Counter(str(d.get(name)) for _, d in unique_canonical if d.get(name) is not None)
-              print(f'field_{name}_distinct={len(counts)}')
-              print(f'field_{name}_top=' + json.dumps(counts.most_common(20), ensure_ascii=False, separators=(',', ':')))
-          print('PHASE2_BODY_COUNT_END')
+          if isinstance(data, dict):
+              print('root_key_count=', len(data), sep='')
+              print('root_keys=' + json.dumps(list(data.keys())[:30], ensure_ascii=False, separators=(',', ':')))
+              for key, value in list(data.items())[:10]:
+                  size = len(value) if isinstance(value, (dict, list, str)) else None
+                  print('root_item=' + json.dumps([key, type(value).__name__, size], ensure_ascii=False, separators=(',', ':')))
+          print('max_depth=', max_depth, sep='')
+          print('string_field_count=', len(stats), sep='')
+          for key, s in sorted(stats.items(), key=lambda kv: (-kv[1]['chars'], kv[0])):
+              print('STRING_FIELD=' + json.dumps({
+                  'key': key,
+                  'values': s['values'],
+                  'chars': s['chars'],
+                  'non_ws': s['non_ws'],
+                  'kana': s['kana'],
+                  'cjk': s['cjk'],
+                  'latin': s['latin'],
+              }, ensure_ascii=False, separators=(',', ':')))
+          print('top_dict_signatures=')
+          for sig, count in signatures.most_common(20):
+              print(json.dumps({'count': count, 'keys': sig}, ensure_ascii=False, separators=(',', ':')))
+          print('top_scalar_paths=')
+          for p, count in scalar_paths.most_common(30):
+              print(json.dumps([p, count], ensure_ascii=False, separators=(',', ':')))
+          print('PHASE2_STRUCTURE_END')
           PY
-      - name: Commit count result to temporary branch
-        if: github.event_name == 'push'
-        shell: bash
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add _phase4_proofread/temp_phase2_body_count.txt
-          git commit -m "chore: record temporary phase2 body count"
-          git push
