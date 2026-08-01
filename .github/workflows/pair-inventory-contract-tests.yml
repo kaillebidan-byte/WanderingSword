@@ -71,7 +71,7 @@ jobs:
               "pair_inventory_bootstrap.py",
               "extract_relation_context.py",
               "check_operational_docs_consistency.py",
-              "artifact-digest",
+              '--artifact-digest "sha256:',
               "git rm",
           ):
               if marker not in workflow:
