@@ -29,7 +29,13 @@ def fixtures():
         "operation_mode": {"execution_mode": "always_public_full_pipeline"},
         "ci_train": {"transport_status": "merged"},
     }
-    state = {"transport": {"status": "merged"}}
+    state = {
+        "transport": {"status": "merged"},
+        "cycle_control": {
+            "status": "target_reached",
+            "last_safe_checkpoint": "merged",
+        },
+    }
     manifest = {"transport": {"status": "merged", "pr": 12, "merge_sha": SHA}}
     packet = {
         "release_candidate": {"status": "merged", "merge_sha": SHA},
@@ -74,6 +80,32 @@ def fixtures():
 def main() -> None:
     args = fixtures()
     assert validate_snapshot(*args) == []
+
+    current, state, manifest, packet, queue, texts = fixtures()
+    state["cycle_control"] = {
+        "status": "paused",
+        "last_safe_checkpoint": "merged_pair_complete",
+    }
+    texts["handoff"] = texts["handoff"].replace(
+        "cycle: `target_reached / merged`",
+        "cycle: `paused / merged_pair_complete`",
+    )
+    assert validate_snapshot(current, state, manifest, packet, queue, texts) == []
+
+    current, state, manifest, packet, queue, texts = fixtures()
+    state["cycle_control"] = {
+        "status": "paused",
+        "last_safe_checkpoint": "pair_inventory_ready",
+    }
+    texts["handoff"] = texts["handoff"].replace(
+        "cycle: `target_reached / merged`",
+        "cycle: `paused / pair_inventory_ready`",
+    )
+    assert validate_snapshot(current, state, manifest, packet, queue, texts) == []
+
+    current, state, manifest, packet, queue, texts = fixtures()
+    texts["handoff"] = texts["handoff"].replace("target_reached / merged", "paused / merged_pair_complete")
+    assert any("target_reached / merged" in error for error in validate_snapshot(current, state, manifest, packet, queue, texts))
 
     current, state, manifest, packet, queue, texts = fixtures()
     packet["release_candidate"]["status"] = "verified"

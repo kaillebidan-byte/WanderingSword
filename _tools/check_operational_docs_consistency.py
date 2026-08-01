@@ -129,7 +129,17 @@ def validate_snapshot(
         if release.get("merge_sha") != merge_sha:
             errors.append("NEXT_TASK_PACKET merge_sha must match manifest")
         handoff = texts.get("handoff", "")
-        for required in (f"PR #{pr}: merged", "transport: `merged`", "cycle: `target_reached / merged`"):
+        control = state.get("cycle_control", {})
+        cycle_status = control.get("status")
+        cycle_checkpoint = control.get("last_safe_checkpoint")
+        if not isinstance(cycle_status, str) or not cycle_status:
+            errors.append("merged transport requires cycle_control.status")
+            cycle_status = "<missing>"
+        if not isinstance(cycle_checkpoint, str) or not cycle_checkpoint:
+            errors.append("merged transport requires cycle_control.last_safe_checkpoint")
+            cycle_checkpoint = "<missing>"
+        required_cycle = f"cycle: `{cycle_status} / {cycle_checkpoint}`"
+        for required in (f"PR #{pr}: merged", "transport: `merged`", required_cycle):
             if required not in handoff:
                 errors.append(f"CURRENT_HANDOFF lacks merged fact: {required}")
         for stale in ("open / ready / mergeable", "awaiting_private_merge", "finalize-release phase2"):
@@ -174,21 +184,21 @@ def validate_snapshot(
             errors.append(f"{label} lacks current contract marker: {needle}")
 
     for label in ("readme", "session"):
-        text = texts.get(label, "")
+        text_value = texts.get(label, "")
         for needle in ("INSTITUTION_WORK_QUEUE.json", "translation_factory_controller.py"):
-            if needle not in text:
+            if needle not in text_value:
                 errors.append(f"{label} lacks resume delegation marker: {needle}")
 
     for label in ("readme", "session", "factory"):
-        text = texts.get(label, "")
+        text_value = texts.get(label, "")
         for station in ("semantic_bundle_boundary", "translation_quality_audit"):
-            if station not in text:
+            if station not in text_value:
                 errors.append(f"{label} lacks human station marker: {station}")
 
     for label in ("readme", "session", "always_public"):
-        text = texts.get(label, "")
+        text_value = texts.get(label, "")
         for needle in ("PR番号", "merge SHA", "GitHub metadata"):
-            if needle not in text:
+            if needle not in text_value:
                 errors.append(f"{label} lacks feasible institution completion evidence marker: {needle}")
 
     forbidden = {
