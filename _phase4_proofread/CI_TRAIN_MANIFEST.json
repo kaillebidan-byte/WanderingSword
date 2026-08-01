@@ -265,5 +265,22 @@
   "merge_result": {
     "pr": 239,
     "merge_sha": "85e0cc826ff3c23e7272df8df3992ca73e6ed9bb"
+  },
+  "pair_transition": {
+    "status": "inventory_ready",
+    "previous_pair": "宇文逸↔莫問",
+    "next_pair": "宇文逸↔莫棄",
+    "relation_id": "yuwen_moqi",
+    "inventory_record": "_phase4_proofread/PAIR_INVENTORY_YUWEN_MOQI_2026-08-01.json",
+    "source_artifact": {
+      "workflow": "Pair inventory bootstrap",
+      "run_id": 30686414067,
+      "artifact_id": 8814071557,
+      "artifact_name": "pair-inventory-yuwen_moqi",
+      "artifact_file": "yuwen_moqi.json",
+      "digest": "sha256:47cad3476aafb4f8ff6ee14e752d8df6583d0abb56a18c0a5cb3e044a8ba54b1",
+      "head_sha": "f62f0017a7248ca579784c150500e62d1f10abf8"
+    },
+    "translation_started": false
   }
 }

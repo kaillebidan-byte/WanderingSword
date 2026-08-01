@@ -400,13 +400,41 @@
         "release_id": "yuwen-mowen-train-81-r1",
         "reason": "explicit_reference_tail_exhausted"
       }
+    },
+    "宇文逸↔莫棄": {
+      "evidence_inventory": "complete",
+      "persona_reviewed": "not_started",
+      "relation_reviewed": "not_started",
+      "translation_reaudited": "not_started",
+      "build_verified": "not_started",
+      "game_verified": "not_started",
+      "evidence": {
+        "raw_blocks": 133,
+        "unique_blocks": 129,
+        "duplicate_blocks": 4,
+        "direct_exchange_blocks": 82,
+        "explicit_reference_blocks": 47,
+        "unique_rows": 750
+      },
+      "applied_keys": 0,
+      "residual_candidates": "unreviewed",
+      "inventory_record": "_phase4_proofread/PAIR_INVENTORY_YUWEN_MOQI_2026-08-01.json",
+      "source_artifact": {
+        "workflow": "Pair inventory bootstrap",
+        "run_id": 30686414067,
+        "artifact_id": 8814071557,
+        "artifact_name": "pair-inventory-yuwen_moqi",
+        "artifact_file": "yuwen_moqi.json",
+        "digest": "sha256:47cad3476aafb4f8ff6ee14e752d8df6583d0abb56a18c0a5cb3e044a8ba54b1",
+        "head_sha": "f62f0017a7248ca579784c150500e62d1f10abf8"
+      }
     }
   },
   "current": {
     "cluster": "wudang_core",
-    "pair": "宇文逸↔莫問",
-    "stage": "translation_reaudited",
-    "status": "in_progress",
-    "next_action": "5444〜5455系の品剣大会後・帰路・分岐差分を監査し、その後に義兄弟化、天山出自、離反・敵対・再会へ進む"
+    "pair": "宇文逸↔莫棄",
+    "stage": "evidence_inventory",
+    "status": "complete",
+    "next_action": "factoryのpair namespaceとbranch/output命名を一般化し、最初のsemantic waveを予約する"
   }
 }
