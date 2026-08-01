@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "contract_id": "pair-inventory-bootstrap-v1",
+  "expected_controller_action": "resume_recorded_checkpoint",
+  "date": "2026-08-01",
+  "trigger_attempt": 2,
+  "previous_pair": "宇文逸↔莫問",
+  "next_pair": "宇文逸↔莫棄",
+  "relation": {
+    "id": "yuwen_moqi",
+    "left": {
+      "name": "宇文逸",
+      "aliases": [
+        "宇文逸"
+      ]
+    },
+    "right": {
+      "name": "莫棄",
+      "aliases": [
+        "莫棄",
+        "莫弃"
+      ]
+    },
+    "left_to_right_markers": [
+      "莫棄",
+      "莫弃",
+      "莫棄師兄",
+      "莫弃师兄",
+      "莫師兄",
+      "莫师兄"
+    ],
+    "right_to_left_markers": [
+      "小逸",
+      "宇文逸",
+      "宇文師弟",
+      "宇文师弟"
+    ],
+    "direct_exchange_inventory_markers": [
+      "莫棄",
+      "莫弃",
+      "莫棄師兄",
+      "莫弃师兄",
+      "莫師兄",
+      "莫师兄",
+      "師兄",
+      "师兄",
+      "小逸",
+      "宇文逸",
+      "宇文師弟",
+      "宇文师弟",
+      "師弟",
+      "师弟",
+      "大師兄",
+      "大师兄",
+      "莫問師兄",
+      "莫问师兄"
+    ],
+    "status": "extracting",
+    "notes": [
+      "audit_statusのwudang_core固定順で宇文逸↔莫問の直後に位置するpairのみをbootstrapする。",
+      "原文・現訳・前後文を一次資料とし、10_人物/宇文逸.mdと10_人物/莫棄.mdは反証可能な仮説として後段で照合する。",
+      "莫棄が宇文逸を小逸と呼ぶ仮説、宇文逸が莫棄師兄または莫師兄と呼ぶ仮説はinventory抽出時点では確定しない。"
+    ],
+    "audit_questions": [
+      "宇文逸から莫棄への呼称は場面・分岐・情報状態でどう変化するか。",
+      "莫棄の軽口・兄貴分の振る舞いと、真相や使命を背負う場面の声を同じ語尾へ均していないか。",
+      "莫問に関する発言と莫棄自身への直接対話を混同していないか。",
+      "武当内の序列語、師兄・師弟・小逸の主体と対象が原文どおりか。"
+    ]
+  },
+  "output": {
+    "record": "_phase4_proofread/PAIR_INVENTORY_YUWEN_MOQI_2026-08-01.json"
+  }
+}
