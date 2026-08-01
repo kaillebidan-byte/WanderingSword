@@ -1,0 +1,116 @@
+name: Pair inventory bootstrap
+
+on:
+  push:
+    branches:
+      - "agent/pair-inventory-*"
+    paths:
+      - "_pair_inventory_requests/bootstrap-*.json"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: pair-inventory-bootstrap-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  bootstrap:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout exact request HEAD
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve exactly one bootstrap request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t requests < <(find _pair_inventory_requests -maxdepth 1 -type f -name 'bootstrap-*.json' -print | sort)
+          if [[ "${#requests[@]}" -ne 1 ]]; then
+            echo "expected exactly one pair inventory request, found ${#requests[@]}" >&2
+            exit 1
+          fi
+          python - "${requests[0]}" >> "$GITHUB_OUTPUT" <<'PY'
+          import json, sys
+          from pathlib import Path
+          path = Path(sys.argv[1])
+          value = json.loads(path.read_text(encoding="utf-8"))
+          if value.get("contract_id") != "pair-inventory-bootstrap-v1":
+              raise SystemExit("bootstrap request contract mismatch")
+          relation = value.get("relation", {})
+          print(f"request={path.as_posix()}")
+          print(f"relation_id={relation['id']}")
+          print(f"artifact_name=pair-inventory-{relation['id']}")
+          PY
+
+      - name: Validate checkpoint and prepare relation config
+        run: |
+          python _tools/pair_inventory_bootstrap.py \
+            --request "${{ steps.request.outputs.request }}" \
+            --prepare \
+            --output /tmp/pair-inventory-prepare.json
+
+      - name: Extract primary-evidence inventory
+        env:
+          WS_TMP: ${{ github.workspace }}/_ws_tmp
+        run: |
+          rm -rf _ws_tmp/pair_inventory
+          python _tools/extract_relation_context.py \
+            --id "${{ steps.request.outputs.relation_id }}" \
+            --out-dir _ws_tmp/pair_inventory
+
+      - name: Upload pair inventory artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.request.outputs.artifact_name }}
+          path: _ws_tmp/pair_inventory/
+          if-no-files-found: error
+
+      - name: Finalize pair inventory checkpoint
+        run: |
+          python _tools/pair_inventory_bootstrap.py \
+            --request "${{ steps.request.outputs.request }}" \
+            --finalize \
+            --report "_ws_tmp/pair_inventory/${{ steps.request.outputs.relation_id }}.json" \
+            --relation-id "${{ steps.request.outputs.relation_id }}" \
+            --artifact-run "${GITHUB_RUN_ID}" \
+            --artifact-id "${{ steps.upload.outputs.artifact-id }}" \
+            --artifact-name "${{ steps.request.outputs.artifact_name }}" \
+            --artifact-digest "${{ steps.upload.outputs.artifact-digest }}" \
+            --artifact-head "${GITHUB_SHA}" \
+            --output /tmp/pair-inventory-finalize.json
+
+      - name: Validate generated checkpoint
+        run: |
+          python _tools/test_pair_inventory_bootstrap.py
+          python _tools/test_extract_relation_context.py
+          python _tools/check_state_json_integrity.py
+          python _tools/translation_factory_controller.py --repository-visibility public --validate-contract-only
+          python _tools/translation_factory_controller.py --repository-visibility public
+          git diff --check
+
+      - name: Commit generated inventory checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm "${{ steps.request.outputs.request }}"
+          git add _phase4_proofread
+          git diff --cached --check
+          git commit -m "状態: 次人物ペアの証拠inventoryをbootstrap [pair-inventory]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

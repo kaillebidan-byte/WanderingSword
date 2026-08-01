@@ -92,7 +92,8 @@
     "release_evidence_and_phase2",
     "commit_compaction",
     "squash_merge",
-    "merged_cycle_reconciliation"
+    "merged_cycle_reconciliation",
+    "pair_inventory_bootstrap"
   ],
   "actions": {
     "initialize_next_cycle_from_reservation": {
@@ -131,8 +132,14 @@
       "resulting_stage": "translation_frozen",
       "resulting_transport": "ready_for_public_ci"
     },
-    "run_release_preflight": {"station_type": "machine", "executor": "fixed_release_preflight"},
-    "run_release_train": {"station_type": "machine", "executor": "release_train_orchestrator"},
+    "run_release_preflight": {
+      "station_type": "machine",
+      "executor": "fixed_release_preflight"
+    },
+    "run_release_train": {
+      "station_type": "machine",
+      "executor": "release_train_orchestrator"
+    },
     "finalize_release_state": {
       "station_type": "machine",
       "executor": "fixed_release_finalizer",
@@ -141,9 +148,25 @@
       "execution_workflow": ".github/workflows/translation-factory-finalize.yml",
       "resulting_transport": "awaiting_private_merge"
     },
-    "verify_phase2_and_merge": {"station_type": "machine", "executor": "fixed_phase2_merge_pipeline"},
-    "reconcile_merged_cycle": {"station_type": "machine", "executor": "reconcile_merged_cycle"},
-    "resume_recorded_checkpoint": {"station_type": "machine", "executor": "recorded_exact_next_action"}
+    "verify_phase2_and_merge": {
+      "station_type": "machine",
+      "executor": "fixed_phase2_merge_pipeline"
+    },
+    "reconcile_merged_cycle": {
+      "station_type": "machine",
+      "executor": "reconcile_merged_cycle"
+    },
+    "resume_recorded_checkpoint": {
+      "station_type": "machine",
+      "executor": "recorded_exact_next_action",
+      "pair_scope_exhausted": {
+        "contract": "_phase4_proofread/PAIR_INVENTORY_BOOTSTRAP_CONTRACT.json",
+        "adapter": "_tools/pair_inventory_bootstrap.py",
+        "request_pattern": "_pair_inventory_requests/bootstrap-*.json",
+        "execution_workflow": ".github/workflows/pair-inventory-bootstrap.yml",
+        "resulting_checkpoint": "pair_inventory_ready"
+      }
+    }
   },
   "retry_policy": {
     "known_transient_max_retries": 1,

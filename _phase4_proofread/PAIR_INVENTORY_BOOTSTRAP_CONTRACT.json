@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "contract_id": "pair-inventory-bootstrap-v1",
+  "controller_action": "resume_recorded_checkpoint",
+  "checkpoint_reason": "pair_scope_exhausted",
+  "request_glob": "_pair_inventory_requests/bootstrap-*.json",
+  "adapter": "_tools/pair_inventory_bootstrap.py",
+  "execution_workflow": ".github/workflows/pair-inventory-bootstrap.yml",
+  "selection": {
+    "queue": "_phase4_proofread/audit_status.json",
+    "cluster_source": "CURRENT_WORK.current_cluster",
+    "policy": "next_item_after_completed_pair_in_cluster_order",
+    "manual_pair_override_forbidden": true
+  },
+  "preconditions": [
+    "CURRENT_WORK checkpoint is verified",
+    "CURRENT_WORK, PRIVATE_STAGE_STATE, and CI_TRAIN_MANIFEST transports are merged",
+    "PRIVATE_STAGE_STATE is paused at merged_pair_complete with pair_scope_exhausted",
+    "NEXT_TASK_PACKET pair completion is complete",
+    "relation_audit_queue.current identifies the completed pair",
+    "requested next pair equals the next pair in audit_status queue order"
+  ],
+  "write_set": [
+    "_phase4_proofread/relation_audit_queue.json",
+    "_phase4_proofread/audit_status.json",
+    "_phase4_proofread/CURRENT_WORK.json",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "_phase4_proofread/NEXT_TASK_PACKET.json",
+    "_phase4_proofread/CURRENT_HANDOFF.md",
+    "_phase4_proofread/PAIR_INVENTORY_*.json"
+  ],
+  "forbidden": [
+    "translation content changes",
+    "owner changes",
+    "formal batch allocation",
+    "changing the completed train or current_pair before factory namespace generalization",
+    "using persona documents as primary evidence",
+    "starting semantic preparation in the same bootstrap"
+  ],
+  "result": {
+    "cycle_status": "paused",
+    "stop_reason": "pair_inventory_bootstrapped",
+    "last_safe_checkpoint": "pair_inventory_ready",
+    "translation_pair_remains_completed_pair": true,
+    "next_pair_inventory_is_recorded_separately": true
+  }
+}
