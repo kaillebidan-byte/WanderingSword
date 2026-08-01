@@ -64,7 +64,16 @@ jobs:
               if action.get("pair_scope_exhausted", {}).get(key) != value:
                   raise SystemExit(f"resume checkpoint wiring mismatch: {key}")
           workflow = (root / expected["execution_workflow"]).read_text(encoding="utf-8")
-          for marker in ("pair_inventory_bootstrap.py", "extract_relation_context.py", "artifact-digest", "git rm"):
+          for marker in (
+              "pull_request:",
+              "github.event.pull_request.head.sha || github.sha",
+              "GITHUB_HEAD_REF:-${GITHUB_REF_NAME}",
+              "pair_inventory_bootstrap.py",
+              "extract_relation_context.py",
+              "check_operational_docs_consistency.py",
+              "artifact-digest",
+              "git rm",
+          ):
               if marker not in workflow:
                   raise SystemExit(f"bootstrap workflow lacks marker: {marker}")
           PY
