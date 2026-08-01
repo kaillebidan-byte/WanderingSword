@@ -41,9 +41,9 @@
     "merge_sha": "85e0cc826ff3c23e7272df8df3992ca73e6ed9bb"
   },
   "do_not_do": [
-    "pair completionを通常scene reservationへ戻さない",
-    "同じexplicit_reference行を再監査しない",
-    "次人物ペアの正本確定前にpreparationを開始しない",
+    "完了済みpairを通常scene reservationへ戻さない",
+    "factory一般化前に新pairのsemantic preparationを開始しない",
+    "inventory抽出結果だけで人物資料または翻訳判断を確定しない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
@@ -60,5 +60,22 @@
     "reason": "explicit_reference_tail_exhausted",
     "remaining_explicit_reference_rows": 0,
     "transition": "post_merge_pair_completion_checkpoint"
+  },
+  "next_pair_inventory": {
+    "status": "inventory_ready",
+    "previous_pair": "宇文逸↔莫問",
+    "next_pair": "宇文逸↔莫棄",
+    "relation_id": "yuwen_moqi",
+    "inventory_record": "_phase4_proofread/PAIR_INVENTORY_YUWEN_MOQI_2026-08-01.json",
+    "source_artifact": {
+      "workflow": "Pair inventory bootstrap",
+      "run_id": 30686414067,
+      "artifact_id": 8814071557,
+      "artifact_name": "pair-inventory-yuwen_moqi",
+      "artifact_file": "yuwen_moqi.json",
+      "digest": "sha256:47cad3476aafb4f8ff6ee14e752d8df6583d0abb56a18c0a5cb3e044a8ba54b1",
+      "head_sha": "f62f0017a7248ca579784c150500e62d1f10abf8"
+    },
+    "translation_started": false
   }
 }
