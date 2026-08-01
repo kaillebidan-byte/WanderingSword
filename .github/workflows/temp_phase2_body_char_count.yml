@@ -1,0 +1,97 @@
+name: Temporary phase2 body character count
+
+on:
+  push:
+    branches:
+      - temp/phase2-body-char-count-20260801
+
+permissions:
+  contents: read
+
+jobs:
+  count-body-characters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Count text fields in phase 2 source
+        shell: bash
+        run: |
+          python - <<'PY'
+          import collections
+          import json
+          import pathlib
+          import re
+
+          path = pathlib.Path('_phase4_proofread/by_character.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+
+          records = []
+          def walk(obj, trail=()):
+              if isinstance(obj, dict):
+                  if isinstance(obj.get('text'), str):
+                      records.append((trail, obj))
+                  for key, value in obj.items():
+                      walk(value, trail + (str(key),))
+              elif isinstance(obj, list):
+                  for i, value in enumerate(obj):
+                      walk(value, trail + (str(i),))
+          walk(data)
+
+          def chars(items):
+              return sum(len(d['text']) for _, d in items)
+          def non_ws(items):
+              return sum(len(re.sub(r'\s+', '', d['text'])) for _, d in items)
+
+          by_hash = {}
+          missing_hash = []
+          hash_dupes = collections.Counter()
+          for trail, d in records:
+              h = d.get('hash_diag_composite')
+              if isinstance(h, str) and h:
+                  hash_dupes[h] += 1
+                  by_hash.setdefault(h, (trail, d))
+              else:
+                  missing_hash.append((trail, d))
+          unique_canonical = list(by_hash.values()) + missing_hash
+
+          exact_text = {}
+          for trail, d in records:
+              exact_text.setdefault(d['text'], (trail, d))
+          unique_exact = list(exact_text.values())
+
+          kana_re = re.compile(r'[\u3040-\u30ff]')
+          cjk_re = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
+          latin_re = re.compile(r'[A-Za-z]')
+          texts = [d['text'] for _, d in unique_canonical]
+
+          print('PHASE2_BODY_COUNT_BEGIN')
+          print('source_path=', path.as_posix(), sep='')
+          print('source_bytes=', path.stat().st_size, sep='')
+          print('root_type=', type(data).__name__, sep='')
+          print('raw_text_records=', len(records), sep='')
+          print('raw_chars_including_whitespace=', chars(records), sep='')
+          print('raw_chars_excluding_whitespace=', non_ws(records), sep='')
+          print('records_with_hash=', len(records) - len(missing_hash), sep='')
+          print('records_without_hash=', len(missing_hash), sep='')
+          print('unique_hashes=', len(by_hash), sep='')
+          print('duplicate_hash_records=', sum(n - 1 for n in hash_dupes.values() if n > 1), sep='')
+          print('canonical_records=', len(unique_canonical), sep='')
+          print('canonical_chars_including_whitespace=', chars(unique_canonical), sep='')
+          print('canonical_chars_excluding_whitespace=', non_ws(unique_canonical), sep='')
+          print('unique_exact_texts=', len(unique_exact), sep='')
+          print('unique_exact_chars_including_whitespace=', chars(unique_exact), sep='')
+          print('kana_chars=', sum(len(kana_re.findall(t)) for t in texts), sep='')
+          print('cjk_chars=', sum(len(cjk_re.findall(t)) for t in texts), sep='')
+          print('latin_chars=', sum(len(latin_re.findall(t)) for t in texts), sep='')
+          if records:
+              print('sample_record_keys=', ','.join(sorted(records[0][1].keys())), sep='')
+              print('sample_trail=', '/'.join(records[0][0]), sep='')
+          # Print value distributions for likely hierarchy fields without exposing body text.
+          candidate_names = sorted({k for _, d in records for k in d if any(x in k.lower() for x in ('primary','secondary','tertiary','quaternary','chapter','scene','area'))})
+          print('candidate_hierarchy_fields=', ','.join(candidate_names), sep='')
+          for name in candidate_names:
+              counts = collections.Counter(str(d.get(name)) for _, d in unique_canonical if d.get(name) is not None)
+              print(f'field_{name}_distinct={len(counts)}')
+              print(f'field_{name}_top=' + json.dumps(counts.most_common(20), ensure_ascii=False, separators=(',', ':')))
+          print('PHASE2_BODY_COUNT_END')
+          PY
