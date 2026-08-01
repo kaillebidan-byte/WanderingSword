@@ -12,13 +12,13 @@ permissions:
   contents: read
 
 jobs:
-  count-body-columns:
+  count-source-body:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: temp/phase2-body-char-count-20260801
-      - name: Count positional text columns
+      - name: Count Chinese source text matched by character index
         shell: bash
         run: |
           python - <<'PY'
@@ -27,64 +27,94 @@ jobs:
           import pathlib
           import re
 
-          path = pathlib.Path('_phase4_proofread/by_character.json')
-          data = json.loads(path.read_text(encoding='utf-8'))
-          rows = []
-          malformed = []
-          for speaker in data['order']:
-              for row in data['lines'].get(speaker, []):
-                  if isinstance(row, list) and len(row) == 3 and all(isinstance(x, str) for x in row):
-                      rows.append((speaker, tuple(row)))
+          index_path = pathlib.Path('_phase4_proofread/by_character.json')
+          source_path = pathlib.Path('_phase4_proofread/source_zh.json')
+          index = json.loads(index_path.read_text(encoding='utf-8'))
+          source = json.loads(source_path.read_text(encoding='utf-8'))
+
+          rows = [tuple(row) for speaker in index['order'] for row in index['lines'].get(speaker, [])]
+          diag_ids = [row[2] for row in rows]
+          unique_ids = list(dict.fromkeys(diag_ids))
+
+          print('PHASE2_SOURCE_MATCH_BEGIN')
+          print('index_bytes=', index_path.stat().st_size, sep='')
+          print('source_bytes=', source_path.stat().st_size, sep='')
+          print('source_root_type=', type(source).__name__, sep='')
+          print('source_root_len=', len(source) if hasattr(source, '__len__') else -1, sep='')
+          print('index_rows=', len(rows), sep='')
+          print('unique_diag_ids=', len(unique_ids), sep='')
+
+          direct = []
+          missing = []
+          if isinstance(source, dict):
+              for diag_id in unique_ids:
+                  if diag_id in source:
+                      direct.append((diag_id, source[diag_id]))
                   else:
-                      malformed.append((speaker, type(row).__name__, len(row) if hasattr(row, '__len__') else None))
+                      missing.append(diag_id)
+          else:
+              missing = unique_ids[:]
+          print('direct_key_matches=', len(direct), sep='')
+          print('direct_key_missing=', len(missing), sep='')
+          print('direct_value_types=' + json.dumps(collections.Counter(type(v).__name__ for _, v in direct), ensure_ascii=False, separators=(',', ':')))
+
+          # Inspect only shapes, lengths and character classes; never print body text.
+          if isinstance(source, dict):
+              first_items = list(source.items())[:5]
+              for key, value in first_items:
+                  info = {'key_len': len(str(key)), 'key_ascii': str(key).isascii(), 'value_type': type(value).__name__}
+                  if isinstance(value, str):
+                      info['value_len'] = len(value)
+                  elif isinstance(value, dict):
+                      info['value_keys'] = list(value.keys())[:20]
+                  elif isinstance(value, list):
+                      info['value_len'] = len(value)
+                      info['item_types'] = [type(x).__name__ for x in value[:10]]
+                  print('source_item_shape=' + json.dumps(info, ensure_ascii=False, separators=(',', ':')))
 
           kana_re = re.compile(r'[\u3040-\u30ff]')
           cjk_re = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
           latin_re = re.compile(r'[A-Za-z]')
-          hex40_re = re.compile(r'^[0-9a-f]{40}$', re.I)
-          hex64_re = re.compile(r'^[0-9a-f]{64}$', re.I)
+          tag_re = re.compile(r'<[^>]*>')
 
-          def stats(values):
+          def text_stats(values):
+              raw = ''.join(values)
+              no_ws_values = [re.sub(r'\s+', '', v) for v in values]
+              no_tags_values = [tag_re.sub('', v) for v in values]
+              no_tags_no_ws_values = [re.sub(r'\s+', '', tag_re.sub('', v)) for v in values]
               return {
                   'values': len(values),
-                  'unique': len(set(values)),
-                  'empty': sum(not v for v in values),
-                  'chars': sum(len(v) for v in values),
-                  'non_ws': sum(len(re.sub(r'\s+', '', v)) for v in values),
-                  'kana': sum(len(kana_re.findall(v)) for v in values),
-                  'cjk': sum(len(cjk_re.findall(v)) for v in values),
-                  'latin': sum(len(latin_re.findall(v)) for v in values),
-                  'hex40': sum(bool(hex40_re.fullmatch(v)) for v in values),
-                  'hex64': sum(bool(hex64_re.fullmatch(v)) for v in values),
+                  'unique_values': len(set(values)),
+                  'empty': sum(v == '' for v in values),
+                  'chars_raw': sum(len(v) for v in values),
+                  'chars_no_whitespace': sum(len(v) for v in no_ws_values),
+                  'chars_no_angle_tags': sum(len(v) for v in no_tags_values),
+                  'chars_no_angle_tags_no_whitespace': sum(len(v) for v in no_tags_no_ws_values),
+                  'kana': len(kana_re.findall(raw)),
+                  'cjk': len(cjk_re.findall(raw)),
+                  'latin': len(latin_re.findall(raw)),
                   'min_len': min(map(len, values), default=0),
                   'max_len': max(map(len, values), default=0),
               }
 
-          raw_rows = [r for _, r in rows]
-          unique_triplets = list(dict.fromkeys(raw_rows))
-          by_col0 = {}
-          col0_conflicts = 0
-          for row in raw_rows:
-              if row[0] in by_col0 and by_col0[row[0]] != row:
-                  col0_conflicts += 1
-              by_col0.setdefault(row[0], row)
-          canonical = list(by_col0.values())
+          if direct and all(isinstance(v, str) for _, v in direct):
+              values = [v for _, v in direct]
+              print('DIRECT_TEXT_STATS=' + json.dumps(text_stats(values), ensure_ascii=False, separators=(',', ':')))
 
-          print('PHASE2_COLUMN_COUNT_BEGIN')
-          print('source_bytes=', path.stat().st_size, sep='')
-          print('speaker_groups=', len(data['order']), sep='')
-          print('count_map_sum=', sum(int(v) for v in data['count'].values()), sep='')
-          print('raw_rows=', len(raw_rows), sep='')
-          print('malformed_rows=', len(malformed), sep='')
-          print('unique_triplets=', len(unique_triplets), sep='')
-          print('unique_col0=', len(by_col0), sep='')
-          print('col0_conflicts=', col0_conflicts, sep='')
-          print('duplicate_triplet_rows=', len(raw_rows) - len(unique_triplets), sep='')
-          print('duplicate_col0_rows=', len(raw_rows) - len(by_col0), sep='')
-          for i in range(3):
-              print('RAW_COLUMN_' + str(i) + '=' + json.dumps(stats([r[i] for r in raw_rows]), ensure_ascii=False, separators=(',', ':')))
-              print('CANONICAL_COLUMN_' + str(i) + '=' + json.dumps(stats([r[i] for r in canonical]), ensure_ascii=False, separators=(',', ':')))
-          # Character-name index strings are not part of body; report them separately.
-          print('speaker_name_chars=', sum(len(s) for s in data['order']), sep='')
-          print('PHASE2_COLUMN_COUNT_END')
+          # Recursively identify string-bearing fields if direct values are structured.
+          field_values = collections.defaultdict(list)
+          def walk(obj):
+              if isinstance(obj, dict):
+                  for k, v in obj.items():
+                      if isinstance(v, str):
+                          field_values[str(k)].append(v)
+                      walk(v)
+              elif isinstance(obj, list):
+                  for v in obj:
+                      walk(v)
+          walk(source)
+          print('string_fields=', len(field_values), sep='')
+          for key, values in sorted(field_values.items(), key=lambda kv: -sum(map(len, kv[1])))[:30]:
+              print('FIELD_STATS=' + json.dumps({'key': key, **text_stats(values)}, ensure_ascii=False, separators=(',', ':')))
+          print('PHASE2_SOURCE_MATCH_END')
           PY
