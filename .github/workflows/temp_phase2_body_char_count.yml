@@ -12,67 +12,79 @@ permissions:
   contents: read
 
 jobs:
-  inspect-body-index:
+  count-body-columns:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: temp/phase2-body-char-count-20260801
-      - name: Inspect index references and candidate source files
+      - name: Count positional text columns
         shell: bash
         run: |
           python - <<'PY'
+          import collections
           import json
           import pathlib
+          import re
 
           path = pathlib.Path('_phase4_proofread/by_character.json')
           data = json.loads(path.read_text(encoding='utf-8'))
-          print('PHASE2_INDEX_BEGIN')
-          for section in ('order', 'lines', 'count'):
-              value = data.get(section)
-              print('section=' + json.dumps([section, type(value).__name__, len(value) if hasattr(value, '__len__') else None], ensure_ascii=False, separators=(',', ':')))
-          lines = data.get('lines', {})
-          for name, value in list(lines.items())[:8]:
-              info = {'name': name, 'type': type(value).__name__, 'length': len(value) if hasattr(value, '__len__') else None}
-              if isinstance(value, list):
-                  info['item_types'] = [type(x).__name__ for x in value[:8]]
-                  safe = []
-                  for x in value[:8]:
-                      if isinstance(x, (int, float, bool)) or x is None:
-                          safe.append(x)
-                      elif isinstance(x, dict):
-                          safe.append({'dict_keys': list(x.keys())[:20]})
-                      elif isinstance(x, list):
-                          safe.append({'list_len': len(x), 'item_types': [type(y).__name__ for y in x[:5]]})
-                      else:
-                          safe.append({'string_len': len(x)} if isinstance(x, str) else {'type': type(x).__name__})
-                  info['preview'] = safe
-              elif isinstance(value, dict):
-                  info['keys'] = list(value.keys())[:20]
-              print('line_entry=' + json.dumps(info, ensure_ascii=False, separators=(',', ':')))
+          rows = []
+          malformed = []
+          for speaker in data['order']:
+              for row in data['lines'].get(speaker, []):
+                  if isinstance(row, list) and len(row) == 3 and all(isinstance(x, str) for x in row):
+                      rows.append((speaker, tuple(row)))
+                  else:
+                      malformed.append((speaker, type(row).__name__, len(row) if hasattr(row, '__len__') else None))
 
-          files = []
-          for p in pathlib.Path('.').rglob('*'):
-              if p.is_file() and '.git' not in p.parts:
-                  try:
-                      files.append((p.stat().st_size, p.as_posix()))
-                  except OSError:
-                      pass
-          print('largest_files=')
-          for size, name in sorted(files, reverse=True)[:80]:
-              print(json.dumps([size, name], ensure_ascii=False, separators=(',', ':')))
+          kana_re = re.compile(r'[\u3040-\u30ff]')
+          cjk_re = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
+          latin_re = re.compile(r'[A-Za-z]')
+          hex40_re = re.compile(r'^[0-9a-f]{40}$', re.I)
+          hex64_re = re.compile(r'^[0-9a-f]{64}$', re.I)
 
-          print('by_character_references=')
-          for p in pathlib.Path('.').rglob('*'):
-              if not p.is_file() or '.git' in p.parts or p.stat().st_size > 2_000_000:
-                  continue
-              if p.suffix.lower() not in {'.py','.md','.json','.yml','.yaml','.txt','.ps1','.sh'}:
-                  continue
-              try:
-                  text = p.read_text(encoding='utf-8')
-              except Exception:
-                  continue
-              if 'by_character.json' in text:
-                  print(p.as_posix())
-          print('PHASE2_INDEX_END')
+          def stats(values):
+              return {
+                  'values': len(values),
+                  'unique': len(set(values)),
+                  'empty': sum(not v for v in values),
+                  'chars': sum(len(v) for v in values),
+                  'non_ws': sum(len(re.sub(r'\s+', '', v)) for v in values),
+                  'kana': sum(len(kana_re.findall(v)) for v in values),
+                  'cjk': sum(len(cjk_re.findall(v)) for v in values),
+                  'latin': sum(len(latin_re.findall(v)) for v in values),
+                  'hex40': sum(bool(hex40_re.fullmatch(v)) for v in values),
+                  'hex64': sum(bool(hex64_re.fullmatch(v)) for v in values),
+                  'min_len': min(map(len, values), default=0),
+                  'max_len': max(map(len, values), default=0),
+              }
+
+          raw_rows = [r for _, r in rows]
+          unique_triplets = list(dict.fromkeys(raw_rows))
+          by_col0 = {}
+          col0_conflicts = 0
+          for row in raw_rows:
+              if row[0] in by_col0 and by_col0[row[0]] != row:
+                  col0_conflicts += 1
+              by_col0.setdefault(row[0], row)
+          canonical = list(by_col0.values())
+
+          print('PHASE2_COLUMN_COUNT_BEGIN')
+          print('source_bytes=', path.stat().st_size, sep='')
+          print('speaker_groups=', len(data['order']), sep='')
+          print('count_map_sum=', sum(int(v) for v in data['count'].values()), sep='')
+          print('raw_rows=', len(raw_rows), sep='')
+          print('malformed_rows=', len(malformed), sep='')
+          print('unique_triplets=', len(unique_triplets), sep='')
+          print('unique_col0=', len(by_col0), sep='')
+          print('col0_conflicts=', col0_conflicts, sep='')
+          print('duplicate_triplet_rows=', len(raw_rows) - len(unique_triplets), sep='')
+          print('duplicate_col0_rows=', len(raw_rows) - len(by_col0), sep='')
+          for i in range(3):
+              print('RAW_COLUMN_' + str(i) + '=' + json.dumps(stats([r[i] for r in raw_rows]), ensure_ascii=False, separators=(',', ':')))
+              print('CANONICAL_COLUMN_' + str(i) + '=' + json.dumps(stats([r[i] for r in canonical]), ensure_ascii=False, separators=(',', ':')))
+          # Character-name index strings are not part of body; report them separately.
+          print('speaker_name_chars=', sum(len(s) for s in data['order']), sep='')
+          print('PHASE2_COLUMN_COUNT_END')
           PY
