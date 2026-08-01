@@ -10,6 +10,7 @@ on:
       - "_tools/refresh_pair_tail_release_candidate.py"
       - "_tools/ensure_pair_tail_handoff_restart.py"
       - "_tools/test_pair_tail_flow.py"
+      - "_tools/test_pair_tail_monotonic_checkpoint.py"
       - "_tools/test_refresh_pair_tail_release_candidate.py"
       - "_tools/test_ensure_pair_tail_handoff_restart.py"
       - ".github/workflows/translation-tail-*.yml"
@@ -48,6 +49,7 @@ jobs:
       - name: Run tail regressions
         run: |
           python _tools/test_pair_tail_flow.py
+          python _tools/test_pair_tail_monotonic_checkpoint.py
           python _tools/test_refresh_pair_tail_release_candidate.py
           python _tools/test_ensure_pair_tail_handoff_restart.py
           python _tools/test_translation_factory_controller.py

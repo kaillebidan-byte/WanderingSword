@@ -41,9 +41,9 @@
     "merge_sha": "85e0cc826ff3c23e7272df8df3992ca73e6ed9bb"
   },
   "do_not_do": [
-    "pair completionを通常scene reservationへ戻さない",
-    "同じexplicit_reference行を再監査しない",
-    "次人物ペアの正本確定前にpreparationを開始しない",
+    "完了済みpairを通常scene reservationへ戻さない",
+    "factory一般化前に新pairのsemantic preparationを開始しない",
+    "inventory抽出結果だけで人物資料または翻訳判断を確定しない",
     "ゲームフォルダへ配置しない"
   ],
   "ci_train": {
