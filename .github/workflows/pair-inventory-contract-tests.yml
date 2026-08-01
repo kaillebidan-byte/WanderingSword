@@ -1,0 +1,71 @@
+name: Pair inventory bootstrap contract tests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - "_phase4_proofread/PAIR_INVENTORY_BOOTSTRAP_CONTRACT.json"
+      - "_phase4_proofread/FACTORY_FLOW_CONTRACT.json"
+      - "_tools/pair_inventory_bootstrap.py"
+      - "_tools/test_pair_inventory_bootstrap.py"
+      - ".github/workflows/pair-inventory-bootstrap.yml"
+      - ".github/workflows/pair-inventory-contract-tests.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pair-inventory-contract-tests-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout PR HEAD
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile fixed adapter
+        run: python -m py_compile _tools/pair_inventory_bootstrap.py
+
+      - name: Run normal and failure regressions
+        run: |
+          python _tools/test_pair_inventory_bootstrap.py
+          python _tools/test_extract_relation_context.py
+
+      - name: Validate permanent wiring
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path(".")
+          contract = json.loads((root / "_phase4_proofread/PAIR_INVENTORY_BOOTSTRAP_CONTRACT.json").read_text(encoding="utf-8"))
+          flow = json.loads((root / "_phase4_proofread/FACTORY_FLOW_CONTRACT.json").read_text(encoding="utf-8"))
+          action = flow["actions"]["resume_recorded_checkpoint"]
+          expected = {
+              "contract": "_phase4_proofread/PAIR_INVENTORY_BOOTSTRAP_CONTRACT.json",
+              "adapter": "_tools/pair_inventory_bootstrap.py",
+              "request_pattern": "_pair_inventory_requests/bootstrap-*.json",
+              "execution_workflow": ".github/workflows/pair-inventory-bootstrap.yml",
+          }
+          if contract.get("contract_id") != "pair-inventory-bootstrap-v1":
+              raise SystemExit("pair inventory contract mismatch")
+          for key, value in expected.items():
+              if action.get("pair_scope_exhausted", {}).get(key) != value:
+                  raise SystemExit(f"resume checkpoint wiring mismatch: {key}")
+          workflow = (root / expected["execution_workflow"]).read_text(encoding="utf-8")
+          for marker in ("pair_inventory_bootstrap.py", "extract_relation_context.py", "artifact-digest", "git rm"):
+              if marker not in workflow:
+                  raise SystemExit(f"bootstrap workflow lacks marker: {marker}")
+          PY
+          git diff --check
