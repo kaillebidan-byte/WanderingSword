@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: temp/phase2-body-char-count-20260801
-      - name: Count Chinese source text matched by character index
+      - name: Count indexed Chinese body text
         shell: bash
         run: |
           python - <<'PY'
@@ -33,63 +33,30 @@ jobs:
           source = json.loads(source_path.read_text(encoding='utf-8'))
 
           rows = [tuple(row) for speaker in index['order'] for row in index['lines'].get(speaker, [])]
-          diag_ids = [row[2] for row in rows]
-          unique_ids = list(dict.fromkeys(diag_ids))
-
-          print('PHASE2_SOURCE_MATCH_BEGIN')
-          print('index_bytes=', index_path.stat().st_size, sep='')
-          print('source_bytes=', source_path.stat().st_size, sep='')
-          print('source_root_type=', type(source).__name__, sep='')
-          print('source_root_len=', len(source) if hasattr(source, '__len__') else -1, sep='')
-          print('index_rows=', len(rows), sep='')
-          print('unique_diag_ids=', len(unique_ids), sep='')
-
-          direct = []
-          missing = []
-          if isinstance(source, dict):
-              for diag_id in unique_ids:
-                  if diag_id in source:
-                      direct.append((diag_id, source[diag_id]))
-                  else:
-                      missing.append(diag_id)
-          else:
-              missing = unique_ids[:]
-          print('direct_key_matches=', len(direct), sep='')
-          print('direct_key_missing=', len(missing), sep='')
-          print('direct_value_types=' + json.dumps(collections.Counter(type(v).__name__ for _, v in direct), ensure_ascii=False, separators=(',', ':')))
-
-          # Inspect only shapes, lengths and character classes; never print body text.
-          if isinstance(source, dict):
-              first_items = list(source.items())[:5]
-              for key, value in first_items:
-                  info = {'key_len': len(str(key)), 'key_ascii': str(key).isascii(), 'value_type': type(value).__name__}
-                  if isinstance(value, str):
-                      info['value_len'] = len(value)
-                  elif isinstance(value, dict):
-                      info['value_keys'] = list(value.keys())[:20]
-                  elif isinstance(value, list):
-                      info['value_len'] = len(value)
-                      info['item_types'] = [type(x).__name__ for x in value[:10]]
-                  print('source_item_shape=' + json.dumps(info, ensure_ascii=False, separators=(',', ':')))
+          coordinates = ['\x1f'.join(row) for row in rows]
+          unique_coordinates = list(dict.fromkeys(coordinates))
+          matched = [(coord, source[coord]) for coord in unique_coordinates if coord in source]
+          missing = [coord for coord in unique_coordinates if coord not in source]
+          extra = [coord for coord in source if coord not in set(unique_coordinates)]
 
           kana_re = re.compile(r'[\u3040-\u30ff]')
           cjk_re = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
           latin_re = re.compile(r'[A-Za-z]')
           tag_re = re.compile(r'<[^>]*>')
 
-          def text_stats(values):
+          def stats(values):
               raw = ''.join(values)
-              no_ws_values = [re.sub(r'\s+', '', v) for v in values]
-              no_tags_values = [tag_re.sub('', v) for v in values]
-              no_tags_no_ws_values = [re.sub(r'\s+', '', tag_re.sub('', v)) for v in values]
+              no_ws = [re.sub(r'\s+', '', v) for v in values]
+              no_tags = [tag_re.sub('', v) for v in values]
+              no_tags_no_ws = [re.sub(r'\s+', '', tag_re.sub('', v)) for v in values]
               return {
-                  'values': len(values),
-                  'unique_values': len(set(values)),
+                  'entries': len(values),
+                  'unique_texts': len(set(values)),
                   'empty': sum(v == '' for v in values),
                   'chars_raw': sum(len(v) for v in values),
-                  'chars_no_whitespace': sum(len(v) for v in no_ws_values),
-                  'chars_no_angle_tags': sum(len(v) for v in no_tags_values),
-                  'chars_no_angle_tags_no_whitespace': sum(len(v) for v in no_tags_no_ws_values),
+                  'chars_no_whitespace': sum(len(v) for v in no_ws),
+                  'chars_no_angle_tags': sum(len(v) for v in no_tags),
+                  'chars_no_angle_tags_no_whitespace': sum(len(v) for v in no_tags_no_ws),
                   'kana': len(kana_re.findall(raw)),
                   'cjk': len(cjk_re.findall(raw)),
                   'latin': len(latin_re.findall(raw)),
@@ -97,24 +64,33 @@ jobs:
                   'max_len': max(map(len, values), default=0),
               }
 
-          if direct and all(isinstance(v, str) for _, v in direct):
-              values = [v for _, v in direct]
-              print('DIRECT_TEXT_STATS=' + json.dumps(text_stats(values), ensure_ascii=False, separators=(',', ':')))
+          print('PHASE2_FINAL_COUNT_BEGIN')
+          print('index_commit_source=latest-main-base')
+          print('index_rows=', len(rows), sep='')
+          print('unique_coordinates=', len(unique_coordinates), sep='')
+          print('source_entries=', len(source), sep='')
+          print('matched_coordinates=', len(matched), sep='')
+          print('missing_coordinates=', len(missing), sep='')
+          print('extra_source_coordinates=', len(extra), sep='')
+          print('INDEXED_CHINESE_STATS=' + json.dumps(stats([text for _, text in matched]), ensure_ascii=False, separators=(',', ':')))
+          print('ALL_SOURCE_CHINESE_STATS=' + json.dumps(stats(list(source.values())), ensure_ascii=False, separators=(',', ':')))
 
-          # Recursively identify string-bearing fields if direct values are structured.
-          field_values = collections.defaultdict(list)
-          def walk(obj):
-              if isinstance(obj, dict):
-                  for k, v in obj.items():
-                      if isinstance(v, str):
-                          field_values[str(k)].append(v)
-                      walk(v)
-              elif isinstance(obj, list):
-                  for v in obj:
-                      walk(v)
-          walk(source)
-          print('string_fields=', len(field_values), sep='')
-          for key, values in sorted(field_values.items(), key=lambda kv: -sum(map(len, kv[1])))[:30]:
-              print('FIELD_STATS=' + json.dumps({'key': key, **text_stats(values)}, ensure_ascii=False, separators=(',', ':')))
-          print('PHASE2_SOURCE_MATCH_END')
+          by_part0 = collections.defaultdict(list)
+          by_part1 = collections.defaultdict(list)
+          for coord, text in matched:
+              parts = coord.split('\x1f')
+              if len(parts) == 3:
+                  by_part0[parts[0]].append(text)
+                  by_part1[parts[1]].append(text)
+          for name, values in sorted(by_part0.items()):
+              print('PART0_STATS=' + json.dumps({'name': name, **stats(values)}, ensure_ascii=False, separators=(',', ':')))
+          for name, values in sorted(by_part1.items()):
+              print('PART1_STATS=' + json.dumps({'name': name, **stats(values)}, ensure_ascii=False, separators=(',', ':')))
+
+          missing_parts = collections.Counter()
+          for coord in missing:
+              parts = coord.split('\x1f')
+              missing_parts[(parts[0] if len(parts) > 0 else '', parts[1] if len(parts) > 1 else '')] += 1
+          print('MISSING_GROUPS=' + json.dumps(missing_parts.most_common(), ensure_ascii=False, separators=(',', ':')))
+          print('PHASE2_FINAL_COUNT_END')
           PY
