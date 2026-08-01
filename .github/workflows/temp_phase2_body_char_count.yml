@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - temp/phase2-body-char-count-20260801
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -13,10 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: temp/phase2-body-char-count-20260801
       - name: Count text fields in phase 2 source
         shell: bash
         run: |
-          python - <<'PY' > _phase4_proofread/temp_phase2_body_count.txt
+          python - <<'PY' | tee _phase4_proofread/temp_phase2_body_count.txt
           import collections
           import json
           import pathlib
@@ -95,6 +100,7 @@ jobs:
           print('PHASE2_BODY_COUNT_END')
           PY
       - name: Commit count result to temporary branch
+        if: github.event_name == 'push'
         shell: bash
         run: |
           git config user.name github-actions[bot]
