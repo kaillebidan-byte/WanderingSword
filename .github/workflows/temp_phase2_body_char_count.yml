@@ -35,9 +35,10 @@ jobs:
           rows = [tuple(row) for speaker in index['order'] for row in index['lines'].get(speaker, [])]
           coordinates = ['\x1f'.join(row) for row in rows]
           unique_coordinates = list(dict.fromkeys(coordinates))
+          coordinate_set = set(unique_coordinates)
           matched = [(coord, source[coord]) for coord in unique_coordinates if coord in source]
           missing = [coord for coord in unique_coordinates if coord not in source]
-          extra = [coord for coord in source if coord not in set(unique_coordinates)]
+          extra = [coord for coord in source if coord not in coordinate_set]
 
           kana_re = re.compile(r'[\u3040-\u30ff]')
           cjk_re = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff]')
