@@ -6,7 +6,7 @@ on:
       - temp/phase2-body-char-count-20260801
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   count-body-characters:
@@ -16,7 +16,7 @@ jobs:
       - name: Count text fields in phase 2 source
         shell: bash
         run: |
-          python - <<'PY'
+          python - <<'PY' > _phase4_proofread/temp_phase2_body_count.txt
           import collections
           import json
           import pathlib
@@ -86,7 +86,6 @@ jobs:
           if records:
               print('sample_record_keys=', ','.join(sorted(records[0][1].keys())), sep='')
               print('sample_trail=', '/'.join(records[0][0]), sep='')
-          # Print value distributions for likely hierarchy fields without exposing body text.
           candidate_names = sorted({k for _, d in records for k in d if any(x in k.lower() for x in ('primary','secondary','tertiary','quaternary','chapter','scene','area'))})
           print('candidate_hierarchy_fields=', ','.join(candidate_names), sep='')
           for name in candidate_names:
@@ -95,3 +94,11 @@ jobs:
               print(f'field_{name}_top=' + json.dumps(counts.most_common(20), ensure_ascii=False, separators=(',', ':')))
           print('PHASE2_BODY_COUNT_END')
           PY
+      - name: Commit count result to temporary branch
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add _phase4_proofread/temp_phase2_body_count.txt
+          git commit -m "chore: record temporary phase2 body count"
+          git push
