@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-import argparse
 import json
 import tempfile
 import unittest
@@ -45,7 +44,7 @@ class BootstrapTests(unittest.TestCase):
             },
             "transport": {"status": "merged"},
         }
-        manifest = {"transport": {"status": "merged"}}
+        manifest = {"transport": {"status": "merged", "pr": 239}}
         packet = {
             "current_pair": PREVIOUS,
             "scene_groups": [B.PAIR_SENTINEL],
@@ -160,6 +159,21 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual(current["next_pair_inventory"]["next_pair"], NEXT)
         audit = B.load_object(root / "_phase4_proofread/audit_status.json")
         self.assertEqual(audit["pair_status"][NEXT]["evidence_inventory"], "complete")
+        handoff = (root / "_phase4_proofread/CURRENT_HANDOFF.md").read_text(encoding="utf-8")
+        self.assertIn("PR #239: merged", handoff)
+
+    def test_missing_merged_pr_fails(self):
+        temporary, root, request_path = self.fixture()
+        self.addCleanup(temporary.cleanup)
+        B.prepare(root, request_path)
+        manifest_path = root / "_phase4_proofread/CI_TRAIN_MANIFEST.json"
+        manifest = B.load_object(manifest_path)
+        manifest["transport"].pop("pr")
+        write_json(manifest_path, manifest)
+        report_path = root / "_ws_tmp/report.json"
+        write_json(report_path, self.report())
+        with self.assertRaisesRegex(B.BootstrapError, "merged PR evidence missing"):
+            B.finalize(root, request_path, report_path, self.args())
 
     def test_wrong_next_pair_fails(self):
         temporary, root, request_path = self.fixture()

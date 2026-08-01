@@ -114,6 +114,8 @@ def finalize(root:Path,req_path:Path,report_path:Path,a):
     cur["next_pair_inventory"]=copy.deepcopy(trans); cur["immediate_next"]={"scene_groups":[SENTINEL],"task":action+"。","boundary":"factory一般化と新pair reservationが完了するまで、翻訳準備・判断・owner書込みを開始しない。","packet":"_phase4_proofread/NEXT_TASK_PACKET.json"}
     man["pair_transition"]=copy.deepcopy(trans); pkt["next_pair_inventory"]=copy.deepcopy(trans); pkt["do_not_do"]=["完了済みpairを通常scene reservationへ戻さない","factory一般化前に新pairのsemantic preparationを開始しない","inventory抽出結果だけで人物資料または翻訳判断を確定しない","ゲームフォルダへ配置しない"]
     cp=cur.get("checkpoint",{})
+    pr=man.get("transport",{}).get("pr")
+    if not isinstance(pr,int) or pr<=0: raise BootstrapError("merged PR evidence missing")
     hand=f"""# 現在の申し送り
 
 > 再開指示: `現状把握して作業の続きを`
@@ -122,6 +124,7 @@ def finalize(root:Path,req_path:Path,report_path:Path,a):
 
 ## 現在地
 
+- PR #{pr}: merged
 - completed translation pair: `{d['prev']}`
 - verified checkpoint: 第{cp.get('batch')}束 / pair {cp.get('pair_applied_keys')} / project {cp.get('project_applied_keys')}
 - transport: `merged`
