@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "event_id": "quest_13511_fengming_staff",
+  "title": "Quest 13511 — 寒鉄鉱の調達から鳳鳴棍完成まで",
+  "status": "verified",
+  "selection_basis": {
+    "evidence": [
+      "Quest 13511とQuestDlgs family 13511_1は同一numeric rootを持つ。",
+      "requestでは王道明が、意気消沈した王天聡を立ち直らせるため新しい兵器を作る意向を示す。",
+      "optionでは宇文逸が協力を引き受け、王道明が寒鉄鉱三個の調達を依頼する。",
+      "finishingでは寒鉄鉱の受領と、職人による兵器完成が間近であることが確認される。",
+      "scene family 13511_1では王道明が鳳鳴棍の完成を告げ、宇文逸に王天聡への届けを依頼する。",
+      "王道明・宇文逸・王天聡、新兵器、寒鉄鉱、完成後の引き渡しという人物・対象・因果が連続するため、scene family 13511_1をfinishing後の同一事件場面として配置する。"
+    ],
+    "limitations": [
+      "同一numeric rootだけでは確定せず、原文内容の因果連続を併用した。",
+      "章所属、他事件との全体順、後続の配達結果、分岐結果はこのmanifestでは確定しない。",
+      "source indexには13511_RequestDlgs_Index10_Textが存在しないため、欠番を補作していない。",
+      "このmanifestは事件所属と内部配置だけを検証し、場面時点知識や全ネタバレ真相を記録しない。"
+    ]
+  },
+  "quest_lifecycle": [
+    {
+      "order": 1,
+      "phase": "request",
+      "source_keys": [
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index0_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index1_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index2_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index3_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index4_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index5_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index6_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index7_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index8_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index9_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index11_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index12_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index13_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index14_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index15_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index16_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index17_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index18_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index19_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index20_Text"
+      ]
+    },
+    {
+      "order": 2,
+      "phase": "option",
+      "source_keys": [
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index0_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index1_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index2_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index3_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index4_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index5_Text"
+      ]
+    },
+    {
+      "order": 3,
+      "phase": "finishing",
+      "source_keys": [
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index0_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index1_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index2_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index3_Text"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "order": 1,
+      "scene_id": "fengming_staff_completed",
+      "family": "13511_1",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index1_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index2_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text"
+      ],
+      "placement_basis": [
+        "Quest 13511のfinishingで寒鉄鉱受領後に兵器が間もなく完成すると述べられる。",
+        "family 13511_1の冒頭で鳳鳴棍が完成済みと明示される。",
+        "王道明が宇文逸へ王天聡への引き渡しを依頼し、Quest 13511の新兵器製作目的を直接継続する。"
+      ],
+      "branch": null
+    }
+  ],
+  "source_keys": [
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index0_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index1_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index2_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index3_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index4_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index5_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index6_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index7_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index8_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index9_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index11_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index12_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index13_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index14_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index15_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index16_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index17_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index18_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index19_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index20_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index0_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index1_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index2_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index3_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index4_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index5_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index0_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index1_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index2_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index3_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index0_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index1_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index2_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index3_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text"
+  ]
+}

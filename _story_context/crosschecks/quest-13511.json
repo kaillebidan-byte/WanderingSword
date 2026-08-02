@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "event_id": "quest_13511_fengming_staff",
+  "later_development_checked": true,
+  "checks": {
+    "source_keys_verified": true,
+    "scene_spoiler_separation_verified": true,
+    "event_order_verified": true
+  },
+  "findings": [
+    {
+      "finding_id": "delivery_continuity",
+      "result": "verified",
+      "statement": "QuestDlgs 13512_1は、13511_1で宇文逸が引き受けた鳳鳴棍の配達を直接継続し、王天聡が武器を受け取って名称と寒鉄製であることを知る。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index1_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index2_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index4_Text"
+      ]
+    },
+    {
+      "finding_id": "scene_time_boundary",
+      "result": "verified",
+      "statement": "scene-time資料は鳳鳴棍完成と配達依頼までに限定され、王天聡の拒絶、追放の意図、再起決意、穆家系の後続情報を含めていない。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index5_Text",
+        "CG表\u001fQuestDlgs\u001f13512_6_Dlgs_Index0_Text"
+      ]
+    },
+    {
+      "finding_id": "later_reveal_order",
+      "result": "verified",
+      "statement": "後続資料の公開順は、配達、王天聡の一時的拒絶、先祖の敗北と降伏の区別、王道明の意図、王天聡の出立と帰還決意の順であり、13511時点の不確実性を後から解消する。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index11_Text",
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index6_Text",
+        "CG表\u001fQuestDlgs\u001f13512_4_Dlgs_Index8_Text",
+        "CG表\u001fQuestDlgs\u001f13512_5_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13512_6_Dlgs_Index0_Text"
+      ]
+    },
+    {
+      "finding_id": "mu_lineage_scope",
+      "result": "verified_with_scope_limit",
+      "statement": "12118・12123・12124の後続情報は天水城の老媼を穆家系の文脈へ結び付けるが、話者assetが16038から16037へ変わるため、同一人物断定ではなく系譜上の再文脈化としてのみ使用する。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f12118_13_Dlgs_Index7_Text",
+        "CG表\u001fQuestDlgs\u001f12123_3_Dlgs_Index1_Text",
+        "CG表\u001fQuestDlgs\u001f12123_4_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f12123_4_Dlgs_Index5_Text",
+        "CG表\u001fQuestDlgs\u001f12124_1_Dlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f12124_1_Dlgs_Index6_Text"
+      ]
+    }
+  ],
+  "resolved_conflicts": [
+    {
+      "conflict_id": "old_woman_asset_identity",
+      "resolution": "The materials do not assert that speaker assets 16038 and 16037 are the same person. The spoiler layer records only the later Mu-lineage recontextualization, while exact asset identity remains outside the claim."
+    }
+  ],
+  "unresolved_conflicts": [],
+  "formal_reference_recommendation": "eligible_after_gate_update_and_phase1_doubt_trial",
+  "non_interference": {
+    "phase1_phase2_progress_mutation": "none",
+    "translation_mutation": "none",
+    "locres_mutation": "none",
+    "pak_mutation": "none",
+    "game_verification_mutation": "none"
+  }
+}

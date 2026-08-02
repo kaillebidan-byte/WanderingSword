@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "event_id": "quest_13511_fengming_staff",
+  "layer": "scene_time",
+  "scenes": [
+    {
+      "scene_id": "fengming_staff_completed",
+      "order": 1,
+      "player_knowledge_before": [
+        "宇文逸は、王天聡が天水城で老媼と遭遇した後、平陽堡へ戻って数日間意気消沈し、ほとんど口を利かなくなったと王道明から聞いている。",
+        "宇文逸は、老媼が平陽堡の槍術を侮辱し、王天聡が反発したものの、老媼の圧倒的な気勢を前に交戦しなかった経緯を王道明へ説明している。",
+        "宇文逸は、王道明が王天聡を立ち直らせるため新しい兵器を作ろうとしていることを知っている。",
+        "宇文逸は、新兵器の不足材料が寒鉄鉱三個であると聞き、調達を引き受けて王道明へ届けている。",
+        "宇文逸は、寒鉄鉱を受け取った王道明から、職人がすでに製作を始めており完成は近いと聞いている。"
+      ],
+      "player_knowledge_after": [
+        "宇文逸は、新兵器が鳳鳴棍として完成したことを王道明から知らされる。",
+        "宇文逸は、王道明と王天聡が普段から不和であるため、王道明自身は届けに行かない意向だと知る。",
+        "宇文逸は、完成した鳳鳴棍を王天聡へ届ける役目を引き受ける。"
+      ],
+      "character_knowledge": {
+        "宇文逸": [
+          "王天聡が天水城での出来事の後も意気消沈した状態にあることを知っている。",
+          "王道明が王天聡を励ますため新兵器を用意し、寒鉄鉱三個を必要としていたことを知っている。",
+          "寒鉄鉱を届けた後、鳳鳴棍が完成したことを知っている。",
+          "鳳鳴棍を王天聡へ届けるよう依頼されている。"
+        ],
+        "王道明": [
+          "王天聡が天水城から戻った後に意気消沈し、数日間ほとんど話していないことを知っている。",
+          "宇文逸の説明から、王天聡が老媼と争いかけたが実際には交戦しなかったことを知っている。",
+          "王天聡を励ますための兵器製作に必要な寒鉄鉱三個を宇文逸が届けたことを知っている。",
+          "鳳鳴棍が完成したことを知っており、宇文逸へ配達を依頼している。"
+        ]
+      },
+      "beliefs_and_misunderstandings": [
+        "宇文逸は当初、王天聡は数日休めば回復すると考えていたが、王道明の説明によって、その見込みどおりには回復していないと知った。",
+        "宇文逸は、王道明が普段は王天聡に不満を示していても、実際には強く気に掛けていると推測している。",
+        "王道明は、新しい兵器を贈れば王天聡が再び奮起する助けになると考えている。"
+      ],
+      "uncertainties": [
+        "この原文範囲では、老媼の氏名と素性は明示されていない。",
+        "この場面時点では、鳳鳴棍が王天聡の意気を回復させるかは分からない。",
+        "この場面時点では、宇文逸が鳳鳴棍を届けた後の結果は分からない。",
+        "王天聡が兵器製作や完成を事前に知っているかは、この原文範囲では確認できない。",
+        "この事件の章所属、他事件との全体順、分岐結果は確定していない。"
+      ],
+      "source_keys": [
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index0_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index1_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index2_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index3_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index4_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index5_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index6_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index7_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index8_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index9_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index11_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index12_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index13_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index14_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index15_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index16_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index17_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index18_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index19_Text",
+        "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index20_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index0_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index1_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index2_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index3_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index4_Text",
+        "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index5_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index0_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index1_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index2_Text",
+        "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index1_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index2_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text"
+      ]
+    }
+  ],
+  "source_keys": [
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index0_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index1_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index2_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index3_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index4_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index5_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index6_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index7_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index8_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index9_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index11_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index12_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index13_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index14_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index15_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index16_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index17_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index18_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index19_Text",
+    "Quests任务表\u001fQuests\u001f13511_RequestDlgs_Index20_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index0_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index1_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index2_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index3_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index4_Text",
+    "Quests任务表\u001fQuests\u001f13511_OptionDlgs1_Index5_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index0_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index1_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index2_Text",
+    "Quests任务表\u001fQuests\u001f13511_FinishingDlgs_Index3_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index0_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index1_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index2_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index3_Text",
+    "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text"
+  ]
+}
