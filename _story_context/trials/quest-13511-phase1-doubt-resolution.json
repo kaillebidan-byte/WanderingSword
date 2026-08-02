@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "trial_id": "phase1_doubt_resolution_quest_13511",
+  "event_id": "quest_13511_fengming_staff",
+  "mode": "read_only_phase1_simulation",
+  "purpose": "Verify that crosschecked story-context materials can resolve a Phase 1 proofreading doubt without writing to Phase 1 authorities, while preserving claims that remain unsupported.",
+  "inputs": {
+    "event_manifest": "_story_context/events/quest-13511/event_manifest.json",
+    "scene_context": "_story_context/scene_context/quest-13511.json",
+    "spoiler_context": "_story_context/spoiler_context/quest-13511.json",
+    "crosscheck": "_story_context/crosschecks/quest-13511.json"
+  },
+  "cases": [
+    {
+      "case_id": "delivery_result_boundary",
+      "doubt": "QuestDlgs 13511_1の終了時点で、鳳鳴棍の配達完了までを既知事実として扱えるか。",
+      "scene_time_limit": "13511_1で確定するのは鳳鳴棍の完成と宇文逸が配達を引き受けたことまでであり、配達結果は未確定である。",
+      "crosschecked_resolution": "13512_1が直接継続し、宇文逸が鳳鳴棍を王天聡へ届け、王天聡が寒鉄製であることと武器名を知る。",
+      "outcome": "resolved",
+      "phase1_use": "13511_1の文だけを校正するときは配達完了を先取りしない。後続結果の確認が必要な疑義では、配達が実現したことを参照できる。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f13511_1_Dlgs_Index4_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index1_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index2_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f13512_1_Dlgs_Index4_Text"
+      ]
+    },
+    {
+      "case_id": "father_intent_recontextualization",
+      "doubt": "王道明が王天聡を平陽堡から追い出す行為を、見捨てたという意味で固定してよいか。",
+      "scene_time_limit": "13511時点では追放場面も王道明の後の独白も未公開であり、意図を確定できない。",
+      "crosschecked_resolution": "13512の対話と王道明の独白により、追放は王天聡を外へ送り出し成長を促す意図として再文脈化される。",
+      "outcome": "resolved",
+      "phase1_use": "追放を単純な絶縁や放棄として強める訳を避け、表面上の厳しさと後続で示される育成意図を両立させる。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index5_Text",
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index6_Text",
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index7_Text",
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index8_Text",
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index9_Text",
+        "CG表\u001fQuestDlgs\u001f13512_2_Dlgs_Index10_Text",
+        "CG表\u001fQuestDlgs\u001f13512_6_Dlgs_Index0_Text"
+      ]
+    },
+    {
+      "case_id": "old_woman_asset_identity",
+      "doubt": "話者asset 16038の老媼を、話者asset 16037の穆婆婆と同一人物として統合してよいか。",
+      "scene_time_limit": "13511の事件原文では老媼の氏名と素性は明示されない。",
+      "crosschecked_resolution": "後続資料は老媼を穆家系の文脈へ結び付けるが、asset IDの連続性を明示しない。",
+      "outcome": "preserve_ambiguity",
+      "phase1_use": "穆家系による再文脈化は参照できるが、16038と16037の同一人物認定、話者名統合、alias登録は行わない。",
+      "source_keys": [
+        "CG表\u001fQuestDlgs\u001f12118_13_Dlgs_Index7_Text",
+        "CG表\u001fQuestDlgs\u001f12123_3_Dlgs_Index1_Text",
+        "CG表\u001fQuestDlgs\u001f12123_4_Dlgs_Index0_Text",
+        "CG表\u001fQuestDlgs\u001f12123_4_Dlgs_Index5_Text",
+        "CG表\u001fQuestDlgs\u001f12124_1_Dlgs_Index3_Text",
+        "CG表\u001fQuestDlgs\u001f12124_1_Dlgs_Index6_Text"
+      ]
+    }
+  ],
+  "result": {
+    "resolved_cases": 2,
+    "preserved_ambiguity_cases": 1,
+    "source_citations_sufficient": true,
+    "scene_spoiler_separation_sufficient": true,
+    "downstream_crosscheck_sufficient": true,
+    "phase1_doubt_resolution_trial_passed": true,
+    "approved_reference_scope": "quest_13511_fengming_staff"
+  },
+  "non_interference": {
+    "phase1_phase2_progress_mutation": "none",
+    "translation_mutation": "none",
+    "owner_write": "none",
+    "locres_mutation": "none",
+    "pak_mutation": "none",
+    "game_verification_mutation": "none"
+  },
+  "completed_utc": "2026-08-02T02:28:00Z"
+}

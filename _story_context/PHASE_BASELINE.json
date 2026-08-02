@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "baseline_id": "story-context-phase-baseline-2026-08-02",
+  "captured_from_main": "0b1945599819731a339453cab5f58ffd87ad72f1",
+  "captured_at": "2026-08-02",
+  "policy": "All listed authorities are read-only for the story-context preparation layer. Any blob mismatch blocks the layer until the baseline is explicitly refreshed against current main.",
+  "authority_blobs": {
+    "_phase4_proofread/CURRENT_WORK.json": "afae2f01d6b128b5223127a49bdd2983c39b97db",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json": "704a7fb898121b5ac7f958063867a7e1006ca2a7",
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json": "a066a464f3b10222f95336382e9f635fff737c32",
+    "_phase4_proofread/NEXT_TASK_PACKET.json": "cd65c096d432fdf14f8c145417b96db8ce7701ee",
+    "_phase4_proofread/audit_status.json": "911d1d337eb25a0665e42dfd4045d9c346ec5229",
+    "_phase4_proofread/relation_audit_queue.json": "2fdf2a3bdc2ee6477d12e06b7e2e562f721fa79d"
+  },
+  "source_index": {
+    "path": "_phase4_proofread/source_zh.json",
+    "blob": "1c9bf591494818325d43f29bd72894af5d5db215",
+    "entries": 51327,
+    "coordinate_format": "target\\x1fnamespace\\x1fkey"
+  },
+  "semantic_checkpoint": {
+    "current_pair": "宇文逸↔莫問",
+    "last_completed_batch": 213,
+    "pair_applied_keys": 1438,
+    "project_applied_keys": 1814,
+    "build_status": "verified_not_deployed",
+    "game_verified": "not_started",
+    "next_pair": "宇文逸↔莫棄",
+    "next_pair_inventory_status": "inventory_ready",
+    "next_pair_translation_started": false,
+    "narrative_readthrough": "queued_after_pair_reaudit"
+  }
+}

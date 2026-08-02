@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "contract_id": "story-context-preparation-v1",
+  "purpose": "Create a formally gated story-context layer before narrative readthrough without mutating phase1 or phase2 authorities.",
+  "root": "_story_context",
+  "state": "_story_context/STATE.json",
+  "phase_baseline": "_story_context/PHASE_BASELINE.json",
+  "reference_gate": "_story_context/REFERENCE_GATE.json",
+  "checker": "_tools/check_story_context_layer.py",
+  "regression_test": "_tools/test_check_story_context_layer.py",
+  "contract_path_checker": "_tools/check_story_context_contract_paths.py",
+  "contract_path_regression_test": "_tools/test_check_story_context_contract_paths.py",
+  "candidate_extractor": "_tools/build_story_context_candidates.py",
+  "candidate_regression_test": "_tools/test_build_story_context_candidates.py",
+  "trial_checker": "_tools/check_story_context_trial.py",
+  "trial_regression_test": "_tools/test_check_story_context_trial.py",
+  "contract_workflow": ".github/workflows/story-context-bootstrap.yml",
+  "schemas": {
+    "candidate_inventory": "_story_context/schemas/candidate_inventory.schema.json",
+    "event_manifest": "_story_context/schemas/event_manifest.schema.json",
+    "scene_context": "_story_context/schemas/scene_context.schema.json",
+    "spoiler_context": "_story_context/schemas/spoiler_context.schema.json"
+  },
+  "stage_order": [
+    "investigated",
+    "contract_ready",
+    "candidate_inventory_ready",
+    "event_manifest_ready",
+    "scene_context_ready",
+    "spoiler_context_ready",
+    "crosschecked",
+    "reference_ready"
+  ],
+  "stage_artifacts": {
+    "investigated": [
+      "_story_context/INVESTIGATION_2026-08-02.md"
+    ],
+    "contract_ready": [
+      "_story_context/STORY_CONTEXT_PREPARATION_CONTRACT.json",
+      "_story_context/PHASE_BASELINE.json",
+      "_story_context/STATE.json",
+      "_story_context/REFERENCE_GATE.json",
+      "_story_context/schemas/candidate_inventory.schema.json",
+      "_story_context/schemas/event_manifest.schema.json",
+      "_story_context/schemas/scene_context.schema.json",
+      "_story_context/schemas/spoiler_context.schema.json",
+      "_tools/build_story_context_candidates.py",
+      "_tools/test_build_story_context_candidates.py",
+      "_tools/check_story_context_layer.py",
+      "_tools/test_check_story_context_layer.py",
+      "_tools/check_story_context_contract_paths.py",
+      "_tools/test_check_story_context_contract_paths.py",
+      "_tools/check_story_context_trial.py",
+      "_tools/test_check_story_context_trial.py",
+      ".github/workflows/story-context-bootstrap.yml"
+    ],
+    "candidate_inventory_ready": [
+      "_story_context/candidates/*.json"
+    ],
+    "event_manifest_ready": [
+      "_story_context/events/*/event_manifest.json"
+    ],
+    "scene_context_ready": [
+      "_story_context/scene_context/*.json"
+    ],
+    "spoiler_context_ready": [
+      "_story_context/spoiler_context/*.json"
+    ],
+    "crosschecked": [
+      "_story_context/crosschecks/*.json"
+    ],
+    "reference_ready": [
+      "_story_context/trials/*.json",
+      "_story_context/REFERENCE_GATE.json"
+    ]
+  },
+  "read_only_inputs": [
+    "_phase4_proofread/source_zh.json",
+    "_phase4_proofread/by_character.json",
+    "_phase4_proofread/CURRENT_WORK.json",
+    "_phase4_proofread/PRIVATE_STAGE_STATE.json",
+    "_phase4_proofread/CI_TRAIN_MANIFEST.json",
+    "_phase4_proofread/NEXT_TASK_PACKET.json",
+    "_phase4_proofread/audit_status.json",
+    "_phase4_proofread/relation_audit_queue.json",
+    ".agents/skills/zhja-game-translation-codex/references/09_chapter_readthrough.md"
+  ],
+  "owned_paths": [
+    "_story_context/",
+    "_tools/build_story_context_candidates.py",
+    "_tools/test_build_story_context_candidates.py",
+    "_tools/check_story_context_layer.py",
+    "_tools/test_check_story_context_layer.py",
+    "_tools/check_story_context_contract_paths.py",
+    "_tools/test_check_story_context_contract_paths.py",
+    "_tools/check_story_context_trial.py",
+    "_tools/test_check_story_context_trial.py",
+    ".github/workflows/story-context-bootstrap.yml"
+  ],
+  "temporary_bootstrap_paths": [],
+  "forbidden_write_prefixes": [
+    "_phase4_proofread/",
+    "_work/",
+    "Content/Localization/"
+  ],
+  "candidate_policy": {
+    "status": "candidate_only",
+    "ordering_declared": false,
+    "formal_reference_allowed": false,
+    "active_event_selected": false,
+    "allowed_link_reasons": [
+      "same_numeric_root",
+      "shared_dialogue_fingerprint",
+      "quest_title_mention"
+    ],
+    "numeric_proximity_is_not_evidence": true,
+    "manual_event_review_required": true
+  },
+  "reference_policy": {
+    "default": "deny",
+    "formal_reference_requires_stage": "reference_ready",
+    "formal_reference_requires_crosscheck": true,
+    "formal_reference_requires_phase1_doubt_trial": true,
+    "trial_requires_resolved_and_preserved_ambiguity": true,
+    "later_development_check_required": true,
+    "unresolved_conflicts_must_be_empty": true,
+    "scene_context_forbidden_fields": [
+      "future_truth",
+      "later_reveal",
+      "authorial_truth",
+      "spoiler_truth",
+      "final_identity",
+      "future_outcome"
+    ],
+    "rule": "Scene-time context records only knowledge, belief, uncertainty, and misunderstanding available at that scene. Full truth and later reveals belong only to spoiler context. Reference approval additionally requires a read-only Phase 1 doubt-resolution trial that demonstrates both supported resolution and preserved ambiguity."
+  },
+  "non_interference": {
+    "phase1_phase2_progress_mutation": "forbidden",
+    "translation_judgment": "forbidden",
+    "owner_write": "forbidden",
+    "locres_write": "forbidden",
+    "pak_build": "forbidden",
+    "game_verification": "forbidden"
+  }
+}

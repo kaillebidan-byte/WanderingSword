@@ -1,0 +1,91 @@
+name: Story context preparation contract tests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - "_story_context/**"
+      - "_tools/build_story_context_candidates.py"
+      - "_tools/test_build_story_context_candidates.py"
+      - "_tools/check_story_context_layer.py"
+      - "_tools/test_check_story_context_layer.py"
+      - "_tools/check_story_context_contract_paths.py"
+      - "_tools/test_check_story_context_contract_paths.py"
+      - "_tools/check_story_context_trial.py"
+      - "_tools/test_check_story_context_trial.py"
+      - ".github/workflows/story-context-bootstrap.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: story-context-contract-tests-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout PR HEAD
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile permanent tools
+        run: |
+          python -m py_compile _tools/build_story_context_candidates.py
+          python -m py_compile _tools/check_story_context_layer.py
+          python -m py_compile _tools/check_story_context_contract_paths.py
+          python -m py_compile _tools/check_story_context_trial.py
+
+      - name: Run candidate extractor regressions
+        run: python _tools/test_build_story_context_candidates.py
+
+      - name: Run layer normal and failure regressions
+        run: python _tools/test_check_story_context_layer.py
+
+      - name: Run contract path regressions
+        run: python _tools/test_check_story_context_contract_paths.py
+
+      - name: Run Phase 1 doubt-resolution trial regressions
+        run: python _tools/test_check_story_context_trial.py
+
+      - name: Reproduce committed candidate inventory
+        run: |
+          output="$(mktemp)"
+          python _tools/build_story_context_candidates.py \
+            --source _phase4_proofread/source_zh.json \
+            --output "$output"
+          cmp _story_context/candidates/quest_scene_candidates.json "$output"
+
+      - name: Validate live story-context layer
+        run: >-
+          python _tools/check_story_context_layer.py
+          --root .
+          --base-ref "${{ github.event.pull_request.base.sha }}"
+
+      - name: Validate live contract paths
+        run: python _tools/check_story_context_contract_paths.py --root .
+
+      - name: Validate live Phase 1 doubt-resolution trial
+        run: python _tools/check_story_context_trial.py --root .
+
+      - name: Confirm bootstrap removal
+        run: |
+          test ! -e _tools/story_context_probe.py
+          test ! -e _story_context/bootstrap_request.json
+
+      - name: Record exact tree identity
+        run: git rev-parse 'HEAD^{tree}'
+
+      - name: Validate patch formatting
+        run: git diff --check
