@@ -1,0 +1,149 @@
+name: Audit story-context round 7 completeness
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - ".github/workflows/story-context-round7-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Extract complete pilot source coverage
+        run: |
+          python - <<'PY'
+          import json, re
+          from collections import defaultdict
+          from pathlib import Path
+
+          root = Path('.')
+          source = json.loads((root / '_phase4_proofread/source_zh.json').read_text(encoding='utf-8'))
+          roots = {'13511', '13512', '12118', '12123', '12124'}
+          target = {}
+          for key, value in source.items():
+              parts = key.split('\x1f')
+              if len(parts) != 3:
+                  continue
+              _, namespace, item = parts
+              numeric = item.split('_', 1)[0]
+              if namespace in {'QuestDlgs', 'Quests'} and numeric in roots:
+                  target[key] = value
+
+          artifact_paths = [
+              '_story_context/events/quest-13511/event_manifest.json',
+              '_story_context/scene_context/quest-13511.json',
+              '_story_context/spoiler_context/quest-13511.json',
+              '_story_context/crosschecks/quest-13511.json',
+              '_story_context/trials/quest-13511-phase1-doubt-resolution.json',
+          ]
+          referenced = set()
+          def walk(v):
+              if isinstance(v, dict):
+                  for k, child in v.items():
+                      if k == 'source_keys' and isinstance(child, list):
+                          referenced.update(x for x in child if isinstance(x, str))
+                      walk(child)
+              elif isinstance(v, list):
+                  for child in v:
+                      walk(child)
+          for path in artifact_paths:
+              walk(json.loads((root / path).read_text(encoding='utf-8')))
+
+          families = defaultdict(list)
+          for key, value in target.items():
+              parts = key.split('\x1f')
+              namespace, item = parts[1], parts[2]
+              family = re.sub(r'_Index\d+_Text$', '', item)
+              m = re.search(r'_Index(\d+)_Text$', item)
+              families[(namespace, family)].append({
+                  'index': int(m.group(1)) if m else None,
+                  'key': key,
+                  'value': value,
+                  'referenced': key in referenced,
+              })
+
+          relevant_terms = [
+              '王天聡', '王天聪', '王道明', '穆婆婆', '老媪', '老媼',
+              '凤鸣棍', '鳳鳴棍', '远岫梨花枪', '遠岫梨花槍',
+              '浑天梨花枪', '渾天梨花槍', '天水城', '平阳堡', '平陽堡',
+          ]
+          npc_matches = []
+          for key, value in source.items():
+              parts = key.split('\x1f')
+              if len(parts) != 3 or parts[1] not in {'NPCs', 'NPCTalks'}:
+                  continue
+              if any(term in key or term in str(value) for term in relevant_terms):
+                  npc_matches.append({'key': key, 'value': value})
+
+          family_rows = []
+          for (namespace, family), rows in sorted(families.items()):
+              rows.sort(key=lambda x: (-1 if x['index'] is None else x['index'], x['key']))
+              indexes = [x['index'] for x in rows if x['index'] is not None]
+              missing = []
+              if indexes:
+                  missing = sorted(set(range(min(indexes), max(indexes) + 1)) - set(indexes))
+              family_rows.append({
+                  'namespace': namespace,
+                  'family': family,
+                  'row_count': len(rows),
+                  'indexes': indexes,
+                  'missing_indexes': missing,
+                  'referenced_count': sum(x['referenced'] for x in rows),
+                  'rows': rows,
+              })
+
+          report = {
+              'schema_version': 1,
+              'roots': sorted(roots),
+              'target_key_count': len(target),
+              'referenced_target_key_count': len(set(target) & referenced),
+              'unreferenced_target_key_count': len(set(target) - referenced),
+              'unreferenced_target_keys': sorted(set(target) - referenced),
+              'artifact_reference_outside_target': sorted(referenced - set(target)),
+              'families': family_rows,
+              'npc_talk_matches': npc_matches,
+          }
+          out = root / '_audit_output'
+          out.mkdir()
+          (out / 'round7-coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          md = [
+              '# Round 7 source coverage audit', '',
+              f"- target keys: {report['target_key_count']}",
+              f"- referenced target keys: {report['referenced_target_key_count']}",
+              f"- unreferenced target keys: {report['unreferenced_target_key_count']}",
+              f"- NPC/NPCTalk relevant matches: {len(npc_matches)}", '',
+              '## Families', '',
+          ]
+          for row in family_rows:
+              md.append(f"### {row['namespace']} / {row['family']}")
+              md.append(f"rows={row['row_count']} referenced={row['referenced_count']} indexes={row['indexes']} missing={row['missing_indexes']}")
+              md.append('')
+              for item in row['rows']:
+                  mark = 'REF' if item['referenced'] else 'UNREF'
+                  md.append(f"- [{mark}] `{item['key']}` — {item['value']}")
+              md.append('')
+          md.extend(['## NPC / NPCTalk matches', ''])
+          for item in npc_matches:
+              md.append(f"- `{item['key']}` — {item['value']}")
+          (out / 'round7-coverage.md').write_text('\n'.join(md) + '\n', encoding='utf-8')
+          print(json.dumps({k: report[k] for k in ('target_key_count','referenced_target_key_count','unreferenced_target_key_count')}, ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: round7-coverage-audit
+          path: _audit_output/
+          if-no-files-found: error
