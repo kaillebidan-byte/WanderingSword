@@ -18,7 +18,20 @@
     "normal_target": 8,
     "hard_max": 16,
     "count_range": "base_exclusive_to_head_inclusive",
-    "over_budget_action": "block_merge_and_rebuild_or_squash_branch"
+    "over_budget_action": "block_merge_and_compact_draft_branch"
+  },
+  "history_compaction": {
+    "trigger": "commit_count_above_normal_target",
+    "target": "same_repository_draft_pr_only",
+    "method": "reuse_head_tree_with_base_as_single_parent",
+    "expected_head_required": true,
+    "tree_identity_required": true,
+    "open_pr_required": true,
+    "draft_required": true,
+    "force_update": "force_with_lease_exact_expected_head",
+    "base_branch": "main",
+    "workflow": ".github/workflows/compact-pr-branch.yml",
+    "helper": "_tools/compact_pr_branch.py"
   },
   "failure_triage": {
     "404": "verify_repository_path_and_ref",
@@ -39,6 +52,9 @@
     "incident_total_commits": 53,
     "incident_changed_files": 32,
     "comparison_pull_request": 153,
-    "comparison_total_commits": 11
+    "comparison_total_commits": 11,
+    "compaction_pilot_pull_request": 250,
+    "compaction_before_commits": 18,
+    "compaction_after_commits": 1
   }
 }

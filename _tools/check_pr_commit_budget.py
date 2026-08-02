@@ -58,6 +58,31 @@ def validate_policy(policy: dict[str, Any]) -> list[str]:
         if budget.get("count_range") != "base_exclusive_to_head_inclusive":
             errors.append("commit count range mismatch")
 
+    compaction = policy.get("history_compaction")
+    if not isinstance(compaction, dict):
+        errors.append("history_compaction must be an object")
+    else:
+        expected = {
+            "trigger": "commit_count_above_normal_target",
+            "target": "same_repository_draft_pr_only",
+            "method": "reuse_head_tree_with_base_as_single_parent",
+            "force_update": "force_with_lease_exact_expected_head",
+            "base_branch": "main",
+            "workflow": ".github/workflows/compact-pr-branch.yml",
+            "helper": "_tools/compact_pr_branch.py",
+        }
+        for key, expected_value in expected.items():
+            if compaction.get(key) != expected_value:
+                errors.append(f"history_compaction.{key} mismatch")
+        for key in (
+            "expected_head_required",
+            "tree_identity_required",
+            "open_pr_required",
+            "draft_required",
+        ):
+            if compaction.get(key) is not True:
+                errors.append(f"history_compaction.{key} must be true")
+
     discovery = policy.get("discovery")
     if not isinstance(discovery, dict):
         errors.append("discovery must be an object")
@@ -128,12 +153,15 @@ def main() -> int:
     if commits > hard_max:
         print(
             "FAILED: PR commit budget exceeded. Do not commit one path at a time through the "
-            "Contents API. Rebuild or squash the branch, and write multiple paths through one "
-            "local git commit or one Git Data tree commit."
+            "Contents API. Rebuild or compact the draft branch through the same-tree "
+            "history-compaction workflow."
         )
         return 1
     if commits > normal_target:
-        print("WARNING: commit count is above the normal target but within the hard maximum")
+        print(
+            "WARNING: commit count is above the normal target. Use the same-tree "
+            "history-compaction workflow before additional writes."
+        )
     print("OK: PR commit budget passed")
     return 0
 

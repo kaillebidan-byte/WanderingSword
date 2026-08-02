@@ -39,3 +39,6 @@ jobs:
 
       - name: Run commit-budget regression
         run: python _tools/test_check_pr_commit_budget.py
+
+      - name: Run history-compaction regression
+        run: python _tools/test_compact_pr_branch.py

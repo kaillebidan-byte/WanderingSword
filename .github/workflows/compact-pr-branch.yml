@@ -1,0 +1,148 @@
+name: Compact draft PR history
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Same-repository draft PR number
+        required: true
+        type: string
+      expected_head:
+        description: Exact 40-character PR HEAD SHA
+        required: true
+        type: string
+      apply:
+        description: Force-update the PR branch after all checks
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: compact-pr-history-${{ inputs.pr_number }}
+  cancel-in-progress: false
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Checkout main with full history
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Resolve and validate PR
+        id: pr
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          EXPECTED_HEAD: ${{ inputs.expected_head }}
+        run: |
+          set -euo pipefail
+          [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]
+          [[ "$EXPECTED_HEAD" =~ ^[0-9a-f]{40}$ ]]
+
+          pr_json="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}")"
+          state="$(jq -r '.state' <<<"$pr_json")"
+          draft="$(jq -r '.draft' <<<"$pr_json")"
+          head_repo="$(jq -r '.head.repo.full_name' <<<"$pr_json")"
+          head_ref="$(jq -r '.head.ref' <<<"$pr_json")"
+          head_sha="$(jq -r '.head.sha' <<<"$pr_json")"
+          base_ref="$(jq -r '.base.ref' <<<"$pr_json")"
+          base_sha="$(jq -r '.base.sha' <<<"$pr_json")"
+
+          test "$state" = "open"
+          test "$draft" = "true"
+          test "$head_repo" = "$GITHUB_REPOSITORY"
+          test "$base_ref" = "main"
+          test "$head_sha" = "$EXPECTED_HEAD"
+          test "$head_ref" != "main"
+          [[ "$head_ref" =~ ^[A-Za-z0-9._/-]+$ ]]
+          [[ "$base_sha" =~ ^[0-9a-f]{40}$ ]]
+
+          {
+            echo "head_ref=$head_ref"
+            echo "head_sha=$head_sha"
+            echo "base_sha=$base_sha"
+          } >>"$GITHUB_OUTPUT"
+
+      - name: Fetch exact PR objects
+        env:
+          HEAD_REF: ${{ steps.pr.outputs.head_ref }}
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          BASE_SHA: ${{ steps.pr.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin \
+            "+refs/heads/main:refs/remotes/origin/main" \
+            "+refs/heads/${HEAD_REF}:refs/remotes/origin/${HEAD_REF}"
+          test "$(git rev-parse "refs/remotes/origin/${HEAD_REF}")" = "$HEAD_SHA"
+          git cat-file -e "${BASE_SHA}^{commit}"
+          git cat-file -e "${HEAD_SHA}^{commit}"
+          git merge-base --is-ancestor "$BASE_SHA" "$HEAD_SHA"
+
+      - name: Require compaction
+        env:
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          BASE_SHA: ${{ steps.pr.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          count="$(git rev-list --count "${BASE_SHA}..${HEAD_SHA}")"
+          echo "Current PR commit count: $count"
+          test "$count" -gt 8
+
+      - name: Create same-tree one-commit snapshot
+        id: compact
+        env:
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          BASE_SHA: ${{ steps.pr.outputs.base_sha }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          set -euo pipefail
+          new_sha="$(
+            python _tools/compact_pr_branch.py \
+              --base "$BASE_SHA" \
+              --head "$HEAD_SHA" \
+              --message "chore: compact PR #${PR_NUMBER} history"
+          )"
+          [[ "$new_sha" =~ ^[0-9a-f]{40}$ ]]
+          test "$(git rev-parse "${HEAD_SHA}^{tree}")" = "$(git rev-parse "${new_sha}^{tree}")"
+          test "$(git rev-list --count "${BASE_SHA}..${new_sha}")" = "1"
+          echo "new_sha=$new_sha" >>"$GITHUB_OUTPUT"
+
+      - name: Dry-run summary
+        if: ${{ !inputs.apply }}
+        env:
+          NEW_SHA: ${{ steps.compact.outputs.new_sha }}
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+        run: |
+          echo "Dry run only. Existing HEAD: $HEAD_SHA"
+          echo "Compacted commit: $NEW_SHA"
+
+      - name: Force-update with exact lease
+        if: ${{ inputs.apply }}
+        env:
+          HEAD_REF: ${{ steps.pr.outputs.head_ref }}
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          NEW_SHA: ${{ steps.compact.outputs.new_sha }}
+        run: |
+          set -euo pipefail
+          git push \
+            --force-with-lease="refs/heads/${HEAD_REF}:${HEAD_SHA}" \
+            origin "${NEW_SHA}:refs/heads/${HEAD_REF}"
+
+      - name: Verify remote result
+        if: ${{ inputs.apply }}
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          NEW_SHA: ${{ steps.compact.outputs.new_sha }}
+        run: |
+          set -euo pipefail
+          actual="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq '.head.sha')"
+          test "$actual" = "$NEW_SHA"

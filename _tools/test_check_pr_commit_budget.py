@@ -49,6 +49,14 @@ def main() -> None:
     bad["discovery"]["web_search_for_github_api_usage_forbidden"] = False
     assert any("web search" in error for error in module.validate_policy(bad))
 
+    bad = json.loads(json.dumps(policy))
+    bad["history_compaction"]["expected_head_required"] = False
+    assert any("expected_head_required" in error for error in module.validate_policy(bad))
+
+    bad = json.loads(json.dumps(policy))
+    bad["history_compaction"]["force_update"] = "force"
+    assert any("force_update" in error for error in module.validate_policy(bad))
+
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
         git(root, "init")
